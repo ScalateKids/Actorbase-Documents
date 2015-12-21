@@ -1,0 +1,88 @@
+Studio di Fattibilità
+
+1 Sommario
+
+1.1 Descrizione
+Questo documento mira ad esporre le considerazioni fatte nelle prime riunioni del gruppo per analizzare e decidere quale capitolato scegliere e le motivazioni derivanti che ci hanno spinto nella nostra scelta.
+
+/* TUTTE LE (*) INDICANO PAROLE DA AGGIUNGERE AL GLOSSARIO */
+1.2 Scopo del Prodotto
+Lo scopo del progetto è implementare un database NoSQL(*) distribuito (di tipo key-value(*)) basato sul modello ad attori(* citiamo anche il creatore del modello?).
+Si richiede inoltre la definizione di un domain specific language(*) (DSL) da utilizzare da riga di comando per poter interagire con il database.
+
+1.3 Glossario 
+Abbiamo implementato un Glossario per spiegare e evitare ambiguità di linguaggio dei documenti. 
+Nello specifico sono stati inseriti nel glossario: acronimi, termini tecnici, abbreviazioni e vocaboli che possono richiedere ulteriori chiarimenti. 
+/* bisogna aggiungere il modo in cui 'linkiamo' le parole aggiunte al glossario (ad esempio con un pedice) */
+
+
+
+2 Analisi capitolato scelto
+
+Riferimento: http://www.math.unipd.it/~tullio/IS-1/2015/Progetto/C1.pdf
+
+2.1 Sommario e Descrizione capitolato
+Si è scelto il capitolato proposto dal professor Riccardo Cardin; il capitolato prevede la creazione di un database NoSQL distribuito di tipo key-value basato sul modello ad attori e la definizione di un linguaggio specifico per poter interagire con tale database da riga di commando.
+
+2.2 Studio del capitolato
+Questo progetto racchiude più domini di conoscenza tra i quali certamente consideriamo più importanti il modello ad attori(*), i database di tipo key-value(*) e il concetto di distribuzione/concorrenza.
+
+2.3 Riscontro possibile nel mondo reale
+Da diversi anni a questa parte per modelli di distribuzione molto grandi i database di tipo SQL(*) sono stati "scavalcati" da altri tipi di database NoSQL tra cui i database key-value(*) poichè possiedono diverse proprietà atte ad implementare diverse strutture applicative.
+Uno dei più importanti database di questo tipo al momento è sicuramente Amazon Dynamo(*).
+Troviamo quindi molto attuale e stimolante la realizzazione di un progetto come questo.
+
+2.4 Tecnologie 
+-Scala e più in particolare la libreria AKKA per l'implementazione del modello ad attori
+-TODO: aggiungere altre tecnologie
+
+2.5 Possibili difficoltà o problemi 
+Nessun membro del gruppo ha mai studiato o lavorato con le tencnologie richieste, in particolare Scala e la libreria Akka.
+Quindi pensiamo non sarà facile acquisire la padronanza di queste tecnologie e tanto meno capire il funzionamento e concetto del modello ad attori.
+Nessuno di noi, inoltre, ha mai creato un dominio specifico per l'interazione con un proprio prodotto (altra difficoltà che incontreremo).
+
+2.6 Valutazione 
+Abbiamo scelto questo capitolato principalmente per i seguenti motivi:
+	_ Interesse del gruppo per le tecnologie richieste e per la modernità del prodotto che si andrà a creare.
+	_ Interesse per il concetto del modello ad attori.
+	_ Le esperienze e le conoscenze di tecnologie che si avranno acquisito a fine progetto riteniamo potranno essere utili a fini di curriculum e nel mondo lavorativo.
+D'altra parte il gruppo ha pensato ai seguenti riscontri negativi:
+	_ Conoscenza abbastanza scarsa del gruppo nell'utilizzo di tali tecnologie e degli argomenti in generale.
+	_ Quantità di lavoro difficilmente prevedibile proprio per la mancanta conoscenza dell'ambito descritto.
+
+	
+3 Analisi altri capitolati
+
+3.1 C2 CLIPS
+Riferimento: http://www.math.unipd.it/~tullio/IS-1/2015/Progetto/C2.pdf
+Abbiamo trovato la spiegazione del capitolato un pò vaga e lo scopo prefissato dal fornitore sembra essere molto esplorativo in qunato viene richiesto di ricercare nuove idee di utilizzo per i dispositivi Beacon(*).
+Inoltre l'uso di questi ultimi necessita un grande dispendio di risorse per i dispositivi mobili dell'utente finale poichè devrà essere installata e aperta l'applicazione ed attivata la localizzazione gps e la rete dati mobile.
+Troviamo, dunque, un pò immatura tale tecnologia.
+
+C3 Internet of Things
+Riferimento: http://www.math.unipd.it/~tullio/IS-1/2015/Progetto/C3.pdf
+Nonostante le tecnologie proposte fossero di interesse per il gruppo abbiamo deciso di non optare per questo capitolato per via della sua ambiguità, la grande quantità di tecnologie da imparare e per la mole di lavoro, secondo noi, troppo onerosa.
+
+C4 MaaS
+Riferimento: http://www.math.unipd.it/~tullio/IS-1/2015/Progetto/C4.pdf
+Il gruppo ha trovato questo capitolato poco stimolante dato che l'obbietivo finale del progetto richiede la trasformazione da programma a servizio di un software già esistente.
+
+C5 QUIZZIPEDIA
+Riferimento: http://www.math.unipd.it/~tullio/IS-1/2015/Progetto/C5.pdf
+Abbiamo trovato anche questo capitolato poco stimolante e le tecnologie richieste sono quasi tutte già apprese da altri esami del corso di laurea.
+Inoltre abbiamo trovato molti servizi web per la creazione di quiz online simili a quello richiesto perciò non riteniamo questo essere un prodotto interessante per il mercato.
+L'unica nota positiva e "sfidante" è il requisito opzionale, ovvero la possibilità di gestire domande aperte; questo da solo non giustifica la scelta del capitolato.
+Qualche esempio:
+	https://www.onlinequizcreator.com/it/
+	www.proprofs.com/quiz-school/create-a-quiz.php
+	http://www.poll-maker.com/QuizMaker
+
+C6 SiVoDim
+Riferimento: http://www.math.unipd.it/~tullio/IS-1/2015/Progetto/C6.pdf
+Questo capitolato era la seconda opzione di scelta emersa dalla riunione del gruppo.
+Lati positivi:
+	_Interesse nelle tecnologie mobile.
+	_Spiegazione e obbiettivi del capitolato molto chiari.
+Lati negativi:
+	_Scarsa conoscenza delle tecnologie mobile.
+	_Grande differenza tra requisiti obbligatori e requisiti opzionali/desiderabili.
