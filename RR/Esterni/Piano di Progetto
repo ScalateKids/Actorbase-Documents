@@ -1,0 +1,31 @@
+1 Introduzione
+
+1.1 Scopo del documento
+
+Il seguente documento ha lo scopo di specificare il piano con cui il gruppo ScalateKids lavorerà sul progetto Actorbase.
+Nel documento verranno specificati:
+   _ L'organigramma del gruppo
+   _ L'analisi preventiva dell'utilizzo delle risorse
+   _ L'utilizzo delle risorse durante lo svolgersi del progetto
+   _ L'analisi dei fattori di rischio
+
+   
+1.2 Glossario
+Abbiamo implementato un Glossario per spiegare e evitare ambiguità di linguaggio dei documenti. 
+Nello specifico sono stati inseriti nel glossario: acronimi, termini tecnici, abbreviazioni e vocaboli che possono richiedere ulteriori chiarimenti. 
+
+
+2 Scelta del modello di ciclo di vita
+
+Per lo sviluppo del progetto Actorbase il gruppo ha scelto di applicare ai processi il modello incrementale.
+Questa scelta è dovuta alle seguenti proprietà offerte da questo modello:
+   _ La scomposizione del sistema in sottosistemi di dimensione minore;
+   _ I cicli di incrementi pianificati;
+   _ Il rilascio di più prototipi durante lo sviluppo.
+La scomposizione in sottosistemi comporta la possibilità di concentrare le risorse su un numero limitato di attività semplificando la gestione delle risorse e del tempo.
+Inoltre è possibile scegliere le attività su cui concentrarsi in modo da soddisfare per primi i requisiti più critici.
+In questo modo i componenti che soddisfano i requisiti principali vengono testati più volte e raffinati maggiormente rispetto ai requisiti opzionali.
+Questa suddivisione aiuta anche la fase di verifica e test, in quanto rende possibile il test su componenti piccole, rendendo i test più precisi.
+Le attività di analisi e progettazione dell'architettura ad alto livello vengono svolti una volta sola, dopo aver fissato i requisiti principali è possibile definire l'architettura del sistema.
+Questo modello consente di avere un prototipo con delle funzionalità di primaria importanza durante la fase di sviluppo, così da poter avere un confronto con il Committente in corso d'opera.
+A partire da questa base ogni incremento aggiunge nuove funzionalità al prodotto garantendo quindi una convergenza entro tempi e costi preventivati.
