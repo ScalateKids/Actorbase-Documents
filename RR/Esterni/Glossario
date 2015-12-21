@@ -1,0 +1,36 @@
+Glossario
+
+1 Introduzione
+
+1.1 Scopo del documento
+Questo documento ha il compito di raccogliere tutti i termini che possono risultare sconosciuti o di difficile comprensione ad un lettore esterno oppure, semplicemente, concetti specifici che necessitano di essere esposti per poter meglio comprendere quanto viene detto nei documenti.
+
+1.2 Riferimenti //da fare
+
+2 Definizioni
+
+_Actormodel: Modello matematico per la gestione della concorrenza computazionale proposto nel 1973 da Carl Hewitt.
+All'interno del modello, gli "attori" vengono trattati come primitive universali e possono scmabiarsi messaggi tra di loro; in risposta ad un messaggio ricevuto, un attore può prendere decisioni, creare nuovi attori, inviare altri messaggi e determinare come rispondere al messaggio successivo.
+
+_Amazon DynamoDB: Database proprietario di tipo NoSQL e completamente gestito da Amazon.com all'interno del suo portfolio 'Amazon Web Services'.
+
+_Beacon: Piccoli nodi Bluetooth che sono in grado di comunicare con dispositivi mobili e informarli della loro esatta locazione rispetto al beacon stesso, si da permettere ad un'app di potervici interagire.
+
+_Dizionario (o Array Associativo): Struttura dati che contiene una collezione di oggetti (o records).
+Questi oggetti contengono diversi campi, ognuno dei quali contiene dei dati.
+E' possibile accedere, gestire e salvare i diversi records tramite una chiave che li identifica in maniera univoca.
+
+_Domain Specific Language (DSL): E' un linguaggio di programmazione o un linguaggio di specifica dedicato a particolari problemi di un dominio, a una particolare tecnica di rappresentazione e/o a una particolare soluzione tecnica.
+
+
+_Key-value Database: E' un paradigma di archivazione di dati progettato per archiviare, recuperare e gestire array associativi (vedi "Dizionario").
+
+_Modello ad attori: vedi "Actormodel".
+
+_Modello relazionale: modello logico di rappresentazione o strutturazione dei dati di un database implementato su sistemi di 'gestione di basi di dati' (DBMS).
+Si basa sulla teoria degli insiemi e sulla logica del primo ordine ed è strutturato intorno al concetto matematico di relazione (detta anche tabella). Per il suo trattamento ci si avvale di strumenti quali il calcolo relazionale e l'algebra relazionale.
+
+
+_NoSQL: E' un movimento che promuove sistemi software dove la persistenza dei dati è caratterizzata dal fatto di non utilizzare il modello relazionale (vedi sopra), solitamente utilizzato dai database tradizionali.
+L'espressione NoSQL fa riferimento al linguaggio SQL, il più comune tra i linguaggi per l'interrogazione dei database relazionali, qui preso a simbolo dell'intero paradigma relazionale.
+
