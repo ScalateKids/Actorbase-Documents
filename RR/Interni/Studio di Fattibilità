@@ -22,14 +22,14 @@ Nello specifico sono stati inseriti nel glossario: acronimi, termini tecnici, ab
 Riferimento: http://www.math.unipd.it/~tullio/IS-1/2015/Progetto/C1.pdf
 
 2.1 Sommario e Descrizione capitolato
-Si è scelto il capitolato proposto dal professor Riccardo Cardin; il capitolato prevede la creazione di un database NoSQL distribuito di tipo key-value basato sul modello ad attori e la definizione di un linguaggio specifico per poter interagire con tale database da riga di commando.
+Il gruppo ha scelto il capitolato proposto dal professor Riccardo Cardin; il capitolato prevede la creazione di un database NoSQL distribuito di tipo key-value basato sul modello ad attori e la definizione di un linguaggio specifico per poter interagire con tale database da riga di commando.
 
 2.2 Studio del capitolato
 Questo progetto racchiude più domini di conoscenza tra i quali certamente consideriamo più importanti il modello ad attori(*), i database di tipo key-value(*) e il concetto di distribuzione/concorrenza.
 
 2.3 Riscontro possibile nel mondo reale
 Da diversi anni a questa parte per modelli di distribuzione molto grandi i database a modello Relazionale(*) sono stati "scavalcati" da altri tipi di database NoSQL tra cui i database key-value(*) poichè possiedono diverse proprietà atte ad implementare diverse strutture applicative.
-Uno dei più importanti database di questo tipo al momento è sicuramente Amazon Dynamo(*).
+Uno dei più importanti database di questo tipo al momento è sicuramente Amazon DynamoDB(*).
 Troviamo quindi molto attuale e stimolante la realizzazione di un progetto come questo.
 
 2.4 Tecnologie 
@@ -69,8 +69,8 @@ Il gruppo ha trovato questo capitolato poco stimolante dato che l'obbietivo fina
 
 C5 QUIZZIPEDIA
 Riferimento: http://www.math.unipd.it/~tullio/IS-1/2015/Progetto/C5.pdf
-Abbiamo trovato anche questo capitolato poco stimolante e le tecnologie richieste sono quasi tutte già apprese da altri esami del corso di laurea.
-Inoltre abbiamo trovato molti servizi web per la creazione di quiz online simili a quello richiesto perciò non riteniamo questo essere un prodotto interessante per il mercato.
+Abbiamo trovato anche questo capitolato poco stimolante e inoltre le tecnologie richieste sono quasi tutte già apprese da altri esami del corso di laurea.
+Abbiamo anche trovato molti servizi web per la creazione di quiz online simili a quello richiesto perciò non riteniamo questo essere un prodotto interessante per il mercato.
 L'unica nota positiva e "sfidante" è il requisito opzionale, ovvero la possibilità di gestire domande aperte; questo da solo non giustifica la scelta del capitolato.
 Qualche esempio:
 	https://www.onlinequizcreator.com/it/
