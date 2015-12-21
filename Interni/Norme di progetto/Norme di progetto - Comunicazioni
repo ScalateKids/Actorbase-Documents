@@ -1,0 +1,37 @@
+
+
+1.1 Scopo del Documento
+
+1.2 Scopo del prodotto
+
+1.3 Glossario 
+
+/*
+	TODO:
+	1.1 1.2 e 1.3 sono uguali sia nello studio di fattibilità sia nelle norme di progetto nei documenti di 'don't panic'.
+	Pensare se integrarli direttamente nel template o se attuare un documento un pò diverso dal loro.
+*/
+
+
+2 COMUNICAZIONI
+
+2.1 Comunicazioni esterne 
+Per le comunicazioni esterne è stata creata una apposita casella di poste elettronica: 
+	scalatekids@gmail.com
+Questa casella e-mail viene gestita dal 'Responsabile di progetto' che è colui che si occupa di comunicare con il committente del progetto o con qualsiasi altra comunicazione esterna al gruppo di lavoro. Sarà sempre quest'ultimo ad informare o a inoltrare le email di interesse ai vari membri del gruppo.
+
+2.2 Comunicazioni interne
+Per le comunicazioni interne è stata creata una mailing list(*):
+	TODO: INSERIRE LA MAILING LIST 
+Tale indirizzo verrà utilizzato da tutti i membri del gruppo e solamente per lo scambio interno di informazioni inerenti al progetto.
+
+Vengono usati altri strumenti più ufficiosi per lo scambio di informazioni:
+_applicazioni di instant messaging(*) quali Whatsapp e il suo servizio Whatsapp Web(*)
+_applicazioni VoIP per effettuare conferenze con un qualsiasi numero di componenti, quale TeamSpeak3(*).
+_servizi onlne per la gestione di una whiteboard(*) condivisa, quale Twiddla.
+Abbiamo deciso che qualora membri del gruppo si scambino informazioni attraverso questi strumenti sovraelencati dovranno, se presenti informazioni di interesse per il progetto, mandare un sunto della suddetta conversazione alla mailing list(*) per tenere informati tutti i membri del gruppo sullo stato di avanzamento.
+Solo in caso di necessità derivate dalla mancanza di infrastrutture (internet) si potrà comunicare attraverso SMS o chiamate telefoniche; anche in questo caso si dovrà verbalizzare quanto detto in mailing list.
+
+/*
+	TODO: don't panic spiegano anche la struttura che devono avere le mail per uniformare tutte le comunicazioni del gruppo (interne ed esterne), da decidere come vogliamo proseguire.
+*/
