@@ -32,7 +32,7 @@ Si basa sulla teoria degli insiemi e sulla logica del primo ordine ed è struttu
 
 
 _NoSQL: E' un movimento che promuove sistemi software dove la persistenza dei dati è caratterizzata dal fatto di non utilizzare il modello relazionale (vedi sopra), solitamente utilizzato dai database tradizionali.
-L'espressione NoSQL fa riferimento al linguaggio SQL, il più comune tra i linguaggi per l'interrogazione dei database relazionali, qui preso a simbolo dell'intero paradigma relazionale. Molto spesso nei linguaggi NoSQL viene sacrificato in favore dele prestazioni il paradigma ACID (atomicità, consistenza, isolamento, durabilità) in quanto, per il teorema CAP, noto anche come teorema di Brewer, è impossibile per un sistema informatico distribuito, quali appunto le applicazioni NoSQL, fornire simultaneamente tutte e tre le seguenti garanzie:
+L'espressione NoSQL fa riferimento al linguaggio SQL, il più comune tra i linguaggi per l'interrogazione dei database relazionali, qui preso a simbolo dell'intero paradigma relazionale. Molto spesso nei linguaggi NoSQL viene sacrificato in favore dele prestazioni il paradigma ACID (atomicità, consistenza, isolamento, durabilità) in quanto, per il teorema CAP, noto anche come teorema di Brewer, è impossibile per un sistema informatico distribuito, fornire simultaneamente tutte e tre le seguenti garanzie:
 Coerenza (tutti i nodi vedono gli stessi dati nello stesso momento)
 Disponibilità (la garanzia che ogni richiesta riceva una risposta su ciò che sia riuscito o fallito)
 Tolleranza di partizione (il sistema continua a funzionare nonostante arbitrarie perdite di messaggi)
