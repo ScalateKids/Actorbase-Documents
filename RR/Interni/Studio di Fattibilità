@@ -28,7 +28,7 @@ Si è scelto il capitolato proposto dal professor Riccardo Cardin; il capitolato
 Questo progetto racchiude più domini di conoscenza tra i quali certamente consideriamo più importanti il modello ad attori(*), i database di tipo key-value(*) e il concetto di distribuzione/concorrenza.
 
 2.3 Riscontro possibile nel mondo reale
-Da diversi anni a questa parte per modelli di distribuzione molto grandi i database di tipo SQL(*) sono stati "scavalcati" da altri tipi di database NoSQL tra cui i database key-value(*) poichè possiedono diverse proprietà atte ad implementare diverse strutture applicative.
+Da diversi anni a questa parte per modelli di distribuzione molto grandi i database a modello Relazionale(*) sono stati "scavalcati" da altri tipi di database NoSQL tra cui i database key-value(*) poichè possiedono diverse proprietà atte ad implementare diverse strutture applicative.
 Uno dei più importanti database di questo tipo al momento è sicuramente Amazon Dynamo(*).
 Troviamo quindi molto attuale e stimolante la realizzazione di un progetto come questo.
 
