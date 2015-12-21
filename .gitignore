@@ -6,3 +6,8 @@
 
 *.sh
 *.pl
+
+img
+
+*.png
+*.jpg
