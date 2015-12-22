@@ -38,3 +38,9 @@ Disponibilità (la garanzia che ogni richiesta riceva una risposta su ciò che s
 Tolleranza di partizione (il sistema continua a funzionare nonostante arbitrarie perdite di messaggi)
 Secondo il teorema, un sistema distribuito è in grado di soddisfare al massimo due di queste garanzie allo stesso tempo, ma non tutte e tre.
 
+
+_Repository (Software Repository): E' uno spazio di archiviazione da dove è possibile recuperare e scaricare dei pacchetti software.
+
+
+_Template: Trattasi di un modello che ha il compito di fornire la struttura di un oggetto (documento, sito web, ...) in cui si trovano spazi temporaneamente "bianchi" da riempire successivamente.
+
