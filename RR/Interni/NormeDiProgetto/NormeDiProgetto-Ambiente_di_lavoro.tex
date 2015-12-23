@@ -5,14 +5,45 @@ operare in remoto, l'azienda ha scelto di utilizzare quanto più possibile gli
 strumenti di condivisione e versionamento erogati come servizi web,
 centralizzando gli strumenti organizzativi su server privato.
 \subsubsection{Servizi web}
-La condivisione di materiale di utilità generale che non necessita
-versionamento, quale ad esempio file contenenti link utili o script per
-l'automazione di operazioni onerose è
+I servizi web utilizzati sono:
+\begin{itemize}
+\item\textbf{Google Drive}
+\item\textbf{Github}
+\item\textbf{Twiddla}
+\item\textbf{Gantter for Google Drive}
+\end{itemize}
 \subsubsection{Server dedicato}
 Sono state installate alcune applicazioni per il coordinamento del gruppo su
-server dedicato, gestito dall'\texit{Amministratore} su direttive del
+server dedicato, gestito dall'\textit{Amministratore} su direttive del
 \textit{Responsabile}.\\ Il server è raggiungibile da interfaccia web previo
 login, i componenti possono usufruire delle seguenti applicazioni:
 \begin{itemize}
-\item\textbf Redmine
-\item\textbf PHPMyAdmin
+\item\textbf{Redmine}
+\item\textbf{PHPMyAdmin}
+\end{itemize}
+\subsubsection{Versionamento}
+Lo strumento scelto è \summ{git} principalmente per la grande diffusione negli
+ambienti di sviluppo e per l'integrazione offerta dal servizio web
+\textit{Github}, il quale è inoltre offre un esaustiva documentazione
+sull'utilizzo del programma in questione. Infine \summ{git} si è rivelato essere
+il più conosciuto tra i membri del gruppo, l'alternativa \summ{SVN}, nonostante
+i simili principi di funzionamento, costituiva una scelta più difficoltosa, in
+quanto nessun membro ha mai avuto esperienze di utilizzo.
+Sono stati creati due \summ{repository} all'indirizzo \url{https://github.com/actorbase}:
+\begin{itemize}
+\item Actorbase.\summ{git}: Contiene i sorgenti del software.
+\item Actorbase-Documents.\summ{git}: Contiene i sorgenti \LaTeX\xspace e i PDF generati.
+\end{itemize}
+\subsubsection{Ambiente di lavoro individuale}
+Per il lavoro individuale, è stato pensato ad un modo di uniformare quanto più
+possibile l'ambiente di sviluppo tra i componenti; il \textit{Responsabile} e
+l'\textit{Amministratore} hanno stabilito l'\summ{IDE} di base ed è stata creato
+un ambiente virtuale comune utilizzando il software \textbf{Virtualbox}. Tutti i
+componenti del gruppo utilizzeranno gli strumenti all'interno della
+\summ{virtual machine} in modo da garantire omogeneità, e riproducibilità di
+eventuali bug.\\ L'\textit{IDE} scelto è \textbf{IntelliJIdea}, considerato il
+più appropriato e compatibile con le tecnologie centrali del progetto, gli
+editor \textbf{vim}, \textbf{emacs} o \textbf{Sublime Text 2} potranno essere
+utilizzati dai componenti del gruppo, purchè si tratti di modifiche rapide o
+stesura di script di utilità generale.\\
+Per la stesura dei documenti, l'\summ{IDE} di riferimento è \textbf{TeXstudio}.
