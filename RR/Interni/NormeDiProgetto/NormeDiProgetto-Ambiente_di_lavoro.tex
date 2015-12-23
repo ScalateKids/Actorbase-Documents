@@ -7,46 +7,64 @@ centralizzando gli strumenti organizzativi su server privato.
 \subsubsection{Servizi web}
 I servizi web utilizzati sono:
 \begin{itemize}
-\item\textbf{Google Drive}
-\item\textbf{Github}
-\item\textbf{Twiddla}
-\item\textbf{Gantter for Google Drive}
+\item\textbf{Google Drive:} è usato per lo scambio di file e documenti all'interno del gruppo, principalmente per file che non necessitano di versionamento.\\
+Questo spazio del gruppo è suddiviso in diverse cartelle per una migliore gestione e per facilitare la ricerca all'interno di esso.\\
+Il \textit{Responsabile di Progetto} ha il potere amministrativo dell'account in questione, quindi sarà quest'ultima persona ad occuparsi di garantire i giusti diritti ai membri del gruppo. 
+\item\textbf{Github:} è usato per tutti i files che necessitano un sistema di \summ{versionamento} viene usato il servizio offerto da \textit{Github}, l'indirizzo web del gruppo è:\\
+\begin{center}
+https://github.com/scalatekids
+\end{center}
+\item\textbf{Twiddla:} è un sistema che offre una lavagna online condivisa, questo servizio è utilizzato dai membri del gruppo per discutere e lavorare assieme //TODO: non so cosa scrivere su twiddla
+\item\textbf{Gantter for Google Drive:} è uno strumento gratuito per la creazione di \glossary{diagrammi di Gantt}, è stato usato per la creazione del Gantt predittivo
 \end{itemize}
 \subsubsection{Server dedicato}
 Sono state installate alcune applicazioni per il coordinamento del gruppo su
 server dedicato, gestito dall'\textit{Amministratore} su direttive del
 \textit{Responsabile}.\\ Il server è raggiungibile da interfaccia web previo
 login, i componenti possono usufruire delle seguenti applicazioni:
+
+\paragraph{Redmine}
+Redmine è un'applicazione web atta alla gestione di progetti.\\
+Offre diverse funzionalità che il gruppo dovrà utilizzare, quali:
 \begin{itemize}
-\item\textbf{Redmine}
-\item\textbf{PHPMyAdmin}
+\item\textbf{Sezione wiki:} una pagina web in cui il gruppo andrà a condividere una serie di link di interesse riguardanti ogni tecnologia o aspetto inerente al progetto.
+\item\textbf{Sistema di segnalazioni:} un sistema di segnalazioni gestite dall'\texit{Responsabile}, ogni segnalazione rappresenta un task assegnato ad uno o più membri del gruppo, il suo conseguimento servirà per il soddisfacimento di un requisito.
+\item\textbf{Gantt:} \textit{Redmine} costruisce automaticamente un \glossary{diagramma di Gantt} con le segnalazioni create dall'\textit{Responsabile}
 \end{itemize}
+//TODO: potremmo aggiungere dei diagrammi UML2.0 per descrivere come usare redmine...
+
+\paragraph{PHPMyAdmin}
+PHPMyAdmin è uno strumento scritto in linguaggio \textit{PHP} che offre una facile amministrazione di \glossary{\textit{database}}.\\
+Questo strumento verrà usato per la creazione di un back-end per la gestione dei requisiti.	//TODO: scrivere qualcosa di più a riguardo?
+//TODO: da integrare se aggiungiamo il front-end
+
 \subsubsection{Versionamento}
-Lo strumento scelto è \summ{git} principalmente per la grande diffusione negli
+Lo strumento scelto è \glossary{git} principalmente per la grande diffusione negli
 ambienti di sviluppo e per l'integrazione offerta dal servizio web
 \textit{Github}, il quale è inoltre offre un esaustiva documentazione
-sull'utilizzo del programma in questione. Infine \summ{git} si è rivelato essere
-il più conosciuto tra i membri del gruppo, l'alternativa \summ{SVN}, nonostante
+sull'utilizzo del programma in questione. Infine \glossary{git} si è rivelato essere
+il più conosciuto tra i membri del gruppo, l'alternativa \glossary{SVN}, nonostante
 i simili principi di funzionamento, costituiva una scelta più difficoltosa, in
 quanto nessun membro ha mai avuto esperienze di utilizzo.
-Sono stati creati due \summ{repository} all'indirizzo \url{https://github.com/actorbase}:
+Sono stati creati due \glossary{repository} all'indirizzo \url{https://github.com/actorbase}:
 \begin{itemize}
-\item Actorbase.\summ{git}: Contiene i sorgenti del software.
-\item Actorbase-Documents.\summ{git}: Contiene i sorgenti \LaTeX\xspace e i PDF generati.
+\item Actorbase.\glossary{git}: Contiene i sorgenti del software.
+\item Actorbase-Documents.\glossary{git}: Contiene i sorgenti \LaTeX\xspace e i PDF generati.
 \end{itemize}
+
 \subsubsection{Ambiente di lavoro individuale}
 Per il lavoro individuale, è stato pensato ad un modo di uniformare quanto più
 possibile l'ambiente di sviluppo tra i componenti; il \textit{Responsabile} e
-l'\textit{Amministratore} hanno stabilito l'\summ{IDE} di base ed è stata creato
+l'\textit{Amministratore} hanno stabilito l'\glossary{IDE} di base ed è stata creato
 un ambiente virtuale comune utilizzando il software \textbf{Virtualbox}. Tutti i
 componenti del gruppo utilizzeranno gli strumenti all'interno della
-\summ{virtual machine} in modo da garantire omogeneità, e riproducibilità di
+\glossary{virtual machine} in modo da garantire omogeneità, e riproducibilità di
 eventuali bug.\\ L'\textit{IDE} scelto è \textbf{IntelliJIdea}, considerato il
 più appropriato e compatibile con le tecnologie centrali del progetto, gli
 editor \textbf{vim}, \textbf{emacs} o \textbf{Sublime Text 2} potranno essere
 utilizzati dai componenti del gruppo, purchè si tratti di modifiche rapide o
 stesura di script di utilità generale.\\
-Per la stesura dei documenti, l'\summ{IDE} di riferimento è \textbf{TeXstudio}.
+Per la stesura dei documenti, l'\glossary{IDE} di riferimento è \textbf{TeXstudio}.
 
 
 \\TODO: manca il software che utilizziamo per fare gli uml, e dirgli che versione di uml usiamo come standard
