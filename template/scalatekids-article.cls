@@ -58,8 +58,8 @@
 % footer and header spacing
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\footrulewidth}{0.4pt}
-% new command for summary words
-\newcommand{\summ}[1]{#1\textsubscript{\textit{\tiny{G}}}}
+% new command for glossary words
+\newcommand{\glossary}[1]{#1\textsubscript{\textit{\tiny{G}}}}
 % Change name of Toc to 'Indice'
 \renewcommand{\contentsname}{Indice}
 
@@ -68,7 +68,7 @@
 % pagestyle set to 'n di m'
 \rfoot{\thepage\hspace{1pt}di \pageref{LastPage}}
 % Summary letter command
-\newcommand{\summLett}[1] {
+\newcommand{\glossaryLetter}[1] {
   \newpage
   \cleardoublepage
   \phantomsection
