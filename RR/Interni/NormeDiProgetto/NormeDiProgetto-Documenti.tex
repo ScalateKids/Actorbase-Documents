@@ -2,8 +2,8 @@
 	// TODO: bisogna aggiungere la parte in cui diciamo che usiamo una virtualbox per facilitare tutto
 
 \subsection{Struttura dei documenti}
-Abbiamo standardizzato la scrittura di tutti i documenti attraverso un \summ{template} \textit{Latex} creato da noi e presente su \textit{github} nella \summ{repository} \textit{ActorBase - Documents}.
-L'uso del template ci permette di creare una serie di documenti stilisticamente uniformi tra loro e ci facilita la modifica delle parti in comune tra essi.
+Abbiamo standardizzato la scrittura di tutti i documenti attraverso un \summ{template} \LaTeX\xspace creato da noi e presente su \textit{github} nella \summ{repository} \textit{ActorBase - Documents}.\\
+L'uso del template ci permette di creare una serie di documenti stilisticamente uniformi tra loro e ci facilita la modifica delle parti in comune tra essi.\\
 Il template regola:
 \begin{itemize}
 \item Formattazione dei documenti (font);
@@ -78,12 +78,12 @@ Saranno inoltre scritti con l'iniziale maiuscolta i ruoli, le persone inerenti a
 \begin{itemize}
 \item \textbf{Riferimenti}:
 	\begin{itemize} 
-	\item Percorsi web: per gli indirizzi web e per gli inidirizzi e-mail deve essere usato il comando \textit{LATEX} 
+	\item Percorsi web: per gli indirizzi web e per gli inidirizzi e-mail deve essere usato il comando \LaTeX\xspace 
  	\begin{center}
  	\textbackslash{url{percorso}}
  	\end{center}
 	\item Link ad altri PDF: //TODO: dobbiamo decidere come fare sta cosa
-	\item Link a sezioni interne al documento: per link a sezioni interne al documento corrente deve essere utilizzato il documento \textit{LATEX}
+	\item Link a sezioni interne al documento: per link a sezioni interne al documento corrente deve essere utilizzato il documento \LaTeX\xspace
 	\begin{center} 
 	\textbackslash{ref{riferimento a sezione}}
 	\end{center}
@@ -123,8 +123,16 @@ Saranno inoltre scritti con l'iniziale maiuscolta i ruoli, le persone inerenti a
 \subsection{Immagini}
 Utilizziamo immagini con formato \textit{JPG} o \textit{PNG}, questi ultimi rendono immediata l'inculsione delle suddette immagini nei documenti.
 
+\subsection{Integrazione termini di lingua straniera}
+Per non incorrere in diverse modalità di integrazione per l'uso di vari termini di lingua straniera (es. file, repository ecc... ) abbiamo deciso di non pluralizzare i termini non italiani, esempi:\\
+abbiamo utilizzato delle \textit{repository} per... (non \textit{repositories}).
+Questa scelta è derivata da una ricerca che ha fornito diverse fonti riguardanti l'uso di questa norma nell'uso della lingua italiana, il sottostante sito web raccoglie diverse fonti trovate:\\
+\begin{center}
+\url{http://www.darsch.it/?pg=sphere&postid=954}
+\end{center}
+
 \subsection{Versionamento documenti}
-La documentazione prodotta deve avere un numero di versione avente la seguente struttura:
+La documentazione prodotta deve avere un numero di versione avente la seguente struttura:\\
 \begin{center}
 vX.Y.Z
 \end{center}
@@ -136,8 +144,8 @@ in cui:
 \end{itemize}
 
 \subsection{Ciclo di vita dei documenti}
-Tutti i documenti nascono nello stato di \textit{in lavorazione}.
-Dopo l'avvenuta di tute le modifiche necessarie per arrivare ad una versione completa del documento, il suddetto si verrà a trovare nello stato \textit{da verificare}.
+Tutti i documenti nascono nello stato di \textit{in lavorazione}.\\
+Dopo l'avvenuta di tute le modifiche necessarie per arrivare ad una versione completa del documento, il suddetto si verrà a trovare nello stato \textit{da verificare}.\\
 Alla fine della fase di verifica del documento, se approvato il documento andrà nello stato di \textit{approvato}.
 I tre stati sono descritti brevemente come segue:
 \begin{itemize}
