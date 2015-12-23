@@ -18,6 +18,7 @@
 %% \usepackage{hyperref}
 \usepackage{listings}
 \usepackage{xcolor}
+\usepackage{changes}
 \usepackage{graphicx}
 \usepackage{lmodern}
 \usepackage[top=2in, bottom=1.5in, left=0.7in, right=0.7in]{geometry}
@@ -28,6 +29,10 @@
             linkcolor=red,
             urlcolor=blue,      % url color set to blue
             citecolor=gray]{hyperref}
+%% \usepackage[T1]{fontenc}
+%% \usepackage[scaled]{beraserif}
+%% \usepackage[scaled]{besarans}
+%% \usepackage[scaled]{beramono}
 
 % =======================================================
 %
@@ -62,3 +67,13 @@
 \fancyhf{}
 % pagestyle set to 'n di m'
 \rfoot{\thepage\hspace{1pt}di \pageref{LastPage}}
+% Summary letter command
+\newcommand{\summLett}[1] {
+  \newpage
+  \cleardoublepage
+  \phantomsection
+  \addcontentsline{toc}{section}{#1}
+  \vspace{9pt}
+  \textbf{\huge{#1} }\\
+  \rule[0.3pt]{\linewidth}{0.4pt} \\
+}
