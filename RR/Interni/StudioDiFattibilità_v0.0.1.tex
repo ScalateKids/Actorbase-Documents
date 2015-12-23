@@ -18,7 +18,7 @@
          \end{center}
          \vspace{0cm}
          \begin{tabular}[c]{l|l}
-           \textbf{Versione} & 0.0.1\\
+           \textbf{Versione} & 0.1.1\\
            \textbf{Redazione} & Redattore1\\ & Redattore2\\ & Redattore3..\\
            \textbf{Verifica} & Verificatore1\\ & Verificatore2..\\
            \textbf{Responsabile} & Responsabile\\
@@ -36,6 +36,10 @@
   \begin{tabular}{|l | l | l | l | l |}
     \hline
     Versione & Autore & Ruolo & Data & Descrizione \\
+    \hline
+    0.1.1 & Alberto De Agostini & & 2015-12-22 & Integrazione e correzione del documento\\
+    \hline
+    0.1.0 & Alberto De Agostini & & 2015-12-21 & Stesura iniziale del documento\\
     \hline
     0.0.1 & Andrea Giacomo Baldan & & 2015-12-21 & Creazione scheletro del documento\\
     \hline
@@ -64,8 +68,8 @@ ulteriori chiarimenti.
 Riferimento: \url{http://www.math.unipd.it/~tullio/IS-1/2015/Progetto/C1.pdf}\\
 
 \subsection{Sommario e descrizione capitolato}
-Si è scelto il capitolato proposto dal professor Riccardo Cardin; il capitolato
-prevede la creazione di un database NoSQL distribuito di tipo key-value basato
+Si è scelto il capitolato proposto dal \textit{professor Riccardo Cardin}; il capitolato
+prevede la creazione di un database \glossary{NoSQL} distribuito di tipo \glossary{key-value} basato
 sul modello ad attori e la definizione di un linguaggio specifico per poter
 interagire con tale database da riga di commando.
 
@@ -73,13 +77,14 @@ interagire con tale database da riga di commando.
 Questo progetto racchiude più domini di conoscenza tra i quali certamente
 consideriamo più importanti il modello ad \glossary{attori}, i database di tipo
 \glossary{key-value} e il concetto di distribuzione/concorrenza.
+//TODO: sicuramente da analizzare più profondamente il capitolato scelto....
 
 \subsection{Riscontro possibile nel mondo reale}
 Da diversi anni a questa parte per modelli di distribuzione molto grandi i
 database a modello \glossary{Relazionale} sono stati "scavalcati" da altri tipi di
-database NoSQL tra cui i database \glossary{key-value} poichè possiedono diverse
+database \glossary{NoSQL} tra cui i database \glossary{key-value} poichè possiedono altre
 proprietà atte ad implementare diverse strutture applicative. Uno dei più
-importanti database di questo tipo al momento è sicuramente \glossary{Amazon Dynamo}.
+importanti \glossary{database} di questo tipo al momento è sicuramente \glossary{Amazon DynamoDB}.
 Troviamo quindi molto attuale e stimolante la realizzazione di un progetto come
 questo.
 
@@ -87,16 +92,15 @@ questo.
 \begin{itemize}
 \item Scala e più in particolare la libreria \glossary{AKKA} per l'implementazione del modello ad attori
 \end{itemize}
+//TODO: aggiungere altre tecnologie inerenti
 
 \subsection{Possibili difficoltà o problemi}
 Nessun membro del gruppo ha mai studiato o lavorato con le tencnologie
-richieste, in particolare \glossary{Scala} e la libreria \glossary{Akka}. Quindi pensiamo non sarà
-facile acquisire la padronanza di queste tecnologie e tanto meno capire il
+richieste. Quindi pensiamo non sarà facile acquisire la padronanza di queste tecnologie e tanto meno padroneggiare il
 funzionamento e concetto del modello ad attori. Nessuno di noi, inoltre, ha mai
-creato un dominio specifico per l'interazione con un proprio prodotto (altra
-difficoltà che incontreremo).
+creato un dominio specifico per l'interazione con un proprio prodotto.
 
-\subsection{Valutazione}
+\subsection{Valutazione finale}
 Abbiamo scelto questo capitolato principalmente per i seguenti motivi:
 \begin{itemize}
 \item Interesse del gruppo per le tecnologie richieste e per la modernità del prodotto che si andrà a creare.
