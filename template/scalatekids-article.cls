@@ -59,7 +59,7 @@
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\footrulewidth}{0.4pt}
 % new command for glossary words
-\newcommand{\glossary}[1]{#1\textsubscript{\textit{\tiny{G}}}}
+\newcommand{\gloss}[1]{#1\textsubscript{\textit{\tiny{G}}}}
 % Change name of Toc to 'Indice'
 \renewcommand{\contentsname}{Indice}
 

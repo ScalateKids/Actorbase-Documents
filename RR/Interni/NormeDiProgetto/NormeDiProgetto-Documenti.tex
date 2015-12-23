@@ -2,7 +2,7 @@
 	// TODO: bisogna aggiungere la parte in cui diciamo che usiamo una virtualbox per facilitare tutto
 
 \subsection{Struttura dei documenti}
-Abbiamo standardizzato la scrittura di tutti i documenti attraverso un \glossary{template} \LaTeX\xspace creato da noi e presente su \textit{github} nella \glossary{repository} \textit{ActorBase - Documents}.\\
+Abbiamo standardizzato la scrittura di tutti i documenti attraverso un \gloss{template} \LaTeX\xspace creato da noi e presente su \textit{github} nella \gloss{repository} \textit{ActorBase - Documents}.\\
 L'uso del template ci permette di creare una serie di documenti stilisticamente uniformi tra loro e ci facilita la modifica delle parti in comune tra essi.\\
 Il template regola:
 \begin{itemize}
@@ -26,10 +26,10 @@ Ogni documento presenta in ordine :
 	\end{itemize}
 \item Resto del documento: contenuto specifico;
 \end{itemize}
-	\\TODO: riferimenti li mettiamo?
+	\\TODO: riferimenti li mettiamo? SI
 
 
-Abbiamo creato uno script \textit{perl} per la creazione automatica dello scheletro di un generico documento. 
+Abbiamo creato uno script \textit{perl} per la creazione automatica dello scheletro di un generico documento.
 
 \subsection{Struttura Pagina}
 	//TODO: controllare che questa struttura delle pagina sia effettivamente così
@@ -77,18 +77,18 @@ Saranno inoltre scritti con l'iniziale maiuscolta i ruoli, le persone inerenti a
 \subsection{Formati di riferimento}
 \begin{itemize}
 \item \textbf{Riferimenti}:
-	\begin{itemize} 
-	\item Percorsi web: per gli indirizzi web e per gli inidirizzi e-mail deve essere usato il comando \LaTeX\xspace 
+	\begin{itemize}
+	\item Percorsi web: per gli indirizzi web e per gli inidirizzi e-mail deve essere usato il comando \LaTeX\xspace
  	\begin{center}
  	\textbackslash{url{percorso}}
  	\end{center}
 	\item Link ad altri PDF: //TODO: dobbiamo decidere come fare sta cosa
 	\item Link a sezioni interne al documento: per link a sezioni interne al documento corrente deve essere utilizzato il documento \LaTeX\xspace
-	\begin{center} 
+	\begin{center}
 	\textbackslash{ref{riferimento a sezione}}
 	\end{center}
 	\end{itemize}
-\item \textbf{Date}: Le date devono essere espresse seguento lo standard \textit{\glossary{ISO}} 8601:2004:
+\item \textbf{Date}: Le date devono essere espresse seguento lo standard \textit{\gloss{ISO}} 8601:2004:
 	AAAA-MM-GG
 	AAAA: rappresenta l'anno (es. 2015);
 	MM:	rappresenta il mese (es. 12);
@@ -109,7 +109,7 @@ Saranno inoltre scritti con l'iniziale maiuscolta i ruoli, le persone inerenti a
 \item \textbf{Nomi ricorrenti}:
 	\begin{itemize}
 	\item Ruoli: come già scritto in precedenza i ruoli di progetto devono essere scritti con la prima lettera di ogni parola maiuscola ed in corsivo, escludendo le proposizioni (es. \textit{Responsabile di Progetto});
-	\item Nomi dei files: i nomi dei files relativi a documenti devono seguire la notazione \textit{\glossary{CamelCase}}, seguiti da \textit{_v} e dalla versione del file (es. NormeDiProgetto_v1.0.1.pdf);
+	\item Nomi dei files: i nomi dei files relativi a documenti devono seguire la notazione \textit{\gloss{CamelCase}}, seguiti da \textit{_v} e dalla versione del file (es. NormeDiProgetto_v1.0.1.pdf);
 	\item Nome del progetto: sarà indicato come \textbf{Actorbase}
 	\item Nome del committente: il committente sarà indicato come \textit{prof. Tullio Vardanega}
 	\item Nome del proponente: il proponente sarà indicato come \textit{prof. Riccardo Cardin}
@@ -124,7 +124,7 @@ Saranno inoltre scritti con l'iniziale maiuscolta i ruoli, le persone inerenti a
 Utilizziamo immagini con formato \textit{JPG} o \textit{PNG}, questi ultimi rendono immediata l'inculsione delle suddette immagini nei documenti.
 
 \subsection{Integrazione termini di lingua straniera}
-Per non incorrere in diverse modalità di integrazione per l'uso di vari termini di lingua straniera (es. file, repository ecc... ) abbiamo deciso di non pluralizzare i termini non italiani, esempi:\\
+Per non incorrere in diverse modalità di integrazione per l'uso di vari termini di lingua straniera (es. file, repository ecc...) abbiamo deciso di non pluralizzare i termini non italiani, esempi:\\
 abbiamo utilizzato delle \textit{repository} per... (non \textit{repositories}).
 Questa scelta è derivata da una ricerca che ha fornito diverse fonti riguardanti l'uso di questa norma nell'uso della lingua italiana, il sottostante sito web raccoglie diverse fonti trovate:\\
 \begin{center}
@@ -140,7 +140,7 @@ in cui:
 \begin{itemize}
 \item \textbf{X}: aumenta con il numero di uscite formali del documento;
 \item \textbf{Y}: rappresenta il numero di modifiche sostanziali effettuate sul documento. Se pari a 0 indica che il documento è ancora in fase di stesura in presente revisione;
-\item \textbf{Z}: rappresenta il numero di modifiche minori effettuate sul documento.  
+\item \textbf{Z}: rappresenta il numero di modifiche minori effettuate sul documento.
 \end{itemize}
 //TODO: spiegare come aumentano ste versioni
 
@@ -154,3 +154,9 @@ I tre stati sono descritti brevemente come segue:
 \item \textbf{Da verificare}: il documento resta in questo stato finchè i \textif{Verificatori} assegnati ad esso non effettueranno un controllo atto a trovare e a correggere errori di ogni tipo;
 \item \textbf{Approvato}: dopo la fase di verifica il \textit{Responsabile} effettuerà una fase di approvazione, se questa fase sarà superata il documento sarà approvato e entrerà in una versione ufficiale.
 \end{itemize}
+
+\subsection{Norme di verifica documenti}
+Posto che tutti i componenti del gruppo dovranno affettuare delle attività di
+verifica, il redattore di ogni sezione nei documenti tassativamente non potrà
+effettuare verifica e approvazione delle parti redatte dallo stesso,
+coerentemente con le strategie scelte nel \textbf{PQ}.
