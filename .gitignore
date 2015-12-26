@@ -2,6 +2,7 @@
 *.aux
 *.toc
 *.out
+*.soc
 
 *.sh
 *.pl
