@@ -44,9 +44,305 @@
 \end{center}
 \tableofcontents
 \section{Sommario}
-\include{NormeDiProgetto-Comunicazioni}
-\include{NormeDiProgetto-Riunioni}
-\include{NormeDiProgetto-Documenti}
-\include{NormeDiProgetto-Glossario}
-\include{NormeDiProgetto-AmbienteDiLavoro}
+
+\section{Comunicazioni}
+\subsection{Comunicazioni esterne}
+Per le comunicazioni esterne è stata creata una apposita casella di poste elettronica:
+\begin{center}
+scalatekids@gmail.com
+\end{center}
+Questa casella e-mail viene gestita dal \textit{Responsabile di Progetto} che è colui che si occupa di comunicare con il committente del progetto o con qualsiasi altra persona esterna al gruppo di lavoro. Sarà sempre quest'ultimo ad informare inoltrando le email di interesse ai vari membri del gruppo.
+
+\subsection{Comunicazioni interne}
+Per le comunicazioni interne è stata creata una \gloss{mailing list}:
+\begin{center}
+TODO: INSERIRE LA MAILING LIST
+\end{center}
+Tale indirizzo verrà utilizzato da tutti i membri del gruppo e solamente per lo scambio interno di informazioni inerenti al progetto.
+
+Vengono usati altri strumenti più ufficiosi per lo scambio di informazioni:
+\begin{itemize}
+\item applicazioni di \gloss{instant messaging} quali \textit{Whatsapp} e il suo servizio \textit{Whatsapp Web};
+\item applicazioni \gloss{VoIP} per effettuare audio conferenze con un qualsiasi numero di componenti, quale \textit{TeamSpeak3};
+\item servizi online per la gestione di una \gloss{whiteboard} condivisa, quale \textit{Twiddla};
+\end{itemize}
+
+Abbiamo deciso che qualora membri del gruppo si scambino informazioni attraverso questi strumenti sopra elencati dovranno, se presenti informazioni di interesse per il progetto, mandare un sunto della suddetta conversazione alla \gloss{mailing list} per tenere informati tutti i membri del gruppo sullo stato di avanzamento.\\
+Solo in caso di necessità derivate dalla mancanza di infrastrutture (es. collegamento a internet) si potrà comunicare attraverso SMS o chiamate telefoniche, anche in questo caso si dovrà verbalizzare quanto detto attraverso la \gloss{mailing list}.
+
+/*
+	TODO: don't panic spiegano anche la struttura che devono avere le mail per uniformare tutte le comunicazioni del gruppo (interne ed esterne), da decidere come vogliamo proseguire.
+*/
+
+\section{Riunioni}
+
+\subsection{Riunioni Interne}
+Tutti i componenti del gruppo possono avanzare una richiesta per una riunione interna seguendo le regole per la richiesta (vedi \ref{Regole per la richiesta}).\\
+Sarà il \textit{Responsabile di Progetto} a decidere se indirre o meno questa riunione, controllando la disponibilità dei membri ( //TODO: come la controlliamo?) e in caso avvertendo tutti attraverso una mail ufficiale con oggetto \textit{Riunione Interna <giorno>}.\\
+E' richiesta la partecipazione di almeno 4 membri del gruppo.
+
+In casi particolari, come per riunioni che trattano specifici ambiti non di interesse di tutti i membri o per l'avvicinarsi a importanti date, si può indirre una riunione di gruppo con meno compomenti presenti, sempre tramite l'approvazione del \textit{Responsabile} del gruppo.
+
+\subsection{Riunioni esterne}
+Anche le riunioni esterne (incontri col committente) possono essere proposte da qualunque membro del gruppo, spetta sempre al \textit{Responsabile di Progetto} la decisione finale.\\
+E' necessaria la presenza di almeno il 50\% + 1 dei componenti.
+
+\subsection{Regole per la richiesta}
+Le richieste vanno effettuate tramite mail al responsabile e devono avere come oggetto:
+\begin{center}
+Richiesta riunione <tipo riunione>
+\end{center}
+tipo riunione può essere interna o esterna.
+Il corpo della mail dovrà avere una struttura del tipo:
+\begin{center}
+Motivazione: <motivo riunione>
+Data proposta: <data>
+Luogo proposto: <luogo>
+\end{center}
+
+\subsection{Esiti Riunioni}
+Ad ogni riunione verrà dato il compito a uno dei presenti di verbalizzare un riassunto sugli argomenti trattati e i chiarimenti esermi durante tale riunione.\\
+Questa persona avrà poi l'obbligo di condividere questo verbale con tutti i componenti sul \textit{Drive} del gruppo e di notificare l'avvenuto caricamento tramite \textit{Mailing List}
+
+\section{Documenti}
+	// TODO: bisogna aggiungere la parte in cui diciamo che usiamo una virtualbox per facilitare tutto
+
+\subsection{Struttura dei documenti}
+Abbiamo standardizzato la scrittura di tutti i documenti attraverso un \gloss{template} \LaTeX\xspace creato da noi e presente su \textit{github} nella \gloss{repository} \textit{ActorBase - Documents}.\\
+L'uso del template ci permette di creare una serie di documenti stilisticamente uniformi tra loro e ci facilita la modifica delle parti in comune tra essi.\\
+Il template regola:
+\begin{itemize}
+\item Formattazione dei documenti (font);
+\item Formattazione delle pagine (header e footer pagine);
+\item Raggruppa tutti i pacchetti utilizzati;
+\item Aggiunge comandi personalizzati;
+\item Collegamenti tra indice e categorie o sezioni
+\end{itemize}
+	// TODO: rivedere cosa regola il template
+
+Ogni documento presenta in ordine :
+\begin{itemize}
+\item Diario delle modifiche: è una tabella in cui sono scritte le diverse modifiche fatte dai membri sul documento;
+\item Indice: indice con collegamenti alle categorie e alle sezioni del documento;
+\item Introduzione: contiene alcune sottosezioni:
+	\begin{itemize}
+	\item Scopo del documento;
+	\item Glossario;
+	\item Riferimenti inerenti al documento in questione;
+	\end{itemize}
+\item Resto del documento: contenuto specifico;
+\end{itemize}
+	// TODO: riferimenti li mettiamo? SI
+
+
+Abbiamo creato uno script \textit{perl} per la creazione automatica dello scheletro di un generico documento.
+
+\subsection{Struttura Pagina}
+	//TODO: controllare che questa struttura delle pagina sia effettivamente così
+L'intestazione di ogni pagina contiene:
+\begin{itemize}
+\item Logo gruppo;
+\item Nome gruppo;
+\item Sezione corrente del documento;
+\end{itemize}
+Il piè pagina invece contiene:
+\begin{itemize}
+\item Nome doocumento;
+\item Pagina corrente rispetto al numero di pagine totali;
+\end{itemize}
+
+
+\subsection{Norme tipografiche}
+Per uniformare il più possibile la stesura di tutti i documenti abbiamo scelto delle regole che tutto il gruppo deve seguire.
+
+\subsubsection{Punteggiatura}
+\begin{itemize}
+\item \textbf{Punteggiatura}: tutti i segni di punteggiatura devono essere seguiti da uno spazio e non avere spazi precedenti al segno stesso;
+\item \textbf{Maiuscole}: le lettere maiuscole devono essere usate dove previsto dalla lingua italiana.
+Saranno inoltre scritti con l'iniziale maiuscolta i ruoli, le persone inerenti al progetto e i documenti noti (es. \textit{Committente} \textit{Analisi dei Requisiti});
+\end{itemize}
+
+\subsubsection{Stile testo}:
+\begin{itemize}
+\item \textbf{Corsivo}: il corsivo dev'essere utilizzato per:
+	\begin{itemize}
+	\item Abbreviazioni;
+	\item Citazioni;
+	\item Documenti (es \textit{Analisi dei Requisiti});
+	\item Porre un enfasi maggiore alla parola e/o frase;
+	\end{itemize}
+\item \textbf{Grassetto}: il grassetto dev'essere usato per:
+	\begin{itemize}
+	\item Evidenziare passaggi o concetti importanti;
+	\item Sezioni e sottosezioni dei documenti;
+	\end{itemize}
+\item \textbf{Maiuscolo}: alcuni acronimi saranno scritti interamente in maiuscolo (es. \textit{SQL});
+\item \textbf{Monospace}: i font monospace saranno usati per riportare parti di codice;
+\end{itemize}
+
+\subsection{Formati di riferimento}
+\begin{itemize}
+\item \textbf{Riferimenti}:
+	\begin{itemize}
+	\item Percorsi web: per gli indirizzi web e per gli inidirizzi e-mail deve essere usato il comando \LaTeX\xspace
+ 	\begin{center}
+ 	\textbackslash{url{percorso}}
+ 	\end{center}
+	\item Link ad altri PDF: //TODO: dobbiamo decidere come fare sta cosa
+	\item Link a sezioni interne al documento: per link a sezioni interne al documento corrente deve essere utilizzato il documento \LaTeX\xspace
+	\begin{center}
+	\textbackslash{ref{riferimento a sezione}}
+	\end{center}
+	\end{itemize}
+\item \textbf{Date}: Le date devono essere espresse seguento lo standard \textit{\gloss{ISO}} 8601:2004:
+	AAAA-MM-GG
+	AAAA: rappresenta l'anno (es. 2015);
+	MM:	rappresenta il mese (es. 12);
+	GG: rappresenta il giorno (es. 21);
+
+\item \textbf{Abbreviazioni}: per semplicità possono essere abbreviati i nomi dei seguenti documenti:
+	AR: \textit{Analisi dei Requisiti}
+	RR: \textit{Revisione dei Requisiti}
+	GL: \textit{Glossario}
+	NP: \textit{Norme di Progetto}
+	RP: \textit{Revisione di Progettazione}
+	PQ: \textit{Piano di Qualifica}
+	RQ: \textit{Revisione di Qualifica}
+	PP: \textit{Piano di Progetto}
+	SF: \textit{Studio di Fattibilità}
+	RA: \textit{Revisione di Accettazione}
+
+\item \textbf{Nomi ricorrenti}:
+	\begin{itemize}
+	\item Ruoli: come già scritto in precedenza i ruoli di progetto devono essere scritti con la prima lettera di ogni parola maiuscola ed in corsivo, escludendo le proposizioni (es. \textit{Responsabile di Progetto});
+	\item Nomi dei files: i nomi dei files relativi a documenti devono seguire la notazione \textit{\gloss{CamelCase}}, seguiti da \textit{_v} e dalla versione del file (es. NormeDiProgetto_v1.0.1.pdf);
+	\item Nome del progetto: sarà indicato come \textbf{Actorbase}
+	\item Nome del committente: il committente sarà indicato come \textit{prof. Tullio Vardanega}
+	\item Nome del proponente: il proponente sarà indicato come \textit{prof. Riccardo Cardin}
+	\item Nome del gruppo: il gruppo sarà indicato come \textit{ScalateKids}
+	\end{itemize}
+\end{itemize}
+
+\subsection{Tabelle}
+//TODO: mettiamo tabelle? se si decidere come uniformarle
+
+\subsection{Immagini}
+Utilizziamo immagini con formato \textit{JPG} o \textit{PNG}, questi ultimi rendono immediata l'inculsione delle suddette immagini nei documenti.
+
+\subsection{Integrazione termini di lingua straniera}
+Per non incorrere in diverse modalità di integrazione per l'uso di vari termini di lingua straniera (es. file, repository ecc...) abbiamo deciso di non pluralizzare i termini non italiani, esempi:\\
+abbiamo utilizzato delle \textit{repository} per... (non \textit{repositories}).
+Questa scelta è derivata da una ricerca che ha fornito diverse fonti riguardanti l'uso di questa norma nell'uso della lingua italiana, il sottostante sito web raccoglie diverse fonti trovate:\\
+\begin{center}
+\url{http://www.darsch.it/?pg=sphere&postid=954}
+\end{center}
+
+\subsection{Versionamento documenti}
+La documentazione prodotta deve avere un numero di versione avente la seguente struttura:\\
+\begin{center}
+vX.Y.Z
+\end{center}
+in cui:
+\begin{itemize}
+\item \textbf{X}: aumenta con il numero di uscite formali del documento;
+\item \textbf{Y}: rappresenta il numero di modifiche sostanziali effettuate sul documento. Se pari a 0 indica che il documento è ancora in fase di stesura in presente revisione;
+\item \textbf{Z}: rappresenta il numero di modifiche minori effettuate sul documento.
+\end{itemize}
+//TODO: spiegare come aumentano ste versioni
+
+\subsection{Ciclo di vita dei documenti}
+Tutti i documenti nascono nello stato di \textit{in lavorazione}.\\
+Dopo l'avvenuta di tute le modifiche necessarie per arrivare ad una versione completa del documento, il suddetto si verrà a trovare nello stato \textit{da verificare}.\\
+Alla fine della fase di verifica del documento, se approvato il documento andrà nello stato di \textit{approvato}.
+I tre stati sono descritti brevemente come segue:
+\begin{itemize}
+\item \textbf{In lavorazione}: il documento nasce in questo stato e ci rimane fino a che non è avvenuta una sua completa stesura;
+\item \textbf{Da verificare}: il documento resta in questo stato finchè i \textif{Verificatori} assegnati ad esso non effettueranno un controllo atto a trovare e a correggere errori di ogni tipo;
+\item \textbf{Approvato}: dopo la fase di verifica il \textit{Responsabile} effettuerà una fase di approvazione, se questa fase sarà superata il documento sarà approvato e entrerà in una versione ufficiale.
+\end{itemize}
+
+\subsection{Norme di verifica documenti}
+Posto che tutti i componenti del gruppo dovranno affettuare delle attività di
+verifica, il redattore di ogni sezione nei documenti tassativamente non potrà
+effettuare verifica e approvazione delle parti redatte dallo stesso,
+coerentemente con le strategie scelte nel \textbf{PQ}.
+
+\section{Glossario}
+Il glossario è un documento unico per tutti i documenti, esso conterrà tutte le
+definizioni, in ordine lessicografico crescente, dei termini inerenti al tema
+del progetto o che possono essere fraintesi. I termini che dovranno essere
+inseriti nel glossario saranno contrassegnati da una G pedice all'interno dei
+documenti. Prima di inserire un nuovo termine bisogna assicurarsi che non sia
+già presente.
+
+\section{Ambiente di lavoro}
+\subsection{Apparato di collaborazione}
+Per coordinare il lavoro tra i componenti del gruppo, trovandosi spesso a dover
+operare in remoto, l'azienda ha scelto di utilizzare quanto più possibile gli
+strumenti di condivisione e versionamento erogati come servizi web,
+centralizzando gli strumenti organizzativi su server privato.
+\subsubsection{Servizi web}
+I servizi web utilizzati sono:
+\begin{itemize}
+\item\textbf{Google Drive:} è usato per lo scambio di file e documenti all'interno del gruppo, principalmente per file che non necessitano di versionamento.\\
+Questo spazio del gruppo è suddiviso in diverse cartelle per una migliore gestione e per facilitare la ricerca all'interno di esso.\\
+Il \textit{Responsabile di Progetto} ha il potere amministrativo dell'account in questione, quindi sarà quest'ultima persona ad occuparsi di garantire i giusti diritti ai membri del gruppo.
+\item\textbf{Github:} è usato per tutti i files che necessitano un sistema di \gloss{versionamento} viene usato il servizio offerto da \textit{Github}, l'indirizzo web del gruppo è:\\
+\begin{center}
+https://github.com/scalatekids
+\end{center}
+\item\textbf{Twiddla:} è un sistema che offre una lavagna online condivisa, questo servizio è utilizzato dai membri del gruppo per discutere e lavorare assieme //TODO: non so cosa scrivere su twiddla
+\item\textbf{Gantter for Google Drive:} è uno strumento gratuito per la creazione di \gloss{diagrammi di Gantt}, è stato usato per la creazione del Gantt predittivo
+\end{itemize}
+\subsubsection{Server dedicato}
+Sono state installate alcune applicazioni per il coordinamento del gruppo su
+server dedicato, gestito dall'\textit{Amministratore} su direttive del
+\textit{Responsabile}.\\ Il server è raggiungibile da interfaccia web previo
+login, i componenti possono usufruire delle seguenti applicazioni:
+
+\paragraph{Redmine}
+Redmine è un'applicazione web atta alla gestione di progetti.\\
+Offre diverse funzionalità che il gruppo dovrà utilizzare, quali:
+\begin{itemize}
+\item\textbf{Sezione wiki:} una pagina web in cui il gruppo andrà a condividere una serie di link di interesse riguardanti ogni tecnologia o aspetto inerente al progetto.
+\item\textbf{Sistema di segnalazioni:} un sistema di segnalazioni gestite dall'\textit{Responsabile}, ogni segnalazione rappresenta un task assegnato ad uno o più membri del gruppo, il suo conseguimento servirà per il soddisfacimento di un requisito.
+\item\textbf{Gantt:} \textit{Redmine} costruisce automaticamente un \gloss{diagramma di Gantt} con le segnalazioni create dall'\textit{Responsabile}
+\end{itemize}
+//TODO: potremmo aggiungere dei diagrammi UML2.0 per descrivere come usare redmine...
+
+\paragraph{PHPMyAdmin}
+PHPMyAdmin è uno strumento scritto in linguaggio \textit{PHP} che offre una facile amministrazione di \gloss{\textit{database}}.\\
+Questo strumento verrà usato per la creazione di un back-end per la gestione dei requisiti.	//TODO: scrivere qualcosa di più a riguardo?
+//TODO: da integrare se aggiungiamo il front-end
+
+\subsubsection{Versionamento}
+Lo strumento scelto è \gloss{git} principalmente per la grande diffusione negli
+ambienti di sviluppo e per l'integrazione offerta dal servizio web
+\textit{Github}, il quale è inoltre offre un esaustiva documentazione
+sull'utilizzo del programma in questione. Infine \gloss{git} si è rivelato essere
+il più conosciuto tra i membri del gruppo, l'alternativa \gloss{SVN}, nonostante
+i simili principi di funzionamento, costituiva una scelta più difficoltosa, in
+quanto nessun membro ha mai avuto esperienze di utilizzo.
+Sono stati creati due \gloss{repository} all'indirizzo \url{https://github.com/actorbase}:
+\begin{itemize}
+\item Actorbase.\gloss{git}: Contiene i sorgenti del software.
+\item Actorbase-Documents.\gloss{git}: Contiene i sorgenti \LaTeX\ e i PDF generati.
+\end{itemize}
+
+\subsubsection{Ambiente di lavoro individuale}
+Per il lavoro individuale, è stato pensato ad un modo di uniformare quanto più
+possibile l'ambiente di sviluppo tra i componenti; il \textit{Responsabile} e
+l'\textit{Amministratore} hanno stabilito l'\gloss{IDE} di base ed è stata creato
+un ambiente virtuale comune utilizzando il software \textbf{Virtualbox}. Tutti i
+componenti del gruppo utilizzeranno gli strumenti all'interno della
+\gloss{virtual machine} in modo da garantire omogeneità, e riproducibilità di
+eventuali bug.\\ L'\textit{IDE} scelto è \textbf{IntelliJIdea}, considerato il
+più appropriato e compatibile con le tecnologie centrali del progetto, gli
+editor \textbf{vim}, \textbf{emacs} o \textbf{Sublime Text 2} potranno essere
+utilizzati dai componenti del gruppo, purchè si tratti di modifiche rapide o
+stesura di script di utilità generale.\\
+Per la stesura dei documenti, l'\gloss{IDE} di riferimento è \textbf{TeXstudio}.
+
+
+// TODO: manca il software che utilizziamo per fare gli uml, e dirgli che versione di uml usiamo come standard
 \end{document}
