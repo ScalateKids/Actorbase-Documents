@@ -16,6 +16,7 @@
 \usepackage{alltt}
 \usepackage{caption}
 %% \usepackage{hyperref}
+\usepackage{xspace}
 \usepackage{listings}
 \usepackage{xcolor}
 \usepackage{changes}
