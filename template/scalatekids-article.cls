@@ -1,3 +1,8 @@
+% ======================================================
+%
+% SCALATEKIDS ARTICLE CLASS
+%
+% ======================================================
 \NeedsTeXFormat{LaTeX2e}
 % New class name
 \ProvidesClass{scalatekids-article}[2015/12/18]
@@ -30,10 +35,10 @@
             linkcolor=red,
             urlcolor=blue,      % url color set to blue
             citecolor=gray]{hyperref}
-%% \usepackage[T1]{fontenc}
-%% \usepackage[scaled]{beraserif}
-%% \usepackage[scaled]{besarans}
-%% \usepackage[scaled]{beramono}
+\usepackage[T1]{fontenc}
+\usepackage[scaled]{beraserif}
+\usepackage[scaled]{berasans}
+\usepackage[scaled]{beramono}
 
 % =======================================================
 %
