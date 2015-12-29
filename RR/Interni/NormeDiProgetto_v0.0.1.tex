@@ -3,8 +3,6 @@
 % Title Norme di Progetto
 \documentclass{scalatekids-article}
 \begin{document}
-\lhead{ScalateKids}
-\rhead{Norme di Progetto \thepage}
 \lfoot{Norme di Progetto 0.0.1}
 \begin{titlepage}
   \centering
@@ -54,7 +52,9 @@ Per le comunicazioni esterne è stata creata una apposita casella di poste elett
 \begin{center}
   scalatekids@gmail.com
 \end{center}
-Questa casella e-mail viene gestita dal \textit{Responsabile di Progetto} che è colui che si occupa di comunicare con il committente del progetto o con qualsiasi altra persona esterna al gruppo di lavoro. Sarà sempre quest'ultimo ad informare inoltrando le email di interesse ai vari membri del gruppo.
+Questa casella e-mail viene gestita dal \textit{Responsabile di Progetto} che è colui che si occupa di comunicare con il committente del progetto o con qualsiasi altra persona esterna al gruppo di lavoro. E' stata impostata per effettuare l'inolto automatico di tutte le mail in entrata verso gli indirizzi di tutti i
+componenti del gruppo, in modo tale che ognuno possa ricevere una copia della posta in ingresso, tuttavia soltanto il \textit{Responsabile} ha il potere di
+inviare posta in uscita.
 
 \subsection{Comunicazioni interne}
 Per le comunicazioni interne è stata creata una \gloss{mailing list}:
@@ -63,7 +63,7 @@ Per le comunicazioni interne è stata creata una \gloss{mailing list}:
 \end{center}
 Tale indirizzo verrà utilizzato da tutti i membri del gruppo e solamente per lo scambio interno di informazioni inerenti al progetto.
 
-Vengono usati altri strumenti più ufficiosi per lo scambio di informazioni:
+Vengono usati altri strumenti ufficiosi per lo scambio di informazioni:
 \begin{itemize}
 \item applicazioni di \gloss{instant messaging} quali \textit{Whatsapp} e il suo servizio \textit{Whatsapp Web};
 \item applicazioni \gloss{VoIP} per effettuare audio conferenze con un qualsiasi numero di componenti, quale \textit{TeamSpeak3};
@@ -71,7 +71,7 @@ Vengono usati altri strumenti più ufficiosi per lo scambio di informazioni:
 \end{itemize}
 
 Abbiamo deciso che qualora membri del gruppo si scambino informazioni attraverso questi strumenti sopra elencati dovranno, se presenti informazioni di interesse per il progetto, mandare un sunto della suddetta conversazione alla \gloss{mailing list} per tenere informati tutti i membri del gruppo sullo stato di avanzamento.\\
-Solo in caso di necessità derivate dalla mancanza di infrastrutture (es. collegamento a internet) si potrà comunicare attraverso SMS o chiamate telefoniche, anche in questo caso si dovrà verbalizzare quanto detto attraverso la \gloss{mailing list}.
+Solo in caso di necessità derivate dalla mancanza di infrastrutture (es. collegamento a internet) si potrà comunicare attraverso SMS o chiamate telefoniche, anche in questo caso si dovrà verbalizzare quanto detto attraverso la \gloss{mailing list} appena possibile.
 
 /*
 TODO: don't panic spiegano anche la struttura che devono avere le mail per uniformare tutte le comunicazioni del gruppo (interne ed esterne), da decidere come vogliamo proseguire.
@@ -81,13 +81,13 @@ TODO: don't panic spiegano anche la struttura che devono avere le mail per unifo
 
 \subsection{Riunioni Interne}
 Tutti i componenti del gruppo possono avanzare una richiesta per una riunione interna seguendo le regole per la richiesta (vedi \ref{Regole per la richiesta}).\\
-Sarà il \textit{Responsabile di Progetto} a decidere se indirre o meno questa riunione, controllando la disponibilità dei membri ( //TODO: come la controlliamo?) e in caso avvertendo tutti attraverso una mail ufficiale con oggetto \textit{Riunione Interna <giorno>}.\\
+Sarà il \textit{Responsabile di Progetto} a decidere se indire o meno questa riunione, controllando la disponibilità dei membri ( //TODO: come la controlliamo?) e in caso avvertendo tutti attraverso una mail ufficiale con oggetto \textit{Riunione Interna <giorno>}.\\
 E' richiesta la partecipazione di almeno 4 membri del gruppo.
 
-In casi particolari, come per riunioni che trattano specifici ambiti non di interesse di tutti i membri o per l'avvicinarsi a importanti date, si può indirre una riunione di gruppo con meno compomenti presenti, sempre tramite l'approvazione del \textit{Responsabile} del gruppo.
+In casi particolari, come per riunioni che trattano specifici ambiti non di interesse di tutti i membri o per l'avvicinarsi a importanti date, si può indire una riunione di gruppo con meno compomenti presenti, sempre tramite l'approvazione del \textit{Responsabile}.
 
 \subsection{Riunioni esterne}
-Anche le riunioni esterne (incontri col committente) possono essere proposte da qualunque membro del gruppo, spetta sempre al \textit{Responsabile di Progetto} la decisione finale.\\
+Le riunioni esterne (incontri col committente o proponente) possono essere proposte da qualunque membro del gruppo, spetta sempre al \textit{Responsabile di Progetto} la decisione finale.\\
 E' necessaria la presenza di almeno il 50\% + 1 dei componenti.
 
 \subsection{Regole per la richiesta}
@@ -105,13 +105,13 @@ Il corpo della mail dovrà avere una struttura del tipo:
 
 \subsection{Esiti Riunioni}
 Ad ogni riunione verrà dato il compito a uno dei presenti di verbalizzare un riassunto sugli argomenti trattati e i chiarimenti esermi durante tale riunione.\\
-Questa persona avrà poi l'obbligo di condividere questo verbale con tutti i componenti sul \textit{Drive} del gruppo e di notificare l'avvenuto caricamento tramite \textit{Mailing List}
+Questa persona avrà poi l'obbligo di condividere il verbale con tutti i componenti sul \textit{Drive} del gruppo e di notificare l'avvenuto caricamento tramite \textit{Mailing List}
 
 \section{Documenti}
 // TODO: bisogna aggiungere la parte in cui diciamo che usiamo una virtualbox per facilitare tutto
 
 \subsection{Struttura dei documenti}
-Abbiamo standardizzato la scrittura di tutti i documenti attraverso un \gloss{template} \LaTeX\xspace creato da noi e presente su \textit{github} nella \gloss{repository} \textit{ActorBase - Documents}.\\
+Abbiamo standardizzato la scrittura di tutti i documenti attraverso un \gloss{template} \LaTeX\xspace creato da noi e presente su \textit{github} nel \gloss{repository} \textit{ActorBase - Documents}.\\
 L'uso del template ci permette di creare una serie di documenti stilisticamente uniformi tra loro e ci facilita la modifica delle parti in comune tra essi.\\
 Il template regola:
 \begin{itemize}

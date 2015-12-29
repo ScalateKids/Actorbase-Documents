@@ -27,6 +27,7 @@
 \usepackage{changes}
 \usepackage{graphicx}
 \usepackage{subcaption}
+\usepackage{breakurl}
 \usepackage{float}
 \usepackage{lmodern}
 \usepackage[top=2in, bottom=1.5in, left=0.7in, right=0.7in]{geometry}
@@ -73,6 +74,10 @@
 
 \pagestyle{fancy}
 \fancyhf{}
+\lhead{ScalateKids}
+\rhead{
+    \slshape \leftmark
+}
 % pagestyle set to 'n di m'
 \rfoot{\thepage\hspace{1pt}di \pageref{LastPage}}
 % Summary letter command
