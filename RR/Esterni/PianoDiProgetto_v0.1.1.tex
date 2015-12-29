@@ -43,9 +43,13 @@
     \hline
     0.1.1 & Andrea Giacomo Baldan & Responsabile & 2015-12-28 & Stesura pianificazione preventiva\\
     \hline
-    0.1.0 & Andrea Giacomo Baldan & & 2015-12-23 & Stesura analisi dei rischi \\
+    0.1.0 & Andrea Giacomo Baldan & Responsabile & 2015-12-23 & Stesura analisi dei rischi \\
     \hline
-    0.0.1 & Andrea Giacomo Baldan & & 2015-12-21 & Creazione scheletro del documento\\
+    0.0.6 & Marco Boseggia & Analista & 2015-12-23 & Redazione scelta del modello di ciclo di vita\\
+    \hline
+    0.0.5 & Marco Boseggia & Analista & 2015-12-22 & Stesura Organigramma\\
+    \hline
+    0.0.1 & Andrea Giacomo Baldan & Responsabile & 2015-12-21 & Creazione scheletro del documento\\
     \hline
   \end{tabular}
 \end{center}
@@ -113,7 +117,29 @@ Le attività di pianificazione del progetto saranno basate sulle scadenze qui ri
   \end{tabular}
 \end{center}
 \section{Pianificazione preventiva}
-\subsection{Analisi}
+\subsection{Suddivisione fasi}
+Per semplificare la pianificazione del prospetto orario, sono state identificate
+tre fasi principali che rappresentano l'intero ciclo di sviluppo del prodotto.\\
+// TODO: da proseguire\\
+Esse sono:
+\begin{itemize}
+    \item\textbf{Analisi:} Rappresenta la prima fase del progetto, dalla
+    pubblicazione dei capitolati d'appalto all'inizio della fase di progettazione,
+    comprensiva di una fase di incremento, ove vengono risolti i possibili dubbi
+    emersi in prima stesura.
+    \item\textbf{Progettazione:} Segue la fase di Analisi, e racchiude il lasso
+    temporale dedicato alla progettazione dell'architettura sulla base dei requisiti
+    emersi. Comprende anche lo studio di \gloss{design pattern} congrui alla realizzazione
+    del prodotto.
+    \item\textbf{Codifica:} L'ultima delle tre fasi identificate, comprende la stesura
+    del codice secondo le direttive emerse in fase di progettazione.
+\end{itemize}
+Tutte e tre le fasi descritte sono comprensive di \textbf{Verifica e validazione},
+non è stata identificata come fase isolata in quanto è presente lungo tutto l'arco
+di sviluppo del prodotto.\\
+Ogni fase prevede l'impiego di alcuni ruoli in misura maggiore ad altri la distribuzione
+di questi sarà garantita un equa ripartizione del carico di lavoro individuale.
+\subsubsection{Analisi}
 \begin{tabular}{| c | c  c | c  c | c  c | c  c | c  c | c  c | c  c |}
     \hline
     \textbf{Nome} & \multicolumn{2}{|c|}{\textbf{Res}} & \multicolumn{2}{|c|}{\textbf{An}} & \multicolumn{2}{|c|}{\textbf{Amm}} & \multicolumn{2}{|c|}{\textbf{Pr}} & \multicolumn{2}{|c|}{\textbf{Pt}} & \multicolumn{2}{|c|}{\textbf{Ve}} & \multicolumn{2}{|c|}{\textbf{Tot}}\\
@@ -130,18 +156,17 @@ Le attività di pianificazione del progetto saranno basate sulle scadenze qui ri
     \hline
 \end{tabular}
 \begin{figure}[h]
-    \centering
     \begin{subfigure}[b]{0.47\textwidth}
-        \includegraphics[width=\textwidth]{/home/kids/bin/img/AnalisiConInvestimento.png}
+        \includegraphics[width=1.2\textwidth]{/home/kids/bin/img/AnalisiConInvestimento.png}
         \caption{Ore con investimento, fase di Analisi}
     \end{subfigure}
     \qquad
     \begin{subfigure}[b]{0.47\textwidth}
-        \includegraphics[width=\textwidth]{/home/kids/bin/img/AnalisiConRendicontazione.png}
+        \includegraphics[width=1.2\textwidth]{/home/kids/bin/img/AnalisiConRendicontazione.png}
         \caption{Ore con rendicontazione, fase di Analisi}
     \end{subfigure}
 \end{figure}
-\subsection{Progettazione}
+\subsubsection{Progettazione}
 \begin{tabular}{| c | c  c | c  c | c  c | c  c | c  c | c  c | c  c |}
     \hline
     \textbf{Nome} & \multicolumn{2}{|c|}{\textbf{Res}} & \multicolumn{2}{|c|}{\textbf{An}} & \multicolumn{2}{|c|}{\textbf{Amm}} & \multicolumn{2}{|c|}{\textbf{Pr}} & \multicolumn{2}{|c|}{\textbf{Pt}} & \multicolumn{2}{|c|}{\textbf{Ve}} & \multicolumn{2}{|c|}{\textbf{Tot}}\\
@@ -158,18 +183,17 @@ Le attività di pianificazione del progetto saranno basate sulle scadenze qui ri
     \hline
 \end{tabular}
 \begin{figure}[h]
-    \centering
     \begin{subfigure}[b]{0.47\textwidth}
-        \includegraphics[width=\textwidth]{/home/kids/bin/img/ProgettazioneConInvestimento.png}
+        \includegraphics[width=1.2\textwidth]{/home/kids/bin/img/ProgettazioneConInvestimento.png}
         \caption{Ore con investimento, fase di Progettazione}
     \end{subfigure}
     \qquad
     \begin{subfigure}[b]{0.47\textwidth}
-        \includegraphics[width=\textwidth]{/home/kids/bin/img/ProgettazioneConRendicontazione.png}
+        \includegraphics[width=1.2\textwidth]{/home/kids/bin/img/ProgettazioneConRendicontazione.png}
         \caption{Ore con rendicontazione, fase di Progettazione}
     \end{subfigure}
 \end{figure}
-\subsection{Codifica}
+\subsubsection{Codifica}
 \begin{tabular}{| c | c  c | c  c | c  c | c  c | c  c | c  c | c  c |}
     \hline
     \textbf{Nome} & \multicolumn{2}{|c|}{\textbf{Res}} & \multicolumn{2}{|c|}{\textbf{An}} & \multicolumn{2}{|c|}{\textbf{Amm}} & \multicolumn{2}{|c|}{\textbf{Pr}} & \multicolumn{2}{|c|}{\textbf{Pt}} & \multicolumn{2}{|c|}{\textbf{Ve}} & \multicolumn{2}{|c|}{\textbf{Tot}}\\
@@ -185,15 +209,14 @@ Le attività di pianificazione del progetto saranno basate sulle scadenze qui ri
     Davide Trevisan & 6 & 6 & & & & & 24 & 22 & 10 & 9 & 13 & 9 & 53 & 46\\
     \hline
 \end{tabular}
-\begin{figure}[h]
-    \centering
-    \begin{subfigure}[b]{0.47\textwidth}
-        \includegraphics[width=\textwidth]{/home/kids/bin/img/CodificaConInvestimento.png}
+\begin{figure}[H]
+    \begin{subfigure}[H]{0.47\textwidth}
+        \includegraphics[width=1.2\textwidth]{/home/kids/bin/img/CodificaConInvestimento.png}
         \caption{Ore con investimento, fase di Codifica}
     \end{subfigure}
     \qquad
-    \begin{subfigure}[b]{0.47\textwidth}
-        \includegraphics[width=\textwidth]{/home/kids/bin/img/CodificaConRendicontazione.png}
+    \begin{subfigure}[H]{0.47\textwidth}
+        \includegraphics[width=1.2\textwidth]{/home/kids/bin/img/CodificaConRendicontazione.png}
         \caption{Ore con rendicontazione, fase di Codifica}
     \end{subfigure}
 \end{figure}

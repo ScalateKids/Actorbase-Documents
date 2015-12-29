@@ -27,6 +27,7 @@
 \usepackage{changes}
 \usepackage{graphicx}
 \usepackage{subcaption}
+\usepackage{float}
 \usepackage{lmodern}
 \usepackage[top=2in, bottom=1.5in, left=0.7in, right=0.7in]{geometry}
 \usepackage{fancyhdr}           % For footer and header of every page
