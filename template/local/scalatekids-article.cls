@@ -74,7 +74,8 @@
 
 \pagestyle{fancy}
 \fancyhf{}
-\lhead{ScalateKids}
+\lhead{
+    \includegraphics[height=1.5cm, width=1.5cm, keepaspectratio=true]{/home/kids/bin/img/logo.png} \emph{ScalateKids}}
 \rhead{
     \slshape \leftmark
 }
