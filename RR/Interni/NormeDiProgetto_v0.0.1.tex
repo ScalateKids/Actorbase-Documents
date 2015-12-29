@@ -57,38 +57,70 @@ componenti del gruppo, in modo tale che ognuno possa ricevere una copia della po
 inviare posta in uscita.
 
 \subsection{Comunicazioni interne}
-Per le comunicazioni interne è stata creata una \gloss{mailing list}:
-\begin{center}
-  TODO: INSERIRE LA MAILING LIST
-\end{center}
-Tale indirizzo verrà utilizzato da tutti i membri del gruppo e solamente per lo scambio interno di informazioni inerenti al progetto.
-
+Per le comunicazioni interne verrà utilizzato un \gloss{forum} apposito su
+\textit{Redmine} (vedi sezione \ref{Redmine}), suddiviso in quattro sezioni
+principali corrispondenti alle revisioni di avanzamento del progetto:
+\begin{itemize}
+\item Revisione dei Requisiti
+\item Revisione di Progettazione
+\item Revisione di Qualifica
+\item Revisione di Accettazione
+\end{itemize}
+Ogni sezione è composta da due sottosezioni, riunioni e comunicazioni, le quali
+conterranno rispettivamente le riunioni indette, seguite dalla disponibilità dei
+membri a partecipare e, a seguito di avvenuta riunione, il riassunto dei punti
+discussi e le comunicazioni di carattere più o meno generale riguardanti
+attività della revisione di appartenenza.\\ Ogni \gloss{topic} all'interno di
+queste due sottosezioni dovrà rispettare il seguente formato:
+\begin{itemize}
+\item\textbf{Riunioni:}\\
+  \textit{Riunione Dominio - Data AAAA-mm-dd - Oggetto}\\
+  (es: Riunione Interna - 2015-12-29 - Strategie Ciclo di Vita)
+\item\textbf{Comunicazioni:}\\
+  \textit{Oggetto - Data}\\
+  (es: Design Pattern - 2016-01-12)
+\end{itemize}
+La voce \textit{Oggetto} dovrà essere esplicativa del contenuto, più possibile
+stringata e non confondibile con precedenti \gloss{topic}. E' ammesso
+l'inserimento di allegati purchè strettamente pertinenti al \gloss{topic}, ad
+esempio il verbale di una riunione o il riassunto di qualche discussione
+avvenuta al di fuori delle riunioni.\\
 Vengono usati altri strumenti ufficiosi per lo scambio di informazioni:
 \begin{itemize}
 \item applicazioni di \gloss{instant messaging} quali \textit{Whatsapp} e il suo servizio \textit{Whatsapp Web};
 \item applicazioni \gloss{VoIP} per effettuare audio conferenze con un qualsiasi numero di componenti, quale \textit{TeamSpeak3};
 \item servizi online per la gestione di una \gloss{whiteboard} condivisa, quale \textit{Twiddla};
 \end{itemize}
-
-Abbiamo deciso che qualora membri del gruppo si scambino informazioni attraverso questi strumenti sopra elencati dovranno, se presenti informazioni di interesse per il progetto, mandare un sunto della suddetta conversazione alla \gloss{mailing list} per tenere informati tutti i membri del gruppo sullo stato di avanzamento.\\
-Solo in caso di necessità derivate dalla mancanza di infrastrutture (es. collegamento a internet) si potrà comunicare attraverso SMS o chiamate telefoniche, anche in questo caso si dovrà verbalizzare quanto detto attraverso la \gloss{mailing list} appena possibile.
-
-/*
-TODO: don't panic spiegano anche la struttura che devono avere le mail per uniformare tutte le comunicazioni del gruppo (interne ed esterne), da decidere come vogliamo proseguire.
-*/
+Abbiamo deciso che qualora membri del gruppo si scambino informazioni attraverso
+questi strumenti sopra elencati dovranno, se presenti informazioni di interesse
+per il progetto, mandare un sunto della suddetta conversazione sul \gloss{forum}
+per tenere informati tutti i membri del gruppo sullo stato di avanzamento nella
+sottosezione comunicazioni.\\ Solo in caso di necessità derivate dalla mancanza
+di infrastrutture (es. collegamento a internet) si potrà comunicare attraverso
+SMS o chiamate telefoniche, anche in questo caso si dovrà verbalizzare quanto
+detto attraverso il \gloss{forum} appena possibile.
 
 \section{Riunioni}
 
 \subsection{Riunioni Interne}
-Tutti i componenti del gruppo possono avanzare una richiesta per una riunione interna seguendo le regole per la richiesta (vedi \ref{Regole per la richiesta}).\\
-Sarà il \textit{Responsabile di Progetto} a decidere se indire o meno questa riunione, controllando la disponibilità dei membri ( //TODO: come la controlliamo?) e in caso avvertendo tutti attraverso una mail ufficiale con oggetto \textit{Riunione Interna <giorno>}.\\
-E' richiesta la partecipazione di almeno 4 membri del gruppo.
+Tutti i componenti del gruppo possono avanzare una richiesta per una riunione
+interna seguendo le regole per la richiesta (vedi \ref{Regole per la
+  richiesta}).\\ Sarà il \textit{Responsabile di Progetto} a decidere se indire
+o meno questa riunione, controllando la disponibilità dei membri attraverso il
+forum e in caso avvertendo tutti attraverso un \gloss{topic} come spiegato in
+sezione \ref{Comunicazioni}.\\ E' richiesta la partecipazione di almeno 4 membri
+del gruppo.
 
-In casi particolari, come per riunioni che trattano specifici ambiti non di interesse di tutti i membri o per l'avvicinarsi a importanti date, si può indire una riunione di gruppo con meno compomenti presenti, sempre tramite l'approvazione del \textit{Responsabile}.
+In casi particolari, come per riunioni che trattano specifici ambiti non di
+interesse di tutti i membri o per l'avvicinarsi a importanti date, si può indire
+una riunione di gruppo con meno compomenti presenti, sempre tramite
+l'approvazione del \textit{Responsabile}.
 
 \subsection{Riunioni esterne}
-Le riunioni esterne (incontri col committente o proponente) possono essere proposte da qualunque membro del gruppo, spetta sempre al \textit{Responsabile di Progetto} la decisione finale.\\
-E' necessaria la presenza di almeno il 50\% + 1 dei componenti.
+Le riunioni esterne (incontri col committente o proponente) possono essere
+proposte da qualunque membro del gruppo, spetta sempre al \textit{Responsabile
+  di Progetto} la decisione finale.\\ E' necessaria la presenza di almeno il
+50\% + 1 dei componenti.
 
 \subsection{Regole per la richiesta}
 Le richieste vanno effettuate tramite mail al responsabile e devono avere come oggetto:
@@ -105,7 +137,7 @@ Il corpo della mail dovrà avere una struttura del tipo:
 
 \subsection{Esiti Riunioni}
 Ad ogni riunione verrà dato il compito a uno dei presenti di verbalizzare un riassunto sugli argomenti trattati e i chiarimenti esermi durante tale riunione.\\
-Questa persona avrà poi l'obbligo di condividere il verbale con tutti i componenti sul \textit{Drive} del gruppo e di notificare l'avvenuto caricamento tramite \textit{Mailing List}
+Questa persona avrà poi l'obbligo di condividere il verbale con tutti i componenti sul \textit{Drive} del gruppo e di notificare l'avvenuto caricamento tramite \textit{forum}
 
 \section{Documenti}
 // TODO: bisogna aggiungere la parte in cui diciamo che usiamo una virtualbox per facilitare tutto
@@ -115,15 +147,15 @@ Abbiamo standardizzato la scrittura di tutti i documenti attraverso un \gloss{te
 L'uso del template ci permette di creare una serie di documenti stilisticamente uniformi tra loro e ci facilita la modifica delle parti in comune tra essi.\\
 Il template regola:
 \begin{itemize}
-\item Formattazione dei documenti (font);
-\item Formattazione delle pagine (header e footer pagine);
-\item Raggruppa tutti i pacchetti utilizzati;
-\item Aggiunge comandi personalizzati;
+\item Formattazione dei documenti (font)
+\item Formattazione delle pagine (header e footer pagine)
+\item Raggruppa tutti i pacchetti utilizzati
+\item Aggiunge comandi personalizzati
 \item Collegamenti tra indice e categorie o sezioni
 \end{itemize}
 // TODO: rivedere cosa regola il template
 
-Ogni documento presenta in ordine :
+Ogni documento presenta in ordine:
 \begin{itemize}
 \item Diario delle modifiche: è una tabella in cui sono scritte le diverse modifiche fatte dai membri sul documento;
 \item Indice: indice con collegamenti alle categorie e alle sezioni del documento;
@@ -135,8 +167,6 @@ Ogni documento presenta in ordine :
   \end{itemize}
 \item Resto del documento: contenuto specifico;
 \end{itemize}
-// TODO: riferimenti li mettiamo? SI
-
 
 Abbiamo creato uno script \textit{perl} per la creazione automatica dello scheletro di un generico documento.
 
@@ -150,7 +180,7 @@ L'intestazione di ogni pagina contiene:
 \end{itemize}
 Il piè pagina invece contiene:
 \begin{itemize}
-\item Nome doocumento;
+\item Nome documento;
 \item Pagina corrente rispetto al numero di pagine totali;
 \end{itemize}
 
@@ -293,7 +323,7 @@ I servizi web utilizzati sono:
   Il \textit{Responsabile di Progetto} ha il potere amministrativo dell'account in questione, quindi sarà quest'ultima persona ad occuparsi di garantire i giusti diritti ai membri del gruppo.
 \item\textbf{Github:} è usato per tutti i files che necessitano un sistema di \gloss{versionamento} viene usato il servizio offerto da \textit{Github}, l'indirizzo web del gruppo è:\\
   \begin{center}
-    https://github.com/scalatekids
+    \url{https://github.com/scalatekids}
   \end{center}
 \item\textbf{Twiddla:} è un sistema che offre una lavagna online condivisa, questo servizio è utilizzato dai membri del gruppo per discutere e lavorare assieme //TODO: non so cosa scrivere su twiddla
 \item\textbf{Gantter for Google Drive:} è uno strumento gratuito per la creazione di \gloss{diagrammi di Gantt}, è stato usato per la creazione del Gantt predittivo
@@ -327,7 +357,7 @@ sull'utilizzo del programma in questione. Infine \gloss{git} si è rivelato esse
 il più conosciuto tra i membri del gruppo, l'alternativa \gloss{SVN}, nonostante
 i simili principi di funzionamento, costituiva una scelta più difficoltosa, in
 quanto nessun membro ha mai avuto esperienze di utilizzo.
-Sono stati creati due \gloss{repository} all'indirizzo \url{https://github.com/actorbase}:
+Sono stati creati due \gloss{repository} all'indirizzo \url{https://github.com/scalatekids}:
 \begin{itemize}
 \item Actorbase.\gloss{git}: Contiene i sorgenti del software.
 \item Actorbase-Documents.\gloss{git}: Contiene i sorgenti \LaTeX\ e i PDF generati.
@@ -337,16 +367,44 @@ Sono stati creati due \gloss{repository} all'indirizzo \url{https://github.com/a
 Per il lavoro individuale, è stato pensato ad un modo di uniformare quanto più
 possibile l'ambiente di sviluppo tra i componenti; il \textit{Responsabile} e
 l'\textit{Amministratore} hanno stabilito l'\gloss{IDE} di base ed è stata creato
-un ambiente virtuale comune utilizzando il software \textbf{Virtualbox}. Tutti i
+un ambiente virtuale comune utilizzando il software \textit{Virtualbox}. Tutti i
 componenti del gruppo utilizzeranno gli strumenti all'interno della
 \gloss{virtual machine} in modo da garantire omogeneità, e riproducibilità di
-eventuali bug.\\ L'\textit{IDE} scelto è \textbf{IntelliJIdea}, considerato il
+eventuali \gloss{bug}.\\ L'\textit{IDE} scelto è \textit{IntelliJIdea}, considerato il
 più appropriato e compatibile con le tecnologie centrali del progetto, gli
-editor \textbf{vim}, \textbf{emacs} o \textbf{Sublime Text 2} potranno essere
+editor \textit{vim}, \textit{emacs} o \textit{Sublime Text 2} potranno essere
 utilizzati dai componenti del gruppo, purchè si tratti di modifiche rapide o
 stesura di script di utilità generale.\\
-Per la stesura dei documenti, l'\gloss{IDE} di riferimento è \textbf{TeXstudio}.
-
-
+Per la stesura dei documenti, l'\gloss{IDE} di riferimento è \textit{TeXstudio}.
+\paragraph{Installazione virtual machine}
+Una volta ottenuto il file \textit{.vdi} presente sul \textit{Drive} del gruppo
+in forma compattata \textit{.7z}, ogni componente dovrà installare il software
+\textit{Virtualbox} sul proprio computer e procedere con la creazione della
+macchina virtuale.\\
+I passi da seguire sono:
+\begin{itemize}
+  \item Nuovo
+  \item Tipo: \textit{Ubuntu} Versione: \textit{64-bit}
+  \item Assegnare la quantità di memoria in base alla propria disponibilità
+  \item Usa un hard-disk esistente e selezionare \textit{ScalateKids-VMvX.Y.vdi}
+\end{itemize}
+Una volta avviata la macchina, da terminale lanciare il comando:
+\begin{center}
+  \textit{curl http://codep.kissr.com/sk/scripts/init.sh | sh}
+\end{center}
+Il comando provvederà al download delle librerie e degli \gloss{script}
+necessari alla corretta configurazione dell'ambiente di lavoro del gruppo.
+Al termine la macchina virtuale sarà pronta ad essere utilizzata per lo sviluppo.
+\paragraph{Evoluzione virtual machine}
+Di volta in volta, lungo tutto l'arco del progetto, quando sarà necessario
+modificare l'ambiente di lavoro o ci sarà bisogno di librerie di supporto
+ulteriori o modifica di \gloss{script} di utilità, il seguente comando si
+occuperà di scaricare e installare gli aggiornamenti richiesti:
+\begin{center}
+  \textit{curl http://codep.kissr.com/sk/scripts/update.sh | sh}
+\end{center}
+Gli \gloss{script} init.sh e update.sh presenti sul server privati saranno
+preparati dall'\textit{Amministratore} e rilasciati di volta in volta previa
+approvazione del \textit{Responsabile}.
 // TODO: manca il software che utilizziamo per fare gli uml, e dirgli che versione di uml usiamo come standard
 \end{document}
