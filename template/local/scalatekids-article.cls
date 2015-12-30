@@ -23,12 +23,13 @@
 %% \usepackage{hyperref}
 \usepackage{xspace}
 \usepackage{listings}
-\usepackage{xcolor}
+\usepackage[table]{xcolor}
 \usepackage{changes}
 \usepackage{graphicx}
 \usepackage{subcaption}
 \usepackage{breakurl}
 \usepackage{float}
+\usepackage{titlesec}
 \usepackage{lmodern}
 \usepackage[top=2in, bottom=1.5in, left=0.7in, right=0.7in]{geometry}
 \usepackage{fancyhdr}           % For footer and header of every page
@@ -73,7 +74,8 @@
 \newcommand{\glossDef}[1]{\textbf{#1:}}
 % Change name of Toc to 'Indice'
 \renewcommand{\contentsname}{Indice}
-
+% newpage for every section
+\newcommand{\sectionbreak}{\clearpage}
 \pagestyle{fancy}
 \fancyhf{}
 \lhead{
@@ -92,4 +94,21 @@
   \vspace{9pt}
   \textbf{\huge{#1} }\\
   \rule[0.3pt]{\linewidth}{0.4pt} \\
+}
+% document purpose and glossary standard
+\newcommand{\prodPurpose}{
+  \subsection{Scopo del Prodotto}
+  Implementazione di un database NoSQL di tipo key-value orientato alla gestione
+  di grandi moli di dati utilizzando il modello ad attori su \gloss{JVM},
+  comprensivo di un \textit{domain specific language} (\gloss{DSL}) da utilizzare
+  da riga di comando per poter interagire con il database.\\
+  Il progetto dovrà essere pubblicato su \textit{Github}.
+}
+\newcommand{\glossExpl}{
+  \subsection{Glossario}
+  Tutti i termini di carattere tecnico o fraintendibile e gli acronimi sono
+  raccolti nel file
+  \href{run:~/actorbase/Actorbase-Documents/RR/Esterni/Glossario\_v0.0.1.pdf}{Glossario
+    v0.0.1}; ogni occorrenza di parole nel \textit{Glossario} è indicata da una
+  ``G'' in pedice.
 }

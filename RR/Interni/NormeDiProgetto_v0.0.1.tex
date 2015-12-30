@@ -35,7 +35,7 @@
 \end{flushleft}
 \vspace{0cm}
 \begin{center}
-  \begin{tabular}{|l | l | l | l | l |}
+  \begin{tabular}{| l | l | l | l | l |}
     \hline
     Versione & Autore & Ruolo & Data & Descrizione \\
     \hline
@@ -45,16 +45,21 @@
 \end{center}
 \tableofcontents
 \section{Sommario}
-
+\prodPurpose
+\glossExpl
 \section{Comunicazioni}
 \subsection{Comunicazioni esterne}
 Per le comunicazioni esterne è stata creata una apposita casella di poste elettronica:
 \begin{center}
   scalatekids@gmail.com
 \end{center}
-Questa casella e-mail viene gestita dal \textit{Responsabile di Progetto} che è colui che si occupa di comunicare con il committente del progetto o con qualsiasi altra persona esterna al gruppo di lavoro. E' stata impostata per effettuare l'inolto automatico di tutte le mail in entrata verso gli indirizzi di tutti i
-componenti del gruppo, in modo tale che ognuno possa ricevere una copia della posta in ingresso, tuttavia soltanto il \textit{Responsabile} ha il potere di
-inviare posta in uscita.
+Questa casella e-mail viene gestita dal \textit{Responsabile di Progetto} che è
+colui che si occupa di comunicare con il committente del progetto o con
+qualsiasi altra persona esterna al gruppo di lavoro. E' stata impostata per
+effettuare l'inolto automatico di tutte le mail in entrata verso gli indirizzi
+di tutti i componenti del gruppo, in modo tale che ognuno possa ricevere una
+copia della posta in ingresso, tuttavia soltanto il \textit{Responsabile} ha il
+potere di inviare posta in uscita.
 
 \subsection{Comunicazioni interne}
 \label{sec:Comunicazioni interne}
@@ -141,7 +146,7 @@ Ad ogni riunione verrà dato il compito a uno dei presenti di verbalizzare un ri
 Questa persona avrà poi l'obbligo di condividere il verbale con tutti i componenti sul \textit{Drive} del gruppo e di notificare l'avvenuto caricamento tramite \textit{forum}
 
 \section{Documenti}
-// TODO: bisogna aggiungere la parte in cui diciamo che usiamo una virtualbox per facilitare tutto
+% TODO: bisogna aggiungere la parte in cui diciamo che usiamo una virtualbox per facilitare tutto
 
 \subsection{Struttura dei documenti}
 Abbiamo standardizzato la scrittura di tutti i documenti attraverso un \gloss{template} \LaTeX\xspace creato da noi e presente su \textit{github} nel \gloss{repository} \textit{ActorBase - Documents}.\\
@@ -154,7 +159,7 @@ Il template regola:
 \item Aggiunge comandi personalizzati
 \item Collegamenti tra indice e categorie o sezioni
 \end{itemize}
-// TODO: rivedere cosa regola il template
+% TODO: rivedere cosa regola il template
 
 Ogni documento presenta in ordine:
 \begin{itemize}
@@ -172,7 +177,7 @@ Ogni documento presenta in ordine:
 Abbiamo creato uno script \textit{perl} per la creazione automatica dello scheletro di un generico documento.
 
 \subsection{Struttura Pagina}
-//TODO: controllare che questa struttura delle pagina sia effettivamente così
+% TODO: controllare che questa struttura delle pagina sia effettivamente così
 L'intestazione di ogni pagina contiene:
 \begin{itemize}
 \item Logo gruppo;
@@ -221,7 +226,7 @@ Per uniformare il più possibile la stesura di tutti i documenti abbiamo scelto 
     \begin{center}
       \textbackslash{url{percorso}}
     \end{center}
-  \item Link ad altri PDF: //TODO: dobbiamo decidere come fare sta cosa
+  \item Link ad altri PDF: % TODO: dobbiamo decidere come fare sta cosa
   \item Link a sezioni interne al documento: per link a sezioni interne al documento corrente deve essere utilizzato il documento \LaTeX\xspace
     \begin{center}
       \textbackslash{ref{riferimento a sezione}}
@@ -251,15 +256,15 @@ Per uniformare il più possibile la stesura di tutti i documenti abbiamo scelto 
   \item Nomi dei files: i nomi dei files relativi a documenti devono seguire
     la notazione \textit{\gloss{CamelCase}}, seguiti da \textit{\_v} e dalla
     versione del file (es. NormeDiProgetto\_v1.0.1.pdf);
-  \item Nome del progetto: sarà indicato come \textbf{Actorbase}
-  \item Nome del committente: il committente sarà indicato come \textit{prof. Tullio Vardanega}
-  \item Nome del proponente: il proponente sarà indicato come \textit{prof. Riccardo Cardin}
-  \item Nome del gruppo: il gruppo sarà indicato come \textit{ScalateKids}
+  \item Nome del progetto: sarà indicato come \textbf{Actorbase};
+  \item Nome del committente: il committente sarà indicato come \textit{prof. Tullio Vardanega};
+  \item Nome del proponente: il proponente sarà indicato come \textit{prof. Riccardo Cardin};
+  \item Nome del gruppo: il gruppo sarà indicato come \textit{ScalateKids}.
   \end{itemize}
 \end{itemize}
 
 \subsection{Tabelle}
-//TODO: mettiamo tabelle? se si decidere come uniformarle
+% TODO: mettiamo tabelle? se si decidere come uniformarle
 
 \subsection{Immagini}
 Utilizziamo immagini con formato \textit{JPG} o \textit{PNG}, questi ultimi rendono immediata l'inculsione delle suddette immagini nei documenti.
@@ -283,7 +288,7 @@ in cui:
 \item \textbf{Y}: rappresenta il numero di modifiche sostanziali effettuate sul documento. Se pari a 0 indica che il documento è ancora in fase di stesura in presente revisione;
 \item \textbf{Z}: rappresenta il numero di modifiche minori effettuate sul documento.
 \end{itemize}
-//TODO: spiegare come aumentano ste versioni
+ % TODO: spiegare come aumentano ste versioni
 
 \subsection{Ciclo di vita dei documenti}
 Tutti i documenti nascono nello stato di \textit{in lavorazione}.\\
@@ -302,6 +307,146 @@ verifica, il redattore di ogni sezione nei documenti tassativamente non potrà
 effettuare verifica e approvazione delle parti redatte dallo stesso,
 coerentemente con le strategie scelte nel \textbf{PQ}.
 
+\section{Norme di codifica dei file}
+\subsection{Codifica}
+Tutti i file contenenti codice o documentazione dovranni essere conformi alla
+codifica \gloss{UTF-8}.
+\subsection{Linee guida stilistiche}
+La stesura del codice dovrà seguire pedissequamente alcune regole al fine di
+garantire un buon livello di manutenibilità e verificabilità del prodotto, in
+particolare gli sviluppatori dovranno attenersi alle \textit{Scala Style Guide}
+(\url{https://docs.scala-lang.org/style/}), in particolar modo non possono
+essere infrante le seguenti regole:
+\begin{itemize}
+  \item Lunghezza massima linee 80 caratteri;
+  \item Identazione di 2 spazi;
+  \item Posizionamento di parentesi graffe in linea con il blocco struttura di
+    riferimento;
+\end{itemize}
+Tutti i file contenenti codice dovranno essere redatti in lingua inglese.
+\subsubsection{Nomenclatura}
+I nomi di variabili, metodi e funzioni seguiranno la convenzione
+\textit{\gloss{lowerCamelCase}}, i nomi di classi invece
+\textit{\gloss{UpperCamelCase}}.
+\subsubsection{Ricorsione}
+La ricorsione va evitata il più possibile, per ogni funzione ricorsiva sarà
+necessario fornire una prova di terminazione e il costo in memoria. L'utilizzo
+deve giustificare la spesa in termini di memoria rispetto al risparmio in
+termini di istruzioni.
+\subsubsection{Documentazione}
+% TODO: Cardin: Licenza sull'intestazione di tutti i file?
+I file contenenti codice dovranno seguire le linee guida \gloss{scaladoc}
+\url{https://docs.scala-lang.org/style/scaladoc.html} ed essere provvisti di un
+intestazione contenente:
+\begin{lstlisting}
+  /**
+   * Nome file
+   * Breve descrizione
+   *
+   * @author Autore del file
+   * @version Versione
+   * @date Data di creazione
+   * Descrizione dettagliata del file
+   */
+\end{lstlisting}
+Prima di ogni metodo dovrà essere presente un commento \gloss{scaladoc} contenente:
+\begin{lstlisting}
+  /**
+   * Breve descrizione del metodo
+   *
+   * @param Nome del primo parametro
+   * @param Nome del secondo parametro
+   * @return Valore di ritorno del metodo
+   * @throws Eccezioni lanciate dal metodo
+   */
+\end{lstlisting}
+La documentazione verrà generate da \gloss{scaladoc}, nel caso si verifichi la
+necessità di documentare del codice di difficile comprensione, sarà possibile
+inserire un commento nelle righe precedenti, dopo aver verificato
+l'impossibilità di effettuare un \gloss{refactoring}.
+
+\section{Ruoli di progetto}
+Durante l'intera fase di sviluppo del progetto, dalla formazione del gruppo alla
+Revisione di Accettazione vi saranno alcuni ruoli ben precisi da ricoprire. Si
+tratta di funzioni aziendali assegnate a progetto, specializzate in campi ben
+specifici all'interno dell'azienda. Tra questi ruoli, alcuni avranno maggior
+presenza in determinate fasi del progetto rispetto ad altre, dove addirittura
+potrebbero non figurare definitivamente, ma tutti sono essenziali per il buon
+esito del progetto.\\ Ciascun componente dovrà ricoprire almeno una volta ogni
+ruolo, sarà inoltre possibile ricoprire più ruoli, sia contemporaneamente che in
+distinte fasi del progetto, purchè sia garantita l'assenza di conflitti
+d'interesse nello svolgimento di attività di verifica e approvazione.
+\subsection{Responsabile di Progetto}
+Il \textit{Responsabile di Progetto} rappresenta il progetto presso il fornitore
+e presso il committente, è il ruolo più presente lungo tutto l'arco temporale di
+sviluppo del prodotto in assoluto, in quanto deve partecipare e seguire la
+crescita fino al rilascio del prodotto. Deve avere conoscenze e capacità
+tecniche in modo da comprendere e anticipare l'evoluzione del progetto.\\
+Detiene il potere decisionale e ha resposabilità su:
+\begin{itemize}
+  \item Pianificazione;
+  \item Gestione delle risorse umane;
+  \item Controllo, coordinamento e relazioni esterne;
+  \item Analisi e gestione dei rischi;
+  \item Approvazione dei documenti;
+  \item Approvazione dell'offerta economica;
+\end{itemize}
+Si occupa dunque della distribuzione delle attività, verifica che esse vengano
+portate a termine seguendo le \textit{Norme di Progetto} e controlla che non vi
+siano conflitti d'interesse tra redazione e verifica, ha il compito inoltre di
+risolvere eventuali situazioni critiche tra i componenti del gruppo qualora
+sorgessero conflitti.\\ Redige il \textit{Piano di Progetto} e collabora alla
+stesura del \textit{Piano di Qualifica}.
+\subsection{Analista}
+L'\textit{Analista} è una figura molto presente nelle prime fasi del progetto e
+determina fortemente la buona riuscita del prodotto. Non si occupa della
+soluzione al problema ma deve offrire una specifica di progetto che comprenda
+appieno la natura e la complessità del problema, che possa essere in seguito
+valutata dal \textit{Progettista} al fine di fornire una soluzione.\\ Redige lo
+\textit{Studio di Fattibilità} e l'\textit{Analisi dei Requisiti}, partecipa
+inoltre alla stesura del \textit{Piano di Qualifica}.
+\subsection{Amministratore}
+L'\textit{Amministratore} si occupa di allestire, seguire e migliorare
+l'ambiente di lavoro, le responsabilità principali sono:
+\begin{itemize}
+  \item Amministrazione delle risorse e delle infrastrutture;
+  \item Risoluzione di problemi legati alla gestione dei processi;
+  \item Gestione della documentazione di progetto;
+  \item Controllo di versioni e configurazioni;
+  \item Ricerca di strumenti che possano automatizzare compiti tediosi;
+  \item Ricerca di strumenti che possano semplificare il lavoro di verifica;
+\end{itemize}
+Redige le \textit{Norme di Progetto} e partecipa alla stesura del \textit{Piano
+  di Qualifica}.
+\subsection{Progettista}
+Il \textit{Progettista} è una figura molto legata all'\textit{Analista}, in
+quanto è responsabile delle attività di progettazione, si occupa dunque di
+trovare una soluzione efficace al problema, sfruttando le proprie competenze
+tecniche e tecnologiche sempre aggiornate. Si tratta di un ruolo generalmente
+presente dalla fase di progettazione fino alla fine del progetto.
+\subsection{Programmatore}
+E' responsabile delle attività di codifica e manutenzione del prodotto, gestisce
+inoltre le componenti di ausilio necessarie all'attività di verifica e
+validazione. Hanno competenze tecniche specializzate, ricoprono principalmente
+le seguenti responsabilità:
+\begin{itemize}
+  \item Implementazione delle soluzioni descritte dal \textit{Progettista}
+    seguendone i design pattern proposti;
+  \item Documentare e commentare il codice in modo da renderlo più facilmente
+    manutenibile;
+  \item Implementare dei test utili in fase di verifica e validazione;
+\end{itemize}
+Si occupa della redazione del \textit{Manuale Utente}.
+\subsection{Verificatore}
+La figura del \textit{Verificatore} partecipa alla realizzazione del prodotto per
+tutta la durata assieme al \textit{Responsabile}, possiede grandi capacità di
+giudizio e competenza tecnica, influenza molto fortemente l'aspetto qualitativo
+del prodotto.\\ Ricopre le seguenti responsabilità:
+\begin{itemize}
+  \item Si assicura che le attività seguano le direttive stabilite nelle \textit{Norme di Progetto};
+  \item Controlla la conformità di ogni stadio del ciclo di vita del prodotto.
+\end{itemize}
+Si occupa della redazione del \textit{Piano di Qualifica}.
 \section{Glossario}
 Il glossario è un documento unico per tutti i documenti, esso conterrà tutte le
 definizioni, in ordine lessicografico crescente, dei termini inerenti al tema
@@ -309,13 +454,13 @@ del progetto o che possono essere fraintesi. I termini che dovranno essere
 inseriti nel glossario saranno contrassegnati da una G pedice all'interno dei
 documenti. Prima di inserire un nuovo termine bisogna assicurarsi che non sia
 già presente.\\ Il comando \LaTeX\xspace da utilizzare per contrassegnare un
-termine da glossario all'interno dei documenti è \\gloss, mentre l'inserimento
-di una nuova parola all'interno del glossario è \\glossDef. La scelta di creare
+termine da glossario all'interno dei documenti è \verb=\gloss=, mentre l'inserimento
+di una nuova parola all'interno del glossario è \verb=\glossDef=. La scelta di creare
 un comando apposito per un operazione ``elementare'' è scaturita
 dall'agevolazione che porta alla stesura della documentazione: avendo un modo
 univoco di riconoscere i termini all'interno del glossario, è possibile
 automatizzare il controllo delle parole da glossario all'interno dei
-documenti(vedi sezione \ref{Script di utilità}).
+documenti(vedi sezione \ref{sec:script}).
 
 \section{Ambiente di lavoro}
 \subsection{Apparato di collaborazione}
@@ -333,7 +478,7 @@ I servizi web utilizzati sono:
   \begin{center}
     \url{https://github.com/scalatekids}
   \end{center}
-\item\textbf{Twiddla:} è un sistema che offre una lavagna online condivisa, questo servizio è utilizzato dai membri del gruppo per discutere e lavorare assieme //TODO: non so cosa scrivere su twiddla
+\item\textbf{Twiddla:} è un sistema che offre una lavagna online condivisa, questo servizio è utilizzato dai membri del gruppo per discutere e lavorare assieme % TODO: non so cosa scrivere su twiddla
 \item\textbf{Gantter for Google Drive:} è uno strumento gratuito per la creazione di \gloss{diagrammi di Gantt}, è stato usato per la creazione del Gantt predittivo
 \end{itemize}
 \subsubsection{Server dedicato}
@@ -350,12 +495,12 @@ Offre diverse funzionalità che il gruppo dovrà utilizzare, quali:
 \item\textbf{Sistema di segnalazioni:} un sistema di segnalazioni gestite dall'\textit{Responsabile}, ogni segnalazione rappresenta un task assegnato ad uno o più membri del gruppo, il suo conseguimento servirà per il soddisfacimento di un requisito.
 \item\textbf{Gantt:} \textit{Redmine} costruisce automaticamente un \gloss{diagramma di Gantt} con le segnalazioni create dall'\textit{Responsabile}
 \end{itemize}
-//TODO: potremmo aggiungere dei diagrammi UML2.0 per descrivere come usare redmine...
+% TODO: potremmo aggiungere dei diagrammi UML2.0 per descrivere come usare redmine...
 
 \paragraph{PHPMyAdmin}
 PHPMyAdmin è uno strumento scritto in linguaggio \textit{PHP} che offre una facile amministrazione di \gloss{\textit{database}}.\\
-Questo strumento verrà usato per la creazione di un back-end per la gestione dei requisiti.	//TODO: scrivere qualcosa di più a riguardo?
-//TODO: da integrare se aggiungiamo il front-end
+Questo strumento verrà usato per la creazione di un back-end per la gestione dei requisiti.	% TODO: scrivere qualcosa di più a riguardo?
+% TODO: da integrare se aggiungiamo il front-end
 
 \subsubsection{Versionamento}
 Lo strumento scelto è \gloss{git} principalmente per la grande diffusione negli
@@ -415,6 +560,7 @@ Gli \gloss{script} init.sh e update.sh presenti sul server privati saranno
 preparati dall'\textit{Amministratore} e rilasciati di volta in volta previa
 approvazione del \textit{Responsabile}.
 \paragraph{Script di utilità locali}
+\label{sec:script}
 L'\textit{Amministratore} si è occupato di scrivere alcuni \gloss{script} di utilità
 generale da utilizzare all'interno della macchina virtuale:
 \begin{itemize}
@@ -424,19 +570,19 @@ generale da utilizzare all'interno della macchina virtuale:
     .tex, questi verranno allo stesso modo generati eliminando tutti i file .log
     .aux .out .soc e .toc
   \item\textbf{extgloss:} estrae tutti i termini da glossario contrassegnati da
-    \\gloss dai file del progetto, anche questo comando può essere lanciato con
+    \verb=\gloss= dai file del progetto, anche questo comando può essere lanciato con
     o senza argomenti
   \item\textbf{checkgloss:} genera una lista di file da glossario leggendo il
     file \hyperref{Glossario\_v0.0.1}, in seguito controlla tutti i file del
-    progetto eccetto il glossario, e inserisce il comando \\gloss sui termini
+    progetto eccetto il glossario, e inserisce il comando \verb=\gloss= sui termini
     contenuti in lista trovati nei file. Con argomenti esegue le medesime
     operazioni soltato sui file .tex scelti.
+\end{itemize}
 \paragraph{Script di utilità remoti}
 Questi script, \textbf{init.sh} e \textbf{update.sh}, risiederanno sul server
 privato, e avranno rispettivamente lo scopo esclusivo di inizializzare e
 aggiornare l'ambiente di lavoro della virtual machine.
-\end{itemize}
-// TODO: manca il software che utilizziamo per fare gli uml, e dirgli che versione di uml usiamo
+% TODO: manca il software che utilizziamo per fare gli uml, e dirgli che versione di uml usiamo
 come standard
 
 \section{Redmine}
