@@ -263,20 +263,32 @@ Per ogni possibile rischio previsto l'analisi ha fornito i seguenti parametri:
   \centering
   \scriptsize
   \caption{Tabella Analisi dei Rischi}
-  \begin{tabular}{|m{2cm}|m{2cm}|m{2cm}|m{2cm}|m{2cm}|}
+  \begin{tabular}{|m{1cm}|m{3cm}|m{3cm}|m{3cm}|m{3cm}|}
     \hline
     & \multicolumn{4}{|c|}{\textbf{Probabilità}}\\
-    \hline \bf Impatto & \bf 2-Bassa & \bf 3-Media & \bf 4-Alta & \textbf{5-Molto alta}\\[10pt]
-
-    \hline \bf 4-Molto Forte & \cellcolor{red!50} & \cellcolor{red!50} & \cellcolor{red!50} &\cellcolor{red!50} Inesperienza\\ [10pt]
-
-    \hline \bf 3-Forte & \cellcolor{yellow!50}Guasti hardware & \cellcolor{yellow!50} & \cellcolor{red!50}Tecnologia di impiego &\cellcolor{red!50} \\ [10pt]
-
-    \hline \bf 2-Medio & \cellcolor{green!50} & \cellcolor{yellow!50} &\cellcolor{yellow!50} &\cellcolor{red!50} \\ [10pt]
-
-    \hline \bf 1-Debole & \cellcolor{green!50} & \cellcolor{green!50} &\cellcolor{yellow!50}Ambiente di lavoro non omogeneo &\cellcolor{yellow!50}Impegni personali \\ [10pt]
+    \hline
+    \bf Impatto & \bf Bassa & \bf Media & \bf Alta & \textbf{Molto alta} \\
+    \hline
+    \bf Molto Forte & \cellcolor{red!50} & \cellcolor{red!50} & \cellcolor{red!50} &\cellcolor{red!50} Inesperienza \\
+    \hline
+    \bf Forte & \cellcolor{yellow!50}Guasti hardware & \cellcolor{yellow!50} & Analisi requisiti \cellcolor{red!50}Tecnologia di impiego &\cellcolor{red!50} \\
+    \hline
+    \bf Medio & \cellcolor{green!50}Dissensi tra componenti & \cellcolor{yellow!50} &\cellcolor{yellow!50} &\cellcolor{red!50} \\[8pt]
+    \hline
+    \bf Debole & \cellcolor{green!50} & \cellcolor{green!50} &\cellcolor{yellow!50}Ambiente di lavoro non omogeneo &\cellcolor{yellow!50}Impegni personali \\
     \hline
   \end{tabular} \\
+\end{table}
+\begin{table}[H]
+  \centering
+  \caption{Legenda colorazione rischi}
+  \begin{tabular}{|c|l|}
+    \hline \bf Colore & \bf Legenda \\
+    \hline \cellcolor{red! 50} & Rischio non accettabile - riduzione obbligatoria \\
+    \hline \cellcolor{yellow! 50} & Rischio accettabile. Considerare una riduzione. \\
+    \hline \cellcolor{green! 50} & Accettabile. \\
+    \hline
+  \end{tabular}
 \end{table}
 \paragraph{Impegni personali}
 \textbf{Categoria}: Logistica\\
