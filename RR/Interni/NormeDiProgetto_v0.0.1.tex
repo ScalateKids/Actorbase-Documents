@@ -57,6 +57,7 @@ componenti del gruppo, in modo tale che ognuno possa ricevere una copia della po
 inviare posta in uscita.
 
 \subsection{Comunicazioni interne}
+\label{sec:Comunicazioni interne}
 Per le comunicazioni interne verrà utilizzato un \gloss{forum} apposito su
 \textit{Redmine} (vedi sezione \ref{Redmine}), suddiviso in quattro sezioni
 principali corrispondenti alle revisioni di avanzamento del progetto:
@@ -407,4 +408,76 @@ Gli \gloss{script} init.sh e update.sh presenti sul server privati saranno
 preparati dall'\textit{Amministratore} e rilasciati di volta in volta previa
 approvazione del \textit{Responsabile}.
 // TODO: manca il software che utilizziamo per fare gli uml, e dirgli che versione di uml usiamo come standard
+
+\section{Redmine}
+Questo capitolo è un tutorial su come usare correttamente \textit{Redmine}.
+Questo software offre una vasta gamma di servizi molto utili per la gestione di un progetto, noi in particolare useremo il \textit{forum}, la sezione wiki ed il sistema di segnalazioni che automaticamente costruisce il diagramma di \textit{Gantt}. Tramite installazioni di \gloss{plugin} è possibile aggiungere funzionalità. Se un componente del gruppo ritenga necessaria l'installazione di un \gloss{plugin}, costui può proporla al \textit{Responsabile di Progetto} il quale affiderà il compito ad un \textit{Amministratore} se la riterrà una funzionalità utile.
+\subsection{Creare un sottoprogetto}
+La creazione di sottoprogetti è molto utile per mantenera una chiara divisione funzionale tra le attività, la creazione di un sottoprogetto è molto semplice come si vede in figura sottostante
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=1\textwidth]{/home/kids/bin/img/tutorialsRedmine/creaproj1.png}
+  \caption{come creare un sottoprogetto - figura 1}
+\end{figure}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=1\textwidth]{/home/kids/bin/img/tutorialsRedmine/creaproj2.jpg}
+  \caption{come creare un sottoprogetto - figura 2\label{fig:figura-2}}
+\end{figure}
+Come si può vedere in figura \ref{fig:figura-2} si dovrà completare un form con i dati necessari per la creazione del progetto.
+\subsection{Scrivere sul Forum}
+Si può partecipare al forum rispondendo a messaggi o creandone di nuovi
+\subsubsection{Creare un messaggio}
+Per creare un nuovo messaggio basta andare nel \gloss{topic} desiderato e seguire la procedura come illustrato nelle seguenti immagini
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=1\textwidth]{/home/kids/bin/img/tutorialsRedmine/creamessaggio1.png}
+  \caption{come creare un messaggio - figura 1}
+\end{figure}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=1\textwidth]{/home/kids/bin/img/tutorialsRedmine/creamessaggio2.jpg}
+  \caption{come creare un messaggio - figura 2}
+\end{figure}
+Per la corretta creazione di un messaggio è necessario seguire le norme scritte nella sezione \ref{sec:Comunicazioni interne}
+\subsubsection{Rispondere ad un messaggio}
+Per rispondere ad un messaggio presente nel forum è necessario aprire il messaggio voluto e premere su \textbf{Rispondi}, automaticamente ci verrà presentato un form \textit{pre compilato} in cui dovremo solamente inserire il corpo della nostra risposta.
+\subsection{Gestione delle segnalazioni}
+Una segnalazione rappresenterà un \gloss{task} che il \textit{Responsabile} assegnerà ad uno o più membri del gruppo, questi \gloss{task} possono essere anche suddivisi in diverse sotto attività più semplici.
+Il sistema di segnalazioni è la cosa più importante di \textit{Redmine}, perciò solamente il \textit{Responsabile di Progetto} ha il potere di creare nuove segnalazioni così da mantenere ordine nel progetto. \\Gli altri membri del gruppo potranno invece aggiornare le segnalazioni assegnate ad essi.
+\subsubsection{Creare una segnalazione}
+Il \textit{Responsabile di Progetto} può creare nuove segnalazioni facendo come illustrato nelle seguenti immagini
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=1\textwidth]{/home/kids/bin/img/tutorialsRedmine/creasegn1.png}
+  \caption{come creare un segnalazione - figura 1}
+\end{figure}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=1\textwidth]{/home/kids/bin/img/tutorialsRedmine/creasegn2.jpg}
+  \caption{come creare una segnalazione - figura 2\label{fig:crea-segnalazione-2}}
+\end{figure}
+Come possiamo vedere in figura \ref{fig:crea-segnalazione-2} ci sono diversi campi da compilare:
+\begin{itemize}
+  \item \textbf{Tracker:} lasciare selezionato Segnalazione
+  \item \textbf{Oggetto:} l'oggetto della segnalazione, questo deve essere breve e non equivocabile
+  \item \textbf{Descrizione:} descrizione dettagliata dell'attività da svolgere
+  \item \textbf{Stato:} se è una nuova segnalazione deve rimanere \textit{nuovo}, altrimenti è possibile scegliere altre opzioni, di solito lo stato viene cambiato dall'intestatario della segnalazione stessa
+  \item \textbf{Assegnato a:} la persona che deve svolgere l'attività
+  \item \textbf{Attività principale:} se questa è una sotto \gloss{task} di un altra qui bisogna inserire l'identificatore del \gloss{task} padre
+  \item \textbf{Inizio:} data in cui deve iniziare l'attività
+  \item \textbf{Fine:} data in cui l'attività deve essere completata
+  \item \textbf{Tempo stimato:} il numero di ore stimato in cui si dovrebbe completare questa attività
+  \item \textbf{\% completato:} la percentuale di completamento dell'attività, anche questo parametro di solito viene utilizzato dal membro del gruppo che lavora si questa attività.
+\end{itemize}
+\subsubsection{Aggiornare una segnalazione}
+Il lavoro di aggiornamento di una segnalazione deve essere svolto dai vari membri del gruppo che lavorano alla segnalazione stessa.\\
+Ad ogni avanzamento fatto relativo ad una attività si deve aggiornare la segnalazione relativa ad essa. Per fare ciò bisogna entrare nella pagina personale di \textit{Redmine} e nella sezione \textbf{Le mie segnalazioni} selezionare la segnalazione desiderata, quindi premere su \textbf{Modifica}.
+La schermata che ci si presenterà davanti è come quella descritta in figura \ref{fig:crea-segnalazione-2}, si dovrà quindi aggiornare lo \textbf{stato} (se cambiato), la \textbf{\% completata}, aggiungere inoltre il \textbf{tempo impiegato} e c'è la possibilità di inserire un testo libero, questo può essere utile per spiegare cosa si è fatto. 
+\subsection{Modificare la Wiki}
+La sezione Wiki di \textit{Redmine} può essere molto utile, in pratica è uno spazio in cui si può scrivere del test libero, inserire immagini o altro.\\
+Noi abbiamo deciso di usarla come raccoglitore di link a guide inerenti al nostro progetto.
+Per contribuire alla nostra Wiki basta solamente andare nella suddetta sezione e premere su \textbf{modifica}. Ci si presenterà un editor di testo in cui è possibile modificare o semplicemente aggiungere del testo.
+%TODO: forse solo il responsabile dovrebbe poter modificarla? 
+%TODO: se uno la cancella?
 \end{document}
