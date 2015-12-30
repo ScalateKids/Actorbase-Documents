@@ -49,128 +49,125 @@
 \end{center}
 \tableofcontents
 \section{Sommario}
-\subsection{Descrizione}
-Questo documento mira ad esporre le considerazioni fatte nelle prime riunioni
-del gruppo per analizzare e decidere quale capitolato scegliere e le motivazioni
-derivanti che ci hanno spinto nella nostra scelta.
-
-\subsection{Scopo del Prodotto}
-Lo scopo del progetto è implementare un database \gloss{NoSQL} distribuito (di
-tipo \gloss{key-value}) basato sul modello ad \gloss{attori}. Si richiede inoltre
-la definizione di un \gloss{domain specific language} (DSL) da utilizzare da riga
-di comando per poter interagire con il database.
-\subsection{Glossario}
-Abbiamo implementato un Glossario per spiegare e evitare ambiguità di
-linguaggio dei documenti. Nello specifico sono stati inseriti nel glossario:
-acronimi, termini tecnici, abbreviazioni e vocaboli che possono richiedere
-ulteriori chiarimenti.
+\subsection{Scopo del documento}
+Questo documento racchiude le considerazioni emerse durante la fase di analisi per la scelta del capitolato.
+Vengono quindi elencati nei capitoli a seguire le descrizioni dei capitolati proposti con annessi vantaggi e svantaggi pensati da tutti i membri del gruppo.
+\prodPurpose
+\glossExpl
+\subsection{Riferimenti}
+\subsubsection{Normativi}
+\begin{itemize}
+  \item \href{run:NormeDiProgetto_v0.0.1.text}{\textbf{Norme di progetto v1.0.0}}
+\end{itemize}
+\sunsunsection{Informativi}
+\begin{itemize}
+  \item \textbf{Capitolato 1:} Actorbase - a NoSQL DB based on the Actor model\\
+  \url{http://www.math.unipd.it/~tullio/IS-1/2015/Progetto/C1.pdf}
+  \item \textbf{Catpiolato 2:} CLIPS - Communication & Localisation with Indoor Positioning Systems\\
+  \url{http://www.math.unipd.it/~tullio/IS-1/2015/Progetto/C2.pdf}
+  \item \textbf{Capitolato 3:} UMAP - un motore per l'analisi predittiva in ambiente Internet of Things \\
+  \url{http://www.math.unipd.it/~tullio/IS-1/2015/Progetto/C3.pdf}
+  \item \textbf{Capitolato 4:} Maas - MondoDB as an admin Service \\
+  \url{http://www.math.unipd.it/~tullio/IS-1/2015/Progetto/C4.pdf}
+  \item \textbf{Capitolato 5:} Quizzipedia - software per la gestione di questionari \\
+  \url{http://www.math.unipd.it/~tullio/IS-1/2015/Progetto/C5.pdf}
+  \item \textbf{Capitolato 6:} SiVoDiM - Sintesi Vocale per Dispositivi Mobili \\
+  \url{http://www.math.unipd.it/~tullio/IS-1/2015/Progetto/C6.pdf}
+\end{itemize}
 
 \section{Analisi capitolato scelto}
-
 Riferimento: \url{http://www.math.unipd.it/~tullio/IS-1/2015/Progetto/C1.pdf}\\
-
-\subsection{Sommario e descrizione capitolato}
-Si è scelto il capitolato proposto dal \textit{professor Riccardo Cardin}; il capitolato
-prevede la creazione di un database \gloss{NoSQL} distribuito di tipo \gloss{key-value} basato
-sul modello ad attori e la definizione di un linguaggio specifico per poter
-interagire con tale database da riga di commando.
-
-\subsection{Studio del capitolato}
-Questo progetto racchiude più domini di conoscenza tra i quali certamente
-consideriamo più importanti il modello ad \gloss{attori}, i database di tipo
-\gloss{key-value} e il concetto di distribuzione/concorrenza.
-
-\subsection{Riscontro possibile nel mondo reale}
-Da diversi anni a questa parte per modelli di distribuzione molto grandi i
-database a modello \gloss{Relazionale} sono stati "scavalcati" da altri tipi di
-database NoSQL tra cui i database \gloss{key-value} poichè possiedono diverse
-proprietà atte ad implementare diverse strutture applicative. Uno dei più
-importanti database di questo tipo al momento è sicuramente \gloss{Amazon Dynamo}.
-//TODO: sicuramente da analizzare più profondamente il capitolato scelto....
-
-\subsection{Riscontro possibile nel mondo reale}
-Da diversi anni a questa parte per modelli di distribuzione molto grandi i
-database a modello \gloss{Relazionale} sono stati "scavalcati" da altri tipi di
-database \gloss{NoSQL} tra cui i database \gloss{key-value} poichè possiedono altre
-proprietà atte ad implementare diverse strutture applicative. Uno dei più
-importanti \gloss{database} di questo tipo al momento è sicuramente \gloss{Amazon DynamoDB}.
->>>>>>> b58f32b3592adb8d825027a3658e9b9728838779
-Troviamo quindi molto attuale e stimolante la realizzazione di un progetto come
-questo.
-
-\subsection{Tecnologie}
+\subsection{Fattori positivi}
 \begin{itemize}
-\item Scala e più in particolare la libreria \gloss{AKKA} per l'implementazione del modello ad attori
+  \item \textbf{Modernità:} il capitolato in questione prevede la costruzione di un database \gloss{NoSQL} distribuito di tipo \gloss{key-value} basato sul \gloss{modello ad attori} e la definizione di un linguaggio specifico per poter interagire con tale database da riga di comando.\\
+  Nel corso degli ultimi anni per la creazione di sistemi distribuiti di dimensioni molto grandi i database di questo tipo sembrano essere i migliori, \textit{Amazon DynamoDB} può essere preso come modello, perciò il gruppo ha pensato che la realizzazione di un prodotto come questo possa avere un riscontro nel mondo reale e possa apportare un motivo di vanto da aggiungere al proprio \textit{CV};
+  \item \textbf{Domini:} questo progetto racchiude più domini di conoscenza tra i quali certamente consideriamo più importanti il \gloss{modello ad attori}, i database \gloss{NoSQL} di tipo \gloss{key-value} e il concetto di distribuzione/concorrenza. \\
+  Pensiamo siano tutti concetti molto utili da apprendere;
+  \item \textbf{Tecnolgie:} le tecnologie da utilizzare sono attuali e tutto il gruppo le trova interessanti e utili da imparare. Le principali tecnologie da imparare saranno il linguaggio \textit{Scala} e la sua libreria \textit{AKKA} per l'implementazione del \gloss{modello ad attori};
+  \\TODO: altre tecnologie? il db?\\
+  \item \textbf{Chiarezza:} il progetto è stato presentato molto bene e in modo chiaro, sono ben distinti i requisiti obbligatori da quelli desiderabili e quelli opzionali.
 \end{itemize}
-//TODO: aggiungere altre tecnologie inerenti
-
-\subsection{Possibili difficoltà o problemi}
-Nessun membro del gruppo ha mai studiato o lavorato con le tencnologie
-richieste, in particolare \gloss{Scala} e la libreria \gloss{Akka}. Quindi pensiamo non sarà
-facile acquisire la padronanza di queste tecnologie e tanto meno padroneggiare il
-funzionamento e concetto del modello ad attori. Nessuno di noi, inoltre, ha mai
-creato un dominio specifico per l'interazione con un proprio prodotto.
-
-\subsection{Valutazione finale}
-Abbiamo scelto questo capitolato principalmente per i seguenti motivi:
+\subsection{Criticità}
 \begin{itemize}
-\item Interesse del gruppo per le tecnologie richieste e per la modernità del prodotto che si andrà a creare.
-\item Interesse per il concetto del modello ad attori.
-\item Le esperienze e le conoscenze di tecnologie che si avranno acquisito a fine progetto riteniamo potranno essere utili a fini di curriculum e nel mondo lavorativo.
-\end{itemize}
-D'altra parte il gruppo ha pensato ai seguenti riscontri negativi:
-\begin{itemize}
-\item Conoscenza abbastanza scarsa del gruppo nell'utilizzo di tali tecnologie e degli argomenti in generale.
-\item Quantità di lavoro difficilmente prevedibile proprio per la mancanta conoscenza dell'ambito descritto.
+  \item \textbf{Scarsa conoscenza preliminare:} nessun componente del gruppo ha mai lavorato o studiato con \textit{Scala} o con \textit{AKKA}. Pensiamo quindi che non sarà facile acquisire la padronanza di queste tecnologie in breve tempo.
+  Stessi possibili problemi per la realizzazione di un database basato sul \gloss{modello ad attori} e per la creazione di un \gloss{DSL}.  
 \end{itemize}
 
 \section{Analisi altri capitolati}
 \subsection{C2 CLIPS}
 Riferimento: \url{http://www.math.unipd.it/~tullio/IS-1/2015/Progetto/C2.pdf}\\
-Abbiamo trovato la spiegazione del capitolato un pò vaga e lo scopo prefissato
-dal fornitore sembra essere molto esplorativo in quanto viene richiesto di
-ricercare nuove idee di utilizzo per i dispositivi \gloss{Beacon}. Inoltre l'uso di
-questi ultimi necessita un grande dispendio di risorse per i dispositivi mobili
-dell'utente finale poichè devrà essere installata e aperta l'applicazione ed
-attivata la localizzazione gps e la rete dati mobile. Troviamo, dunque, un pò
-immatura tale tecnologia.
+\subsubsection{Fattori positivi}
+\begin{itemize}
+  \item \textbf{Tecnologie interessanti:} i \gloss{Beacon} possono essere una cosa molto presente nel futuro, la creazione di città smart nel futuro è una possibilità, così come troviamo interessante partecipare alla creazione di un progetto pertinente alla \gloss{IoT}.
+\end{itemize}
+\subsubsection{Criticità}
+\begin{itemize}
+  \item \textbf{Chiarezza:} abbiamo trovato la spiegazione del capitolato un pò vaga, in particolare lo scopo prefissato sembra essere molto esplorativo in quanto viene richiesto di ricercare nuove idee di utilizzo per i dispositivi \gloss{Beacon}. Pensiamo che questo possa causare un allungamento del tempo necessario per lo sviluppo del progetto;
+  \item \textbf{Tecnologia immatura:} come è stato spiegato durante la presentazione del capitolato per l'uso di questi \gloss{Beacon} è necessario che siano verificati i seguenti requisiti:
+  \begin{itemize}
+    \item Applicazione installata e \textit{in esecuzione};
+    \item Geolocalizzazione attivata;
+    \item Bluetooth attivato;
+    \item Rete dati mobile attivata.
+  \end{itemize}
+  Questo comporta a nostro avviso un grande dispendio di risorse per i dispositivi mobili dell'utente finale e lo troviamo un grosso fattore penalizzante.
+\end{itemize}
+
 \subsection{C3 Internet of Things}
 Riferimento: \url{http://www.math.unipd.it/~tullio/IS-1/2015/Progetto/C3.pdf}\\
-Nonostante le tecnologie proposte fossero di interesse per il gruppo abbiamo
-deciso di non optare per questo capitolato per via della sua ambiguità, la
-grande quantità di tecnologie da imparare e per la mole di lavoro, secondo noi,
-troppo onerosa.
+\subsubsection{Fattori positivi}
+\begin{itemize}
+  \item \textbf{Dominio:} capitolato molto improntato sull'\gloss{IoT}, come già scritto in precedenza questo ambito applicativo è di forte interesse per tutto il gruppo, è sicuramente un ambito moderno e presenta sicuri sviluppi futuri. Inoltre pensiamo che il progetto sia prestigioso e che contribuirebbe sicuramente in positivo in un CV;
+  \item \textbf{Tecnologie:} il capitolato presenta una vasta quantità di tecnologie da utilizzare, diversi linguaggi di programmazione e la costruzione di molti apparati che dovranno poi interagire tra loro, citiamo ad esempio tra le richieste \textit{mongoDB}, \textit{Scala}, \textit{python}, \textit{html5}, \textit{nodejs} e altri ancora. L'apprendimento di tutte le tecnologie richieste è sicuramente di nostro interesse;
+  \item \textbf{Algoritmo predittivo:} lo sviluppo di un algoritmo predittivo in grado di analizzare i dati provenienti da vari oggetti per fornire previsioni su possibili guasti è molto affascinante.
+\end{itemize}
+\subsubsection{Criticità}
+\begin{itemize}
+  \item \textbf{Mole di lavoro:} il capitolato sembra essere molto vasto, ci sono molte cose da implementare, deve poter ricevere dati eterogenei ed è richiesto lo sviluppo dell'algoritmo predittivo, carico di lavoro eccessivo;
+  \item \textbf{Chiarezza:} la spiegazione non è stata delle migliori, forse dovuto anche alla grande quantità di informazioni necessaria, il gruppo non ha chiaro al cento per cento cosa si deve sviluppare
+\end{itemize}
+
 \subsection{C4 MaaS}
-Riferimento: \url{http://www.math.unipd.it/~tullio/IS-1/2015/Progetto/C4.pdf}\\ Il
-gruppo ha trovato questo capitolato poco stimolante dato che l'obbietivo finale
-del progetto richiede la trasformazione da programma a servizio di un software
-già esistente.
+Riferimento: \url{http://www.math.unipd.it/~tullio/IS-1/2015/Progetto/C4.pdf}\\ 
+\subsubsection{Fattori positivi}
+\begin{itemize}
+  \item \textbf{Chiarezza:} il capitolato è stato esposto molto bene e gli obbiettivi sono chiari e definiti;
+  \item \textbf{Mole di lavoro:} crediamo che questo sia il capitolato in cui è più definibile la quantità di lavoro da fare, il che può aiutare a fare una buona pianificazione;
+  \item \textbf{Tecnologie e prestigio:} le tecnologie richieste sono di interesse ai membri del gruppo, inoltre il servizio che si andrebbe a creare molto probabilmente sarebbe utilizzato con certezza da qualcuno, il che lo renderebbe una buona esperienza da aggiungere al proprio CV. 
+\end{itemize}
+\subsubsection{Criticità}
+\begin{itemize}
+  \item \textbf{Interesse:} sebbene il capitolato abbia fattori di interesse il gruppo ha trovato poco stimolante lo sviluppo del progetto proposto, in particolare l'idea di trasformare un programma in un servizio. 
+\end{itemize}
+
 \subsection{C5 Quizzipedia}
 Riferimento: \url{http://www.math.unipd.it/~tullio/IS-1/2015/Progetto/C5.pdf}\\
-Abbiamo trovato anche questo capitolato poco stimolante e le tecnologie
-richieste sono quasi tutte già apprese da altri esami del corso di laurea.
-Inoltre abbiamo trovato molti servizi web per la creazione di quiz online simili
-a quello richiesto perciò non riteniamo questo essere un prodotto interessante
-per il mercato. L'unica nota positiva e "sfidante" è il requisito opzionale,
-ovvero la possibilità di gestire domande aperte; questo da solo non giustifica
-la scelta del capitolato.
-Qualche esempio:
+\subsubsection{Fattori positivi}
 \begin{itemize}
-\item\url{https://www.onlinequizcreator.com/it/}
-\item\url{www.proprofs.com/quiz-school/create-a-quiz.php}
-\item\url{http://www.poll-maker.com/QuizMaker}
+  \item \textbf{Chiarezza:} il capitolato è stato esposto molto bene, gli obbiettivi sono chiari e definiti;
+  \item \textbf{Mole di lavoro:} anche questo capitolato come il precedente descritto richiede una quantità di lavoro secondo il gruppo più facile da predirre, inoltre pensiamo sia il progetto con una quantità di lavoro minore da svolgere poichè le tecnologie richieste sono pressoché tutte già viste in precedenza;
 \end{itemize}
+\subsubsection{Criticità}
+\begin{itemize}
+  \item \textbf{Tecnologie:} quasi la totalità delle tecnologie sono già viste dalla maggior parte dei membri del gruppo, questo risulta essere un punto a sfavore poichè vorremmo tutti imparare tecnologie nuove;
+  \item \textbf{Mercato:} nel mercato sono già presenti tantissimi software per la creazione di quiz di ogni tipo, questo ha fatto pensare al gruppo che difficilmente si riuscirà a creare un applicazione di successo, qualche esempio:
+  \begin{itemize}
+    \item\url{https://www.onlinequizcreator.com/it/};
+    \item\url{www.proprofs.com/quiz-school/create-a-quiz.php};
+    \item\url{http://www.poll-maker.com/QuizMaker}.
+  \end{itemize}
+\end{itemize}
+
 \subsection{C6 SiVoDim}
 Riferimento: \url{http://www.math.unipd.it/~tullio/IS-1/2015/Progetto/C6.pdf}\\
-Questo capitolato era la seconda opzione di scelta emersa dalla riunione del gruppo.
-Lati positivi:
+\subsubsection{Fattori positivi}
 \begin{itemize}
-\item Interesse nelle tecnologie mobile.
-\item Spiegazione e obbiettivi del capitolato molto chiari.
+  \item{Tecnologie:} interessante e molto attuale l'apprendimento di tecnologie mobile, sempre più richieste nel mercato attuali applicazioni mobile (soprattutto multipiattaforma);
+  \item{Chiarezza:} progetto presentato e spiegato molto chiaramente, obbiettivi molto netti
 \end{itemize}
-Lati negativi:
+\subsubsection{Criticità}
 \begin{itemize}
-\item Scarsa conoscenza delle tecnologie mobile.
-\item Grande differenza tra requisiti obbligatori e requisiti opzionali/desiderabili.
+  \item{Conoscenze preliminari e mole di lavoro:} nessun componente del gruppo ha mai studiato o lavorato in ambiente mobile, per cui sebbene le tecnologie sono di interesse risulta essere molto più difficile fare una previsione del lavoro necessario per portare a termine un progetto come questo;
+  \item{Disparità negli obbiettivi:} sebbene gli obbiettivi sono molto chiari risulta esserci una grossa discrepanza di mole di lavoro tra obbiettivi minimi e obbiettivi desiderabili
 \end{itemize}
 \end{document}
