@@ -224,12 +224,15 @@ Per uniformare il più possibile la stesura di tutti i documenti abbiamo scelto 
   \begin{itemize}
   \item Percorsi web: per gli indirizzi web e per gli inidirizzi e-mail deve essere usato il comando \LaTeX\xspace
     \begin{center}
-      \textbackslash{url{percorso}}
+      \verb=\url{percorso}=
     \end{center}
-  \item Link ad altri PDF: % TODO: dobbiamo decidere come fare sta cosa
+  \item Link ad altri PDF: 
+    \begin{center}
+      \verb=\href{run:<pathToPDF>/<namefile.pdf>}{<name of the link>}=
+    \end{center}
   \item Link a sezioni interne al documento: per link a sezioni interne al documento corrente deve essere utilizzato il documento \LaTeX\xspace
     \begin{center}
-      \textbackslash{ref{riferimento a sezione}}
+      \verb=\ref{riferimento a sezione}=
     \end{center}
   \end{itemize}
 \item \textbf{Date}: Le date devono essere espresse seguento lo standard \textit{\gloss{ISO}} 8601:2004:
