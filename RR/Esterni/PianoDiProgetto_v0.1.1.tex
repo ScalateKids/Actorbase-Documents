@@ -245,11 +245,14 @@ Per ogni possibile rischio previsto l'analisi ha fornito i seguenti parametri:
   \item\textbf{Basso}
   \item\textbf{Medio}
   \item\textbf{Alto}
+  \item\textbf{Molto alto}
   \end{itemize}
 \item\textbf{Impatto}: Grado di pericolosità dello scenario indesiderato, può
   assumere i seguenti valori:
   \begin{itemize}
+  \item\textbf{Molto Forte}
   \item\textbf{Forte}
+  \item\textbf{Medio}
   \item\textbf{Debole}
   \end{itemize}
 \item\textbf{Descrizione}: Una descrizione del caso preso in considerazione.
@@ -260,18 +263,18 @@ Per ogni possibile rischio previsto l'analisi ha fornito i seguenti parametri:
   \centering
   \scriptsize
   \caption{Tabella Analisi dei Rischi}
-  \begin{tabular}{|m{2cm}|m{2cm}|m{2cm}|m{2cm}|m{2cm}|m{2cm}|}
+  \begin{tabular}{|m{2cm}|m{2cm}|m{2cm}|m{2cm}|m{2cm}|}
     \hline
-    & \multicolumn{5}{|c|}{\textbf{Probabilità}}\\
-    \hline \bf Impatto & \bf 1-Bassissima & \bf 2-Bassa & \bf 3-Media & \bf 4-Alta & \textbf{5-Altissima}\\[10pt]
+    & \multicolumn{4}{|c|}{\textbf{Probabilità}}\\
+    \hline \bf Impatto & \bf 2-Bassa & \bf 3-Media & \bf 4-Alta & \textbf{5-Molto alta}\\[10pt]
 
-    \hline \bf 4-Molto Forte & \cellcolor{yellow!50} & \cellcolor{red!50} & \cellcolor{red!50} & \cellcolor{red!50} &\cellcolor{red!50} Inesperienza\\ [10pt]
+    \hline \bf 4-Molto Forte & \cellcolor{red!50} & \cellcolor{red!50} & \cellcolor{red!50} &\cellcolor{red!50} Inesperienza\\ [10pt]
 
-    \hline \bf 3-Forte &\cellcolor{green!50} & \cellcolor{yellow!50}Guasti hardware & \cellcolor{yellow!50} & \cellcolor{red!50}Tecnologia di impiego &\cellcolor{red!50} \\ [10pt]
+    \hline \bf 3-Forte & \cellcolor{yellow!50}Guasti hardware & \cellcolor{yellow!50} & \cellcolor{red!50}Tecnologia di impiego &\cellcolor{red!50} \\ [10pt]
 
-    \hline \bf 2-Medio & \cellcolor{green!50} & \cellcolor{green!50} & \cellcolor{yellow!50} &\cellcolor{yellow!50} &\cellcolor{red!50} \\ [10pt]
+    \hline \bf 2-Medio & \cellcolor{green!50} & \cellcolor{yellow!50} &\cellcolor{yellow!50} &\cellcolor{red!50} \\ [10pt]
 
-    \hline \bf 1-Debole & \cellcolor{green!50} & \cellcolor{green!50} & \cellcolor{green!50} &\cellcolor{yellow!50}Ambiente di lavoro non omogeneo &\cellcolor{yellow!50}Impegni personali \\ [10pt]
+    \hline \bf 1-Debole & \cellcolor{green!50} & \cellcolor{green!50} &\cellcolor{yellow!50}Ambiente di lavoro non omogeneo &\cellcolor{yellow!50}Impegni personali \\ [10pt]
     \hline
   \end{tabular} \\
 \end{table}
