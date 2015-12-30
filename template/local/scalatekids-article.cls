@@ -69,6 +69,8 @@
 \renewcommand{\footrulewidth}{0.4pt}
 % new command for glossary words
 \newcommand{\gloss}[1]{#1\textsubscript{\textit{\tiny{G}}}}
+% new command for glossary definitions inside glossary file
+\newcommand{\glossDef}[1]{\textbf{#1:}}
 % Change name of Toc to 'Indice'
 \renewcommand{\contentsname}{Indice}
 
