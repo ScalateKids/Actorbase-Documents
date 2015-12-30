@@ -121,16 +121,16 @@ tre fasi principali che rappresentano l'intero ciclo di sviluppo del prodotto.\\
 // TODO: da proseguire\\
 Esse sono:
 \begin{itemize}
-    \item\textbf{Analisi:} Rappresenta la prima fase del progetto, dalla
-    pubblicazione dei capitolati d'appalto all'inizio della fase di progettazione,
-    comprensiva di una fase di incremento, ove vengono risolti i possibili dubbi
-    emersi in prima stesura.
-    \item\textbf{Progettazione:} Segue la fase di Analisi, e racchiude il lasso
-    temporale dedicato alla progettazione dell'architettura sulla base dei requisiti
-    emersi. Comprende anche lo studio di \gloss{design pattern} congrui alla realizzazione
-    del prodotto.
-    \item\textbf{Codifica:} L'ultima delle tre fasi identificate, comprende la stesura
-    del codice secondo le direttive emerse in fase di progettazione.
+\item\textbf{Analisi:} Rappresenta la prima fase del progetto, dalla
+  pubblicazione dei capitolati d'appalto all'inizio della fase di progettazione,
+  comprensiva di una fase di incremento, ove vengono risolti i possibili dubbi
+  emersi in prima stesura.
+\item\textbf{Progettazione:} Segue la fase di Analisi, e racchiude il lasso
+  temporale dedicato alla progettazione dell'architettura sulla base dei requisiti
+  emersi. Comprende anche lo studio di \gloss{design pattern} congrui alla realizzazione
+  del prodotto.
+\item\textbf{Codifica:} L'ultima delle tre fasi identificate, comprende la stesura
+  del codice secondo le direttive emerse in fase di progettazione.
 \end{itemize}
 Tutte e tre le fasi descritte sono comprensive di \textbf{Verifica e validazione},
 non è stata identificata come fase isolata in quanto è presente lungo tutto l'arco
@@ -139,84 +139,84 @@ Ogni fase prevede l'impiego di alcuni ruoli in misura maggiore ad altri la distr
 di questi sarà garantita un equa ripartizione del carico di lavoro individuale.
 \subsubsection{Analisi}
 \begin{tabular}{| c | c  c | c  c | c  c | c  c | c  c | c  c | c  c |}
-    \hline
-    \textbf{Nome} & \multicolumn{2}{|c|}{\textbf{Res}} & \multicolumn{2}{|c|}{\textbf{An}} & \multicolumn{2}{|c|}{\textbf{Amm}} & \multicolumn{2}{|c|}{\textbf{Pr}} & \multicolumn{2}{|c|}{\textbf{Pt}} & \multicolumn{2}{|c|}{\textbf{Ve}} & \multicolumn{2}{|c|}{\textbf{Tot}}\\
-    \hline
-    & \textbf{Inv} & \textbf{Ren} & \textbf{Inv} & \textbf{Ren} & \textbf{Inv} & \textbf{Ren} & \textbf{Inv} & \textbf{Ren} & \textbf{Inv} & \textbf{Ren} & \textbf{Inv} & \textbf{Ren} & \textbf{Inv} & \textbf{Ren}\\
-    \hline
-    Andrea Baldan & 13 & 12 & & & 12 & 9 & & & & & 12 & 10 & 37 & 31\\
-    Alberto de Agostini & 14 & 13 & 12 & 10 & & & & & & & 12 & 9 & 38 & 32\\
-    Micahel Munaro & & & 19 & 17 & & & & & & & 21 & 18 & 40 & 35\\
-    Giacomo Vanin & & & 19 & 16 & & & & & & & 17 & 15 & 36 & 31\\
-    Marco Boseggia & & & 23 & 21 & & & & & & & 16 & 15 & 39 & 36\\
-    Francesco Agostini & & & 10 & 9 & 11 & 9 & & & & & 14 & 12 & 35 & 30\\
-    Davide Trevisan & & & 14 & 12 & & & & & & & 22 & 19 & 36 & 31\\
-    \hline
+  \hline
+  \textbf{Nome} & \multicolumn{2}{|c|}{\textbf{Res}} & \multicolumn{2}{|c|}{\textbf{An}} & \multicolumn{2}{|c|}{\textbf{Amm}} & \multicolumn{2}{|c|}{\textbf{Pr}} & \multicolumn{2}{|c|}{\textbf{Pt}} & \multicolumn{2}{|c|}{\textbf{Ve}} & \multicolumn{2}{|c|}{\textbf{Tot}}\\
+  \hline
+  & \textbf{Inv} & \textbf{Ren} & \textbf{Inv} & \textbf{Ren} & \textbf{Inv} & \textbf{Ren} & \textbf{Inv} & \textbf{Ren} & \textbf{Inv} & \textbf{Ren} & \textbf{Inv} & \textbf{Ren} & \textbf{Inv} & \textbf{Ren}\\
+  \hline
+  Andrea Baldan & 13 & 12 & & & 12 & 9 & & & & & 12 & 10 & 37 & 31\\
+  Alberto de Agostini & 14 & 13 & 12 & 10 & & & & & & & 12 & 9 & 38 & 32\\
+  Micahel Munaro & & & 19 & 17 & & & & & & & 21 & 18 & 40 & 35\\
+  Giacomo Vanin & & & 19 & 16 & & & & & & & 17 & 15 & 36 & 31\\
+  Marco Boseggia & & & 23 & 21 & & & & & & & 16 & 15 & 39 & 36\\
+  Francesco Agostini & & & 10 & 9 & 11 & 9 & & & & & 14 & 12 & 35 & 30\\
+  Davide Trevisan & & & 14 & 12 & & & & & & & 22 & 19 & 36 & 31\\
+  \hline
 \end{tabular}
 \begin{figure}[h]
-    \begin{subfigure}[b]{0.47\textwidth}
-        \includegraphics[width=1.2\textwidth]{/home/kids/bin/img/AnalisiConInvestimento.png}
-        \caption{Ore con investimento, fase di Analisi}
-    \end{subfigure}
-    \qquad
-    \begin{subfigure}[b]{0.47\textwidth}
-        \includegraphics[width=1.2\textwidth]{/home/kids/bin/img/AnalisiConRendicontazione.png}
-        \caption{Ore con rendicontazione, fase di Analisi}
-    \end{subfigure}
+  \begin{subfigure}[b]{0.47\textwidth}
+    \includegraphics[width=1.2\textwidth]{/home/kids/bin/img/AnalisiConInvestimento.png}
+    \caption{Ore con investimento, fase di Analisi}
+  \end{subfigure}
+  \qquad
+  \begin{subfigure}[b]{0.47\textwidth}
+    \includegraphics[width=1.2\textwidth]{/home/kids/bin/img/AnalisiConRendicontazione.png}
+    \caption{Ore con rendicontazione, fase di Analisi}
+  \end{subfigure}
 \end{figure}
 \subsubsection{Progettazione}
 \begin{tabular}{| c | c  c | c  c | c  c | c  c | c  c | c  c | c  c |}
-    \hline
-    \textbf{Nome} & \multicolumn{2}{|c|}{\textbf{Res}} & \multicolumn{2}{|c|}{\textbf{An}} & \multicolumn{2}{|c|}{\textbf{Amm}} & \multicolumn{2}{|c|}{\textbf{Pr}} & \multicolumn{2}{|c|}{\textbf{Pt}} & \multicolumn{2}{|c|}{\textbf{Ve}} & \multicolumn{2}{|c|}{\textbf{Tot}}\\
-    \hline
-    & \textbf{Inv} & \textbf{Ren} & \textbf{Inv} & \textbf{Ren} & \textbf{Inv} & \textbf{Ren} & \textbf{Inv} & \textbf{Ren} & \textbf{Inv} & \textbf{Ren} & \textbf{Inv} & \textbf{Ren} & \textbf{Inv} & \textbf{Ren}\\
-    \hline
-    Andrea Baldan & & & & & & & 17 & 14 & & & 12 & 11 & 29 & 25\\
-    Alberto de Agostini & & & 3 & 2 & 4 & 4 & 20 & 18 & & & & & 27 & 24\\
-    Micahel Munaro & & & & & 4 & 3 & & & & & 15 & 13 & 19 & 16\\
-    Giacomo Vanin & 9 & 8 & & & & & 17 & 15 & & & & & 26 & 23\\
-    Marco Boseggia & 10 & 8 & 5 & 4 & & & 4 & 3 & & & 18 & 15 & 37 & 30\\
-    Francesco Agostini & & & 8 & 7 & & & 18 & 16 & & & & & 26 & 23\\
-    Davide Trevisan & & & 3 & 3 & & & 18 & 16 & & & 10 & 4 & 31 & 23\\
-    \hline
+  \hline
+  \textbf{Nome} & \multicolumn{2}{|c|}{\textbf{Res}} & \multicolumn{2}{|c|}{\textbf{An}} & \multicolumn{2}{|c|}{\textbf{Amm}} & \multicolumn{2}{|c|}{\textbf{Pr}} & \multicolumn{2}{|c|}{\textbf{Pt}} & \multicolumn{2}{|c|}{\textbf{Ve}} & \multicolumn{2}{|c|}{\textbf{Tot}}\\
+  \hline
+  & \textbf{Inv} & \textbf{Ren} & \textbf{Inv} & \textbf{Ren} & \textbf{Inv} & \textbf{Ren} & \textbf{Inv} & \textbf{Ren} & \textbf{Inv} & \textbf{Ren} & \textbf{Inv} & \textbf{Ren} & \textbf{Inv} & \textbf{Ren}\\
+  \hline
+  Andrea Baldan & & & & & & & 17 & 14 & & & 12 & 11 & 29 & 25\\
+  Alberto de Agostini & & & 3 & 2 & 4 & 4 & 20 & 18 & & & & & 27 & 24\\
+  Micahel Munaro & & & & & 4 & 3 & & & & & 15 & 13 & 19 & 16\\
+  Giacomo Vanin & 9 & 8 & & & & & 17 & 15 & & & & & 26 & 23\\
+  Marco Boseggia & 10 & 8 & 5 & 4 & & & 4 & 3 & & & 18 & 15 & 37 & 30\\
+  Francesco Agostini & & & 8 & 7 & & & 18 & 16 & & & & & 26 & 23\\
+  Davide Trevisan & & & 3 & 3 & & & 18 & 16 & & & 10 & 4 & 31 & 23\\
+  \hline
 \end{tabular}
-\begin{figure}[h]
-    \begin{subfigure}[b]{0.47\textwidth}
-        \includegraphics[width=1.2\textwidth]{/home/kids/bin/img/ProgettazioneConInvestimento.png}
-        \caption{Ore con investimento, fase di Progettazione}
-    \end{subfigure}
-    \qquad
-    \begin{subfigure}[b]{0.47\textwidth}
-        \includegraphics[width=1.2\textwidth]{/home/kids/bin/img/ProgettazioneConRendicontazione.png}
-        \caption{Ore con rendicontazione, fase di Progettazione}
-    \end{subfigure}
+\begin{figure}[H]
+  \begin{subfigure}[H]{0.47\textwidth}
+    \includegraphics[width=1.2\textwidth]{/home/kids/bin/img/ProgettazioneConInvestimento.png}
+    \caption{Ore con investimento, fase di Progettazione}
+  \end{subfigure}
+  \qquad
+  \begin{subfigure}[H]{0.47\textwidth}
+    \includegraphics[width=1.2\textwidth]{/home/kids/bin/img/ProgettazioneConRendicontazione.png}
+    \caption{Ore con rendicontazione, fase di Progettazione}
+  \end{subfigure}
 \end{figure}
 \subsubsection{Codifica}
 \begin{tabular}{| c | c  c | c  c | c  c | c  c | c  c | c  c | c  c |}
-    \hline
-    \textbf{Nome} & \multicolumn{2}{|c|}{\textbf{Res}} & \multicolumn{2}{|c|}{\textbf{An}} & \multicolumn{2}{|c|}{\textbf{Amm}} & \multicolumn{2}{|c|}{\textbf{Pr}} & \multicolumn{2}{|c|}{\textbf{Pt}} & \multicolumn{2}{|c|}{\textbf{Ve}} & \multicolumn{2}{|c|}{\textbf{Tot}}\\
-    \hline
-    & \textbf{Inv} & \textbf{Ren} & \textbf{Inv} & \textbf{Ren} & \textbf{Inv} & \textbf{Ren} & \textbf{Inv} & \textbf{Ren} & \textbf{Inv} & \textbf{Ren} & \textbf{Inv} & \textbf{Ren} & \textbf{Inv} & \textbf{Ren}\\
-    \hline
-    Andrea Baldan & & & 2 & 2 & & & 22 & 20 & 26 & 24 & 2 & 2 & 52 & 48\\
-    Alberto de Agostini & & & & & & & 21 & 18 & 17 & 15 & 16 & 12 & 54 & 45\\
-    Micahel Munaro & 10 & 9 & & & & & & & 31 & 27 & 22 & 17 & 63 & 53\\
-    Giacomo Vanin & & & & & 6 & 5 & & & 24 & 21 & 24 & 18 & 54 & 44\\
-    Marco Boseggia & & & & & & & 23 & 20 & 22 & 20 & & & 45 & 40\\
-    Francesco Agostini & 8 & 7 & & & & & 27 & 24 & & & 25 & 20 & 60 & 51\\
-    Davide Trevisan & 6 & 6 & & & & & 24 & 22 & 10 & 9 & 13 & 9 & 53 & 46\\
-    \hline
+  \hline
+  \textbf{Nome} & \multicolumn{2}{|c|}{\textbf{Res}} & \multicolumn{2}{|c|}{\textbf{An}} & \multicolumn{2}{|c|}{\textbf{Amm}} & \multicolumn{2}{|c|}{\textbf{Pr}} & \multicolumn{2}{|c|}{\textbf{Pt}} & \multicolumn{2}{|c|}{\textbf{Ve}} & \multicolumn{2}{|c|}{\textbf{Tot}}\\
+  \hline
+  & \textbf{Inv} & \textbf{Ren} & \textbf{Inv} & \textbf{Ren} & \textbf{Inv} & \textbf{Ren} & \textbf{Inv} & \textbf{Ren} & \textbf{Inv} & \textbf{Ren} & \textbf{Inv} & \textbf{Ren} & \textbf{Inv} & \textbf{Ren}\\
+  \hline
+  Andrea Baldan & & & 2 & 2 & & & 22 & 20 & 26 & 24 & 2 & 2 & 52 & 48\\
+  Alberto de Agostini & & & & & & & 21 & 18 & 17 & 15 & 16 & 12 & 54 & 45\\
+  Micahel Munaro & 10 & 9 & & & & & & & 31 & 27 & 22 & 17 & 63 & 53\\
+  Giacomo Vanin & & & & & 6 & 5 & & & 24 & 21 & 24 & 18 & 54 & 44\\
+  Marco Boseggia & & & & & & & 23 & 20 & 22 & 20 & & & 45 & 40\\
+  Francesco Agostini & 8 & 7 & & & & & 27 & 24 & & & 25 & 20 & 60 & 51\\
+  Davide Trevisan & 6 & 6 & & & & & 24 & 22 & 10 & 9 & 13 & 9 & 53 & 46\\
+  \hline
 \end{tabular}
 \begin{figure}[H]
-    \begin{subfigure}[H]{0.47\textwidth}
-        \includegraphics[width=1.2\textwidth]{/home/kids/bin/img/CodificaConInvestimento.png}
-        \caption{Ore con investimento, fase di Codifica}
-    \end{subfigure}
-    \qquad
-    \begin{subfigure}[H]{0.47\textwidth}
-        \includegraphics[width=1.2\textwidth]{/home/kids/bin/img/CodificaConRendicontazione.png}
-        \caption{Ore con rendicontazione, fase di Codifica}
-    \end{subfigure}
+  \begin{subfigure}[H]{0.47\textwidth}
+    \includegraphics[width=1.2\textwidth]{/home/kids/bin/img/CodificaConInvestimento.png}
+    \caption{Ore con investimento, fase di Codifica}
+  \end{subfigure}
+  \qquad
+  \begin{subfigure}[H]{0.47\textwidth}
+    \includegraphics[width=1.2\textwidth]{/home/kids/bin/img/CodificaConRendicontazione.png}
+    \caption{Ore con rendicontazione, fase di Codifica}
+  \end{subfigure}
 \end{figure}
 \section{Analisi dei rischi}
 L'analisi dei rischi ha costituito una fase critica della pianificazione, in
@@ -256,6 +256,25 @@ Per ogni possibile rischio previsto l'analisi ha fornito i seguenti parametri:
 \item\textbf{Contromisure di mitigazione}: Provvedimenti da attuare in
   previsione del rischio, e/o di mitigazione in caso di bisogno
 \end{itemize}
+\begin{table}[H]
+  \centering
+  \scriptsize
+  \caption{Tabella Analisi dei Rischi}
+  \begin{tabular}{|m{2cm}|m{2cm}|m{2cm}|m{2cm}|m{2cm}|m{2cm}|}
+    \hline
+    & \multicolumn{5}{|c|}{\textbf{Probabilità}}\\
+    \hline \bf Impatto & \bf 1-Bassissima & \bf 2-Bassa & \bf 3-Media & \bf 4-Alta & \textbf{5-Altissima}\\[10pt]
+
+    \hline \bf 4-Molto Forte & \cellcolor{yellow!50} & \cellcolor{red!50} & \cellcolor{red!50} & \cellcolor{red!50} &\cellcolor{red!50} Inesperienza\\ [10pt]
+
+    \hline \bf 3-Forte &\cellcolor{green!50} & \cellcolor{yellow!50}Guasti hardware & \cellcolor{yellow!50} & \cellcolor{red!50}Tecnologia di impiego &\cellcolor{red!50} \\ [10pt]
+
+    \hline \bf 2-Medio & \cellcolor{green!50} & \cellcolor{green!50} & \cellcolor{yellow!50} &\cellcolor{yellow!50} &\cellcolor{red!50} \\ [10pt]
+
+    \hline \bf 1-Debole & \cellcolor{green!50} & \cellcolor{green!50} & \cellcolor{green!50} &\cellcolor{yellow!50}Ambiente di lavoro non omogeneo &\cellcolor{yellow!50}Impegni personali \\ [10pt]
+    \hline
+  \end{tabular} \\
+\end{table}
 \paragraph{Impegni personali}
 \textbf{Categoria}: Logistica\\
 \textbf{Probabilità}: Alta\\

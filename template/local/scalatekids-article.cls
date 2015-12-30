@@ -23,7 +23,7 @@
 %% \usepackage{hyperref}
 \usepackage{xspace}
 \usepackage{listings}
-\usepackage{xcolor}
+\usepackage[table]{xcolor}
 \usepackage{changes}
 \usepackage{graphicx}
 \usepackage{subcaption}
