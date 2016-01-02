@@ -53,18 +53,18 @@
 \end{center}
 \tableofcontents
 \newpage
-\section{Introduzione}
+\section{Sommario}
 \subsection{Scopo del documento}
 Il seguente documento ha lo scopo di specificare il piano con cui il gruppo \textit{ScalateKids} lavorerà sul progetto \textbf{Actorbase}.
 Nel documento verranno specificati:
+\prodPurpose
+\glossExpl
 \begin{itemize}
 \item {L'\gloss{organigramma} del gruppo;}
 \item {L'analisi preventiva dell'utilizzo delle risorse;}
 \item {L'utilizzo delle risorse durante lo svolgersi del progetto;}
 \item {L'analisi dei fattori di rischio.}
 \end{itemize}
-\subsection{Glossario}
-Abbiamo implementato un Glossario per spiegare e evitare ambiguità di linguaggio dei documenti. Nello specifico sono stati inseriti nel glossario: acronimi, termini tecnici, abbreviazioni e vocaboli che possono richiedere ulteriori chiarimenti.
 \subsection{Scelta del modello di ciclo di vita}
 Per lo sviluppo del progetto \textbf{Actorbase} il gruppo ha scelto di applicare ai processi il modello incrementale. Questa scelta è dovuta alle seguenti proprietà offerte da questo modello:
 \begin{itemize}
@@ -116,108 +116,217 @@ Le attività di pianificazione del progetto saranno basate sulle scadenze qui ri
 \end{center}
 \section{Pianificazione preventiva}
 \subsection{Suddivisione fasi}
+\label{sub:fasi}
 Per semplificare la pianificazione del prospetto orario, sono state identificate
 tre fasi principali che rappresentano l'intero ciclo di sviluppo del prodotto.\\
-// TODO: da proseguire\\
+% TODO: da proseguire
 Esse sono:
 \begin{itemize}
 \item\textbf{Analisi:} Rappresenta la prima fase del progetto, dalla
   pubblicazione dei capitolati d'appalto all'inizio della fase di progettazione,
   comprensiva di una fase di incremento, ove vengono risolti i possibili dubbi
-  emersi in prima stesura.
+  emersi in prima stesura.\\
+  Figure maggiormente coinvolte: \textit{Responsabile, Amministratore, Analista, Verificatore}
 \item\textbf{Progettazione:} Segue la fase di Analisi, e racchiude il lasso
   temporale dedicato alla progettazione dell'architettura sulla base dei requisiti
   emersi. Comprende anche lo studio di \gloss{design pattern} congrui alla realizzazione
-  del prodotto.
+  del prodotto.\\
+  Figure maggiormente coinvolte: \textit{Responsabile, Amministratore, Progettista, Verificatore}
 \item\textbf{Codifica:} L'ultima delle tre fasi identificate, comprende la stesura
-  del codice secondo le direttive emerse in fase di progettazione.
+  del codice secondo le direttive emerse in fase di progettazione.\\
+  Figure maggiormente coinvolte: \textit{Responsabile, Amministratore, Programmatore, Verificatore}
 \end{itemize}
-Tutte e tre le fasi descritte sono comprensive di \textbf{Verifica e validazione},
-non è stata identificata come fase isolata in quanto è presente lungo tutto l'arco
-di sviluppo del prodotto.\\
-Ogni fase prevede l'impiego di alcuni ruoli in misura maggiore ad altri la distribuzione
-di questi sarà garantita un equa ripartizione del carico di lavoro individuale.
+Tutte e tre le fasi descritte sono comprensive di \textbf{Verifica e
+  validazione}, assimilabile ad una fase ``fittizzia'', in quanto è
+presente lungo tutto l'arco di sviluppo del prodotto.\\
+Ogni fase prevede l'impiego di alcuni ruoli in misura maggiore rispetto ad
+altri, nella distribuzione di questi sarà garantita un equa ripartizione del
+carico di lavoro individuale.\\
+Come riportato nelle \href{run:../Interni/NormeDiProgetto\_v0.0.1.pdf}{Norme Di Progetto v0.0.1}
+ogni componente del gruppo potrà ricoprire più ruoli contemporaneamente, purchè sia
+garantita l'assenza di conflitti d'interesse tra le attività svolte.
 \subsubsection{Analisi}
-\begin{tabular}{| c | c  c | c  c | c  c | c  c | c  c | c  c | c  c |}
-  \hline
-  \textbf{Nome} & \multicolumn{2}{|c|}{\textbf{Res}} & \multicolumn{2}{|c|}{\textbf{An}} & \multicolumn{2}{|c|}{\textbf{Amm}} & \multicolumn{2}{|c|}{\textbf{Pr}} & \multicolumn{2}{|c|}{\textbf{Pt}} & \multicolumn{2}{|c|}{\textbf{Ve}} & \multicolumn{2}{|c|}{\textbf{Tot}}\\
-  \hline
-  & \textbf{Inv} & \textbf{Ren} & \textbf{Inv} & \textbf{Ren} & \textbf{Inv} & \textbf{Ren} & \textbf{Inv} & \textbf{Ren} & \textbf{Inv} & \textbf{Ren} & \textbf{Inv} & \textbf{Ren} & \textbf{Inv} & \textbf{Ren}\\
-  \hline
-  Andrea Baldan & 13 & 12 & & & 12 & 9 & & & & & 12 & 10 & 37 & 31\\
-  Alberto de Agostini & 14 & 13 & 12 & 10 & & & & & & & 12 & 9 & 38 & 32\\
-  Micahel Munaro & & & 19 & 17 & & & & & & & 21 & 18 & 40 & 35\\
-  Giacomo Vanin & & & 19 & 16 & & & & & & & 17 & 15 & 36 & 31\\
-  Marco Boseggia & & & 23 & 21 & & & & & & & 16 & 15 & 39 & 36\\
-  Francesco Agostini & & & 10 & 9 & 11 & 9 & & & & & 14 & 12 & 35 & 30\\
-  Davide Trevisan & & & 14 & 12 & & & & & & & 22 & 19 & 36 & 31\\
-  \hline
-\end{tabular}
-\begin{figure}[h]
-  \begin{subfigure}[b]{0.47\textwidth}
-    \includegraphics[width=1.2\textwidth]{/home/kids/bin/img/AnalisiConInvestimento.png}
+Nella fase di Analisi, i componenti ricopriranno i ruoli di progetto secondo la distribuzione seguente:
+\begin{center}
+  \scriptsize
+  \begin{tabular}{| c | p{0.35cm} p{0.35cm} | p{0.35cm} p{0.35cm} | p{0.35cm} p{0.35cm} | p{0.35cm} p{0.35cm} | p{0.35cm} p{0.35cm} | p{0.35cm} p{0.35cm} | p{0.35cm} p{0.35cm} |}
+    \hline
+    \textbf{Nome} & \multicolumn{2}{|c|}{\textbf{Res}} & \multicolumn{2}{|c|}{\textbf{An}} & \multicolumn{2}{|c|}{\textbf{Amm}} & \multicolumn{2}{|c|}{\textbf{Pr}} & \multicolumn{2}{|c|}{\textbf{Pt}} & \multicolumn{2}{|c|}{\textbf{Ve}} & \multicolumn{2}{|c|}{\textbf{Tot}}\\
+    \hline
+    & \textbf{Inv} & \textbf{Ren} & \textbf{Inv} & \textbf{Ren} & \textbf{Inv} & \textbf{Ren} & \textbf{Inv} & \textbf{Ren} & \textbf{Inv} & \textbf{Ren} & \textbf{Inv} & \textbf{Ren} & \textbf{Inv} & \textbf{Ren}\\
+    \hline
+    Andrea Baldan & 13 & 12 & & & 12 & 9 & & & & & 12 & 10 & 37 & 31\\
+    Alberto de Agostini & 14 & 13 & 12 & 10 & & & & & & & 12 & 9 & 38 & 32\\
+    Micahel Munaro & & & 19 & 17 & & & & & & & 21 & 18 & 40 & 35\\
+    Giacomo Vanin & & & 19 & 16 & & & & & & & 17 & 15 & 36 & 31\\
+    Marco Boseggia & & & 23 & 21 & & & & & & & 16 & 15 & 39 & 36\\
+    Francesco Agostini & & & 10 & 9 & 11 & 9 & & & & & 14 & 12 & 35 & 30\\
+    Davide Trevisan & & & 14 & 12 & & & & & & & 22 & 19 & 36 & 31\\
+    \hline
+  \end{tabular}
+\end{center}
+\begin{figure}[H]
+  \begin{subfigure}[H]{0.47\textwidth}
+    \includegraphics[width=1.2\textwidth,keepaspectratio]{/home/kids/bin/img/AnalisiConInvestimento.png}
     \caption{Ore con investimento, fase di Analisi}
   \end{subfigure}
   \qquad
-  \begin{subfigure}[b]{0.47\textwidth}
-    \includegraphics[width=1.2\textwidth]{/home/kids/bin/img/AnalisiConRendicontazione.png}
+  \begin{subfigure}[H]{0.47\textwidth}
+    \includegraphics[width=1.2\textwidth,keepaspectratio]{/home/kids/bin/img/AnalisiConRendicontazione.png}
     \caption{Ore con rendicontazione, fase di Analisi}
   \end{subfigure}
 \end{figure}
 \subsubsection{Progettazione}
-\begin{tabular}{| c | c  c | c  c | c  c | c  c | c  c | c  c | c  c |}
-  \hline
-  \textbf{Nome} & \multicolumn{2}{|c|}{\textbf{Res}} & \multicolumn{2}{|c|}{\textbf{An}} & \multicolumn{2}{|c|}{\textbf{Amm}} & \multicolumn{2}{|c|}{\textbf{Pr}} & \multicolumn{2}{|c|}{\textbf{Pt}} & \multicolumn{2}{|c|}{\textbf{Ve}} & \multicolumn{2}{|c|}{\textbf{Tot}}\\
-  \hline
-  & \textbf{Inv} & \textbf{Ren} & \textbf{Inv} & \textbf{Ren} & \textbf{Inv} & \textbf{Ren} & \textbf{Inv} & \textbf{Ren} & \textbf{Inv} & \textbf{Ren} & \textbf{Inv} & \textbf{Ren} & \textbf{Inv} & \textbf{Ren}\\
-  \hline
-  Andrea Baldan & & & & & & & 17 & 14 & & & 12 & 11 & 29 & 25\\
-  Alberto de Agostini & & & 3 & 2 & 4 & 4 & 20 & 18 & & & & & 27 & 24\\
-  Micahel Munaro & & & & & 4 & 3 & & & & & 15 & 13 & 19 & 16\\
-  Giacomo Vanin & 9 & 8 & & & & & 17 & 15 & & & & & 26 & 23\\
-  Marco Boseggia & 10 & 8 & 5 & 4 & & & 4 & 3 & & & 18 & 15 & 37 & 30\\
-  Francesco Agostini & & & 8 & 7 & & & 18 & 16 & & & & & 26 & 23\\
-  Davide Trevisan & & & 3 & 3 & & & 18 & 16 & & & 10 & 4 & 31 & 23\\
-  \hline
-\end{tabular}
+Nella fase di Progettazione, i componenti ricopriranno i ruoli di progetto secondo la distribuzione seguente:
+\begin{center}
+  \scriptsize
+  \begin{tabular}{| c | p{0.35cm}  p{0.35cm} | p{0.35cm}  p{0.35cm} | p{0.35cm}  p{0.35cm} | p{0.35cm}  p{0.35cm} | p{0.35cm}  p{0.35cm} | p{0.35cm}  p{0.35cm} | p{0.35cm}  p{0.35cm} |}
+    \hline
+    \textbf{Nome} & \multicolumn{2}{|c|}{\textbf{Res}} & \multicolumn{2}{|c|}{\textbf{An}} & \multicolumn{2}{|c|}{\textbf{Amm}} & \multicolumn{2}{|c|}{\textbf{Pr}} & \multicolumn{2}{|c|}{\textbf{Pt}} & \multicolumn{2}{|c|}{\textbf{Ve}} & \multicolumn{2}{|c|}{\textbf{Tot}}\\
+    \hline
+    & \textbf{Inv} & \textbf{Ren} & \textbf{Inv} & \textbf{Ren} & \textbf{Inv} & \textbf{Ren} & \textbf{Inv} & \textbf{Ren} & \textbf{Inv} & \textbf{Ren} & \textbf{Inv} & \textbf{Ren} & \textbf{Inv} & \textbf{Ren}\\
+    \hline
+    Andrea Baldan & & & & & & & 17 & 14 & & & 12 & 11 & 29 & 25\\
+    Alberto de Agostini & & & 3 & 2 & 4 & 4 & 20 & 18 & & & & & 27 & 24\\
+    Micahel Munaro & & & & & 4 & 3 & & & & & 15 & 13 & 19 & 16\\
+    Giacomo Vanin & 9 & 8 & & & & & 17 & 15 & & & & & 26 & 23\\
+    Marco Boseggia & 10 & 8 & 5 & 4 & & & 4 & 3 & & & 18 & 15 & 37 & 30\\
+    Francesco Agostini & & & 8 & 7 & & & 18 & 16 & & & & & 26 & 23\\
+    Davide Trevisan & & & 3 & 3 & & & 18 & 16 & & & 10 & 4 & 31 & 23\\
+    \hline
+  \end{tabular}
+\end{center}
 \begin{figure}[H]
   \begin{subfigure}[H]{0.47\textwidth}
-    \includegraphics[width=1.2\textwidth]{/home/kids/bin/img/ProgettazioneConInvestimento.png}
+    \includegraphics[width=1.2\textwidth,keepaspectratio]{/home/kids/bin/img/ProgettazioneConInvestimento.png}
     \caption{Ore con investimento, fase di Progettazione}
   \end{subfigure}
   \qquad
   \begin{subfigure}[H]{0.47\textwidth}
-    \includegraphics[width=1.2\textwidth]{/home/kids/bin/img/ProgettazioneConRendicontazione.png}
+    \includegraphics[width=1.2\textwidth,keepaspectratio]{/home/kids/bin/img/ProgettazioneConRendicontazione.png}
     \caption{Ore con rendicontazione, fase di Progettazione}
   \end{subfigure}
 \end{figure}
 \subsubsection{Codifica}
-\begin{tabular}{| c | c  c | c  c | c  c | c  c | c  c | c  c | c  c |}
-  \hline
-  \textbf{Nome} & \multicolumn{2}{|c|}{\textbf{Res}} & \multicolumn{2}{|c|}{\textbf{An}} & \multicolumn{2}{|c|}{\textbf{Amm}} & \multicolumn{2}{|c|}{\textbf{Pr}} & \multicolumn{2}{|c|}{\textbf{Pt}} & \multicolumn{2}{|c|}{\textbf{Ve}} & \multicolumn{2}{|c|}{\textbf{Tot}}\\
-  \hline
-  & \textbf{Inv} & \textbf{Ren} & \textbf{Inv} & \textbf{Ren} & \textbf{Inv} & \textbf{Ren} & \textbf{Inv} & \textbf{Ren} & \textbf{Inv} & \textbf{Ren} & \textbf{Inv} & \textbf{Ren} & \textbf{Inv} & \textbf{Ren}\\
-  \hline
-  Andrea Baldan & & & 2 & 2 & & & 22 & 20 & 26 & 24 & 2 & 2 & 52 & 48\\
-  Alberto de Agostini & & & & & & & 21 & 18 & 17 & 15 & 16 & 12 & 54 & 45\\
-  Micahel Munaro & 10 & 9 & & & & & & & 31 & 27 & 22 & 17 & 63 & 53\\
-  Giacomo Vanin & & & & & 6 & 5 & & & 24 & 21 & 24 & 18 & 54 & 44\\
-  Marco Boseggia & & & & & & & 23 & 20 & 22 & 20 & & & 45 & 40\\
-  Francesco Agostini & 8 & 7 & & & & & 27 & 24 & & & 25 & 20 & 60 & 51\\
-  Davide Trevisan & 6 & 6 & & & & & 24 & 22 & 10 & 9 & 13 & 9 & 53 & 46\\
-  \hline
-\end{tabular}
+Nella fase di Codifica, i componenti ricopriranno i ruoli di progetto secondo la distribuzione seguente:
+\begin{center}
+  \scriptsize
+  \begin{tabular}{| c | p{0.35cm}  p{0.35cm} | p{0.35cm}  p{0.35cm} | p{0.35cm}  p{0.35cm} | p{0.35cm}  p{0.35cm} | p{0.35cm}  p{0.35cm} | p{0.35cm}  p{0.35cm} | p{0.35cm}  p{0.35cm} |}
+    \hline
+    \textbf{Nome} & \multicolumn{2}{|c|}{\textbf{Res}} & \multicolumn{2}{|c|}{\textbf{An}} & \multicolumn{2}{|c|}{\textbf{Amm}} & \multicolumn{2}{|c|}{\textbf{Pr}} & \multicolumn{2}{|c|}{\textbf{Pt}} & \multicolumn{2}{|c|}{\textbf{Ve}} & \multicolumn{2}{|c|}{\textbf{Tot}}\\
+    \hline
+    & \textbf{Inv} & \textbf{Ren} & \textbf{Inv} & \textbf{Ren} & \textbf{Inv} & \textbf{Ren} & \textbf{Inv} & \textbf{Ren} & \textbf{Inv} & \textbf{Ren} & \textbf{Inv} & \textbf{Ren} & \textbf{Inv} & \textbf{Ren}\\
+    \hline
+    Andrea Baldan & & & 2 & 2 & & & 22 & 20 & 26 & 24 & 2 & 2 & 52 & 48\\
+    Alberto de Agostini & & & & & & & 21 & 18 & 17 & 15 & 16 & 12 & 54 & 45\\
+    Micahel Munaro & 10 & 9 & & & & & & & 31 & 27 & 22 & 17 & 63 & 53\\
+    Giacomo Vanin & & & & & 6 & 5 & & & 24 & 21 & 24 & 18 & 54 & 44\\
+    Marco Boseggia & & & & & & & 23 & 20 & 22 & 20 & & & 45 & 40\\
+    Francesco Agostini & 8 & 7 & & & & & 27 & 24 & & & 25 & 20 & 60 & 51\\
+    Davide Trevisan & 6 & 6 & & & & & 24 & 22 & 10 & 9 & 13 & 9 & 53 & 46\\
+    \hline
+  \end{tabular}
+\end{center}
+\normalsize
 \begin{figure}[H]
   \begin{subfigure}[H]{0.47\textwidth}
-    \includegraphics[width=1.2\textwidth]{/home/kids/bin/img/CodificaConInvestimento.png}
+    \includegraphics[width=1.2\textwidth,keepaspectratio]{/home/kids/bin/img/CodificaConInvestimento.png}
     \caption{Ore con investimento, fase di Codifica}
   \end{subfigure}
   \qquad
   \begin{subfigure}[H]{0.47\textwidth}
-    \includegraphics[width=1.2\textwidth]{/home/kids/bin/img/CodificaConRendicontazione.png}
+    \includegraphics[width=1.2\textwidth,keepaspectratio]{/home/kids/bin/img/CodificaConRendicontazione.png}
     \caption{Ore con rendicontazione, fase di Codifica}
   \end{subfigure}
 \end{figure}
+\subsection{Prospetto economico}
+In questa sottosezione vengono presentati, per ciascuna fase del progetto identificata
+nella sottosezione \ref{sub:fasi}, le ore preventivate di impiego per i ruoli coinvolti.
+\subsubsection{Analisi}
+Nella fase di Analisi, le ore tra i ruoli sono state divise nel seguente modo:
+\begin{center}
+  \normalsize
+  \begin{tabular}{| c | c | c |}
+    \hline
+    \multicolumn{3}{|c|}{\textbf{Senza investimento}}\\
+    \hline
+    \textbf{Ruolo} & \textbf{Ore} & \textbf{Costo}\\
+    \hline
+    Responsabile & 25 & 750\\
+    Amministratore & 18 & 360\\
+    Analista & 85 & 2125\\
+    Progettista & 0 & 0\\
+    Verificatore & 98 & 1470 \\
+    Programmatore & 0 & 0 \\
+    \hline
+    \textbf{Totale} & 226 & 4705\\
+    \hline
+  \end{tabular}
+\end{center}
+\subsubsection{Progettazione}
+Nella fase di Progettazione, le ore tra i ruoli sono state divise nel seguente modo:
+\begin{center}
+  \normalsize
+  \begin{tabular}{| c | c | c |}
+    \hline
+    \multicolumn{3}{|c|}{\textbf{Senza investimento}}\\
+    \hline
+    \textbf{Ruolo} & \textbf{Ore} & \textbf{Costo}\\
+    \hline
+    Responsabile & 16 & 480\\
+    Amministratore & 7 & 140\\
+    Analista & 16 & 400\\
+    Progettista & 82 & 1804\\
+    Verificatore & 43 & 645 \\
+    Programmatore & 0 & 0 \\
+    \hline
+    \textbf{Totale} & 164 & 3469\\
+    \hline
+  \end{tabular}
+\end{center}
+\subsubsection{Codifica}
+Nella fase di Codifica, le ore tra i ruoli sono state divise nel seguente modo:
+\begin{center}
+  \normalsize
+  \begin{tabular}{| c | c | c |}
+    \hline
+    \multicolumn{3}{|c|}{\textbf{Senza investimento}}\\
+    \hline
+    \textbf{Ruolo} & \textbf{Ore} & \textbf{Costo}\\
+    \hline
+    Responsabile & 22 & 660\\
+    Amministratore & 5 & 100\\
+    Analista & 2 & 50\\
+    Progettista & 104 & 2288\\
+    Verificatore & 78 & 1170 \\
+    Programmatore & 116 & 1740 \\
+    \hline
+    \textbf{Totale} & 327 & 6008 \\
+    \hline
+  \end{tabular}
+\end{center}
+\subsection{Totale}
+Le ore rendicontate totali, previste per la realizzazione del prodotto, senza
+investimento sono:
+\begin{center}
+  \normalsize
+  \begin{tabular}{| c | c | c |}
+    \hline
+    \multicolumn{2}{|c|}{\textbf{Senza investimento}}\\
+    \hline
+    \textbf{Ruolo} & \textbf{Ore} & \textbf{Costo}\\
+    \hline
+    Responsabile & 63 & 1890\\
+    Amministratore & 30 & 600\\
+    Analista & 103 & 2575\\
+    Progettista & 186 & 4092\\
+    Verificatore & 219 & 3285\\
+    Programmatore & 116 & 1740 \\
+    \hline
+    \textbf{Totale} & 717 & 14182 \\
+    \hline
+  \end{tabular}
+\end{center}
 \section{Analisi dei rischi}
 L'analisi dei rischi ha costituito una fase critica della pianificazione, in
 quanto l'azienda, alla sua prima esperienza, ha dovuto pensare agli ipotetici
@@ -269,13 +378,13 @@ Per ogni possibile rischio previsto l'analisi ha fornito i seguenti parametri:
     \hline
     \bf Impatto & \bf Bassa & \bf Media & \bf Alta & \textbf{Molto alta} \\
     \hline
-    \bf Molto Forte & \cellcolor{red!50} & \cellcolor{red!50} & \cellcolor{red!50} &\cellcolor{red!50} Inesperienza \\
+    \bf Molto Forte & \cellcolor{red!50} & \cellcolor{red!50} & \cellcolor{red!50} &\cellcolor{red!50} \\
     \hline
-    \bf Forte & \cellcolor{yellow!50}Guasti hardware & \cellcolor{yellow!50} & Analisi requisiti \cellcolor{red!50}Tecnologia di impiego &\cellcolor{red!50} \\
+    \bf Forte & \cellcolor{yellow!50}Guasti hardware & \cellcolor{yellow!50}Stime attività & \cellcolor{red!50}Analisi requisiti &\cellcolor{red!50}\\[8pt]
     \hline
-    \bf Medio & \cellcolor{green!50}Dissensi tra componenti & \cellcolor{yellow!50} &\cellcolor{yellow!50} &\cellcolor{red!50} \\[8pt]
+    \bf Medio & \cellcolor{green!50} & \cellcolor{yellow!50} &\cellcolor{yellow!50}Tecnologia di impiego &\cellcolor{red!50}Inesperienza \\[8pt]
     \hline
-    \bf Debole & \cellcolor{green!50} & \cellcolor{green!50} &\cellcolor{yellow!50}Ambiente di lavoro non omogeneo &\cellcolor{yellow!50}Impegni personali \\
+    \bf Debole & \cellcolor{green!50}Dissensi tra componenti & \cellcolor{green!50} &\cellcolor{yellow!50}Ambiente di lavoro non omogeneo &\cellcolor{yellow!50}Impegni personali \\
     \hline
   \end{tabular} \\
 \end{table}

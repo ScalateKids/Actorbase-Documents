@@ -95,7 +95,7 @@
   \textbf{\huge{#1} }\\
   \rule[0.3pt]{\linewidth}{0.4pt} \\
 }
-% document purpose and glossary standard
+% document purpose
 \newcommand{\prodPurpose}{
   \subsection{Scopo del Prodotto}
   Implementazione di un database NoSQL di tipo key-value orientato alla gestione
@@ -104,11 +104,12 @@
   da riga di comando per poter interagire con il database.\\
   Il progetto dovrà essere pubblicato su \textit{Github}.
 }
+% document glossary explanation
 \newcommand{\glossExpl}{
   \subsection{Glossario}
   Tutti i termini di carattere tecnico o fraintendibile e gli acronimi sono
   raccolti nel file
-  \href{run:~/actorbase/Actorbase-Documents/RR/Esterni/Glossario\_v0.0.1.pdf}{Glossario
-    v0.0.1}; ogni occorrenza di parole nel \textit{Glossario} è indicata da una
+  \href{run:Glossario\_v0.0.3.pdf}{Glossario
+    v0.0.3}; ogni occorrenza di parole nel \textit{Glossario} è indicata da una
   ``G'' in pedice.
 }
