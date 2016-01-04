@@ -248,6 +248,23 @@ Nella fase di Analisi, le ore tra i ruoli sono state divise nel seguente modo:
   \normalsize
   \begin{tabular}{| c | c | c |}
     \hline
+    \multicolumn{3}{|c|}{\textbf{Con investimento}}\\
+    \hline
+    \textbf{Ruolo} & \textbf{Ore} & \textbf{Costo}\\
+    \hline
+    Responsabile & 27 & 810\\
+    Amministratore & 23 & 460\\
+    Analista & 97 & 2425\\
+    Progettista & 0 & 0\\
+    Verificatore & 114 & 1710 \\
+    Programmatore & 0 & 0 \\
+    \hline
+    \textbf{Totale} & 261 & 5405\\
+    \hline
+  \end{tabular}
+  \qquad
+  \begin{tabular}{| c | c | c |}
+    \hline
     \multicolumn{3}{|c|}{\textbf{Senza investimento}}\\
     \hline
     \textbf{Ruolo} & \textbf{Ore} & \textbf{Costo}\\
@@ -267,6 +284,23 @@ Nella fase di Analisi, le ore tra i ruoli sono state divise nel seguente modo:
 Nella fase di Progettazione, le ore tra i ruoli sono state divise nel seguente modo:
 \begin{center}
   \normalsize
+  \begin{tabular}{| c | c | c |}
+    \hline
+    \multicolumn{3}{|c|}{\textbf{Con investimento}}\\
+    \hline
+    \textbf{Ruolo} & \textbf{Ore} & \textbf{Costo}\\
+    \hline
+    Responsabile & 19 & 570\\
+    Amministratore & 8 & 160\\
+    Analista & 19 & 475\\
+    Progettista & 94 & 2068\\
+    Verificatore & 55 & 825 \\
+    Programmatore & 0 & 0 \\
+    \hline
+    \textbf{Totale} & 195 & 4098\\
+    \hline
+  \end{tabular}
+  \qquad
   \begin{tabular}{| c | c | c |}
     \hline
     \multicolumn{3}{|c|}{\textbf{Senza investimento}}\\
@@ -290,6 +324,23 @@ Nella fase di Codifica, le ore tra i ruoli sono state divise nel seguente modo:
   \normalsize
   \begin{tabular}{| c | c | c |}
     \hline
+    \multicolumn{3}{|c|}{\textbf{Con investimento}}\\
+    \hline
+    \textbf{Ruolo} & \textbf{Ore} & \textbf{Costo}\\
+    \hline
+    Responsabile & 24 & 720\\
+    Amministratore & 6 & 120\\
+    Analista & 2 & 50\\
+    Progettista & 117 & 2574\\
+    Verificatore & 102 & 1530 \\
+    Programmatore & 130 & 1950 \\
+    \hline
+    \textbf{Totale} & 381 & 6944\\
+    \hline
+  \end{tabular}
+  \qquad
+  \begin{tabular}{| c | c | c |}
+    \hline
     \multicolumn{3}{|c|}{\textbf{Senza investimento}}\\
     \hline
     \textbf{Ruolo} & \textbf{Ore} & \textbf{Costo}\\
@@ -310,6 +361,23 @@ Le ore rendicontate totali, previste per la realizzazione del prodotto, senza
 investimento sono:
 \begin{center}
   \normalsize
+  \begin{tabular}{| c | c | c |}
+    \hline
+    \multicolumn{3}{|c|}{\textbf{Con investimento}}\\
+    \hline
+    \textbf{Ruolo} & \textbf{Ore} & \textbf{Costo}\\
+    \hline
+    Responsabile & 70 & 2100\\
+    Amministratore & 37 & 740\\
+    Analista & 118 & 2950\\
+    Progettista & 211 & 4642\\
+    Verificatore & 271 & 4065 \\
+    Programmatore & 130 & 1950 \\
+    \hline
+    \textbf{Totale} & 837 & 16447\\
+    \hline
+  \end{tabular}
+  \qquad
   \begin{tabular}{| c | c | c |}
     \hline
     \multicolumn{2}{|c|}{\textbf{Senza investimento}}\\
@@ -391,11 +459,11 @@ Per ogni possibile rischio previsto l'analisi ha fornito i seguenti parametri:
 \begin{table}[H]
   \centering
   \caption{Legenda colorazione rischi}
-  \begin{tabular}{|c|l|}
-    \hline \bf Colore & \bf Legenda \\
-    \hline \cellcolor{red! 50} & Rischio non accettabile - riduzione obbligatoria \\
-    \hline \cellcolor{yellow! 50} & Rischio accettabile. Considerare una riduzione. \\
-    \hline \cellcolor{green! 50} & Accettabile. \\
+  \begin{tabular}{|c|c|l|}
+    \hline \bf Colore & \bf Probabilità & \bf Legenda \\
+    \hline \cellcolor{red! 50} & p > 75\% & Rischio non accettabile - riduzione obbligatoria \\
+    \hline \cellcolor{yellow! 50} & 50\% < p < 75\% & Rischio accettabile. Considerare una riduzione. \\
+    \hline \cellcolor{green! 50} & p < 25\% & Accettabile. \\
     \hline
   \end{tabular}
 \end{table}
