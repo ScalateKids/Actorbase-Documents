@@ -12,5 +12,7 @@ before_install:
 
 script:
     - docker run --rm -i --net=none -v Actorbase-Documents:/latex -v Actorbase-Documents/img/:/latex/img codep/scalatekids-env:latest build
+
+after_success:
     - rm -rf $PWD/img
     - rm -rf *.pdf
