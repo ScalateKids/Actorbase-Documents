@@ -16,4 +16,13 @@ script:
 after_success:
     - git config --global user.email ${GIT_EMAIL}
     - git config --global user.name ${GIT_NAME}
-    - git clone --branch=
+    - git clone --branch=production https://${GH_TOKEN}@github.com/Scalatekids/Actorbase-Documents travis-build
+    - cp -p $(find . `pwd`/build -name 'Norme*pdf') travis-build/RR/Interni
+    - cp -p $(find . `pwd`/build -name 'Studio*pdf') travis-build/RR/Interni
+    - cp -p $(find . `pwd`/build -name 'PianiDiProgetto*pdf') travis-build/RR/Esterni
+    - cp -p $(find . `pwd`/build -name 'PianoDiQualifica*pdf') travis-build/RR/Esterni
+    - cp -p $(find . `pwd`/build -name 'Analisi*pdf') travis-build/RR/Esterni
+    - cp -p $(find . `pwd`/build -name 'Glossario*pdf) travis-build/RR/Esterni
+    - git add .
+    - git commit -am "Travi CI autocommit, build: ${TRAVIS_BUILD_NUMBER}"
+    - git push origin production
