@@ -11,8 +11,4 @@ before_install:
     - docker pull codep/scalatekids-env
 
 script:
-    - echo "y" | docker run --rm -i --net=none -v Actorbase-Documents:/latex -v Actorbase-Documents/img/:/latex/img codep/scalatekids-env:latest build
-
-after_success:
-    - rm -rf $PWD/img
-    - rm -f $PWD/*.pdf
+    - echo "y" | docker run --rm -i --net=none -v $PWD:/latex -v $PWD/img/:/latex/img codep/scalatekids-env:latest build
