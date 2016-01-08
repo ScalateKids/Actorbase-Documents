@@ -11,5 +11,5 @@ before_install:
     - docker pull codep/scalatekids-env
 
 script:
-    - echo "y" | docker run --rm -i --net=none -v `pwd`:/latex -v `pwd`/img/:/latex/img codep/scalatekids-env:latest verify
+    - docker run --rm -i --net=none -v `pwd`:/latex -v `pwd`/img/:/latex/img codep/scalatekids-env:latest verify
     - echo "y" | docker run --rm -i --net=none -v `pwd`:/latex -v `pwd`/img/:/latex/img codep/scalatekids-env:latest build
