@@ -113,3 +113,5 @@
     v0.0.3}; ogni occorrenza di parole nel \textit{Glossario} è indicata da una
   ``G'' in pedice.
 }
+% image folders
+\graphicspath{{img/}{../../img/}}

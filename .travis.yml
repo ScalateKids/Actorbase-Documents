@@ -1,0 +1,23 @@
+sudo: required
+
+nofications:
+    email:
+        recipients:
+            scalatekids@gmail.com
+        on_success:
+            never
+        on_failure:
+            always
+branches:
+    only:
+        - master
+
+services:
+    - docker
+
+before_install:
+    - docker pull codep/scalatekids-env
+
+script:
+    - docker run --rm -i --net=none -v `pwd`:/root/actorbase codep/scalatekids-env:latest verify
+    - echo "y" | docker run --rm -i --net=none -v `pwd`:/root/actorbase codep/scalatekids-env:latest build
