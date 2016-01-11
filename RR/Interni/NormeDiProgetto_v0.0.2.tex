@@ -26,6 +26,7 @@
            \textbf{Uso} & Interno\\
            \textbf{Lista di distribuzione} & ScalateKids
          \end{tabular}
+         %% \makeInfos
 \end{titlepage}
 \clearpage
 \setcounter{page}{1}
@@ -119,10 +120,10 @@ particolare gli sviluppatori dovranno attenersi alle \textit{Scala Style Guide}
 (\url{https://docs.scala-lang.org/style/}), in particolar modo non possono
 essere infrante le seguenti regole:
 \begin{itemize}
-	\item Lunghezza massima linee 80 caratteri;
-	\item Identazione di 2 spazi;
-	\item Posizionamento di parentesi graffe in linea con il blocco struttura di
-	riferimento;
+\item Lunghezza massima linee 80 caratteri;
+\item Identazione di 2 spazi;
+\item Posizionamento di parentesi graffe in linea con il blocco struttura di
+  riferimento;
 \end{itemize}
 Tutti i file contenenti codice dovranno essere redatti in lingua inglese.
 \paragraph{Nomenclatura}
@@ -140,26 +141,26 @@ I file contenenti codice dovranno seguire le linee guida \gloss{scaladoc}
 \url{https://docs.scala-lang.org/style/scaladoc.html} ed essere provvisti di un
 intestazione contenente:
 \begin{lstlisting}
-/**
-* Nome file
-* Breve descrizione
-*
-* @author Autore del file
-* @version Versione
-* @date Data di creazione
-* Descrizione dettagliata del file
-*/
+  /**
+  * Nome file
+  * Breve descrizione
+  *
+  * @author Autore del file
+  * @version Versione
+  * @date Data di creazione
+  * Descrizione dettagliata del file
+  */
 \end{lstlisting}
 Prima di ogni metodo dovrà essere presente un commento \gloss{scaladoc} contenente:
 \begin{lstlisting}
-/**
-* Breve descrizione del metodo
-*
-* @param Nome del primo parametro
-* @param Nome del secondo parametro
-* @return Valore di ritorno del metodo
-* @throws Eccezioni lanciate dal metodo
-*/
+  /**
+  * Breve descrizione del metodo
+  *
+  * @param Nome del primo parametro
+  * @param Nome del secondo parametro
+  * @return Valore di ritorno del metodo
+  * @throws Eccezioni lanciate dal metodo
+  */
 \end{lstlisting}
 La documentazione verrà generate da \gloss{scaladoc}, nel caso si verifichi la
 necessità di documentare del codice di difficile comprensione, sarà possibile
@@ -356,7 +357,7 @@ in cui:
 \item \textbf{Y}: rappresenta il numero di modifiche sostanziali effettuate sul documento. Se pari a 0 indica che il documento è ancora in fase di stesura in presente revisione;
 \item \textbf{Z}: rappresenta il numero di modifiche minori effettuate sul documento.
 \end{itemize}
- % TODO: spiegare come aumentano ste versioni
+% TODO: spiegare come aumentano ste versioni
 
 \subsubsection{Ciclo di vita dei documenti}
 Tutti i documenti nascono nello stato di \textit{in lavorazione}.\\
@@ -381,14 +382,14 @@ Questo software offre una vasta gamma di servizi molto utili per la gestione di 
 \subsubsection{Creare un sottoprogetto}
 La creazione di sottoprogetti è molto utile per mantenera una chiara divisione funzionale tra le attività, la creazione di un sottoprogetto è molto semplice come si vede in figura sottostante
 \begin{figure}[H]
-	\centering
-	\includegraphics[width=1\textwidth]{tutorialsRedmine/creaproj1.png}
-	\caption{come creare un sottoprogetto - figura 1}
+  \centering
+  \includegraphics[width=1\textwidth]{tutorialsRedmine/creaproj1.png}
+  \caption{come creare un sottoprogetto - figura 1}
 \end{figure}
 \begin{figure}[H]
-	\centering
-	\includegraphics[width=1\textwidth]{tutorialsRedmine/creaproj2.jpg}
-	\caption{come creare un sottoprogetto - figura 2\label{fig:figura-2}}
+  \centering
+  \includegraphics[width=1\textwidth]{tutorialsRedmine/creaproj2.jpg}
+  \caption{come creare un sottoprogetto - figura 2\label{fig:figura-2}}
 \end{figure}
 Come si può vedere in figura \ref{fig:figura-2} si dovrà completare un form con i dati necessari per la creazione del progetto.
 \subsubsection{Scrivere sul Forum}
@@ -396,14 +397,14 @@ Si può partecipare al forum rispondendo a messaggi o creandone di nuovi
 \paragraph{Creare un messaggio}
 Per creare un nuovo messaggio basta andare nel \gloss{topic} desiderato e seguire la procedura come illustrato nelle seguenti immagini
 \begin{figure}[H]
-	\centering
-	\includegraphics[width=1\textwidth]{tutorialsRedmine/creamessaggio1.png}
-	\caption{come creare un messaggio - figura 1}
+  \centering
+  \includegraphics[width=1\textwidth]{tutorialsRedmine/creamessaggio1.png}
+  \caption{come creare un messaggio - figura 1}
 \end{figure}
 \begin{figure}[H]
-	\centering
-	\includegraphics[width=1\textwidth]{tutorialsRedmine/creamessaggio2.jpg}
-	\caption{come creare un messaggio - figura 2}
+  \centering
+  \includegraphics[width=1\textwidth]{tutorialsRedmine/creamessaggio2.jpg}
+  \caption{come creare un messaggio - figura 2}
 \end{figure}
 Per la corretta creazione di un messaggio è necessario seguire le norme scritte nella sezione \ref{sec:Comunicazioni interne}
 \paragraph{Rispondere ad un messaggio}
@@ -414,27 +415,27 @@ Il sistema di segnalazioni è la cosa più importante di \textit{Redmine}, perci
 \paragraph{Creare una segnalazione}
 Il \textit{Responsabile di Progetto} può creare nuove segnalazioni facendo come illustrato nelle seguenti immagini
 \begin{figure}[H]
-	\centering
-	\includegraphics[width=1\textwidth]{tutorialsRedmine/creasegn1.png}
-	\caption{come creare un segnalazione - figura 1}
+  \centering
+  \includegraphics[width=1\textwidth]{tutorialsRedmine/creasegn1.png}
+  \caption{come creare un segnalazione - figura 1}
 \end{figure}
 \begin{figure}[H]
-	\centering
-	\includegraphics[width=1\textwidth]{tutorialsRedmine/creasegn2.jpg}
-	\caption{come creare una segnalazione - figura 2\label{fig:crea-segnalazione-2}}
+  \centering
+  \includegraphics[width=1\textwidth]{tutorialsRedmine/creasegn2.jpg}
+  \caption{come creare una segnalazione - figura 2\label{fig:crea-segnalazione-2}}
 \end{figure}
 Come possiamo vedere in figura \ref{fig:crea-segnalazione-2} ci sono diversi campi da compilare:
 \begin{itemize}
-	\item \textbf{Tracker:} lasciare selezionato Segnalazione
-	\item \textbf{Oggetto:} l'oggetto della segnalazione, questo deve essere breve e non equivocabile
-	\item \textbf{Descrizione:} descrizione dettagliata dell'attività da svolgere
-	\item \textbf{Stato:} se è una nuova segnalazione deve rimanere \textit{nuovo}, altrimenti è possibile scegliere altre opzioni, di solito lo stato viene cambiato dall'intestatario della segnalazione stessa
-	\item \textbf{Assegnato a:} la persona che deve svolgere l'attività
-	\item \textbf{Attività principale:} se questa è una sotto \gloss{task} di un altra qui bisogna inserire l'identificatore del \gloss{task} padre
-	\item \textbf{Inizio:} data in cui deve iniziare l'attività
-	\item \textbf{Fine:} data in cui l'attività deve essere completata
-	\item \textbf{Tempo stimato:} il numero di ore stimato in cui si dovrebbe completare questa attività
-	\item \textbf{\% completato:} la percentuale di completamento dell'attività, anche questo parametro di solito viene utilizzato dal membro del gruppo che lavora si questa attività.
+\item \textbf{Tracker:} lasciare selezionato Segnalazione
+\item \textbf{Oggetto:} l'oggetto della segnalazione, questo deve essere breve e non equivocabile
+\item \textbf{Descrizione:} descrizione dettagliata dell'attività da svolgere
+\item \textbf{Stato:} se è una nuova segnalazione deve rimanere \textit{nuovo}, altrimenti è possibile scegliere altre opzioni, di solito lo stato viene cambiato dall'intestatario della segnalazione stessa
+\item \textbf{Assegnato a:} la persona che deve svolgere l'attività
+\item \textbf{Attività principale:} se questa è una sotto \gloss{task} di un altra qui bisogna inserire l'identificatore del \gloss{task} padre
+\item \textbf{Inizio:} data in cui deve iniziare l'attività
+\item \textbf{Fine:} data in cui l'attività deve essere completata
+\item \textbf{Tempo stimato:} il numero di ore stimato in cui si dovrebbe completare questa attività
+\item \textbf{\% completato:} la percentuale di completamento dell'attività, anche questo parametro di solito viene utilizzato dal membro del gruppo che lavora si questa attività.
 \end{itemize}
 \paragraph{Aggiornare una segnalazione}
 Il lavoro di aggiornamento di una segnalazione deve essere svolto dai vari membri del gruppo che lavorano alla segnalazione stessa.\\
@@ -471,15 +472,15 @@ centralizzando gli strumenti organizzativi su server privato.
 \paragraph{Servizi web}
 I servizi web utilizzati sono:
 \begin{itemize}
-	\item\textbf{Google Drive:} è usato per lo scambio di file e documenti all'interno del gruppo, principalmente per file che non necessitano di versionamento.\\
-	Questo spazio del gruppo è suddiviso in diverse cartelle per una migliore gestione e per facilitare la ricerca all'interno di esso.\\
-	Il \textit{Responsabile di Progetto} ha il potere amministrativo dell'account in questione, quindi sarà quest'ultima persona ad occuparsi di garantire i giusti diritti ai membri del gruppo.
-	\item\textbf{Github:} è usato per tutti i files che necessitano un sistema di \gloss{versionamento} viene usato il servizio offerto da \textit{Github}, l'indirizzo web del gruppo è:\\
-	\begin{center}
-		\url{https://github.com/scalatekids}
-	\end{center}
-	\item\textbf{Twiddla:} è un sistema che offre una lavagna online condivisa, questo servizio è utilizzato dai membri del gruppo per discutere e lavorare assieme % TODO: non so cosa scrivere su twiddla
-	\item\textbf{Gantter for Google Drive:} è uno strumento gratuito per la creazione di \gloss{diagrammi di Gantt}, è stato usato per la creazione del Gantt predittivo
+\item\textbf{Google Drive:} è usato per lo scambio di file e documenti all'interno del gruppo, principalmente per file che non necessitano di versionamento.\\
+  Questo spazio del gruppo è suddiviso in diverse cartelle per una migliore gestione e per facilitare la ricerca all'interno di esso.\\
+  Il \textit{Responsabile di Progetto} ha il potere amministrativo dell'account in questione, quindi sarà quest'ultima persona ad occuparsi di garantire i giusti diritti ai membri del gruppo.
+\item\textbf{Github:} è usato per tutti i files che necessitano un sistema di \gloss{versionamento} viene usato il servizio offerto da \textit{Github}, l'indirizzo web del gruppo è:\\
+  \begin{center}
+    \url{https://github.com/scalatekids}
+  \end{center}
+\item\textbf{Twiddla:} è un sistema che offre una lavagna online condivisa, questo servizio è utilizzato dai membri del gruppo per discutere e lavorare assieme % TODO: non so cosa scrivere su twiddla
+\item\textbf{Gantter for Google Drive:} è uno strumento gratuito per la creazione di \gloss{diagrammi di Gantt}, è stato usato per la creazione del Gantt predittivo
 \end{itemize}
 \paragraph{Server dedicato}
 Sono state installate alcune applicazioni per il coordinamento del gruppo su
@@ -491,9 +492,9 @@ login, i componenti possono usufruire delle seguenti applicazioni:
 Redmine è un'applicazione web atta alla gestione di progetti.\\
 Offre diverse funzionalità che il gruppo dovrà utilizzare, quali:
 \begin{itemize}
-	\item\textbf{Sezione wiki:} una pagina web in cui il gruppo andrà a condividere una serie di link di interesse riguardanti ogni tecnologia o aspetto inerente al progetto.
-	\item\textbf{Sistema di segnalazioni:} un sistema di segnalazioni gestite dall'\textit{Responsabile}, ogni segnalazione rappresenta un task assegnato ad uno o più membri del gruppo, il suo conseguimento servirà per il soddisfacimento di un requisito.
-	\item\textbf{Gantt:} \textit{Redmine} costruisce automaticamente un \gloss{diagramma di Gantt} con le segnalazioni create dall'\textit{Responsabile}
+\item\textbf{Sezione wiki:} una pagina web in cui il gruppo andrà a condividere una serie di link di interesse riguardanti ogni tecnologia o aspetto inerente al progetto.
+\item\textbf{Sistema di segnalazioni:} un sistema di segnalazioni gestite dall'\textit{Responsabile}, ogni segnalazione rappresenta un task assegnato ad uno o più membri del gruppo, il suo conseguimento servirà per il soddisfacimento di un requisito.
+\item\textbf{Gantt:} \textit{Redmine} costruisce automaticamente un \gloss{diagramma di Gantt} con le segnalazioni create dall'\textit{Responsabile}
 \end{itemize}
 % TODO: potremmo aggiungere dei diagrammi UML2.0 per descrivere come usare redmine...
 
@@ -512,8 +513,8 @@ i simili principi di funzionamento, costituiva una scelta più difficoltosa, in
 quanto nessun membro ha mai avuto esperienze di utilizzo.
 Sono stati creati due \gloss{repository} all'indirizzo \url{https://github.com/scalatekids}:
 \begin{itemize}
-	\item Actorbase.\gloss{git}: Contiene i sorgenti del software.
-	\item Actorbase-Documents.\gloss{git}: Contiene i sorgenti \LaTeX\ e i PDF generati.
+\item Actorbase.\gloss{git}: Contiene i sorgenti del software.
+\item Actorbase-Documents.\gloss{git}: Contiene i sorgenti \LaTeX\ e i PDF generati.
 \end{itemize}
 
 \paragraph{Ambiente di lavoro individuale}
@@ -536,14 +537,14 @@ in forma compattata \textit{.7z}, ogni componente dovrà installare il software
 macchina virtuale.\\
 I passi da seguire sono:
 \begin{itemize}
-	\item Nuovo
-	\item Tipo: \textit{Ubuntu} Versione: \textit{64-bit}
-	\item Assegnare la quantità di memoria in base alla propria disponibilità
-	\item Usa un hard-disk esistente e selezionare \textit{ScalateKids-VMvX.Y.vdi}
+\item Nuovo
+\item Tipo: \textit{Ubuntu} Versione: \textit{64-bit}
+\item Assegnare la quantità di memoria in base alla propria disponibilità
+\item Usa un hard-disk esistente e selezionare \textit{ScalateKids-VMvX.Y.vdi}
 \end{itemize}
 Una volta avviata la macchina, da terminale lanciare il comando:
 \begin{center}
-	\textit{curl http://codep.kissr.com/sk/scripts/init.sh | sh}
+  \textit{curl http://codep.kissr.com/sk/scripts/init.sh | sh}
 \end{center}
 Il comando provvederà al download delle librerie e degli \gloss{script}
 necessari alla corretta configurazione dell'ambiente di lavoro del gruppo.
@@ -554,7 +555,7 @@ modificare l'ambiente di lavoro o ci sarà bisogno di librerie di supporto
 ulteriori o modifica di \gloss{script} di utilità, il seguente comando si
 occuperà di scaricare e installare gli aggiornamenti richiesti:
 \begin{center}
-	\textit{curl http://codep.kissr.com/sk/scripts/update.sh | sh}
+  \textit{curl http://codep.kissr.com/sk/scripts/update.sh | sh}
 \end{center}
 Gli \gloss{script} init.sh e update.sh presenti sul server privato saranno
 preparati dall'\textit{Amministratore} e rilasciati di volta in volta previa
@@ -564,19 +565,19 @@ approvazione del \textit{Responsabile}.
 L'\textit{Amministratore} si è occupato di scrivere alcuni \gloss{script} di utilità
 generale da utilizzare all'interno della macchina virtuale:
 \begin{itemize}
-	\item\textbf{gencln:} lanciato senza argomenti, genera tutti i pdf del
-	progetto dai .tex, eliminando tutti i file .log .aux .out .soc e .toc
-	generati. Può avere un numero indefinito di argomenti, purchè siano file
-	.tex, questi verranno allo stesso modo generati eliminando tutti i file .log
-	.aux .out .soc e .toc
-	\item\textbf{extgloss:} estrae tutti i termini da glossario contrassegnati da
-	\verb=\gloss= dai file del progetto, anche questo comando può essere lanciato con
-	o senza argomenti
-	\item\textbf{checkgloss:} genera una lista di file da glossario leggendo il
-	file \hyperref{Glossario\_v0.0.1}, in seguito controlla tutti i file del
-	progetto eccetto il glossario, e inserisce il comando \verb=\gloss= sui termini
-	contenuti in lista trovati nei file. Con argomenti esegue le medesime
-	operazioni soltato sui file .tex scelti.
+\item\textbf{gencln:} lanciato senza argomenti, genera tutti i pdf del
+  progetto dai .tex, eliminando tutti i file .log .aux .out .soc e .toc
+  generati. Può avere un numero indefinito di argomenti, purchè siano file
+  .tex, questi verranno allo stesso modo generati eliminando tutti i file .log
+  .aux .out .soc e .toc
+\item\textbf{extgloss:} estrae tutti i termini da glossario contrassegnati da
+  \verb=\gloss= dai file del progetto, anche questo comando può essere lanciato con
+  o senza argomenti
+\item\textbf{checkgloss:} genera una lista di file da glossario leggendo il
+  file \hyperref{Glossario\_v0.0.1}, in seguito controlla tutti i file del
+  progetto eccetto il glossario, e inserisce il comando \verb=\gloss= sui termini
+  contenuti in lista trovati nei file. Con argomenti esegue le medesime
+  operazioni soltato sui file .tex scelti.
 \end{itemize}
 \subparagraph{Script di utilità remoti}
 Questi script, \textbf{init.sh} e \textbf{update.sh}, risiederanno sul server
@@ -604,12 +605,12 @@ crescita fino al rilascio del prodotto. Deve avere conoscenze e capacità
 tecniche in modo da comprendere e anticipare l'evoluzione del progetto.\\
 Detiene il potere decisionale e ha resposabilità su:
 \begin{itemize}
-  \item Pianificazione;
-  \item Gestione delle risorse umane;
-  \item Controllo, coordinamento e relazioni esterne;
-  \item Analisi e gestione dei rischi;
-  \item Approvazione dei documenti;
-  \item Approvazione dell'offerta economica;
+\item Pianificazione;
+\item Gestione delle risorse umane;
+\item Controllo, coordinamento e relazioni esterne;
+\item Analisi e gestione dei rischi;
+\item Approvazione dei documenti;
+\item Approvazione dell'offerta economica;
 \end{itemize}
 Si occupa dunque della distribuzione delle attività, verifica che esse vengano
 portate a termine seguendo le \textit{Norme di Progetto} e controlla che non vi
@@ -629,12 +630,12 @@ inoltre alla stesura del \textit{Piano di Qualifica}.
 L'\textit{Amministratore} si occupa di allestire, seguire e migliorare
 l'ambiente di lavoro, le responsabilità principali sono:
 \begin{itemize}
-  \item Amministrazione delle risorse e delle infrastrutture;
-  \item Risoluzione di problemi legati alla gestione dei processi;
-  \item Gestione della documentazione di progetto;
-  \item Controllo di versioni e configurazioni;
-  \item Ricerca di strumenti che possano automatizzare compiti tediosi;
-  \item Ricerca di strumenti che possano semplificare il lavoro di verifica;
+\item Amministrazione delle risorse e delle infrastrutture;
+\item Risoluzione di problemi legati alla gestione dei processi;
+\item Gestione della documentazione di progetto;
+\item Controllo di versioni e configurazioni;
+\item Ricerca di strumenti che possano automatizzare compiti tediosi;
+\item Ricerca di strumenti che possano semplificare il lavoro di verifica;
 \end{itemize}
 Redige le \textit{Norme di Progetto} e partecipa alla stesura del \textit{Piano
   di Qualifica}.
@@ -650,11 +651,11 @@ inoltre le componenti di ausilio necessarie all'attività di verifica e
 validazione. Hanno competenze tecniche specializzate, ricoprono principalmente
 le seguenti responsabilità:
 \begin{itemize}
-  \item Implementazione delle soluzioni descritte dal \textit{Progettista}
-    seguendone i design pattern proposti;
-  \item Documentare e commentare il codice in modo da renderlo più facilmente
-    manutenibile;
-  \item Implementare dei test utili in fase di verifica e validazione;
+\item Implementazione delle soluzioni descritte dal \textit{Progettista}
+  seguendone i design pattern proposti;
+\item Documentare e commentare il codice in modo da renderlo più facilmente
+  manutenibile;
+\item Implementare dei test utili in fase di verifica e validazione;
 \end{itemize}
 Si occupa della redazione del \textit{Manuale Utente}.
 \subsection{Verificatore}
@@ -663,8 +664,8 @@ tutta la durata assieme al \textit{Responsabile}, possiede grandi capacità di
 giudizio e competenza tecnica, influenza molto fortemente l'aspetto qualitativo
 del prodotto.\\ Ricopre le seguenti responsabilità:
 \begin{itemize}
-  \item Si assicura che le attività seguano le direttive stabilite nelle \textit{Norme di Progetto};
-  \item Controlla la conformità di ogni stadio del ciclo di vita del prodotto.
+\item Si assicura che le attività seguano le direttive stabilite nelle \textit{Norme di Progetto};
+\item Controlla la conformità di ogni stadio del ciclo di vita del prodotto.
 \end{itemize}
 Si occupa della redazione del \textit{Piano di Qualifica}.
 

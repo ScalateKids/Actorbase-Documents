@@ -36,9 +36,9 @@
 \usepackage{lastpage}
 \pagestyle{fancy}
 \usepackage[colorlinks=true,
-            linkcolor=red,
-            urlcolor=blue,      % url color set to blue
-            citecolor=gray]{hyperref}
+  linkcolor=red,
+  urlcolor=blue,      % url color set to blue
+  citecolor=gray]{hyperref}
 \usepackage[T1]{fontenc}
 \usepackage[scaled]{beraserif}
 \usepackage[scaled]{berasans}
@@ -51,8 +51,7 @@
 % **** all new rules / command should be added here ****
 %
 % =======================================================
-% image folders
-\graphicspath{{img/}{../../img/}}
+
 \DeclareCaptionFormat{listing}{\rule{\dimexpr\textwidth+17pt\relax}{0.4}\vskip1pt#1#2#3}
 \captionsetup[lstlisting]{singlelinecheck=false, margin=0pt, font={bf,footnotesize}}
 \definecolor{toc-blue}{rgb}{0.0,0.0,0.4}               % ToC links color
@@ -60,17 +59,12 @@
 % Make \paragraph behave like a subsubsubsection
 \makeatletter
 \renewcommand\paragraph{\@startsection{paragraph}{4}{\z@}%
-            {-2.5ex\@plus -1ex \@minus -.25ex}%
-            {1.25ex \@plus .25ex}%
-            {\normalfont\normalsize\bfseries}}
+  {-2.5ex\@plus -1ex \@minus -.25ex}%
+  {1.25ex \@plus .25ex}%
+  {\normalfont\normalsize\bfseries}}
 \makeatother
-\renewcommand\subparagraph{\@startsection{subparagraph}{5}{\z@}%
-            {-2.5ex\@plus -1ex \@minus -.25ex}%
-            {1.25ex \@plus .25ex}%
-            {\normalfont\normalsize\bfseries}}
-\makeatother
-\setcounter{secnumdepth}{4} % how many sectioning levels to assign numbers to
-\setcounter{tocdepth}{4}    % how many sectioning levels to show in ToC
+\setcounter{secnumdepth}{5} % how many sectioning levels to assign numbers to
+\setcounter{tocdepth}{5}    % how many sectioning levels to show in ToC
 % footer and header spacing
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\footrulewidth}{0.4pt}
@@ -80,14 +74,16 @@
 \newcommand{\glossDef}[1]{\textbf{#1:}}
 % Change name of Toc to 'Indice'
 \renewcommand{\contentsname}{Indice}
+% image folders
+\graphicspath{{img/}{../../img/}}
 % newpage for every section
 \newcommand{\sectionbreak}{\clearpage}
 \pagestyle{fancy}
 \fancyhf{}
 \lhead{
-    \includegraphics[height=1.5cm, width=1.5cm, keepaspectratio=true]{img/logo.png} \emph{ScalateKids}}
+  \includegraphics[height=1.5cm, width=1.5cm, keepaspectratio=true]{\string~/actorbase/Actorbase-Documents/img/logo.png} \emph{ScalateKids}}
 \rhead{
-    \slshape \leftmark
+  \slshape \leftmark
 }
 % pagestyle set to 'n di m'
 \rfoot{\thepage\hspace{1pt}di \pageref{LastPage}}
@@ -118,4 +114,24 @@
   \href{run:Glossario\_v0.0.3.pdf}{Glossario
     v0.0.3}; ogni occorrenza di parole nel \textit{Glossario} è indicata da una
   ``G'' in pedice.
+}
+% doc Info
+\newcommand{\makeInfos}{
+  \bgroup
+  \def\arraystretch{1.3}
+  \begin{tabular}{ r|l }
+    \multicolumn{2}{c}{\textbf{Informazioni sul documento}} \\
+    \hline
+    \setbox0=\hbox{0.0.1\unskip}\ifdim\wd0=0pt
+    \\
+    \else
+    \textbf{Versione} & 0.0.1\\
+    \fi
+    \textbf{Redazione} & \multiLineCell[t]{Redattore}\\
+    \textbf{Verifica} & \multiLineCell[t]{Verificatore}\\
+    \textbf{Approvazione} & \multiLineCell[t]{Approvatore}\\
+    \textbf{Uso} & Uso\\
+    \textbf{Distribuzione} & \multiLineCell[t]{Prof. Riccardo Cardin}\\
+  \end{tabular}
+  \egroup
 }
