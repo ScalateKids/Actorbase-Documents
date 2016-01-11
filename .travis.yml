@@ -21,4 +21,4 @@ before_install:
 script:
     - docker run --rm -i --net=none -v `pwd`:/root/actorbase codep/scalatekids-env:latest verify
     - echo "y" | docker run --rm -i --net=none -v `pwd`:/root/actorbase codep/scalatekids-env:latest build
-    - docker run --rm -i --net-none -v `pwd`:/root/actorbase codep/scalatekids-env:latest gulpease
+    - docker run --rm -i --net=none -v `pwd`:/root/actorbase codep/scalatekids-env:latest gulpease
