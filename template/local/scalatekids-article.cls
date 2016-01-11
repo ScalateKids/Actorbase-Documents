@@ -51,7 +51,8 @@
 % **** all new rules / command should be added here ****
 %
 % =======================================================
-
+% image folders
+\graphicspath{{img/}{../../img/}}
 \DeclareCaptionFormat{listing}{\rule{\dimexpr\textwidth+17pt\relax}{0.4}\vskip1pt#1#2#3}
 \captionsetup[lstlisting]{singlelinecheck=false, margin=0pt, font={bf,footnotesize}}
 \definecolor{toc-blue}{rgb}{0.0,0.0,0.4}               % ToC links color
@@ -59,6 +60,11 @@
 % Make \paragraph behave like a subsubsubsection
 \makeatletter
 \renewcommand\paragraph{\@startsection{paragraph}{4}{\z@}%
+            {-2.5ex\@plus -1ex \@minus -.25ex}%
+            {1.25ex \@plus .25ex}%
+            {\normalfont\normalsize\bfseries}}
+\makeatother
+\renewcommand\subparagraph{\@startsection{subparagraph}{5}{\z@}%
             {-2.5ex\@plus -1ex \@minus -.25ex}%
             {1.25ex \@plus .25ex}%
             {\normalfont\normalsize\bfseries}}
@@ -79,7 +85,7 @@
 \pagestyle{fancy}
 \fancyhf{}
 \lhead{
-    \includegraphics[height=1.5cm, width=1.5cm, keepaspectratio=true]{/home/kids/bin/img/logo.png} \emph{ScalateKids}}
+    \includegraphics[height=1.5cm, width=1.5cm, keepaspectratio=true]{img/logo.png} \emph{ScalateKids}}
 \rhead{
     \slshape \leftmark
 }
@@ -113,5 +119,3 @@
     v0.0.3}; ogni occorrenza di parole nel \textit{Glossario} è indicata da una
   ``G'' in pedice.
 }
-% image folders
-\graphicspath{{img/}{../../img/}}
