@@ -74,12 +74,14 @@
 \newcommand{\glossDef}[1]{\textbf{#1:}}
 % Change name of Toc to 'Indice'
 \renewcommand{\contentsname}{Indice}
+% image folders
+\graphicspath{{img/}{../../img/}}
 % newpage for every section
 \newcommand{\sectionbreak}{\clearpage}
 \pagestyle{fancy}
 \fancyhf{}
 \lhead{
-    \includegraphics[height=1.5cm, width=1.5cm, keepaspectratio=true]{/home/kids/bin/img/logo.png} \emph{ScalateKids}}
+    \includegraphics[height=1.5cm, width=1.5cm, keepaspectratio=true]{\string~/actorbase/Actorbase-Documents/img/logo.png} \emph{ScalateKids}}
 \rhead{
     \slshape \leftmark
 }
@@ -113,5 +115,3 @@
     v0.0.3}; ogni occorrenza di parole nel \textit{Glossario} è indicata da una
   ``G'' in pedice.
 }
-% image folders
-\graphicspath{{img/}{../../img/}}
