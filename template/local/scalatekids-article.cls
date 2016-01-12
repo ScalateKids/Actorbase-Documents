@@ -81,7 +81,7 @@
 \pagestyle{fancy}
 \fancyhf{}
 \lhead{
-  \includegraphics[height=1.5cm, width=1.5cm, keepaspectratio=true]{\string~/actorbase/Actorbase-Documents/img/logo.png} \emph{ScalateKids}}
+  \includegraphics[height=1.5cm, width=1.5cm, keepaspectratio=true]{logo.png} \emph{ScalateKids}}
 \rhead{
   \slshape \leftmark
 }
