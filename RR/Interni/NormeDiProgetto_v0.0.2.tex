@@ -213,7 +213,6 @@ I requisiti dovranno essere classificati per tipo e importanza.
 
 \section{Processi di Supporto}
 \subsection{Documenti}
-% TODO: bisogna aggiungere la parte in cui diciamo che usiamo una virtualbox per facilitare tutto
 
 \subsubsection{Struttura dei documenti}
 Abbiamo standardizzato la scrittura di tutti i documenti attraverso un \gloss{template} \LaTeX\xspace creato da noi e presente su \textit{github} nel \gloss{repository} \textit{ActorBase - Documents}.\\
@@ -266,7 +265,7 @@ Per uniformare il più possibile la stesura di tutti i documenti abbiamo scelto 
   Saranno inoltre scritti con l'iniziale maiuscolta i ruoli, le persone inerenti al progetto e i documenti noti (es. \textit{Committente} \textit{Analisi dei Requisiti});
 \end{itemize}
 
-\subsubsection{Stile testo}:
+\subsubsection{Stile testo}
 \begin{itemize}
 \item \textbf{Corsivo}: il corsivo dev'essere utilizzato per:
   \begin{itemize}
@@ -370,6 +369,28 @@ I tre stati sono descritti brevemente come segue:
 \item \textbf{Approvato}: dopo la fase di verifica il \textit{Responsabile} effettuerà una fase di approvazione, se questa fase sarà superata il documento sarà approvato e entrerà in una versione ufficiale.
 \end{itemize}
 
+\subsubsection{Analisi dei requisiti}
+I requisiti all'interno del documento \textit{Analisi dei Requisiti} seguiranno le seguenti regole:
+\begin{center}
+  \verb=<Importanza><Tipologia><Id>=
+\end{center}
+Di seguito sono elencati i possibili valori che ogni termine tra parentesi angolare può assumere:
+\begin{itemize}
+  \item \textbf{Importanza}:
+    \begin{itemize}
+      \item \textbf{OB} indica un requisito obbligatorio;
+      \item \textbf{DE} indica un requisito desiderabile;
+      \item \textbf{OP} indica un requisito opzionale.
+    \end{itemize}
+  \item \textbf{Tipologia}:
+    \begin{itemize}
+      \item \textbf{F} indica un requisito funzionale;
+      \item \textbf{Q} indica un requisito di qualità;
+      \item \textbf{T} indica un requisito tecnologico;
+      \item \textbf{V} indica un requisito di vincolo.
+    \end{itemize}
+  \item \textbf{Id}: è un numero crescente che identifica univocamente il requisito. Se un requisito è stato derivato da un altro, il suo id sarà preceduto dall'id del requisito da cui dipende e separato da esso con un punto.
+\end{itemize}
 \subsubsection{Norme di verifica documenti}
 Posto che tutti i componenti del gruppo dovranno affettuare delle attività di
 verifica, il redattore di ogni sezione nei documenti tassativamente non potrà
