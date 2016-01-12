@@ -4,29 +4,40 @@
 \documentclass{scalatekids-article}
 \begin{document}
 \lfoot{Glossario 0.0.3}
+\newgeometry{top=3.5cm}
 \begin{titlepage}
-  \centering
-  \includegraphics[width=0.45\textwidth]{logo.png}\par\vspace{1cm}
-  \vspace{1.5cm}
-         {\Huge\bfseries Glossario \par}
-         \begin{center}
-           \vspace{1.0cm}
-                  {\large\bfseries Informazioni sul documento \par}
-         \end{center}
-         \vspace{-1cm}
-         \begin{center}
-           \line(1,0){300}
-         \end{center}
-         \vspace{0cm}
-         \begin{tabular}[c]{l|l}
-           \textbf{Versione} & 0.0.3\\
-           \textbf{Redazione} & Redattore1\\ & Redattore2\\ & Redattore3..\\
-           \textbf{Verifica} & Verificatore1\\ & Verificatore2..\\
-           \textbf{Responsabile} & Responsabile\\
-           \textbf{Uso} & Esterno\\
-           \textbf{Lista di distribuzione} & ScalateKids
-         \end{tabular}
+  \begin{center}
+    \begin{center}
+      \includegraphics[width=10cm]{\string~/actorbase/Actorbase-Documents/img/logo.png}
+    \end{center}
+    \vspace{1cm}
+    \begin{Huge}
+      \begin{center}
+        \textbf{Glossario}
+      \end{center}
+    \end{Huge}
+    \vspace{11pt}
+    \bgroup
+    \def\arraystretch{1.3}
+    \begin{tabular}{r|l}
+      \multicolumn{2}{c}{\textbf{Informazioni sul documento}} \\
+      \hline
+      \setbox0=\hbox{0.0.1\unskip}\ifdim\wd0=0pt
+      \\
+      \else
+      \textbf{Versione} & 0.0.3\\
+      \fi
+      \textbf{Redazione} & \multiLineCell[t]{Redattore}\\
+      \textbf{Verifica} & \multiLineCell[t]{Verificatore}\\
+      \textbf{Approvazione} & \multiLineCell[t]{Approvatore}\\
+      \textbf{Uso} & Esterno\\
+      \textbf{Lista di Distribuzione} & \multiLineCell[t]{ScalateKids\\Prof. Tullio Vardanega\\Prof. Riccardo Cardin}\\
+    \end{tabular}
+    \egroup
+    \vspace{22pt}
+  \end{center}
 \end{titlepage}
+\restoregeometry
 \clearpage
 \setcounter{page}{1}
 \begin{flushleft}
@@ -114,7 +125,7 @@ Con questo sistema gli sviluppatori possono collaborare individualmente e parall
 
 \glossaryLetter{I}
 
-\glossDef{IDE (Integrated development environment)} Un \textit{ambiente di sviluppo integrato} è un software che, in fase di programmazione, aiuta i programmatori nello sviluppo del codice sorgente di un programma. Spesso l'IDE aiuta lo sviluppatore segnalando errori di sintassi del codice direttamente in fase di scrittura, oltre a tutta una serie di strumenti e funzionalità di supporto alla fase di sviluppo e debugging. 
+\glossDef{IDE (Integrated development environment)} Un \textit{ambiente di sviluppo integrato} è un software che, in fase di programmazione, aiuta i programmatori nello sviluppo del codice sorgente di un programma. Spesso l'IDE aiuta lo sviluppatore segnalando errori di sintassi del codice direttamente in fase di scrittura, oltre a tutta una serie di strumenti e funzionalità di supporto alla fase di sviluppo e debugging.
 
 \glossDef{Instant messaging} E' una categoria di sistemi di comunicazione in tempo reale in rete, tipicamente Internet o una rete locale, che permette ai suoi utilizzatori lo scambio di brevi messaggi.
 
@@ -123,106 +134,106 @@ Con questo sistema gli sviluppatori possono collaborare individualmente e parall
 \glossDef{IoT (Internet of Things)} è un neologismo riferito all'estensione di Internet al mondo degli oggetti e dei luoghi concreti.
 L' \textit{Internet delle cose} è vista come una possibile evoluzione dell'uso della Rete: gli oggetti si rendono riconoscibili e acquisiscono intelligenza grazie al fatto di poter comunicare dati su se stessi e accedere ad informazioni aggregate da parte di altri[
 
-\glossDef{ISO (International Organization for Standardization)} E' la più importante organizzazione a livello mondiale per la definizione di norme tecniche fondata nel 1947 a Ginevra, in Svizzera.
-L'ISO coopera strettamente con l'IEC (vedi sopra), responsabile per la standardizzazione degli equipaggiamenti elettrici.
-Le norme ISO sono numerate e hanno un formato del tipo ISO nnnn:yyyy - titolo, dove nnnn è il numero della norma, yyyy l'anno di pubblicazione e titolo è una breve descrizione della norma.
+  \glossDef{ISO (International Organization for Standardization)} E' la più importante organizzazione a livello mondiale per la definizione di norme tecniche fondata nel 1947 a Ginevra, in Svizzera.
+  L'ISO coopera strettamente con l'IEC (vedi sopra), responsabile per la standardizzazione degli equipaggiamenti elettrici.
+  Le norme ISO sono numerate e hanno un formato del tipo ISO nnnn:yyyy - titolo, dove nnnn è il numero della norma, yyyy l'anno di pubblicazione e titolo è una breve descrizione della norma.
 
-\glossaryLetter{J}
+  \glossaryLetter{J}
 
-\glossaryLetter{K}
+  \glossaryLetter{K}
 
-\glossDef{Key-value Database} E' un paradigma di archivazione di dati progettato per archiviare, recuperare e gestire array associativi (vedi "Dizionario").
+  \glossDef{Key-value Database} E' un paradigma di archivazione di dati progettato per archiviare, recuperare e gestire array associativi (vedi "Dizionario").
 
-\glossaryLetter{L}
+  \glossaryLetter{L}
 
-\glossDef{lowerCamelCase} vedi \textit{CamelCase}.
+  \glossDef{lowerCamelCase} vedi \textit{CamelCase}.
 
-\glossaryLetter{M}
+  \glossaryLetter{M}
 
-\glossDef{Mailing List} E' un servizio/strumento offribile da una rete di computer verso vari utenti e costituito da un sistema organizzato per la partecipazione di più persone ad una discussione asincrona o per la distribuzione di informazioni utili agli interessati/iscritti attraverso l'invio di email ad una lista di indirizzi di posta elettronica di utenti iscritti.
+  \glossDef{Mailing List} E' un servizio/strumento offribile da una rete di computer verso vari utenti e costituito da un sistema organizzato per la partecipazione di più persone ad una discussione asincrona o per la distribuzione di informazioni utili agli interessati/iscritti attraverso l'invio di email ad una lista di indirizzi di posta elettronica di utenti iscritti.
 
-\glossDef{Modello ad attori} vedi "Actormodel".
+  \glossDef{Modello ad attori} vedi "Actormodel".
 
-\glossDef{Modello relazionale} modello logico di rappresentazione o strutturazione dei dati di un database implementato su sistemi di 'gestione di basi di dati' (DBMS).
-Si basa sulla teoria degli insiemi e sulla logica del primo ordine ed è strutturato intorno al concetto matematico di relazione (detta anche tabella). Per il suo trattamento ci si avvale di strumenti quali il calcolo relazionale e l'algebra relazionale.
+  \glossDef{Modello relazionale} modello logico di rappresentazione o strutturazione dei dati di un database implementato su sistemi di 'gestione di basi di dati' (DBMS).
+  Si basa sulla teoria degli insiemi e sulla logica del primo ordine ed è strutturato intorno al concetto matematico di relazione (detta anche tabella). Per il suo trattamento ci si avvale di strumenti quali il calcolo relazionale e l'algebra relazionale.
 
-\glossaryLetter{N}
+  \glossaryLetter{N}
 
-\glossDef{NoSQL} E' un movimento che promuove sistemi software dove la persistenza dei dati è caratterizzata dal fatto di non utilizzare il modello relazionale (vedi sopra), solitamente utilizzato dai database tradizionali.
-L'espressione NoSQL fa riferimento al linguaggio SQL, il più comune tra i linguaggi per l'interrogazione dei database relazionali, qui preso a simbolo dell'intero paradigma relazionale. Molto spesso nei linguaggi NoSQL viene sacrificato in favore dele prestazioni il paradigma ACID (atomicità, consistenza, isolamento, durabilità) in quanto, per il teorema CAP, noto anche come teorema di Brewer, è impossibile per un sistema informatico distribuito, fornire simultaneamente tutte e tre le seguenti garanzie:
-Coerenza (tutti i nodi vedono gli stessi dati nello stesso momento)
-Disponibilità (la garanzia che ogni richiesta riceva una risposta su ciò che sia riuscito o fallito)
-Tolleranza di partizione (il sistema continua a funzionare nonostante arbitrarie perdite di messaggi)
-Secondo il teorema, un sistema distribuito è in grado di soddisfare al massimo due di queste garanzie allo stesso tempo, ma non tutte e tre.
+  \glossDef{NoSQL} E' un movimento che promuove sistemi software dove la persistenza dei dati è caratterizzata dal fatto di non utilizzare il modello relazionale (vedi sopra), solitamente utilizzato dai database tradizionali.
+  L'espressione NoSQL fa riferimento al linguaggio SQL, il più comune tra i linguaggi per l'interrogazione dei database relazionali, qui preso a simbolo dell'intero paradigma relazionale. Molto spesso nei linguaggi NoSQL viene sacrificato in favore dele prestazioni il paradigma ACID (atomicità, consistenza, isolamento, durabilità) in quanto, per il teorema CAP, noto anche come teorema di Brewer, è impossibile per un sistema informatico distribuito, fornire simultaneamente tutte e tre le seguenti garanzie:
+  Coerenza (tutti i nodi vedono gli stessi dati nello stesso momento)
+  Disponibilità (la garanzia che ogni richiesta riceva una risposta su ciò che sia riuscito o fallito)
+  Tolleranza di partizione (il sistema continua a funzionare nonostante arbitrarie perdite di messaggi)
+  Secondo il teorema, un sistema distribuito è in grado di soddisfare al massimo due di queste garanzie allo stesso tempo, ma non tutte e tre.
 
-\glossaryLetter{O}
+  \glossaryLetter{O}
 
-\glossDef{Organigramma} In un'organizzazione aziendale, con il termine organigramma si intende una formalizzazione di quali sono gli organi e le loro relazioni gerarchiche o funzionali all'interno di un smbiente di lavoro.
+  \glossDef{Organigramma} In un'organizzazione aziendale, con il termine organigramma si intende una formalizzazione di quali sono gli organi e le loro relazioni gerarchiche o funzionali all'interno di un smbiente di lavoro.
 
-\glossaryLetter{P}
+  \glossaryLetter{P}
 
-\glossDef{Plugin} Il plugin in campo informatico è un programma non autonomo che interagisce con un altro programma per ampliarne o estenderne le funzionalità originarie.
-A seconda dei programmi e delle piattaforme software, i plugin possono esser chiamati con sinonimi diversi: add-in, add-on e estensione.
+  \glossDef{Plugin} Il plugin in campo informatico è un programma non autonomo che interagisce con un altro programma per ampliarne o estenderne le funzionalità originarie.
+  A seconda dei programmi e delle piattaforme software, i plugin possono esser chiamati con sinonimi diversi: add-in, add-on e estensione.
 
-\glossDef{Prototipo} Il modello realizzato nell’ultima fase della progettazione e sperimentazione, e destinato a divenire il punto di partenza della produzione in serie
+  \glossDef{Prototipo} Il modello realizzato nell’ultima fase della progettazione e sperimentazione, e destinato a divenire il punto di partenza della produzione in serie
 
-\glossaryLetter{Q}
+  \glossaryLetter{Q}
 
-\glossaryLetter{R}
+  \glossaryLetter{R}
 
-\glossDef{Refactoring} In ingegneria del software, il refactoring (o code refactoring) è una tecnica per modificare la struttura interna di porzioni di codice senza modificarne il comportamento esterno applicata per migliorare alcune caratteristiche non funzionali del software.
-I vantaggi che il refactoring persegue riguardano in genere un miglioramento della leggibilità della manutenibilità, della riusabilità e dell'estendibilità del codice e la riduzione della sua complessità, eventualmente attraverso l'introduzione a posteriori di design pattern.
+  \glossDef{Refactoring} In ingegneria del software, il refactoring (o code refactoring) è una tecnica per modificare la struttura interna di porzioni di codice senza modificarne il comportamento esterno applicata per migliorare alcune caratteristiche non funzionali del software.
+  I vantaggi che il refactoring persegue riguardano in genere un miglioramento della leggibilità della manutenibilità, della riusabilità e dell'estendibilità del codice e la riduzione della sua complessità, eventualmente attraverso l'introduzione a posteriori di design pattern.
 
-\glossDef{Repository (Software Repository)} E' uno spazio di archiviazione da dove è possibile recuperare e scaricare dei pacchetti software.
+  \glossDef{Repository (Software Repository)} E' uno spazio di archiviazione da dove è possibile recuperare e scaricare dei pacchetti software.
 
-\glossaryLetter{S}
+  \glossaryLetter{S}
 
-\glossDef{Scala} E' un linguaggio di programmazione di tipo general-purpose studiato per integrare le caratteristiche e funzionalità dei linguaggi orientati agli oggetti e dei linguaggi funzionali. La compilazione di codice sorgente Scala produce Java bytecode per l'esecuzione su una JVM.
+  \glossDef{Scala} E' un linguaggio di programmazione di tipo general-purpose studiato per integrare le caratteristiche e funzionalità dei linguaggi orientati agli oggetti e dei linguaggi funzionali. La compilazione di codice sorgente Scala produce Java bytecode per l'esecuzione su una JVM.
 
-\glossDef{Scaladoc} E' un applicativo incluso nel Scala Development Kit, utilizzato per la generazione automatica della documentazione del codice sorgente scritto in linguaggio Scala.
+  \glossDef{Scaladoc} E' un applicativo incluso nel Scala Development Kit, utilizzato per la generazione automatica della documentazione del codice sorgente scritto in linguaggio Scala.
 
-\glossDef{Script} Il termine script, in informatica, designa un tipo particolare di programma, scritto in una particolare classe di linguaggi di programmazione, detti linguaggi di scripting. 
-La distinzione tra un programma normale ed uno script non è netta ma solitamente gli script si distinguono per la loro complessità relativamente bassa, la mancanza di una propria interfaccia grafica e il fatto di essere utilizzati per svolgere mansioni accessorie e molto specifiche.
+  \glossDef{Script} Il termine script, in informatica, designa un tipo particolare di programma, scritto in una particolare classe di linguaggi di programmazione, detti linguaggi di scripting.
+  La distinzione tra un programma normale ed uno script non è netta ma solitamente gli script si distinguono per la loro complessità relativamente bassa, la mancanza di una propria interfaccia grafica e il fatto di essere utilizzati per svolgere mansioni accessorie e molto specifiche.
 
-\glossDef{SVN} Subversion (noto anche come svn, che è il nome del suo client a riga di comando) è un sistema di controllo versione per software distribuito come free software sotto licenza Apache. 
-Gli sviluppatori software utilizzano Subversion per mantenere le versioni correnti e storiche di file quali codice sorgente, pagine web e documentazione.
+  \glossDef{SVN} Subversion (noto anche come svn, che è il nome del suo client a riga di comando) è un sistema di controllo versione per software distribuito come free software sotto licenza Apache.
+  Gli sviluppatori software utilizzano Subversion per mantenere le versioni correnti e storiche di file quali codice sorgente, pagine web e documentazione.
 
-\glossaryLetter{T}
+  \glossaryLetter{T}
 
-\glossDef{Task} Compito assegnabile ad un singolo componente del gruppo di lavoro che dovrebbe essere ultimato entro un periodo di tempo prefissato o entro una deadline. %TODO
+  \glossDef{Task} Compito assegnabile ad un singolo componente del gruppo di lavoro che dovrebbe essere ultimato entro un periodo di tempo prefissato o entro una deadline. %TODO
 
-\glossDef{Template} Trattasi di un modello che ha il compito di fornire la struttura di un oggetto (documento, sito web, ...) in cui si trovano spazi temporaneamente "bianchi" da riempire successivamente.
+  \glossDef{Template} Trattasi di un modello che ha il compito di fornire la struttura di un oggetto (documento, sito web, ...) in cui si trovano spazi temporaneamente "bianchi" da riempire successivamente.
 
-\glossDef{Topic} Tema di discussione, argomento.
+  \glossDef{Topic} Tema di discussione, argomento.
 
-\glossaryLetter{U}
+  \glossaryLetter{U}
 
-\glossDef{UpperCameCase} vedi \textit{CamelCase}.
+  \glossDef{UpperCameCase} vedi \textit{CamelCase}.
 
-\glossDef{Unicode} sistema di codifica che assegna un numero univoco ad ogni carattere usato per la scrittura di testi, in maniera indipendente dalla lingua, dalla piattaforma informatica e dal programma utilizzato
+  \glossDef{Unicode} sistema di codifica che assegna un numero univoco ad ogni carattere usato per la scrittura di testi, in maniera indipendente dalla lingua, dalla piattaforma informatica e dal programma utilizzato
 
-\glossDef{UTF-8 (Unicode Transformation Format, 8 bit)} E' una codifica dei caratteri Unicode (vedi sopra) in sequenze di lunghezza variabile di byte, creata da Rob Pike e Ken Thompson. UTF-8 usa gruppi di byte per rappresentare i caratteri Unicode, ed è particolarmente utile per il trasferimento tramite sistemi di posta elettronica a 8-bit.
-In particolare, UTF-8 usa da 1 a 4 byte per rappresentare un carattere Unicode.
+  \glossDef{UTF-8 (Unicode Transformation Format, 8 bit)} E' una codifica dei caratteri Unicode (vedi sopra) in sequenze di lunghezza variabile di byte, creata da Rob Pike e Ken Thompson. UTF-8 usa gruppi di byte per rappresentare i caratteri Unicode, ed è particolarmente utile per il trasferimento tramite sistemi di posta elettronica a 8-bit.
+  In particolare, UTF-8 usa da 1 a 4 byte per rappresentare un carattere Unicode.
 
-\glossaryLetter{V}
+  \glossaryLetter{V}
 
-\glossDef{Versionamento} Il versionamento (versioning), in informatica, è la gestione di versioni multiple di un insieme di informazioni.
-Gli strumenti software per il controllo versione sono ritenuti molto spesso necessari per la maggior parte dei progetti di sviluppo software.
+  \glossDef{Versionamento} Il versionamento (versioning), in informatica, è la gestione di versioni multiple di un insieme di informazioni.
+  Gli strumenti software per il controllo versione sono ritenuti molto spesso necessari per la maggior parte dei progetti di sviluppo software.
 
-\glossDef{Virtual Machine} Il termine macchina virtuale (VM) indica un software che, attraverso un processo di virtualizzazione, crea un ambiente virtuale che emula tipicamente il comportamento di una macchina fisica grazie all'assegnazione di risorse hardware (porzioni di disco rigido, RAM e risorse di processamento) ed in cui alcune applicazioni possono essere eseguite come se interagissero con tale macchina.
-Tra i vantaggi vi è il fatto di poter offrire contemporaneamente ed efficientemente a più utenti diversi ambienti operativi separati, ciascuno attivabile su effettiva richiesta, senza sporcare il sistema fisico reale con il partizionamento del disco rigido oppure fornire ambienti clusterizzati (connessi tra loro) su sistemi server.
+  \glossDef{Virtual Machine} Il termine macchina virtuale (VM) indica un software che, attraverso un processo di virtualizzazione, crea un ambiente virtuale che emula tipicamente il comportamento di una macchina fisica grazie all'assegnazione di risorse hardware (porzioni di disco rigido, RAM e risorse di processamento) ed in cui alcune applicazioni possono essere eseguite come se interagissero con tale macchina.
+  Tra i vantaggi vi è il fatto di poter offrire contemporaneamente ed efficientemente a più utenti diversi ambienti operativi separati, ciascuno attivabile su effettiva richiesta, senza sporcare il sistema fisico reale con il partizionamento del disco rigido oppure fornire ambienti clusterizzati (connessi tra loro) su sistemi server.
 
-\glossDef{VoIP (Voice over IP)} tecnologia che rende possibile effettuare una conversazione telefonica sfruttando una connessione Internet o una qualsiasi altra rete dedicata a commutazione di pacchetto che utilizzi il protocollo IP senza connessione per il trasporto dati.
+  \glossDef{VoIP (Voice over IP)} tecnologia che rende possibile effettuare una conversazione telefonica sfruttando una connessione Internet o una qualsiasi altra rete dedicata a commutazione di pacchetto che utilizzi il protocollo IP senza connessione per il trasporto dati.
 
-\glossaryLetter{W}
+  \glossaryLetter{W}
 
-\glossDef{Whiteboarding} E' una tecnica di condivisione di un notebook o di una whiteboard (Lavagna) virtuali nei quali più persone possono lavorare contemporaneamente per scambiarsi idee, bozze di grafici e schemi.
-Tutto questo viene fatto online così da permettere ai singoli utenti di vedere in tempo reale le modifiche fatte al documento.
+  \glossDef{Whiteboarding} E' una tecnica di condivisione di un notebook o di una whiteboard (Lavagna) virtuali nei quali più persone possono lavorare contemporaneamente per scambiarsi idee, bozze di grafici e schemi.
+  Tutto questo viene fatto online così da permettere ai singoli utenti di vedere in tempo reale le modifiche fatte al documento.
 
-\glossaryLetter{X}
+  \glossaryLetter{X}
 
-\glossaryLetter{Y}
+  \glossaryLetter{Y}
 
-\glossaryLetter{Z}
+  \glossaryLetter{Z}
 
 \end{document}

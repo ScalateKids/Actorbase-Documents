@@ -115,23 +115,5 @@
     v0.0.3}; ogni occorrenza di parole nel \textit{Glossario} è indicata da una
   ``G'' in pedice.
 }
-% doc Info
-\newcommand{\makeInfos}{
-  \bgroup
-  \def\arraystretch{1.3}
-  \begin{tabular}{ r|l }
-    \multicolumn{2}{c}{\textbf{Informazioni sul documento}} \\
-    \hline
-    \setbox0=\hbox{0.0.1\unskip}\ifdim\wd0=0pt
-    \\
-    \else
-    \textbf{Versione} & 0.0.1\\
-    \fi
-    \textbf{Redazione} & \multiLineCell[t]{Redattore}\\
-    \textbf{Verifica} & \multiLineCell[t]{Verificatore}\\
-    \textbf{Approvazione} & \multiLineCell[t]{Approvatore}\\
-    \textbf{Uso} & Uso\\
-    \textbf{Distribuzione} & \multiLineCell[t]{Prof. Riccardo Cardin}\\
-  \end{tabular}
-  \egroup
-}
+% newline inside table
+\newcommand{\multiLineCell}[2][c]{\begin{tabular}[#1]{@{}l@{}}#2\end{tabular}}

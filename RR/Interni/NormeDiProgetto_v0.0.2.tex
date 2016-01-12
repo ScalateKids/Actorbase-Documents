@@ -4,30 +4,40 @@
 \documentclass{scalatekids-article}
 \begin{document}
 \lfoot{Norme di Progetto 0.0.1}
+\newgeometry{top=3.5cm}
 \begin{titlepage}
-  \centering
-  \includegraphics[width=0.45\textwidth]{logo.png}\par\vspace{1cm}
-  \vspace{1.5cm}
-         {\Huge\bfseries Norme di Progetto \par}
-         \begin{center}
-           \vspace{1.0cm}
-                  {\large\bfseries Informazioni sul documento \par}
-         \end{center}
-         \vspace{-1cm}
-         \begin{center}
-           \line(1,0){300}
-         \end{center}
-         \vspace{0cm}
-         \begin{tabular}[c]{l|l}
-           \textbf{Versione} & 0.0.1\\
-           \textbf{Redazione} & Redattore1\\ & Redattore2\\ & Redattore3..\\
-           \textbf{Verifica} & Verificatore1\\ & Verificatore2..\\
-           \textbf{Responsabile} & Responsabile\\
-           \textbf{Uso} & Interno\\
-           \textbf{Lista di distribuzione} & ScalateKids
-         \end{tabular}
-         %% \makeInfos
+  \begin{center}
+    \begin{center}
+      \includegraphics[width=10cm]{\string~/actorbase/Actorbase-Documents/img/logo.png}
+    \end{center}
+    \vspace{1cm}
+    \begin{Huge}
+      \begin{center}
+        \textbf{Norme Di Progetto}
+      \end{center}
+    \end{Huge}
+    \vspace{11pt}
+    \bgroup
+    \def\arraystretch{1.3}
+    \begin{tabular}{r|l}
+      \multicolumn{2}{c}{\textbf{Informazioni sul documento}} \\
+      \hline
+      \setbox0=\hbox{0.0.1\unskip}\ifdim\wd0=0pt
+      \\
+      \else
+      \textbf{Versione} & 0.0.1\\
+      \fi
+      \textbf{Redazione} & \multiLineCell[t]{Redattore}\\
+      \textbf{Verifica} & \multiLineCell[t]{Verificatore}\\
+      \textbf{Approvazione} & \multiLineCell[t]{Approvatore}\\
+      \textbf{Uso} & Interno\\
+      \textbf{Lista di Distribuzione} & \multiLineCell[t]{ScalateKids}\\
+    \end{tabular}
+    \egroup
+    \vspace{22pt}
+  \end{center}
 \end{titlepage}
+\restoregeometry
 \clearpage
 \setcounter{page}{1}
 \begin{flushleft}

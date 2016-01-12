@@ -6,29 +6,40 @@
 \let\endchangemargin=\endlist
 \begin{document}
 \lfoot{Verbale esterno 2016-01-12 0.1.1}
+\newgeometry{top=3.5cm}
 \begin{titlepage}
-  \centering
-  \includegraphics[width=0.45\textwidth]{logo.png}\par\vspace{1cm}
-  \vspace{1.5cm}
-         {\Huge\bfseries Verbale esterno 2016-01-12  \par}
-         \begin{center}
-           \vspace{1.0cm}
-                  {\large\bfseries Informazioni sul documento \par}
-         \end{center}
-         \vspace{-1cm}
-         \begin{center}
-           \line(1,0){300}
-         \end{center}
-         \vspace{0cm}
-         \begin{tabular}[c]{l|l}
-           \textbf{Versione} & 1.0.0\\
-           \textbf{Redazione} & Alberto De Agostini\\ & Andrea Giacomo Baldan\\
-           \textbf{Verifica} & Marco Boseggia\\
-           \textbf{Responsabile} & Andrea Giacomo Baldan\\
-           \textbf{Uso} & Esterno\\
-           \textbf{Lista di distribuzione} & ScalateKids\\ &Riccardo Cardin\\ & Tullio Vardanega\\
-         \end{tabular}
+  \begin{center}
+    \begin{center}
+      \includegraphics[width=10cm]{\string~/actorbase/Actorbase-Documents/img/logo.png}
+    \end{center}
+    \vspace{1cm}
+    \begin{Huge}
+      \begin{center}
+        \textbf{Verbale Esterno 2016-01-12}
+      \end{center}
+    \end{Huge}
+    \vspace{11pt}
+    \bgroup
+    \def\arraystretch{1.3}
+    \begin{tabular}{r|l}
+      \multicolumn{2}{c}{\textbf{Informazioni sul documento}} \\
+      \hline
+      \setbox0=\hbox{0.0.1\unskip}\ifdim\wd0=0pt
+      \\
+      \else
+      \textbf{Versione} & 1.0.0\\
+      \fi
+      \textbf{Redazione} & \multiLineCell[t]{Alberto De Agostini\\Andrea Giacomo Baldan}\\
+      \textbf{Verifica} & \multiLineCell[t]{Marco Boseggia}\\
+      \textbf{Approvazione} & \multiLineCell[t]{Approvatore}\\
+      \textbf{Uso} & Esterno\\
+      \textbf{Lista di Distribuzione} & \multiLineCell[t]{ScalateKids\\Prof. Tullio Vardanega\\Prof. Riccardo Cardin}\\
+    \end{tabular}
+    \egroup
+    \vspace{22pt}
+  \end{center}
 \end{titlepage}
+\restoregeometry
 \clearpage
 \setcounter{page}{1}
 \begin{flushleft}
@@ -55,22 +66,22 @@
 \newpage
 \section{Informazioni sulla riunione}
 \begin{itemize}
-  \item \textbf{Data}: 2015-01-12
-  \item \textbf{Luogo}: Torre Archimede aula 1C150
-  \item \textbf{Orario d'inizio}: 13:15 
-  \item \textbf{Durata}: 25'
-  \item \textbf{Partecipanti interni}: \textit{ScalateKids}:
+\item \textbf{Data}: 2015-01-12
+\item \textbf{Luogo}: Torre Archimede aula 1C150
+\item \textbf{Orario d'inizio}: 13:15
+\item \textbf{Durata}: 25'
+\item \textbf{Partecipanti interni}: \textit{ScalateKids}:
   \begin{itemize}
-    \item Andrea Giacomo Baldan
-    \item Alberto De Agostini
-    \item Francesco Agostini
-    \item Giacomo Vanin
-    \item Marco Boseggia
-    \item Michael Munaro
+  \item Andrea Giacomo Baldan
+  \item Alberto De Agostini
+  \item Francesco Agostini
+  \item Giacomo Vanin
+  \item Marco Boseggia
+  \item Michael Munaro
   \end{itemize}
-  \item \textbf{Partecipanti esterni}:
+\item \textbf{Partecipanti esterni}:
   \begin{itemize}
-    \item Riccardo Cardin
+  \item Riccardo Cardin
   \end{itemize}
 \end{itemize}
 \section{Domande e risposte}
