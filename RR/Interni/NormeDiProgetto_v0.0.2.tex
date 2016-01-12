@@ -486,7 +486,7 @@ Il lavoro di aggiornamento di una segnalazione deve essere svolto dai vari membr
 Ad ogni avanzamento fatto relativo ad una attività si deve aggiornare la segnalazione relativa ad essa. Per fare ciò bisogna entrare nella pagina personale di \textit{Redmine} e nella sezione \textbf{Le mie segnalazioni} selezionare la segnalazione desiderata, quindi premere su \textbf{Modifica}.
 La schermata che ci si presenterà davanti è come quella descritta in figura \ref{fig:crea-segnalazione-2}, si dovrà quindi aggiornare lo \textbf{stato} (se cambiato), la \textbf{\% completata}, aggiungere inoltre il \textbf{tempo impiegato} e c'è la possibilità di inserire un testo libero, questo può essere utile per spiegare cosa si è fatto.
 \subsubsection{Modificare la Wiki}
-La sezione Wiki di \textit{Redmine} può essere molto utile, di fatto si tratta di uno spazio in cui è possibile scrivere del testo libero, inserire immagini o altro.\\
+La sezione \gloss{Wiki} di \textit{Redmine} può essere molto utile, di fatto si tratta di uno spazio in cui è possibile scrivere del testo libero, inserire immagini o altro.\\
 Noi abbiamo deciso di usarla come raccoglitore di link a guide inerenti al nostro progetto.
 Per contribuire alla nostra Wiki basta andare nella suddetta sezione e premere su \textbf{modifica}. Si presenterà un editor di testo in cui è possibile modificare o semplicemente aggiungere del testo.
 %TODO: forse solo il responsabile dovrebbe poter modificarla?
@@ -543,7 +543,7 @@ Offre diverse funzionalità che il gruppo dovrà utilizzare, quali:
 % TODO: potremmo aggiungere dei diagrammi UML2.0 per descrivere come usare redmine...
 
 \subparagraph{PHPMyAdmin}
-PHPMyAdmin è uno strumento scritto in linguaggio \textit{PHP} che offre una facile amministrazione di \gloss{\textit{database}}.\\
+\textit{PHPMyAdmin} è uno strumento scritto in linguaggio \textit{PHP} che offre una facile amministrazione di \gloss{\textit{database}}.\\
 Questo strumento verrà usato per la creazione di un back-end per la gestione dei requisiti.\\
 Per la gestione e il tracciamento dei requisiti è stata creata un'interfaccia protetta da login (vedi sezione \ref{sec:front-end}).
 
@@ -560,7 +560,39 @@ Sono stati creati due \gloss{repository} all'indirizzo \url{https://github.com/s
 \item Actorbase.\gloss{git}: Contiene i sorgenti del software.
 \item Actorbase-Documents.\gloss{git}: Contiene i sorgenti \LaTeX\ e i PDF generati.
 \end{itemize}
-
+\paragraph{Integrazione continua}
+Fin da subito, i \gloss{repository} saranno collegati ad un sistema di
+\gloss{integrazione continua}, la scelta è ricaduta su \textit{Travis-CI} per la
+semplicità di utilizzo e modeste esperienze passate di alcuni componenti del
+gruppo.
+\subparagraph{Travis-CI}
+E' un servizio di \gloss{integrazione continua} gratuito facilmente
+configurabile, collegabile ai \gloss{repository} \textit{Github}, mediante un
+file di configurazione chiamato \textit{.travis.yml} da inserire all'interno del
+\gloss{repository} è possibile fornire direttive al servizio e automatizzare
+unità di test su tutti i \gloss{file} del \gloss{repository}, le quali possono
+essere lanciate sia dopo ogni \gloss{push} che dopo ogni \gloss{pull} e
+notificare il \textit{Responsabile} via mail su eventuali \gloss{commit} che non
+superano i test predisposti o violano determinate regole.
+\subparagraph{Docker}
+Dopo varie ricerche \gloss{Docker} è stato adottato per uniformare quanto più
+possibile l'ambiente di test, grazie al sistema di \gloss{containerizzazione} e
+versionamento delle immagini virtuali che offre.\\ Mediante un file di
+configurazione principale, il \gloss{Dockerfile}, è possibile istruire il
+programma e generare una o più immagini virtuali fornite dei solo pacchetti o
+script necessari al testing a cui sarà adibito.Utilizzato in \gloss{tandem} con
+\textit{Travis-CI} permette di effettuare test molto precisi e, allo stesso
+tempo, di versionare un gran numero immagini virtuali per diversificare i test e
+gli ambienti su cui lanciarli. I \gloss{Dockerfile} infatti possono essere
+versionati mediante un repository \textit{Github} direttamente collegato a
+\textit{Travis-CI}, il quale, istruito a tal fine, si occuperà di generare
+l'immagine \gloss{Docker} e caricarla mediante un \gloss{push} sull'\gloss{hub}
+\gloss{Docker} presente al sito \url{hub.docker.com}.\\ In questo modo i test
+potranno essere versionati di pari passo con l'attività di sviluppo, garantendo
+un accurata attività di verifica sui sorgenti e documenti senza gravare in alcun
+modo sull'ambiente di lavoro e la banda disponile individuale di ogni singolo
+membro.
+% TODO: da continuare / precisare
 \paragraph{Ambiente di lavoro individuale}
 Per il lavoro individuale, è stato pensato ad un modo di uniformare quanto più
 possibile l'ambiente di sviluppo tra i componenti; il \textit{Responsabile} e
@@ -628,7 +660,7 @@ Questi script, \textbf{init.sh} e \textbf{update.sh}, risiederanno sul server
 privato, e avranno rispettivamente lo scopo esclusivo di inizializzare e
 aggiornare l'ambiente di lavoro della virtual machine.
 % TODO: manca il software che utilizziamo per fare gli uml, e dirgli che versione di uml usiamo
-come standard
+% come standard
 
 \section{Ruoli di progetto}
 Durante l'intera fase di sviluppo del progetto, dalla formazione del gruppo alla
