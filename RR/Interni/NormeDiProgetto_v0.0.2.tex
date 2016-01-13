@@ -659,6 +659,11 @@ generale da utilizzare all'interno della macchina virtuale:
   progetto eccetto il glossario, e inserisce il comando \verb=\gloss= sui termini
   contenuti in lista trovati nei file. Con argomenti esegue le medesime
   operazioni soltato sui file .tex scelti.
+\item\textbf{verify:} scansiona tutti i documenti .tex del progetto alla ricerca
+  di errori comuni e violazioni delle \textit{Norme di Progetto}, nonchè
+  \gloss{TODO} o \gloss{merge} irrisolti. Lanciato con l'opzione -c esegue le
+  correzioni grammaticali basilari automaticamente sui documenti che riportano
+  una o più occorenze di errori grammaticali.
 \end{itemize}
 \subparagraph{Script di utilità remoti}
 Questi script, \textbf{init.sh} e \textbf{update.sh}, risiederanno sul server
