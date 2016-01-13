@@ -10,7 +10,7 @@
 \begin{titlepage}
   \begin{center}
     \begin{center}
-      \includegraphics[width=10cm]{logo.png}
+      \includegraphics[width=10cm]{sklogo.png}
     \end{center}
     \vspace{1cm}
     \begin{Huge}
@@ -29,9 +29,9 @@
       \else
       \textbf{Versione} & 1.0.0\\
       \fi
-      \textbf{Redazione} & \multiLineCell[t]{Alberto De Agostini\\Andrea Giacomo Baldan}\\
+      \textbf{Redazione} & \multiLineCell[t]{Alberto De Agostini}\\
       \textbf{Verifica} & \multiLineCell[t]{Marco Boseggia}\\
-      \textbf{Approvazione} & \multiLineCell[t]{Approvatore}\\
+      \textbf{Approvazione} & \multiLineCell[t]{Andrea Giacomo Baldan}\\
       \textbf{Uso} & Esterno\\
       \textbf{Lista di Distribuzione} & \multiLineCell[t]{ScalateKids\\Prof. Tullio Vardanega\\Prof. Riccardo Cardin}\\
     \end{tabular}
@@ -86,28 +86,43 @@
 \end{itemize}
 \section{Domande e risposte}
 In questo capitolo sono elencate le domande fatte dal gruppo \textit{ScalateKids} in grassetto e le risposte del proponente \textit{Riccardo Cardin} in corsivo.
-\textbf{\\ \\Nel capitolato non c'è una chiara divisione tra requisiti desiderabili e requisiti opzionali, c'è semplicemente un elenco di requisiti opzionali. Le chiedevamo se c'è una preferenza tra questi.}
+\textbf{\\ \\Nel capitolato non c'è una chiara divisione tra requisiti desiderabili e requisiti opzionali, c'è semplicemente un elenco di requisiti opzionali. Vi è una preferenza da parte sua tra questi?}
 \begin{quote}
-  \textit{Avendoli lasciati tutti opzionali nel capitolato, rimando a voi la scelta su quali pensate siano più importanti, cercando di implementare prima gli opzionali che al meglio completano quelli obbligatori.\\ \\}
+  \textit{Avendoli lasciati tutti opzionali nel capitolato, rimando a voi la
+    scelta su quali pensate siano più importanti, cercando di implementare prima
+    gli opzionali che al meglio completano quelli obbligatori.\\ \\}
 \end{quote}
 \textbf{Dovremo istanziare un terminale isolato? (come ad esempio una \gloss{shell} MySql)}
 \begin{quote}
-  \textit{No, la \gloss{CLI} da creare sarà composta da un gruppo di semplici comandi da usare da terminale.\\ \\}
+  \textit{No, la \gloss{CLI} da creare sarà composta da un gruppo di semplici
+    comandi da usare direttamente da \gloss{terminale}, il quale non sarà altro
+    che (uno dei) client che si connetteranno al DB al fine di effettuare
+    operazioni. Ciò naturalmente non implica che il prodotto sia da sviluppare
+    esclusivamente per ambienti linux, \gloss{terminale} è inteso come
+    \gloss{ui} comandi generica(es \gloss{bash}).\\ \\}
 \end{quote}
-\textbf{Nel capitolato sono presenti solo i comandi per inserimento, cancellazione e modifica dati. I database consentono più operazioni di queste, alcune delle quali riteniamo essenziali (es. \gloss{query}), sono queste considerate requisiti opzionali?}
+\textbf{Nel capitolato, come requisiti obbligatori, sono presenti solo i comandi per inserimento, cancellazione e modifica dati. Un database generalmente consente più operazioni di queste, alcune delle quali riteniamo essere essenziali (es. \gloss{query}). Sono queste da considerarsi requisiti opzionali?}
 \begin{quote}
-  \textit{Sicuramente dev'essere possibile interrogare il database, gli altri comandi sono dei requisiti obbligatori impliciti. La lista delle funzionalità tuttavia è una cosa che voi dovete decidere e scrivere nei vostri documenti.\\ \\}
+  \textit{Sicuramente dev'essere possibile interrogare il database, gli altri comandi basilari sono dei requisiti obbligatori impliciti. La lista delle funzionalità tuttavia è una cosa che voi dovete decidere e scrivere nei vostri documenti.\\ \\}
 \end{quote}
-\textbf{Nel capitolato c'è scritto che gli attori di tipo \textit{Manager} sono responsabili della gestione del numero massimo di coppie chiave / valore contenute in un’istanza di un \gloss{attore storekeeper}. Con che criterio deve essere scelto questo numero massimo?}
+\textbf{Nel capitolato c'è scritto che gli \gloss{attori} di tipo \textit{Manager} sono responsabili della gestione del numero massimo di coppie chiave / valore contenute in un’istanza di un \gloss{attore storekeeper}. Con che criterio deve essere scelto questo numero massimo?}
 \begin{quote}
-  \textit{Può essere scelto in diversi modi; il più facile di tutti è senz'altro scegliere un numero prefissato, altrimenti si potrebbe scegliere di cambiare questo numero dinamicamente in base al carico. Tuttavia questo non è un compito semplice, quindi anche in questo caso la decisione spetta a voi.\\ \\}
+  \textit{Può essere scelto in diversi modi; il più facile di tutti è senz'altro scegliere un numero prefissato da impostare, altrimenti si potrebbe scegliere di cambiare questo numero dinamicamente in base al carico. Tuttavia questo non è un compito semplice, quindi anche in questo caso la decisione spetta a voi.\\ \\}
 \end{quote}
 \textbf{Abbiamo deciso di utilizzare il linguaggio \textit{Scala} per sviluppare il prodotto. Le ultime versioni di questo linguaggio non sono compatibili tra loro, quale versione ci consiglia di utilizzare? (2.10 o 2.11)}
 \begin{quote}
-  \textit{Sempre meglio utilizzare le ultime versioni, dovrete quindi utilizzare di conseguenza la \gloss{JVM} versione 8\\ \\}
+  \textit{Suggerirei di utilizzare le ultime versioni, soprattutto dal punto di
+    vista di compatibilità, utilizzare la major più recente vi darebbe qualche
+    garanzia in più nella compatiblità con le librirei chiave del progetto
+    (\gloss{akka}).La \gloss{JVM} di riferimento dovrebbe essere dunque la
+    versione 8.\\ \\}
 \end{quote}
-\textbf{Cosa dovrà arrivare all'utente finale visto come utilizzatore?}
+\textbf{Cosa dovrà arrivare all'utente finale visto come utilizzatore? Le librerie \gloss{akka} dovrebbero figurare come dipendenze da installare o dovrebbero essere fornite assieme al prodotto?}
 \begin{quote}
-  \textit{Dovrete consegnare un eseguibile comprensivo di librerie \gloss{bundled} per semplificare l'installazione all'utente.}
+  \textit{Dovrete consegnare un eseguibile comprensivo di librerie
+    \gloss{bundled} per semplificare l'installazione all'utente. Tuttavia è da
+    tenere presente che il prodotto dovrà essere al 100\% scalabile
+    orizzontalmente, il suo ambito di utilizzo quindi dovrà spaziare dal singolo
+    privato, a grandi reti di server, all'occorenza.}
 \end{quote}
 \end{document}

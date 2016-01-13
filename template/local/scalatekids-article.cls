@@ -87,7 +87,7 @@
 \pagestyle{fancy}
 \fancyhf{}
 \lhead{
-  \includegraphics[height=1cm, width=1cm, keepaspectratio=true]{logo.png} \emph{ScalateKids}}
+  \includegraphics[height=1cm, width=1cm, keepaspectratio=true]{sklogo.png} \emph{ScalateKids}}
 \rhead{
   \slshape \leftmark
 }
