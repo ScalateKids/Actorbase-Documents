@@ -592,6 +592,11 @@ potranno essere versionati di pari passo con l'attività di sviluppo, garantendo
 un accurata attività di verifica sui sorgenti e documenti senza gravare in alcun
 modo sull'ambiente di lavoro e la banda disponile individuale di ogni singolo
 membro.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.7\textwidth,keepaspectratio]{Docker.png}
+  \caption{Integrazione continua - Travis-CI + Docker}
+\end{figure}
 % TODO: da continuare / precisare
 \paragraph{Ambiente di lavoro individuale}
 Per il lavoro individuale, è stato pensato ad un modo di uniformare quanto più
@@ -620,7 +625,7 @@ I passi da seguire sono:
 \end{itemize}
 Una volta avviata la macchina, da terminale lanciare il comando:
 \begin{center}
-  \textit{curl http://codep.kissr.com/sk/scripts/init.sh | sh}
+  \verb=curl http://codep.kissr.com/sk/scripts/init.sh | sh=
 \end{center}
 Il comando provvederà al download delle librerie e degli \gloss{script}
 necessari alla corretta configurazione dell'ambiente di lavoro del gruppo.
@@ -631,7 +636,7 @@ modificare l'ambiente di lavoro o ci sarà bisogno di librerie di supporto
 ulteriori o modifica di \gloss{script} di utilità, il seguente comando si
 occuperà di scaricare e installare gli aggiornamenti richiesti:
 \begin{center}
-  \textit{curl http://codep.kissr.com/sk/scripts/update.sh | sh}
+  \verb=curl http://codep.kissr.com/sk/scripts/update.sh | sh=
 \end{center}
 Gli \gloss{script} init.sh e update.sh presenti sul server privato saranno
 preparati dall'\textit{Amministratore} e rilasciati di volta in volta previa

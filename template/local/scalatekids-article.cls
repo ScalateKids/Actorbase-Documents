@@ -63,6 +63,12 @@
   {1.25ex \@plus .25ex}%
   {\normalfont\normalsize\bfseries}}
 \makeatother
+\makeatletter
+\renewcommand\subparagraph{\@startsection{subparagraph}{5}{\z@}%
+  {-2.5ex\@plus -1ex \@minus -.25ex}%
+  {1.25ex \@plus .25ex}%
+  {\normalfont\normalsize\bfseries}}
+\makeatother
 \setcounter{secnumdepth}{5} % how many sectioning levels to assign numbers to
 \setcounter{tocdepth}{5}    % how many sectioning levels to show in ToC
 % footer and header spacing
