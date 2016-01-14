@@ -216,7 +216,7 @@ la necessità di un ambiente di lavoro quanto più omogeneo possibile, in modo d
 da parte delle macchine il più comune possibile, in modo da garantire eventualmente anche la riproducibilità di bug che possono
 insorgere.
 \textbf{Contromisure di mitigazione}: L'azienda (\textit{Responsabile}?) ha deciso di risolvere il problema utilizzando una macchina virtuale
-preimpostata per l'utilizzo delle tecnologie inerenti al progetto per la fase di sviluppo.
+preimpostata per l'utilizzo delle tecnologie inerenti al progetto per l' attività di sviluppo.
 \paragraph{Guasti hardware}
 \textbf{Categoria}: Infrastruttura\\
 \textbf{Probabilità}: Bassa\\
@@ -225,31 +225,31 @@ preimpostata per l'utilizzo delle tecnologie inerenti al progetto per la fase di
 questo garantisce un buon grado di controllo, ma allo stesso tempo espone a maggiori rischi legati alla natura "personalizzata" dell'ambiente di lavoro.
 \textbf{Contromisure di mitigazione}: Verranno eseguiti dei backup automatici schedulati con periodicità fissa.
 \section{Pianificazione preventiva}
-\subsection{Suddivisione fasi}
+\subsection{Suddivisione attività}
 \label{sub:fasi}
 Per semplificare la pianificazione del prospetto orario, sono state identificate
 tre attività principali che rappresentano l'intero ciclo di sviluppo del prodotto.\\
-% TODO: da proseguire
 Esse sono:
 \begin{itemize}
-\item\textbf{Analisi:} Rappresenta la prima fase del progetto, dalla
-  pubblicazione dei capitolati d'appalto all'inizio della fase di progettazione,
-  comprensiva di una fase di incremento, ove vengono risolti i possibili dubbi
-  emersi in prima stesura.\\
+\item\textbf{Analisi:} Rappresenta la prima attività del progetto, dalla
+  pubblicazione dei capitolati d'appalto all'inizio dell' attività di progettazione.\\
   Figure maggiormente coinvolte: \textit{Responsabile, Amministratore, Analista, Verificatore}
-\item\textbf{Progettazione:} Segue la fase di Analisi, e racchiude il lasso
-  temporale dedicato alla correzione degli errori rilevati in sede di Revisione di Requisiti e alla progettazione dell'architettura sulla base dei requisiti
-  emersi. Comprende anche lo studio di \gloss{design pattern} congrui alla realizzazione
-  del prodotto.\\
-  Figure maggiormente coinvolte: \textit{Responsabile, Amministratore, Progettista, Verificatore}
-\item\textbf{Codifica:} L'ultima delle tre fasi identificate, comprende la correzione degli errori rilevati in sede di Revisione di Progettazione e la stesura
-  del codice secondo le direttive emerse in fase di progettazione.\\
-  Figure maggiormente coinvolte: \textit{Responsabile, Amministratore, Programmatore, Verificatore}
+\item\textbf{Analisi di Dettaglio e Progettazione:} Segue l' attività di Analisi, e
+  racchiude il lasso temporale dedicato alla correzione degli errori rilevati in
+  sede di Revisione di Requisiti e alla progettazione dell'architettura sulla
+  base dei requisiti emersi. Comprende anche lo studio di \gloss{design pattern}
+  congrui alla realizzazione del prodotto.\\ Figure maggiormente coinvolte:
+  \textit{Responsabile, Amministratore, Progettista, Verificatore}
+\item\textbf{Progettazione di Dettaglio e Codifica:} L'ultima delle tre fasi
+  identificate, comprende la correzione degli errori rilevati in sede di
+  Revisione di Progettazione e la stesura del codice secondo le direttive emerse
+  durante l'attività di progettazione.\\ Figure maggiormente coinvolte:
+  \textit{Responsabile, Amministratore, Programmatore, Verificatore}
 \end{itemize}
 Tutte e tre le fasi descritte sono comprensive di \textbf{Verifica e
-  validazione}, assimilabile ad una fase ``fittizia'', in quanto è
+  validazione}, assimilabile ad un' attività ``fittizia'', in quanto è
 presente lungo tutto l'arco di sviluppo del prodotto.\\
-Ogni fase prevede l'impiego di alcuni ruoli in misura maggiore rispetto ad
+Ogni attività prevede l'impiego di alcuni ruoli in misura maggiore rispetto ad
 altri, nella distribuzione di questi sarà garantita un equa ripartizione del
 carico di lavoro individuale.\\
 Come riportato nelle \href{run:../Interni/NormeDiProgetto\_v0.0.1.pdf}{Norme Di Progetto v0.0.1}
@@ -257,7 +257,7 @@ ogni componente del gruppo potrà ricoprire più ruoli contemporaneamente, purch
 garantita l'assenza di conflitti d'interesse tra le attività svolte.
 \newpage
 \subsubsection{Analisi}
-Nella fase di Analisi, i componenti ricopriranno i ruoli di progetto secondo la distribuzione seguente:
+Nell'attività di Analisi, i componenti ricopriranno i ruoli di progetto secondo la distribuzione seguente:
 \begin{center}
   \scriptsize
   \begin{tabular}{| c | p{0.35cm} p{0.35cm} | p{0.35cm} p{0.35cm} | p{0.35cm} p{0.35cm} | p{0.35cm} p{0.35cm} | p{0.35cm} p{0.35cm} | p{0.35cm} p{0.35cm} | p{0.35cm} p{0.35cm} |}
@@ -280,18 +280,18 @@ I seguenti grafici illustrano le ore investite per Persona suddivise tra ore inv
 \begin{figure}[H]
   \begin{subfigure}[H]{0.47\textwidth}
     \includegraphics[width=1.2\textwidth,keepaspectratio]{AnalisiConInvestimento.png}
-    \caption{Ore con investimento, fase di Analisi}
+    \caption{Ore con investimento, attività di Analisi}
   \end{subfigure}
   \qquad
   \begin{subfigure}[H]{0.47\textwidth}
     \includegraphics[width=1.2\textwidth,keepaspectratio]{AnalisiConRendicontazione.png}
-    \caption{Ore con rendicontazione, fase di Analisi}
+    \caption{Ore con rendicontazione, attività di Analisi}
   \end{subfigure}
 \end{figure}
 
 \newpage
 \subsubsection{Progettazione}
-Nella fase di Progettazione, i componenti ricopriranno i ruoli di progetto secondo la distribuzione seguente:
+Durante l'attività di Progettazione, i componenti ricopriranno i ruoli di progetto secondo la distribuzione seguente:
 \begin{center}
   \scriptsize
   \begin{tabular}{| c | p{0.35cm}  p{0.35cm} | p{0.35cm}  p{0.35cm} | p{0.35cm}  p{0.35cm} | p{0.35cm}  p{0.35cm} | p{0.35cm}  p{0.35cm} | p{0.35cm}  p{0.35cm} | p{0.35cm}  p{0.35cm} |}
@@ -316,17 +316,17 @@ ore riservate all'attività \textbf{Analisi di dettaglio}.
 \begin{figure}[H]
   \begin{subfigure}[H]{0.47\textwidth}
     \includegraphics[width=1.2\textwidth,keepaspectratio]{ProgettazioneConInvestimento.png}
-    \caption{Ore con investimento, fase di Progettazione}
+    \caption{Ore con investimento, attività di Progettazione}
   \end{subfigure}
   \qquad
   \begin{subfigure}[H]{0.47\textwidth}
     \includegraphics[width=1.2\textwidth,keepaspectratio]{ProgettazioneConRendicontazione.png}
-    \caption{Ore con rendicontazione, fase di Progettazione}
+    \caption{Ore con rendicontazione, attività di Progettazione}
   \end{subfigure}
 \end{figure}
 \newpage
 \subsubsection{Codifica}
-Nella fase di Codifica, i componenti ricopriranno i ruoli di progetto secondo la distribuzione seguente:
+Durante l'attività di Codifica, i componenti ricopriranno i ruoli di progetto secondo la distribuzione seguente:
 \begin{center}
   \scriptsize
   \begin{tabular}{| c | p{0.35cm}  p{0.35cm} | p{0.35cm}  p{0.35cm} | p{0.35cm}  p{0.35cm} | p{0.35cm}  p{0.35cm} | p{0.35cm}  p{0.35cm} | p{0.35cm}  p{0.35cm} | p{0.35cm}  p{0.35cm} |}
@@ -351,12 +351,12 @@ delle ore riservate per l'attività \textbf{Progettazione di Dettaglio}.
 \begin{figure}[H]
   \begin{subfigure}[H]{0.47\textwidth}
     \includegraphics[width=1.2\textwidth,keepaspectratio]{CodificaConInvestimento.png}
-    \caption{Ore con investimento, fase di Codifica}
+    \caption{Ore con investimento, attività di Codifica}
   \end{subfigure}
   \qquad
   \begin{subfigure}[H]{0.47\textwidth}
     \includegraphics[width=1.2\textwidth,keepaspectratio]{CodificaConRendicontazione.png}
-    \caption{Ore con rendicontazione, fase di Codifica}
+    \caption{Ore con rendicontazione, attività di Codifica}
   \end{subfigure}
 \end{figure}
 \newpage
@@ -395,7 +395,7 @@ I seguenti grafici illustrano le ore investite per Persona suddivise tra ore inv
 \end{figure}
 \newpage
 \subsection{Prospetto economico}
-In questa sottosezione vengono presentati, per ciascuna fase del progetto identificata
+In questa sottosezione vengono presentati, per ciascuna attività del progetto identificata
 nella sottosezione \ref{sub:fasi}, le ore preventivate di impiego per i ruoli coinvolti.
 \subsubsection{Analisi}
 Nella fase di Analisi, le ore tra i ruoli sono state divise nel seguente modo:
@@ -435,21 +435,21 @@ Nella fase di Analisi, le ore tra i ruoli sono state divise nel seguente modo:
     \hline
   \end{tabular}
 \end{center}
-I grafici a seguire rappresentano l'influenza di ciascun ruolo sul totale delle ore e dei costi in fase di Analisi.
+I grafici a seguire rappresentano l'influenza di ciascun ruolo sul totale delle ore e dei costi durante l'attività di Analisi.
 \begin{figure}[H]
   \begin{subfigure}[H]{0.47\textwidth}
     \includegraphics[width=1.2\textwidth,keepaspectratio]{AnalisiCC.png}
-    \caption{Costi con investimento, fase di Analisi}
+    \caption{Costi con investimento, attività di Analisi}
   \end{subfigure}
   \qquad
   \begin{subfigure}[H]{0.47\textwidth}
     \includegraphics[width=1.2\textwidth,keepaspectratio]{AnalisiSC.png}
-    \caption{Costi Senza investimento, fase di Analisi}
+    \caption{Costi Senza investimento, attività di Analisi}
   \end{subfigure}
 \end{figure}
 \newpage
 \subsubsection{Progettazione}
-Nella fase di Progettazione, le ore tra i ruoli sono state divise nel seguente modo:
+Durante l'attività di Progettazione, le ore tra i ruoli sono state divise nel seguente modo:
 \begin{center}
   \normalsize
   \begin{tabular}{| c | c | c |}
@@ -486,21 +486,21 @@ Nella fase di Progettazione, le ore tra i ruoli sono state divise nel seguente m
     \hline
   \end{tabular}
 \end{center}
-I grafici a seguire rappresentano l'influenza di ciascun ruolo sul totale delle ore e dei costi in fase di Progettazione.
+I grafici a seguire rappresentano l'influenza di ciascun ruolo sul totale delle ore e dei costi durante l'attività di Progettazione.
 \begin{figure}[H]
   \begin{subfigure}[H]{0.47\textwidth}
     \includegraphics[width=1.2\textwidth,keepaspectratio]{ProgettazioneCC.png}
-    \caption{Costi con investimento, fase di Progettazione}
+    \caption{Costi con investimento, attività di Progettazione}
   \end{subfigure}
   \qquad
   \begin{subfigure}[H]{0.47\textwidth}
     \includegraphics[width=1.2\textwidth,keepaspectratio]{ProgettazioneSC.png}
-    \caption{Costi con investimento, fase di Progettazione}
+    \caption{Costi con investimento, attività di Progettazione}
   \end{subfigure}
 \end{figure}
 \newpage
 \subsubsection{Codifica}
-Nella fase di Codifica, le ore tra i ruoli sono state divise nel seguente modo:
+Durante l'attività di Codifica, le ore tra i ruoli sono state divise nel seguente modo:
 \begin{center}
   \normalsize
   \begin{tabular}{| c | c | c |}
@@ -537,16 +537,16 @@ Nella fase di Codifica, le ore tra i ruoli sono state divise nel seguente modo:
     \hline
   \end{tabular}
 \end{center}
-I grafici a seguire rappresentano l'influenza di ciascun ruolo sul totale delle ore e dei costi in fase di Codifica
+I grafici a seguire rappresentano l'influenza di ciascun ruolo sul totale delle ore e dei costi durante l'attività di Codifica
 \begin{figure}[H]
   \begin{subfigure}[H]{0.47\textwidth}
     \includegraphics[width=1.2\textwidth,keepaspectratio]{CodificaCC.png}
-    \caption{Costi con investimento, fase di Codifica}
+    \caption{Costi con investimento, attività di Codifica}
   \end{subfigure}
   \qquad
   \begin{subfigure}[H]{0.47\textwidth}
     \includegraphics[width=1.2\textwidth,keepaspectratio]{CodificaSC.png}
-    \caption{Costi senza investimento, fase di Codifica}
+    \caption{Costi senza investimento, attività di Codifica}
   \end{subfigure}
 \end{figure}
 \newpage
