@@ -91,6 +91,7 @@
 \rhead{
   \slshape \leftmark
 }
+\setlength{\headsep}{1.2cm}
 % pagestyle set to 'n di m'
 \rfoot{\thepage\hspace{1pt}di \pageref{LastPage}}
 % Summary letter command
