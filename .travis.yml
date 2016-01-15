@@ -1,13 +1,12 @@
 sudo: required
 
-nofications:
+notifications:
     email:
         recipients:
-            scalatekids@gmail.com
-        on_success:
-            never
-        on_failure:
-            always
+            - scalatekids@gmail.com
+        on_success: [always|never|change] # default: never
+        on_failure: [always|never|change] # default: always
+
 branches:
     only:
         - master
