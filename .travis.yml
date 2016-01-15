@@ -4,8 +4,10 @@ notifications:
     email:
         recipients:
             - scalatekids@gmail.com
-        on_success: [always|never|change] # default: never
-        on_failure: [always|never|change] # default: always
+        on_success:
+                never
+        on_failure:
+                always
 
 branches:
     only:
