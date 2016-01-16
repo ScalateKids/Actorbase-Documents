@@ -94,4 +94,106 @@ L'attività di redazione di ogni documento sarà sempre anticipata da uno studio
 Il processo di verifica deve essere ben organizzato e pianificato per rispettare le scadenze fissate nel \href{run:./PianoDiProgetto\_v0.1.1.pdf}{Piano Di Progetto v0.1.1}.\\
 L'attività di verifica segue le metodologie descritte nelle \href{run:../Interni/NormeDiProgetto\_v0.0.1.pdf}{Norme Di Progetto v0.0.1}. Esse sono state pensate in maniera tale da consentire l'individuazione e la correzione degli errori il più presto possibile evitando che si diffondano.
 %TODO
+\subsection{Responsabilità}
+Per organizzare al meglio il lavoro e in particolare le \gloss{attività} di verifica e validazione vengono assegnati questi compiti ai soli \textit{Verificatori} e al \textit{Responsabile}. Inoltre le \gloss{attività} di verifica non potranno essere svolte da un membro che ha partecipato allo sviluppo di tale sezione per garantire assenza di conflitto di interessi (vedi norme  %TODO aggiungere link alle norme).
+\subsection{Tecniche di analisi}
+\subsubsection{Analisi statica}
+L'analisi statica è una tencica atta a trovare errori e anomalie. Questa tecnica è applicabile sia alla documentazione sia al codice.
+\paragraph{Walkthrough}
+\label{sec:walkthrough}Come da \textit{\href{run:../Interni/NormeDiProgetto_v1.0.0.pdf}{Norme di Progetto}} verrà effettuata tecnica walkthrough nelle fasi iniziali di ogni \gloss{attività} per passare il prima possibile a \gloss{attività} di \textit{\ref{sec:inspection}{Inspection}}.
+%TODO: linkiamo la lista di controllo?
+\paragraph{Inspection}
+\label{sec:inspection}Successivamente all'\gloss{attività} di \ref{sec:walkthrough}{Walthrough} verrà fatta \gloss{attività} di inspection (seguendo \textit{\href{run:../Interni/NormeDiProgetto_v1.0.0.pdf}{Norme di Progetto}}) rispetto alla lista di controllo ottenuta in precedenza.
+\subsubsection{Analisi dinamica}
+L'analisi dinamica si applica solo al prodotto software e serve a trovare errori o difetti nell'implementazione.\\I test effettuati devono essere \textit{ripetibili}; questa caratteristica è fondamentale poichè un test deve produrre sempre lo stesso risultato dato un input in un ambiente per trovare errori.
+\paragraph{Test di unità}
+Test per verificare ogni unità del software prodotto. Per unità si intende la pià piccola quantità di software che è utile verificare singolarmente.\\L'obbliettivo di questi test è trovare ed eliminare possibili errori creati dai \textit{programmatori}.
+\paragraph{Test di integrazione}
+Test per verificare che l'integrazione tra due o più unità software funzionino correttamente.\\In mancanza di unità questi test possono essere svolti tramite la creazione di una o più componenti fittizie che simulano il comportamento delle unità con cui l'unità creata deve interfacciarsi. %TODO vabbe... mettere apposto sta frase
+\paragraph{Test di sistema}
+Test per verificare la totale copertura dei requisiti software emersi in fase di \textit{Analisi dei Requisiti}. Questi test verificano la totalità del prodotto software al suo raggiungimento di una versione definitiva.
+\paragraph{Test di regressione}
+Test da effettuare per verificare che una modifica del software non pregiudichi il funzionamento del sistema o di altre parti del prodotto prima correttamente funzionanti.\\
+Questa attività dev'essere svolta tenendo conto del tracciamento dei requisiti per individuare i giusti test di unità, di integrazione e di sistema che possono essere influenzati dalle modifiche effettuate.\\
+\paragraph{Test di accettazione}
+Questo corrisponde al collaudo vero e proprio del software da svolgersi col \textit{Proponente}.
+
+\subsection{Metriche di valutazione}
+Per rendere quantificabile il processo di verifica verranno usate delle metriche elencate sotto. Soltando due tipi di \gloss{range} saranno accettati:
+\begin{itemize}
+  \item \textbf{Ottimale}: contiene i valori che si deve cercare di ottenere, valori al di fuori di questo range dovranno essere verificati e, se necessario, discussi dal gruppo;
+  \item \textbf{Accettazione}: valori per avere un accetazione del prodotto.
+\end{itemize}
+%TODO metriche per i processi ? ? ? schedule variance e budget variance 
+\subsubsection{Metriche per i documenti}
+Per la stesura dei documenti è stato scelto di utilizzare un \textit{indice di leggibilità} per la lingua italiana.
+\paragraph{Indice Gulpease}
+Questo indice indica il grado di leggibilità di un documento.\\L'indice di Gulpease prende in considerazione principalmente tre variabili:
+\begin{itemize}
+\item Numero delle frasi;
+\item Numero delle lettere;
+\item Numero delle parole.
+\end{itemize}
+La formula applicata per calcolare il suddetto indice è:
+\begin{center}
+\begin{equation}
+  89 + \cfrac{300 * (numero delle frasi) - 10 * (numero delle lettere)}{numero delle parole}
+\end{equation}
+\end{center}
+Lo script applicato su un documento produrrà in output un valore interno compreso tra zero e cento, in particolare i significati sono i seguenti:
+\begin{itemize}
+  \item Indice inferiore a 80 rappresenta un documento difficile da leggere per persone con una licenza di scuola elementare;
+  \item Indice inferiore a 60 rappresenta un documento difficile da leggere per persone con una licenza di scuola media inferiore;
+  \item Indice inferiore a 40 rappresenta un documento difficile da leggere per persone con una licenza di diploma superiore;
+\end{itemize}
+\textbf{Range accettabili:}
+\begin{itemize}
+  \item Range ottimale: 60 - 100;
+  \item Range di accettazione: 45 - 60.
+\end{itemize}
+\subsubsection{Metriche per il software}
+Per perseguire una buona qualità software sono state pensate diverse metriche di valutazione descritte nei prossimi paragrafi. Tuttavia questa sezione è una sezione che potrà subire cambiamenti durante le prossime revisioni.
+\paragraph{Linee di codice per linee di commento}
+Applicato su un file produrrà un valo0re in output che rappresenta la percentuale di righe di commento rispetto alle linee di codice.\\ 
+\textbf{Range accettabili:}
+\begin{itemize}
+  \item Range ottimale: 30 - 40\%;
+  \item Range di accettazione: 20 - 30\%.
+\end{itemize}
+\subsubsection{Copertura del codice}
+La copertura del codice indica il numbero di istruzioni che vengono eseguite durante i test rispetto alla totalità delle istruzioni. Per avere una minor possibilità di presenza di errori nel codice si dovrà avere una percentuale il più alta possibile di istruzioni testate.\\Tuttavia metodi molto semplici che non necessitano testing andranno a influire negativamente in questo ambito.\\
+\textbf{Range accettabili:}
+\begin{itemize}
+  \item Range ottimale: 60 - 100\%;
+  \item Range di accettazione: 40 - 60\%.
+\end{itemize}
+\subsubsection{Numero di attributi per classe}
+Un numero troppo elevato di attributi in una classe potrebbe indicare il non soddisfacimento del principio di \textit{\gloss{single responsability}}. Questo potrebbe significare la necessità di una divisione in più classi relazionate tra loro per dividere le diverse funzionalità o un possibile errore di progettazione.\\
+\textbf{Range accettabili:}
+\begin{itemize}
+  \item Range ottimale: 3 - 6;
+  \item Range di accettazione: 0 - 12.
+\end{itemize}
+\subsubsection{Numero di parametri per metodo}
+Un numero troppo elevato di parametri in un metodo potrebbe indicare il non soddisfacimento del principio di \textit{\gloss{single responsability}}. Questo potrebbe significare la necessità di una divisione in sotto metodi per dividere le diverse funzionalità o un possibile errore di progettazione.\\
+\textbf{Range accettabili:}
+\begin{itemize}
+  \item Range ottimale: 0 - 4;
+  \item Range di accettazione: 4 - 8.
+\end{itemize}
+\subsubsection{Complessità ciclomatica}
+La complessità ciclomatica è usata per misurare la complessità di parti di codice come funzioni, metodi, classi o moduli.\\
+Questa è calcolata attraverso un grafo di controllo del flusso del programma.\\La complessità ciclomatica di una sezione di codice è il numero di cammini linearmente indipendenti attraverso il codice sorgente. Per esempio, se il codice sorgente non contiene punti decisionali come IF o cicli FOR, allora la complessità sarà 1, poiché esiste un solo cammino nel sorgente (e quindi nel grafo). Se il codice ha un singolo IF contenente una singola condizione, allora ci saranno due cammini possibili: il primo se l'IF viene valutato a TRUE e un secondo se l'IF viene valutato a FALSE.\\
+\textbf{Range accettabili:}
+\begin{itemize}
+  \item Range ottimale: 0 - 10;
+  \item Range di accettazione: 10 - 15.
+\end{itemize}
+\subsubsection{Livelli di annidamento}
+Indica il numero di livelli di annidamento di funzioni e metodi. Un valore alto di questo indice implica un livello di complessità molto elevato, aumentando la probabilità di commettere errori.\\
+\textbf{Range accettabili:}
+\begin{itemize}
+  \item Range ottimale: 1 - 4;
+  \item Range di accettazione 5 - 8.
+\end{itemize}
 \end{document}
