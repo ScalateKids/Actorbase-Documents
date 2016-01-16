@@ -803,8 +803,8 @@ Dopo varie ricerche, \gloss{Docker} è stato adottato per uniformare quanto più
 possibile l'ambiente di test, grazie al sistema di \gloss{containerizzazione} e
 versionamento delle immagini virtuali che offre.\\ Mediante un file di
 configurazione principale, il \gloss{Dockerfile}, è possibile istruire il
-programma e generare una o più immagini virtuali fornite dei solo pacchetti o
-script necessari al testing a cui sarà adibito.Utilizzato in \gloss{tandem} con
+programma e generare una o più immagini virtuali fornite dei soli pacchetti o
+script necessari al testing a cui sarà adibito. Utilizzato in \gloss{tandem} con
 \textit{Travis-CI} permette di effettuare test molto precisi e, allo stesso
 tempo, di versionare un gran numero immagini virtuali per diversificare i test e
 gli ambienti su cui lanciarli. I \gloss{Dockerfile} infatti possono essere
@@ -830,7 +830,7 @@ un ambiente virtuale comune utilizzando il software \textit{Virtualbox}. Tutti i
 componenti del gruppo utilizzeranno gli strumenti all'interno della
 \gloss{virtual machine} in modo da garantire omogeneità, e riproducibilità di
 eventuali \gloss{bug}.\\ L'\textit{IDE} scelto è \textit{IntelliJIdea}, considerato il
-più appropriato e compatibile con le tecnologie centrali del progetto, gli
+più appropriato e compatibile con le tecnologie centrali del progetto. Gli
 editor \textit{vim}, \textit{emacs} o \textit{Sublime Text 2} potranno essere
 utilizzati dai componenti del gruppo, purchè si tratti di modifiche rapide o
 stesura di script di utilità generale.\\
@@ -842,10 +842,10 @@ in forma compattata \textit{.7z}, ogni componente dovrà installare il software
 macchina virtuale.\\
 I passi da seguire sono:
 \begin{itemize}
-\item Nuovo
-\item Tipo: \textit{Ubuntu} Versione: \textit{64-bit}
-\item Assegnare la quantità di memoria in base alla propria disponibilità
-\item Usa un hard-disk esistente e selezionare \textit{ScalateKids-VMvX.Y.vdi}
+\item Nuovo;
+\item Tipo: \textit{Ubuntu} Versione: \textit{64-bit};
+\item Assegnare la quantità di memoria in base alla propria disponibilità;
+\item Usa un hard-disk esistente e selezionare \textit{ScalateKids-VMvX.Y.vdi}.
 \end{itemize}
 Una volta avviata la macchina, da terminale lanciare il comando:
 \begin{center}
@@ -862,9 +862,10 @@ occuperà di scaricare e installare gli aggiornamenti richiesti:
 \begin{center}
   \verb=curl http://codep.kissr.com/sk/scripts/update.sh | sh=
 \end{center}
-Gli \gloss{script} \verb=init.sh= e \verb=update.sh= presenti sul server privato saranno
-preparati dall'\textit{Amministratore} e rilasciati di volta in volta previa
-approvazione del \textit{Responsabile}.
+Gli \gloss{script} di utilità citati comprenderanno strumenti di verifica e
+leggibilità dei documenti.\verb=Init.sh= e \verb=update.sh=
+presenti sul server privato saranno preparati dall'\textit{Amministratore} e
+rilasciati di volta in volta previa approvazione del \textit{Responsabile}.
 \subparagraph{Script di utilità locali}
 \label{sec:script}
 L'\textit{Amministratore} si è occupato di scrivere alcuni \gloss{script} di utilità
