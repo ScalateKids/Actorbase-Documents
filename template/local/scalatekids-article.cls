@@ -25,6 +25,7 @@
 \usepackage{listings}
 \usepackage[table]{xcolor}
 \usepackage{changes}
+\usepackage{amsmath}
 \usepackage{graphicx}
 \usepackage{subcaption}
 \usepackage{breakurl}
