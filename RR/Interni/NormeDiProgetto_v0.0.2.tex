@@ -3,7 +3,7 @@
 % Title Norme di Progetto
 \documentclass{scalatekids-article}
 \begin{document}
-\lfoot{Norme di Progetto 0.0.1}
+\lfoot{Norme di Progetto 1.0.1}
 \newgeometry{top=3.5cm}
 \begin{titlepage}
   \begin{center}
@@ -25,7 +25,7 @@
       \setbox0=\hbox{0.0.1\unskip}\ifdim\wd0=0pt
       \\
       \else
-      \textbf{Versione} & 0.0.1\\
+      \textbf{Versione} & 1.0.1\\
       \fi
       \textbf{Redazione} & \multiLineCell[t]{Redattore}\\
       \textbf{Verifica} & \multiLineCell[t]{Verificatore}\\
@@ -254,13 +254,13 @@ Tutti i requisiti di progetto vanno elencati, suddivisi e tracciati secondo le r
 \subsubsection{Casi d'uso e tracciamento dei requisiti}
 \label{sec:frontend}
 Per facilitare la gestione dei casi d'uso e il tracciamento dei requisiti
-utilizziamo un'applicazione web sviluppata precisamente per lo scopo
-appositamente dal gruppo.\\Essa si interfaccia con un database relazionale
-risiedente sul server privato(vedi \ref{sec:server}) e permette una
-visualizzazione chiara dei requisiti e casi d'uso. Una volta completata la
-procedura d'inserimento dei requisiti e casi d'uso, previa verifica, è possibile
-esportare in formato \LaTeX\xspace ed eseguire il tracciamente automatico dei
-requisiti rispetto alle fonti e viceversa.
+utilizziamo un'applicazione web sviluppata per lo scopo appositamente dal
+gruppo.\\Essa si interfaccia con un database relazionale risiedente sul server
+privato(vedi \ref{sec:server}) e permette una visualizzazione chiara dei
+requisiti e casi d'uso. Una volta completata la procedura d'inserimento dei
+requisiti e casi d'uso, previa verifica è possibile esportare in formato
+\LaTeX\xspace ed eseguire il tracciamente automatico dei requisiti rispetto alle
+fonti e viceversa.
 % TODO: png di scalatetrack
 
 \section{Processi di Supporto}
@@ -327,7 +327,7 @@ Il piè pagina invece contiene:
 \end{itemize}
 
 \subsubsection{Norme tipografiche}
-Per uniformare il più possibile la stesura di tutti i documenti abbiamo scelto delle regole che tutto il gruppo deve seguire.
+Per uniformare il più possibile la stesura di tutti i documenti queste sono le regole che tutto il gruppo deve seguire.
 
 \subsubsection{Punteggiatura}
 \begin{itemize}
@@ -351,7 +351,7 @@ Per uniformare il più possibile la stesura di tutti i documenti abbiamo scelto 
   \item Sezioni e sottosezioni dei documenti;
   \end{itemize}
 \item \textbf{Maiuscolo}: alcuni acronimi saranno scritti interamente in maiuscolo (es. \textit{SQL});
-\item \textbf{Monospace}: i font monospace saranno usati per riportare parti di codice;
+\item \textbf{Monospace}: i font monospace saranno usati per riportare parti di codice.
 \end{itemize}
 
 \subsubsection{Formati di riferimento}
@@ -387,7 +387,7 @@ Per uniformare il più possibile la stesura di tutti i documenti abbiamo scelto 
   RQ: \textit{Revisione di Qualifica};
   PP: \textit{Piano di Progetto};
   SF: \textit{Studio di Fattibilità};
-  RA: \textit{Revisione di Accettazione};
+  RA: \textit{Revisione di Accettazione}.
 
 \item \textbf{Nomi ricorrenti}:
   \begin{itemize}
@@ -424,11 +424,11 @@ in cui:
 \begin{itemize}
 \item \textbf{X}: aumenta con il numero di uscite formali del documento
   \begin{enumerate}
-  \item\gloss{Attività} di \textbf{Analisi} che si conclude con la \textbf{RR}
-  \item\gloss{Attività} di \textbf{Analisi di Dettaglio} che si conclude con l'ingresso alla \textbf{RP}
-  \item\gloss{Attività} di \textbf{Progettazione architetturale} che si conclude con la \textbf{RP}
-  \item\gloss{Attività} di \textbf{Progettazione di Dettaglio e Codifica} che si conclude con l'ingresso alla \textbf{RQ}
-  \item\gloss{Attività} di \textbf{Verifica e Validazione} che si conclude con la \textbf{RA}
+  \item\gloss{Attività} di \textbf{Analisi} che si conclude con la \textbf{RR};
+  \item\gloss{Attività} di \textbf{Analisi di Dettaglio} che si conclude con l'ingresso alla \textbf{RP};
+  \item\gloss{Attività} di \textbf{Progettazione architetturale} che si conclude con la \textbf{RP};
+  \item\gloss{Attività} di \textbf{Progettazione di Dettaglio e Codifica} che si conclude con l'ingresso alla \textbf{RQ};
+  \item\gloss{Attività} di \textbf{Verifica e Validazione} che si conclude con la \textbf{RA}.
   \end{enumerate}
 \item \textbf{Y}: rappresenta il numero di modifiche sostanziali effettuate sul documento. Se pari a zero indica che il documento è ancora in fase di stesura in presente revisione;
 \item \textbf{Z}: rappresenta il numero di modifiche minori effettuate sul documento.
@@ -742,21 +742,47 @@ Questo strumento verrà usato per la creazione di un back-end per la gestione de
 Per la gestione e il tracciamento dei requisiti è stata creata un'interfaccia protetta da login (vedi sezione \ref{sec:front-end}).
 
 \paragraph{Versionamento}
-Lo strumento scelto è \gloss{git} principalmente per la grande diffusione negli
+Lo strumento scelto è \gloss{git}, principalmente per la grande diffusione negli
 ambienti di sviluppo e per l'integrazione offerta dal servizio web
 \textit{Github}, il quale è inoltre offre un esaustiva documentazione
 sull'utilizzo del programma in questione. Infine \gloss{git} si è rivelato essere
 il più conosciuto tra i membri del gruppo, l'alternativa \gloss{SVN}, nonostante
 i simili principi di funzionamento, costituiva una scelta più difficoltosa, in
-quanto nessun membro ha mai avuto esperienze di utilizzo.
+quanto nessun membro ha mai avuto esperienze di utilizzo passate.
+\subparagraph{Repository}
 Sono stati creati due \gloss{repository} all'indirizzo \url{https://github.com/scalatekids}:
 \begin{itemize}
-\item Actorbase.\gloss{git}: Contiene i sorgenti del software.
-\item Actorbase-Documents.\gloss{git}: Contiene i sorgenti \LaTeX\ e i PDF generati.
+\item Actorbase.\gloss{git}: Conterrà i sorgenti del software vero e proprio;
+\item Actorbase-Documents.\gloss{git}: Conterrà i sorgenti \LaTeX\xspace e i \gloss{PDF} generati;
+\item Actorbase-Docker.\gloss{git}: Conterrà i sorgenti delle immagini
+  \gloss{Docker} e i sorgenti dei test di unità da inserire di volta in volta.
+  Si suddivide in:
+  \begin{itemize}
+    \item Actorbase-Docker/Latex.\gloss{git}: Conterrà il \gloss{Dockerfile}
+      istruito per la creazione di un'immagine \textit{Ubuntu:Thrusty} fornita
+      dei pacchetti latex essenziali alla stesura dei documenti, corredata da
+      \gloss{script} di generazione, verifica ortografica e leggibilità dei
+      \gloss{PDF} generati.
+    \item Actorbase-Docker/Scala.\gloss{git}: Conterrà il \gloss{Dockerfile}
+      istruito per la creazione di un'immagine \textit{Ubuntu:Thrusty} fornita
+      di \textit{JVM v8} e \gloss{sbt}, corredata dai test di unità e
+      \gloss{script} di analisi statica e qualitativa del codice.
+  \end{itemize}
 \end{itemize}
+I \gloss{branch} dovranno essere nominati completamente in minuscolo, in lingua
+inglese ed essere esplicativi del loro utilizzo.
+% TODO: test su piu OS / docker machines
 \subsubsection{Ambiente di verifica e validazione}
 \paragraph{Analisi statica}
-
+% TODO: Walkthrough / Inspection
+Gli strumenti da utilizzare per le attività di analisi statica saranno:
+\begin{itemize}
+\item\textbf{ScalaStyle:} \gloss{plugin} per compilatori \gloss{Scala}, fornisce controlli qualitativi esaustivi su codice automaticamente durante la compilazione dei sorgenti;
+\item\textbf{Scapegoat:} altro \gloss{plugin} per compilatori \gloss{Scala}, anch'esso funziona automaticamente in compilazione;
+  % TODO: uno dei due
+\item\textbf{loc:} \gloss{script} di controllo qualità, forniscono il rapporto tra righe di codice e righe di commento.
+  % TODO: scrivere il funzionamento
+\end{itemize}
 \paragraph{Integrazione continua}
 Fin da subito, i \gloss{repository} saranno collegati ad un sistema di
 \gloss{integrazione continua}, la scelta è ricaduta su \textit{Travis-CI} per la
@@ -764,16 +790,16 @@ semplicità di utilizzo e modeste esperienze passate di alcuni componenti del
 gruppo.
 \subparagraph{Travis-CI}
 E' un servizio di \gloss{integrazione continua} comprensivo di un piano di
-utilizzo gratuito, facilmente configurabile, collegabile ai \gloss{repository}
-\textit{Github}, mediante un file di configurazione chiamato
-\textit{.travis.yml} da inserire all'interno del \gloss{repository} è possibile
-fornire direttive al servizio e automatizzare unità di test su tutti i
-\gloss{file} del \gloss{repository}, le quali possono essere lanciate sia dopo
-ogni \gloss{push} che dopo ogni \gloss{pull} e notificare il
-\textit{Responsabile} via mail su eventuali \gloss{commit} che non superano i
-test predisposti o violano determinate regole.
+utilizzo gratuito. Facilmente configurabile, il collegamento ai \gloss{repository}
+\textit{Github} avviene mediante un file di configurazione chiamato \textit{.travis.yml}
+da inserire all'interno del \gloss{repository}. E' inoltre possibile fornire
+direttive al servizio e automatizzare unità di test su tutti i \gloss{file} del
+\gloss{repository}, le quali possono essere lanciate sia dopo ogni \gloss{push}
+che dopo ogni \gloss{pull} e notificare il \textit{Responsabile} via mail su
+eventuali \gloss{commit} che non superino i test predisposti o violino
+determinate regole.
 \subparagraph{Docker}
-Dopo varie ricerche \gloss{Docker} è stato adottato per uniformare quanto più
+Dopo varie ricerche, \gloss{Docker} è stato adottato per uniformare quanto più
 possibile l'ambiente di test, grazie al sistema di \gloss{containerizzazione} e
 versionamento delle immagini virtuali che offre.\\ Mediante un file di
 configurazione principale, il \gloss{Dockerfile}, è possibile istruire il
