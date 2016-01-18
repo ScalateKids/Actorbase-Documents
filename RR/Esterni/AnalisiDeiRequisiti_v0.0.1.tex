@@ -64,18 +64,26 @@
 \subsection{Caratteristiche Utenza}
 \subsection{Vincoli}
 \section{Casi d'uso}
-\subsection{UC1: Interazioni Basilari}
+\subsection{UC1: Interazioni basilari}
+\begin{figure}[H]
+  \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC1.jpeg}
+  \caption{Caso d'uso 1: Interazioni basilari}
+\end{figure}
 \textbf{Attori primari:} Utente\\ \\
 \textbf{Scopo e descrizione:} Il database è installato correttamente e il server è in ascolto.
 L'utente ha avviato un terminale ed è pronto ad inserire comandi.\\ \\
 \textbf{Precondizione:} Il database è installato correttamente, e il server è in ascolto.\\ \\
 \textbf{Flusso eventi:}
 \begin{itemize}
-\item{UC1.1} Utente digita comando
-\item{UC1.2} Utente conferma il comando
+\item UC1.1 Utente digita comando
+\item UC1.2 Utente conferma il comando
 \end{itemize}
 \textbf{Postcondizione:} Il sistema ha prodotto l'output corrispondente al comando immesso dall'utente.
 \subsection{UC1.1: Scrittura comando}
+\begin{figure}[H]
+  \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC1_1.jpeg}
+  \caption{Caso d'uso 1.1: Scrittura comando}
+\end{figure}
 \textbf{Attori primari:} Utente\\ \\
 \textbf{Scopo e descrizione:} L’utente scrive il comando sul terminale.\\ \\
 \textbf{Precondizione:} Il database è installato correttamente, il server è in ascolto e l'utente intende scrivere un comando.\\ \\
@@ -99,11 +107,11 @@ L'utente ha avviato un terminale ed è pronto ad inserire comandi.\\ \\
   \end{itemize}
 \item Nel caso in cui l'utente utilizzi un comando conosciuto ma con parametri errati:
   \begin{itemize}
-    viene visualizzato un messaggio di supporto che indica come usare correttamente il comando
+  \item viene visualizzato un messaggio di supporto che indica come usare correttamente il comando
   \end{itemize}
 \item Nel caso in cui l'utente voglia modificare dati non presenti nel database:
   \begin{itemize}
-    viene visualizzato un messaggio di errore esplicativo
+  \item viene visualizzato un messaggio di errore esplicativo
   \end{itemize}
 \end{itemize}
 \textbf{Postcondizione:} L'utente ha digitato un comando
@@ -144,6 +152,10 @@ L'utente ha avviato un terminale ed è pronto ad inserire comandi.\\ \\
 \end{itemize}
 \textbf{Postcondizione:} L’utente ha digitato il comando per modificare una collezione
 \subsection{UC1.1.5: Ricerca generale}
+\begin{figure}[H]
+  \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC1_1_5.jpeg}
+  \caption{Caso d'uso 1.1.5: Ricerca generale}
+\end{figure}
 \textbf{Attore primario:} Utente \\ \\
 \textbf{Scopo e descrizione:} L’utente intende effettuare una ricerca\\ \\
 \textbf{Precondizione:} Il database è pronto a ricevere comandi e l’utente intende effettuare una ricerca\\ \\
@@ -199,6 +211,10 @@ L'utente ha avviato un terminale ed è pronto ad inserire comandi.\\ \\
 \end{itemize}
 \textbf{Postcondizione:} L’utente ha digitato il comando per modificare un item
 \subsection{UC1.1.9: Richiesta di supporto}
+\begin{figure}[H]
+  \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC1_1_9.jpeg}
+  \caption{Caso d'uso 1.1.9: Richiesta di supporto}
+\end{figure}
 \textbf{Attore primario:} Utente \\ \\
 \textbf{Scopo e descrizione:} L’utente intende richiedere del supporto\\ \\
 \textbf{Precondizione:} Il database è pronto a ricevere comandi e l’utente intende richiedere supporto\\ \\
@@ -227,6 +243,10 @@ L'utente ha avviato un terminale ed è pronto ad inserire comandi.\\ \\
 \end{itemize}
 \textbf{Postcondizione:} L’utente ha digitato il comando per richiedere supporto specifico
 \subsection{UC1.2: Richiesta di aiuto specifico}
+\begin{figure}[H]
+  \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC1_2.jpeg}
+  \caption{Caso d'uso 1.2: Richiesta di aiuto specifico}
+\end{figure}
 \textbf{Attore primario:} Utente \\ \\
 \textbf{Scopo e descrizione:}  L’utente ha digitato un comando nella CLI con l’intenzione di inserire, cancellare, aggiornare, ricercare collezioni o item, o semplicemente per richiedere auto\\ \\
 \textbf{Precondizione:} L’utente ha digitato un comando\\ \\
