@@ -171,4 +171,84 @@ L'utente ha avviato un terminale ed è pronto ad inserire comandi.\\ \\
 \item l’utente digita il comando di ricerca con parametro i nomi delle collezioni sulle quali vuole effettuare la ricerca
 \end{itemize}
 \textbf{Postcondizione:} L’utente ha digitato il comando per effettuare una ricerca specifica
+\subsection{UC1.1.6: Inserimento di un item}
+\textbf{Attore primario:} Utente \\ \\
+\textbf{Scopo e descrizione:} L’utente intende inserire un nuovo item in una collezione, deve inserire il nome della collezione e il nome dell’item\\ \\
+\textbf{Precondizione:} Il database è pronto a ricevere comandi e l’utente vuole inserire un nuovo item in una collezione\\ \\
+\textbf{Flusso di eventi:}
+\begin{itemize}
+\item l’utente digita il comando di inserimento con parametro nome della collezione e nome dell’item e campi dell’item
+\end{itemize}
+\textbf{Postcondizione:} L’utente ha digitato il comando per inserire un item
+\subsection{UC1.1.7: Cancellazione di un item}
+\textbf{Attore primario:} Utente \\ \\
+\textbf{Scopo e descrizione:} L’utente intende cancellare un item da una collezione, deve inserire il nome dell’item da cancellare e il nome della collezione\\ \\
+\textbf{Precondizione:} Il database è pronto a ricevere comandi e l’utente vuole cancellare un item da una collezione\\ \\
+\textbf{Flusso di eventi:}
+\begin{itemize}
+\item l’utente digita il comando di cancellazione con parametro nome dell’item e della collezione
+\end{itemize}
+\textbf{Postcondizione:} l’utente ha digitato il comando per cancellare un item da una collezione
+\subsection{UC1.1.8: Modifica di un item}
+\textbf{Attore primario:} Utente \\ \\
+\textbf{Scopo e descrizione:} L’utente intende modificare un item di una collezione, deve inserire il nome dell’item e della collezione\\ \\
+\textbf{Precondizione:} Il database è pronto a ricevere comandi e l’utente vuole modificare un item di una collezione\\ \\
+\textbf{Flusso di eventi:}
+\begin{itemize}
+\item l’utente digita il comando di modifica con parametro nome dell’item e della collezione
+\end{itemize}
+\textbf{Postcondizione:} L’utente ha digitato il comando per modificare un item
+\subsection{UC1.1.9: Richiesta di supporto}
+\textbf{Attore primario:} Utente \\ \\
+\textbf{Scopo e descrizione:} L’utente intende richiedere del supporto\\ \\
+\textbf{Precondizione:} Il database è pronto a ricevere comandi e l’utente intende richiedere supporto\\ \\
+\textbf{Flusso di eventi:}
+\begin{itemize}
+\item UC1.1.9.1 Utente può digitare il comando per richiedere un aiuto generale
+\item UC1.1.9.2 Utente può digitare il comando per richiedere un aiuto riguardo un particolare comando
+\end{itemize}
+\textbf{Postcondizione:} L’utente ha digitato il comando per richiedere supporto
+\subsection{UC1.1.9.1: Richiesta di aiuto generale}
+\textbf{Attore primario:} Utente \\ \\
+\textbf{Scopo e descrizione:} L’utente intende richiedere del supporto generale\\ \\
+\textbf{Precondizione:} Il database è pronto a ricevere comandi e l’utente intende richiedere supporto generale\\ \\
+\textbf{Flusso di eventi:}
+\begin{itemize}
+\item L’utente digita il comando di aiuto con parametro nullo
+\end{itemize}
+\textbf{Postcondizione:} L’utente ha digitato il comando per richiedere supporto generale
+\subsection{UC1.1.9.2: Richiesta di aiuto specifico}
+\textbf{Attore primario:} Utente \\ \\
+\textbf{Scopo e descrizione:} L’utente intende richiedere dell’aiuto su di un specifico comando\\ \\
+\textbf{Precondizione:} Il database è pronto a ricevere comandi e l’utente intende richiedere supporto specifico\\ \\
+\textbf{Flusso di eventi:}
+\begin{itemize}
+\item L’utente digita il comando di aiuto con parametro il comando di cui si vuole ricevere del supporto
+\end{itemize}
+\textbf{Postcondizione:} L’utente ha digitato il comando per richiedere supporto specifico
+\subsection{UC1.2: Richiesta di aiuto specifico}
+\textbf{Attore primario:} Utente \\ \\
+\textbf{Scopo e descrizione:}  L’utente ha digitato un comando nella CLI con l’intenzione di inserire, cancellare, aggiornare, ricercare collezioni o item, o semplicemente per richiedere auto\\ \\
+\textbf{Precondizione:} L’utente ha digitato un comando\\ \\
+\textbf{Flusso di eventi:}
+\begin{itemize}
+\item L’utente conferma il comando digitato
+\item UC 1.2.1 Il sistema esegue il comando immesso dall’utente
+\end{itemize}
+\textbf{Estensioni:}
+\begin{itemize}
+\item Nel caso in cui l’utente abbia utilizzato un comando sconosciuto:
+  \begin{itemize}
+  \item Viene visualizzato un messaggio di errore esplicativo (e rimando all'aiuto)
+  \end{itemize}
+\item Nel caso in cui l’utente abbia utilizzato un comando conosciuto ma con parametri errati:
+  \begin{itemize}
+  \item viene visualizzato un messaggio di supporto che indica come usare correttamente il comando
+  \end{itemize}
+\item Nel caso in cui l’utente abbia voluto modificare dati non presenti nel database:
+  \begin{itemize}
+    \item viene visualizzato un messaggio di errore esplicativo
+  \end{itemize}
+\end{itemize}
+\textbf{Postcondizione:} Il sistema ha eseguito l’operazione richiesta dall’utente
 \end{document}
