@@ -775,6 +775,12 @@ inglese ed essere esplicativi del loro utilizzo.
 \subsubsection{Ambiente di verifica e validazione}
 \paragraph{Analisi statica}
 % TODO: Walkthrough / Inspection
+I \textit{Verificatori} dovranno attenersi alle seguenti regole per attuare attività di verifica.
+\begin{itemize}
+  \item \textbf{Walkthrough:} per svolgere questa attività il \textit{Verificatore} deve passare in rassegna il documento da controllare, rileggere tutto attentamente e stendere una lista degli errori più comuni, questa lista servirà per attuare solamente verifiche di tipo inspection in futuro;
+  \item \textbf{Ispection:} questa attività va effettuata solamente quando si ha a disposizione una lista di controllo derivante dalle attività di walkthrough precedenti.\\
+  Il \textit{Verificatore} deve controllare secondo la lista di controllo le parti del documento scelto.
+\end{itemize}
 Gli strumenti da utilizzare per le attività di analisi statica saranno:
 \begin{itemize}
 \item\textbf{ScalaStyle:} \gloss{plugin} per compilatori \gloss{Scala}, fornisce controlli qualitativi esaustivi su codice automaticamente durante la compilazione dei sorgenti;
