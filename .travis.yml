@@ -17,7 +17,7 @@ services:
     - docker
 
 before_install:
-    - docker pull codep/scalatekids-env
+    - docker pull scalatekids/scalatekids-latex
 
 script:
     - docker run --rm -i --net=none -v `pwd`:/root/actorbase codep/scalatekids-env:latest verify
