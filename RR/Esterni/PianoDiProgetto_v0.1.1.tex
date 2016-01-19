@@ -225,22 +225,6 @@ preimpostata per l'utilizzo delle tecnologie inerenti al progetto per l' attivit
 questo garantisce un buon grado di controllo, ma allo stesso tempo espone a maggiori rischi legati alla natura "personalizzata" dell'ambiente di lavoro.
 \textbf{Contromisure di mitigazione}: Verranno eseguiti dei backup automatici schedulati con periodicità fissa.
 \section{Pianificazione preventiva}
-\subsection{Pianificazione temporale}
-\begin{center}
-  \begin{tabular}{| c | c | c | c |}
-    \hline
-    \textbf{Id} & \textbf{Nome} & \textbf{Ruolo} & \textbf{Ore}\\
-    \hline
-    \textbf{AN1.1} & \textbf{Norme di Progetto} & &\\
-    \hline
-    AN1.1 & Comunicazioni & Amminstratore 1 &\\
-    \hline
-    AN1.2 & Riunioni & Amministratore 2 &\\
-    \hline
-    AN1.3 & Documentazione & Amministratore &\\
-    \hline
-  \end{tabular}
-\end{center}
 \subsection{Suddivisione attività}
 \label{sub:fasi}
 Per semplificare la pianificazione del prospetto orario, sono state identificate
@@ -304,6 +288,109 @@ I seguenti grafici illustrano le ore investite per Persona suddivise tra ore inv
     \caption{Ore con rendicontazione, attività di Analisi}
   \end{subfigure}
 \end{figure}
+
+\newpage
+\paragraph{Pianificazione temporale}
+\textbf{Diagramma di Gantt}
+\begin{figure}[H]
+  \includegraphics[width=1.1\textwidth, keepaspectratio]{gantt/1-Revisione-Requisiti-gantt-preventivo.png}
+  \caption{Gantt predittivo dell'attività di analisi}
+\end{figure}
+
+\newpage
+\textbf{Distribuzione oraria}
+\scriptsize
+\begin{center}
+  \begin{tabular}{| c | c | c | c |}
+    \hline
+    \textbf{Id} & \textbf{Nome} & \textbf{Ruolo} & \textbf{Ore}\\
+    \hline
+    \textbf{AN1} & \textbf{Norme di Progetto} & &\\
+    \hline
+    \textit{AN1.1} & \textit{Processi organizzativi} & &\\
+    \hline
+    AN1.1.1 & Ruoli di progetto & Amministratore 1 & 1\\
+    \hline
+    AN1.1.2 & Comunicazioni & Amministratore 1 & 2\\
+    \hline
+    AN1.1.3 & Norme di Codifica & Amministratore 2 & 3\\
+    \hline
+    \textit{AN1.2} & \textit{Processi di Sviluppo} & &\\
+    \hline
+    AN1.2.1 & Riunioni & Amministratore 2 & 2\\
+    \hline
+    AN1.2.2 & Requisiti di Progetto & Amministratore 1 & 3\\
+    \hline
+    \textit{AN1.3} & \textit{Processi di Supporto} & &\\
+    \hline
+    AN1.3.1 & Documenti & Amministratore 1 & 4\\
+    \hline
+    AN1.3.2 & Glossario & Amministratore 1 & 2\\
+    \hline
+    AN1.3.3 & Ambiente di Lavoro & Amministratore 2 & 3\\
+    \hline
+    AN1.4 & Attività di Verifica & \multiLineCell[t]{Verificatore 1\\Verificatore 3} & \multiLineCell[t]{8\\8}\\
+    \hline
+    \textbf{AN2} & \textbf{Studio di Fattibilità} & &\\
+    \hline
+    AN2.1 & Analisi e valutazione degli aspetti positivi dei capitolati & Analista 1 & 5\\
+    \hline
+    AN2.2 & Analisi e valutazione degli aspetti negativi dei capitolati & Analista 2 & 5\\
+    \hline
+    AN2.3 & Analisi e valutazione delle scadenze temporali & Analista 3 & 5\\
+    \hline
+    AN2.4 & Attività di verifica & \multiLineCell[t]{Verificatore 2\\Verificatore 4} & \multiLineCell[t]{4\\5}\\
+    \hline
+    \textbf{AN4} & \textbf{Analisi dei Requisiti} & &\\
+    \hline
+    AN4.1 & Descrizione Generale & \multiLineCell[t]{Analista 3\\Analista 2} & \multiLineCell[t]{3\\3}\\
+    \hline
+    AN4.2 & Diagrammi Casi d'uso & \multiLineCell[t]{Analista 4\\Analista 1\\Analista 3} & \multiLineCell[t]{5\\6\\5}\\
+    \hline
+    AN4.3 & Classificazione Requisiti & \multiLineCell[t]{Analista 3\\Analista 2} & \multiLineCell[t]{3\\4}\\
+    \hline
+    AN4.4 & Tracciamento & \multiLineCell[t]{Analista 1\\Analista 2\\Analista 3} & \multiLineCell[t]{3\\3\\4}\\
+    \hline
+    AN4.5 & Attività di Verifica & \multiLineCell[t]{Verificatore 1\\Verificatore 2\\Verificatore 3} & \multiLineCell[t]{9\\10\\9}\\
+    \hline
+    \textbf{AN3} & \textbf{Piano di Progetto} & &\\
+    \hline
+    AN3.1 & Organigramma & Responsabile & 2\\
+    \hline
+    AN3.2 & Scelta ciclo di vita & Responsabile & 4\\
+    \hline
+    AN3.3 & Analisi dei Rischi & Responsabile & 5\\
+    \hline
+    AN3.4 & Pianificazione Preventiva & Responsabile & 5\\
+    \hline
+    AN3.5 & Prospetto Economico & Responsabile & 2\\
+    \hline
+    AN3.6 & Consuntivo & Responsabile & 3\\
+    \hline
+    AN3.7 & Attività di Verifica & \multiLineCell[t]{Verificatore 4\\Verificatore 5} & \multiLineCell[t]{10\\10}\\
+    \hline
+    \textbf{AN5} & \textbf{Piano di Qualifica} & &\\
+    \hline
+    AN5.1 & Visione generale della strategia di verifica & \multiLineCell[t]{Responsabile\\Analista 1\\Verificatore 1} & \multiLineCell[t]{3\\5\\4}\\
+    \hline
+    AN5.2 & Gestione amministrativa della revisione & \multiLineCell[t]{Analista 1\\Analista 2} & \multiLineCell[t]{2\\3}\\
+    \hline
+    AN5.3 & Pianificazione dei Test & \multiLineCell[t]{Analista 2\\Analista 3} & \multiLineCell[t]{2\\3}\\
+    \hline
+    AN5.4 & Resoconto Attività di Verifica & Verificatore 4 & 8\\
+    \hline
+    AN5.5 & Standard di Qualità & Analista 4 & 5\\
+    \hline
+    AN5.6 & Attività di Verifica & \multiLineCell[t]{Verificatore 1\\Verificatore 3\\Verificatore 5} & \multiLineCell[t]{4\\5\\9}\\
+    \hline
+    \textbf{AN6} & \textbf{Glossario} & &\\
+    \hline
+    AN6.1 & Stesura & &\\
+    \hline
+    AN6.2 & Verifica & Verificatore 1 & 7
+  \end{tabular}
+\end{center}
+\normalsize
 
 \newpage
 \subsubsection{Progettazione}

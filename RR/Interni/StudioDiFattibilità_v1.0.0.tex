@@ -62,7 +62,7 @@
 \section{Sommario}
 \subsection{Scopo del documento}
 Questo documento racchiude le considerazioni emerse durante la fase di analisi per la scelta del capitolato.
-Vengono quindi elencati nei capitoli a seguire le descrizioni dei capitolati proposti con annessi vantaggi e svantaggi pensati da tutti i membri del gruppo.
+Vengono quindi elencati nei capitoli a seguire le descrizioni dei capitolati proposti con annessi vantaggi e svantaggi riscontrati da tutti i membri del gruppo.
 \prodPurpose
 \glossExpl
 \subsection{Riferimenti}
@@ -86,22 +86,22 @@ Vengono quindi elencati nei capitoli a seguire le descrizioni dei capitolati pro
   \url{http://www.math.unipd.it/~tullio/IS-1/2015/Progetto/C6.pdf}
 \end{itemize}
 
-\section{Analisi capitolato scelto}
+\section{Analisi capitolato scelto - C1 Actorbase}
 Riferimento: \url{http://www.math.unipd.it/~tullio/IS-1/2015/Progetto/C1.pdf}\\
 \subsection{Fattori positivi}
 \begin{itemize}
 \item \textbf{Modernità:} il capitolato in questione prevede la costruzione di un database \gloss{NoSQL} distribuito di tipo \gloss{key-value} basato sul \gloss{modello ad attori} e la definizione di un linguaggio specifico per poter interagire con tale database da riga di comando.\\
-  Nel corso degli ultimi anni per la creazione di sistemi distribuiti di dimensioni molto grandi i database di questo tipo sembrano essere i migliori, \textit{Amazon DynamoDB} può essere preso come modello, perciò il gruppo ha pensato che la realizzazione di un prodotto come questo possa avere un riscontro nel mondo reale e possa apportare un motivo di vanto da aggiungere al proprio \textit{CV};
+  Nel corso degli ultimi anni, i database di questo tipo sembrano esser la soluzione migliore per la creazione di sistemi distribuiti di dimensioni molto elevate. Dato, ad esempio, il successo di \textit{Amazon DynamoDB} in questo ambito, il gruppo ha ritenuto che la realizzazione di un prodotto come quello proposto nel capitolato possa avere un buon riscontro nel mondo reale e possa apportare un motivo di vanto da aggiungere al proprio \textit{CV};
 \item \textbf{Domini:} questo progetto racchiude più domini di conoscenza tra i quali certamente consideriamo più importanti il \gloss{modello ad attori}, i database \gloss{NoSQL} di tipo \gloss{key-value} e il concetto di distribuzione/concorrenza. \\
   Pensiamo siano tutti concetti molto utili da apprendere;
-\item \textbf{Tecnolgie:} le tecnologie da utilizzare sono attuali e tutto il gruppo le trova interessanti e utili da imparare. Le principali tecnologie da imparare saranno il linguaggio \textit{Scala} e la sua libreria \textit{AKKA} per l'implementazione del \gloss{modello ad attori};
-  \\TODO: altre tecnologie? il db?\\
-\item \textbf{Chiarezza:} il progetto è stato presentato molto bene e in modo chiaro, sono ben distinti i requisiti obbligatori da quelli desiderabili e quelli opzionali.
+\item \textbf{Tecnolgie:} Il gruppo trova interessanti e utili da apprendere le tecnologie utilizzate, in quanto molto attuali. Tra di esse, in particolare, il linguaggio di programmazione \textit{\gloss{Scala}} e la sua libreria \textit{\gloss{AKKA}}.
+
+\item \textbf{Chiarezza:} il progetto è stato presentato molto bene e in modo chiaro, sono ben distinti i requisiti obbligatori da quelli desiderabili e da quelli opzionali.
 \end{itemize}
 \subsection{Criticità}
 \begin{itemize}
-\item \textbf{Scarsa conoscenza preliminare:} nessun componente del gruppo ha mai lavorato o studiato con \textit{Scala} o con \textit{AKKA}. Pensiamo quindi che non sarà facile acquisire la padronanza di queste tecnologie in breve tempo.
-  Stessi possibili problemi per la realizzazione di un database basato sul \gloss{modello ad attori} e per la creazione di un \gloss{DSL}.
+\item \textbf{Scarsa conoscenza preliminare:} nessun componente del gruppo ha mai lavorato o studiato con \textit{Scala} o con \textit{AKKA}. Pensiamo quindi non sarà facile acquisire la padronanza di queste tecnologie in breve tempo.
+  Vale lo stesso per la realizzazione di un database basato sul \gloss{modello ad attori} e per la creazione di un \gloss{DSL}.
 \end{itemize}
 
 \section{Analisi altri capitolati}
@@ -109,11 +109,13 @@ Riferimento: \url{http://www.math.unipd.it/~tullio/IS-1/2015/Progetto/C1.pdf}\\
 Riferimento: \url{http://www.math.unipd.it/~tullio/IS-1/2015/Progetto/C2.pdf}\\
 \subsubsection{Fattori positivi}
 \begin{itemize}
-\item \textbf{Tecnologie interessanti:} i \gloss{Beacon} possono essere una cosa molto presente nel futuro, la creazione di città smart nel futuro è una possibilità, così come troviamo interessante partecipare alla creazione di un progetto pertinente alla \gloss{IoT}.
+\item \textbf{Tecnologie interessanti:} il gruppo ha trovato interessante la possibilità di partecipare ad un progetto inerente il concetto di \gloss{IoT}.
+I \gloss{Beacon} sono dispositivi che riteniamo possano essere un elemento importante nell'evoluzione prossima dell'informatica ed in particolare nello sviluppo di concetti come quello di città smart.
 \end{itemize}
 \subsubsection{Criticità}
 \begin{itemize}
-\item \textbf{Chiarezza:} abbiamo trovato la spiegazione del capitolato un pò vaga, in particolare lo scopo prefissato sembra essere molto esplorativo in quanto viene richiesto di ricercare nuove idee di utilizzo per i dispositivi \gloss{Beacon}. Pensiamo che questo possa causare un allungamento del tempo necessario per lo sviluppo del progetto;
+\item \textbf{Chiarezza:} abbiamo trovato la spiegazione del capitolato un pò vaga. 
+In particolare lo scopo prefissato sembra essere molto esplorativo in quanto viene richiesto di ricercare nuove idee di utilizzo per i dispositivi \gloss{Beacon}. Pensiamo che questo possa causare un allungamento del tempo necessario per lo sviluppo del progetto;
 \item \textbf{Tecnologia immatura:} come è stato spiegato durante la presentazione del capitolato per l'uso di questi \gloss{Beacon} è necessario che siano verificati i seguenti requisiti:
   \begin{itemize}
   \item Applicazione installata e \textit{in esecuzione};
@@ -128,14 +130,17 @@ Riferimento: \url{http://www.math.unipd.it/~tullio/IS-1/2015/Progetto/C2.pdf}\\
 Riferimento: \url{http://www.math.unipd.it/~tullio/IS-1/2015/Progetto/C3.pdf}\\
 \subsubsection{Fattori positivi}
 \begin{itemize}
-\item \textbf{Dominio:} capitolato molto improntato sull'\gloss{IoT}, come già scritto in precedenza questo ambito applicativo è di forte interesse per tutto il gruppo, è sicuramente un ambito moderno e presenta sicuri sviluppi futuri. Inoltre pensiamo che il progetto sia prestigioso e che contribuirebbe sicuramente in positivo in un CV;
-\item \textbf{Tecnologie:} il capitolato presenta una vasta quantità di tecnologie da utilizzare, diversi linguaggi di programmazione e la costruzione di molti apparati che dovranno poi interagire tra loro, citiamo ad esempio tra le richieste \textit{mongoDB}, \textit{Scala}, \textit{python}, \textit{html5}, \textit{nodejs} e altri ancora. L'apprendimento di tutte le tecnologie richieste è sicuramente di nostro interesse;
+\item \textbf{Dominio:} capitolato molto improntato sul concetto di \gloss{IoT}. 
+Come già scritto in precedenza questo ambito applicativo è di forte interesse per tutto il gruppo essendo sicuramente un ambito moderno e avente sicuri sviluppi futuri. Inoltre pensiamo che il progetto sia prestigioso e che contribuirebbe sicuramente in positivo ad un CV;
+\item \textbf{Tecnologie:} il capitolato presenta una vasta quantità di tecnologie da utilizzare, diversi linguaggi di programmazione e la costruzione di molti apparati che dovranno poi interagire tra loro.
+Tra le richieste citiamo, ad esempio: \textit{mongoDB}, \textit{Scala}, \textit{python}, \textit{html5}, \textit{nodejs} e altri ancora. L'apprendimento di tutte le tecnologie richieste è sicuramente di nostro interesse;
 \item \textbf{Algoritmo predittivo:} lo sviluppo di un algoritmo predittivo in grado di analizzare i dati provenienti da vari oggetti per fornire previsioni su possibili guasti è molto affascinante.
 \end{itemize}
 \subsubsection{Criticità}
 \begin{itemize}
-\item \textbf{Mole di lavoro:} il capitolato sembra essere molto vasto, ci sono molte cose da implementare, deve poter ricevere dati eterogenei ed è richiesto lo sviluppo dell'algoritmo predittivo, carico di lavoro eccessivo;
-\item \textbf{Chiarezza:} la spiegazione non è stata delle migliori, forse dovuto anche alla grande quantità di informazioni necessaria, il gruppo non ha chiaro al cento per cento cosa si deve sviluppare
+\item \textbf{Mole di lavoro:} il capitolato sembra essere molto vasto e vi sono molte cose da implementare.
+Il sistema deve poter ricevere dati eterogenei ed è richiesto lo sviluppo dell'algoritmo predittivo; carico di lavoro eccessivo.
+\item \textbf{Chiarezza:} la spiegazione non è stata delle migliori, forse per via della grande quantità di informazioni, e il gruppo non ha chiaro al cento per cento cosa si debba sviluppare
 \end{itemize}
 
 \subsection{C4 MaaS}
@@ -143,8 +148,8 @@ Riferimento: \url{http://www.math.unipd.it/~tullio/IS-1/2015/Progetto/C4.pdf}\\
 \subsubsection{Fattori positivi}
 \begin{itemize}
 \item \textbf{Chiarezza:} il capitolato è stato esposto molto bene e gli obbiettivi sono chiari e definiti;
-\item \textbf{Mole di lavoro:} crediamo che questo sia il capitolato in cui è più definibile la quantità di lavoro da fare, il che può aiutare a fare una buona pianificazione;
-\item \textbf{Tecnologie e prestigio:} le tecnologie richieste sono di interesse ai membri del gruppo, inoltre il servizio che si andrebbe a creare molto probabilmente sarebbe utilizzato con certezza da qualcuno, il che lo renderebbe una buona esperienza da aggiungere al proprio CV.
+\item \textbf{Mole di lavoro:} crediamo che questo sia il capitolato in cui è più definibile la quantità di lavoro da svolgere, il che può aiutare a fare una buona pianificazione;
+\item \textbf{Tecnologie e prestigio:} le tecnologie richieste sono di interesse ai membri del gruppo, inoltre il servizio che si andrebbe a creare molto probabilmente sarebbe utilizzato con certezza da qualcuno nell'immediato, rendendolo una buona esperienza da aggiungere al proprio CV.
 \end{itemize}
 \subsubsection{Criticità}
 \begin{itemize}
@@ -156,12 +161,12 @@ Riferimento: \url{http://www.math.unipd.it/~tullio/IS-1/2015/Progetto/C5.pdf}\\
 \subsubsection{Fattori positivi}
 \begin{itemize}
 \item \textbf{Chiarezza:} il capitolato è stato esposto molto bene, gli obbiettivi sono chiari e definiti;
-\item \textbf{Mole di lavoro:} anche questo capitolato come il precedente descritto richiede una quantità di lavoro secondo il gruppo più facile da predirre, inoltre pensiamo sia il progetto con una quantità di lavoro minore da svolgere poichè le tecnologie richieste sono pressoché tutte già viste in precedenza;
+\item \textbf{Mole di lavoro:} anche questo capitolato come il precedente richiede una quantità di lavoro, secondo il gruppo, più facile da predirre. inoltre pensiamo sia il progetto con una quantità di lavoro minore da svolgere poichè le tecnologie richieste sono pressoché tutte già apprese dai membri del gruppo nel corso degli studi di laurea.
 \end{itemize}
 \subsubsection{Criticità}
 \begin{itemize}
-\item \textbf{Tecnologie:} quasi la totalità delle tecnologie sono già viste dalla maggior parte dei membri del gruppo, questo risulta essere un punto a sfavore poichè vorremmo tutti imparare tecnologie nuove;
-\item \textbf{Mercato:} nel mercato sono già presenti tantissimi software per la creazione di quiz di ogni tipo, questo ha fatto pensare al gruppo che difficilmente si riuscirà a creare un applicazione di successo, qualche esempio:
+\item \textbf{Tecnologie:} quasi la totalità delle tecnologie sono già apprese dalla maggior parte dei membri del gruppo. Questo risulta essere un punto a sfavore poichè vorremmo imparare ad utilizzare tecnologie nuove.
+\item \textbf{Mercato:} nel mercato sono già presenti tantissimi software per la realizzazione di quiz di svariato genere. Qquesto ha fatto pensare al gruppo che difficilmente si riuscirà a creare un applicazione di successo; ecco qualche esempio:
   \begin{itemize}
   \item\url{https://www.onlinequizcreator.com/it/};
   \item\url{www.proprofs.com/quiz-school/create-a-quiz.php};
@@ -173,12 +178,12 @@ Riferimento: \url{http://www.math.unipd.it/~tullio/IS-1/2015/Progetto/C5.pdf}\\
 Riferimento: \url{http://www.math.unipd.it/~tullio/IS-1/2015/Progetto/C6.pdf}\\
 \subsubsection{Fattori positivi}
 \begin{itemize}
-\item{Tecnologie:} interessante e molto attuale l'apprendimento di tecnologie mobile, sempre più richieste nel mercato attuale di applicazioni mobile (soprattutto multipiattaforma);
-\item{Chiarezza:} progetto presentato e spiegato molto chiaramente, obbiettivi molto netti
+\item{Tecnologie:} interessante e molto attuale l'apprendimento di tecnologie mobile, sempre più richieste nel mercato degli \gloss{smartphone}.
+\item{Chiarezza:} progetto presentato e spiegato molto chiaramente, obbiettivi molto ben esposti dal proponente
 \end{itemize}
 \subsubsection{Criticità}
 \begin{itemize}
-\item{Conoscenze preliminari e mole di lavoro:} nessun componente del gruppo ha mai studiato o lavorato in ambiente mobile, per cui sebbene le tecnologie siano di interesse risulta essere molto più difficile fare una previsione del lavoro necessario per portare a termine un progetto come questo;
-\item{Disparità negli obbiettivi:} sebbene gli obbiettivi siano molto chiari risulta esserci una grossa discrepanza di mole di lavoro tra obbiettivi minimi e obbiettivi desiderabili
+\item{Conoscenze preliminari e mole di lavoro:} nessun componente del gruppo ha mai studiato o lavorato in ambiente mobile, per cui sebbene le tecnologie siano di interesse per il gruppo, risulta essere molto più difficile fare una previsione del lavoro necessario per portare a termine un progetto come questo;
+\item{Disparità negli obbiettivi:} sebbene gli obbiettivi siano molto chiari, risulta esserci una grossa discrepanza di mole di lavoro tra obbiettivi minimi e obbiettivi desiderabili.
 \end{itemize}
 \end{document}
