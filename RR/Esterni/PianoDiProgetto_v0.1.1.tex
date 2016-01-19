@@ -225,7 +225,80 @@ preimpostata per l'utilizzo delle tecnologie inerenti al progetto per l' attivit
 questo garantisce un buon grado di controllo, ma allo stesso tempo espone a maggiori rischi legati alla natura "personalizzata" dell'ambiente di lavoro.
 \textbf{Contromisure di mitigazione}: Verranno eseguiti dei backup automatici schedulati con periodicità fissa.
 \section{Pianificazione preventiva}
-\subsection{Pianificazione temporale}
+\subsection{Suddivisione attività}
+\label{sub:fasi}
+Per semplificare la pianificazione del prospetto orario, sono state identificate
+tre attività principali che rappresentano l'intero ciclo di sviluppo del prodotto.\\
+Esse sono:
+\begin{itemize}
+\item\textbf{Analisi:} Rappresenta la prima attività del progetto, dalla
+  pubblicazione dei capitolati d'appalto all'inizio dell' attività di progettazione.\\
+  Figure maggiormente coinvolte: \textit{Responsabile, Amministratore, Analista, Verificatore}
+\item\textbf{Analisi di Dettaglio e Progettazione:} Segue l' attività di Analisi, e
+  racchiude il lasso temporale dedicato alla correzione degli errori rilevati in
+  sede di Revisione di Requisiti e alla progettazione dell'architettura sulla
+  base dei requisiti emersi. Comprende anche lo studio di \gloss{design pattern}
+  congrui alla realizzazione del prodotto.\\ Figure maggiormente coinvolte:
+  \textit{Responsabile, Amministratore, Progettista, Verificatore}
+\item\textbf{Progettazione di Dettaglio e Codifica:} L'ultima delle tre fasi
+  identificate, comprende la correzione degli errori rilevati in sede di
+  Revisione di Progettazione e la stesura del codice secondo le direttive emerse
+  durante l'attività di progettazione.\\ Figure maggiormente coinvolte:
+  \textit{Responsabile, Amministratore, Programmatore, Verificatore}
+\end{itemize}
+Tutte e tre le fasi descritte sono comprensive di \textbf{Verifica e
+  validazione}, assimilabile ad un' attività ``fittizia'', in quanto è
+presente lungo tutto l'arco di sviluppo del prodotto.\\
+Ogni attività prevede l'impiego di alcuni ruoli in misura maggiore rispetto ad
+altri, nella distribuzione di questi sarà garantita un equa ripartizione del
+carico di lavoro individuale.\\
+Come riportato nelle \href{run:../Interni/NormeDiProgetto\_v0.0.1.pdf}{Norme Di Progetto v0.0.1}
+ogni componente del gruppo potrà ricoprire più ruoli contemporaneamente, purchè sia
+garantita l'assenza di conflitti d'interesse tra le attività svolte.
+\newpage
+\subsubsection{Analisi}
+Nell'attività di Analisi, i componenti ricopriranno i ruoli di progetto secondo la distribuzione seguente:
+\begin{center}
+  \scriptsize
+  \begin{tabular}{| c | p{0.35cm} p{0.35cm} | p{0.35cm} p{0.35cm} | p{0.35cm} p{0.35cm} | p{0.35cm} p{0.35cm} | p{0.35cm} p{0.35cm} | p{0.35cm} p{0.35cm} | p{0.35cm} p{0.35cm} |}
+    \hline
+    \textbf{Nome} & \multicolumn{2}{|c|}{\textbf{Res}} & \multicolumn{2}{|c|}{\textbf{An}} & \multicolumn{2}{|c|}{\textbf{Amm}} & \multicolumn{2}{|c|}{\textbf{Pr}} & \multicolumn{2}{|c|}{\textbf{Pt}} & \multicolumn{2}{|c|}{\textbf{Ve}} & \multicolumn{2}{|c|}{\textbf{Tot}}\\
+    \hline
+    & \textbf{Inv} & \textbf{Ren} & \textbf{Inv} & \textbf{Ren} & \textbf{Inv} & \textbf{Ren} & \textbf{Inv} & \textbf{Ren} & \textbf{Inv} & \textbf{Ren} & \textbf{Inv} & \textbf{Ren} & \textbf{Inv} & \textbf{Ren}\\
+    \hline
+    Andrea Baldan & 12 & 10 & & & 10 & 8 & & & & & 12 & 9 & 34 & 27\\
+    Alberto de Agostini & 12 & 9 & 12 & 10 & & & & & & & 18 & 15 & 42 & 34\\
+    Michael Munaro & & & 14 & 12 & & & & & & & 16 & 14 & 30 & 26\\
+    Giacomo Vanin & & & 14 & 12 & & & & & & & 16 & 15 & 30 & 27\\
+    Marco Boseggia & & & 14 & 12 & & & & & & & 16 & 15 & 30 & 27\\
+    Francesco Agostini & & & 5 & 4 & 10 & 8 & & & & & 14 & 12 & 29 & 24\\
+    Davide Trevisan & & & 14 & 12 & & & & & & & 16 & 13 & 30 & 25\\
+    \hline
+  \end{tabular}
+\end{center}
+I seguenti grafici illustrano le ore investite per Persona suddivise tra ore investite e ore rendicontate, per l'attività di Analisi
+\begin{figure}[H]
+  \begin{subfigure}[H]{0.47\textwidth}
+    \includegraphics[width=1.2\textwidth,keepaspectratio]{AnalisiConInvestimento.png}
+    \caption{Ore con investimento, attività di Analisi}
+  \end{subfigure}
+  \qquad
+  \begin{subfigure}[H]{0.47\textwidth}
+    \includegraphics[width=1.2\textwidth,keepaspectratio]{AnalisiConRendicontazione.png}
+    \caption{Ore con rendicontazione, attività di Analisi}
+  \end{subfigure}
+\end{figure}
+
+\newpage
+\paragraph{Pianificazione temporale}
+\textbf{Diagramma di Gantt}
+\begin{figure}[H]
+  \includegraphics[width=1.1\textwidth, keepaspectratio]{gantt/1-Revisione-Requisiti-gantt-preventivo.png}
+  \caption{Gantt predittivo dell'attività di analisi}
+\end{figure}
+
+\newpage
+\textbf{Distribuzione oraria}
 \scriptsize
 \begin{center}
   \begin{tabular}{| c | c | c | c |}
@@ -318,69 +391,6 @@ questo garantisce un buon grado di controllo, ma allo stesso tempo espone a magg
   \end{tabular}
 \end{center}
 \normalsize
-\subsection{Suddivisione attività}
-\label{sub:fasi}
-Per semplificare la pianificazione del prospetto orario, sono state identificate
-tre attività principali che rappresentano l'intero ciclo di sviluppo del prodotto.\\
-Esse sono:
-\begin{itemize}
-\item\textbf{Analisi:} Rappresenta la prima attività del progetto, dalla
-  pubblicazione dei capitolati d'appalto all'inizio dell' attività di progettazione.\\
-  Figure maggiormente coinvolte: \textit{Responsabile, Amministratore, Analista, Verificatore}
-\item\textbf{Analisi di Dettaglio e Progettazione:} Segue l' attività di Analisi, e
-  racchiude il lasso temporale dedicato alla correzione degli errori rilevati in
-  sede di Revisione di Requisiti e alla progettazione dell'architettura sulla
-  base dei requisiti emersi. Comprende anche lo studio di \gloss{design pattern}
-  congrui alla realizzazione del prodotto.\\ Figure maggiormente coinvolte:
-  \textit{Responsabile, Amministratore, Progettista, Verificatore}
-\item\textbf{Progettazione di Dettaglio e Codifica:} L'ultima delle tre fasi
-  identificate, comprende la correzione degli errori rilevati in sede di
-  Revisione di Progettazione e la stesura del codice secondo le direttive emerse
-  durante l'attività di progettazione.\\ Figure maggiormente coinvolte:
-  \textit{Responsabile, Amministratore, Programmatore, Verificatore}
-\end{itemize}
-Tutte e tre le fasi descritte sono comprensive di \textbf{Verifica e
-  validazione}, assimilabile ad un' attività ``fittizia'', in quanto è
-presente lungo tutto l'arco di sviluppo del prodotto.\\
-Ogni attività prevede l'impiego di alcuni ruoli in misura maggiore rispetto ad
-altri, nella distribuzione di questi sarà garantita un equa ripartizione del
-carico di lavoro individuale.\\
-Come riportato nelle \href{run:../Interni/NormeDiProgetto\_v0.0.1.pdf}{Norme Di Progetto v0.0.1}
-ogni componente del gruppo potrà ricoprire più ruoli contemporaneamente, purchè sia
-garantita l'assenza di conflitti d'interesse tra le attività svolte.
-\newpage
-\subsubsection{Analisi}
-Nell'attività di Analisi, i componenti ricopriranno i ruoli di progetto secondo la distribuzione seguente:
-\begin{center}
-  \scriptsize
-  \begin{tabular}{| c | p{0.35cm} p{0.35cm} | p{0.35cm} p{0.35cm} | p{0.35cm} p{0.35cm} | p{0.35cm} p{0.35cm} | p{0.35cm} p{0.35cm} | p{0.35cm} p{0.35cm} | p{0.35cm} p{0.35cm} |}
-    \hline
-    \textbf{Nome} & \multicolumn{2}{|c|}{\textbf{Res}} & \multicolumn{2}{|c|}{\textbf{An}} & \multicolumn{2}{|c|}{\textbf{Amm}} & \multicolumn{2}{|c|}{\textbf{Pr}} & \multicolumn{2}{|c|}{\textbf{Pt}} & \multicolumn{2}{|c|}{\textbf{Ve}} & \multicolumn{2}{|c|}{\textbf{Tot}}\\
-    \hline
-    & \textbf{Inv} & \textbf{Ren} & \textbf{Inv} & \textbf{Ren} & \textbf{Inv} & \textbf{Ren} & \textbf{Inv} & \textbf{Ren} & \textbf{Inv} & \textbf{Ren} & \textbf{Inv} & \textbf{Ren} & \textbf{Inv} & \textbf{Ren}\\
-    \hline
-    Andrea Baldan & 12 & 10 & & & 10 & 8 & & & & & 12 & 9 & 34 & 27\\
-    Alberto de Agostini & 12 & 9 & 12 & 10 & & & & & & & 18 & 15 & 42 & 34\\
-    Michael Munaro & & & 14 & 12 & & & & & & & 16 & 14 & 30 & 26\\
-    Giacomo Vanin & & & 14 & 12 & & & & & & & 16 & 15 & 30 & 27\\
-    Marco Boseggia & & & 14 & 12 & & & & & & & 16 & 15 & 30 & 27\\
-    Francesco Agostini & & & 5 & 4 & 10 & 8 & & & & & 14 & 12 & 29 & 24\\
-    Davide Trevisan & & & 14 & 12 & & & & & & & 16 & 13 & 30 & 25\\
-    \hline
-  \end{tabular}
-\end{center}
-I seguenti grafici illustrano le ore investite per Persona suddivise tra ore investite e ore rendicontate, per l'attività di Analisi
-\begin{figure}[H]
-  \begin{subfigure}[H]{0.47\textwidth}
-    \includegraphics[width=1.2\textwidth,keepaspectratio]{AnalisiConInvestimento.png}
-    \caption{Ore con investimento, attività di Analisi}
-  \end{subfigure}
-  \qquad
-  \begin{subfigure}[H]{0.47\textwidth}
-    \includegraphics[width=1.2\textwidth,keepaspectratio]{AnalisiConRendicontazione.png}
-    \caption{Ore con rendicontazione, attività di Analisi}
-  \end{subfigure}
-\end{figure}
 
 \newpage
 \subsubsection{Progettazione}
