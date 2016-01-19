@@ -1,6 +1,3 @@
-% Generated with genpdf
-% Domain Interno
-% Title Analisi dei Requisiti
 \documentclass{scalatekids-article}
 \begin{document}
 \lfoot{Analisi dei Requisiti 0.0.1}
@@ -56,14 +53,74 @@
 \end{center}
 \tableofcontents
 \newpage
-\prodPurpose
-\glossExpl
+\section{Sommario}
+\subsection{Scopo del documento}
+Il seguente documento ha lo scopo di presentare le funzionalità che il prodotto
+\textbf{Actorbase} esporrà all'utilizzatore finale. Inoltre elenca e descrive i
+requisiti derivanti dalle suddette funzionalità, emersi durante le riunioni
+interne ed esterne con il proponente.
+\prodPurpose \glossExpl
+\subsection{Riferimenti}
+\subsubsection{Normativi}
+\begin{itemize}
+\item\textbf{Capitolato d'appalto C1:} \textit{Actorbase: a NoSQL DB based on the Actor model}\\
+  \url{http://www.math.unipd.it/~tullio/IS-1/2015/Progetto/C1.pdf}
+\item\textbf{Verbale esterno:} % TODO link
+\item\textbf{Norme di Progetto:} % TODO link
+\end{itemize}
+\subsubsection{Informativi}
+\begin{itemize}
+\item\textbf{Dispense fornite dall'insegnamento Ingegneria del Software mod. A:}\\
+  \url{http://www.math.unipd.it/~tullio/IS-1/2015/Dispense/L06.pdf}
+\item\textbf{Dispense fornite dall'insegnamento Ingegneria del Software mod. A:}\\
+  \url{http://www.math.unipd.it/~tullio/IS-1/2015/Dispense/E02.pdf}
+\item\textbf{CAP theorem:}\\ % TODO: da inserire?
+  \url{https://en.wikipedia.org/wiki/CAP_theorem}
+\item\textbf{Reactive Manifesto:}
+  \url{http://www.reactivemanifesto.org/}
+  \url{https://en.wikipedia.org/wiki/Reactive_programming}
+\item\textbf{Amazon DynamoDB:}
+  \url{http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Introduction.html}
+\end{itemize}
 \section{Descrizione generale}
-\subsection{Prospettive}
+\subsection{Prospettive del prodotto}
+l'obiettivo del prodotto è fornire un database \gloss{NoSQL} di tipo
+\gloss{key-value}, quindi senza schemi predefiniti e tabelle; che utilizzi il
+modello ad attori per garantire un alto grado di \gloss{concorrenza} e
+\gloss{scalabilità orizzontale} idealmente illimitata.
 \subsection{Funzioni}
-\subsection{Caratteristiche Utenza}
+Il software fornirà un sistema di interazione con l'utente basata su \gloss{ui}
+testuale direttamente da riga di comando. Permetterà di effettuare le operazioni
+basilari che ogni database fornisce:
+\begin{itemize}
+\item Creazione di una o più collezioni;
+\item Cancellazione di una o più collezioni;
+\item Modifica di una collezione;
+\item Ricerca all'interno del database o all'interno di una o più collezioni;
+\item Inserimento;
+\item Cancellazione;
+\item Aggiornamento;
+\item Importazione ed esportazione di dati in formato \gloss{JSON}. % TODO: controllare
+\end{itemize}
+Il programma inoltre permetterà la richiesta di un aiuto esplicativo sull'uso
+dei comandi.
+\subsection{Caratteristiche utenza}
+Il prodotto è orientato all'utilizzo da parte di clientela interessata a
+sviluppo di applicazioni \gloss{reactive}, che trattino grandi moli di dati e
+debbano fornire brevissimi tempi di risposta, sacrificando dunque le
+funzionalità relazionali tipiche dei tradizionali database \textit{SQL} in
+favore di un sistema fortemente \gloss{concorrente} e senza l'\gloss{overhead} generato
+dagli schemi \gloss{SQL}.
 \subsection{Vincoli}
+Per far funzionare \textbf{Actorbase} è necessario disporre di un computer con
+installata la \textit{\gloss{JVM} versione 8}. Non ci sono ulteriori richieste h
+ardware o software.
 \section{Casi d'uso}
+Le aspettative di esperienza utente derivano dall'utilizzo da parte dei
+componenti del gruppo di \gloss{Amazon DynamoDB}, un database \gloss{key-value}
+sviluppato da \textit{Amazon}, utilizzato come modello di riferimento per lo
+sviluppo. I casi d'uso seguono le norme di stesura elencate nel documento \textit{Norme di Progetto}.% TODO
+                                                                                                     % link
 \subsection{UC1: Interazioni basilari}
 \begin{figure}[H]
   \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC1.jpeg}
@@ -267,7 +324,7 @@ L'utente ha avviato un terminale ed è pronto ad inserire comandi.\\ \\
   \end{itemize}
 \item Nel caso in cui l’utente abbia voluto modificare dati non presenti nel database:
   \begin{itemize}
-    \item viene visualizzato un messaggio di errore esplicativo
+  \item viene visualizzato un messaggio di errore esplicativo
   \end{itemize}
 \end{itemize}
 \textbf{Postcondizione:} Il sistema ha eseguito l’operazione richiesta dall’utente
