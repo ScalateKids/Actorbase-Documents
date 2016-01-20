@@ -65,8 +65,11 @@ interne ed esterne con il proponente.
 \begin{itemize}
 \item\textbf{Capitolato d'appalto C1:} \textit{Actorbase: a NoSQL DB based on the Actor model}\\
   \url{http://www.math.unipd.it/~tullio/IS-1/2015/Progetto/C1.pdf}
-\item\textbf{Verbale esterno:} % TODO link
-\item\textbf{Norme di Progetto:} % TODO link
+\item\textbf{Verbale esterno:}\\
+  \href{run:VerbaleEsterno20160112\_v1.0.0.pdf}{Verbale Esterno 20160112 v1.0.0}\\ % TODO link
+  \href{run:VerbaleEsterno20160119\_v1.0.0.pdf}{Verbale Esterno 20160119 v1.0.0}
+\item\textbf{Norme di Progetto:}\\
+  \href{run:../Interni/NormediProgetto\_v1.0.0.pdf}{Norme di Progetto v1.0.0} % TODO link
 \end{itemize}
 \subsubsection{Informativi}
 \begin{itemize}
@@ -76,11 +79,13 @@ interne ed esterne con il proponente.
   \url{http://www.math.unipd.it/~tullio/IS-1/2015/Dispense/E02.pdf}
 \item\textbf{CAP theorem:}\\ % TODO: da inserire?
   \url{https://en.wikipedia.org/wiki/CAP_theorem}
-\item\textbf{Reactive Manifesto:}
-  \url{http://www.reactivemanifesto.org/}
+\item\textbf{Reactive Manifesto:}\\
+  \url{http://www.reactivemanifesto.org/}\\
   \url{https://en.wikipedia.org/wiki/Reactive_programming}
-\item\textbf{Amazon DynamoDB:}
+\item\textbf{Amazon DynamoDB:}\\
   \url{http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Introduction.html}
+\item\textbf{Leader election:}\\
+  \url{https://en.wikipedia.org/wiki/Leader_election}
 \end{itemize}
 \section{Descrizione generale}
 \subsection{Prospettive del prodotto}
@@ -120,7 +125,35 @@ Le aspettative di esperienza utente derivano dall'utilizzo da parte dei
 componenti del gruppo di \gloss{Amazon DynamoDB}, un database \gloss{key-value}
 sviluppato da \textit{Amazon}, utilizzato come modello di riferimento per lo
 sviluppo. I casi d'uso seguono le norme di stesura elencate nel documento \href{run:../Interni/NormediProgetto\_v1.0.0.pdf}{Norme di Progetto v1.0.0}.% TODO link
-\subsection{Identificazione attori:}
+\subsection{Identificazione attori}
+L'analisi del capitolato e le riunioni con il proponente hanno fatto emergere
+alcune considerazioni sul problema che \textbf{Actorbase} si pone di risolvere.
+In particolare la scalabilità che il prodotto deve fornire ha portato alla
+suddivisione degli attori primari nel modo seguente:\\
+\begin{itemize}
+\item\textbf{Utente non autenticato:}\\
+  Rappresenta l'utente generico che avvia la propria istanza di \textbf{Actorbase} l'interfaccia testuale per la prima volta
+\item\textbf{Utente autenticato:}\\
+\item\textbf{Amministratore:}\\
+\item\textbf{Nodo esterno:}\\
+\end{itemize}
+\subsubsection{Visibilità}
+Rispetto al classico sistema di permessi lettura e scrittura, \textbf{Actorbase}
+prevede un meccanismo semplificato di visibilità secondo le seguenti regole:
+\begin{itemize}
+  \item Ogni utente generico inizialmente ha visibilità solo sulle proprie collezioni e/o su collezioni in collaborazione di proprietà altrui;
+  \item L'utente amministratore ha visibilità su tutto il sistema \textbf{Actorbase}.
+\end{itemize}
+La visibilità garantisce privilegi sia in lettura che in scrittura. Di
+conseguenza tutte le azioni descritte nei casi d'uso si applicano al livello di
+visibilità proprio dell'attore che le effettua.
+\subsubsection{Connessione a un istanza esterna di Actorbase}
+Al momento della connessione ad un nodo esterno di \textbf{Actorbase}, come
+mostrato in \ref{sec:UC10}, l'utente amministratore del sistema richiedente
+diverrà un utente del nodo esterno senza alcuna visibilità. Sarà l'utente
+ammnistratore del nodo esterno a concedere visibilità all'amministratore del
+nodo richiedente, e a sua volta, l'utente amministratore del sistema richiedente
+dovrà concedere visibilità al sistema nodo esterno.
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/ActorbaseNetwork.png}
@@ -379,7 +412,7 @@ inserimento e cancellazione.\\ \\
   \end{itemize}
 \end{itemize}
 \textbf{Postcondizione:} L'operazione richiesta è stata effettuata correttamente.
-\subsection{1.5.1 Inserimento nuovo item}
+\subsection{UC1.5.1: Inserimento nuovo item}
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC1_5_1.jpeg}
@@ -395,7 +428,7 @@ inserimento e cancellazione.\\ \\
 \item UC1.5.1.2 Inserimento senza sovrascrittura.
 \end{itemize}
 \textbf{Postcondizione:} L'operazione di inserimento richiesta è stata effettuata correttamente.
-\subsection{1.5.1.1 Inserimento con sovrascrittura (aggiornamento)}
+\subsection{UC1.5.1.1: Inserimento con sovrascrittura (aggiornamento)}
 \textbf{Attore primario:} Utente autenticato\\ \\
 \textbf{Scopo e descrizione:} L'utente intende inserire un nuovo item; deve selezionare la collezione e inserire i parametri di definizone dell'item da inserire, quali chiave e valore associato. La procedura di inserimento non terrà conto di
 eventuali chiavi già presenti all'interno della collezione\\ \\
@@ -406,7 +439,7 @@ eventuali chiavi già presenti all'interno della collezione\\ \\
 \item Inserimento coppia chiave-valore da inserire.
 \end{itemize}
 \textbf{Postcondizione:} L'operazione di inserimento con sovrascrittura è andata a buon fine, eventuali chiavi già presenti avranno i valori associati aggiornati.
-\subsection{1.5.1.2 Inserimento senza sovrascrittura}
+\subsection{UC1.5.1.2: Inserimento senza sovrascrittura}
 \textbf{Attore primario:} Utente autenticato \\ \\
 \textbf{Scopo e descrizione:} L'utente intende inserire un nuovo item; deve selezionare la collezione e inserire i parametri di definizione dell'item da inserire, quali chiave e valore associato. La procedura di inserimento terrà conto di chiavi già presenti all'interno della collezione selezionata.\\ \\
 \textbf{Precondizione:} Il database è pronto a ricevere comandi e l'utente intende effettuare un inserimento di un nuovo item.\\ \\
@@ -423,7 +456,7 @@ eventuali chiavi già presenti all'interno della collezione\\ \\
   \end{itemize}
 \end{itemize}
 \textbf{Postcondizione:} L'operazione di inserimento senza sovrascrittura è andata a buon fine.
-\subsection{UC1.5.1 Cancellazione di un item}
+\subsection{UC1.5.2: Cancellazione di un item}
 \textbf{Attore primario:} Utente autenticato\\ \\
 \textbf{Scopo e descrizione:} L'utente intende cancellare un item all'interno di una collezione esistente. Deve selezionare la collezione e inserire la chiave da del valore da cancellare.\\ \\
 \textbf{Precondizione:} Il database è pronto a ricevere comandi e l'utente intende effetture la cancellazione di un item.\\ \\
@@ -561,7 +594,9 @@ Modifica username e modifica password.\\ \\
 \textbf{Flusso di eventi:}
 \begin{itemize}
 \item UC1.9.1: Aggiunta nuovo utente;
-\item UC1.9.2: Rimozione utente esistente.
+\item UC1.9.2: Rimozione utente esistente;
+\item UC1.9.3: Concessione permessi a utente;
+\item UC1.9.4: Revoca permessi a utente.
 \end{itemize}
 \textbf{Estensioni:}
 \begin{itemize}
@@ -578,6 +613,10 @@ Modifica username e modifica password.\\ \\
   \item viene visualizzato un messaggio di errore esplicativo;
   \end{itemize}
 \item Nel caso in cui l'utente designato per la rimozione non sia presente nel sistema \textbf{Actorbase}:
+  \begin{itemize}
+  \item viene visualizzato un messaggio di errore esplicativo;
+  \end{itemize}
+\item Nel caso in cui l'utente designato per la concessione o revoca dei permessi non sia presente nel sistema \textbf{Actorbase}:
   \begin{itemize}
   \item viene visualizzato un messaggio di errore esplicativo;
   \end{itemize}
@@ -599,10 +638,35 @@ Modifica username e modifica password.\\ \\
 \textbf{Precondizione:} Il database è pronto a ricevere comandi e l'amministratore intende rimuovere un utente esistente dal sistema.\\ \\
 \textbf{Flusso di eventi:}
 \begin{itemize}
-\item Inserimento username utente;
+\item Inserimento username utente.
 \end{itemize}
 \textbf{Postcondizione:} L'utente designato per la rimozione non è presente all'interno del sistema \textbf{Actorbase}.
-\subsection{UC10: Connessione a nodo esterno}
+\subsection{UC1.9.2: Concessione permessi a utente}
+\textbf{Attore primario:} Amministratore\\ \\
+\textbf{Scopo e descrizione:} L'amministratore intende concedere permessi ad un utente esistente.\\ \\
+\textbf{Precondizione:} Il database è pronto a ricevere comandi e l'amministratore intende condere permessi ad un utente esistente nel sistema locale \textbf{Actorbase}.
+\textbf{Flusso di eventi:}
+\begin{itemize}
+\item Inserimento username utente.
+\end{itemize}
+\textbf{Postcondizione:} L'utente designato ha ricevuto i permessi dall'amministratore.
+\subsection{UC1.9.3: Revoca permessi a utente}
+\textbf{Attore primario:} Amministratore\\ \\
+\textbf{Scopo e descrizione:} L'amministratore intende revocare permessi ad un utente esistente.\\ \\
+\textbf{Precondizione:} Il database è pronto a ricevere comandi e l'amministratore intende revocare permessi ad un utente esistente nel sistema locale \textbf{Actorbase}.
+\textbf{Flusso di eventi:}
+\begin{itemize}
+\item Inserimento username utente.
+\end{itemize}
+\textbf{Postcondizione:} All'utente designato sono stati revocati i permessi dall'amministratore.
+\subsection{UC1.10: Connessione a nodo esterno}
+\label{sec:UC10}
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC1_10.jpeg}
+    \caption{Caso d'uso 1.10: Connessione a nodo esterno}
+  \end{center}
+\end{figure}
 \textbf{Attore primario:} Amministratore \\ \\
 \textbf{Attore secondario:} Nodo esterno \\ \\
 \textbf{Scopo e descrizione:} L'amministratore intende connettere il proprio database ad un \gloss{nodo} esterno per ampliare la propria capacità.\\ \\
@@ -611,10 +675,10 @@ Modifica username e modifica password.\\ \\
 \begin{itemize}
 \item Ambito sistema locale:
   \begin{itemize}
-  \item UC10.1 Inserimento parametri di connessione;
+  \item UC1.10.1 Inserimento parametri di connessione;
   \end{itemize}
   \begin{itemize}
-  \item UC10.2 Ricezione richiesta di connessione dal nodo esterno.
+  \item UC1.10.2 Ricezione richiesta di connessione dal nodo esterno.
   \end{itemize}
 \end{itemize}
 \textbf{Estensioni:}
@@ -633,7 +697,7 @@ Modifica username e modifica password.\\ \\
   \end{itemize}
 \end{itemize}
 \textbf{Postcondizione:} E' arrivata la risposta alla richiesta di connessione, in caso affermativo la connessione è avvenuta con successo.
-\subsection{UC10.1: Inserimento parametri di connessione}
+\subsection{UC1.10.1: Inserimento parametri di connessione}
 \textbf{Attore primario:} Amministratore \\ \\
 \textbf{Attore secondario:} Nodo esterno \\ \\
 \textbf{Scopo e descrizione:} L'amministratore per connettersi ad un nodo esterno intende inserire i parametri necessari alla connessione, quali indirizzo del server.\\ \\
@@ -643,7 +707,7 @@ Modifica username e modifica password.\\ \\
 \item Inserimento indirizzo nodo esterno;
 \end{itemize}
 \textbf{Postcondizione:} Il nodo esterno ha ricevuto la richiesta di connessione.\\ \\
-\subsection{UC10.2: Ricezione richiesta di connessione dal nodo esterno}
+\subsection{UC1.10.2: Ricezione richiesta di connessione dal nodo esterno}
 \textbf{Attore primario:} Amministratore\\ \\
 \textbf{Attore secondario:} Nodo esterno\\ \\
 \textbf{Scopo e descrizione:} L'amministratore riceve una richiesta di connessione da un nodo \textbf{Actorbse} esterno. Deve fornire una risposta.\\ \\
