@@ -1059,7 +1059,99 @@ Durante lo sviluppo del nostro ambiente di lavoro, si è reso necessario un sist
   \item{Flessibilità sulla pianificazione delle attività;}
   \item{Rendicontazione delle ore spese nelle attività.}
 \end{itemize}
-
+\subsubsection{Controllo attività}
+Per organizzare il lavoro in maniera ottimale e tenere traccia di ogni singola evoluzione si è deciso
+di adottare un sistema di ticketing, già descritto nelle norme di progetto, grazie al quale è
+possibile avvere un riscontro immediato dello svolgersi di tutte le attività mediante il Gantt 
+fornito dal sistema. Esso si aggiorna dinamicamente segnalando graficamente eventuali ritardi nelle attività
+pianificate, fornendo una visione intuitiva d'insieme dello stato di progetto.
+Nello specifico sono evidenziate:
+\begin{itemize}
+   \item{Le attività in ritardo che vengono segnalate in rosso se superata la scadenza prestabilita;}
+   \item{Lo stato di avanzamento di tutte le attività in corso;}
+   \item{Le attività già concluse e il tempo reale impiegato.}
+\end{itemize}
+\subsubsection{Controllo date}
+Viene effettuato direttamente dal componenonente del gruppo quando gli viene assegnato un ticket,
+e viene costantemente aggionrato ad ogni modifica apportata. Consentendo un aggiornamento dinamico
+di tutta la pianificazione in modo che sia sempre controllabile lo stato delle date sia dal Gantt 
+che dal calendario, a cui hanno accesso tutti i membri del gruppo.
+\subsubsection{Calendario Risorse}
+Nel calendario risorse ogni componente del gruppo può segnare impegni e tempo disponibile dedicato 
+al progetto, in modo che tutto il personale possa organizzare il proprio lavoro in base ai propri
+impegni e in sintonia con il lavoro degli altri componenti del gruppo.
+\subsubsection{Calendario Attività}
+Tutte le attivià vengono automaticamente inserite nel calendario dal sistema di ticketing, il quale
+indica la data di inizio e la data di fine di ogni attività. Tutti i membri del gruppo vi hanno accesso
+e possono monitorare e pianificare il proprio lavoro in base ad esse.
+\subsubsection{Controllo metriche di progetto}
+Per quantificare la resa effettiva del gruppo e il rispetto delle tempistiche, vengono introdotte
+due metriche. Budget Variance (\textbf{BV}) e Schedule Variance (\textbf{SV}) che consentono 
+rispettivamente di monitorare la varianza tra ore rendicontate e le ore realmente impiegate, e di
+conseguenza la variazione di spese rispetto al budget previsto.
+Tali metriche consentono di identificare problemi legati al costo/schedulazione e fornire un idea
+precisa del reale completamento delle attività rispetto alla schedulazione pianificata nella baseline.
+Questi indici forniscono inoltre al cliente un parametro su cui misurare l'efficacia del gruppo,
+in particolare lo Schedule Variance, e se viene rispettato quanto pianificato, mentre il Budget
+Variance è un valore unicamente finanziario per rappresentare in termini economici lo Schedule Variance.
+\subsection{Meccanismi di Rendicontazione}
+Integrato nel sistema di ticketing vi è un meccanismo di conteggio e misurazione del lavoro svolto
+e delle ore impiegate divise per attività e ruolo, esso consente in maniera agevole la rendicontazione
+in base a:
+\begin{itemize}
+  \item{Ore di lavoro per attività svolta;}
+  \item{Ore di lavoro per ruolo.}
+\end{itemize}
+\newpage
+\section{Consuntivo a finire}
+In questa sezione vengono descritte le spese effettivamente sostenute e suddivise in base ai ruoli,
+inoltre nel dettaglio vengono rappresentate per ogni ruolo le ore realmente impiegate. Con questi
+dati è possibile stilare un bilancio, che viene calcolato in base alla differenza tra le ore preventivate
+e le ore realmente impiegate. 
+Calcolato il bilancio è possibile trovarsi in tre stati, nello specifico:
+\begin{itemize}
+  \item{\textbf{Bilancio in  Positivo} Nel caso le ore preventivate siano superiori di quelle impiegate. ;}
+  \item{\textbf{Bilancio in  Negativo} Nel caso le ore impiegate siano superiori a quelle preventivate. ;}
+  \item{\textbf{Bilancio in Pari} Nel caso le ore preventivate corrispondano a quelle realmente impiegate. ;}
+\end{itemize}
+\subsection{Analisi}
+Viene di seguito descritto il consuntivo relativo alla fase di analisi e riportate per ogni ruolo lo
+scarto tra le ore in preventivo e le ore impiegate fornando un bilancio per ciascuno di essi.
+\begin{center}
+  \normalsize
+  \begin{tabular}{| c | c | c |}
+    \hline
+    \textbf{Ruolo} & \textbf{Ore} & \textbf{Costo}\\
+    \hline
+    Responsabile & -1 & 30 \\
+    Analista & -2 & 50\\
+    Amministratore & -1 & 20\\
+    Progettista & 0 & 0\\
+    Programmatore & 0 & 0\\
+    Verificatore & -1 & -15\\
+    \hline
+    \textbf{Totale} & -3 & -85\\
+    \hline
+  \end{tabular}
+\end{center}
+Sono invece riportate nella seconda tabella lo scarto tra ore previste e ore impiegate suddiviso
+per ogni singolo componente del gruppo e il relativo ruolo.
+\begin{center}
+  \normalsize
+  \begin{tabular}{| c | c | c | c | c | c | c | c |}
+  \hline
+  \textbf{Nominativo} & \textbf{Re} & \textbf{Am} & \textbf{An} & \textbf{Pt} & \textbf{Ve} & \textbf{Pr} & \textbf{Ore Totali}\\ 
+  \hline
+  Andrea Baldan & & & -2 & & & +1 & -1\\
+  Alberto De Agostini & & -1 & & & & +1 & 0\\
+  Micheal Munaro & & +1 & & & & -2 & -1\\
+  Giacomo Vanin & & +1 & & & & +1 & +2\\
+  Marco Boseggia & & -3 & & & & -1 & -4\\
+  Francesco Agostini & & -1 & +1 & & & & 0\\
+  Davide Trevisan & & +1 & & & & +1 & +2\\
+  \hline
+  \end{tabular}
+\end{center}
 \section{Organigramma}
 \subsection{Accettazione componenti}
 \begin{center}
@@ -1077,6 +1169,9 @@ Durante lo sviluppo del nostro ambiente di lavoro, si è reso necessario un sist
     \hline
   \end{tabular}
 \end{center}
+\subsubsection{Conclusioni}
+Le attività pianificate si sono svolte sforando di alcune ore rispetto a quanto pianificato, con un
+bilancio in negativo di \textbf{€85}.
 \subsection{Componenti}
 \begin{center}
   \begin{tabular}{|l | l | l |}
