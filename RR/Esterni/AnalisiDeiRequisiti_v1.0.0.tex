@@ -120,7 +120,18 @@ Le aspettative di esperienza utente derivano dall'utilizzo da parte dei
 componenti del gruppo di \gloss{Amazon DynamoDB}, un database \gloss{key-value}
 sviluppato da \textit{Amazon}, utilizzato come modello di riferimento per lo
 sviluppo. I casi d'uso seguono le norme di stesura elencate nel documento \href{run:../Interni/NormediProgetto\_v1.0.0.pdf}{Norme di Progetto v1.0.0}.% TODO link
-\subsection{Identificazione attori:}
+\subsection{Identificazione attori}
+L'analisi del capitolato e le riunioni con il proponente hanno fatto emergere
+alcune considerazioni sul problema che \textbf{Actorbase} si pone di risolvere.
+In particolare la scalabilità che il prodotto deve fornire ha portato alla
+suddivisione degli attori primari nel modo seguente:\\
+\begin{itemize}
+\item\textbf{Utente non autenticato:}\\
+  Rappresenta l'utente generico che avvia la propria istanza di \textbf{Actorbase} l'interfaccia testuale per la prima volta
+\item\textbf{Utente autenticato:}\\
+\item\textbf{Amministratore:}\\
+\item\textbf{Nodo esterno:}\\
+\end{itemize}
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/ActorbaseNetwork.png}
@@ -561,7 +572,9 @@ Modifica username e modifica password.\\ \\
 \textbf{Flusso di eventi:}
 \begin{itemize}
 \item UC1.9.1: Aggiunta nuovo utente;
-\item UC1.9.2: Rimozione utente esistente.
+\item UC1.9.2: Rimozione utente esistente;
+\item UC1.9.3: Concessione permessi a utente;
+\item UC1.9.4: Revoca permessi a utente.
 \end{itemize}
 \textbf{Estensioni:}
 \begin{itemize}
@@ -578,6 +591,10 @@ Modifica username e modifica password.\\ \\
   \item viene visualizzato un messaggio di errore esplicativo;
   \end{itemize}
 \item Nel caso in cui l'utente designato per la rimozione non sia presente nel sistema \textbf{Actorbase}:
+  \begin{itemize}
+  \item viene visualizzato un messaggio di errore esplicativo;
+  \end{itemize}
+\item Nel caso in cui l'utente designato per la concessione o revoca dei permessi non sia presente nel sistema \textbf{Actorbase}:
   \begin{itemize}
   \item viene visualizzato un messaggio di errore esplicativo;
   \end{itemize}
@@ -599,9 +616,27 @@ Modifica username e modifica password.\\ \\
 \textbf{Precondizione:} Il database è pronto a ricevere comandi e l'amministratore intende rimuovere un utente esistente dal sistema.\\ \\
 \textbf{Flusso di eventi:}
 \begin{itemize}
-\item Inserimento username utente;
+\item Inserimento username utente.
 \end{itemize}
 \textbf{Postcondizione:} L'utente designato per la rimozione non è presente all'interno del sistema \textbf{Actorbase}.
+\subsection{UC1.9.2: Concessione permessi a utente}
+\textbf{Attore primario:} Amministratore\\ \\
+\textbf{Scopo e descrizione:} L'amministratore intende concedere permessi ad un utente esistente.\\ \\
+\textbf{Precondizione:} Il database è pronto a ricevere comandi e l'amministratore intende condere permessi ad un utente esistente nel sistema locale \textbf{Actorbase}.
+\textbf{Flusso di eventi:}
+\begin{itemize}
+\item Inserimento username utente.
+\end{itemize}
+\textbf{Postcondizione:} L'utente designato ha ricevuto i permessi dall'amministratore.
+\subsection{UC1.9.3: Revoca permessi a utente}
+\textbf{Attore primario:} Amministratore\\ \\
+\textbf{Scopo e descrizione:} L'amministratore intende revocare permessi ad un utente esistente.\\ \\
+\textbf{Precondizione:} Il database è pronto a ricevere comandi e l'amministratore intende revocare permessi ad un utente esistente nel sistema locale \textbf{Actorbase}.
+\textbf{Flusso di eventi:}
+\begin{itemize}
+\item Inserimento username utente.
+\end{itemize}
+\textbf{Postcondizione:} All'utente designato sono stati revocati i permessi dall'amministratore.
 \subsection{UC10: Connessione a nodo esterno}
 \textbf{Attore primario:} Amministratore \\ \\
 \textbf{Attore secondario:} Nodo esterno \\ \\
