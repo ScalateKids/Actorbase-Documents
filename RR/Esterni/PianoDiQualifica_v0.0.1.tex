@@ -67,7 +67,7 @@ Il seguente documento ha lo scopo di delineare le strategie che il gruppo \texti
 \section{Visione generale della strategia di verifica}
 \subsection{Definizione obiettivi}
 \subsubsection{Qualità di processo}
-Per perseguire la qualità del prodotto è necessario garantire la qualità dei processi attuati per la sua creazione. Per raggiungere questo scopo i \textit{Verificatori} con approvazione del \textit{Responsabile} hanno trovato utile adottare lo standard \gloss{ISO}/\gloss{IEC} 15504\footnote[1]{Per approfondimenti consultare la sezione \ref{sec:ISO/IEC15004}.} denominato SPICE (Software Process Improvement and Capability dEtermination). Il \gloss{ciclo di Deming}\footnote[2]{Per approfondimenti consultare la sezione \ref{PDCA}.} (noto anche come ciclo \gloss{PDCA}) è stato scelto per applicare correttamente questo standard. Esso definisce un metodo di controllo costante sui processi consentendo in questo modo un miglioramento incrementale della qualità continuo. Maggiori informazioni su 
+Per perseguire la qualità del prodotto è necessario garantire la qualità dei processi attuati per la sua creazione. Per raggiungere questo scopo i \textit{Verificatori} con approvazione del \textit{Responsabile} hanno trovato utile adottare lo standard \gloss{ISO}/\gloss{IEC} 15504\footnote[1]{Per approfondimenti consultare la sezione \ref{sec:ISO/IEC15504}.} denominato SPICE (Software Process Improvement and Capability dEtermination). Il \gloss{ciclo di Deming}\footnote[2]{Per approfondimenti consultare la sezione \ref{PDCA}.} (noto anche come ciclo \gloss{PDCA}) è stato scelto per applicare correttamente questo standard. Esso definisce un metodo di controllo costante sui processi consentendo in questo modo un miglioramento incrementale della qualità continuo.
 \subsubsection{Qualità di prodotto}
 I \textit{Verificatori} con approvazione del \textit{Responsabile} hanno deciso di seguire lo standard \gloss{ISO}/\gloss{IEC} 9126\footnote[3]{Per approfondimenti consultare la sezione \ref{sec:ISO/IEC9126}.} che ha lo scopo di delineare delle metriche per la misurazione della qualità di prodotto. Questa è fondamentale per garantire che il prodotto \gloss{software} finale funzioni correttamente e rispetti degli obiettivi di qualità prefissati.
 \subsection{Procedure di controllo di qualità di processo}
@@ -197,13 +197,93 @@ Indica il numero di livelli di annidamento di funzioni e metodi. Un valore alto 
 \end{itemize}
 \newpage
 \appendix
-\section{Obiettivi di qualità}
-\subsection{Standard ISO/IEC 15004}
-\label{sec:ISO/IEC15004}
+\section{Standard di qualità}
+\subsection{Standard ISO/IEC 15504}
+\label{sec:ISO/IEC15504}
+Lo standard \gloss{ISO}/\gloss{IEC} 15504 definisce un metodo per controllare continuamente la qualità di ogni processo. Questo metodo sfrutta un modello denominato SPY (Software Process Assessment and Improvement) per la valutazione di processo.\\
+%TODO immagine SPY
+Questo standard fornisce i seguenti nove attributi di qualità di processo:
+\begin{itemize}
+  \item{\textbf{Process performance:} il processo riesce a trasformare input identificabili in output identificabili.;}
+  \item{\textbf{Performance management:} Il processo viene attuato e controllato seguendo una pianificazione che garantisca il raggiungimento degli obiettivi;}
+  \item{\textbf{Work product management:} Il processo viene attuato e controllato seguendo una pianificazione che garantisca risultati documentati e verificati;}
+  \item{\textbf{Process definition:} Il processo viene attuato seguendo standard di processo per garantire i risultati;}
+  \item{\textbf{Process resource:} Il processo ha risorse adeguate per la sua attuazione;}
+  \item{\textbf{Process measurement:} I risultati raggiunti e le misure rilevate durante l'attuazione di un processo sono stati usati per assicurarsi che tale processo supporti il raggiungimento di specifici obiettivi;}
+  \item{\textbf{Process control:} Ogni processo è controllato attraverso la raccolta, analisi ed utilizzo delle misure di prodotto e di processo rilevate, per migliorare, eventualmente, le sue modalità di attuazione;}
+  \item{\textbf{Process change:} Le modifiche alla definizione, gestione e attuazione di ogni processo sono controllate;}
+  \item{\textbf{Continuous improvement:} Le modifiche ad ogni processo sono identificate ed implementate per assicurare il continuo miglioramento nel raggiungimento degli obiettivi rilevanti per l'organizzazione.}
+\end{itemize}
+Questi attributi vengono utilizzati per suddividere la maturità di un processo nei seguenti sei livelli:
+\begin{itemize}
+  \item{\textbf{Livello 0 - Incompleto:} Il processo non raggiunge i suoi obiettivi;}
+  \item{\textbf{Livello 1 - Attuato:} Il processo raggiunge i suoi obiettivi ma non è controllato. Il raggiungimento di questo livello è dimostrato dal possesso dell'attributo di \textit{Process Performance};}
+  \item{\textbf{Livello 2 - Gestito:} Il processo è attuato, pianificato, tracciato, verificato e migliorato sulla base di obiettivi ben definiti. Il raggiungimento di questo livello è dimostrato dal possesso dell'attributo di \textit{Performance management} e \textit{Work product management};}
+  \item{\textbf{Livello 3 - Definito:} Il processo è attuato, pianificato e controllato su procedure basate sui principi del software engineering. Il raggiungimento di questo livello è dimostrato dal possesso dell'attributo di \textit{Process definition} e \textit{Process resource};}
+  \item{\textbf{Livello 4 - Predicibile:} Il processo è stabilizzato ed è attuato all’interno di definiti limiti riguardo i risultati attesi, le performance e le risorse impiegate. Il raggiungimento di questo livello è dimostrato dal possesso dell'attributo di \textit{Performance measurement} e \textit{Process control};}
+  \item{\textbf{Livello 5 - Ottimizzante:} Il processo è predicibile ed in grado di adattarsi per raggiungere obiettivi specifici e rilevanti per la organizzazione. Il raggiungimento di questo livello è dimostrato dal possesso dell'attributo di \textit{Process change} e \textit{Continuous improvement}.}
+\end{itemize}
+Infine per stabilire in che livello si trovi un processo ci sono quattro livelli di possesso per ogni attributo:
+\begin{itemize}
+  \item{\textbf{N - Not achieved:} ;}
+  \item{\textbf{P - Partially achieved:} ;}
+  \item{\textbf{L - Largely achieved:} ;}
+  \item{\textbf{F - Fully achieved:} .}
+\end{itemize}
 \subsection{Ciclo di Deming}
 \label{PDCA}
+Il \gloss{ciclo di Deming}, anche chiamato \gloss{PDCA}, è un modello che consente il miglioramento continuo dei processi. Si suddivide nelle seguenti quattro attività:
+\begin{itemize}
+  \item{\textbf{Plan:} attività di pianificazione di attività, risorse, scadenze e responsabilità;}
+  \item{\textbf{Do:} attività di esecuzione delle attività pianificate;}
+  \item{\textbf{Check:} attività di verifica dei risultati dell'attività di esecuzione, questi risultati verranno poi confrontati con i risultati pianificati nella fase di pianificazione;}
+  \item{\textbf{Act:} attività di messa in pratica del miglioramento dei processi sfruttando i risultati dell'attività di verifica per trovare e modificare gli aspetti critici.}
+\end{itemize}
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.5\textwidth, keepaspectratio]{PDCA.png}
+    \caption{Ciclo di Deming}
+  \end{center}
+\end{figure}
 \subsection{Standard ISO/IEC 9126}
 \label{sec:ISO/IEC9126}
+Lo standard \gloss{ISO}/\gloss{IEC} 9126 definisce un modello per migliorare l'organizzazione e i processi, avendo come conseguenza il miglioramento della qualità del prodotto finale. I criteri qualitativi sono divisi in tre macro aree:
+\begin{itemize}
+  \item{\textbf{Qualità interna:} è la qualità del prodotto software vista dall'interno. Si riferisce alla valutazione del codice sorgente e dell'architettura prima che il prodotto sia ultimato;}
+  \item{\textbf{Qualità esterna:} è la qualità del prodotto software vista dall'esterno. Si riferisce al risultato dei test condotti sul prodotto ultimato in un ambiente di prova;}
+  \item{\textbf{Qualità in uso:} è la qualità del prodotto vista dall'utilizzatore finale del prodotto. Si riferisce alla qualità dopo il rilascio dell'applicazione.}
+\end{itemize}
+Non potendo testare la qualità in uso nell'ambito di questo progetto si è scelto di concentrarsi sulla qualità interna ed esterna. Queste qualità nello standard \gloss{ISO}/\gloss{IEC} 9126 sono ulteriormente suddivise in sei categorie:
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.9\textwidth, keepaspectratio]{Modello_ISO-IEC_9126.png}
+    \caption{Modello dello standard ISO/IEC 9126}
+  \end{center}
+\end{figure}
+\begin{itemize}
+  \item{\textbf{Funzionalità:} capacità del prodotto di fornire funzioni che soddisfino esigenze stabilite. Questa categoria si suddivide ulteriormente in:}
+    \begin{itemize}
+      \item{\textbf{Appropriatezza:} capacità del prodotto di fornire un appropriato insieme di funzioni che rispondano a determinati requisiti;}
+      \item{\textbf{Accuratezza:} capacità del prodotto di fornire dei risultati corretti o con precisione concordata;}
+      \item{\textbf{Interoperabilità:} capacità del prodotto di interagire con uno o più sistemi esterni;}
+      \item{\textbf{Conformità:} capacità del prodotto di aderire a standard del settore di applicazione;}
+      \item{\textbf{Sicurezza:} capacità del prodotto di proteggere i dati, ad esempio negando l'accesso a utenti non autorizzati.}
+    \end{itemize}
+  \item{\textbf{Affidabilità:} capacità del prodotto di mantenere uno specificato livello di prestazioni durante un determinato periodo. Questa categoria si suddivide ulteriormente in:}
+    \begin{itemize}
+      \item{\textbf{Maturità:} la capacità del prodotto di evitare che si verifichino risultati non corretti a causa di errori nel software;}
+      \item{\textbf{Tolleranza agli errori:} la capacità del prodotto di mantenere uno specificato livello di prestazioni anche in presenza di errori nel software o di uso scorretto del prodotto;}
+      \item{\textbf{Recuperabilità:} la capacità del prodotto di ristabilire un livello adeguato di prestazioni in seguito a un malfunzionamento;}
+      \item{\textbf{Aderenza:} la capacità del prodotto di a standard riguardanti l'affidabilità.}
+    \end{itemize}
+  \item{\textbf{Efficienza:} capacità del prodotto di fornire prestazioni appropriate in relazione alle risorse usate. Questa categoria si suddivide ulteriormente in:}
+    \begin{itemize}
+      \item{\textbf{Comportamento rispetto al tempo:} la capacità del prodotto di fornire i risultati in tempi adeguati;}
+      \item{\textbf{Utilizzo delle risorse:} la capacità del prodotto di utilizzare le risorse in modo adeguato;}
+      \item{\textbf{Conformità:} la capacità del prodotto di aderire a standard sull'efficienza.}
+    \end{itemize}
+\end{itemize}
+\newpage
 \section{Resoconto attività di verifica}
 \label{sec:resAttivitaVerifica}
 \end{document}
