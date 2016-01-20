@@ -153,7 +153,8 @@ esistenti nel database.\\ \\
 \item UC1.6 Richiesta aiuto;
 \item UC1.7 Gestione account;
 \item UC1.8 Effettuare il logout;
-\item UC1.9 Gestione utenti.
+\item UC1.9 Gestione utenti;
+\item UC1.10 Connessione a \gloss{nodo} esterno.
 \end{itemize}
 \textbf{Postcondizione:} Il sistema ha prodotto l'output corrispondente al comando immesso dall'utente.
 \subsection{UC1.1: Registrazione}
@@ -552,18 +553,21 @@ Modifica username e modifica password.\\ \\
 \item Inserimento username utente;
 \end{itemize}
 \textbf{Postcondizione:} L'utente designato per la rimozione non è presente all'interno del sistema \textbf{Actorbase}.
-\subsection{UC1.10: Visualizzazione errore}
+\subsection{UC10: Connessione a nodo esterno}
+\textbf{Attore primario:} Amministratore \\ \\
+\textbf{Scopo e descrizione:} L'amministratore intende connettere il proprio database ad un \gloss{nodo} esterno.
+\subsection{UC1.11: Visualizzazione errore}
 \textbf{Attore primario:} Utente \\ \\
 \textbf{Scopo e descrizione:} L'utente ha inserito un comando errato o ha effettuato un operazione non permessa. Viene visualizzato un messaggio di errore esplicativo specifico, contestualizzato al caso di errore.\\ \\
 \textbf{Precondizione:} L'utente ha inserito un comando errato o ha provato ad effettuare un operazione non permessa.\\ \\
 \textbf{Flusso di eventi:}
 \begin{itemize}
-\item UC1.10.1 Errore scrittura comando;
-\item UC1.10.2 Errore di timeout;
-\item UC1.10.3 Errore di contesto.
+\item UC1.11.1 Errore scrittura comando;
+\item UC1.11.2 Errore di timeout;
+\item UC1.11.3 Errore di contesto.
 \end{itemize}
 \textbf{Postcondizione:} Il sistema ha prodotto in output il messaggio di errore, l'operazione che lo ha generato è stata annullata.
-\subsection{UC1.10.1: Errore di scrittura comando}
+\subsection{UC1.11.1: Errore di scrittura comando}
 \textbf{Attore primario:} Utente \\ \\
 \textbf{Scopo e descrizione:} L'utente ha inserito un comando errato, il sistema non riconosce il comando.\\ \\
 \textbf{Precondizione:} L'utente ha inserito un comando errato.\\ \\
@@ -574,7 +578,7 @@ Modifica username e modifica password.\\ \\
 \item Viene visualizzato il messaggio di errore.
 \end{itemize}
 \textbf{Postcondizione:} Il sistema ha prodotto in output il messaggio di errore, l'operazione che lo ha generato è stata annullata.
-\subsection{UC1.10.2: Errore di timeout}
+\subsection{UC1.11.2: Errore di timeout}
 \textbf{Attore primario:} Utente \\ \\
 \textbf{Scopo e descrizione:} L'utente ha inserito un comando, il tempo di risposta da parte del sistema ha superato una soglia prefissata.\\ \\
 \textbf{Precondizione:} L'operazione richiesta dall'utente sta richiedendo un tempo di risposta troppo elevato.\\ \\
@@ -585,7 +589,7 @@ Modifica username e modifica password.\\ \\
 \item Viene visualizzato il messaggio di errore di timeout.
 \end{itemize}
 \textbf{Postcondizione:} Il sistema ha prodotto in output il messaggio di errore, l'operazione che lo ha generato è stata annullata.
-\subsection{UC1.10.3: Errore di contesto}
+\subsection{UC1.11.3: Errore di contesto}
 \textbf{Attore primario:} Utente \\ \\
 \textbf{Scopo e descrizione:} L'utente ha tentato un operazione non permessa o impossibile da soddisfare.\\ \\
 \textbf{Precondizione:} L'utente ha tentato un operazione non permessa o impossibile da soddisfare.\\ \\
