@@ -229,33 +229,25 @@ questo garantisce un buon grado di controllo, ma allo stesso tempo espone a magg
 \subsection{Suddivisione attività}
 \label{sub:fasi}
 Per semplificare la pianificazione del prospetto orario, sono state identificate
-tre attività principali che rappresentano l'intero ciclo di sviluppo del prodotto.\\
+quattro attività principali che rappresentano l'intero ciclo di sviluppo del prodotto.\\
 Esse sono:
 \begin{itemize}
-\item\textbf{Analisi:} Rappresenta la prima attività del progetto, dalla
+\item\textbf{Analisi:} rappresenta la prima attività del progetto, dalla
   pubblicazione dei capitolati d'appalto all'inizio dell' attività di progettazione.\\
-  Figure maggiormente coinvolte: \textit{Responsabile, Amministratore, Analista, Verificatore}
-\item\textbf{Analisi di Dettaglio e Progettazione:} Segue l' attività di Analisi, e
+  Figure maggiormente coinvolte: \textit{Responsabile, Amministratore, Analista, Verificatore};
+\item\textbf{Analisi di Dettaglio e Progettazione:} segue l' attività di Analisi, e
   racchiude il lasso temporale dedicato alla correzione degli errori rilevati in
   sede di Revisione di Requisiti e alla progettazione dell'architettura sulla
   base dei requisiti emersi. Comprende anche lo studio di \gloss{design pattern}
   congrui alla realizzazione del prodotto.\\ Figure maggiormente coinvolte:
-  \textit{Responsabile, Amministratore, Progettista, Verificatore}
-\item\textbf{Progettazione di Dettaglio e Codifica:} L'ultima delle tre fasi
-  identificate, comprende la correzione degli errori rilevati in sede di
-  Revisione di Progettazione e la stesura del codice secondo le direttive emerse
-  durante l'attività di progettazione.\\ Figure maggiormente coinvolte:
-  \textit{Responsabile, Amministratore, Programmatore, Verificatore}
+  \textit{Responsabile, Amministratore, Progettista, Verificatore};
+\item\textbf{Progettazione di Dettaglio e Codifica:} comprende la correzione degli errori rilevati in sede di Revisione di Progettazione e la stesura del codice secondo le direttive emerse durante l'attività di progettazione.\\Figure maggiormente coinvolte:
+  \textit{Responsabile, Amministratore, Programmatore, Verificatore};
+\item\textbf{Verifica e Validazione:} in questa fase si andranno a correggere eventuali errori emersi in Revisione di Qualifica e si finirà il prodotto in tutti i suoi componenti per poi fare il collaudo finale col \textit{Proponente}.
 \end{itemize}
-Tutte e tre le fasi descritte sono comprensive di \textbf{Verifica e
-  validazione}, assimilabile ad un' attività ``fittizia'', in quanto è
-presente lungo tutto l'arco di sviluppo del prodotto.\\
-Ogni attività prevede l'impiego di alcuni ruoli in misura maggiore rispetto ad
-altri, nella distribuzione di questi sarà garantita un equa ripartizione del
+Tutte le fasi descritte sono comprensive di numerose attività di \textbf{Verifica e Validazione}, in quanto necessaria durante tutto l'arco di sviluppo del prodotto.\\Ogni attività prevede l'impiego di alcuni ruoli in misura maggiore rispetto ad altri, nella distribuzione di questi sarà garantita un equa ripartizione del
 carico di lavoro individuale.\\
-Come riportato nelle \href{run:../Interni/NormeDiProgetto\_v0.0.1.pdf}{Norme Di Progetto v0.0.1}
-ogni componente del gruppo potrà ricoprire più ruoli contemporaneamente, purchè sia
-garantita l'assenza di conflitti d'interesse tra le attività svolte.
+Come riportato nelle \href{run:../Interni/NormeDiProgetto\_v1.0.0.pdf}{Norme Di Progetto v1.0.0} ogni componente del gruppo potrà ricoprire più ruoli contemporaneamente, purchè sia garantita l'assenza di conflitti d'interesse tra le attività svolte.
 \newpage
 \subsubsection{Analisi}
 Nell'attività di Analisi, i componenti ricopriranno i ruoli di progetto secondo la distribuzione seguente:
@@ -294,7 +286,7 @@ I seguenti grafici illustrano le ore investite per Persona suddivise tra ore inv
 \paragraph{Pianificazione temporale}
 \textbf{Diagramma di Gantt}
 \begin{figure}[H]
-  \includegraphics[width=1.1\textwidth, keepaspectratio]{gantt/1-Revisione-Requisiti-gantt-preventivo.png}
+  \includegraphics[width=1.0\textwidth, keepaspectratio]{gantt/1-Revisione-Requisiti-gantt-preventivo.png}
   \caption{Gantt predittivo dell'attività di analisi}
 \end{figure}
 
@@ -433,7 +425,7 @@ ore riservate all'attività \textbf{Analisi di dettaglio}.
 \paragraph{Pianificazione temporale}
 \textbf{Diagramma di Gantt}
 \begin{figure}[H]
-  \includegraphics[width=1.1\textwidth, keepaspectratio]{gantt/2-Revisione-Progettazione-gantt-preventivo.png}
+  \includegraphics[width=1.0\textwidth, keepaspectratio]{gantt/2-Revisione-Progettazione-gantt-preventivo.png}
   \caption{Gantt predittivo dell'attività di progettazione}
 \end{figure}
 
@@ -517,7 +509,7 @@ ore riservate all'attività \textbf{Analisi di dettaglio}.
   \end{tabular}
 \end{center}
 \normalsize
-
+\newpage
 
 \subsubsection{Codifica}
 Durante l'attività di Codifica, i componenti ricopriranno i ruoli di progetto secondo la distribuzione seguente:
@@ -558,7 +550,7 @@ delle ore riservate per l'attività \textbf{Progettazione di Dettaglio}.
 \paragraph{Pianificazione temporale}
 \textbf{Diagramma di Gantt}
 \begin{figure}[H]
-  \includegraphics[width=1.1\textwidth, keepaspectratio]{gantt/3-Revisione-Qualifica-gantt-preventivo.png}
+  \includegraphics[width=1.0\textwidth, keepaspectratio]{gantt/3-Revisione-Qualifica-gantt-preventivo.png}
   \caption{Gantt predittivo dell'attività di codifica}
 \end{figure}
 
@@ -661,8 +653,7 @@ Durante le attività di verifica e di validazione, i componenti ricopriranno i r
   \end{tabular}
 \end{center}
 \normalsize I seguenti grafici illustrano le ore investite per Persona suddivise
-tra ore investite e ore rendicontate, per le attività di Verifica e Validazione, comprensive
-delle ore riservate per l'attività \textbf{Progettazione di Dettaglio}.
+tra ore investite e ore rendicontate, per le attività di Verifica e Validazione.
 \begin{figure}[H]
   \begin{subfigure}[H]{0.47\textwidth}
     \includegraphics[width=1.2\textwidth,keepaspectratio]{VerificaConInvestimento.png}
@@ -679,7 +670,7 @@ delle ore riservate per l'attività \textbf{Progettazione di Dettaglio}.
 \paragraph{Pianificazione temporale}
 \textbf{Diagramma di Gantt}
 \begin{figure}[H]
-  \includegraphics[width=1.1\textwidth, keepaspectratio]{gantt/4-Revisione-Accettazione-gantt-preventivo.png}
+  \includegraphics[width=1.0\textwidth, keepaspectratio]{gantt/4-Revisione-Accettazione-gantt-preventivo.png}
   \caption{Gantt predittivo dell'attività di verifica e validazione}
 \end{figure}
 
@@ -789,6 +780,15 @@ I seguenti grafici illustrano le ore investite per Persona suddivise tra ore inv
     \caption{Ore con rendicontazione totali}
   \end{subfigure}
 \end{figure}
+
+\newpage
+\paragraph{Pianificazione temporale}
+\textbf{Diagramma di Gantt}
+\begin{figure}[H]
+  \includegraphics[width=1.0\textwidth, keepaspectratio]{gantt/Gantt-Totale.png}
+  \caption{Gantt predittivo di tutto l'arco temporale}
+\end{figure}
+
 \newpage
 \subsection{Prospetto economico}
 In questa sottosezione vengono presentati, per ciascuna attività del progetto identificata
