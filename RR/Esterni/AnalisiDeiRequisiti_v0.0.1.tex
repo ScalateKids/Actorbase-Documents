@@ -119,154 +119,309 @@ ardware o software.
 Le aspettative di esperienza utente derivano dall'utilizzo da parte dei
 componenti del gruppo di \gloss{Amazon DynamoDB}, un database \gloss{key-value}
 sviluppato da \textit{Amazon}, utilizzato come modello di riferimento per lo
-sviluppo. I casi d'uso seguono le norme di stesura elencate nel documento \textit{Norme di Progetto}.% TODO
-                                                                                                     % link
-\subsection{UC1: Interazioni basilari}
+sviluppo. I casi d'uso seguono le norme di stesura elencate nel documento \textit{Norme di Progetto}.% TODO link
+\subsection{UC1: Actorbase}
 \begin{figure}[H]
   \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC1.jpeg}
   \caption{Caso d'uso 1: Interazioni basilari}
 \end{figure}
-\textbf{Attori primari:} Utente\\ \\
-\textbf{Scopo e descrizione:} Il database è installato correttamente e il server è in ascolto.
-L'utente ha avviato un terminale ed è pronto ad inserire comandi.\\ \\
+\textbf{Attori primari:} Utente non autenticato, Utente autenticato, Amministratore\\ \\
+\textbf{Scopo e descrizione:}
+L’utente ha appena avviato la \gloss{CLI}, risulta essere non autenticato, può quindi
+registrarsi, oppure, se è già registrato, può effettuare il login diventando utente
+autenticato. Le operazioni che può eseguire a login effettuato sono:
+\begin{itemize}
+\item Gestire il proprio \gloss{account};
+\item Operazioni sulle collezioni;
+\item Operazioni sugli \gloss{item};
+\item Ricerca;
+\item Richiedere aiuto;
+\item Effettuare il logout.
+\end{itemize}
+Nel caso in cui si tratti di un amministratore, oltre alle operazioni elencate, può effettuare operazioni di gestione sugli utenti
+esistenti nel database.
 \textbf{Precondizione:} Il database è installato correttamente, e il server è in ascolto.\\ \\
 \textbf{Flusso eventi:}
 \begin{itemize}
-\item UC1.1 Utente digita comando
-\item UC1.2 Utente conferma il comando
+\item UC1.1 Registrazione;
+\item UC1.2 Login;
+\item UC1.3 Operazioni sulle collezione;
+\item UC1.4 Operazioni sugli \gloss{item};
+\item UC1.5 Ricerca;
+\item UC1.6 Gestione account;
+\item UC1.7 Richiesta aiuto;
+\item UC1.8 Effettuare il logout;
+\item UC1.9 Gestione utenti.
 \end{itemize}
 \textbf{Postcondizione:} Il sistema ha prodotto l'output corrispondente al comando immesso dall'utente.
-\subsection{UC1.1: Scrittura comando}
+\subsection{UC1.1: Registrazione}
 \begin{figure}[H]
   \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC1_1.jpeg}
-  \caption{Caso d'uso 1.1: Scrittura comando}
+  \caption{Caso d'uso 1.1: Registrazione}
 \end{figure}
-\textbf{Attori primari:} Utente\\ \\
-\textbf{Scopo e descrizione:} L’utente scrive il comando sul terminale.\\ \\
-\textbf{Precondizione:} Il database è installato correttamente, il server è in ascolto e l'utente intende scrivere un comando.\\ \\
+\textbf{Attore primario:} Utente non autenticato\\ \\
+\textbf{Scopo e descrizione:} L'utente intende accedere al sistema \textbf{Actorbase}. Per farlo necessita di un
+profilo registrato all'interno del programma. Deve registrare un nome utente e una password.\\ \\
+\textbf{Precondizione:} L'utente non è registrato e richiede la registrazione.\\ \\
 \textbf{Flusso eventi:}
 \begin{itemize}
-\item UC1.1.1 Creazione di una collezione
-\item UC1.1.2 Elencazione di collezioni
-\item UC1.1.3 Cancellazione di una o più collezioni
-\item UC1.1.4 Modifica di una collezione
-\item UC1.1.5 Ricerca generale
-\item UC1.1.6 Inserimento di un item
-\item UC1.1.7 Cancellazione di un item
-\item UC1.1.8 Modifica di un item
-\item UC1.1.9 Richiesta di supporto
+\item Inserimento username;
+\item Inserimento password;
+\item Conferma password.
 \end{itemize}
 \textbf{Estensioni:}
 \begin{itemize}
 \item Nel caso in cui l'utente utilizzi un comando sconosciuto:
   \begin{itemize}
-  \item viene visualizzato un messaggio di errore esplicativo (e rimando all'aiuto)
+  \item viene visualizzato un messaggio di errore esplicativo (e rimando all'aiuto);
   \end{itemize}
 \item Nel caso in cui l'utente utilizzi un comando conosciuto ma con parametri errati:
   \begin{itemize}
-  \item viene visualizzato un messaggio di supporto che indica come usare correttamente il comando
+  \item viene visualizzato un messaggio di supporto che indica come usare correttamente il comando.
   \end{itemize}
-\item Nel caso in cui l'utente voglia modificare dati non presenti nel database:
+\item Nel caso in cui l'username inserito sia già presente all'interno del sistema:
   \begin{itemize}
-  \item viene visualizzato un messaggio di errore esplicativo
+  \item viene visualizzato un messaggio di errore esplicativo.
   \end{itemize}
 \end{itemize}
-\textbf{Postcondizione:} L'utente ha digitato un comando
-\subsection{UC1.1.1: Creazione di una collezione}
-\textbf{Attore primario:} Utente\\ \\
-\textbf{Scopo e descrizione:} L’utente intende creare una nuova collezione, deve inserire il nome della collezione.\\ \\
-\textbf{Precodizione:} Il database è pronto a ricevere comandi e l’utente vuole creare una nuova collezione\\ \\
+\textbf{Postcondizione:} L'utente è registrato all'interno del sistema \textbf{Actorbase}.
+\subsection{UC1.2: Login}
+\textbf{Attore primario:} Utente non autenticato\\ \\
+\textbf{Scopo e descrizione:} L’utente già registrato, intende accedere al sistema \textbf{Actorbase}. Deve inserire le proprie credenziali di accesso. \\ \\
 \textbf{Flusso di eventi:}
 \begin{itemize}
-\item l'utente digita il comando di creazione con parametro nome della nuova collezione
+\item Inserimento username;
+\item Inserimento password.
 \end{itemize}
-\textbf{Postcondizione:} L'utente ha digitato il comando per creare una collezione
-\subsection{UC1.1.2: Elencazione di collezioni}
+\textbf{Estensioni:}
+\begin{itemize}
+\item Nel caso in cui l'utente utilizzi un comando sconosciuto:
+  \begin{itemize}
+  \item viene visualizzato un messaggio di errore esplicativo (e rimando all'aiuto);
+  \end{itemize}
+\item Nel caso in cui l'utente utilizzi un comando conosciuto ma con parametri errati:
+  \begin{itemize}
+  \item viene visualizzato un messaggio di supporto che indica come usare correttamente il comando.
+  \end{itemize}
+\end{itemize}
+\textbf{Postcondizione:} L'utente è autenticato all'interno del sistema \textbf{Actorbase}.
+\subsection{UC1.3: Operazioni sulle collezioni}
 \textbf{Attore primario:} Utente\\ \\
-\textbf{Scopo e descrizione:} L’utente intende elencare tutte le collezioni presenti nel database.\\ \\
-\textbf{Precodizione:} Il database è pronto a ricevere comandi e l’utente vuole visualizzare un elenco delle collezioni\\ \\
+\textbf{Scopo e descrizione:} L'utente è autenticato e desidera effettuare delle operazioni sulle collezioni. Le operazioni previste sono
+creazione di una nuova collezione, elencazione delle collezioni esistenti, cancellazione di collezioni esistenti, modifica del nome di collezioni esistenti,
+aggiunta o rimozione collaboratori a collezione esistente.\\ \\
+\textbf{Precodizione:} Il database è pronto a ricevere comandi e l'utente intende effettuare operazioni su collezioni.\\ \\
 \textbf{Flusso di eventi:}
 \begin{itemize}
-\item l'utente digita il comando di elencazione di collezioni
+\item UC1.3.1 Creazione nuova collezione;
+\item UC1.3.2 Elencazione collezioni;
+\item UC1.3.3 Cancellazione collezioni;
+\item UC1.3.6 Modifica nome collezione;
+\item UC1.3.4 Aggiunta collaboratore;
+\item UC1.3.5 Rimozione collaboratore.
 \end{itemize}
-\textbf{Postcondizione:} L'utente ha digitato il comando per elencare le collezioni
-\subsection{UC1.1.3: Cancellazione di una o più collezioni}
+\textbf{Estensioni:}
+\begin{itemize}
+\item Nel caso in cui l'utente utilizzi un comando sconosciuto:
+  \begin{itemize}
+  \item viene visualizzato un messaggio di errore esplicativo (e rimando all'aiuto);
+  \end{itemize}
+\item Nel caso in cui l'utente utilizzi un comando conosciuto ma con parametri errati:
+  \begin{itemize}
+  \item viene visualizzato un messaggio di supporto che indica come usare correttamente il comando.
+  \end{itemize}
+\item Nel caso in cui il nome di una collezione sia già utilizzato:
+  \begin{itemize}
+  \item viene visualizzato un messaggio di errore esplicativo;
+  \end{itemize}
+\item Nel caso in cui la collezione da cancellare o modificare non sia presente:
+  \begin{itemize}
+  \item viene visualizzato un messaggio di errore esplicativo;
+  \end{itemize}
+\item Nel caso in cui il collaboratore da rimuovere non sia presente tra i collaboratori:
+  \begin{itemize}
+  \item viene visualizzato un messaggio di errore esplicativo;
+  \end{itemize}
+\item Nel caso in cui il collaboratore da aggiungere non sia presente nel sistema \textbf{Actorbase}:
+  \begin{itemize}
+  \item viene visualizzato un messaggio di errore esplicativo;
+  \end{itemize}
+\end{itemize}
+\textbf{Postcondizione:} L'operazione richiesta è stata eseguita.
+\subsection{UC1.3.1: Creazione nuova collezione}
+\textbf{Attore primario:} Utente\\ \\
+\textbf{Scopo e descrizione:} L'utente richiede la creazione di una collezione all'interno del database, deve inserire il nome della nuova collezione.\\ \\
+\textbf{Precodizione:} Il database è pronto a ricevere comandi e l'utente intende creare una collezione.\\ \\
+\textbf{Flusso di eventi:}
+\begin{itemize}
+\item Inserimento nome collezione
+\end{itemize}
+\textbf{Postcondizione:} La collezione è stata creata.
+\subsection{UC1.3.2: Elencazione collezioni}
+\textbf{Attore primario:} Utente\\ \\
+\textbf{Scopo e descrizione:} L'utente intende elencare tutte le collezioni all'interno di \textbf{Actorbase} secondo la propria visibilità.\\ \\
+\textbf{Precodizione:} Il database è pronto a ricevere comandi e l'utente intende elencare le collezioni al suo interno.\\ \\
+\textbf{Postcondizione:} Il database restituisce la lista delle collezioni esistenti secondo la visibilità dell'utente.
+\subsection{UC1.3.3: Cancellazione di una o più collezioni}
 \textbf{Attore primario:} Utente\\ \\
 \textbf{Scopo e descrizione:} L’utente intende cancellare una o più collezioni presenti nel database.\\ \\
 \textbf{Precodizione:} Il database è pronto a ricevere comandi e l’utente intende cancellare una o più collezioni\\ \\
 \textbf{Flusso di eventi:}
 \begin{itemize}
-\item l'utente digita il comando di cancellazione di una o più collezioni
+\item Inserimento di una o più nomi di collezioni da cancellare.
 \end{itemize}
-\textbf{Postcondizione:} L’utente ha digitato il comando per cancellare una o più collezioni
-\subsection{UC1.1.4: Modifica di una collezione}
+\textbf{Postcondizione:} Le collezioni sono state rimosse dal database.
+\subsection{UC1.3.4: Modifica nome collezione}
 \textbf{Attore primario:} Utente \\ \\
-\textbf{Scopo e descrizione:} L’utente intende modificare una collezione, deve inserire i parametri per la modifica della collezione\\ \\
-\textbf{Precondizione:} Il database è pronto a ricevere comandi e l’utente vuole modificare una collezione\\ \\
+\textbf{Scopo e descrizione:} L’utente intende modificare il nome di una collezione, deve inserire il nome della collezion da modificare e il nuovo nome da assegnare. \\ \\
+\textbf{Precondizione:} Il database è pronto a ricevere comandi e l’utente intende modificare il nome di una collezione\\ \\
 \textbf{Flusso di eventi:}
 \begin{itemize}
-\item l’utente digita il comando di modifica con parametri nome della collezione da modificare e valori dei campi da modificare
+\item Inserimento nome della collezione da modificare;
+\item Inserimento nuovo nome della collezione.
 \end{itemize}
-\textbf{Postcondizione:} L’utente ha digitato il comando per modificare una collezione
-\subsection{UC1.1.5: Ricerca generale}
+\textbf{Postcondizione:} Il nome della collezione è stato modificato
+\subsection{UC1.3.5: Aggiunta di un collaboratore a propria collezione}
+\textbf{Attore primario:} Utente\\ \\
+\textbf{Scopo e descrizione:} L'utente intende aggiungere un collaboratore ad una collezione di sua proprietà. Deve inserire il nome della collezione e lo username dell'utente da aggiungere.\\ \\
+\textbf{Precondizione:} Il database è pronto a ricevere comandi e l'utente intende aggiungere un collaboratore ad una collezione di sua proprietà.\\ \\
+\textbf{Flusso di eventi:}
+\begin{itemize}
+\item Inserimento nome collezione;
+\item Inserimento username collaboratore.
+\end{itemize}
+\textbf{Postcondizione:} L'utente designato per la collaborazione è stato aggiunto tra i collaboratori della collezione scelta.
+\subsection{UC1.3.6: Rimozione di un collaboratore a propria collezione}
+\textbf{Attore primario:} Utente\\ \\
+\textbf{Scopo e descrizione:} L'utente intende rimuovere un collaboratore da una collezione di sua proprietà. Deve inserire il nome della collezione e lo username del collaboratore da rimuovere.\\ \\
+\textbf{Precondizione:} Il database è pronto a ricevere comandi e l'utente intende rimuovere un collaboratore da una collezione di sua proprietà.\\ \\
+\textbf{Flusso di eventi:}
+\begin{itemize}
+\item Inserimento nome collezione;
+\item Inserimento username collaboratore.
+\end{itemize}
+\textbf{Postcondizione:} L'utente designato per la rimozione dai collaboratori è stato rimosso dalla collezione scelta.
+\subsection{UC1.4.1: Operazioni sugli \gloss{item}}
+\textbf{Attore primario:} Utente\\ \\
+\textbf{Scopo e descrizione:} L'utente intende effettuare operazioni sugli item di una collezione esistente. Le operazioni previste sono:
+inserimento e cancellazione.\\ \\
+\textbf{Precondizione:} Il database è pronto a ricevere comandi e l'utente intende effettuare operazioni di inserimento o cancellazione su una collezione esistente.\\ \\
+\textbf{Flusso di eventi:}
+\begin{itemize}
+\item UC1.4.1.1 Inserimento nuovo item;
+\item UC1.4.1.2 Cancellazione item.
+\end{itemize}
+\textbf{Estensioni:}
+\begin{itemize}
+\item Nel caso in cui l'utente utilizzi un comando sconosciuto:
+  \begin{itemize}
+  \item viene visualizzato un messaggio di errore esplicativo (e rimando all'aiuto);
+  \end{itemize}
+\item Nel caso in cui l'utente utilizzi un comando conosciuto ma con parametri errati:
+  \begin{itemize}
+  \item viene visualizzato un messaggio di supporto che indica come usare correttamente il comando.
+  \end{itemize}
+\item Nel caso in cui la collezione su cui effettuare inserimento o cancellazione non sia presente:
+  \begin{itemize}
+  \item viene visualizzato un messaggio di errore esplicativo;
+  \end{itemize}
+\end{itemize}
+\textbf{Postcondizione:} L'operazione richiesta è stata effettuata correttamente.
+\subsection{1.4.1.1 Inserimento nuovo item}
+\textbf{Attore primario:} Utente\\ \\
+\textbf{Scopo e descrizione:} L'utente intende inserire un nuovo item all'interno di una collezione esistente. Deve selezionare la collezione e inserire i parametri di definizione dell'item. Questi sono la chiave e il valore associato.\\ \\
+\textbf{Precondizione:} Il database è pronto a ricevere comandi e l'utente intende effetture un inserimento di un nuovo item.\\ \\
+\textbf{Flusso di eventi:}
+\begin{itemize}
+\item UC1.4.1.1.1 Inserimento con sovrascrittura;
+\item UC1.4.1.1.2 Inserimento senza sovrascrittura.
+\end{itemize}
+\textbf{Postcondizione:} L'operazione di inserimento richiesta è stata effettuata correttamente.
+\subsection{1.4.1.1.1 Inserimento con sovrascrittura (aggiornamento)}
+\textbf{Attore primario:} Utente\\ \\
+\textbf{Scopo e descrizione:} L'utente intende inserire un nuovo item; deve selezionare la collezione e inserire i parametri di definizone dell'item da inserire, quali chiave e valore associato. La procedura di inserimento non terrà conto di
+eventuali chiavi già presenti all'interno della collezione\\ \\
+\textbf{Precondizione:} Il database è pronto a ricevere comandi e l'utente intende effettuare un inserimento di un nuovo item.\\ \\
+\textbf{Flusso di eventi:}
+\begin{itemize}
+\item Inserimento nome collezione su cui effettuare l'inserimento;
+\item Inserimento coppia chiave-valore da inserire.
+\end{itemize}
+\textbf{Postcondizione:} L'operazione di inserimento con sovrascrittura è andata a buon fine, eventuali chiavi già presenti avranno i valori associati aggiornati.
+\subsection{1.4.1.1.2 Inserimento senza sovrascrittura}
+\textbf{Attore primario:} Utente \\ \\
+\textbf{Scopo e descrizione:} L'utente intende inserire un nuovo item; deve selezionare la collezione e inserire i parametri di definizione dell'item da inserire, quali chiave e valore associato. La procedura di inserimento terrà conto di chiavi già presenti all'interno della collezione selezionata.\\ \\
+\textbf{Precondizione:} Il database è pronto a ricevere comandi e l'utente intende effettuare un inserimento di un nuovo item.\\ \\
+\textbf{Flusso di eventi:}
+\begin{itemize}
+\item Inserimento nome collezione su cui effettuare l'inserimento;
+\item Inserimento coppia chiave-valore da inserire.
+\end{itemize}
+\textbf{Estensioni:}
+\begin{itemize}
+\item Nel caso in cui la chiave scelta sia già presente all'interno della collezione:
+  \begin{itemize}
+  \item viene visualizzato un messaggio di errore esplicativo;
+  \end{itemize}
+\end{itemize}
+\textbf{Postcondizione:} L'operazione di inserimento senza sovrascrittura è andata a buon fine.
+\subsection{UC1.4.1.2 Cancellazione di un item}
+\textbf{Attore primario:} Utente\\ \\
+\textbf{Scopo e descrizione:} L'utente intende cancellare un item all'interno di una collezione esistente. Deve selezionare la collezione e inserire la chiave da del valore da cancellare.\\ \\
+\textbf{Precondizione:} Il database è pronto a ricevere comandi e l'utente intende effetture la cancellazione di un item.\\ \\
+\textbf{Flusso di eventi:}
+\begin{itemize}
+\item Inserimento nome collezione;
+\item Inserimento chiave.
+\end{itemize}
+\subsection{UC1.5: Ricerca generale}
 \begin{figure}[H]
   \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC1_1_5.jpeg}
-  \caption{Caso d'uso 1.1.5: Ricerca generale}
+  \caption{Caso d'uso 1.5: Ricerca generale}
 \end{figure}
 \textbf{Attore primario:} Utente \\ \\
-\textbf{Scopo e descrizione:} L’utente intende effettuare una ricerca\\ \\
+\textbf{Scopo e descrizione:} L’utente intende effettuare una ricerca, può decidere se effettuare la ricerca a livello globale nella base di dati o solo su una lista di collezioni scelte.\\ \\
 \textbf{Precondizione:} Il database è pronto a ricevere comandi e l’utente intende effettuare una ricerca\\ \\
 \textbf{Flusso di eventi:}
 \begin{itemize}
-\item UC1.1.5.1 Utente può digitare il comando per effettuare una ricerca sull’intera base di dati
-\item UC1.1.5.2 Utente può digitare il comando per effettuare una ricerca all’interno di una o più collezioni specifiche
+\item UC1.5.1 Ricerca sull'intera base di dati;
+\item UC1.5.2 Ricerca su una o più collezioni.
 \end{itemize}
-\textbf{Postcondizione:} L’utente ha digitato il comando per effettuare una ricerca
-\subsection{UC1.1.5.1: Ricerca all'interno della base di dati}
+\item Nel caso in cui l'utente utilizzi un comando sconosciuto:
+  \begin{itemize}
+  \item viene visualizzato un messaggio di errore esplicativo (e rimando all'aiuto);
+  \end{itemize}
+\item Nel caso in cui l'utente utilizzi un comando conosciuto ma con parametri errati:
+  \begin{itemize}
+  \item viene visualizzato un messaggio di supporto che indica come usare correttamente il comando.
+  \end{itemize}
+\item Nel caso in cui la collezione su cui effettuare ricerca non sia presente:
+  \begin{itemize}
+  \item viene visualizzato un messaggio di errore esplicativo;
+  \end{itemize}
+\end{itemize}
+\textbf{Postcondizione:} Il sistema ha prodotto in output i risultati della ricerca effettuata.
+\subsection{UC1.5.1: Ricerca all'interno della base di dati}
 \textbf{Attore primario:} Utente \\ \\
-\textbf{Scopo e descrizione:} L’utente intende effettuare una ricerca sull’intera base di dati\\ \\
+\textbf{Scopo e descrizione:} L’utente intende effettuare una ricerca sull’intera base di dati, deve inserire i parametri di ricerca.\\ \\
 \textbf{Precondizione:} Il database è pronto a ricevere comandi e l’utente intende effettuare una ricerca generale\\ \\
 \textbf{Flusso di eventi:}
 \begin{itemize}
-\item l’utente digita il comando di ricerca generale
+\item Inserimento parametri di ricerca.
 \end{itemize}
-\textbf{Postcondizione:} L’utente ha digitato il comando per effettuare una ricerca di aiutanza generale
-\subsection{UC1.1.5.2: Ricerca all'interno di una specifica collezione(o più)}
+\textbf{Postcondizione:} Il sistema ha prodotto in output i risultati della ricerca effettuata.
+\subsection{UC1.5.2: Ricerca all'interno di una specifica collezione(o più)}
 \textbf{Attore primario:} Utente \\ \\
-\textbf{Scopo e descrizione:} L’utente intende effettuare una ricerca all’interno di una o più collezioni specifiche\\ \\
+\textbf{Scopo e descrizione:} L’utente intende effettuare una ricerca all’interno di una o più collezioni specifiche, deve inserire le collezioni su cui effettuare la ricerca e i parametri di ricerca.\\ \\
 \textbf{Precondizione:} Il database è pronto a ricevere comandi e l’utente intende effettuare una ricerca dettagliata\\ \\
 \textbf{Flusso di eventi:}
 \begin{itemize}
-\item l’utente digita il comando di ricerca con parametro i nomi delle collezioni sulle quali vuole effettuare la ricerca
+\item Inserimento nomi collezioni;
+\item Inserimento parametri di ricerca.
 \end{itemize}
-\textbf{Postcondizione:} L’utente ha digitato il comando per effettuare una ricerca specifica
-\subsection{UC1.1.6: Inserimento di un item}
-\textbf{Attore primario:} Utente \\ \\
-\textbf{Scopo e descrizione:} L’utente intende inserire un nuovo item in una collezione, deve inserire il nome della collezione e il nome dell’item\\ \\
-\textbf{Precondizione:} Il database è pronto a ricevere comandi e l’utente vuole inserire un nuovo item in una collezione\\ \\
-\textbf{Flusso di eventi:}
-\begin{itemize}
-\item l’utente digita il comando di inserimento con parametro nome della collezione e nome dell’item e campi dell’item
-\end{itemize}
-\textbf{Postcondizione:} L’utente ha digitato il comando per inserire un item
-\subsection{UC1.1.7: Cancellazione di un item}
-\textbf{Attore primario:} Utente \\ \\
-\textbf{Scopo e descrizione:} L’utente intende cancellare un item da una collezione, deve inserire il nome dell’item da cancellare e il nome della collezione\\ \\
-\textbf{Precondizione:} Il database è pronto a ricevere comandi e l’utente vuole cancellare un item da una collezione\\ \\
-\textbf{Flusso di eventi:}
-\begin{itemize}
-\item l’utente digita il comando di cancellazione con parametro nome dell’item e della collezione
-\end{itemize}
-\textbf{Postcondizione:} l’utente ha digitato il comando per cancellare un item da una collezione
-\subsection{UC1.1.8: Modifica di un item}
-\textbf{Attore primario:} Utente \\ \\
-\textbf{Scopo e descrizione:} L’utente intende modificare un item di una collezione, deve inserire il nome dell’item e della collezione\\ \\
-\textbf{Precondizione:} Il database è pronto a ricevere comandi e l’utente vuole modificare un item di una collezione\\ \\
-\textbf{Flusso di eventi:}
-\begin{itemize}
-\item l’utente digita il comando di modifica con parametro nome dell’item e della collezione
-\end{itemize}
-\textbf{Postcondizione:} L’utente ha digitato il comando per modificare un item
+\textbf{Postcondizione:} Il sistema ha prodotto in output i risultati della ricerca effettuata.
+% TODO: sono arrivato qui
+\subsection{UC1.6: Gestione account}
 \subsection{UC1.1.9: Richiesta di supporto}
 \begin{figure}[H]
   \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC1_1_9.jpeg}
