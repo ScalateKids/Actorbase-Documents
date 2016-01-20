@@ -469,7 +469,25 @@ Modifica username e modifica password.\\ \\
   \item viene visualizzato un messaggio di errore esplicativo;
   \end{itemize}
 \end{itemize}
-\textbf{Postcondizione:} L'operazione richiesta è andata a buon fine.
+\textbf{Postcondizione:} Il sistema ha eseguito correttamente l'operazione richiesta.
+\subsection{UC1.7.1: Modifica username}
+\textbf{Attore primario:} Utente autenticato\\ \\
+\textbf{Scopo e descrizione:} L'utente intende effettuare la modifica del proprio username nel sistema \textbf{Actorbase}. Dovrà inserire il nuovo username.\\ \\
+\textbf{Precondizione:} Il database è pronto a ricevere comandi e l'utente intende modificare il proprio username.\\
+\textbf{Flusso eventi:}
+\begin{itemize}
+\item Inserimento nuovo username.
+\end{itemize}
+\textbf{Postcondizione:} L'utente ha aggiornato correttamente il proprio username.
+\subsection{UC1.7.2: Modifica password}
+\textbf{Attore primario:} Utente autenticato\\ \\
+\textbf{Scopo e descrizione:} L'utente intende effettuare la modifica della propria password nel sistema \textbf{Actorbase}. Dovrà inserire la vecchia password e la nuova password.\\ \\
+\textbf{Precondizione:} Il database è pronto a ricevere comandi e l'utente intende modificare la propria password.\\
+\textbf{Flusso eventi:}
+\begin{itemize}
+\item Inserimento nuova password.
+\end{itemize}
+\textbf{Postcondizione:} L'utente ha aggiornato correttamente la propria password.
 \subsection{UC1.8: Logout}
 \textbf{Attore primario:} Utente autenticato\\ \\
 \textbf{Scopo e descrizione:} L'utente intende effettuare il logout dal sistema \textbf{Actorbase}.\\ \\
