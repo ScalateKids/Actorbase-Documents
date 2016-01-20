@@ -136,7 +136,21 @@ suddivisione degli attori primari nel modo seguente:\\
 \item\textbf{Nodo esterno:}\\
 \end{itemize}
 \subsubsection{Visibilità}
-Rispetto al classico sistema di permessi lettura e scrittura
+Rispetto al classico sistema di permessi lettura e scrittura, \textbf{Actorbase}
+prevede un meccanismo semplificato di visibilità secondo le seguenti regole:
+\begin{itemize}
+  \item Ogni utente generico inizialmente ha visibilità solo sulle proprie collezioni e/o su collezioni in collaborazione di proprietà altrui;
+  \item L'utente amministratore ha visibilità su tutto il sistema \textbf{Actorbase}.
+\end{itemize}
+La visibilità garantisce privilegi sia in lettura che in scrittura. Di
+conseguenza tutte le azioni descritte nei casi d'uso si applicano al livello di
+visibilità proprio dell'attore che le effettua.
+\subsubsection{Connessione a un istanza esterna di Actorbase}
+Al momento della connessione ad un nodo esterno di \textbf{Actorbase}, come
+mostrato in \ref{sec:UC10}, l'utente amministratore del sistema richiedente
+diverrà un utente del nodo esterno senza alcuna visibilità. Sarà l'utente
+ammnistratore del nodo esterno a concedere visibilità all'amministratore del
+nodo richiedente
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/ActorbaseNetwork.png}
@@ -642,7 +656,14 @@ Modifica username e modifica password.\\ \\
 \item Inserimento username utente.
 \end{itemize}
 \textbf{Postcondizione:} All'utente designato sono stati revocati i permessi dall'amministratore.
-\subsection{UC10: Connessione a nodo esterno}
+\subsection{UC1.10: Connessione a nodo esterno}
+\subsection{UC1.10: Connessione a nodo esterno}
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC1_10.jpeg}
+    \caption{Caso d'uso 1.10: Connessione a nodo esterno}
+  \end{center}
+\end{figure}
 \textbf{Attore primario:} Amministratore \\ \\
 \textbf{Attore secondario:} Nodo esterno \\ \\
 \textbf{Scopo e descrizione:} L'amministratore intende connettere il proprio database ad un \gloss{nodo} esterno per ampliare la propria capacità.\\ \\
@@ -651,10 +672,10 @@ Modifica username e modifica password.\\ \\
 \begin{itemize}
 \item Ambito sistema locale:
   \begin{itemize}
-  \item UC10.1 Inserimento parametri di connessione;
+  \item UC1.10.1 Inserimento parametri di connessione;
   \end{itemize}
   \begin{itemize}
-  \item UC10.2 Ricezione richiesta di connessione dal nodo esterno.
+  \item UC1.10.2 Ricezione richiesta di connessione dal nodo esterno.
   \end{itemize}
 \end{itemize}
 \textbf{Estensioni:}
@@ -673,7 +694,7 @@ Modifica username e modifica password.\\ \\
   \end{itemize}
 \end{itemize}
 \textbf{Postcondizione:} E' arrivata la risposta alla richiesta di connessione, in caso affermativo la connessione è avvenuta con successo.
-\subsection{UC10.1: Inserimento parametri di connessione}
+\subsection{UC1.10.1: Inserimento parametri di connessione}
 \textbf{Attore primario:} Amministratore \\ \\
 \textbf{Attore secondario:} Nodo esterno \\ \\
 \textbf{Scopo e descrizione:} L'amministratore per connettersi ad un nodo esterno intende inserire i parametri necessari alla connessione, quali indirizzo del server.\\ \\
@@ -683,7 +704,7 @@ Modifica username e modifica password.\\ \\
 \item Inserimento indirizzo nodo esterno;
 \end{itemize}
 \textbf{Postcondizione:} Il nodo esterno ha ricevuto la richiesta di connessione.\\ \\
-\subsection{UC10.2: Ricezione richiesta di connessione dal nodo esterno}
+\subsection{UC1.10.2: Ricezione richiesta di connessione dal nodo esterno}
 \textbf{Attore primario:} Amministratore\\ \\
 \textbf{Attore secondario:} Nodo esterno\\ \\
 \textbf{Scopo e descrizione:} L'amministratore riceve una richiesta di connessione da un nodo \textbf{Actorbse} esterno. Deve fornire una risposta.\\ \\
