@@ -135,6 +135,8 @@ suddivisione degli attori primari nel modo seguente:\\
 \item\textbf{Amministratore:}\\
 \item\textbf{Nodo esterno:}\\
 \end{itemize}
+\subsubsection{Visibilità}
+Rispetto al classico sistema di permessi lettura e scrittura
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/ActorbaseNetwork.png}
@@ -393,7 +395,7 @@ inserimento e cancellazione.\\ \\
   \end{itemize}
 \end{itemize}
 \textbf{Postcondizione:} L'operazione richiesta è stata effettuata correttamente.
-\subsection{1.5.1 Inserimento nuovo item}
+\subsection{UC1.5.1: Inserimento nuovo item}
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC1_5_1.jpeg}
@@ -409,7 +411,7 @@ inserimento e cancellazione.\\ \\
 \item UC1.5.1.2 Inserimento senza sovrascrittura.
 \end{itemize}
 \textbf{Postcondizione:} L'operazione di inserimento richiesta è stata effettuata correttamente.
-\subsection{1.5.1.1 Inserimento con sovrascrittura (aggiornamento)}
+\subsection{UC1.5.1.1: Inserimento con sovrascrittura (aggiornamento)}
 \textbf{Attore primario:} Utente autenticato\\ \\
 \textbf{Scopo e descrizione:} L'utente intende inserire un nuovo item; deve selezionare la collezione e inserire i parametri di definizone dell'item da inserire, quali chiave e valore associato. La procedura di inserimento non terrà conto di
 eventuali chiavi già presenti all'interno della collezione\\ \\
@@ -420,7 +422,7 @@ eventuali chiavi già presenti all'interno della collezione\\ \\
 \item Inserimento coppia chiave-valore da inserire.
 \end{itemize}
 \textbf{Postcondizione:} L'operazione di inserimento con sovrascrittura è andata a buon fine, eventuali chiavi già presenti avranno i valori associati aggiornati.
-\subsection{1.5.1.2 Inserimento senza sovrascrittura}
+\subsection{UC1.5.1.2: Inserimento senza sovrascrittura}
 \textbf{Attore primario:} Utente autenticato \\ \\
 \textbf{Scopo e descrizione:} L'utente intende inserire un nuovo item; deve selezionare la collezione e inserire i parametri di definizione dell'item da inserire, quali chiave e valore associato. La procedura di inserimento terrà conto di chiavi già presenti all'interno della collezione selezionata.\\ \\
 \textbf{Precondizione:} Il database è pronto a ricevere comandi e l'utente intende effettuare un inserimento di un nuovo item.\\ \\
@@ -437,7 +439,7 @@ eventuali chiavi già presenti all'interno della collezione\\ \\
   \end{itemize}
 \end{itemize}
 \textbf{Postcondizione:} L'operazione di inserimento senza sovrascrittura è andata a buon fine.
-\subsection{UC1.5.1 Cancellazione di un item}
+\subsection{UC1.5.2: Cancellazione di un item}
 \textbf{Attore primario:} Utente autenticato\\ \\
 \textbf{Scopo e descrizione:} L'utente intende cancellare un item all'interno di una collezione esistente. Deve selezionare la collezione e inserire la chiave da del valore da cancellare.\\ \\
 \textbf{Precondizione:} Il database è pronto a ricevere comandi e l'utente intende effetture la cancellazione di un item.\\ \\
