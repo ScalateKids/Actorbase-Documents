@@ -1,6 +1,6 @@
 \documentclass{scalatekids-article}
 \begin{document}
-\lfoot{Analisi dei Requisiti 1.0.0}
+\lfoot{Analisi dei Requisiti 0.0.1}
 \newgeometry{top=3.5cm}
 \begin{titlepage}
   \begin{center}
@@ -22,7 +22,7 @@
       \setbox0=\hbox{0.0.1\unskip}\ifdim\wd0=0pt
       \\
       \else
-      \textbf{Versione} & 1.0.0\\
+      \textbf{Versione} & 0.0.3\\
       \fi
       \textbf{Redazione} & \multiLineCell[t]{Redattore}\\
       \textbf{Verifica} & \multiLineCell[t]{Verificatore}\\
@@ -64,22 +64,23 @@ interne ed esterne con il proponente.
 \subsubsection{Normativi}
 \begin{itemize}
 \item\textbf{Capitolato d'appalto C1:} \textit{Actorbase: a NoSQL DB based on the Actor model}\\
-  \url{http://www.math.unipd.it/~tullio/IS-1/2015/Progetto/C1.pdf};
-\item\textbf{Verbale esterno 2016-01-12:} \href{run:./VerbaleEsterno20160112\_v1.0.0.pdf}{Verbale esterno 2016-01-12 v1.0.0};
-\item\textbf{Verbale esterno 2016-01-19:} \href{run:./VerbaleEsterno20160119\_v1.0.0.pdf}{Verbale esterno 2016-01-19 v1.0.0};
-\item\textbf{Norme di Progetto:} \href{run:../Interni/NormeDiProgetto\_v1.0.0.pdf}{Norme di Progetto v1.0.0}.
+  \url{http://www.math.unipd.it/~tullio/IS-1/2015/Progetto/C1.pdf}
+\item\textbf{Verbale esterno:} % TODO link
+\item\textbf{Norme di Progetto:} % TODO link
 \end{itemize}
 \subsubsection{Informativi}
 \begin{itemize}
 \item\textbf{Dispense fornite dall'insegnamento Ingegneria del Software mod. A:}\\
-  \url{http://www.math.unipd.it/~tullio/IS-1/2015/};
+  \url{http://www.math.unipd.it/~tullio/IS-1/2015/Dispense/L06.pdf}
+\item\textbf{Dispense fornite dall'insegnamento Ingegneria del Software mod. A:}\\
+  \url{http://www.math.unipd.it/~tullio/IS-1/2015/Dispense/E02.pdf}
 \item\textbf{CAP theorem:}\\ % TODO: da inserire?
-  \url{https://en.wikipedia.org/wiki/CAP_theorem};
+  \url{https://en.wikipedia.org/wiki/CAP_theorem}
 \item\textbf{Reactive Manifesto:}
   \url{http://www.reactivemanifesto.org/}
-  \url{https://en.wikipedia.org/wiki/Reactive_programming};
+  \url{https://en.wikipedia.org/wiki/Reactive_programming}
 \item\textbf{Amazon DynamoDB:}
-  \url{http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Introduction.html}.
+  \url{http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Introduction.html}
 \end{itemize}
 \section{Descrizione generale}
 \subsection{Prospettive del prodotto}
@@ -118,12 +119,19 @@ ardware o software.
 Le aspettative di esperienza utente derivano dall'utilizzo da parte dei
 componenti del gruppo di \gloss{Amazon DynamoDB}, un database \gloss{key-value}
 sviluppato da \textit{Amazon}, utilizzato come modello di riferimento per lo
-sviluppo. I casi d'uso seguono le norme di stesura elencate nel documento \href{run:../Interni/NormeDiProgetto\_v1.0.0.pdf}{Norme di Progetto v1.0.0}.
+sviluppo. I casi d'uso seguono le norme di stesura elencate nel documento \textit{Norme di Progetto}.% TODO link
+\subsection{Identificazione attori:}
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/ActorbaseNetwork.png}
+    \caption{Actorbase: Visione generale rete Actorbase}
+  \end{center}
+\end{figure}
 \subsection{UC1: Actorbase}
 \begin{figure}[H]
   \begin{center}
-  \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC1.jpeg}
-  \caption{Caso d'uso 1: Interazioni basilari}
+    \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC1.jpeg}
+    \caption{Caso d'uso 1: Interazioni basilari}
   \end{center}
 \end{figure}
 \textbf{Attori primari:} Utente non autenticato, Utente autenticato, Amministratore\\ \\
@@ -204,6 +212,12 @@ profilo registrato all'interno del programma. Deve registrare un nome utente e u
 \end{itemize}
 \textbf{Postcondizione:} L'utente è autenticato all'interno del sistema \textbf{Actorbase}.
 \subsection{UC1.3: Richiesta aiuto}
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC1_3.jpeg}
+    \caption{Caso d'uso 1.3: Richiesta aiuto}
+  \end{center}
+\end{figure}
 \textbf{Attore primario:} Utente autenticato\\ \\
 \textbf{Scopo e descrizione:} L'utente intende richiedere aiuto generale o su un comando specifico.\\ \\
 \textbf{Precondizione:} Il database è pronto a ricevere comandi e l'utente intende richiedere supporto.\\ \\
@@ -232,6 +246,12 @@ profilo registrato all'interno del programma. Deve registrare un nome utente e u
 \end{itemize}
 \textbf{Postcondizione:} Il sistema ha risposto con l'aiuto richiesto in output.
 \subsection{UC1.4: Operazioni sulle collezioni}
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC1_4.jpeg}
+    \caption{Caso d'uso 1.4: Operazioni sulle collezioni}
+  \end{center}
+\end{figure}
 \textbf{Attore primario:} Utente autenticato\\ \\
 \textbf{Scopo e descrizione:} L'utente è autenticato e desidera effettuare delle operazioni sulle collezioni. Le operazioni previste sono
 creazione di una nuova collezione, elencazione delle collezioni esistenti, cancellazione di collezioni esistenti, modifica del nome di collezioni esistenti,
@@ -328,6 +348,12 @@ aggiunta o rimozione collaboratori a collezione esistente.\\ \\
 \end{itemize}
 \textbf{Postcondizione:} L'utente designato per la rimozione dai collaboratori è stato rimosso dalla collezione scelta.
 \subsection{UC1.5: Operazioni sugli \gloss{item}}
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC1_5.jpeg}
+    \caption{Caso d'uso 1.5: Operazioni sugli item}
+  \end{center}
+\end{figure}
 \textbf{Attore primario:} Utente autenticato\\ \\
 \textbf{Scopo e descrizione:} L'utente intende effettuare operazioni sugli item di una collezione esistente. Le operazioni previste sono:
 inserimento e cancellazione.\\ \\
@@ -354,6 +380,12 @@ inserimento e cancellazione.\\ \\
 \end{itemize}
 \textbf{Postcondizione:} L'operazione richiesta è stata effettuata correttamente.
 \subsection{1.5.1 Inserimento nuovo item}
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC1_5_1.jpeg}
+    \caption{Caso d'uso 1.5.1: Inserimento nuovo item}
+  \end{center}
+\end{figure}
 \textbf{Attore primario:} Utente autenticato\\ \\
 \textbf{Scopo e descrizione:} L'utente intende inserire un nuovo item all'interno di una collezione esistente. Deve selezionare la collezione e inserire i parametri di definizione dell'item. Questi sono la chiave e il valore associato.\\ \\
 \textbf{Precondizione:} Il database è pronto a ricevere comandi e l'utente intende effetture un inserimento di un nuovo item.\\ \\
@@ -402,6 +434,12 @@ eventuali chiavi già presenti all'interno della collezione\\ \\
 \end{itemize}
 \textbf{Postcondizione:} L'operazione di cancellazione di un item è andata a buon fine.
 \subsection{UC1.6: Ricerca generale}
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC1_6.jpeg}
+    \caption{Caso d'uso 1.6: Ricerca generale}
+  \end{center}
+\end{figure}
 \textbf{Attore primario:} Utente autenticato \\ \\
 \textbf{Scopo e descrizione:} L’utente intende effettuare una ricerca, può decidere se effettuare la ricerca a livello globale nella base di dati o solo su una lista di collezioni scelte.\\ \\
 \textbf{Precondizione:} Il database è pronto a ricevere comandi e l’utente intende effettuare una ricerca\\ \\
@@ -445,6 +483,12 @@ eventuali chiavi già presenti all'interno della collezione\\ \\
 \end{itemize}
 \textbf{Postcondizione:} Il sistema ha prodotto in output i risultati della ricerca effettuata.
 \subsection{UC1.7: Gestione account}
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC1_7.jpeg}
+    \caption{Caso d'uso 1.7: Gestione account}
+  \end{center}
+\end{figure}
 \textbf{Attore primario:} Utente autenticato\\ \\
 \textbf{Scopo e descrizione:} L'utente intende effettuare operazioni di gestione sul proprio account. Le operazioni previste sono
 Modifica username e modifica password.\\ \\
@@ -505,6 +549,12 @@ Modifica username e modifica password.\\ \\
 \end{itemize}
 \textbf{Postcondizione:} L'utente è deautenticato dal sistema \textbf{Actorbase}.
 \subsection{UC1.9: Gestione utenti}
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC1_9.jpeg}
+    \caption{Caso d'uso 1.9: Gestione utenti}
+  \end{center}
+\end{figure}
 \textbf{Attore primario:} Amministratore\\ \\
 \textbf{Scopo e descrizione:} L'amministratore intende effettuare operazioni di gestione sugli utenti del database.\\ \\
 \textbf{Precondizione:} Il database è pronto a ricevere comandi e l'amministratore intende effettuare operazioni di gestione sugli utenti del sistema.\\ \\
@@ -554,8 +604,62 @@ Modifica username e modifica password.\\ \\
 \textbf{Postcondizione:} L'utente designato per la rimozione non è presente all'interno del sistema \textbf{Actorbase}.
 \subsection{UC10: Connessione a nodo esterno}
 \textbf{Attore primario:} Amministratore \\ \\
-\textbf{Scopo e descrizione:} L'amministratore intende connettere il proprio database ad un \gloss{nodo} esterno.
+\textbf{Attore secondario:} Nodo esterno \\ \\
+\textbf{Scopo e descrizione:} L'amministratore intende connettere il proprio database ad un \gloss{nodo} esterno per ampliare la propria capacità.\\ \\
+\textbf{Precondizione:} Il \gloss{nodo} deve essere in ascolto e in attesa di connessione, il sistema locale deve essere pronto a ricevere comandi.\\ \\
+\textbf{Flusso di eventi:}
+\begin{itemize}
+\item Ambito sistema locale:
+  \begin{itemize}
+  \item UC10.1 Inserimento parametri di connessione;
+  \end{itemize}
+  \begin{itemize}
+  \item UC10.2 Ricezione richiesta di connessione dal nodo esterno.
+  \end{itemize}
+\end{itemize}
+\textbf{Estensioni:}
+\begin{itemize}
+\item Nel caso in cui l'amministratore utilizzi un comando sconosciuto:
+  \begin{itemize}
+  \item viene visualizzato un messaggio di errore esplicativo (e rimando all'aiuto);
+  \end{itemize}
+\item Nel caso in cui l'amministratore utilizzi un comando conosciuto ma con parametri errati:
+  \begin{itemize}
+  \item viene visualizzato un messaggio di supporto che indica come usare correttamente il comando.
+  \end{itemize}
+\item Nel caso in cui il nodo non riceva la richiesta, o la riceve ma l'amministratore non da risposta:
+  \begin{itemize}
+  \item viene visualizzato un messaggio di \gloss{timeout} del comando;
+  \end{itemize}
+\end{itemize}
+\textbf{Postcondizione:} E' arrivata la risposta alla richiesta di connessione, in caso affermativo la connessione è avvenuta con successo.
+\subsection{UC10.1: Inserimento parametri di connessione}
+\textbf{Attore primario:} Amministratore \\ \\
+\textbf{Attore secondario:} Nodo esterno \\ \\
+\textbf{Scopo e descrizione:} L'amministratore per connettersi ad un nodo esterno intende inserire i parametri necessari alla connessione, quali indirizzo del server.\\ \\
+\textbf{Precondizione:} Il \gloss{nodo} deve essere in ascolto e in attesa di connessione, il sistema locale deve essere pronto a ricevere comandi.\\ \\
+\textbf{Flusso di eventi:}
+\begin{itemize}
+\item Inserimento indirizzo nodo esterno;
+\end{itemize}
+\textbf{Postcondizione:} Il nodo esterno ha ricevuto la richiesta di connessione.\\ \\
+\subsection{UC10.2: Ricezione richiesta di connessione dal nodo esterno}
+\textbf{Attore primario:} Amministratore\\ \\
+\textbf{Attore secondario:} Nodo esterno\\ \\
+\textbf{Scopo e descrizione:} L'amministratore riceve una richiesta di connessione da un nodo \textbf{Actorbse} esterno. Deve fornire una risposta.\\ \\
+\textbf{Precondizione:} Il sistema locale deve essere in ascolto e in attesa di connessione, deve inoltre essere pronto a ricevere comandi.\\ \\
+\textbf{Flusso di eventi:}
+\begin{itemize}
+\item Conferma o rifiuta richiesta.\\ \\
+\end{itemize}
+\textbf{Postcondizione:} E' stata fornita una risposta alla richiesta ricevuta.
 \subsection{UC1.11: Visualizzazione errore}
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC1_11.jpeg}
+    \caption{Caso d'uso 1.11: Visualizzazione errore}
+  \end{center}
+\end{figure}
 \textbf{Attore primario:} Utente \\ \\
 \textbf{Scopo e descrizione:} L'utente ha inserito un comando errato o ha effettuato un operazione non permessa. Viene visualizzato un messaggio di errore esplicativo specifico, contestualizzato al caso di errore.\\ \\
 \textbf{Precondizione:} L'utente ha inserito un comando errato o ha provato ad effettuare un operazione non permessa.\\ \\
@@ -599,7 +703,13 @@ Modifica username e modifica password.\\ \\
 \item Viene visualizzato il messaggio di errore.
 \end{itemize}
 \textbf{Postcondzione:} Il sistema ha prodotto in output il messaggio di errore nel contesto, l'operazione che lo ha generato è stata annullata.
-\subsection{UC2: Driver}
+\subsection{UC2: Driver - Interazioni}
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC2.jpeg}
+    \caption{Caso d'uso 2: Driver interazioni}
+  \end{center}
+\end{figure}
 \textbf{Attori primari:} Utente non autenticato, Utente autenticato, Amministratore\\ \\
 \textbf{Scopo e descrizione:}
 L’utente ha appena avviato la \gloss{CLI}, risulta essere non autenticato, può quindi
