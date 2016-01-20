@@ -121,12 +121,21 @@ componenti del gruppo di \gloss{Amazon DynamoDB}, un database \gloss{key-value}
 sviluppato da \textit{Amazon}, utilizzato come modello di riferimento per lo
 sviluppo. I casi d'uso seguono le norme di stesura elencate nel documento \textit{Norme di Progetto}.% TODO link
 \subsection{UC1: Actorbase}
+<<<<<<< HEAD
 \begin{center}
   \begin{figure}[H]
     \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/InterazioniBasilari.jpeg}
     \caption{Caso d'uso 1: Interazioni basilari}
   \end{figure}
 \end{center}
+=======
+\begin{figure}[H]
+  \begin{center}
+  \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC1.jpeg}
+  \caption{Caso d'uso 1: Interazioni basilari}
+  \end{center}
+\end{figure}
+>>>>>>> ca4fd70f4f12ed64d96edcd32b11f4e402901490
 \textbf{Attori primari:} Utente non autenticato, Utente autenticato, Amministratore\\ \\
 \textbf{Scopo e descrizione:}
 L’utente ha appena avviato la \gloss{CLI}, risulta essere non autenticato, può quindi
@@ -141,7 +150,7 @@ autenticato. Le operazioni che può eseguire a login effettuato sono:
 \item Effettuare il logout.
 \end{itemize}
 Nel caso in cui si tratti di un amministratore, oltre alle operazioni elencate, può effettuare operazioni di gestione sugli utenti
-esistenti nel database.
+esistenti nel database.\\ \\
 \textbf{Precondizione:} Il database è installato correttamente, e il server è in ascolto.\\ \\
 \textbf{Flusso eventi:}
 \begin{itemize}
@@ -212,11 +221,12 @@ profilo registrato all'interno del programma. Deve registrare un nome utente e u
 \item UC1.3.1 Inserimento comando per richiesta aiuto generale;
 \item UC1.3.1 Inserimento comando per aiuto specifico.
 \end{itemize}
-\textbf{Postcondizione:} Il sistema ha risposto con l'aiuto richiesto in output.
-\subsection{UC1.6.1: Richiesta di aiuto generale}
+\textbf{Postcondizione:} Il sistema ha risposto producendo in output l'aiuto richiesto.
+\subsection{UC1.3.1: Richiesta di aiuto generale}
 \textbf{Attore primario:} Utente autenticato\\ \\
 \textbf{Scopo e descrizione:} L'utente intende richiedere aiuto generale sull'utilizzo del sistema \textbf{Actorbase}.\\ \\
 \textbf{Precondizione:} Il database è pronto a ricevere comandi e l'utente intende richiedere supporto.\\ \\
+\textbf{Flusso di eventi:}
 \begin{itemize}
 \item Inserimento comando per aiuto.
 \end{itemize}
@@ -290,22 +300,22 @@ aggiunta o rimozione collaboratori a collezione esistente.\\ \\
 \subsection{UC1.4.3: Cancellazione di una o più collezioni}
 \textbf{Attore primario:} Utente autenticato\\ \\
 \textbf{Scopo e descrizione:} L’utente intende cancellare una o più collezioni presenti nel database.\\ \\
-\textbf{Precodizione:} Il database è pronto a ricevere comandi e l’utente intende cancellare una o più collezioni\\ \\
+\textbf{Precodizione:} Il database è pronto a ricevere comandi e l’utente intende cancellare una o più collezioni.\\ \\
 \textbf{Flusso di eventi:}
 \begin{itemize}
-\item Inserimento di una o più nomi di collezioni da cancellare.
+\item Inserimento di uno o più nomi di collezioni da cancellare.
 \end{itemize}
 \textbf{Postcondizione:} Le collezioni sono state rimosse dal database.
 \subsection{UC1.4.4: Modifica nome collezione}
 \textbf{Attore primario:} Utente autenticato \\ \\
-\textbf{Scopo e descrizione:} L’utente intende modificare il nome di una collezione, deve inserire il nome della collezion da modificare e il nuovo nome da assegnare. \\ \\
-\textbf{Precondizione:} Il database è pronto a ricevere comandi e l’utente intende modificare il nome di una collezione\\ \\
+\textbf{Scopo e descrizione:} L’utente intende modificare il nome di una collezione, deve inserire il nome della collezione da modificare e il nuovo nome da assegnare. \\ \\
+\textbf{Precondizione:} Il database è pronto a ricevere comandi e l’utente intende modificare il nome di una collezione.\\ \\
 \textbf{Flusso di eventi:}
 \begin{itemize}
 \item Inserimento nome della collezione da modificare;
 \item Inserimento nuovo nome della collezione.
 \end{itemize}
-\textbf{Postcondizione:} Il nome della collezione è stato modificato
+\textbf{Postcondizione:} Il nome della collezione è stato modificato.
 \subsection{UC1.4.5: Aggiunta di un collaboratore a propria collezione}
 \textbf{Attore primario:} Utente autenticato\\ \\
 \textbf{Scopo e descrizione:} L'utente intende aggiungere un collaboratore ad una collezione di sua proprietà. Deve inserire il nome della collezione e lo username dell'utente da aggiungere.\\ \\
@@ -399,6 +409,7 @@ eventuali chiavi già presenti all'interno della collezione\\ \\
 \item Inserimento nome collezione;
 \item Inserimento chiave.
 \end{itemize}
+\textbf{Postcondizione:} L'operazione di cancellazione di un item è andata a buon fine.
 \subsection{UC1.6: Ricerca generale}
 \textbf{Attore primario:} Utente autenticato \\ \\
 \textbf{Scopo e descrizione:} L’utente intende effettuare una ricerca, può decidere se effettuare la ricerca a livello globale nella base di dati o solo su una lista di collezioni scelte.\\ \\
@@ -549,26 +560,37 @@ Modifica username e modifica password.\\ \\
 \textbf{Precondizione:} L'utente ha inserito un comando errato.\\ \\
 \textbf{Flusso di eventi:}
 \begin{itemize}
-\item Inserimento comando errato.
+\item Il sistema non riconosce il comando inserito;
+\item Non viene fatta nessuna operazione;
+\item Viene visualizzato il messaggio di errore.
 \end{itemize}
-\textbf{Postcondzione:} Il sistema ha prodotto in output il messaggio di errore, l'operazione che lo ha generato è stata annullata.
+\textbf{Postcondizione:} Il sistema ha prodotto in output il messaggio di errore, l'operazione che lo ha generato è stata annullata.
 \subsection{UC1.10.2: Errore di timeout}
 \textbf{Attore primario:} Utente \\ \\
 \textbf{Scopo e descrizione:} L'utente ha inserito un comando, il tempo di risposta da parte del sistema ha superato una soglia prefissata.\\ \\
 \textbf{Precondizione:} L'operazione richiesta dall'utente sta richiedendo un tempo di risposta troppo elevato.\\ \\
 \textbf{Flusso di eventi:}
 \begin{itemize}
-\item Inserimento comando.
+\item L'operazione supera il tempo di timeout;
+\item L'operazione viene annullata;
+\item Viene visualizzato il messaggio di errore di timeout.
 \end{itemize}
+<<<<<<< HEAD
 \textbf{Postcondzione:} Il sistema ha prodotto in output il messaggio di errore, l'operazione che lo ha generato è stata annullata.
+=======
+\textbf{Postcondizione:} Il sistema ha prodotto in output il messaggio di errore, l'operazione che lo ha generato è stata annullata.
+>>>>>>> ca4fd70f4f12ed64d96edcd32b11f4e402901490
 \subsection{UC1.10.3: Errore di contesto}
 \textbf{Attore primario:} Utente \\ \\
 \textbf{Scopo e descrizione:} L'utente ha tentato un operazione non permessa o impossibile da soddisfare.\\ \\
 \textbf{Precondizione:} L'utente ha tentato un operazione non permessa o impossibile da soddisfare.\\ \\
 \textbf{Flusso di eventi:}
 \begin{itemize}
-\item Inserimento comando.
+\item Il sistema riconosce che il comando inserito non è consentito;
+\item L'operazione viene annullata;
+\item Viene visualizzato il messaggio di errore.
 \end{itemize}
+<<<<<<< HEAD
 \textbf{Postcondzione:} Il sistema ha prodotto in output il messaggio di errore nel contesto, l'operazione che lo ha generato è stata annullata.
 
 \subsection{Requisiti funzionali}
@@ -611,4 +633,7 @@ miniotta & \multiLineCell[t]{RF0.21\\sadasd\\}\\
 \hline
 \end{tabular}
 \end{longtable}
+=======
+\textbf{Postcondizione:} Il sistema ha prodotto in output il messaggio di errore nel contesto, l'operazione che lo ha generato è stata annullata.
+>>>>>>> ca4fd70f4f12ed64d96edcd32b11f4e402901490
 \end{document}
