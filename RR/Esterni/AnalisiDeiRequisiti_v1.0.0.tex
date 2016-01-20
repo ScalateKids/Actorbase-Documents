@@ -1,6 +1,6 @@
 \documentclass{scalatekids-article}
 \begin{document}
-\lfoot{Analisi dei Requisiti 0.0.1}
+\lfoot{Analisi dei Requisiti 1.0.0}
 \newgeometry{top=3.5cm}
 \begin{titlepage}
   \begin{center}
@@ -22,7 +22,7 @@
       \setbox0=\hbox{0.0.1\unskip}\ifdim\wd0=0pt
       \\
       \else
-      \textbf{Versione} & 0.0.3\\
+      \textbf{Versione} & 1.0.0\\
       \fi
       \textbf{Redazione} & \multiLineCell[t]{Redattore}\\
       \textbf{Verifica} & \multiLineCell[t]{Verificatore}\\
@@ -64,23 +64,22 @@ interne ed esterne con il proponente.
 \subsubsection{Normativi}
 \begin{itemize}
 \item\textbf{Capitolato d'appalto C1:} \textit{Actorbase: a NoSQL DB based on the Actor model}\\
-  \url{http://www.math.unipd.it/~tullio/IS-1/2015/Progetto/C1.pdf}
-\item\textbf{Verbale esterno:} % TODO link
-\item\textbf{Norme di Progetto:} % TODO link
+  \url{http://www.math.unipd.it/~tullio/IS-1/2015/Progetto/C1.pdf};
+\item\textbf{Verbale esterno 2016-01-12:} \href{run:./VerbaleEsterno20160112\_v1.0.0.pdf}{Verbale esterno 2016-01-12 v1.0.0};
+\item\textbf{Verbale esterno 2016-01-19:} \href{run:./VerbaleEsterno20160119\_v1.0.0.pdf}{Verbale esterno 2016-01-19 v1.0.0};
+\item\textbf{Norme di Progetto:} \href{run:../Interni/NormeDiProgetto\_v1.0.0.pdf}{Norme di Progetto v1.0.0}.
 \end{itemize}
 \subsubsection{Informativi}
 \begin{itemize}
 \item\textbf{Dispense fornite dall'insegnamento Ingegneria del Software mod. A:}\\
-  \url{http://www.math.unipd.it/~tullio/IS-1/2015/Dispense/L06.pdf}
-\item\textbf{Dispense fornite dall'insegnamento Ingegneria del Software mod. A:}\\
-  \url{http://www.math.unipd.it/~tullio/IS-1/2015/Dispense/E02.pdf}
+  \url{http://www.math.unipd.it/~tullio/IS-1/2015/};
 \item\textbf{CAP theorem:}\\ % TODO: da inserire?
-  \url{https://en.wikipedia.org/wiki/CAP_theorem}
+  \url{https://en.wikipedia.org/wiki/CAP_theorem};
 \item\textbf{Reactive Manifesto:}
   \url{http://www.reactivemanifesto.org/}
-  \url{https://en.wikipedia.org/wiki/Reactive_programming}
+  \url{https://en.wikipedia.org/wiki/Reactive_programming};
 \item\textbf{Amazon DynamoDB:}
-  \url{http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Introduction.html}
+  \url{http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Introduction.html}.
 \end{itemize}
 \section{Descrizione generale}
 \subsection{Prospettive del prodotto}
@@ -119,7 +118,7 @@ ardware o software.
 Le aspettative di esperienza utente derivano dall'utilizzo da parte dei
 componenti del gruppo di \gloss{Amazon DynamoDB}, un database \gloss{key-value}
 sviluppato da \textit{Amazon}, utilizzato come modello di riferimento per lo
-sviluppo. I casi d'uso seguono le norme di stesura elencate nel documento \textit{Norme di Progetto}.% TODO link
+sviluppo. I casi d'uso seguono le norme di stesura elencate nel documento \href{run:../Interni/NormeDiProgetto\_v1.0.0.pdf}{Norme di Progetto v1.0.0}.
 \subsection{UC1: Actorbase}
 \begin{figure}[H]
   \begin{center}
