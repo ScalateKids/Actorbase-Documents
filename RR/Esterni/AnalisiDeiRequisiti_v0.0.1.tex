@@ -121,10 +121,12 @@ componenti del gruppo di \gloss{Amazon DynamoDB}, un database \gloss{key-value}
 sviluppato da \textit{Amazon}, utilizzato come modello di riferimento per lo
 sviluppo. I casi d'uso seguono le norme di stesura elencate nel documento \textit{Norme di Progetto}.% TODO link
 \subsection{UC1: Actorbase}
-\begin{figure}[H]
-  \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/InterazioniBasilari.jpeg}
-  \caption{Caso d'uso 1: Interazioni basilari}
-\end{figure}
+\begin{center}
+  \begin{figure}[H]
+    \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/InterazioniBasilari.jpeg}
+    \caption{Caso d'uso 1: Interazioni basilari}
+  \end{figure}
+\end{center}
 \textbf{Attori primari:} Utente non autenticato, Utente autenticato, Amministratore\\ \\
 \textbf{Scopo e descrizione:}
 L’utente ha appena avviato la \gloss{CLI}, risulta essere non autenticato, può quindi
@@ -559,7 +561,7 @@ Modifica username e modifica password.\\ \\
 \item Inserimento comando.
 \end{itemize}
 \textbf{Postcondzione:} Il sistema ha prodotto in output il messaggio di errore, l'operazione che lo ha generato è stata annullata.
-\subsection{UC1.10.2: Errore di contesto}
+\subsection{UC1.10.3: Errore di contesto}
 \textbf{Attore primario:} Utente \\ \\
 \textbf{Scopo e descrizione:} L'utente ha tentato un operazione non permessa o impossibile da soddisfare.\\ \\
 \textbf{Precondizione:} L'utente ha tentato un operazione non permessa o impossibile da soddisfare.\\ \\
@@ -568,4 +570,45 @@ Modifica username e modifica password.\\ \\
 \item Inserimento comando.
 \end{itemize}
 \textbf{Postcondzione:} Il sistema ha prodotto in output il messaggio di errore nel contesto, l'operazione che lo ha generato è stata annullata.
+
+\subsection{Requisiti funzionali}
+\begin{longtable}[H]
+\centering
+\caption{Tabella requisiti funzionali}
+\begin{tabular}{|c|c|c|c|}
+\hline
+\textbf{Requisito} & \textbf{Tipologia} & \textbf{Descrizione} & \textbf{Fonti}\\
+\hline
+RF0.21 & \multiLineCell{Tecnologico\\Desiderabile} & y & \multiLineCell{Capitolato\\miniotta\\}\\
+\hline
+\end{longtable}sadasd & \multiLineCell{Funzionale\\Obbligatorio} & dsa & \multiLineCell{Capitolato\\miniotta\\}\\
+\hline
+\end{longtable}\subsection{Tracciamento Requisiti-Fonti}
+\begin{longtable}[H]
+\centering
+\caption{Tabella Requisiti-Fonti}
+\begin{tabular}{|c|c|}
+\hline
+\textbf{Requisito} & \textbf{Fonti}\\
+\hline
+RF0.21 & \multiLineCell[t]{Capitolato\\miniotta\\}\\
+\hline
+sadasd & \multiLineCell[t]{Capitolato\\miniotta\\}\\
+\hline
+\end{tabular}
+\end{longtable}
+\subsection{Tracciamento Fonti-Requisiti}
+\begin{longtable}[H]
+\centering
+\caption{Tabella Fonti-Requisiti}
+\begin{tabular}{|c|c|}
+\hline
+\textbf{Fonte} & \textbf{Requisiti}\\
+\hline
+Capitolato & \multiLineCell[t]{RF0.21\\sadasd\\}\\
+\hline
+miniotta & \multiLineCell[t]{RF0.21\\sadasd\\}\\
+\hline
+\end{tabular}
+\end{longtable}
 \end{document}

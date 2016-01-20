@@ -24,6 +24,7 @@
 \usepackage{xspace}
 \usepackage{listings}
 \usepackage[table]{xcolor}
+\usepackage{longtable}
 \usepackage{changes}
 \usepackage{amsmath}
 \usepackage{graphicx}
