@@ -155,10 +155,6 @@ esistenti nel database.
 \end{itemize}
 \textbf{Postcondizione:} Il sistema ha prodotto l'output corrispondente al comando immesso dall'utente.
 \subsection{UC1.1: Registrazione}
-\begin{figure}[H]
-  \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC1_1.jpeg}
-  \caption{Caso d'uso 1.1: Registrazione}
-\end{figure}
 \textbf{Attore primario:} Utente non autenticato\\ \\
 \textbf{Scopo e descrizione:} L'utente intende accedere al sistema \textbf{Actorbase}. Per farlo necessita di un
 profilo registrato all'interno del programma. Deve registrare un nome utente e una password.\\ \\
@@ -375,10 +371,6 @@ eventuali chiavi già presenti all'interno della collezione\\ \\
 \item Inserimento chiave.
 \end{itemize}
 \subsection{UC1.5: Ricerca generale}
-\begin{figure}[H]
-  \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC1_1_5.jpeg}
-  \caption{Caso d'uso 1.5: Ricerca generale}
-\end{figure}
 \textbf{Attore primario:} Utente \\ \\
 \textbf{Scopo e descrizione:} L’utente intende effettuare una ricerca, può decidere se effettuare la ricerca a livello globale nella base di dati o solo su una lista di collezioni scelte.\\ \\
 \textbf{Precondizione:} Il database è pronto a ricevere comandi e l’utente intende effettuare una ricerca\\ \\
@@ -387,6 +379,7 @@ eventuali chiavi già presenti all'interno della collezione\\ \\
 \item UC1.5.1 Ricerca sull'intera base di dati;
 \item UC1.5.2 Ricerca su una o più collezioni.
 \end{itemize}
+\begin{itemize}
 \item Nel caso in cui l'utente utilizzi un comando sconosciuto:
   \begin{itemize}
   \item viene visualizzato un messaggio di errore esplicativo (e rimando all'aiuto);
