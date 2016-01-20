@@ -74,7 +74,7 @@
   \begin{itemize}
   \item Andrea Giacomo Baldan
   \item Alberto De Agostini
-  \item Francesco Agostini
+  \item Davide Trevisan
   \item Giacomo Vanin
   \item Marco Boseggia
   \item Michael Munaro
@@ -88,26 +88,26 @@
 In questo capitolo sono elencate le domande fatte dal gruppo \textit{ScalateKids} in grassetto e le risposte del proponente \textit{Riccardo Cardin} in corsivo.
 \textbf{\\ \\E' necessario fornire un sistema di autenticazione per il database?}
 \begin{quote}
-  \textit{Nel capitolato non è espressamente scritto ma è una feature che però hanno tutti i database.\\ \\}
+  \textit{Quando ci si connette a un database è ragionevole fornire una serie di credenziali. Nel capitolato non è espressamente scritto ma è una caratteristica che hanno tutti i database quindi è fortemente consigliato.\\ \\}
 \end{quote}
 \textbf{Il prodotto finale sarà un client e server allo stesso tempo in modo da garantire scalabilità orizzontale?}
 \begin{quote}
-  \textit{Il prodotto finale sarà un'applicazione distribuita ma saranno tutti peer, cioè parti che interoperano tra di loro per dare a un client finale il risultato di un'operazione.\\ \\}
+  \textit{Il prodotto finale sarà un'applicazione distribuita ma saranno tutti \gloss{peer}, cioè parti che interoperano tra di loro per dare a un client finale il risultato di un'operazione.\\ \\}
 \end{quote}
 \textbf{E' ragionevole quindi che con il prodotto finale forniamo un eseguibile con due istanze, una per la modalità server e una per la modalità client?}
 \begin{quote}
-  \textit{Dovrà esserci un eseguibile che sarà il server che avrà vari componenti e l'interfaccia riga di comando che sarà la parte client.\\ \\}
+  \textit{Dovrà esserci un eseguibile che avrà due componenti: il server e l'interfaccia da riga di comando. Quest'ultima sarà il vostro client.}
 \end{quote}
 \textbf{Nei casi d'uso come dovrà essere rappresentata l'interazione tra i vari "server" e il client?}
 \begin{quote}
   \textit{Dovranno essere rappresentati come attori secondari.\\ \\}
 \end{quote}
-\textbf{Quanto dovranno andare nel dettaglio i casi d'uso? Dovrà esserci la shell che parla con il DBMS,il DBMS che parla con la base di dati effettiva?}
+\textbf{Quanto dovranno andare nel dettaglio i casi d'uso? Dovrà esserci la shell che parla con il \gloss{DBMS},il \gloss{DBMS} che parla con la base di dati effettiva?}
 \begin{quote}
-  \textit{Basterà considerarlo come un'unico blocco. Dovrete però chiarire il funzionamento nella parte architetturale.\\ \\}
+  \textit{Basterà considerarlo come un'unico blocco. Per questa fase è sufficiente fermarsi a un livello di dettaglio in cui avete i casi d'uso riguardanti la shell e il driver. Dovrete inoltre differenziare gli errori possibili. Potrebbe succedere, ad esempio, che il sistema vada in timeout. Pensate bene alle operazioni che volete fornire al vostro database. La definizione di \gloss{DBMS} tuttavia è a livello architetturale ed esula dall'ambito dei casi d'uso attuali, quindi ci penserete meglio durante le attività architetturali.\\ \\}
 \end{quote}
-\textbf{Abbiamo visto il funzionamento di Amazon Dynamo per prendere spunto; Dobbiamo puntare a qualcosa del genere? Cioè dobbiamo avere un key-schema per ogni collection?}
+\textbf{Abbiamo visto il funzionamento di Amazon Dynamo per prendere spunto. Dobbiamo puntare a qualcosa del genere? Cioè dobbiamo avere uno schema per ogni chiave o diamo per scontato che sia una stringa?}
 \begin{quote}
-  \textit{Scegliete voi il modello da seguire. L'importante è che il sistema funzioni. Ovviamente fare una copia di un sistema già esistente sarebbe poco sfidante, non sarebbe un'opportunità.}
+  \textit{Scegliete voi il modello da seguire in base alle vostre esigenze. L'importante è che il sistema funzioni. Ovviamente fare una copia di un sistema già esistente sarebbe poco sfidante, non sarebbe un'opportunità.}
 \end{quote}
 \end{document}
