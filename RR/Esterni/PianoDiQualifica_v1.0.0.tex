@@ -62,7 +62,24 @@ Il seguente documento ha lo scopo di delineare le strategie che il gruppo \texti
 \prodPurpose
 \glossExpl
 \subsection{Riferimenti}
-%TODO
+\subsubsection{Normativi}
+\begin{itemize}
+\item\textbf{Capitolato d'appalto C1:} \textit{Actorbase: a NoSQL DB based on the Actor model;}\\
+  \url{http://www.math.unipd.it/~tullio/IS-1/2015/Progetto/C1.pdf}
+\item\textbf{Norme di Progetto:} \href{run:../Interni/NormeDiProgetto\_v1.0.0.pdf}{Norme di Progetto v1.0.0.}
+\end{itemize}
+\subsubsection{Informativi}
+\begin{itemize}
+\item\textbf{Piano di Progetto:} \href{run:./PianoDiProgetto\_v1.0.0.pdf}{Piano di Progetto v1.0.0}
+\item\textbf{Dispense fornite dall'insegnamento Ingegneria del Software mod. A:}\\
+  \url{http://www.math.unipd.it/~tullio/IS-1/2015/}
+\item\textbf{Standard \gloss{ISO}/\gloss{IEC} 15504:}\\
+\url{https://en.wikipedia.org/wiki/ISO/IEC_15504}
+\item\textbf{Standard \gloss{ISO}/\gloss{IEC} 9126:}\\
+\url{https://it.wikipedia.org/wiki/ISO/IEC_9126}
+\item\textbf{\gloss{Ciclo di Deming}:}\\
+\url{https://en.wikipedia.org/wiki/PDCA}
+\end{itemize}
 \newpage
 \section{Visione generale della strategia di verifica}
 \subsection{Definizione obiettivi}
@@ -71,7 +88,7 @@ Per perseguire la qualità del prodotto è necessario garantire la qualità dei 
 \subsubsection{Qualità di prodotto}
 I \textit{Verificatori} con approvazione del \textit{Responsabile} hanno deciso di seguire lo standard \gloss{ISO}/\gloss{IEC} 9126\footnote[3]{Per approfondimenti consultare la sezione \ref{sec:ISO/IEC9126}.} che ha lo scopo di delineare delle metriche per la misurazione della qualità di prodotto. Questa è fondamentale per garantire che il prodotto \gloss{software} finale funzioni correttamente e rispetti degli obiettivi di qualità prefissati.
 \subsection{Procedure di controllo di qualità di processo}
-La qualità dei processi è assicurata dall'applicazione del ciclo \gloss{PDCA} a ogni processo. Tale metodo consente di migliorare continuamente ogni processo coinvolto nell’attività di sviluppo. Per applicare correttamente il ciclo \gloss{PDCA} è necessario avere una pianificazione di processi e risorse dettagliata. La descrizione dettagliata della pianificazione si trova nel \href{run:./PianoDiProgetto\_v1.0.0.pdf}{Piano Di Progetto v1.0.0}.\\
+La qualità dei processi è assicurata dall'applicazione del ciclo \gloss{PDCA} a ogni processo. Tale metodo consente di migliorare continuamente ogni processo coinvolto nell’attività di sviluppo. Per applicare correttamente il ciclo \gloss{PDCA} è necessario avere una pianificazione di processi e risorse dettagliata. La descrizione dettagliata della pianificazione si trova nel \href{run:./PianoDiProgetto\_v1.0.0.pdf}{Piano di Progetto v1.0.0}.\\
 \subsection{Procedure di controllo di qualità di prodotto}
 Il controllo di qualità del prodotto si suddividerà in tre parti:
 \begin{itemize}
@@ -81,17 +98,17 @@ Il controllo di qualità del prodotto si suddividerà in tre parti:
 \end{itemize}
 \subsection{Organizzazione}
 Per garantire la qualità del prodotto finale verranno effettuate attività di verifica su ogni processo attuato. I controlli su ogni processo avranno come obiettivo garantire la qualità sia del processo stesso sia dell'eventuale prodotto da esso ricavato.\\
-Ogni fase descritta in \href{run:./PianoDiProgetto\_v1.0.0.pdf}{Piano Di Progetto v1.0.0} necessità di attività di verifica diverse a causa della differenza natura del loro output. Di seguito sono elencate le strategie di verifica usate per ciascuna fase:
+Ogni fase descritta in \href{run:./PianoDiProgetto\_v1.0.0.pdf}{Piano di Progetto v1.0.0} necessità di attività di verifica diverse a causa della differenza natura del loro output. Di seguito sono elencate le strategie di verifica usate per ciascuna fase:
 \begin{itemize}
-\item\textbf{Analisi:} durante questa fase verrà verificato che ogni documento creato sia conforme a quanto descritto nel documento \href{run:../Interni/NormeDiProgetto\_v1.0.0.pdf}{Norme Di Progetto v1.0.0}, inoltre sarà necessario controllare che ogni requisito sia associato a un caso d'uso e viceversa;
-\item\textbf{Progettazione:} durante questa fase l'attività di verifica si concentrerà sul processo incrementale dei documenti prodotti in fase di Analisi e sui processi attuati per l'attività di progettazione assicurandosi che ogni documento e ogni processo sia conforme a quanto descritto nelle \href{run:../Interni/NormeDiProgetto\_v1.0.0.pdf}{Norme Di Progetto v1.0.0};
-\item\textbf{Codifica:}durante questa fase l'attività di verifica si concentrerà sul processo incrementale dei documenti prodotti in fase di Analisi e sui processi attuati per l'attività di codifica assicurandosi che ogni documento e ogni processo sia conforme a quanto descritto nelle \href{run:../Interni/NormeDiProgetto\_v1.0.0.pdf}{Norme Di Progetto v1.0.0}.
+\item\textbf{Analisi:} durante questa fase verrà verificato che ogni documento creato sia conforme a quanto descritto nel documento \href{run:../Interni/NormeDiProgetto\_v1.0.0.pdf}{Norme di Progetto v1.0.0}, inoltre sarà necessario controllare che ogni requisito sia associato a un caso d'uso e viceversa;
+\item\textbf{Progettazione:} durante questa fase l'attività di verifica si concentrerà sul processo incrementale dei documenti prodotti in fase di Analisi e sui processi attuati per l'attività di progettazione assicurandosi che ogni documento e ogni processo sia conforme a quanto descritto nelle \href{run:../Interni/NormeDiProgetto\_v1.0.0.pdf}{Norme di Progetto v1.0.0};
+\item\textbf{Codifica:}durante questa fase l'attività di verifica si concentrerà sul processo incrementale dei documenti prodotti in fase di Analisi e sui processi attuati per l'attività di codifica assicurandosi che ogni documento e ogni processo sia conforme a quanto descritto nelle \href{run:../Interni/NormeDiProgetto\_v1.0.0.pdf}{Norme di Progetto v1.0.0}.
 \end{itemize}
 In ogni documento viene inoltre tenuto un diario delle modifiche per permettere di mantenere uno storico delle attività svolte su di esso e delle responsabilità per ogni attività.
 \subsection{Pianificazione strategica e temporale}
 L'attività di redazione di ogni documento sarà sempre anticipata da uno studio sulla struttura e sui contenuti del documento interessato. In questo modo si riduce la possibilità di errori concettuali e il tempo effettivo di scrittura del documento viene ridotto.\\
-Il processo di verifica deve essere ben organizzato e pianificato per rispettare le scadenze fissate nel \href{run:./PianoDiProgetto\_v1.0.0.pdf}{Piano Di Progetto v1.0.0}.\\
-L'attività di verifica segue le metodologie descritte nelle \href{run:../Interni/NormeDiProgetto\_v1.0.0.pdf}{Norme Di Progetto v1.0.0}. Esse sono state pensate in maniera tale da consentire l'individuazione e la correzione degli errori il più presto possibile evitando che si diffondano.
+Il processo di verifica deve essere ben organizzato e pianificato per rispettare le scadenze fissate nel \href{run:./PianoDiProgetto\_v1.0.0.pdf}{Piano di Progetto v1.0.0}.\\
+L'attività di verifica segue le metodologie descritte nelle \href{run:../Interni/NormeDiProgetto\_v1.0.0.pdf}{Norme di Progetto v1.0.0}. Esse sono state pensate in maniera tale da consentire l'individuazione e la correzione degli errori il più presto possibile evitando che si diffondano.
 %TODO
 \subsection{Responsabilità}
 Per organizzare al meglio il lavoro e in particolare le \gloss{attività} di verifica e validazione vengono assegnati questi compiti ai soli \textit{Verificatori} e al \textit{Responsabile}. Inoltre le \gloss{attività} di verifica non potranno essere svolte da un membro che ha partecipato allo sviluppo di tale sezione per garantire assenza di conflitto di interessi (vedi norme.
@@ -100,7 +117,7 @@ Per organizzare al meglio il lavoro e in particolare le \gloss{attività} di ver
 \subsubsection{Analisi statica}
 L'analisi statica è una tencica atta a trovare errori e anomalie. Questa tecnica è applicabile sia alla documentazione sia al codice.
 \paragraph{Walkthrough}
-\label{sec:walkthrough}Come descritto nelle \textit{\href{run:../Interni/NormeDiProgetto_v1.0.0.pdf}{Norme Di Progetto v1.0.0}} verrà effettuata tecnica walkthrough nelle fasi iniziali di ogni \gloss{attività} per passare il prima possibile a \gloss{attività} di \textit{Inspection} (paragrafo seguente).
+\label{sec:walkthrough}Come descritto nelle \textit{\href{run:../Interni/NormeDiProgetto_v1.0.0.pdf}{Norme di Progetto v1.0.0}} verrà effettuata tecnica walkthrough nelle fasi iniziali di ogni \gloss{attività} per passare il prima possibile a \gloss{attività} di \textit{Inspection} (paragrafo seguente).
 %TODO: linkiamo la lista di controllo?
 \paragraph{Inspection}
 \label{sec:inspection}Successivamente all'\gloss{attività} di \ref{sec:walkthrough}{Walthrough} verrà fatta \gloss{attività} di inspection (seguendo \textit{Norme di Progetto} (paragrafo precedente)) rispetto alla lista di controllo ottenuta in precedenza.
