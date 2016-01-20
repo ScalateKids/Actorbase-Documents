@@ -517,7 +517,7 @@ Modifica username e modifica password.\\ \\
 \textbf{Postcondizione:} L'operazione di gestione richiesta è andata a buon fine.
 \subsection{UC1.9.1: Aggiunta nuovo utente}
 \textbf{Attore primario:} Amministratore\\ \\
-\textbf{Scopo e descrizione:} L'amministratore intende aggiungere un nuovo utente al sistema \textbf{Actorbase}.
+\textbf{Scopo e descrizione:} L'amministratore intende aggiungere un nuovo utente al sistema \textbf{Actorbase}.\\ \\
 \textbf{Precondizione:} Il database è pronto a ricevere comandi e l'amministratore intende aggiungere un nuovo utente al sistema.\\ \\
 \textbf{Flusso di eventi:}
 \begin{itemize}
@@ -527,7 +527,7 @@ Modifica username e modifica password.\\ \\
 \textbf{Postcondizione:} Il nuovo utente designato per l'aggiunta è presente all'interno del sistema \textbf{Actorbase}.
 \subsection{UC1.9.1: Rimozione utente esistente}
 \textbf{Attore primario:} Amministratore\\ \\
-\textbf{Scopo e descrizione:} L'amministratore intende rimuovere un utente esistente dal sistema \textbf{Actorbase}.
+\textbf{Scopo e descrizione:} L'amministratore intende rimuovere un utente esistente dal sistema \textbf{Actorbase}.\\ \\
 \textbf{Precondizione:} Il database è pronto a ricevere comandi e l'amministratore intende rimuovere un utente esistente dal sistema.\\ \\
 \textbf{Flusso di eventi:}
 \begin{itemize}
@@ -578,4 +578,32 @@ Modifica username e modifica password.\\ \\
 \item Viene visualizzato il messaggio di errore.
 \end{itemize}
 \textbf{Postcondzione:} Il sistema ha prodotto in output il messaggio di errore nel contesto, l'operazione che lo ha generato è stata annullata.
+\subsection{UC2: Driver}
+\textbf{Attori primari:} Utente non autenticato, Utente autenticato, Amministratore\\ \\
+\textbf{Scopo e descrizione:}
+L’utente ha appena avviato la \gloss{CLI}, risulta essere non autenticato, può quindi
+registrarsi, oppure, se è già registrato, può effettuare il login diventando utente
+autenticato. Le operazioni che può eseguire a login effettuato sono:
+\begin{itemize}
+\item Gestire il proprio \gloss{account};
+\item Operazioni sulle collezioni;
+\item Operazioni sugli \gloss{item};
+\item Ricerca;
+\item Effettuare il logout.
+\end{itemize}
+Nel caso in cui si tratti di un amministratore, oltre alle operazioni elencate, può effettuare operazioni di gestione sugli utenti
+esistenti nel database.\\ \\
+\textbf{Precondizione:} Il database è installato correttamente, e il server è in ascolto.\\ \\
+\textbf{Flusso eventi:}
+\begin{itemize}
+\item UC2.1 Login;
+\item UC2.2 Operazioni sulle collezione;
+\item UC2.3 Operazioni sugli \gloss{item};
+\item UC2.4 Ricerca;
+\item UC2.5 Gestione account;
+\item UC2.6 Effettuare il logout;
+\item UC2.7 Gestione utenti.
+\end{itemize}
+\textbf{Postcondizione:} Il sistema ha prodotto l'output corrispondente al comando immesso dall'utente.\\ \\
+I sottocasi d'uso derivati da UC2 sono pari agli omonimi del caso d'uso UC1. Per evitare una ridondanza in questo documento si è scelto quindi di non scendere più in dettaglio nell'analisi di questo caso d'uso.
 \end{document}
