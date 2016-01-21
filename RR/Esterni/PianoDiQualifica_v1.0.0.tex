@@ -144,6 +144,7 @@ Per rendere quantificabile il processo di verifica verranno usate delle metriche
 \subsubsection{Metriche per i documenti}
 Per la stesura dei documenti è stato scelto di utilizzare un \textit{indice di leggibilità} per la lingua italiana.
 \paragraph{Indice Gulpease}
+\label{par:metricheGulpease}
 Questo indice indica il grado di leggibilità di un documento.\\L'indice di Gulpease prende in considerazione principalmente tre variabili:
 \begin{itemize}
 \item Numero delle frasi;
@@ -325,4 +326,37 @@ Non potendo testare la qualità in uso nell'ambito di questo progetto si è scel
 \newpage
 \section{Resoconto attività di verifica}
 \label{sec:resAttivitaVerifica}
+\subsection{Documenti}
+Nella tabella di seguito sono riportati i valori degli indici di Gulpease per ogni documento prodotto durante l'attività di Analisi. L'esito della verifica dipenderà dal valore di questo indice come descritto nella sezione \ref{par:metricheGulpease}.
+\begin{center}
+  \begin{tabular}{| c | c | c |}
+    \hline
+    Documento & Valore indice & Esito\\
+    \hline
+    \textit{Studio di Fattibilità v1.0.0} & 54.18 & Superato\\
+    \textit{Norme di Progetto v1.0.0} & 52.04 & Superato\\
+    \textit{Piano di Progetto v1.0.0} & 54.87 & Superato\\
+    \textit{Piano di Qualifica v1.0.0} & 52.82 & Superato\\
+    \textit{Analisi dei Requisiti v1.0.0} & 68.06 & Superato\\
+    \textit{Glossario v1.0.0} & 47.42 & Superato\\
+    \hline
+  \end{tabular}
+\end{center}
+\newpage
+\section{Pianificazione dei test}
+Di seguito sono descritti i test di sistema. In futuro questa sezione verrà aggiornata con i test di integrazione e di unità.
+\subsection{Test di sistema}
+I test di sistema permettono di verificare il comportamento del sistema rispetto ai requisiti descritti nell'\href{run:./AnalisiDeiRequisiti\_v1.0.0.pdf}{Analisi dei requisiti v1.0.0}.\\
+La tabella seguente descrive i test dei requisiti ritenuti meritevoli di verifica. \\
+La colonna "Stato" nella tabella è lasciata vuota in quanto i test saranno effettuati successivamente.
+%TODO completare tabella bella
+\begin{center}
+  \begin{tabular}{| c | l | l | c |}
+    \hline
+    Test & Descrizione & Stato & Requisito\\
+    \hline
+    Tcodreq & descreq &  & codreq\\
+    \hline
+  \end{tabular}
+\end{center}
 \end{document}
