@@ -65,6 +65,7 @@
 \end{center}
 \tableofcontents
 \newpage
+\pagenumbering{arabic}
 \section{Sommario}
 \subsection{Scopo del documento}
 Il seguente documento ha lo scopo di specificare il piano con cui il gruppo \textit{ScalateKids} lavorerà sul progetto \textbf{Actorbase}.
@@ -77,6 +78,16 @@ Nel documento verranno specificati:
 \end{itemize}
 \prodPurpose
 \glossExpl
+\subsection{Riferimenti}
+\subsubsection{Normativi}
+\begin{itemize}
+	\item \textbf{Norme di Progetto:} \href{run:../Interni/NormeDiProgetto\_v1.0.0.pdf}{Norme Di Progetto v1.0.0.}
+	\item \textbf{Capitolato d'appalto:} Actorbase \url{http://www.math.unipd.it/~tullio/IS-1/2015/Progetto/C2.pdf}.
+\end{itemize}
+\subsubsection{Informativi}
+\begin{itemize}
+	\item \textbf{Diagrammi di gantt:} \url{https://it.wikipedia.org/wiki/Diagramma_di_Gantt}.
+\end{itemize}
 \section{Scelta del modello di ciclo di vita}
 Per lo sviluppo del progetto \textbf{Actorbase} il gruppo ha scelto di applicare
 ai processi il modello incrementale. Questa scelta è dovuta alle seguenti
@@ -125,6 +136,7 @@ per la conclusione del progetto. Le categorie prese in considerazione sono:
 \item\textbf{Logistica}
 \item\textbf{Competenza tecnica}
 \item\textbf{Infrastruttura}
+\item\textbf{Organizzativi}
 \end{itemize}
 \subsubsection{Parametri di quantificazione dei rischi}
 Per ogni possibile rischio previsto l'analisi ha fornito i seguenti parametri:
@@ -225,6 +237,21 @@ preimpostata per l'utilizzo delle tecnologie inerenti al progetto per l' attivit
 \textbf{Descrizione}: Buona parte del lavoro poggia su server privato gestito dall'\textit{Amministratore} su direttive dal \textit{Responsabile},
 questo garantisce un buon grado di controllo, ma allo stesso tempo espone a maggiori rischi legati alla natura "personalizzata" dell'ambiente di lavoro.
 \textbf{Contromisure di mitigazione}: Verranno eseguiti dei backup automatici schedulati con periodicità fissa.
+\paragraph{Analisi dei Requisiti}
+\textbf{Categoria}: Competenza tecnica\\
+\textbf{Probabilità}: Alta\\
+\textbf{Impatto}: Forte\\
+\textbf{Descrizione}: La forte inesperienza del gruppo può portare ad una analisi dei requisiti superficiale o addirittura errata. Questo avrebbe un impatto molto negativo sul progetto.\\Una stesura di requisiti superficiale potrebbe inoltre portare ad una accettazione di requisiti opzionali maggiore di ciò che il gruppo riuscirà a produrre.
+\paragraph{Stime di attività}
+\textbf{Categoria}: Competenza tecnica\\
+\textbf{Probabilità}: Media\\
+\textbf{Impatto}: Forte\\
+\textbf{Descrizione}: Una cattivà stima delle attività per inesperienza dei membri del gruppo potrebbe portare a forti ritardi rispetto al piano stabilito.
+\paragraph{Dissensi tra componenti}
+\textbf{Categoria}: Organizzativa\\
+\textbf{Probabilità}: Debole\\
+\textbf{Impatto}: Debole\\
+\textbf{Descrizione}: Un dissenso tra componenti potrebbe portare a diversi problemi nella realizzazione del prodotto. Tuttavia questo rischio sembra poter avvenire con scarsa probabilità poichè il gruppo sembra unito e pronto a collaborare secondo regole prestabilite.
 \section{Pianificazione preventiva}
 \subsection{Suddivisione attività}
 \label{sub:fasi}
@@ -232,23 +259,31 @@ Per semplificare la pianificazione del prospetto orario, sono state identificate
 quattro attività principali che rappresentano l'intero ciclo di sviluppo del prodotto.\\
 Esse sono:
 \begin{itemize}
-\item\textbf{Analisi:} rappresenta la prima attività del progetto, dalla
+\item\textbf{Analisi (AN):} rappresenta la prima attività del progetto, dalla
   pubblicazione dei capitolati d'appalto all'inizio dell' attività di progettazione.\\
   Figure maggiormente coinvolte: \textit{Responsabile, Amministratore, Analista, Verificatore};
-\item\textbf{Analisi di Dettaglio e Progettazione:} segue l' attività di Analisi, e
+\item\textbf{Analisi di Dettaglio (AD) e Progettazione Architetturale (PA):} segue l' attività di Analisi, e
   racchiude il lasso temporale dedicato alla correzione degli errori rilevati in
   sede di Revisione di Requisiti e alla progettazione dell'architettura sulla
   base dei requisiti emersi. Comprende anche lo studio di \gloss{design pattern}
   congrui alla realizzazione del prodotto.\\ Figure maggiormente coinvolte:
   \textit{Responsabile, Amministratore, Progettista, Verificatore};
-\item\textbf{Progettazione di Dettaglio e Codifica:} comprende la correzione degli errori rilevati in sede di Revisione di Progettazione e la stesura del codice secondo le direttive emerse durante l'attività di progettazione.\\Figure maggiormente coinvolte:
+\item\textbf{Progettazione di Dettaglio (PD) e Codifica(C):} comprende la correzione degli errori rilevati in sede di Revisione di Progettazione e la stesura del codice secondo le direttive emerse durante l'attività di progettazione.\\Figure maggiormente coinvolte:
   \textit{Responsabile, Amministratore, Programmatore, Verificatore};
-\item\textbf{Verifica e Validazione:} in questa fase si andranno a correggere eventuali errori emersi in Revisione di Qualifica e si finirà il prodotto in tutti i suoi componenti per poi fare il collaudo finale col \textit{Proponente}.
+\item\textbf{Verifica e Validazione (VV):} in questa fase si andranno a correggere eventuali errori emersi in Revisione di Qualifica e si finirà il prodotto in tutti i suoi componenti per poi fare il collaudo finale col \textit{Proponente}.
 \end{itemize}
 Tutte le fasi descritte sono comprensive di numerose attività di \textbf{Verifica e Validazione}, in quanto necessaria durante tutto l'arco di sviluppo del prodotto.\\Ogni attività prevede l'impiego di alcuni ruoli in misura maggiore rispetto ad altri, nella distribuzione di questi sarà garantita un equa ripartizione del
 carico di lavoro individuale.\\
-Come riportato nelle \href{run:../Interni/NormeDiProgetto\_v1.0.0.pdf}{Norme Di Progetto v1.0.0} ogni componente del gruppo potrà ricoprire più ruoli contemporaneamente, purchè sia garantita l'assenza di conflitti d'interesse tra le attività svolte.
-\newpage
+Come riportato nelle \href{run:../Interni/NormeDiProgetto\_v1.0.0.pdf}{Norme Di Progetto v1.0.0} ogni componente del gruppo potrà ricoprire più ruoli contemporaneamente, purchè sia garantita l'assenza di conflitti d'interesse tra le attività svolte.\\ \\
+\textbf{Diagrammi di Gantt}\\
+Sono riportati nei prossimi capitoli i \gloss{diagrammi di Gantt} relativi alle fasi elencate e un \gloss{diagramma di Gantt} preventivo di tutto l'arco temporale previsto per la realizzazione del prodotto.\\
+Nei \gloss{diagrammi di Gantt} verranno riportati diversi elementi importanti:
+\begin{itemize}
+	\item \textbf{Attività composta:} riportata con barra nera nei diagrammi indica una marco-attività composta in più attività minori riportate al di sotto di essa;
+	\item \textbf{Attività non critica:} riportata con barra blu nei diagrammi indica una attività che può essere svolta parallelamente a altre attività. Un ritardo su un'attività di questo tipo non causerebbe ritardi a cascata su altre attività;
+	\item \textbf{Attività critica:} riportata con una barra arancio nei diagrammi indica una attività che ha un forte impatto temporale nello svolgersi del progetto, pertanto un ritardo in un'attività di questo tipo causerebbe un ritardo a cascata nel resto del progetto impattando negativamente il piano temporale ed economico;
+	\item \textbf{Milestone:} riportata con un rombo nero nei diagrammi indica la data attesa per la conclusione delle attività. Coincide con la consegna del prodotto e documenti della successiva revisione.
+\end{itemize} 
 \subsubsection{Analisi}
 Nell'attività di Analisi, i componenti ricopriranno i ruoli di progetto secondo la distribuzione seguente:
 \begin{center}
@@ -1057,22 +1092,14 @@ Durante lo sviluppo del nostro ambiente di lavoro, si è reso necessario un sist
   \item{Rendicontazione delle ore spese nelle attività.}
 \end{itemize}
 \subsubsection{Controllo attività}
-Per organizzare il lavoro in maniera ottimale e tenere traccia di ogni singola evoluzione si è deciso
-di adottare un sistema di ticketing, già descritto nelle norme di progetto, grazie al quale è
-possibile avvere un riscontro immediato dello svolgersi di tutte le attività mediante il Gantt 
-fornito dal sistema. Esso si aggiorna dinamicamente segnalando graficamente eventuali ritardi nelle attività
-pianificate, fornendo una visione intuitiva d'insieme dello stato di progetto.
+Per organizzare il lavoro in maniera ottimale e tenere traccia di ogni singola evoluzione si è deciso di adottare un \gloss{sistema di ticketing}, già descritto nelle norme di progetto, grazie al quale è
+possibile avvere un riscontro immediato dello svolgersi di tutte le attività mediante il \gloss{diagramma di Gantt} fornito dal sistema. Esso si aggiorna dinamicamente segnalando graficamente eventuali ritardi nelle attività pianificate, fornendo una visione intuitiva d'insieme dello stato di progetto.
 Nello specifico sono evidenziate:
 \begin{itemize}
    \item{Le attività in ritardo che vengono segnalate in rosso se superata la scadenza prestabilita;}
    \item{Lo stato di avanzamento di tutte le attività in corso;}
    \item{Le attività già concluse e il tempo reale impiegato.}
 \end{itemize}
-\subsubsection{Controllo date}
-Viene effettuato direttamente dal componenonente del gruppo quando gli viene assegnato un ticket,
-e viene costantemente aggionrato ad ogni modifica apportata. Consentendo un aggiornamento dinamico
-di tutta la pianificazione in modo che sia sempre controllabile lo stato delle date sia dal Gantt 
-che dal calendario, a cui hanno accesso tutti i membri del gruppo.
 \subsubsection{Calendario Risorse}
 Nel calendario risorse ogni componente del gruppo può segnare impegni e tempo disponibile dedicato 
 al progetto, in modo che tutto il personale possa organizzare il proprio lavoro in base ai propri
@@ -1102,7 +1129,7 @@ Calcolato il bilancio è possibile trovarsi in tre stati, nello specifico:
   \item{\textbf{Bilancio in Pari} Nel caso le ore preventivate corrispondano a quelle realmente impiegate. ;}
 \end{itemize}
 \subsection{Analisi}
-Viene di seguito descritto il consuntivo relativo alla fase di analisi e riportate per ogni ruolo lo
+Viene di seguito viene riportato il consuntivo relativo alla fase di analisi e riportate per ogni ruolo lo
 scarto tra le ore in preventivo e le ore impiegate fornando un bilancio per ciascuno di essi.
 \begin{center}
   \normalsize
@@ -1110,12 +1137,12 @@ scarto tra le ore in preventivo e le ore impiegate fornando un bilancio per cias
     \hline
     \textbf{Ruolo} & \textbf{Ore} & \textbf{Costo}\\
     \hline
-    Responsabile & -1 & 30 \\
-    Analista & -2 & 50\\
-    Amministratore & -1 & 20\\
+    Responsabile & -1 & -30 \\
+    Analista & -2 & -50\\
+    Amministratore & -1 & -20\\
     Progettista & 0 & 0\\
     Programmatore & 0 & 0\\
-    Verificatore & -1 & -15\\
+    Verificatore & +1 & +15\\
     \hline
     \textbf{Totale} & -3 & -85\\
     \hline
