@@ -59,7 +59,7 @@
     \hline
     0.2.1 & Marco Boseggia & Analista & 2016-01-14 & Stesura capitolo Classificazione Requisiti\\
     \hline
-    0.2.2 & Davide Trevisan & Analista & 2015-01-14 & Correzione capitolo Casi d'uso\\ 
+    0.2.2 & Davide Trevisan & Analista & 2015-01-14 & Correzione capitolo Casi d'uso\\
     \hline
     0.2.0 & Giacomo Vanin & Verificatore & 2015-01-12 & Verifica capitolo Casi d'uso\\
     \hline
@@ -230,8 +230,8 @@ esistenti nel database.\\ \\
 \textbf{Postcondizione:} Il sistema ha prodotto l'output corrispondente al comando immesso dall'utente.
 \subsection{UC1.1: Registrazione}
 \textbf{Attore primario:} Utente non autenticato\\ \\
-\textbf{Scopo e descrizione:} L'utente intende accedere al sistema \textbf{Actorbase}. Per farlo necessita di un
-profilo registrato all'interno del programma. Deve registrare un nome utente e una password.\\ \\
+\textbf{Scopo e descrizione:} L'utente intende accedere al sistema \textbf{Actorbase}. Per farlo deve registrarsi nel sistema. 
+Per la registrazione è necessario inserire un nome utente e una password.\\ \\
 \textbf{Precondizione:} L'utente non è registrato e richiede la registrazione.\\ \\
 \textbf{Flusso eventi:}
 \begin{itemize}
@@ -243,13 +243,13 @@ profilo registrato all'interno del programma. Deve registrare un nome utente e u
 \begin{itemize}
 \item Nel caso in cui l'utente utilizzi un comando sconosciuto:
   \begin{itemize}
-  \item viene visualizzato un messaggio di errore esplicativo (e rimando all'aiuto);
+  \item viene visualizzato un messaggio di errore esplicativo (e rimando all'aiuto).
   \end{itemize}
 \item Nel caso in cui l'utente utilizzi un comando conosciuto ma con parametri errati:
   \begin{itemize}
   \item viene visualizzato un messaggio di supporto che indica come usare correttamente il comando.
   \end{itemize}
-\item Nel caso in cui l'username inserito sia già presente all'interno del sistema:
+\item Nel caso in cui lo username inserito sia già presente all'interno del sistema:
   \begin{itemize}
   \item viene visualizzato un messaggio di errore esplicativo.
   \end{itemize}
@@ -257,7 +257,7 @@ profilo registrato all'interno del programma. Deve registrare un nome utente e u
 \textbf{Postcondizione:} L'utente è registrato all'interno del sistema \textbf{Actorbase}.
 \subsection{UC1.2: Login}
 \textbf{Attore primario:} Utente non autenticato\\ \\
-\textbf{Scopo e descrizione:} L’utente già registrato, intende accedere al sistema \textbf{Actorbase}. Deve inserire le proprie credenziali di accesso. \\ \\
+\textbf{Scopo e descrizione:} L’utente, già registrato, intende accedere al sistema \textbf{Actorbase}. Deve inserire le proprie credenziali di accesso. \\ \\
 \textbf{Flusso di eventi:}
 \begin{itemize}
 \item Inserimento username;
@@ -267,7 +267,7 @@ profilo registrato all'interno del programma. Deve registrare un nome utente e u
 \begin{itemize}
 \item Nel caso in cui l'utente utilizzi un comando sconosciuto:
   \begin{itemize}
-  \item viene visualizzato un messaggio di errore esplicativo (e rimando all'aiuto);
+  \item viene visualizzato un messaggio di errore esplicativo (e rimando all'aiuto).
   \end{itemize}
 \item Nel caso in cui l'utente utilizzi un comando conosciuto ma con parametri errati:
   \begin{itemize}
@@ -287,8 +287,8 @@ profilo registrato all'interno del programma. Deve registrare un nome utente e u
 \textbf{Precondizione:} Il database è pronto a ricevere comandi e l'utente intende richiedere supporto.\\ \\
 \textbf{Flusso di eventi:}
 \begin{itemize}
-\item UC1.3.1 Inserimento comando per richiesta aiuto generale;
-\item UC1.3.2 Inserimento comando per aiuto specifico.
+\item UC1.3.1 Inserimento comando per richiesta di aiuto generale;
+\item UC1.3.2 Inserimento comando per richiesta di aiuto specifico.
 \end{itemize}
 \textbf{Postcondizione:} Il sistema ha risposto producendo in output l'aiuto richiesto.
 \subsection{UC1.3.1: Richiesta di aiuto generale}
@@ -297,18 +297,18 @@ profilo registrato all'interno del programma. Deve registrare un nome utente e u
 \textbf{Precondizione:} Il database è pronto a ricevere comandi e l'utente intende richiedere supporto.\\ \\
 \textbf{Flusso di eventi:}
 \begin{itemize}
-\item Inserimento comando per aiuto.
+\item Inserimento comando per richiesta di aiuto.
 \end{itemize}
-\textbf{Postcondizione:} Il sistema ha risposto con l'aiuto richiesta in output.
+\textbf{Postcondizione:} Il sistema ha risposto visualizzando l'aiuto richiesto dall'utente in output.
 \subsection{UC1.3.2: Richiesta di aiuto specifico}
 \textbf{Attore primario:} Utente\\ \\
 \textbf{Scopo e descrizione:} L'utente intende richiedere aiuto su uno specifico comando del sistema \textbf{Actorbase}.\\ \\
 \textbf{Flusso di eventi:}
 \begin{itemize}
-\item inserimento comando per aiuto;
+\item inserimento comando per richiesta di aiuto;
 \item Inserimento nome comando.
 \end{itemize}
-\textbf{Postcondizione:} Il sistema ha risposto con l'aiuto richiesto in output.
+\textbf{Postcondizione:} Il sistema ha risposto visualizzando l'aiuto richiesto dall'utente in output.
 \subsection{UC1.4: Operazioni sulle collezioni}
 \begin{figure}[H]
   \begin{center}
@@ -317,8 +317,8 @@ profilo registrato all'interno del programma. Deve registrare un nome utente e u
   \end{center}
 \end{figure}
 \textbf{Attore primario:} Utente autenticato\\ \\
-\textbf{Scopo e descrizione:} L'utente è autenticato e desidera effettuare delle operazioni sulle \gloss{collezioni}. Le operazioni previste sono
-creazione di una nuova \gloss{collezione}, elencazione delle \gloss{collezioni} esistenti, cancellazione di \gloss{collezioni} esistenti, modifica del nome di \gloss{collezioni} esistenti,
+\textbf{Scopo e descrizione:} L'utente è autenticato e desidera effettuare delle operazioni sulle \gloss{collezioni}. Le operazioni previste sono:
+creazione di una nuova \gloss{collezione}, elencazione delle \gloss{collezioni} esistenti, cancellazione di \gloss{collezioni} esistenti, modifica del nome di \gloss{collezioni} esistenti e
 aggiunta o rimozione collaboratori a \gloss{collezione} esistente.\\ \\
 \textbf{Precodizione:} Il database è pronto a ricevere comandi e l'utente intende effettuare operazioni su \gloss{collezioni}.\\ \\
 \textbf{Flusso di eventi:}
@@ -334,7 +334,7 @@ aggiunta o rimozione collaboratori a \gloss{collezione} esistente.\\ \\
 \begin{itemize}
 \item Nel caso in cui l'utente utilizzi un comando sconosciuto:
   \begin{itemize}
-  \item viene visualizzato un messaggio di errore esplicativo (e rimando all'aiuto);
+  \item viene visualizzato un messaggio di errore esplicativo (e rimando all'aiuto).
   \end{itemize}
 \item Nel caso in cui l'utente utilizzi un comando conosciuto ma con parametri errati:
   \begin{itemize}
@@ -342,19 +342,19 @@ aggiunta o rimozione collaboratori a \gloss{collezione} esistente.\\ \\
   \end{itemize}
 \item Nel caso in cui il nome di una \gloss{collezione} sia già utilizzato:
   \begin{itemize}
-  \item viene visualizzato un messaggio di errore esplicativo;
+  \item viene visualizzato un messaggio di errore esplicativo.
   \end{itemize}
 \item Nel caso in cui la \gloss{collezione} da cancellare o modificare non sia presente:
   \begin{itemize}
-  \item viene visualizzato un messaggio di errore esplicativo;
+  \item viene visualizzato un messaggio di errore esplicativo.
   \end{itemize}
 \item Nel caso in cui il collaboratore da rimuovere non sia presente tra i collaboratori:
   \begin{itemize}
-  \item viene visualizzato un messaggio di errore esplicativo;
+  \item viene visualizzato un messaggio di errore esplicativo.
   \end{itemize}
 \item Nel caso in cui il collaboratore da aggiungere non sia presente nel sistema \textbf{Actorbase}:
   \begin{itemize}
-  \item viene visualizzato un messaggio di errore esplicativo;
+  \item viene visualizzato un messaggio di errore esplicativo.
   \end{itemize}
 \end{itemize}
 \textbf{Postcondizione:} L'operazione richiesta è stata eseguita.
@@ -452,7 +452,7 @@ inserimento e cancellazione.\\ \\
 \end{figure}
 \textbf{Attore primario:} Utente autenticato\\ \\
 \textbf{Scopo e descrizione:} L'utente intende inserire un nuovo \gloss{item} all'interno di una \gloss{collezione} esistente. Deve selezionare la \gloss{collezione} e inserire i parametri di definizione dell'\gloss{item}. Questi sono la chiave e il valore associato.\\ \\
-\textbf{Precondizione:} Il database è pronto a ricevere comandi e l'utente intende effetture un inserimento di un nuovo \gloss{item}.\\ \\
+\textbf{Precondizione:} Il database è pronto a ricevere comandi e l'utente intende effettuare un inserimento di un nuovo \gloss{item}.\\ \\
 \textbf{Flusso di eventi:}
 \begin{itemize}
 \item UC1.5.1.1 Inserimento con sovrascrittura;
@@ -461,7 +461,7 @@ inserimento e cancellazione.\\ \\
 \textbf{Postcondizione:} L'operazione di inserimento richiesta è stata effettuata correttamente.
 \subsection{UC1.5.1.1: Inserimento con sovrascrittura (aggiornamento)}
 \textbf{Attore primario:} Utente autenticato\\ \\
-\textbf{Scopo e descrizione:} L'utente intende inserire un nuovo \gloss{item}; deve selezionare la \gloss{collezione} e inserire i parametri di definizone dell'\gloss{item} da inserire, quali chiave e valore associato. La procedura di inserimento non terrà conto di
+\textbf{Scopo e descrizione:} L'utente intende inserire un nuovo \gloss{item}; deve selezionare la \gloss{collezione} e inserire i parametri di definizione dell'\gloss{item} da inserire, quali chiave e valore associato. La procedura di inserimento non terrà conto di
 eventuali chiavi già presenti all'interno della \gloss{collezione}\\ \\
 \textbf{Precondizione:} Il database è pronto a ricevere comandi e l'utente intende effettuare un inserimento di un nuovo \gloss{item}.\\ \\
 \textbf{Flusso di eventi:}
@@ -490,7 +490,7 @@ eventuali chiavi già presenti all'interno della \gloss{collezione}\\ \\
 \subsection{UC1.5.2: Cancellazione di un item}
 \textbf{Attore primario:} Utente autenticato\\ \\
 \textbf{Scopo e descrizione:} L'utente intende cancellare un \gloss{item} all'interno di una \gloss{collezione} esistente. Deve selezionare la \gloss{collezione} e inserire la chiave da del valore da cancellare.\\ \\
-\textbf{Precondizione:} Il database è pronto a ricevere comandi e l'utente intende effetture la cancellazione di un \gloss{item}.\\ \\
+\textbf{Precondizione:} Il database è pronto a ricevere comandi e l'utente intende effettuare la cancellazione di un \gloss{item}.\\ \\
 \textbf{Flusso di eventi:}
 \begin{itemize}
 \item Inserimento nome \gloss{collezione};
@@ -675,7 +675,7 @@ Modifica username e modifica password.\\ \\
 \subsection{UC1.9.2: Concessione permessi a utente}
 \textbf{Attore primario:} Amministratore\\ \\
 \textbf{Scopo e descrizione:} L'amministratore intende concedere permessi ad un utente esistente.\\ \\
-\textbf{Precondizione:} Il database è pronto a ricevere comandi e l'amministratore intende condere permessi ad un utente esistente nel sistema locale \textbf{Actorbase}.
+\textbf{Precondizione:} Il database è pronto a ricevere comandi e l'amministratore intende concedere permessi ad un utente esistente nel sistema locale \textbf{Actorbase}.
 \textbf{Flusso di eventi:}
 \begin{itemize}
 \item Inserimento username utente.
@@ -739,7 +739,7 @@ Modifica username e modifica password.\\ \\
 \item L'operazione viene annullata;
 \item Viene visualizzato il messaggio di errore.
 \end{itemize}
-\textbf{Postcondzione:} Il sistema ha prodotto in output il messaggio di errore nel contesto, l'operazione che lo ha generato è stata annullata.
+\textbf{Postcondizione:} Il sistema ha prodotto in output il messaggio di errore nel contesto, l'operazione che lo ha generato è stata annullata.
 \subsection{UC2: Driver - Interazioni}
 \begin{figure}[H]
   \begin{center}
