@@ -28,9 +28,9 @@
       \else
       \textbf{Versione} & 1.0.0\\
       \fi
-      \textbf{Redazione} & \multiLineCell[t]{Redattore}\\
-      \textbf{Verifica} & \multiLineCell[t]{Verificatore}\\
-      \textbf{Approvazione} & \multiLineCell[t]{Approvatore}\\
+      \textbf{Redazione} & \multiLineCell[t]{Alberto De Agostini\\Andrea Giacomo Baldan}\\
+      \textbf{Verifica} & \multiLineCell[t]{Davide Trevisan\\Francesco Agostini}\\
+      \textbf{Approvazione} & \multiLineCell[t]{Alberto De Agostini}\\
       \textbf{Uso} & Esterno\\
       \textbf{Lista di Distribuzione} & \multiLineCell[t]{ScalateKids\\Prof. Tullio Vardanega\\Prof. Riccardo Cardin}\\
     \end{tabular}
@@ -51,15 +51,31 @@
     \hline
     Versione & Autore & Ruolo & Data & Descrizione \\
     \hline
-    0.1.1 & Andrea Giacomo Baldan & Responsabile & 2015-12-28 & Stesura pianificazione preventiva\\
+    1.0.0 & Andrea Giacomo Baldan & Responsabile & 2016-01-21 & Approvazione documento\\
     \hline
-    0.1.0 & Andrea Giacomo Baldan & Responsabile & 2015-12-23 & Stesura analisi dei rischi \\
+    0.5.0 & Francesco Agostini & Verificatore & 2016-01-21 & Verifica capitolo Consuntivo\\
     \hline
-    0.0.6 & Marco Boseggia & Analista & 2015-12-23 & Redazione scelta del modello di ciclo di vita\\
+    0.4.1 & Andrea Giacomo Baldan & Responsabile & 2016-01-21 & Stesura capitolo Consuntivo\\
     \hline
-    0.0.5 & Marco Boseggia & Analista & 2015-12-22 & Stesura Organigramma\\
+    0.4.0 & Francesco Agostini & Verficatore & 2016-01-10 & Verifica capitolo Prospetto economico\\
     \hline
-    0.0.1 & Andrea Giacomo Baldan & Responsabile & 2015-12-21 & Creazione scheletro del documento\\
+    0.3.1 & Andrea Giacomo Baldan & Responsabile & 2016-01-09 & Stesura capitolo Prospetto economico\\ 
+    \hline
+    0.3.0 & Davide Trevisan & Verificatore & 2016-01-07 & Verifica capitoli Scelta ciclo di vita\\
+    \hline
+    0.2.1 & Alberto De Agostini & Responsabile & 2016-01-05 & Stesura capitolo Pianificazione Preventiva\\
+    \hline
+    0.2.0 & Davide Trevisan & Verificatore & 2016-01-05 & Verifica capitolo Analisi dei Rischi\\
+    \hline
+    0.1.2 & Andrea Giacomo Baldan & Responsabile & 2016-01-05 & Stesura capitolo Analisi dei Rischi\\
+    \hline
+    0.1.1 & Alberto De Agostini & Responsabile & 2016-01-03 & Stesura capitolo Scelta ciclo di vita\\
+    \hline
+    0.1.0 & Francesco Agostini & Verificatore & 2016-01-03 & Verifica capitolo Organigramma\\
+    \hline
+    0.0.2 & Andrea Giacomo Baldan & Responsabile & 2015-12-29 & Stesura capitolo Organigramma\\
+    \hline
+    0.0.1 & Andrea Giacomo Baldan & Amministratore & 2015-12-16 & Creazione scheletro del documento\\
     \hline
   \end{tabular}
 \end{center}
@@ -131,7 +147,7 @@ L'analisi dei rischi ha costituito una fase critica della pianificazione, in
 quanto l'azienda, alla sua prima esperienza, ha dovuto pensare agli ipotetici
 scenari negativi che possono formarsi col procedere della fase di sviluppo.
 \subsection{Identificazione del rischio}
-Per l'identificazione dei rischi il primo passo è stato un' attività di
+Per l'identificazione dei rischi il primo passo è stato un'attività di
 \gloss{Brainstorming} suddiviso per categorie di pertinenza, in modo da esplorare
 in maniera quanto più generale e ampia possibile i vari aspetti di ogni
 possibile scenario, seguito da una fase di analisi di ogni rischio emerso e
@@ -212,7 +228,7 @@ coordinazione reciproca.
 \textbf{Probabilità}: Alta\\
 \textbf{Impatto}: Forte\\
 \textbf{Descrizione}: Il gruppo può rimanere spiazzato dal metodo di lavoro da seguire, l'inesperienza nell'attuazione
-di competenze di pianificazione e analisi può portare a rallentamenti del perseguimento degli obiettivi.
+di competenze di pianificazione e analisi può portare a rallentamenti nel perseguimento degli obiettivi.
 \textbf{Contromisure di mitigazione}: I componenti del gruppo si impegneranno a studiare e applicarsi il più possibile
 nella pratica delle competenze richieste, ed eventualmente, il \textit{Responsabile} potrà riassegnare alcuni ruoli provvisoriamente
 basandosi sui punti deboli e forti dei componenti con maggiore difficoltà a portare a termine la propria \gloss{attività}.
@@ -221,7 +237,7 @@ basandosi sui punti deboli e forti dei componenti con maggiore difficoltà a por
 \textbf{Probabilità}: Alta\\
 \textbf{Impatto}: Forte\\
 \textbf{Descrizione}: Le tecnologie impiegate nello sviluppo del progetto poggiano su principi noti in buona misura a tutti
-i componenti del gruppo, tuttavia l'assenza di un grado di specializzazione tangibile può generare lacune anche gravi nell' utilizzo
+i componenti del gruppo, tuttavia l'assenza di un grado di specializzazione tangibile può generare lacune anche gravi nell'utilizzo
 degli strumenti in questione.
 \textbf{Contromisure di mitigazione}: Ciascun componente del gruppo avrà il compito di documentarsi costantemente e applicarsi
 nell'uso delle tecnologie del progetto.
@@ -234,7 +250,7 @@ la necessità di un ambiente di lavoro quanto più omogeneo possibile, in modo d
 da parte delle macchine il più comune possibile, in modo da garantire eventualmente anche la riproducibilità di bug che possono
 insorgere.
 \textbf{Contromisure di mitigazione}: L'azienda (\textit{Responsabile}?) ha deciso di risolvere il problema utilizzando una macchina virtuale
-preimpostata per l'utilizzo delle tecnologie inerenti al progetto per l' attività di sviluppo.
+preimpostata per l'utilizzo delle tecnologie inerenti al progetto per l'attività di sviluppo.
 \paragraph{Guasti hardware}
 \textbf{Categoria}: Infrastruttura\\
 \textbf{Probabilità}: Bassa\\
