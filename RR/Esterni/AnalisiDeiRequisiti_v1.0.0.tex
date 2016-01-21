@@ -152,7 +152,7 @@ Le aspettative di esperienza utente derivano dall'utilizzo da parte dei
 componenti del gruppo di \gloss{Amazon DynamoDB}, un database \gloss{key-value}
 sviluppato da \textit{Amazon}, utilizzato come modello di riferimento per lo sviluppo. I casi d'uso seguono le norme di stesura elencate nel documento \href{run:../Interni/NormeDiProgetto\_v1.0.0.pdf}{Norme di Progetto v1.0.0}.
 \subsection{Identificazione attori}
-L'analisi del capitolato e le riunioni con il proponente hanno fatto emergere
+L'analisi del capitolato e le riunioni con il \textit{Proponente} hanno fatto emergere
 alcune considerazioni sull'obiettivo che \textbf{Actorbase} si pone di raggiungere.
 Trattandosi di un'applicazione distribuita il prodotto finale sarà costituito
 da due macro componenti: un lato server e un lato client fornito di interfaccia
@@ -283,7 +283,7 @@ Per la registrazione è necessario inserire un nome utente e una password.\\ \\
   \end{center}
 \end{figure}
 \textbf{Attore primario:} Utente\\ \\
-\textbf{Scopo e descrizione:} L'utente intende richiedere aiuto generale o su un comando specifico.\\ \\
+\textbf{Scopo e descrizione:} L'utente intende richiedere aiuto generale o su un comando specifico.\\Nel caso di richiesta di aiuto generale diversi tipi di utente riceveranno la lista dei comandi da loro eseguibili\\ \\
 \textbf{Precondizione:} Il database è pronto a ricevere comandi e l'utente intende richiedere supporto.\\ \\
 \textbf{Flusso di eventi:}
 \begin{itemize}
@@ -292,7 +292,7 @@ Per la registrazione è necessario inserire un nome utente e una password.\\ \\
 \end{itemize}
 \textbf{Postcondizione:} Il sistema ha risposto producendo in output l'aiuto richiesto.
 \subsection{UC1.3.1: Richiesta di aiuto generale}
-\textbf{Attore primario:} Utente autenticato\\ \\
+\textbf{Attore primario:} Utente\\ \\
 \textbf{Scopo e descrizione:} L'utente intende richiedere aiuto generale sull'utilizzo del sistema \textbf{Actorbase}.\\ \\
 \textbf{Precondizione:} Il database è pronto a ricevere comandi e l'utente intende richiedere supporto.\\ \\
 \textbf{Flusso di eventi:}
