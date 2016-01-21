@@ -128,7 +128,7 @@
   \subsection{Glossario}
   Tutti i termini di carattere tecnico o fraintendibile e gli acronimi sono
   raccolti nel file
-  \href{run:Glossario\_v1.0.0.pdf}{Glossario
+  \href{run:../Esterni/Glossario\_v1.0.0.pdf}{Glossario
     v1.0.0}; ogni occorrenza di parole nel \textit{Glossario} è indicata da una
   ``G'' in pedice.
 }
