@@ -296,7 +296,7 @@ fonti e viceversa.
 Abbiamo standardizzato la scrittura di tutti i documenti attraverso un
 \gloss{template} \LaTeX\xspace appositamente creato e presente su
 \textit{\gloss{Github}} nel \gloss{repository} \textit{ActorBase -
-  Documents}.\gloss{git}.\\ L'uso del \gloss{template} ci permette di creare una serie di documenti
+  Documents}.\gloss{git} (vedi \ref{sec:ServiziWeb}).\\ L'uso del \gloss{template} ci permette di creare una serie di documenti
 stilisticamente uniformi tra loro e ci facilita la modifica delle parti in
 comune tra essi.\\Facilita inoltre la creazione di nuove \gloss{macro} e comandi
 \LaTeX\xspace, nella fattispecie abbiamo creato i seguenti:
@@ -635,9 +635,9 @@ protocollo:
 \item\textbf{Uniformità alle norme:} Essendo state redatte alcune regole sulla stesura dei documenti, è compito dei \textit{Verificatori}
   accertarsi che i documenti siano conformi a tali norme, seguendo il metodo di walkthrough;
 \item\textbf{Verifica termini da glossario:} L'operazione è fortemente automatizzabile, compito del \textit{Verificatore} è utilizzare gli strumenti di supporto
-  forniti nell'ambiente di lavoro descritti nella sezione \ref{ref:script}. Tuttavia l'\gloss{attività} di verifica finale dovrà essere effettuata secondo il metodo walkthrough;
+  forniti nell'ambiente di lavoro descritti nella sezione \ref{sec:script}. Tuttavia l'\gloss{attività} di verifica finale dovrà essere effettuata secondo il metodo walkthrough;
 \item\textbf{Indice Gulpease:} Su ogni documento redatto il \gloss{Verificatore} deve calcolare l'indice di leggibilità utilizzando lo strumento fornito
-  con la macchina virtuale (vedi sezioni \ref{ref:MacchinaVirtuale} e \ref{ref:script});
+  con la macchina virtuale (vedi sezioni \ref{sec:MacchinaVirtuale} e \ref{sec:script});
 \item\textbf{Segnalazione degli errori riscontrati:} Il \textit{Verificatore} dovrà stendere una lista di controllo e inserirla sul \gloss{forum} del gruppo.
 \end{itemize}
 Successivamente, basandosi sui cambiamenti del diario delle modifiche, i \textit{Verificatori} potranno applicare il metodo di inspection seguendo la lista redatta in prima istanza di verifica.
@@ -671,7 +671,7 @@ Per creare un nuovo messaggio basta andare nel \gloss{topic} desiderato e seguir
   \includegraphics[width=1\textwidth]{tutorialsRedmine/creamessaggio2.jpg}
   \caption{come creare un messaggio - figura 2}
 \end{figure}
-Per la corretta creazione di un messaggio è necessario seguire le norme scritte nella sezione \ref{sec:Comunicazioni interne}
+Per la corretta creazione di un messaggio è necessario seguire le norme scritte nella sezione \ref{sec:ComunicazioniInterne}
 \paragraph{Rispondere ad un messaggio}
 Per rispondere ad un messaggio presente nel forum è necessario aprire il messaggio voluto e premere su \textbf{Rispondi}, automaticamente ci verrà presentato un \gloss{form} \textit{pre compilato} in cui dovremo solamente inserire il corpo della nostra risposta.
 \subsubsection{Gestione delle segnalazioni}
@@ -744,6 +744,7 @@ operare in remoto, l'azienda ha scelto di utilizzare quanto più possibile gli
 strumenti di condivisione e versionamento erogati come servizi web,
 centralizzando gli strumenti organizzativi su server privato.
 \paragraph{Servizi web}
+\label{sec:ServiziWeb}
 I servizi web utilizzati sono:
 \begin{itemize}
 \item\textbf{Google Drive:} è usato per lo scambio di file e documenti all'interno del gruppo, principalmente per file che non necessitano di versionamento.\\
@@ -875,6 +876,7 @@ utilizzati dai componenti del gruppo, purchè si tratti di modifiche rapide o
 stesura di script di utilità generale.\\
 Per la stesura dei documenti, l'\gloss{IDE} di riferimento è \textit{TeXstudio}.
 \subparagraph{Installazione virtual machine}
+\label{sec:MacchinaVirtuale}
 Una volta ottenuto il file \textit{.vdi} presente sul \gloss{\textit{Drive}} del gruppo
 in forma compattata \textit{.7z}, ogni componente dovrà installare il software
 \textit{Virtualbox} sul proprio computer e procedere con la creazione della
@@ -911,15 +913,15 @@ L'\textit{Amministratore} si è occupato di scrivere alcuni \gloss{script} di ut
 generale da utilizzare all'interno della macchina virtuale:
 \begin{itemize}
 \item\textbf{build:} lanciato senza argomenti, genera tutti i \gloss{PDF} del
-  progetto dai .tex, eliminando tutti i file .log .aux .out .soc e .toc
+  progetto dai .tex, eliminando tutti i file \verb=.log .aux .out .soc .lof .lot= e \verb=.toc=
   generati. Può avere un numero indefinito di argomenti, purchè siano file .tex,
   questi verranno allo stesso modo generati eliminando tutti i file
-  \verb=.log .aux .out .soc= e \verb=.toc=;
+  \verb=.log .aux .out .soc .lot .lof= e \verb=.toc=;
 \item\textbf{extgloss:} estrae tutti i termini da glossario contrassegnati da
   \verb=\gloss= dai file del progetto, anche questo comando può essere lanciato con
   o senza argomenti;
 \item\textbf{checkgloss:} genera una lista di termini da glossario leggendo il
-  file \hyperref{Glossario\_v0.0.1}, in seguito controlla tutti i file del
+  file \href{../Esterni/Glossario\_v1.0.0.pdf}{Glossario v1.0.0}, in seguito controlla tutti i file del
   progetto eccetto il glossario, e inserisce il comando \verb=\gloss= sui termini
   contenuti in lista trovati nei file. Con argomenti esegue le medesime
   operazioni soltato sui file .tex scelti;
@@ -927,7 +929,8 @@ generale da utilizzare all'interno della macchina virtuale:
   ricerca di errori comuni e violazioni delle \textit{Norme di Progetto}, nonchè
   TODO o \gloss{merge} irrisolti. Lanciato con l'opzione \verb=-c=
   esegue le correzioni grammaticali basilari sui documenti che riportano una o
-  più occorenze di tali sviste.
+  più occorenze di tali sviste.\\
+  Opzionalmente accetta in input liste di errori grammaticali comuni.
 \end{itemize}
 \subparagraph{Script di utilità remoti}
 Questi script, \textbf{init.sh} e \textbf{update.sh}, risiederanno sul server
