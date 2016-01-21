@@ -50,7 +50,39 @@
     \hline
     Versione & Autore & Ruolo & Data & Descrizione \\
     \hline
-    0.0.1 & Andrea Giacomo Baldan & & 2015-12-27 & Creazione scheletro del documento\\
+    1.0.0 & Alberto De Agostini & Responsabile & 2016-01-21 & Approvazione documento\\
+    \hline
+    0.6.0 & Andrea Giacomo Baldan & Verificatore & 2016-01-21 & Verifica capitolo Resoconto attività di Verifica\\
+    \hline
+    0.5.2 & Francesco Agostini & Analista & 2016-01-21 & Stesura capitolo Resoconto attività di Verifica\\
+    \hline
+    0.5.1 & Francesco Agostini & Analista & 2016-01-20 & Creazione scheletro capitolo Resoconto attività di Verifica\\
+    \hline
+    0.5.0 & Michael Munaro & Verificatore & 2016-01-20 & Verifica Pianificazione dei test\\
+    \hline
+    0.4.2 & Marco Boseggia & Analista & 2016-01-18 & Integrazione capitolo Pianificazione dei test\\
+    \hline
+    0.4.1 & Giacomo Vanin & Analista & 2016-01-17 & Stesura capitolo Pianificazione dei test\\
+    \hline
+    0.4.0 & Michael Munaro & Verficatore & 2016-01-16 & Verifica Correzioni capitolo Standard di Qualità\\
+    \hline
+    0.3.1 & Giacomo Vanin & Analista & 2016-01-16 & Correzzioni capitolo Standard di Qualità\\ 
+    \hline
+    0.3.0 & Andrea Giacomo Baldan & Verificatore & 2016-01-12 & Verifica capitolo Standard di Qualità\\
+    \hline
+    0.2.1 & Marco Boseggia & Analista & 2016-01-09 & Stesura capitolo Standard di Qualità\\
+    \hline
+    0.2.0 & Michael Munaro & Verificatore & 2016-01-07 & Verifica Correzione effettuata\\
+    \hline
+    0.1.1 & Giacomo Vanin & Analista & 2016-01-08 & Correzione capitolo Gestione amministrativa della revisione\\
+    \hline
+    0.1.0 & Andrea Giacomo Baldan & Verificatore & 2016-01-05 & Verifica capitoli stesi in precedenza\\
+    \hline
+    0.0.3 & Giacomo Vanin & Analista & 2016-01-04 & Stesura capitolo Gestione amministrativa della revisione\\
+    \hline
+    0.0.2 & Francesco Agostini & Analista & 2016-01-02 & Stesura capitolo Visione generale della strategia di verifica\\
+    \hline
+    0.0.1 & Andrea Giacomo Baldan & Amministratore & 2015-12-16 & Creazione scheletro del documento\\
     \hline
   \end{tabular}
 \end{center}
@@ -348,6 +380,7 @@ Di seguito sono descritti i test di sistema. In futuro questa sezione verrà agg
 I test di sistema permettono di verificare il comportamento del sistema rispetto ai requisiti descritti nell'\href{run:./AnalisiDeiRequisiti\_v1.0.0.pdf}{Analisi dei requisiti v1.0.0}.\\
 La tabella seguente descrive i test dei requisiti ritenuti meritevoli di verifica. \\
 La colonna "Stato" nella tabella è lasciata vuota in quanto i test saranno effettuati successivamente.
+%TODO completare tabella bella
 \begin{center}
   \begin{longtable}[H]{| l | p{10cm} | l | l |}
     \hline
@@ -375,7 +408,7 @@ La colonna "Stato" nella tabella è lasciata vuota in quanto i test saranno effe
     \hline
     TS.OBF11 & Viene verificato che il sistema visualizzi correttamente un messaggio di errore & & OBF11\\
     \hline
-    TS.DEF12 & Viene verificato che il sistema fornisca un driver Scala per interfacciarsi con \textbf{Actorbase} & & DEF12\\
+    TS.DEF12 & Viene verificato che il sistema fornisca un driver Scala per interfacciarsi con \textit{Actorbase} & & DEF12\\
     \hline
     TS.OBV13 & Viene verificato che il sistema funzioni in ambienti Ubuntu 14.04 o superiori & & OBV13\\
     \hline
@@ -383,19 +416,19 @@ La colonna "Stato" nella tabella è lasciata vuota in quanto i test saranno effe
     \hline
     TS.DEV16 & Viene verificato che il sistema funzioni in ambienti OSX el capitan o superiori & & DEV16\\
     \hline
-    TS.OBF19 & Viene verificato che il sistema fornisca un'implementazione dell'\gloss{attore} di tipo storekeeper & & OBF19\\
+    TS.OBF19 & Viene verificato che il sistema fornisca un'implementazione dell'attore di tipo storekeeper & & OBF19\\
     \hline
-    TS.OBF20 & Viene verificato che il sistema fornisca un'implementazione dell'\gloss{attore} di tipo storefinder & & OBF20\\
+    TS.OBF20 & Viene verificato che il sistema fornisca un'implementazione dell'attore di tipo storefinder & & OBF20\\
     \hline
-    TS.OBF21 & Viene verificato che il sistema fornisca un'implementazione dell'\gloss{attore} di tipo warehouseman & & OBF21\\
+    TS.OBF21 & Viene verificato che il sistema fornisca un'implementazione dell'attore di tipo warehouseman & & OBF21\\
     \hline
-    TS.OPF22 & Viene verificato che il sistema fornisca un'implementazione dell'\gloss{attore} di tipo ninja & & OPF22\\
+    TS.OPF22 & Viene verificato che il sistema fornisca un'implementazione dell'attore di tipo ninja & & OPF22\\
     \hline
-    TS.OPF23 & Viene verificato che il sistema fornisca un'implementazione dell'\gloss{attore} di tipo manager & & OPF23\\
+    TS.OPF23 & Viene verificato che il sistema fornisca un'implementazione dell'attore di tipo manager & & OPF23\\
     \hline
-    TS.OBF24 & Viene verificato che il sistema fornisca un'implementazione dell'\gloss{attore} di tipo main & & OBF24\\
+    TS.OBF24 & Viene verificato che il sistema fornisca un'implementazione dell'attore di tipo main & & OBF24\\
     \hline
-    TS.OBF26 & Viene verificato che il sistema distingua gli \gloss{account} non autenticati, autenticati e amministratori & & OBF26\\
+    TS.OBF26 & Viene verificato che il sistema distingua gli account non autenticati, autenticati e amministratori & & OBF26\\
     \hline
   \end{longtable}
 \end{center}
