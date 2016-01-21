@@ -419,9 +419,9 @@ Per uniformare il più possibile la stesura di tutti i documenti queste sono le 
 \item \textbf{Nomi ricorrenti}:
   \begin{itemize}
   \item Ruoli: come già scritto in precedenza i ruoli di progetto devono essere scritti con la prima lettera di ogni parola maiuscola ed in corsivo, escludendo le proposizioni (es. \textit{Responsabile di Progetto});
-  \item Nomi dei file: i nomi dei file relativi a documenti devono seguire;
+  \item Nomi dei \gloss{file}: i nomi dei \gloss{file} relativi a documenti devono seguire;
     la notazione \textit{\gloss{CamelCase}}, seguiti da \textit{\_v} e dalla
-    versione del file (es. NormeDiProgetto\_v1.0.1.pdf);
+    versione del \gloss{file} (es. NormeDiProgetto\_v1.0.1.pdf);
   \item Nome del progetto: sarà indicato come \textbf{Actorbase};
   \item Nome del committente: il committente sarà indicato come \textit{prof. Tullio Vardanega};
   \item Nome del proponente: il proponente sarà indicato come \textit{prof. Riccardo Cardin};
@@ -557,7 +557,7 @@ di costrutti \gloss{funzionali}, coerentemente con l'utilizzo delle librerie
 % TODO: Adesione al Reactive Manifesto?
 \subsubsection{Norme di codifica dei file}
 \subsubsection{Codifica}
-Tutti i file contenenti codice o documentazione dovranno essere conformi alla
+Tutti i \gloss{file} contenenti codice o documentazione dovranno essere conformi alla
 codifica \gloss{UTF-8}.
 \paragraph{Linee guida stilistiche}
 La stesura del codice dovrà seguire pedissequamente alcune regole al fine di
@@ -571,7 +571,7 @@ essere infrante le seguenti regole:
 \item Posizionamento di parentesi graffe in linea con il blocco struttura di
   riferimento;
 \end{itemize}
-Tutti i file contenenti codice dovranno essere redatti in lingua inglese.
+Tutti i \gloss{file} contenenti codice dovranno essere redatti in lingua inglese.
 \subparagraph{Nomenclatura}
 I nomi di variabili, metodi e funzioni seguiranno la convenzione
 \textit{\gloss{lowerCamelCase}}, i nomi di classi invece
@@ -582,7 +582,7 @@ necessario fornire una prova di terminazione e il costo in memoria. L'utilizzo
 deve giustificare la spesa in termini di memoria rispetto al risparmio in
 termini di istruzioni.
 \subparagraph{Documentazione}
-I file contenenti codice dovranno essere adeguatamente commentati seguendo le
+I \gloss{file} contenenti codice dovranno essere adeguatamente commentati seguendo le
 linee guida \gloss{scaladoc} \url{https://docs.scala-lang.org/style/scaladoc.html} ed essere provvisti di un
 intestazione contenente:
 \begin{lstlisting}
@@ -636,7 +636,7 @@ protocollo:
 
 \subsection{Redmine}
 Questo capitolo rappresenta un tutorial su come usare correttamente \textit{Redmine}.
-Questo software offre una vasta gamma di servizi molto utili per la gestione di un progetto, in particolare il \textit{forum}, la sezione wiki ed il sistema di segnalazioni che automaticamente costruisce il diagramma di \textit{Gantt}. Tramite installazioni di \gloss{plugin} è possibile aggiungere funzionalità. Qualora un componente del gruppo ritenga necessaria l'installazione di un \gloss{plugin}, costui può proporre l'idea al \textit{Responsabile di Progetto} il quale affiderà il compito ad un \textit{Amministratore} se la riterrà una funzionalità utile.
+Questo software offre una vasta gamma di servizi molto utili per la gestione di un progetto, in particolare il \textit{forum}, la sezione \gloss{wiki} ed il sistema di segnalazioni che automaticamente costruisce il diagramma di \textit{Gantt}. Tramite installazioni di \gloss{plugin} è possibile aggiungere funzionalità. Qualora un componente del gruppo ritenga necessaria l'installazione di un \gloss{plugin}, costui può proporre l'idea al \textit{Responsabile di Progetto} il quale affiderà il compito ad un \textit{Amministratore} se la riterrà una funzionalità utile.
 \subsubsection{Creare un sottoprogetto}
 La creazione di sottoprogetti è molto utile per mantenera una chiara divisione funzionale tra le \gloss{attività}. La creazione di un sottoprogetto è molto semplice come si vede in figura sottostante
 \begin{figure}[H]
@@ -651,7 +651,7 @@ La creazione di sottoprogetti è molto utile per mantenera una chiara divisione 
 \end{figure}
 Come si può vedere in figura \ref{fig:figura-2} si dovrà completare un \gloss{form} con i dati necessari per la creazione del progetto.
 \subsubsection{Scrivere sul Forum}
-Si può partecipare al forum rispondendo a messaggi o creandone di nuovi
+Si può partecipare al \gloss{forum} rispondendo a messaggi o creandone di nuovi
 \paragraph{Creare un messaggio}
 Per creare un nuovo messaggio basta andare nel \gloss{topic} desiderato e seguire la procedura come illustrato nelle seguenti immagini
 \begin{figure}[H]
@@ -666,7 +666,7 @@ Per creare un nuovo messaggio basta andare nel \gloss{topic} desiderato e seguir
 \end{figure}
 Per la corretta creazione di un messaggio è necessario seguire le norme scritte nella sezione \ref{sec:Comunicazioni interne}
 \paragraph{Rispondere ad un messaggio}
-Per rispondere ad un messaggio presente nel forum è necessario aprire il messaggio voluto e premere su \textbf{Rispondi}. Automaticamente verrà presentato un \gloss{form} \textit{pre compilato} in cui si dovrà solamente inserire il corpo della nostra risposta.
+Per rispondere ad un messaggio presente nel \gloss{forum} è necessario aprire il messaggio voluto e premere su \textbf{Rispondi}. Automaticamente verrà presentato un \gloss{form} \textit{pre compilato} in cui si dovrà solamente inserire il corpo della nostra risposta.
 \subsubsection{Gestione delle segnalazioni}
 Una segnalazione rappresenterà una \gloss{attività} che il \textit{Responsabile} assegnerà ad uno o più membri del gruppo. Queste \gloss{attività} possono essere suddivise in diverse compiti più semplici da assegnare ad un membro; questi compiti saranno chiamati \gloss{task}.\\
 Il sistema di segnalazioni è la cosa più importante di \textit{Redmine}, perciò solamente il \textit{Responsabile di Progetto} ha il potere di creare nuove segnalazioni così da mantenere ordine nel progetto. \\Gli altri membri del gruppo potranno invece aggiornare le segnalazioni assegnate ad essi.
@@ -710,7 +710,7 @@ può essere utile per spiegare i cambiamenti apportati.
 \subsubsection{Modificare la Wiki}
 La sezione \gloss{Wiki} di \textit{Redmine} può essere molto utile trattandosi di fatto di uno spazio in cui è possibile scrivere del testo libero, inserire immagini o altro.\\
 Noi abbiamo deciso di usarla come raccoglitore di link a guide inerenti al nostro progetto.
-Per contribuire alla nostra Wiki basta andare nella suddetta sezione e premere su \textbf{modifica}. Si presenterà un editor di testo in cui è possibile modificare o semplicemente aggiungere del testo.
+Per contribuire alla nostra \Gloss{Wiki} basta andare nella suddetta sezione e premere su \textbf{modifica}. Si presenterà un editor di testo in cui è possibile modificare o semplicemente aggiungere del testo.
 %TODO: forse solo il responsabile dovrebbe poter modificarla?
 %TODO: se uno la cancella?
 
@@ -734,15 +734,15 @@ documenti(vedi sezione \ref{sec:script}).
 \subsubsection{Apparato di collaborazione}
 Per coordinare il lavoro tra i componenti del gruppo, trovandosi spesso a dover
 operare in remoto, il gruppo ha scelto di utilizzare quanto più possibile gli
-strumenti di condivisione e versionamento erogati come servizi web,
+strumenti di condivisione e \gloss{versionamento} erogati come servizi web,
 centralizzando gli strumenti organizzativi su server privato.
 \paragraph{Servizi web}
 I servizi web utilizzati sono:
 \begin{itemize}
-\item\textbf{Google Drive:} è usato per lo scambio di file e documenti all'interno del gruppo, principalmente per file che non necessitano di versionamento.\\
+\item\textbf{Google Drive:} è usato per lo scambio di \gloss{file} e documenti all'interno del gruppo, principalmente per \gloss{file} che non necessitano di \gloss{versionamento}.\\
   Questo spazio del gruppo è suddiviso in diverse cartelle per una migliore gestione e per facilitare la ricerca all'interno di esso;\\
   Il \textit{Responsabile di Progetto} ha il potere amministrativo dell'account in questione, quindi sarà quest'ultima persona ad occuparsi di garantire i giusti diritti ai membri del gruppo.
-\item\textbf{Github:} per tutti i files che necessitano un sistema di \gloss{versionamento} viene usato il servizio offerto da \textit{Github}, l'indirizzo web del gruppo è:\\
+\item\textbf{Github:} per tutti i \gloss{file} che necessitano un sistema di \gloss{versionamento} viene usato il servizio offerto da \textit{Github}, l'indirizzo web del gruppo è:\\
   \begin{center}
     \url{https://github.com/scalatekids}
   \end{center}
@@ -764,7 +764,7 @@ Redmine è un'applicazione web atta alla gestione di progetti.\\
 Offre diverse funzionalità che il gruppo dovrà utilizzare, quali:
 \begin{itemize}
 \item\textbf{Sezione wiki:} una pagina web in cui il gruppo andrà a condividere una serie di link di interesse riguardanti ogni tecnologia o aspetto inerente al progetto.
-\item\textbf{Sistema di segnalazioni:} un sistema di segnalazioni gestite dall'\textit{Responsabile}, ogni segnalazione rappresenta un task assegnato ad uno o più membri del gruppo, il suo conseguimento servirà per il soddisfacimento di un requisito.
+\item\textbf{Sistema di segnalazioni:} un sistema di segnalazioni gestite dall'\textit{Responsabile}, ogni segnalazione rappresenta un \gloss{task} assegnato ad uno o più membri del gruppo, il suo conseguimento servirà per il soddisfacimento di un requisito.
 \item\textbf{Gantt:} \textit{Redmine} costruisce automaticamente un \gloss{diagramma di Gantt} con le segnalazioni create dall'\textit{Responsabile}
 \end{itemize}
 % TODO: potremmo aggiungere dei diagrammi UML2.0 per descrivere come usare redmine...
@@ -830,7 +830,7 @@ gruppo.
 \subparagraph{Travis-CI}
 È un servizio di \gloss{integrazione continua} comprensivo di un piano di
 utilizzo gratuito. Facilmente configurabile, il collegamento ai \gloss{repository}
-\textit{Github} avviene mediante un file di configurazione chiamato \textit{.travis.yml}
+\textit{Github} avviene mediante un \gloss{file} di configurazione chiamato \textit{.travis.yml}
 da inserire all'interno del \gloss{repository}. È inoltre possibile fornire
 direttive al servizio e automatizzare unità di test su tutti i \gloss{file} del
 \gloss{repository}, le quali possono essere lanciate sia dopo ogni \gloss{push}
@@ -840,14 +840,14 @@ determinate regole.
 \subparagraph{Docker}
 Dopo varie ricerche, \gloss{Docker} è stato adottato per uniformare quanto più
 possibile l'ambiente di test, grazie al sistema di \gloss{containerizzazione} e
-versionamento delle immagini virtuali che offre.\\ Mediante un file di
+\gloss{versionamento} delle immagini virtuali che offre.\\ Mediante un \gloss{file} di
 configurazione principale, il \gloss{Dockerfile}, è possibile istruire il
 programma e generare una o più immagini virtuali fornite dei soli pacchetti o
-script necessari al testing a cui sarà adibito. Utilizzato in \gloss{tandem} con
+\gloss{script} necessari al testing a cui sarà adibito. Utilizzato in \gloss{tandem} con
 \textit{Travis-CI} permette di effettuare test molto precisi e, allo stesso
 tempo, di versionare un gran numero immagini virtuali per diversificare i test e
 gli ambienti su cui lanciarli. I \gloss{Dockerfile} infatti possono essere
-versionati mediante un repository \textit{Github} direttamente collegato a
+versionati mediante un \gloss{repository} \textit{Github} direttamente collegato a
 \textit{Travis-CI}, il quale, istruito a tal fine, si occuperà di generare
 l'immagine \gloss{Docker} e caricarla mediante un \gloss{push} sull'\gloss{hub}
 \gloss{Docker} presente al sito \url{hub.docker.com}.\\ In questo modo i test
@@ -872,10 +872,10 @@ eventuali \gloss{bug}.\\ L'\textit{IDE} scelto è \textit{IntelliJIdea}, conside
 più appropriato e compatibile con le tecnologie centrali del progetto. Gli
 editor \textit{vim}, \textit{emacs} o \textit{Sublime Text 2} potranno essere
 utilizzati dai componenti del gruppo, purché si tratti di modifiche rapide o
-stesura di script di utilità generale.\\
+stesura di \gloss{script} di utilità generale.\\
 Per la stesura dei documenti, l'\gloss{IDE} di riferimento è \textit{TeXstudio}.
 \subparagraph{Installazione virtual machine}
-Una volta ottenuto il file \textit{.vdi} presente sul \gloss{\textit{Drive}} del gruppo
+Una volta ottenuto il \gloss{file} \textit{.vdi} presente sul \gloss{\textit{Drive}} del gruppo
 in forma compattata \textit{.7z}, ogni componente dovrà installare il software
 \textit{Virtualbox} sul proprio computer e procedere con la creazione della
 macchina virtuale.\\
@@ -911,19 +911,19 @@ L'\textit{Amministratore} si è occupato di scrivere alcuni \gloss{script} di ut
 generale da utilizzare all'interno della macchina virtuale:
 \begin{itemize}
 \item\textbf{build:} lanciato senza argomenti, genera tutti i \gloss{PDF} del
-  progetto dai .tex, eliminando tutti i file \verb=.log= \verb=.aux= \verb=.out= \verb=.soc=
+  progetto dai .tex, eliminando tutti i \gloss{file} \verb=.log= \verb=.aux= \verb=.out= \verb=.soc=
   \verb=.lof= \verb=.lot= e \verb=.toc=
-  generati. Può avere un numero indefinito di argomenti, purché siano file .tex,
-  questi verranno allo stesso modo generati eliminando tutti i file
+  generati. Può avere un numero indefinito di argomenti, purché siano \gloss{file} .tex,
+  questi verranno allo stesso modo generati eliminando tutti i \gloss{file}
   \verb=.log .aux .out .soc= e \verb=.toc=;
 \item\textbf{extgloss:} estrae tutti i termini da glossario contrassegnati da
-  \verb=\gloss= dai file del progetto, anche questo comando può essere lanciato con
+  \verb=\gloss= dai \gloss{file} del progetto, anche questo comando può essere lanciato con
   o senza argomenti;
 \item\textbf{checkgloss:} genera una lista di termini da glossario leggendo il
-  file \hyperref{Glossario\_v0.0.1}, in seguito controlla tutti i file del
+  \gloss{file} \hyperref{Glossario\_v0.0.1}, in seguito controlla tutti i \gloss{file} del
   progetto eccetto il glossario, e inserisce il comando \verb=\gloss= sui termini
-  contenuti in lista trovati nei file. Con argomenti esegue le medesime
-  operazioni soltanto sui file .tex scelti;
+  contenuti in lista trovati nei \gloss{file}. Con argomenti esegue le medesime
+  operazioni soltanto sui \gloss{file} .tex scelti;
 \item\textbf{verify:} scansiona tutti i documenti \verb=.tex= del progetto alla
   ricerca di errori comuni e violazioni delle \textit{Norme di Progetto}, nonché
   TODO o \gloss{merge} irrisolti. Lanciato con l'opzione \verb=-c=
@@ -932,7 +932,7 @@ generale da utilizzare all'interno della macchina virtuale:
   Opzionalmente accetta in input liste di errori grammaticali comuni.
 \end{itemize}
 \subparagraph{Script di utilità remoti}
-Questi script, \textbf{init.sh} e \textbf{update.sh}, risiederanno sul server
+Questi \gloss{script}, \textbf{init.sh} e \textbf{update.sh}, risiederanno sul server
 privato, e avranno rispettivamente lo scopo esclusivo di inizializzare e
 aggiornare l'ambiente di lavoro della virtual machine.
 \subparagraph{Scala e Java Virtual Machine}
@@ -949,7 +949,7 @@ mantenuta e stabile, da utilizzare con versioni di \gloss{Scala} \verb=2.11= o
 % TODO rivedere
 \subsection{Redmine}
 Questo capitolo rappresenta un tutorial su come usare correttamente \textit{Redmine}.
-Questo software offre una vasta gamma di servizi molto utili per la gestione di un progetto, in particolare il \textit{forum}, la sezione wiki ed il sistema di segnalazioni che automaticamente costruisce il diagramma di \textit{Gantt}. Tramite installazioni di \gloss{plugin} è possibile aggiungere funzionalità. Qualora un componente del gruppo ritenga necessaria l'installazione di un \gloss{plugin}, costui può proporla al \textit{Responsabile di Progetto} il quale affiderà il compito ad un \textit{Amministratore} se la riterrà una funzionalità utile.
+Questo software offre una vasta gamma di servizi molto utili per la gestione di un progetto, in particolare il \textit{forum}, la sezione \gloss{wiki} ed il sistema di segnalazioni che automaticamente costruisce il diagramma di \textit{Gantt}. Tramite installazioni di \gloss{plugin} è possibile aggiungere funzionalità. Qualora un componente del gruppo ritenga necessaria l'installazione di un \gloss{plugin}, costui può proporla al \textit{Responsabile di Progetto} il quale affiderà il compito ad un \textit{Amministratore} se la riterrà una funzionalità utile.
 \subsubsection{Creare un sottoprogetto}
 La creazione di sottoprogetti è molto utile per mantenere una chiara divisione funzionale tra le \gloss{attività}, la creazione di un sottoprogetto è molto semplice come si vede in figura sottostante
 \begin{figure}[H]
@@ -964,7 +964,7 @@ La creazione di sottoprogetti è molto utile per mantenere una chiara divisione 
 \end{figure}
 Come si può vedere in figura \ref{fig:figura-2} si dovrà completare un \gloss{form} con i dati necessari per la creazione del progetto.
 \subsubsection{Scrivere sul Forum}
-Si può partecipare al forum rispondendo a messaggi o creandone di nuovi
+Si può partecipare al \gloss{forum} rispondendo a messaggi o creandone di nuovi
 \paragraph{Creare un messaggio}
 Per creare un nuovo messaggio basta andare nel \gloss{topic} desiderato e seguire la procedura come illustrato nelle seguenti immagini
 \begin{figure}[H]
@@ -979,7 +979,7 @@ Per creare un nuovo messaggio basta andare nel \gloss{topic} desiderato e seguir
 \end{figure}
 Per la corretta creazione di un messaggio è necessario seguire le norme scritte nella sezione \ref{sec:ComunicazioniInterne}
 \paragraph{Rispondere ad un messaggio}
-Per rispondere ad un messaggio presente nel forum è necessario aprire il messaggio voluto e premere su \textbf{Rispondi}, automaticamente ci verrà presentato un \gloss{form} \textit{pre compilato} in cui dovremo solamente inserire il corpo della nostra risposta.
+Per rispondere ad un messaggio presente nel \gloss{forum} è necessario aprire il messaggio voluto e premere su \textbf{Rispondi}, automaticamente ci verrà presentato un \gloss{form} \textit{pre compilato} in cui dovremo solamente inserire il corpo della nostra risposta.
 \subsubsection{Gestione delle segnalazioni}
 Una segnalazione rappresenterà una \gloss{attività} che il \textit{Responsabile} assegnerà ad uno o più membri del gruppo, queste \gloss{attività} possono essere suddivise in diverse compiti più semplici da assegnare ad un membro, questi compiti saranno chiamati \gloss{task}.\\
 Il sistema di segnalazioni è la cosa più importante di \textit{Redmine}, perciò solamente il \textit{Responsabile di Progetto} ha il potere di creare nuove segnalazioni così da mantenere ordine nel progetto. \\Gli altri membri del gruppo potranno invece aggiornare le segnalazioni assegnate ad essi.
@@ -1023,5 +1023,5 @@ può essere utile per spiegare i cambiamenti apportati.
 \subsubsection{Modificare la Wiki}
 La sezione \gloss{Wiki} di \textit{Redmine} può essere molto utile, di fatto si tratta di uno spazio in cui è possibile scrivere del testo libero, inserire immagini o altro.\\
 Noi abbiamo deciso di usarla come raccoglitore di link a guide inerenti al nostro progetto.
-Per contribuire alla nostra Wiki basta andare nella suddetta sezione e premere su \textbf{modifica}. Si presenterà un editor di testo in cui è possibile modificare o semplicemente aggiungere del testo.
+Per contribuire alla nostra \Gloss{Wiki} basta andare nella suddetta sezione e premere su \textbf{modifica}. Si presenterà un editor di testo in cui è possibile modificare o semplicemente aggiungere del testo.
 \end{document}
