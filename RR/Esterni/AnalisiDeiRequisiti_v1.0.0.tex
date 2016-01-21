@@ -145,7 +145,7 @@ funzionalità relazionali tipiche dei tradizionali database \textit{SQL} in
 favore di un sistema fortemente \gloss{concorrente} e senza l'\gloss{overhead} generato
 dagli schemi \gloss{SQL}.
 \subsection{Vincoli}
-Per far funzionare \textbf{Actorbase} è necessario disporre di un computer con
+Per far funzionare \textbf{Actorbase} sarà necessario disporre di un computer con
 installata la \textit{\gloss{JVM} versione 8}. Non ci sono ulteriori richieste hardware o software.
 \section{Casi d'uso}
 Le aspettative di esperienza utente derivano dall'utilizzo da parte dei
@@ -153,10 +153,10 @@ componenti del gruppo di \gloss{Amazon DynamoDB}, un database \gloss{key-value}
 sviluppato da \textit{Amazon}, utilizzato come modello di riferimento per lo sviluppo. I casi d'uso seguono le norme di stesura elencate nel documento \href{run:../Interni/NormeDiProgetto\_v1.0.0.pdf}{Norme di Progetto v1.0.0}.
 \subsection{Identificazione attori}
 L'analisi del capitolato e le riunioni con il proponente hanno fatto emergere
-alcune considerazioni sul problema che \textbf{Actorbase} si pone di risolvere.
-Trattandosi di un'applicazione distribuita, il prodotto finale sarà costituito
-da due macro componenti, un lato server e un lato client, fornito di interfaccia
-comandi testuale, per poter dialogare con la base di dati.\\ In particolare la
+alcune considerazioni sull'obiettivo che \textbf{Actorbase} si pone di raggiungere.
+Trattandosi di un'applicazione distribuita il prodotto finale sarà costituito
+da due macro componenti: un lato server e un lato client fornito di interfaccia
+comandi testuale per poter dialogare con la base di dati.\\ In particolare la
 scalabilità che il prodotto deve fornire ha portato alla suddivisione degli
 attori primari nel modo seguente:\\
 \begin{itemize}
@@ -165,13 +165,13 @@ attori primari nel modo seguente:\\
 \item\textbf{Utente autenticato:}\\
   Rappresenta l'utente generico connesso al lato server del prodotto;
 \item\textbf{Amministratore:}\\
-  Rappresenta un superutente con privilegi di \gloss{visibilità} maggiori rispetto a utenti generici, e poteri di modifica sulla \gloss{visibilità} degli utenti generici.
+  Rappresenta un superutente con privilegi di \gloss{visibilità} maggiori rispetto a utenti generici e poteri di modifica sulla \gloss{visibilità} di questi ultimi.
 \end{itemize}
 \subsubsection{Visibilità}
-Rispetto al classico sistema di permessi lettura e scrittura, \textbf{Actorbase}
+Rispetto al classico sistema di permessi di lettura e scrittura, \textbf{Actorbase}
 prevede un meccanismo semplificato di \gloss{visibilità} secondo le seguenti regole:
 \begin{itemize}
-\item Ogni utente generico inizialmente ha \gloss{visibilità} solo sulle proprie \gloss{collezioni} e/o su \gloss{collezioni} in collaborazione di proprietà altrui;
+\item Ogni utente generico inizialmente ha \gloss{visibilità} solo sulle proprie \gloss{collezioni} e/o su \gloss{collezioni} di proprietà altrui su cui è in collaborazione;
 \item L'utente amministratore ha \gloss{visibilità} su tutto il sistema \textbf{Actorbase}.
 \end{itemize}
 La \gloss{visibilità} garantisce privilegi sia in lettura che in scrittura. Di
@@ -181,9 +181,9 @@ conseguenza tutte le azioni descritte nei casi d'uso si applicano al livello di
 Il vantaggio più grande che il prodotto dovrà offrire sarà la possibilità di
 \gloss{scale out} semplificata al massimo. Dovrà quindi essere possibile
 aggiungere potenza di calcolo e capacità di carico mediante affiancamento di
-macchine aggiuntive, i dati contenuti all'interno della base di dati originaria
+macchine aggiuntive. I dati contenuti all'interno della base di dati originaria
 dovranno essere redistribuiti e bilanciati tra i nuovi nodi inseriti. In questo
-modo è idealmente possibile ottenere inifita capacità di carico, semplicemente
+modo è idealmente possibile ottenere infinita capacità di carico semplicemente
 aggiungendo risorse hardware qualora necessario.
 \begin{figure}[H]
   \begin{center}
@@ -200,9 +200,9 @@ aggiungendo risorse hardware qualora necessario.
 \end{figure}
 \textbf{Attori primari:} Utente non autenticato, Utente autenticato, Amministratore\\ \\
 \textbf{Scopo e descrizione:}
-L’utente ha appena avviato la \gloss{CLI}, risulta essere non autenticato, può quindi
-registrarsi, oppure, se è già registrato, può effettuare il login diventando utente
-autenticato. Le operazioni che può eseguire a login effettuato sono:
+L’utente ha appena avviato la \gloss{CLI}, risulta essere non autenticato e può quindi
+registrarsi oppure, se è già registrato, può effettuare il login diventando utente
+autenticato. Le operazioni che l'utente può eseguire a login effettuato sono:
 \begin{itemize}
 \item Gestire il proprio \gloss{account};
 \item Operazioni sulle \gloss{collezioni};
@@ -211,15 +211,15 @@ autenticato. Le operazioni che può eseguire a login effettuato sono:
 \item Richiedere aiuto;
 \item Effettuare il logout.
 \end{itemize}
-Nel caso in cui si tratti di un amministratore, oltre alle operazioni elencate, può effettuare operazioni di gestione sugli utenti
+Nel caso in cui si tratti di un amministratore, oltre alle operazioni elencate, l'utente può effettuare operazioni di gestione sugli utenti
 esistenti nel database.\\ \\
-\textbf{Precondizione:} Il database è installato correttamente, e il server è in ascolto.\\ \\
+\textbf{Precondizione:} Il database è installato correttamente e il server è in ascolto.\\ \\
 \textbf{Flusso eventi:}
 \begin{itemize}
 \item UC1.1 Registrazione;
 \item UC1.2 Login;
 \item UC1.3 Richiesta di aiuto;
-\item UC1.3 Operazioni sulle \gloss{collezione};
+\item UC1.3 Operazioni sulle \gloss{collezioni};
 \item UC1.4 Operazioni sugli \gloss{item};
 \item UC1.5 Ricerca;
 \item UC1.6 Gestione \gloss{account};
