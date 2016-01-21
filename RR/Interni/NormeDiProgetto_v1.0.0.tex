@@ -50,7 +50,29 @@
     \hline
     Versione & Autore & Ruolo & Data & Descrizione \\
     \hline
-    0.0.1 & Andrea Giacomo Baldan & & 2015-12-21 & Creazione scheletro del documento\\
+    1.0.0 & Alberto De Agostini & Responsabile & 2015-12-23 & Approvazione documento\\
+    \hline
+    0.5.0 & Davide Trevisan & Verificatore & 2015-12-22 & Verifica capitolo Processi di Sviluppo\\
+    \hline
+    0.4.0 & Marco Boseggia & Verificatore & 2015-12-22 & Verifica capitolo Processi di Supporto\\
+    \hline
+    0.3.2 & Andrea Giacomo Baldan & Amministratore & 2015-12-22 & Correzione capitolo Processi di Sviluppo\\
+    \hline
+    0.3.1 & Francesco Agostini & Amministratore & 2015-12-21 & Correzione capitolo Processi di Supporto\\
+    \hline
+    0.3.0 & Marco Boseggia & Verificatore & 2015-12-20 & Verifica capitolo Processi di Sviluppo\\
+    \hline
+    0.2.0 & Michael Munaro & Verificatore & 2015-12-20 & Verifica capitolo Processi di Supporto\\
+    \hline
+    0.1.2 & Andrea Giacomo Baldan & Amministratore & 2015-12-18 & Stesura capitolo Processi di Sviluppo\\
+    \hline
+    0.1.1 & Francesco Agostini & Amministratore & 2015-12-18 & Stesura capitolo Processi di Supporto\\
+    \hline
+    0.1.0 & Giacomo Vanin & Verificatore & 2015-12-17 & Verifica capitolo Processi Organizzativi\\
+    \hline
+    0.0.2 & Andrea Giacomo Baldan & Amministratore & 2015-12-17 & Stesura capitolo Processi Organizzativi\\ 
+    \hline
+    0.0.1 & Andrea Giacomo Baldan & Amministratore & 2015-12-16 & Creazione scheletro del documento\\
     \hline
   \end{tabular}
 \end{center}
@@ -422,7 +444,7 @@ La documentazione prodotta deve avere un numero di versione avente la seguente s
 \end{center}
 in cui:
 \begin{itemize}
-\item \textbf{X}: aumenta con il numero di uscite formali del documento
+\item \textbf{X}: aumenta  ad ogni approvazione effettuata dal \textit{Responsabile}. Questo valore corrisponderà anche con il numero di uscite formali del documento
   \begin{enumerate}
   \item\gloss{Attività} di \textbf{Analisi} che si conclude con la \textbf{RR};
   \item\gloss{Attività} di \textbf{Analisi di Dettaglio} che si conclude con l'ingresso alla \textbf{RP};
@@ -430,8 +452,8 @@ in cui:
   \item\gloss{Attività} di \textbf{Progettazione di Dettaglio e Codifica} che si conclude con l'ingresso alla \textbf{RQ};
   \item\gloss{Attività} di \textbf{Verifica e Validazione} che si conclude con la \textbf{RA}.
   \end{enumerate}
-\item \textbf{Y}: rappresenta il numero di modifiche sostanziali effettuate sul documento. Se pari a zero indica che il documento è ancora in fase di stesura in presente revisione;
-\item \textbf{Z}: rappresenta il numero di modifiche minori effettuate sul documento.
+\item \textbf{Y}: aumenta ad ogni attività di verifica applicata sul documento. Quando il documento viene approvato dal \textit{Responsabile} questo numero viene azzerato;
+\item \textbf{Z}: aumenta ad ogni modifica rilevante effettuata sul documento. Questo valore si azzera ad ogni attività di verifica o approvazione del documento.
 \end{itemize}
 La citazione di una versione specifica di un documento deve comprendere sia il nome che il numero di versione aderente al formato:
 \begin{center}
