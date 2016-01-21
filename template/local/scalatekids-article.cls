@@ -84,6 +84,12 @@
 \newcommand{\glossDef}[1]{\textbf{#1:}}
 % Change name of Toc to 'Indice'
 \renewcommand{\contentsname}{Indice}
+% Change name of LoF to 'Indice'
+\renewcommand{\listfigurename}{Lista figure}
+% Change name of LoT to 'Indice'
+\renewcommand{\listtablename}{Lista tabelle}
+% Change name of LoT to 'Indice'
+\renewcommand{\appendixtocname}{Appendice}
 % image folders
 \graphicspath{{img/}{../../img/}}
 % newpage for every section
