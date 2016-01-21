@@ -79,7 +79,7 @@
 \subsection{Scopo del documento}
 Le Norme di Progetto hanno l'obiettivo di fornire il metodo di lavoro, le
 convenzioni e formalismi che i membri del gruppo devono adottare nell'attuazione
-delle strategie scelte durante l'attività di progetto.\
+delle strategie scelte durante l'\gloss{attività} di progetto.\
 Tutti i componenti del gruppo sono tenuti a leggere il presente documento e a seguire
 le regole contenute; esso verrà integrato ogni qualvolta si presenti la necessità di
 chiarire dubbi o definire comportamenti da seguire in specifici scenari.
@@ -456,8 +456,8 @@ in cui:
   \item\gloss{Attività} di \textbf{Progettazione di Dettaglio e Codifica} che si conclude con l'ingresso alla \textbf{RQ};
   \item\gloss{Attività} di \textbf{Verifica e Validazione} che si conclude con la \textbf{RA}.
   \end{enumerate}
-\item \textbf{Y}: aumenta ad ogni attività di verifica applicata sul documento. Quando il documento viene approvato dal \textit{Responsabile} questo numero viene azzerato;
-\item \textbf{Z}: aumenta ad ogni modifica rilevante effettuata sul documento. Questo valore si azzera ad ogni attività di verifica o approvazione del documento.
+\item \textbf{Y}: aumenta ad ogni \gloss{attività} di verifica applicata sul documento. Quando il documento viene approvato dal \textit{Responsabile} questo numero viene azzerato;
+\item \textbf{Z}: aumenta ad ogni modifica rilevante effettuata sul documento. Questo valore si azzera ad ogni \gloss{attività} di verifica o approvazione del documento.
 \end{itemize}
 La citazione di una versione specifica di un documento deve comprendere sia il nome che il numero di versione aderente al formato:
 \begin{center}
@@ -496,7 +496,7 @@ univocamente il caso d'uso. Se un caso d'uso è derivato da un altro, il suo id
 sarà preceduto dall'id del caso d'uso da cui deriva e separato da esso con un
 punto.
 \subsubsection{Analisi dei requisiti}
-Dal capitolato e dall'attività di \gloss{brainstorming} effettuata inizialmente,
+Dal capitolato e dall'\gloss{attività} di \gloss{brainstorming} effettuata inizialmente,
 integrata con le riunioni esterne da effettuare con il \textit{Proponente}, gli
 \textit{Analisti} dovranno stilare una lista di casi d'uso ed estrarre i
 requisiti emergenti.
@@ -545,7 +545,7 @@ Di seguito sono elencati i possibili valori che ogni termine tra parentesi angol
 La \textit{Progettazione} precede la produzione, ed è l'\gloss{attività} che
 passa dai requisiti del problema estratti dagli \textit{Analisiti} durante
 l'\textbf{Analisi}, ad una soluzione del problema preposto a carico dei
-\textbf{Progettisti}. Deve rispettare tutti i requisiti che il gruppo ha
+\textbf{Progettisti}. Dovrà rispettare tutti i requisiti che il gruppo ha
 concordato con il commitente.
 \paragraph{Stile di progettazione}
 L'\gloss{attività} di \textit{Progettazione} dovrà fare utilizzo di
@@ -618,22 +618,29 @@ Posto che tutti i componenti del gruppo dovranno affettuare delle \gloss{attivit
 verifica, il redattore di ogni sezione nei documenti tassativamente non potrà
 effettuare verifica e approvazione delle parti redatte dallo stesso,
 coerentemente con le strategie scelte nel \textbf{PQ}.
-Per eseguire un'accurata verifica dei documenti è necessario seguire il seguente
+I \textit{Verificatori} dovranno attenersi alle seguenti regole per attuare \gloss{attività} di verifica.
+\begin{itemize}
+  \item \textbf{Walkthrough:} per svolgere questa \gloss{attività} il \textit{Verificatore} deve passare in rassegna il documento da controllare, rileggere tutto attentamente e stendere una lista degli errori più comuni, questa lista servirà per attuare solamente verifiche di tipo inspection in futuro;
+  \item \textbf{Ispection:} questa \gloss{attività} va effettuata solamente quando si ha a disposizione una lista di controllo derivante dalle \gloss{attività} di walkthrough precedenti.\\
+  Il \textit{Verificatore} deve controllare secondo la lista di controllo le parti del documento scelto.
+\end{itemize}
+Per eseguire un'accurata verifica dei documenti negli stati iniziali è necessario seguire il seguente
 protocollo:
 \begin{itemize}
 \item\textbf{Controllo ortografico:} Utilizzando \textit{GNU Aspell} vengono evidenziati e corretti
   gli errori grammaticali più evidenti, inoltre, come spiegato in sezione \ref{sec:script}, sono stati
-  creati alcuni strumenti ad hoc per automatizzare le attività di verifica.\\
+  creati alcuni strumenti ad hoc per automatizzare le \gloss{attività} di verifica.\\
   Tuttavia il controllo dei periodi e di parole grammaticalmente corrette ma errate nel contesto richiedono
   l'intervento di un \textit{Verificatore} umano. Ciò implica che ogni documento dovrà essere sottoposto ad un walkthrough(vedi \ref{sec:AnalisiStatica});
 \item\textbf{Uniformità alle norme:} Essendo state redatte alcune regole sulla stesura dei documenti, è compito dei \textit{Verificatori}
   accertarsi che i documenti siano conformi a tali norme, seguendo il metodo di walkthrough;
-\item\textbf{Verifica termini da glossario:} Utilizzando
+\item\textbf{Verifica termini da glossario:} L'operazione è fortemente automatizzabile, compito del \textit{Verificatore} è utilizzare gli strumenti di supporto
+  forniti nell'ambiente di lavoro descritti nella sezione \ref{ref:script}. Tuttavia l'\gloss{attività} di verifica finale dovrà essere effettuata secondo il metodo walkthrough;
 \item\textbf{Indice Gulpease:} Su ogni documento redatto il \gloss{Verificatore} deve calcolare l'indice di leggibilità utilizzando lo strumento fornito
   con la macchina virtuale (vedi sezioni \ref{ref:MacchinaVirtuale} e \ref{ref:script});
-\item\textbf{Segnalazione degli errori riscontrati:}
+\item\textbf{Segnalazione degli errori riscontrati:} Il \textit{Verificatore} dovrà stendere una lista di controllo e inserirla sul \gloss{forum} del gruppo.
 \end{itemize}
-
+Successivamente, basandosi sui cambiamenti del diario delle modifiche, i \textit{Verificatori} potranno applicare il metodo di inspection seguendo la lista redatta in prima istanza di verifica.
 \subsection{Redmine}
 Questo capitolo rappresenta un tutorial su come usare correttamente \textit{Redmine}.
 Questo software offre una vasta gamma di servizi molto utili per la gestione di un progetto, in particolare il \textit{forum}, la sezione wiki ed il sistema di segnalazioni che automaticamente costruisce il diagramma di \textit{Gantt}. Tramite installazioni di \gloss{plugin} è possibile aggiungere funzionalità. Qualora un componente del gruppo ritenga necessaria l'installazione di un \gloss{plugin}, costui può proporla al \textit{Responsabile di Progetto} il quale affiderà il compito ad un \textit{Amministratore} se la riterrà una funzionalità utile.
@@ -808,13 +815,7 @@ inglese ed essere esplicativi del loro utilizzo.
 \subsubsection{Ambiente di verifica e validazione}
 \paragraph{Analisi statica}
 \label{sec:AnalisStatica}
-I \textit{Verificatori} dovranno attenersi alle seguenti regole per attuare attività di verifica.
-\begin{itemize}
-  \item \textbf{Walkthrough:} per svolgere questa attività il \textit{Verificatore} deve passare in rassegna il documento da controllare, rileggere tutto attentamente e stendere una lista degli errori più comuni, questa lista servirà per attuare solamente verifiche di tipo inspection in futuro;
-  \item \textbf{Ispection:} questa attività va effettuata solamente quando si ha a disposizione una lista di controllo derivante dalle attività di walkthrough precedenti.\\
-  Il \textit{Verificatore} deve controllare secondo la lista di controllo le parti del documento scelto.
-\end{itemize}
-Gli strumenti da utilizzare per le attività di analisi statica saranno:
+Gli strumenti da utilizzare per le \gloss{attività} di analisi statica saranno:
 \begin{itemize}
 \item\textbf{ScalaStyle:} \gloss{plugin} per compilatori \gloss{Scala}, fornisce controlli qualitativi esaustivi su codice automaticamente durante la compilazione dei sorgenti;
 \item\textbf{Scapegoat:} altro \gloss{plugin} per compilatori \gloss{Scala}, anch'esso funziona automaticamente in compilazione;
@@ -842,25 +843,24 @@ Dopo varie ricerche, \gloss{Docker} è stato adottato per uniformare quanto più
 possibile l'ambiente di test, grazie al sistema di \gloss{containerizzazione} e
 versionamento delle immagini virtuali che offre.\\ Mediante un file di
 configurazione principale, il \gloss{Dockerfile}, è possibile istruire il
-programma e generare una o più immagini virtuali fornite dei soli pacchetti o
-script necessari al testing a cui sarà adibito. Utilizzato in \gloss{tandem} con
+programma e generare una o più immagini virtuali, fornite dei soli pacchetti o
+script necessari al testing a cui saranno adibite. Utilizzato in coppia con
 \textit{Travis-CI} permette di effettuare test molto precisi e, allo stesso
-tempo, di versionare un gran numero immagini virtuali per diversificare i test e
+tempo, di versionare un gran numero di immagini virtuali per diversificare i test e
 gli ambienti su cui lanciarli. I \gloss{Dockerfile} infatti possono essere
 versionati mediante un repository \textit{Github} direttamente collegato a
-\textit{Travis-CI}, il quale, istruito a tal fine, si occuperà di generare
+\textit{Travis-CI}, il quale, istruito ad hoc, si occuperà di generare
 l'immagine \gloss{Docker} e caricarla mediante un \gloss{push} sull'\gloss{hub}
-\gloss{Docker} presente al sito \url{hub.docker.com}.\\ In questo modo i test
+\gloss{Docker} presente nel sito \url{hub.docker.com}.\\ In questo modo i test
 potranno essere versionati di pari passo con l'\gloss{attività} di sviluppo, garantendo
 un accurata \gloss{attività} di verifica sui sorgenti e documenti senza gravare in alcun
-modo sull'ambiente di lavoro e la banda disponile individuale di ogni singolo
-membro.
+modo sull'ambiente di lavoro di ogni singolo membro.
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.7\textwidth,keepaspectratio]{Docker.png}
   \caption{Integrazione continua - Travis-CI + Docker}
 \end{figure}
-% TODO: da continuare / precisare
+Attualmente è in uso l'immagine \verb=scalatekids-latex= per la verifica dei documenti.
 \paragraph{Ambiente di lavoro individuale}
 Per il lavoro individuale, è stato pensato ad un modo di uniformare quanto più
 possibile l'ambiente di sviluppo tra i componenti; il \textit{Responsabile} e
