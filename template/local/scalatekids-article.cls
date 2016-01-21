@@ -117,11 +117,11 @@
 % document purpose
 \newcommand{\prodPurpose}{
   \subsection{Scopo del Prodotto}
-  Implementazione di un database NoSQL di tipo key-value orientato alla gestione
-  di grandi moli di dati utilizzando il modello ad attori su \gloss{JVM},
-  comprensivo di un \textit{domain specific language} (\gloss{DSL}) da utilizzare
+  Implementazione di un database \gloss{NoSQL} di tipo \gloss{key-value} orientato alla gestione
+  di grandi moli di dati utilizzando il modello ad \gloss{attori} su \gloss{JVM},
+  comprensivo di un \textit{Domain Specific Language} (\gloss{DSL}) da utilizzare
   da riga di comando per poter interagire con il database.\\
-  Il progetto dovrà essere pubblicato su \textit{Github}.
+  Il progetto dovrà essere pubblicato su \textit{Github} sotto licenza \textit{MIT}.
 }
 % document glossary explanation
 \newcommand{\glossExpl}{
