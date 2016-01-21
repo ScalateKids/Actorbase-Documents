@@ -23,6 +23,8 @@
 %% \usepackage{hyperref}
 \usepackage{xspace}
 \usepackage{listings}
+\usepackage{appendix}
+\usepackage{parskip}
 \usepackage[table]{xcolor}
 \usepackage{longtable}
 \usepackage{changes}

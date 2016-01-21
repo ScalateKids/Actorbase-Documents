@@ -52,6 +52,7 @@
   \end{tabular}
 \end{center}
 \tableofcontents
+\listoffigures
 \newpage
 \pagenumbering{arabic}
 \section{Sommario}
@@ -128,32 +129,41 @@ sviluppo. I casi d'uso seguono le norme di stesura elencate nel documento \href{
 \subsection{Identificazione attori}
 L'analisi del capitolato e le riunioni con il proponente hanno fatto emergere
 alcune considerazioni sul problema che \textbf{Actorbase} si pone di risolvere.
-Trattandosi di un'applicazione atta a fornire
-In particolare la scalabilità che il prodotto deve fornire ha portato alla
-suddivisione degli attori primari nel modo seguente:\\
+Trattandosi di un'applicazione distribuita, il prodotto finale sarà costituito
+da due macro componenti, un lato server e un lato client, fornito di interfaccia
+comandi testuale, per poter dialogare con la base di dati.\\ In particolare la
+scalabilità che il prodotto deve fornire ha portato alla suddivisione degli
+attori primari nel modo seguente:\\
 \begin{itemize}
 \item\textbf{Utente non autenticato:}\\
-  Rappresenta l'utente generico che avvia la \gloss{CLI} di \textbf{Actorbase} ma non è ancora connesso al lato server del prodotto
+  Rappresenta l'utente generico che avvia la \gloss{CLI} di \textbf{Actorbase} ma non è ancora connesso al lato server del prodotto;
 \item\textbf{Utente autenticato:}\\
-  Ra
+  Rappresenta l'utente generico connesso al lato server del prodotto;
 \item\textbf{Amministratore:}\\
-\item\textbf{Nodo esterno:}\\
+  Rappresenta un superutente con privilegi di \gloss{visibilità} maggiori rispetto a utenti generici, e poteri di modifica sulla \gloss{visibilità} degli utenti generici.
 \end{itemize}
 \subsubsection{Visibilità}
 Rispetto al classico sistema di permessi lettura e scrittura, \textbf{Actorbase}
-prevede un meccanismo semplificato di visibilità secondo le seguenti regole:
+prevede un meccanismo semplificato di \gloss{visibilità} secondo le seguenti regole:
 \begin{itemize}
-\item Ogni utente generico inizialmente ha visibilità solo sulle proprie collezioni e/o su collezioni in collaborazione di proprietà altrui;
-\item L'utente amministratore ha visibilità su tutto il sistema \textbf{Actorbase}.
+\item Ogni utente generico inizialmente ha \gloss{visibilità} solo sulle proprie collezioni e/o su collezioni in collaborazione di proprietà altrui;
+\item L'utente amministratore ha \gloss{visibilità} su tutto il sistema \textbf{Actorbase}.
 \end{itemize}
-La visibilità garantisce privilegi sia in lettura che in scrittura. Di
+La \gloss{visibilità} garantisce privilegi sia in lettura che in scrittura. Di
 conseguenza tutte le azioni descritte nei casi d'uso si applicano al livello di
-visibilità proprio dell'attore che le effettua.
+\gloss{visibilità} proprio dell'attore che le effettua.
 \subsubsection{Scalabilità orizzontale}
+Il vantaggio più grande che il prodotto dovrà offrire sarà la possibilità di
+\gloss{scale out} semplificata al massimo. Dovrà quindi essere possibile
+aggiungere potenza di calcolo e capacità di carico mediante affiancamento di
+macchine aggiuntive, i dati contenuti all'interno della base di dati originaria
+dovranno essere redistribuiti e bilanciati tra i nuovi nodi inseriti. In questo
+modo è idealmente possibile ottenere inifita capacità di carico, semplicemente
+aggiungendo risorse hardware qualora necessario.
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/ActorbaseNetwork.png}
-    \caption{Actorbase: Visione generale rete Actorbase}
+    \caption{Actorbase: Visione generale semplificata rete Actorbase}
   \end{center}
 \end{figure}
 \subsection{UC1: Actorbase}
@@ -334,9 +344,9 @@ aggiunta o rimozione collaboratori a collezione esistente.\\ \\
 \textbf{Postcondizione:} La collezione è stata creata.
 \subsection{UC1.4.2: Elencazione collezioni}
 \textbf{Attore primario:} Utente autenticato\\ \\
-\textbf{Scopo e descrizione:} L'utente intende elencare tutte le collezioni all'interno di \textbf{Actorbase} secondo la propria visibilità.\\ \\
+\textbf{Scopo e descrizione:} L'utente intende elencare tutte le collezioni all'interno di \textbf{Actorbase} secondo la propria \gloss{visibilità}.\\ \\
 \textbf{Precodizione:} Il database è pronto a ricevere comandi e l'utente intende elencare le collezioni al suo interno.\\ \\
-\textbf{Postcondizione:} Il database restituisce la lista delle collezioni esistenti secondo la visibilità dell'utente.
+\textbf{Postcondizione:} Il database restituisce la lista delle collezioni esistenti secondo la \gloss{visibilità} dell'utente.
 \subsection{UC1.4.3: Cancellazione di una o più collezioni}
 \textbf{Attore primario:} Utente autenticato\\ \\
 \textbf{Scopo e descrizione:} L’utente intende cancellare una o più collezioni presenti nel database.\\ \\
