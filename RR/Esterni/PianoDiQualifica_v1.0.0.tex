@@ -351,12 +351,34 @@ La tabella seguente descrive i test dei requisiti ritenuti meritevoli di verific
 La colonna "Stato" nella tabella è lasciata vuota in quanto i test saranno effettuati successivamente.
 %TODO completare tabella bella
 \begin{center}
-  \begin{tabular}{| c | l | l | c |}
+  \begin{longtable}[H]{| l | p{10cm} | l | l |}
     \hline
     Test & Descrizione & Stato & Requisito\\
     \hline
-    Tcodreq & descreq &  & codreq\\
+    TS.OBF1 & Viene verificato che il sistema fornisca un Domain Specific Language funzionante &  & OBF1\\
+    TS.OBF2 & Viene verificato che il meccanismo di autenticazione sia funzionante & & OBF2\\
+    TS.OBF3 & Viene verificato che il meccanismo di persistenza dei dati sia funzionante & & OBF3\\
+    TS.OBF4 & Viene verificato che il sistema fornisca la possibilità di eseguire operazioni sulle collezioni correttamente & & OBF4\\
+    TS.OBF5 & Viene verificato che il sistema fornisca la possibilità di eseguire operazioni sugli item correttamente & & OBF5\\
+    TS.OBF6 & Viene verificato che il sistema fornisca un meccanismo di ricerca funzionante & & OBF6\\
+    TS.OBF7 & Viene verificato che il sistema fornisca un meccanismo di gestione del proprio \gloss{account} & & OBF7\\
+    TS.OBF8 & Viene verificato che il sistema fornisca un meccanismo di logout funzionante & & OBF8\\
+    TS.DEF9 & Viene verificato che il sistema fornisca agli amministratori delle operazioni sugli account di altri utenti & & DEF9\\
+    TS.OBF10 & Viene verificato che il sistema fornisca un meccanismo di connessione ad istanze esterne funzionante & & OBF10\\
+    TS.OBF11 & Viene verificato che il sistema visualizzi correttamente un messaggio di errore & & OBF11\\
+    TS.DEF12 & Viene verificato che il sistema fornisca un driver Scala per interfacciarsi con \textit{Actorbase} & & DEF12\\
+    TS.OBV13 & Viene verificato che il sistema funzioni in ambienti Ubuntu 14.04 o superiori & & OBV13\\
+    TS.DEV15 & Viene verificato che il sistema funzioni in ambienti Windows 10 o superiori & & DEV15\\
+    TS.DEV16 & Viene verificato che il sistema funzioni in ambienti OSX el capitan o superiori & & DEV16\\
     \hline
-  \end{tabular}
+    TS.OBF19 & Viene verificato che il sistema fornisca un'implementazione dell'attore di tipo storekeeper & & OBF19\\
+    TS.OBF20 & Viene verificato che il sistema fornisca un'implementazione dell'attore di tipo storefinder & & OBF20\\
+    TS.OBF21 & Viene verificato che il sistema fornisca un'implementazione dell'attore di tipo warehouseman & & OBF21\\
+    TS.OPF22 & Viene verificato che il sistema fornisca un'implementazione dell'attore di tipo ninja & & OPF22\\
+    TS.OPF23 & Viene verificato che il sistema fornisca un'implementazione dell'attore di tipo manager & & OPF23\\
+    TS.OBF24 & Viene verificato che il sistema fornisca un'implementazione dell'attore di tipo main & & OBF24\\
+    TS.OBF26 & Viene verificato che il sistema distingua gli account non autenticati, autenticati e amministratori & & OBF26\\
+    \hline
+  \end{longtable}
 \end{center}
 \end{document}
