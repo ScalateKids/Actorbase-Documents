@@ -87,7 +87,9 @@
   \end{tabular}
 \end{center}
 \tableofcontents
+\listoffigures
 \newpage
+\pagenumbering{arabic}
 \section{Sommario}
 \subsection{Scopo del documento}
 Il seguente documento ha lo scopo di delineare le strategie che il gruppo \textit{ScalateKids} ha deciso di adottare per garantire degli obiettivi qualitativi da applicare ai processi sfruttati per lo sviluppo del progetto \textbf{ActorBase}. Per raggiungere tali obiettivi è necessario svolgere un'\gloss{attività} di verifica continua in modo da rilevare e correggere errori o malfunzionamenti minimizzando lo spreco di risorse.
@@ -143,7 +145,7 @@ L'\gloss{attività} di redazione di ogni documento sarà sempre anticipata da un
 Il processo di verifica deve essere ben organizzato e pianificato per rispettare le scadenze fissate nel \href{run:./PianoDiProgetto\_v1.0.0.pdf}{Piano di Progetto v1.0.0}.\\
 L'attività di verifica segue le metodologie descritte nelle \href{run:../Interni/NormeDiProgetto\_v1.0.0.pdf}{Norme di Progetto v1.0.0}. Esse sono state pensate in maniera tale da consentire l'individuazione e la correzione degli errori il più presto possibile evitando che si diffondano.
 \subsection{Responsabilità}
-Per organizzare al meglio il lavoro e in particolare le \gloss{attività} di verifica e validazione vengono assegnati questi compiti ai soli \textit{Verificatori} e al \textit{Responsabile}. Inoltre le \gloss{attività} di verifica non potranno essere svolte da un membro che ha partecipato allo sviluppo di tale sezione per garantire assenza di conflitto di interessi (vedi norme.
+Per organizzare al meglio il lavoro e in particolare le \gloss{attività} di verifica e validazione vengono assegnati questi compiti ai soli \textit{Verificatori} e al \textit{Responsabile}. Inoltre le \gloss{attività} di verifica non potranno essere svolte da un membro che ha partecipato allo sviluppo di tale sezione per garantire assenza di conflitto di interessi.
 \subsection{Tecniche di analisi}
 \label{sec:TecnicheDiAnalisi}
 \subsubsection{Analisi statica}
@@ -188,7 +190,7 @@ La formula applicata per calcolare il suddetto indice è:
   89 + \cfrac{300 * (numero delle frasi) - 10 * (numero delle lettere)}{numero delle parole}
 \end{equation}
 \end{center}
-Lo script applicato su un documento produrrà in output un valore interno compreso tra zero e cento, in particolare i significati sono i seguenti:
+Lo script applicato su un documento produrrà in output un valore intero compreso tra zero e cento, in particolare i significati sono i seguenti:
 \begin{itemize}
   \item Indice inferiore a 80 rappresenta un documento difficile da leggere per persone con una licenza di scuola elementare;
   \item Indice inferiore a 60 rappresenta un documento difficile da leggere per persone con una licenza di scuola media inferiore;
