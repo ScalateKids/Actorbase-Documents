@@ -64,9 +64,9 @@
     \hline
     0.4.1 & Giacomo Vanin & Analista & 2016-01-17 & Stesura capitolo Pianificazione dei test\\
     \hline
-    0.4.0 & Michael Munaro & Verficatore & 2016-01-16 & Verifica Correzioni capitolo Standard di Qualità\\
+    0.4.0 & Michael Munaro & Verificatore & 2016-01-16 & Verifica Correzioni capitolo Standard di Qualità\\
     \hline
-    0.3.1 & Giacomo Vanin & Analista & 2016-01-16 & Correzzioni capitolo Standard di Qualità\\ 
+    0.3.1 & Giacomo Vanin & Analista & 2016-01-16 & Correzioni capitolo Standard di Qualità\\
     \hline
     0.3.0 & Andrea Giacomo Baldan & Verificatore & 2016-01-12 & Verifica capitolo Standard di Qualità\\
     \hline
@@ -147,15 +147,15 @@ Per organizzare al meglio il lavoro e in particolare le \gloss{attività} di ver
 \subsection{Tecniche di analisi}
 \label{sec:TecnicheDiAnalisi}
 \subsubsection{Analisi statica}
-L'analisi statica è una tencica atta a trovare errori e anomalie. Questa tecnica è applicabile sia alla documentazione sia al codice.
+L'analisi statica è una tecnica atta a trovare errori e anomalie. Questa tecnica è applicabile sia alla documentazione sia al codice.
 \paragraph{Walkthrough}
 \label{sec:walkthrough}Come descritto nelle \textit{\href{run:../Interni/NormeDiProgetto_v1.0.0.pdf}{Norme di Progetto v1.0.0}} verrà effettuata tecnica walkthrough nelle fasi iniziali di ogni \gloss{attività} per passare il prima possibile a \gloss{attività} di \textit{Inspection} (paragrafo seguente).
 \paragraph{Inspection}
 \label{sec:inspection}Successivamente all'\gloss{attività} di \ref{sec:walkthrough}{Walthrough} verrà fatta \gloss{attività} di inspection (seguendo \textit{Norme di Progetto} (paragrafo precedente)) rispetto alla lista di controllo ottenuta in precedenza.
 \subsubsection{Analisi dinamica}
-L'analisi dinamica si applica solo al prodotto software e serve a trovare errori o difetti nell'implementazione.\\I test effettuati devono essere \textit{ripetibili}; questa caratteristica è fondamentale poichè un test deve produrre sempre lo stesso risultato dato un input in un ambiente per trovare errori.
+L'analisi dinamica si applica solo al prodotto software e serve a trovare errori o difetti nell'implementazione.\\I test effettuati devono essere \textit{ripetibili}; questa caratteristica è fondamentale poiché un test deve produrre sempre lo stesso risultato dato un input in un ambiente per trovare errori.
 \paragraph{Test di unità}
-Test per verificare ogni unità del software prodotto. Per unità si intende la pià piccola quantità di software che è utile verificare singolarmente.\\L'obbliettivo di questi test è trovare ed eliminare possibili errori creati dai \textit{programmatori}.
+Test per verificare ogni unità del software prodotto. Per unità si intende la più piccola quantità di software che è utile verificare singolarmente.\\L'obiettivo di questi test è trovare ed eliminare possibili errori creati dai \textit{programmatori}.
 \paragraph{Test di integrazione}
 Test per verificare che l'integrazione tra due o più unità software funzionino correttamente.\\In mancanza di unità questi test possono essere svolti tramite la creazione di una o più componenti fittizie che simulano il comportamento delle unità con cui l'unità creata deve interfacciarsi. %TODO vabbe... mettere apposto sta frase
 \paragraph{Test di sistema}
@@ -167,10 +167,10 @@ Questa attività dev'essere svolta tenendo conto del tracciamento dei requisiti 
 Questo corrisponde al collaudo vero e proprio del software da svolgersi col \textit{Proponente}.
 
 \subsection{Metriche di valutazione}
-Per rendere quantificabile il processo di verifica verranno usate delle metriche elencate sotto. Soltando due tipi di \gloss{range} saranno accettati:
+Per rendere quantificabile il processo di verifica verranno usate delle metriche elencate sotto. Soltanto due tipi di \gloss{range} saranno accettati:
 \begin{itemize}
   \item \textbf{Ottimale}: contiene i valori che si deve cercare di ottenere, valori al di fuori di questo range dovranno essere verificati e, se necessario, discussi dal gruppo;
-  \item \textbf{Accettazione}: valori per avere un accetazione del prodotto.
+  \item \textbf{Accettazione}: valori per avere un accentazione del prodotto.
 \end{itemize}
 \subsubsection{Metriche per i documenti}
 Per la stesura dei documenti è stato scelto di utilizzare un \textit{indice di leggibilità} per la lingua italiana.
@@ -202,14 +202,14 @@ Lo script applicato su un documento produrrà in output un valore interno compre
 \subsubsection{Metriche per il software}
 Per perseguire una buona qualità software sono state pensate diverse metriche di valutazione descritte nei prossimi paragrafi. Tuttavia questa sezione è una sezione che potrà subire cambiamenti durante le prossime revisioni.
 \paragraph{Linee di codice per linee di commento}
-Applicato su un file produrrà un valo0re in output che rappresenta la percentuale di righe di commento rispetto alle linee di codice.\\ 
+Applicato su un file produrrà un valore in output che rappresenta la percentuale di righe di commento rispetto alle linee di codice.\\
 \textbf{Range accettabili:}
 \begin{itemize}
   \item Range ottimale: 30 - 40\%;
   \item Range di accettazione: 20 - 30\%.
 \end{itemize}
 \subsubsection{Copertura del codice}
-La copertura del codice indica il numbero di istruzioni che vengono eseguite durante i test rispetto alla totalità delle istruzioni. Per avere una minor possibilità di presenza di errori nel codice si dovrà avere una percentuale il più alta possibile di istruzioni testate.\\Tuttavia metodi molto semplici che non necessitano testing andranno a influire negativamente in questo ambito.\\
+La copertura del codice indica il numero di istruzioni che vengono eseguite durante i test rispetto alla totalità delle istruzioni. Per avere una minor possibilità di presenza di errori nel codice si dovrà avere una percentuale il più alta possibile di istruzioni testate.\\Tuttavia metodi molto semplici che non necessitano testing andranno a influire negativamente in questo ambito.\\
 \textbf{Range accettabili:}
 \begin{itemize}
   \item Range ottimale: 60 - 100\%;
@@ -277,7 +277,7 @@ Infine per stabilire in che livello si trovi un processo ci sono quattro livelli
   \item{\textbf{N:} Non posseduto;}
   \item{\textbf{P:} Parzialmente posseduto;}
   \item{\textbf{L:} Largamente posseduto;}
-  \item{\textbf{F:} Pientamente (Fully) posseduto.}
+  \item{\textbf{F:} Pienamente (Fully) posseduto.}
 \end{itemize}
 \subsection{Ciclo di Deming}
 \label{PDCA}
