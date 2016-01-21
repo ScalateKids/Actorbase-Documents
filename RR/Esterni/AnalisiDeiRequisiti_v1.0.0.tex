@@ -393,24 +393,24 @@ aggiunta o rimozione collaboratori a \gloss{collezione} esistente.\\ \\
 \textbf{Postcondizione:} Il nome della \gloss{collezione} è stato modificato.
 \subsection{UC1.4.5: Aggiunta di un collaboratore a propria collezione}
 \textbf{Attore primario:} Utente autenticato\\ \\
-\textbf{Scopo e descrizione:} L'utente intende aggiungere un collaboratore ad una \gloss{collezione} di sua proprietà. Deve inserire il nome della \gloss{collezione} e lo username dell'utente da aggiungere.\\ \\
-\textbf{Precondizione:} Il database è pronto a ricevere comandi e l'utente intende aggiungere un collaboratore ad una \gloss{collezione} di sua proprietà.\\ \\
+\textbf{Scopo e descrizione:} L'utente intende aggiungere un \gloss{collaboratore} ad una \gloss{collezione} di sua proprietà. Deve inserire il nome della \gloss{collezione} e lo username dell'utente da aggiungere.\\ \\
+\textbf{Precondizione:} Il database è pronto a ricevere comandi e l'utente intende aggiungere un \gloss{collaboratore} ad una \gloss{collezione} di sua proprietà.\\ \\
 \textbf{Flusso di eventi:}
 \begin{itemize}
 \item Inserimento nome \gloss{collezione};
-\item Inserimento username collaboratore.
+\item Inserimento username \gloss{collaboratore}.
 \end{itemize}
-\textbf{Postcondizione:} L'utente designato per la collaborazione è stato aggiunto tra i collaboratori della \gloss{collezione} scelta.
+\textbf{Postcondizione:} L'utente designato per la collaborazione è stato aggiunto tra i \gloss{collaboratori} della \gloss{collezione} scelta.
 \subsection{UC1.4.6: Rimozione di un collaboratore a propria collezione}
 \textbf{Attore primario:} Utente autenticato\\ \\
-\textbf{Scopo e descrizione:} L'utente intende rimuovere un collaboratore da una \gloss{collezione} di sua proprietà. Deve inserire il nome della \gloss{collezione} e lo username del collaboratore da rimuovere.\\ \\
-\textbf{Precondizione:} Il database è pronto a ricevere comandi e l'utente intende rimuovere un collaboratore da una \gloss{collezione} di sua proprietà.\\ \\
+\textbf{Scopo e descrizione:} L'utente intende rimuovere un \gloss{collaboratore} da una \gloss{collezione} di sua proprietà. Deve inserire il nome della \gloss{collezione} e lo username del \gloss{collaboratore} da rimuovere.\\ \\
+\textbf{Precondizione:} Il database è pronto a ricevere comandi e l'utente intende rimuovere un \gloss{collaboratore} da una \gloss{collezione} di sua proprietà.\\ \\
 \textbf{Flusso di eventi:}
 \begin{itemize}
 \item Inserimento nome \gloss{collezione};
-\item Inserimento username collaboratore.
+\item Inserimento username \gloss{collaboratore}.
 \end{itemize}
-\textbf{Postcondizione:} L'utente designato per la rimozione dai collaboratori è stato rimosso dalla \gloss{collezione} scelta.
+\textbf{Postcondizione:} L'utente designato per la rimozione dai \gloss{collaboratori} è stato rimosso dalla \gloss{collezione} scelta.
 \subsection{UC1.5: Operazioni sugli item}
 \begin{figure}[H]
   \begin{center}
@@ -431,7 +431,7 @@ inserimento e cancellazione.\\ \\
 \begin{itemize}
 \item Nel caso in cui l'utente utilizzi un comando sconosciuto:
   \begin{itemize}
-  \item viene visualizzato un messaggio di errore esplicativo (e rimando all'aiuto);
+  \item viene visualizzato un messaggio di errore esplicativo (e rimando all'aiuto).
   \end{itemize}
 \item Nel caso in cui l'utente utilizzi un comando conosciuto ma con parametri errati:
   \begin{itemize}
@@ -439,7 +439,11 @@ inserimento e cancellazione.\\ \\
   \end{itemize}
 \item Nel caso in cui la \gloss{collezione} su cui effettuare inserimento o cancellazione non sia presente:
   \begin{itemize}
-  \item viene visualizzato un messaggio di errore esplicativo;
+  \item viene visualizzato un messaggio di errore esplicativo.
+  \end{itemize}
+\item Nel caso in cui l'\gloss{item} da rimuovere non sia presente:
+  \begin{itemize}
+  \item viene visualizzato un messaggio di errore esplicativo.
   \end{itemize}
 \end{itemize}
 \textbf{Postcondizione:} L'operazione richiesta è stata effettuata correttamente.
@@ -489,7 +493,7 @@ eventuali chiavi già presenti all'interno della \gloss{collezione}\\ \\
 \textbf{Postcondizione:} L'operazione di inserimento senza sovrascrittura è andata a buon fine.
 \subsection{UC1.5.2: Cancellazione di un item}
 \textbf{Attore primario:} Utente autenticato\\ \\
-\textbf{Scopo e descrizione:} L'utente intende cancellare un \gloss{item} all'interno di una \gloss{collezione} esistente. Deve selezionare la \gloss{collezione} e inserire la chiave da del valore da cancellare.\\ \\
+\textbf{Scopo e descrizione:} L'utente intende cancellare un \gloss{item} all'interno di una \gloss{collezione} esistente. Deve selezionare la \gloss{collezione} e inserire la chiave del valore da cancellare.\\ \\
 \textbf{Precondizione:} Il database è pronto a ricevere comandi e l'utente intende effettuare la cancellazione di un \gloss{item}.\\ \\
 \textbf{Flusso di eventi:}
 \begin{itemize}
@@ -505,8 +509,8 @@ eventuali chiavi già presenti all'interno della \gloss{collezione}\\ \\
   \end{center}
 \end{figure}
 \textbf{Attore primario:} Utente autenticato \\ \\
-\textbf{Scopo e descrizione:} L’utente intende effettuare una ricerca, può decidere se effettuare la ricerca a livello globale nella base di dati o solo su una lista di \gloss{collezioni} scelte.\\ \\
-\textbf{Precondizione:} Il database è pronto a ricevere comandi e l’utente intende effettuare una ricerca\\ \\
+\textbf{Scopo e descrizione:} L’utente intende effettuare una ricerca, può decidere se effettuare la ricerca su tutte le \gloss{collezioni} di cui ha visibilità o solo su una lista ristretta di esse.\\ \\
+\textbf{Precondizione:} Il database è pronto a ricevere comandi e l’utente intende effettuare una ricerca.\\ \\
 \textbf{Flusso di eventi:}
 \begin{itemize}
 \item UC1.6.1 Ricerca sull'intera base di dati;
@@ -521,7 +525,7 @@ eventuali chiavi già presenti all'interno della \gloss{collezione}\\ \\
   \begin{itemize}
   \item viene visualizzato un messaggio di supporto che indica come usare correttamente il comando.
   \end{itemize}
-\item Nel caso in cui la \gloss{collezione} su cui effettuare ricerca non sia presente:
+\item Nel caso in cui una \gloss{collezione} su cui effettuare ricerca non sia presente:
   \begin{itemize}
   \item viene visualizzato un messaggio di errore esplicativo;
   \end{itemize}
@@ -529,7 +533,7 @@ eventuali chiavi già presenti all'interno della \gloss{collezione}\\ \\
 \textbf{Postcondizione:} Il sistema ha prodotto in output i risultati della ricerca effettuata.
 \subsection{UC1.6.1: Ricerca all'interno della base di dati}
 \textbf{Attore primario:} Utente autenticato \\ \\
-\textbf{Scopo e descrizione:} L’utente intende effettuare una ricerca sull’intera base di dati, deve inserire i parametri di ricerca.\\ \\
+\textbf{Scopo e descrizione:} L’utente intende effettuare una ricerca sull’intera base di dati a lui visibile, deve inserire i parametri di ricerca.\\ \\
 \textbf{Precondizione:} Il database è pronto a ricevere comandi e l’utente intende effettuare una ricerca generale\\ \\
 \textbf{Flusso di eventi:}
 \begin{itemize}
@@ -555,7 +559,7 @@ eventuali chiavi già presenti all'interno della \gloss{collezione}\\ \\
 \end{figure}
 \textbf{Attore primario:} Utente autenticato\\ \\
 \textbf{Scopo e descrizione:} L'utente intende effettuare operazioni di gestione sul proprio \gloss{account}. Le operazioni previste sono
-Modifica username e modifica password.\\ \\
+modifica di username e di password.\\ \\
 \textbf{Precondizione:} Il database è pronto a ricevere comandi e l'utente intende effettuare operazioni di gestione del proprio \gloss{account}.\\ \\
 \textbf{Flusso di eventi:}
 \begin{itemize}
@@ -633,23 +637,23 @@ Modifica username e modifica password.\\ \\
 \begin{itemize}
 \item Nel caso in cui l'amministratore utilizzi un comando sconosciuto:
   \begin{itemize}
-  \item viene visualizzato un messaggio di errore esplicativo (e rimando all'aiuto);
+  \item viene visualizzato un messaggio di errore esplicativo (e rimando all'aiuto).
   \end{itemize}
 \item Nel caso in cui l'amministratore utilizzi un comando conosciuto ma con parametri errati:
   \begin{itemize}
   \item viene visualizzato un messaggio di supporto che indica come usare correttamente il comando.
   \end{itemize}
-\item Nel caso in cui il username scelto sia già presente nel sistema \textbf{Actorbase}:
+\item Nel caso in cui lo username scelto sia già presente nel sistema \textbf{Actorbase}:
   \begin{itemize}
-  \item viene visualizzato un messaggio di errore esplicativo;
+  \item viene visualizzato un messaggio di errore esplicativo.
   \end{itemize}
 \item Nel caso in cui l'utente designato per la rimozione non sia presente nel sistema \textbf{Actorbase}:
   \begin{itemize}
-  \item viene visualizzato un messaggio di errore esplicativo;
+  \item viene visualizzato un messaggio di errore esplicativo.
   \end{itemize}
 \item Nel caso in cui l'utente designato per la concessione o revoca dei permessi non sia presente nel sistema \textbf{Actorbase}:
   \begin{itemize}
-  \item viene visualizzato un messaggio di errore esplicativo;
+  \item viene visualizzato un messaggio di errore esplicativo.
   \end{itemize}
 \end{itemize}
 \textbf{Postcondizione:} L'operazione di gestione richiesta è andata a buon fine.
@@ -732,14 +736,14 @@ Modifica username e modifica password.\\ \\
 \subsection{UC1.10.3: Errore di contesto}
 \textbf{Attore primario:} Utente \\ \\
 \textbf{Scopo e descrizione:} L'utente ha tentato un operazione non permessa o impossibile da soddisfare.\\ \\
-\textbf{Precondizione:} L'utente ha tentato un operazione non permessa o impossibile da soddisfare.\\ \\
+\textbf{Precondizione:} L'utente ha tentato un'operazione non permessa o impossibile da soddisfare.\\ \\
 \textbf{Flusso di eventi:}
 \begin{itemize}
 \item Il sistema riconosce che il comando inserito non è consentito;
 \item L'operazione viene annullata;
 \item Viene visualizzato il messaggio di errore.
 \end{itemize}
-\textbf{Postcondizione:} Il sistema ha prodotto in output il messaggio di errore nel contesto, l'operazione che lo ha generato è stata annullata.
+\textbf{Postcondizione:} Il sistema ha prodotto in output il messaggio di errore di contesto, l'operazione che lo ha generato è stata annullata.
 \subsection{UC2: Driver - Interazioni}
 \begin{figure}[H]
   \begin{center}
