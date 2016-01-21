@@ -59,7 +59,7 @@
     \hline
     0.2.1 & Marco Boseggia & Analista & 2016-01-14 & Stesura capitolo Classificazione Requisiti\\
     \hline
-    0.2.2 & Davide Trevisan & Analista & 2015-01-14 & Correzione capitolo Casi d'uso\\ 
+    0.2.2 & Davide Trevisan & Analista & 2015-01-14 & Correzione capitolo Casi d'uso\\
     \hline
     0.2.0 & Giacomo Vanin & Verificatore & 2015-01-12 & Verifica capitolo Casi d'uso\\
     \hline
@@ -452,7 +452,7 @@ inserimento e cancellazione.\\ \\
 \end{figure}
 \textbf{Attore primario:} Utente autenticato\\ \\
 \textbf{Scopo e descrizione:} L'utente intende inserire un nuovo \gloss{item} all'interno di una \gloss{collezione} esistente. Deve selezionare la \gloss{collezione} e inserire i parametri di definizione dell'\gloss{item}. Questi sono la chiave e il valore associato.\\ \\
-\textbf{Precondizione:} Il database è pronto a ricevere comandi e l'utente intende effetture un inserimento di un nuovo \gloss{item}.\\ \\
+\textbf{Precondizione:} Il database è pronto a ricevere comandi e l'utente intende effettuare un inserimento di un nuovo \gloss{item}.\\ \\
 \textbf{Flusso di eventi:}
 \begin{itemize}
 \item UC1.5.1.1 Inserimento con sovrascrittura;
@@ -461,7 +461,7 @@ inserimento e cancellazione.\\ \\
 \textbf{Postcondizione:} L'operazione di inserimento richiesta è stata effettuata correttamente.
 \subsection{UC1.5.1.1: Inserimento con sovrascrittura (aggiornamento)}
 \textbf{Attore primario:} Utente autenticato\\ \\
-\textbf{Scopo e descrizione:} L'utente intende inserire un nuovo \gloss{item}; deve selezionare la \gloss{collezione} e inserire i parametri di definizone dell'\gloss{item} da inserire, quali chiave e valore associato. La procedura di inserimento non terrà conto di
+\textbf{Scopo e descrizione:} L'utente intende inserire un nuovo \gloss{item}; deve selezionare la \gloss{collezione} e inserire i parametri di definizione dell'\gloss{item} da inserire, quali chiave e valore associato. La procedura di inserimento non terrà conto di
 eventuali chiavi già presenti all'interno della \gloss{collezione}\\ \\
 \textbf{Precondizione:} Il database è pronto a ricevere comandi e l'utente intende effettuare un inserimento di un nuovo \gloss{item}.\\ \\
 \textbf{Flusso di eventi:}
@@ -490,7 +490,7 @@ eventuali chiavi già presenti all'interno della \gloss{collezione}\\ \\
 \subsection{UC1.5.2: Cancellazione di un item}
 \textbf{Attore primario:} Utente autenticato\\ \\
 \textbf{Scopo e descrizione:} L'utente intende cancellare un \gloss{item} all'interno di una \gloss{collezione} esistente. Deve selezionare la \gloss{collezione} e inserire la chiave da del valore da cancellare.\\ \\
-\textbf{Precondizione:} Il database è pronto a ricevere comandi e l'utente intende effetture la cancellazione di un \gloss{item}.\\ \\
+\textbf{Precondizione:} Il database è pronto a ricevere comandi e l'utente intende effettuare la cancellazione di un \gloss{item}.\\ \\
 \textbf{Flusso di eventi:}
 \begin{itemize}
 \item Inserimento nome \gloss{collezione};
@@ -675,7 +675,7 @@ Modifica username e modifica password.\\ \\
 \subsection{UC1.9.2: Concessione permessi a utente}
 \textbf{Attore primario:} Amministratore\\ \\
 \textbf{Scopo e descrizione:} L'amministratore intende concedere permessi ad un utente esistente.\\ \\
-\textbf{Precondizione:} Il database è pronto a ricevere comandi e l'amministratore intende condere permessi ad un utente esistente nel sistema locale \textbf{Actorbase}.
+\textbf{Precondizione:} Il database è pronto a ricevere comandi e l'amministratore intende concedere permessi ad un utente esistente nel sistema locale \textbf{Actorbase}.
 \textbf{Flusso di eventi:}
 \begin{itemize}
 \item Inserimento username utente.
@@ -739,7 +739,7 @@ Modifica username e modifica password.\\ \\
 \item L'operazione viene annullata;
 \item Viene visualizzato il messaggio di errore.
 \end{itemize}
-\textbf{Postcondzione:} Il sistema ha prodotto in output il messaggio di errore nel contesto, l'operazione che lo ha generato è stata annullata.
+\textbf{Postcondizione:} Il sistema ha prodotto in output il messaggio di errore nel contesto, l'operazione che lo ha generato è stata annullata.
 \subsection{UC2: Driver - Interazioni}
 \begin{figure}[H]
   \begin{center}
