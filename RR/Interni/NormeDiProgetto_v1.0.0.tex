@@ -194,9 +194,9 @@ copia della posta in ingresso, tuttavia soltanto il \textit{Responsabile} ha il
 potere di inviare posta in uscita.
 
 \subsubsection{Comunicazioni interne}
-\label{sec:Comunicazioni interne}
+\label{sec:ComunicazioniInterne}
 Per le comunicazioni interne verrà utilizzato un \gloss{forum} apposito su
-\textit{Redmine} (vedi sezione \ref{Redmine}), suddiviso in quattro sezioni
+\textit{Redmine} (vedi sezione \ref{sec:Redmine}), suddiviso in quattro sezioni
 principali corrispondenti alle revisioni di avanzamento del progetto:
 \begin{itemize}
 \item Revisione dei Requisiti;
@@ -242,23 +242,24 @@ detto attraverso il \gloss{forum} appena possibile.
 \subsection{Riunioni}
 \subsubsection{Riunioni Interne}
 Tutti i componenti del gruppo possono avanzare una richiesta per una riunione
-interna seguendo le regole per la richiesta (vedi \ref{Regole per la
-  richiesta}).\\ Sarà il \textit{Responsabile di Progetto} a decidere se indire
-o meno questa riunione, controllando la disponibilità dei membri attraverso il
+interna seguendo le regole apposite (vedi \ref{sec:RegoleRichiesta}).\\
+Sarà il \textit{Responsabile di Progetto} a decidere se indire
+o meno la riunione proposta, controllando la disponibilità dei membri attraverso il
 \gloss{forum} e in caso avvertendo tutti attraverso un \gloss{topic} come
-spiegato in sezione \ref{Comunicazioni}.\\ È richiesta la partecipazione di
-almeno quattro membri del gruppo. In casi particolari, come per riunioni che
+spiegato in sezione \ref{sec:ComunicazioniInterne}.\\ È richiesta la partecipazione di
+almeno quattro membri del gruppo. In casi particolari, come riunioni che
 trattano specifici ambiti non di interesse di tutti i membri o per l'avvicinarsi
-a importanti date, si può indire una riunione di gruppo con meno compomenti
-presenti, sempre tramite l'approvazione del \textit{Responsabile}.
+a importanti date, è possibile indire una riunione di gruppo con meno compomenti
+presenti, sempre previa approvazione del \textit{Responsabile}.
 
 \subsubsection{Riunioni esterne}
-Le riunioni esterne (incontri col committente o proponente) possono essere
-proposte da qualunque membro del gruppo, spetta sempre al \textit{Responsabile
+Le riunioni esterne (incontri col Committente o Proponente) possono essere
+proposte da qualunque membro del gruppo. Spetta sempre al \textit{Responsabile
   di Progetto} la decisione finale.\\ È necessaria la presenza di almeno il
 50\% + 1 dei componenti.
 
 \subsubsection{Regole per la richiesta}
+\label{sec:RegoleRichiesta}
 Le richieste vanno effettuate tramite mail al \textit{Responsabile} e devono avere come oggetto:
 \begin{center}
   \verb=Richiesta riunione <tipo riunione>=
@@ -272,19 +273,19 @@ Il corpo della mail dovrà avere una struttura del tipo:
 \end{center}
 
 \subsubsection{Esiti Riunioni}
-Ad ogni riunione verrà dato il compito a uno dei presenti di verbalizzare un riassunto sugli argomenti trattati e i chiarimenti esermi durante tale riunione.\\
-Questa persona avrà poi l'obbligo di condividere il verbale con tutti i componenti sul \textit{\gloss{Drive}} del gruppo e di notificare l'avvenuto caricamento tramite \textit{forum}.
+Ad ogni riunione verrà dato il compito a uno dei presenti di verbalizzare un riassunto sugli argomenti trattati e i chiarimenti emersi durante tale riunione.\\
+Il redattore del verbale avrà poi l'obbligo di condividerlo con tutti i componenti sul \textit{\gloss{Drive}} del gruppo e di notificare l'avvenuto caricamento tramite \textit{forum}.
 
 \subsection{Requisiti di Progetto}
 Tutti i requisiti di progetto vanno elencati, suddivisi e tracciati secondo le regole stabilite alla sezione \ref{sec:adr}.
 \subsubsection{Casi d'uso e tracciamento dei requisiti}
 \label{sec:frontend}
 Per facilitare la gestione dei casi d'uso e il tracciamento dei requisiti
-utilizziamo un'applicazione web sviluppata per lo scopo appositamente dal
+va utilizzata un'applicazione web sviluppata per lo scopo appositamente dal
 gruppo.\\Essa si interfaccia con un database relazionale risiedente sul server
-privato(vedi \ref{sec:server}) e permette una visualizzazione chiara dei
-requisiti e casi d'uso. Una volta completata la procedura d'inserimento dei
-requisiti e casi d'uso, previa verifica è possibile esportare in formato
+privato del gruppo(vedi \ref{sec:server}) e permette una visualizzazione chiara dei
+requisiti e dei casi d'uso. Una volta completata la procedura d'inserimento dei
+dati, previa verifica, è possibile esportare in formato
 \LaTeX\xspace ed eseguire il tracciamente automatico dei requisiti rispetto alle
 fonti e viceversa.
 
@@ -294,8 +295,8 @@ fonti e viceversa.
 \label{sec:strutturadoc}
 Abbiamo standardizzato la scrittura di tutti i documenti attraverso un
 \gloss{template} \LaTeX\xspace appositamente creato e presente su
-\textit{\gloss{github}} nel \gloss{repository} \textit{ActorBase -
-  Documents}.\\ L'uso del template ci permette di creare una serie di documenti
+\textit{\gloss{Github}} nel \gloss{repository} \textit{ActorBase -
+  Documents}.\gloss{git}.\\ L'uso del \gloss{template} ci permette di creare una serie di documenti
 stilisticamente uniformi tra loro e ci facilita la modifica delle parti in
 comune tra essi.\\Facilita inoltre la creazione di nuove \gloss{macro} e comandi
 \LaTeX\xspace, nella fattispecie abbiamo creato i seguenti:
@@ -314,7 +315,7 @@ profondità delle \gloss{section}, dell'indice dei contenuti e le colorazoni dei
 \item\textbf{\gloss{url}:} Blu;
 \item\textbf{citazioni:} Grigio.
 \end{itemize}
-Riassumento il template regola:
+Riassumento il \gloss{template} regola:
 \begin{itemize}
 \item Formattazione dei documenti (font);
 \item Formattazione delle pagine (header e footer pagine);
@@ -617,6 +618,21 @@ Posto che tutti i componenti del gruppo dovranno affettuare delle \gloss{attivit
 verifica, il redattore di ogni sezione nei documenti tassativamente non potrà
 effettuare verifica e approvazione delle parti redatte dallo stesso,
 coerentemente con le strategie scelte nel \textbf{PQ}.
+Per eseguire un'accurata verifica dei documenti è necessario seguire il seguente
+protocollo:
+\begin{itemize}
+\item\textbf{Controllo ortografico:} Utilizzando \textit{GNU Aspell} vengono evidenziati e corretti
+  gli errori grammaticali più evidenti, inoltre, come spiegato in sezione \ref{sec:script}, sono stati
+  creati alcuni strumenti ad hoc per automatizzare le attività di verifica.\\
+  Tuttavia il controllo dei periodi e di parole grammaticalmente corrette ma errate nel contesto richiedono
+  l'intervento di un \textit{Verificatore} umano. Ciò implica che ogni documento dovrà essere sottoposto ad un walkthrough(vedi \ref{sec:AnalisiStatica});
+\item\textbf{Uniformità alle norme:} Essendo state redatte alcune regole sulla stesura dei documenti, è compito dei \textit{Verificatori}
+  accertarsi che i documenti siano conformi a tali norme, seguendo il metodo di walkthrough;
+\item\textbf{Verifica termini da glossario:} Utilizzando
+\item\textbf{Indice Gulpease:} Su ogni documento redatto il \gloss{Verificatore} deve calcolare l'indice di leggibilità utilizzando lo strumento fornito
+  con la macchina virtuale (vedi sezioni \ref{ref:MacchinaVirtuale} e \ref{ref:script});
+\item\textbf{Segnalazione degli errori riscontrati:}
+\end{itemize}
 
 \subsection{Redmine}
 Questo capitolo rappresenta un tutorial su come usare correttamente \textit{Redmine}.
@@ -791,6 +807,7 @@ inglese ed essere esplicativi del loro utilizzo.
 % TODO: test su piu OS / docker machines
 \subsubsection{Ambiente di verifica e validazione}
 \paragraph{Analisi statica}
+\label{sec:AnalisStatica}
 I \textit{Verificatori} dovranno attenersi alle seguenti regole per attuare attività di verifica.
 \begin{itemize}
   \item \textbf{Walkthrough:} per svolgere questa attività il \textit{Verificatore} deve passare in rassegna il documento da controllare, rileggere tutto attentamente e stendere una lista degli errori più comuni, questa lista servirà per attuare solamente verifiche di tipo inspection in futuro;
