@@ -153,7 +153,7 @@ sviluppato da \textit{Amazon}, utilizzato come modello di riferimento per lo svi
 L'analisi del capitolato e le riunioni con il \textit{Proponente} hanno fatto emergere
 alcune considerazioni sull'obiettivo che \textbf{Actorbase} si pone di raggiungere.
 Trattandosi di un'applicazione distribuita il prodotto finale sarà costituito
-da due macro componenti: un lato server e un lato client fornito di interfaccia
+da due \gloss{macro} componenti: un lato server e un lato client fornito di interfaccia
 comandi testuale per poter dialogare con la base di dati.\\ In particolare la
 scalabilità che il prodotto deve fornire ha portato alla suddivisione degli
 attori primari nel modo seguente:\\
@@ -282,7 +282,7 @@ Per la registrazione è necessario inserire un nome utente e una password.\\ \\
 \end{figure}
 \textbf{Attore primario:} Utente\\ \\
 \textbf{Scopo e descrizione:} L'utente intende richiedere aiuto generale o su un comando specifico.\\Nel caso di richiesta di aiuto generale diversi tipi di utente riceveranno la lista dei comandi da loro eseguibili\\ \\
-\textbf{Precondizione:} Il database è pronto a ricevere comandi e l'utente intende richiedere supporto.\\ \\
+\textbf{Precondizione:} Il \gloss{database} è pronto a ricevere comandi e l'utente intende richiedere supporto.\\ \\
 \textbf{Flusso di eventi:}
 \begin{itemize}
 \item UC1.3.1 Inserimento comando per richiesta di aiuto generale;
@@ -325,8 +325,8 @@ aggiunta o rimozione collaboratori a \gloss{collezione} esistente.\\ \\
 \item UC1.4.2 Elencazione \gloss{collezioni};
 \item UC1.4.3 Cancellazione \gloss{collezioni};
 \item UC1.4.6 Modifica nome \gloss{collezione};
-\item UC1.4.4 Aggiunta collaboratore;
-\item UC1.4.5 Rimozione collaboratore.
+\item UC1.4.4 Aggiunta \gloss{collaboratore};
+\item UC1.4.5 Rimozione \gloss{collaboratore}.
 \end{itemize}
 \textbf{Estensioni:}
 \begin{itemize}
@@ -346,11 +346,11 @@ aggiunta o rimozione collaboratori a \gloss{collezione} esistente.\\ \\
   \begin{itemize}
   \item viene visualizzato un messaggio di errore esplicativo.
   \end{itemize}
-\item Nel caso in cui il collaboratore da rimuovere non sia presente tra i collaboratori:
+\item Nel caso in cui il \gloss{collaboratore} da rimuovere non sia presente tra i collaboratori:
   \begin{itemize}
   \item viene visualizzato un messaggio di errore esplicativo.
   \end{itemize}
-\item Nel caso in cui il collaboratore da aggiungere non sia presente nel sistema \textbf{Actorbase}:
+\item Nel caso in cui il \gloss{collaboratore} da aggiungere non sia presente nel sistema \textbf{Actorbase}:
   \begin{itemize}
   \item viene visualizzato un messaggio di errore esplicativo.
   \end{itemize}
@@ -816,7 +816,7 @@ La descrizione dei requisiti segue le regole descritte nelle \href{run:../Intern
   \hline
   OBF4.5 & \multiLineCell{Funzionale\\Obbligatorio} & Il sistema dovrà fornire la possibilità di aggiungere collaboratori ad una propria \gloss{collezione} & \multiLineCell{UC1.4.5\\UC2\\VERBALE20160112\\}\\
   \hline
-  OBF4.6 & \multiLineCell{Funzionale\\Obbligatorio} & Il sistema dovrà fornire la possibilità di rimuovere un collaboratore da una propria \gloss{collezione} & \multiLineCell{UC1.4.6\\UC2\\VERBALE20160112\\}\\
+  OBF4.6 & \multiLineCell{Funzionale\\Obbligatorio} & Il sistema dovrà fornire la possibilità di rimuovere un \gloss{collaboratore} da una propria \gloss{collezione} & \multiLineCell{UC1.4.6\\UC2\\VERBALE20160112\\}\\
   \hline
   OBF5 & \multiLineCell{Funzionale\\Obbligatorio} & Il sistema dovrà fornire la possibilità di eseguire una serie di operazioni sugli \gloss{item} & \multiLineCell{Capitolato\\UC1.5\\UC1.5.1\\UC1.5.1.1\\UC1.5.1.2\\UC1.5.2\\UC2\\VERBALE20160112\\}\\
   \hline
@@ -874,9 +874,9 @@ La descrizione dei requisiti segue le regole descritte nelle \href{run:../Intern
   \hline
   DEF12.4 & \multiLineCell{Funzionale\\Desiderabile} & Il \gloss{driver} dovrà permettere la modifica del nome di una \gloss{collezione} & \multiLineCell{UC2\\}\\
   \hline
-  DEF12.5 & \multiLineCell{Funzionale\\Desiderabile} & Il \gloss{driver} dovrà permettere l'aggiunta di un collaboratore al \gloss{collezione} & \multiLineCell{UC2\\}\\
+  DEF12.5 & \multiLineCell{Funzionale\\Desiderabile} & Il \gloss{driver} dovrà permettere l'aggiunta di un \gloss{collaboratore} al \gloss{collezione} & \multiLineCell{UC2\\}\\
   \hline
-  DEF12.6 & \multiLineCell{Funzionale\\Desiderabile} & Il \gloss{driver} dovrà permetter la rimozione di un collaboratore dalle \gloss{collezioni} & \multiLineCell{UC2\\}\\
+  DEF12.6 & \multiLineCell{Funzionale\\Desiderabile} & Il \gloss{driver} dovrà permetter la rimozione di un \gloss{collaboratore} dalle \gloss{collezioni} & \multiLineCell{UC2\\}\\
   \hline
   DEF12.7 & \multiLineCell{Funzionale\\Desiderabile} & Il \gloss{driver} dovrà permettere l'inserimento di \gloss{item} nelle \gloss{collezioni} & \multiLineCell{UC2\\}\\
   \hline
