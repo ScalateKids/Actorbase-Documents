@@ -280,7 +280,7 @@ Il redattore del verbale avrà poi l'obbligo di condividerlo con tutti i compone
 \subsection{Requisiti di Progetto}
 Tutti i requisiti di progetto vanno elencati, suddivisi e tracciati secondo le regole stabilite alla sezione \ref{sec:adr}.
 \subsubsection{Casi d'uso e tracciamento dei requisiti}
-\label{sec:frontend}
+\label{sec:front-end}
 Per facilitare la gestione dei casi d'uso e il tracciamento dei requisiti
 va utilizzata un'applicazione web sviluppata per lo scopo appositamente dal
 gruppo.\\Essa si interfaccia con un database relazionale risiedente sul server
@@ -634,86 +634,6 @@ protocollo:
 \item\textbf{Segnalazione degli errori riscontrati:}
 \end{itemize}
 
-\subsection{Redmine}
-Questo capitolo rappresenta un tutorial su come usare correttamente \textit{Redmine}.
-Questo software offre una vasta gamma di servizi molto utili per la gestione di un progetto, in particolare il \textit{forum}, la sezione \gloss{wiki} ed il sistema di segnalazioni che automaticamente costruisce il diagramma di \textit{Gantt}. Tramite installazioni di \gloss{plugin} è possibile aggiungere funzionalità. Qualora un componente del gruppo ritenga necessaria l'installazione di un \gloss{plugin}, costui può proporre l'idea al \textit{Responsabile di Progetto} il quale affiderà il compito ad un \textit{Amministratore} se la riterrà una funzionalità utile.
-\subsubsection{Creare un sottoprogetto}
-La creazione di sottoprogetti è molto utile per mantenera una chiara divisione funzionale tra le \gloss{attività}. La creazione di un sottoprogetto è molto semplice come si vede in figura sottostante
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=1\textwidth]{tutorialsRedmine/creaproj1.png}
-  \caption{come creare un sottoprogetto - figura 1}
-\end{figure}
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=1\textwidth]{tutorialsRedmine/creaproj2.jpg}
-  \caption{come creare un sottoprogetto - figura 2\label{fig:figura-2}}
-\end{figure}
-Come si può vedere in figura \ref{fig:figura-2} si dovrà completare un \gloss{form} con i dati necessari per la creazione del progetto.
-\subsubsection{Scrivere sul Forum}
-Si può partecipare al \gloss{forum} rispondendo a messaggi o creandone di nuovi
-\paragraph{Creare un messaggio}
-Per creare un nuovo messaggio basta andare nel \gloss{topic} desiderato e seguire la procedura come illustrato nelle seguenti immagini
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=1\textwidth]{tutorialsRedmine/creamessaggio1.png}
-  \caption{come creare un messaggio - figura 1}
-\end{figure}
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=1\textwidth]{tutorialsRedmine/creamessaggio2.jpg}
-  \caption{come creare un messaggio - figura 2}
-\end{figure}
-Per la corretta creazione di un messaggio è necessario seguire le norme scritte nella sezione \ref{sec:Comunicazioni interne}
-\paragraph{Rispondere ad un messaggio}
-Per rispondere ad un messaggio presente nel \gloss{forum} è necessario aprire il messaggio voluto e premere su \textbf{Rispondi}. Automaticamente verrà presentato un \gloss{form} \textit{pre compilato} in cui si dovrà solamente inserire il corpo della nostra risposta.
-\subsubsection{Gestione delle segnalazioni}
-Una segnalazione rappresenterà una \gloss{attività} che il \textit{Responsabile} assegnerà ad uno o più membri del gruppo. Queste \gloss{attività} possono essere suddivise in diverse compiti più semplici da assegnare ad un membro; questi compiti saranno chiamati \gloss{task}.\\
-Il sistema di segnalazioni è la cosa più importante di \textit{Redmine}, perciò solamente il \textit{Responsabile di Progetto} ha il potere di creare nuove segnalazioni così da mantenere ordine nel progetto. \\Gli altri membri del gruppo potranno invece aggiornare le segnalazioni assegnate ad essi.
-\paragraph{Creare una segnalazione}
-Il \textit{Responsabile di Progetto} può creare nuove segnalazioni come illustrato nelle seguenti immagini
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=1\textwidth]{tutorialsRedmine/creasegn1.png}
-  \caption{come creare un segnalazione - figura 1}
-\end{figure}
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=1\textwidth]{tutorialsRedmine/creasegn2.jpg}
-  \caption{come creare una segnalazione - figura 2\label{fig:crea-segnalazione-2}}
-\end{figure}
-Come possiamo vedere in figura \ref{fig:crea-segnalazione-2} ci sono diversi campi da compilare:
-\begin{itemize}
-\item \textbf{Tracker:} lasciare selezionato \textit{Segnalazione};
-\item \textbf{Oggetto:} l'oggetto della segnalazione, questo deve essere breve e non equivocabile;
-\item \textbf{Descrizione:} descrizione dettagliata dell'\gloss{attività} da svolgere;
-\item \textbf{Stato:} se è una nuova segnalazione deve rimanere \textit{nuovo}, altrimenti è possibile scegliere altre opzioni, lo stato viene cambiato dall'intestatario della segnalazione stessa;
-\item \textbf{Assegnato a:} la persona che deve svolgere l'\gloss{attività};
-\item \textbf{\gloss{Attività} principale:} se questa è una sotto \gloss{task} di un altra, bisogna inserire l'identificatore della \gloss{task} padre;
-\item \textbf{Inizio:} data in cui deve iniziare l'\gloss{attività};
-\item \textbf{Fine:} data entro cui l'\gloss{attività} deve essere completata;
-\item \textbf{Tempo stimato:} il numero di ore stimato entro cui si dovrebbe completare l'\gloss{attività};
-\item \textbf{\% completato:} la percentuale di completamento dell'\gloss{attività}, anche questo parametro viene utilizzato dal membro del gruppo che lavora sull'\gloss{attività}.
-\end{itemize}
-\paragraph{Aggiornare una segnalazione}
-Il lavoro di aggiornamento di una segnalazione deve essere svolto dai vari
-membri del gruppo che lavorano alla segnalazione stessa.\\ Ad ogni avanzamento
-relativo ad una \gloss{attività} si deve aggiornare la segnalazione relativa ad
-essa. Per fare ciò bisogna entrare nella pagina personale di \textit{Redmine} e
-nella sezione \textbf{Le mie segnalazioni} selezionare la segnalazione
-desiderata, quindi premere su \textbf{Modifica}. La schermata che si presenterà
-davanti permetterà diverse operazioni come mostrato in figura
-\ref{fig:crea-segnalazione-2}, si dovrà quindi aggiornare lo \textbf{stato} (se
-cambiato), la \textbf{\% completata} e aggiornare inoltre il \textbf{tempo
-  impiegato}. Vi è inoltre la possibilità di inserire un testo libero; questo
-può essere utile per spiegare i cambiamenti apportati.
-\subsubsection{Modificare la Wiki}
-La sezione \gloss{Wiki} di \textit{Redmine} può essere molto utile trattandosi di fatto di uno spazio in cui è possibile scrivere del testo libero, inserire immagini o altro.\\
-Noi abbiamo deciso di usarla come raccoglitore di link a guide inerenti al nostro progetto.
-Per contribuire alla nostra \gloss{Wiki} basta andare nella suddetta sezione e premere su \textbf{modifica}. Si presenterà un editor di testo in cui è possibile modificare o semplicemente aggiungere del testo.
-%TODO: forse solo il responsabile dovrebbe poter modificarla?
-%TODO: se uno la cancella?
-
 \subsection{Glossario}
 Il glossario è un documento unico per tutti i documenti, esso conterrà tutte le
 definizioni, in ordine lessicografico crescente, dei termini inerenti al tema
@@ -767,6 +687,7 @@ Offre diverse funzionalità che il gruppo dovrà utilizzare, quali:
 \item\textbf{Sistema di segnalazioni:} un sistema di segnalazioni gestite dall'\textit{Responsabile}, ogni segnalazione rappresenta un \gloss{task} assegnato ad uno o più membri del gruppo, il suo conseguimento servirà per il soddisfacimento di un requisito.
 \item\textbf{Gantt:} \textit{Redmine} costruisce automaticamente un \gloss{diagramma di Gantt} con le segnalazioni create dall'\textit{Responsabile}
 \end{itemize}
+Per maggiori esplicazioni sull'utilizzo è stata redatta una sezione apposita \ref{sec:redmine}.
 % TODO: potremmo aggiungere dei diagrammi UML2.0 per descrivere come usare redmine...
 
 \subparagraph{PHPMyAdmin}
@@ -864,9 +785,9 @@ membro.
 \paragraph{Ambiente di lavoro individuale}
 Per il lavoro individuale, è stato pensato ad un modo di uniformare quanto più
 possibile l'ambiente di sviluppo tra i componenti; il \textit{Responsabile} e
-l'\textit{Amministratore} hanno stabilito l'\gloss{IDE} di base ed è stata creato
-un ambiente virtuale comune utilizzando il software \textit{Virtualbox versione 5.0.12} o superiore. Tutti i
-componenti del gruppo utilizzeranno gli strumenti all'interno della
+l'\textit{Amministratore} hanno stabilito il sistema operatio e '\gloss{IDE} di base ed è stata creato
+un ambiente virtuale comune utilizzando il software \textit{Virtualbox versione 5.0.12} o superiore. Il sistema scelto è \textit{Ubuntu 14.04}.
+Tutti i componenti del gruppo utilizzeranno gli strumenti all'interno della
 \gloss{virtual machine} in modo da garantire omogeneità, e riproducibilità di
 eventuali \gloss{bug}.\\ L'\textit{IDE} scelto è \textit{IntelliJIdea}, considerato il
 più appropriato e compatibile con le tecnologie centrali del progetto. Gli
@@ -948,6 +869,7 @@ mantenuta e stabile, da utilizzare con versioni di \gloss{Scala} \verb=2.11= o
 \verb=2.12.0-M3= e Java 8+.
 % TODO rivedere
 \subsection{Redmine}
+\label{sec:redmine}
 Questo capitolo rappresenta un tutorial su come usare correttamente \textit{Redmine}.
 Questo software offre una vasta gamma di servizi molto utili per la gestione di un progetto, in particolare il \textit{forum}, la sezione \gloss{wiki} ed il sistema di segnalazioni che automaticamente costruisce il diagramma di \textit{Gantt}. Tramite installazioni di \gloss{plugin} è possibile aggiungere funzionalità. Qualora un componente del gruppo ritenga necessaria l'installazione di un \gloss{plugin}, costui può proporla al \textit{Responsabile di Progetto} il quale affiderà il compito ad un \textit{Amministratore} se la riterrà una funzionalità utile.
 \subsubsection{Creare un sottoprogetto}
