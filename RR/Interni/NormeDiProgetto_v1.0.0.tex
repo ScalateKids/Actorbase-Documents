@@ -384,7 +384,7 @@ Per uniformare il più possibile la stesura di tutti i documenti queste sono le 
 \item \textbf{Grassetto}: il grassetto dev'essere usato per:
   \begin{itemize}
   \item Evidenziare passaggi o concetti importanti;
-  \item Sezioni e sottosezioni dei documenti.
+  \item Sezioni e sottosezioni dei documenti;
   \end{itemize}
 \item \textbf{Maiuscolo}: gli acronimi saranno scritti interamente in maiuscolo (es. \textit{SQL});
 \item \textbf{Monospace}: i font monospace saranno usati per riportare parti di \gloss{codice}.
@@ -643,6 +643,14 @@ protocollo:
   l'intervento di un \textit{Verificatore} umano. Ciò implica che ogni documento dovrà essere sottoposto ad un walkthrough(vedi \ref{sec:AnalisiStatica});
 \item\textbf{Uniformità alle norme:} Essendo state redatte alcune regole sulla stesura dei documenti, è compito dei \textit{Verificatori}
   accertarsi che i documenti siano conformi a tali norme, seguendo il metodo di walkthrough;
+<<<<<<< HEAD
+\item\textbf{Verifica termini da glossario:} Utilizzando
+\item\textbf{Indice Gulpease:} Su ogni documento redatto il \gloss{Verificatore} deve calcolare l'indice di leggibilità utilizzando lo strumento fornito
+  con la macchina virtuale (vedi sezioni \ref{sec:MacchinaVirtuale} e \ref{sec:script});
+\item\textbf{Segnalazione degli errori riscontrati:}
+\end{itemize}
+
+=======
 \item\textbf{Verifica termini da glossario:} L'operazione è fortemente automatizzabile, compito del \textit{Verificatore} è utilizzare gli strumenti di supporto
   forniti nell'ambiente di lavoro descritti nella sezione \ref{sec:script}. Tuttavia l'\gloss{attività} di verifica finale dovrà essere effettuata secondo il metodo
   walkthrough;
@@ -653,6 +661,7 @@ protocollo:
 Successivamente, basandosi sui cambiamenti del diario delle modifiche, i
 \textit{Verificatori} potranno applicare il metodo di inspection seguendo la
 lista redatta in prima istanza di verifica.
+>>>>>>> afc7dc665ec5295fe3728767ca5b8a792e84ee43
 \subsection{Glossario}
 Il glossario è un documento unico per tutti i documenti, esso conterrà tutte le
 definizioni, in ordine lessicografico crescente, dei termini inerenti al tema
@@ -775,7 +784,11 @@ possibile l'ambiente di test, grazie al sistema di \gloss{containerizzazione} e
 \gloss{versionamento} delle immagini virtuali che offre.\\ Mediante un \gloss{file} di
 configurazione principale, il \gloss{Dockerfile}, è possibile istruire il
 programma e generare una o più immagini virtuali fornite dei soli pacchetti o
+<<<<<<< HEAD
+\gloss{script} necessari al testing a cui sarà adibito. Utilizzato in tandem con
+=======
 \gloss{script} necessari al testing a cui saranno adibite. Utilizzato in coppia con
+>>>>>>> afc7dc665ec5295fe3728767ca5b8a792e84ee43
 \textit{Travis-CI} permette di effettuare test molto precisi e, allo stesso
 tempo, di versionare un gran numero di immagini virtuali per diversificare i test e
 gli ambienti su cui lanciarli. I \gloss{Dockerfile} infatti possono essere
