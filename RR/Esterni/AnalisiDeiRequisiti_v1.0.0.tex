@@ -118,19 +118,19 @@ interne ed esterne con il \textit{Proponente}.
 \end{itemize}
 \section{Descrizione generale}
 \subsection{Prospettive del prodotto}
-l'obiettivo del prodotto è fornire un database \gloss{NoSQL} di tipo
+l'obiettivo del prodotto è fornire un \gloss{database} \gloss{NoSQL} di tipo
 \gloss{key-value}, quindi senza schemi predefiniti e tabelle; che utilizzi il
-modello ad attori per garantire un alto grado di \gloss{concorrenza} e
+modello ad \gloss{attori} per garantire un alto grado di \gloss{concorrenza} e
 \gloss{scalabilità orizzontale} idealmente illimitata.
 \subsection{Funzioni}
 Il software fornirà un sistema di interazione con l'utente basata su \gloss{UI}
 testuale direttamente da riga di comando. Questa permetterà di effettuare le operazioni
-basilari che ogni database fornisce:
+basilari che ogni \gloss{database} fornisce:
 \begin{itemize}
 \item Creazione di una o più \gloss{collezioni};
 \item Cancellazione di una o più \gloss{collezioni};
 \item Modifica del nome di una \gloss{collezione};
-\item Ricerca all'interno del database o all'interno di una o più \gloss{collezioni};
+\item Ricerca all'interno del \gloss{database} o all'interno di una o più \gloss{collezioni};
 \item Inserimento \gloss{item} con o senza sovrascrittura;
 \item Cancellazione \gloss{item};
 \item Connessione ad altre istanze \textbf{Actorbase}.
@@ -141,7 +141,7 @@ dei comandi.
 Il prodotto è orientato all'utilizzo da parte di clientela interessata a
 sviluppo di applicazioni \gloss{reactive}, che trattino grandi moli di dati e
 debbano fornire brevissimi tempi di risposta sacrificando dunque le
-funzionalità relazionali tipiche dei tradizionali database \textit{SQL} in
+funzionalità relazionali tipiche dei tradizionali \gloss{database} \textit{SQL} in
 favore di un sistema fortemente \gloss{concorrente} e senza l'\gloss{overhead} generato
 dagli schemi \gloss{SQL}.
 \subsection{Vincoli}
@@ -149,7 +149,7 @@ Per far funzionare \textbf{Actorbase} sarà necessario disporre di un computer c
 installata la \textit{\gloss{JVM} versione 8}. Non ci sono ulteriori richieste hardware o software.
 \section{Casi d'uso}
 Le aspettative di esperienza utente derivano dall'utilizzo da parte dei
-componenti del gruppo di \gloss{Amazon DynamoDB}, un database \gloss{key-value}
+componenti del gruppo di \gloss{Amazon DynamoDB}, un \gloss{database} \gloss{key-value}
 sviluppato da \textit{Amazon}, utilizzato come modello di riferimento per lo sviluppo. I casi d'uso seguono le norme di stesura elencate nel documento \href{run:../Interni/NormeDiProgetto\_v1.0.0.pdf}{Norme di Progetto v1.0.0}.
 \subsection{Identificazione attori}
 L'analisi del capitolato e le riunioni con il \textit{Proponente} hanno fatto emergere
@@ -212,8 +212,8 @@ autenticato. Le operazioni che l'utente può eseguire a login effettuato sono:
 \item Effettuare il logout.
 \end{itemize}
 Nel caso in cui si tratti di un amministratore, oltre alle operazioni elencate, l'utente può effettuare operazioni di gestione sugli utenti
-esistenti nel database.\\ \\
-\textbf{Precondizione:} Il database è installato correttamente e il server è in ascolto.\\ \\
+esistenti nel \gloss{database}.\\ \\
+\textbf{Precondizione:} Il \gloss{database} è installato correttamente e il server è in ascolto.\\ \\
 \textbf{Flusso eventi:}
 \begin{itemize}
 \item UC1.1 Registrazione;
@@ -230,7 +230,7 @@ esistenti nel database.\\ \\
 \textbf{Postcondizione:} Il sistema ha prodotto l'output corrispondente al comando immesso dall'utente.
 \subsection{UC1.1: Registrazione}
 \textbf{Attore primario:} Utente non autenticato\\ \\
-\textbf{Scopo e descrizione:} L'utente intende accedere al sistema \textbf{Actorbase}. Per farlo deve registrarsi nel sistema. 
+\textbf{Scopo e descrizione:} L'utente intende accedere al sistema \textbf{Actorbase}. Per farlo deve registrarsi nel sistema.
 Per la registrazione è necessario inserire un nome utente e una password.\\ \\
 \textbf{Precondizione:} L'utente non è registrato e richiede la registrazione.\\ \\
 \textbf{Flusso eventi:}
@@ -294,7 +294,7 @@ Per la registrazione è necessario inserire un nome utente e una password.\\ \\
 \subsection{UC1.3.1: Richiesta di aiuto generale}
 \textbf{Attore primario:} Utente\\ \\
 \textbf{Scopo e descrizione:} L'utente intende richiedere aiuto generale sull'utilizzo del sistema \textbf{Actorbase}.\\ \\
-\textbf{Precondizione:} Il database è pronto a ricevere comandi e l'utente intende richiedere supporto.\\ \\
+\textbf{Precondizione:} Il \gloss{database} è pronto a ricevere comandi e l'utente intende richiedere supporto.\\ \\
 \textbf{Flusso di eventi:}
 \begin{itemize}
 \item Inserimento comando per richiesta di aiuto.
@@ -320,7 +320,7 @@ Per la registrazione è necessario inserire un nome utente e una password.\\ \\
 \textbf{Scopo e descrizione:} L'utente è autenticato e desidera effettuare delle operazioni sulle \gloss{collezioni}. Le operazioni previste sono:
 creazione di una nuova \gloss{collezione}, elencazione delle \gloss{collezioni} esistenti, cancellazione di \gloss{collezioni} esistenti, modifica del nome di \gloss{collezioni} esistenti e
 aggiunta o rimozione collaboratori a \gloss{collezione} esistente.\\ \\
-\textbf{Precodizione:} Il database è pronto a ricevere comandi e l'utente intende effettuare operazioni su \gloss{collezioni}.\\ \\
+\textbf{Precodizione:} Il \gloss{database} è pronto a ricevere comandi e l'utente intende effettuare operazioni su \gloss{collezioni}.\\ \\
 \textbf{Flusso di eventi:}
 \begin{itemize}
 \item UC1.4.1 Creazione nuova \gloss{collezione};
@@ -360,8 +360,8 @@ aggiunta o rimozione collaboratori a \gloss{collezione} esistente.\\ \\
 \textbf{Postcondizione:} L'operazione richiesta è stata eseguita.
 \subsection{UC1.4.1: Creazione nuova collezione}
 \textbf{Attore primario:} Utente autenticato\\ \\
-\textbf{Scopo e descrizione:} L'utente richiede la creazione di una \gloss{collezione} all'interno del database, deve inserire il nome della nuova \gloss{collezione}.\\ \\
-\textbf{Precodizione:} Il database è pronto a ricevere comandi e l'utente intende creare una \gloss{collezione}.\\ \\
+\textbf{Scopo e descrizione:} L'utente richiede la creazione di una \gloss{collezione} all'interno del \gloss{database}, deve inserire il nome della nuova \gloss{collezione}.\\ \\
+\textbf{Precodizione:} Il \gloss{database} è pronto a ricevere comandi e l'utente intende creare una \gloss{collezione}.\\ \\
 \textbf{Flusso di eventi:}
 \begin{itemize}
 \item Inserimento nome \gloss{collezione}
@@ -370,21 +370,21 @@ aggiunta o rimozione collaboratori a \gloss{collezione} esistente.\\ \\
 \subsection{UC1.4.2: Elencazione collezioni}
 \textbf{Attore primario:} Utente autenticato\\ \\
 \textbf{Scopo e descrizione:} L'utente intende elencare tutte le \gloss{collezioni} all'interno di \textbf{Actorbase} secondo la propria \gloss{visibilità}.\\ \\
-\textbf{Precodizione:} Il database è pronto a ricevere comandi e l'utente intende elencare le \gloss{collezioni} al suo interno.\\ \\
-\textbf{Postcondizione:} Il database restituisce la lista delle \gloss{collezioni} esistenti secondo la \gloss{visibilità} dell'utente.
+\textbf{Precodizione:} Il \gloss{database} è pronto a ricevere comandi e l'utente intende elencare le \gloss{collezioni} al suo interno.\\ \\
+\textbf{Postcondizione:} Il \gloss{database} restituisce la lista delle \gloss{collezioni} esistenti secondo la \gloss{visibilità} dell'utente.
 \subsection{UC1.4.3: Cancellazione di una o più collezioni}
 \textbf{Attore primario:} Utente autenticato\\ \\
-\textbf{Scopo e descrizione:} L’utente intende cancellare una o più \gloss{collezioni} presenti nel database.\\ \\
-\textbf{Precodizione:} Il database è pronto a ricevere comandi e l’utente intende cancellare una o più \gloss{collezioni}.\\ \\
+\textbf{Scopo e descrizione:} L’utente intende cancellare una o più \gloss{collezioni} presenti nel \gloss{database}.\\ \\
+\textbf{Precodizione:} Il \gloss{database} è pronto a ricevere comandi e l’utente intende cancellare una o più \gloss{collezioni}.\\ \\
 \textbf{Flusso di eventi:}
 \begin{itemize}
 \item Inserimento di uno o più nomi di \gloss{collezioni} da cancellare.
 \end{itemize}
-\textbf{Postcondizione:} Le \gloss{collezioni} sono state rimosse dal database.
+\textbf{Postcondizione:} Le \gloss{collezioni} sono state rimosse dal \gloss{database}.
 \subsection{UC1.4.4: Modifica nome collezione}
 \textbf{Attore primario:} Utente autenticato \\ \\
 \textbf{Scopo e descrizione:} L’utente intende modificare il nome di una \gloss{collezione}, deve inserire il nome della \gloss{collezione} da modificare e il nuovo nome da assegnare. \\ \\
-\textbf{Precondizione:} Il database è pronto a ricevere comandi e l’utente intende modificare il nome di una \gloss{collezione}.\\ \\
+\textbf{Precondizione:} Il \gloss{database} è pronto a ricevere comandi e l’utente intende modificare il nome di una \gloss{collezione}.\\ \\
 \textbf{Flusso di eventi:}
 \begin{itemize}
 \item Inserimento nome della \gloss{collezione} da modificare;
@@ -394,7 +394,7 @@ aggiunta o rimozione collaboratori a \gloss{collezione} esistente.\\ \\
 \subsection{UC1.4.5: Aggiunta di un collaboratore a propria collezione}
 \textbf{Attore primario:} Utente autenticato\\ \\
 \textbf{Scopo e descrizione:} L'utente intende aggiungere un \gloss{collaboratore} ad una \gloss{collezione} di sua proprietà. Deve inserire il nome della \gloss{collezione} e lo username dell'utente da aggiungere.\\ \\
-\textbf{Precondizione:} Il database è pronto a ricevere comandi e l'utente intende aggiungere un \gloss{collaboratore} ad una \gloss{collezione} di sua proprietà.\\ \\
+\textbf{Precondizione:} Il \gloss{database} è pronto a ricevere comandi e l'utente intende aggiungere un \gloss{collaboratore} ad una \gloss{collezione} di sua proprietà.\\ \\
 \textbf{Flusso di eventi:}
 \begin{itemize}
 \item Inserimento nome \gloss{collezione};
@@ -404,7 +404,7 @@ aggiunta o rimozione collaboratori a \gloss{collezione} esistente.\\ \\
 \subsection{UC1.4.6: Rimozione di un collaboratore a propria collezione}
 \textbf{Attore primario:} Utente autenticato\\ \\
 \textbf{Scopo e descrizione:} L'utente intende rimuovere un \gloss{collaboratore} da una \gloss{collezione} di sua proprietà. Deve inserire il nome della \gloss{collezione} e lo username del \gloss{collaboratore} da rimuovere.\\ \\
-\textbf{Precondizione:} Il database è pronto a ricevere comandi e l'utente intende rimuovere un \gloss{collaboratore} da una \gloss{collezione} di sua proprietà.\\ \\
+\textbf{Precondizione:} Il \gloss{database} è pronto a ricevere comandi e l'utente intende rimuovere un \gloss{collaboratore} da una \gloss{collezione} di sua proprietà.\\ \\
 \textbf{Flusso di eventi:}
 \begin{itemize}
 \item Inserimento nome \gloss{collezione};
@@ -421,7 +421,7 @@ aggiunta o rimozione collaboratori a \gloss{collezione} esistente.\\ \\
 \textbf{Attore primario:} Utente autenticato\\ \\
 \textbf{Scopo e descrizione:} L'utente intende effettuare operazioni sugli \gloss{item} di una \gloss{collezione} esistente. Le operazioni previste sono:
 inserimento e cancellazione.\\ \\
-\textbf{Precondizione:} Il database è pronto a ricevere comandi e l'utente intende effettuare operazioni di inserimento o cancellazione su una \gloss{collezione} esistente.\\ \\
+\textbf{Precondizione:} Il \gloss{database} è pronto a ricevere comandi e l'utente intende effettuare operazioni di inserimento o cancellazione su una \gloss{collezione} esistente.\\ \\
 \textbf{Flusso di eventi:}
 \begin{itemize}
 \item UC1.5.1 Inserimento nuovo \gloss{item};
@@ -456,7 +456,7 @@ inserimento e cancellazione.\\ \\
 \end{figure}
 \textbf{Attore primario:} Utente autenticato\\ \\
 \textbf{Scopo e descrizione:} L'utente intende inserire un nuovo \gloss{item} all'interno di una \gloss{collezione} esistente. Deve selezionare la \gloss{collezione} e inserire i parametri di definizione dell'\gloss{item}. Questi sono la chiave e il valore associato.\\ \\
-\textbf{Precondizione:} Il database è pronto a ricevere comandi e l'utente intende effettuare un inserimento di un nuovo \gloss{item}.\\ \\
+\textbf{Precondizione:} Il \gloss{database} è pronto a ricevere comandi e l'utente intende effettuare un inserimento di un nuovo \gloss{item}.\\ \\
 \textbf{Flusso di eventi:}
 \begin{itemize}
 \item UC1.5.1.1 Inserimento con sovrascrittura;
@@ -467,7 +467,7 @@ inserimento e cancellazione.\\ \\
 \textbf{Attore primario:} Utente autenticato\\ \\
 \textbf{Scopo e descrizione:} L'utente intende inserire un nuovo \gloss{item}; deve selezionare la \gloss{collezione} e inserire i parametri di definizione dell'\gloss{item} da inserire, quali chiave e valore associato. La procedura di inserimento non terrà conto di
 eventuali chiavi già presenti all'interno della \gloss{collezione}\\ \\
-\textbf{Precondizione:} Il database è pronto a ricevere comandi e l'utente intende effettuare un inserimento di un nuovo \gloss{item}.\\ \\
+\textbf{Precondizione:} Il \gloss{database} è pronto a ricevere comandi e l'utente intende effettuare un inserimento di un nuovo \gloss{item}.\\ \\
 \textbf{Flusso di eventi:}
 \begin{itemize}
 \item Inserimento nome \gloss{collezione} su cui effettuare l'inserimento;
@@ -477,7 +477,7 @@ eventuali chiavi già presenti all'interno della \gloss{collezione}\\ \\
 \subsection{UC1.5.1.2: Inserimento senza sovrascrittura}
 \textbf{Attore primario:} Utente autenticato \\ \\
 \textbf{Scopo e descrizione:} L'utente intende inserire un nuovo \gloss{item}; deve selezionare la \gloss{collezione} e inserire i parametri di definizione dell'\gloss{item} da inserire, quali chiave e valore associato. La procedura di inserimento terrà conto di chiavi già presenti all'interno della \gloss{collezione} selezionata.\\ \\
-\textbf{Precondizione:} Il database è pronto a ricevere comandi e l'utente intende effettuare un inserimento di un nuovo \gloss{item}.\\ \\
+\textbf{Precondizione:} Il \gloss{database} è pronto a ricevere comandi e l'utente intende effettuare un inserimento di un nuovo \gloss{item}.\\ \\
 \textbf{Flusso di eventi:}
 \begin{itemize}
 \item Inserimento nome \gloss{collezione} su cui effettuare l'inserimento;
@@ -494,7 +494,7 @@ eventuali chiavi già presenti all'interno della \gloss{collezione}\\ \\
 \subsection{UC1.5.2: Cancellazione di un item}
 \textbf{Attore primario:} Utente autenticato\\ \\
 \textbf{Scopo e descrizione:} L'utente intende cancellare un \gloss{item} all'interno di una \gloss{collezione} esistente. Deve selezionare la \gloss{collezione} e inserire la chiave del valore da cancellare.\\ \\
-\textbf{Precondizione:} Il database è pronto a ricevere comandi e l'utente intende effettuare la cancellazione di un \gloss{item}.\\ \\
+\textbf{Precondizione:} Il \gloss{database} è pronto a ricevere comandi e l'utente intende effettuare la cancellazione di un \gloss{item}.\\ \\
 \textbf{Flusso di eventi:}
 \begin{itemize}
 \item Inserimento nome \gloss{collezione};
@@ -510,7 +510,7 @@ eventuali chiavi già presenti all'interno della \gloss{collezione}\\ \\
 \end{figure}
 \textbf{Attore primario:} Utente autenticato \\ \\
 \textbf{Scopo e descrizione:} L’utente intende effettuare una ricerca, può decidere se effettuare la ricerca su tutte le \gloss{collezioni} di cui ha visibilità o solo su una lista ristretta di esse.\\ \\
-\textbf{Precondizione:} Il database è pronto a ricevere comandi e l’utente intende effettuare una ricerca.\\ \\
+\textbf{Precondizione:} Il \gloss{database} è pronto a ricevere comandi e l’utente intende effettuare una ricerca.\\ \\
 \textbf{Flusso di eventi:}
 \begin{itemize}
 \item UC1.6.1 Ricerca sull'intera base di dati;
@@ -534,7 +534,7 @@ eventuali chiavi già presenti all'interno della \gloss{collezione}\\ \\
 \subsection{UC1.6.1: Ricerca all'interno della base di dati}
 \textbf{Attore primario:} Utente autenticato \\ \\
 \textbf{Scopo e descrizione:} L’utente intende effettuare una ricerca sull’intera base di dati a lui visibile, deve inserire i parametri di ricerca.\\ \\
-\textbf{Precondizione:} Il database è pronto a ricevere comandi e l’utente intende effettuare una ricerca generale\\ \\
+\textbf{Precondizione:} Il \gloss{database} è pronto a ricevere comandi e l’utente intende effettuare una ricerca generale\\ \\
 \textbf{Flusso di eventi:}
 \begin{itemize}
 \item Inserimento parametri di ricerca.
@@ -543,7 +543,7 @@ eventuali chiavi già presenti all'interno della \gloss{collezione}\\ \\
 \subsection{UC1.6.2: Ricerca all'interno di una specifica collezione(o più)}
 \textbf{Attore primario:} Utente autenticato \\ \\
 \textbf{Scopo e descrizione:} L’utente intende effettuare una ricerca all’interno di una o più \gloss{collezioni} specifiche, deve inserire le \gloss{collezioni} su cui effettuare la ricerca e i parametri di ricerca.\\ \\
-\textbf{Precondizione:} Il database è pronto a ricevere comandi e l’utente intende effettuare una ricerca dettagliata\\ \\
+\textbf{Precondizione:} Il \gloss{database} è pronto a ricevere comandi e l’utente intende effettuare una ricerca dettagliata\\ \\
 \textbf{Flusso di eventi:}
 \begin{itemize}
 \item Inserimento nomi \gloss{collezioni};
@@ -560,7 +560,7 @@ eventuali chiavi già presenti all'interno della \gloss{collezione}\\ \\
 \textbf{Attore primario:} Utente autenticato\\ \\
 \textbf{Scopo e descrizione:} L'utente intende effettuare operazioni di gestione sul proprio \gloss{account}. Le operazioni previste sono
 modifica di username e di password.\\ \\
-\textbf{Precondizione:} Il database è pronto a ricevere comandi e l'utente intende effettuare operazioni di gestione del proprio \gloss{account}.\\ \\
+\textbf{Precondizione:} Il \gloss{database} è pronto a ricevere comandi e l'utente intende effettuare operazioni di gestione del proprio \gloss{account}.\\ \\
 \textbf{Flusso di eventi:}
 \begin{itemize}
 \item UC1.7.1 Modifica username;
@@ -585,7 +585,7 @@ modifica di username e di password.\\ \\
 \subsection{UC1.7.1: Modifica username}
 \textbf{Attore primario:} Utente autenticato\\ \\
 \textbf{Scopo e descrizione:} L'utente intende effettuare la modifica del proprio username nel sistema \textbf{Actorbase}. Dovrà inserire il nuovo username.\\ \\
-\textbf{Precondizione:} Il database è pronto a ricevere comandi e l'utente intende modificare il proprio username.\\
+\textbf{Precondizione:} Il \gloss{database} è pronto a ricevere comandi e l'utente intende modificare il proprio username.\\
 \textbf{Flusso eventi:}
 \begin{itemize}
 \item Inserimento nuovo username.
@@ -594,7 +594,7 @@ modifica di username e di password.\\ \\
 \subsection{UC1.7.2: Modifica password}
 \textbf{Attore primario:} Utente autenticato\\ \\
 \textbf{Scopo e descrizione:} L'utente intende effettuare la modifica della propria password nel sistema \textbf{Actorbase}. Dovrà inserire la vecchia password e la nuova password.\\ \\
-\textbf{Precondizione:} Il database è pronto a ricevere comandi e l'utente intende modificare la propria password.\\
+\textbf{Precondizione:} Il \gloss{database} è pronto a ricevere comandi e l'utente intende modificare la propria password.\\
 \textbf{Flusso eventi:}
 \begin{itemize}
 \item Inserimento nuova password.
@@ -603,7 +603,7 @@ modifica di username e di password.\\ \\
 \subsection{UC1.8: Logout}
 \textbf{Attore primario:} Utente autenticato\\ \\
 \textbf{Scopo e descrizione:} L'utente intende effettuare il logout dal sistema \textbf{Actorbase}.\\ \\
-\textbf{Precondizione:} Il database è pronto a ricevere comandi e l'utente intende effettuare il logout dal sistema.\\ \\
+\textbf{Precondizione:} Il \gloss{database} è pronto a ricevere comandi e l'utente intende effettuare il logout dal sistema.\\ \\
 \textbf{Flusso di eventi:}
 \begin{itemize}
 \item Inserimento comando di logout.
@@ -624,8 +624,8 @@ modifica di username e di password.\\ \\
   \end{center}
 \end{figure}
 \textbf{Attore primario:} Amministratore\\ \\
-\textbf{Scopo e descrizione:} L'amministratore intende effettuare operazioni di gestione sugli utenti del database.\\ \\
-\textbf{Precondizione:} Il database è pronto a ricevere comandi e l'amministratore intende effettuare operazioni di gestione sugli utenti del sistema.\\ \\
+\textbf{Scopo e descrizione:} L'amministratore intende effettuare operazioni di gestione sugli utenti del \gloss{database}.\\ \\
+\textbf{Precondizione:} Il \gloss{database} è pronto a ricevere comandi e l'amministratore intende effettuare operazioni di gestione sugli utenti del sistema.\\ \\
 \textbf{Flusso di eventi:}
 \begin{itemize}
 \item UC1.9.1: Aggiunta nuovo utente;
@@ -637,30 +637,30 @@ modifica di username e di password.\\ \\
 \begin{itemize}
 \item Nel caso in cui l'amministratore utilizzi un comando sconosciuto:
   \begin{itemize}
-  \item viene visualizzato un messaggio di errore esplicativo (e rimando all'aiuto);
+  \item viene visualizzato un messaggio di errore esplicativo (e rimando all'aiuto).
   \end{itemize}
 \item Nel caso in cui l'amministratore utilizzi un comando conosciuto ma con parametri errati:
   \begin{itemize}
   \item viene visualizzato un messaggio di supporto che indica come usare correttamente il comando.
   \end{itemize}
-\item Nel caso in cui il username scelto sia già presente nel sistema \textbf{Actorbase}:
+\item Nel caso in cui lo username scelto sia già presente nel sistema \textbf{Actorbase}:
   \begin{itemize}
-  \item viene visualizzato un messaggio di errore esplicativo;
+  \item viene visualizzato un messaggio di errore esplicativo.
   \end{itemize}
 \item Nel caso in cui l'utente designato per la rimozione non sia presente nel sistema \textbf{Actorbase}:
   \begin{itemize}
-  \item viene visualizzato un messaggio di errore esplicativo;
+  \item viene visualizzato un messaggio di errore esplicativo.
   \end{itemize}
 \item Nel caso in cui l'utente designato per la concessione o revoca dei permessi non sia presente nel sistema \textbf{Actorbase}:
   \begin{itemize}
-  \item viene visualizzato un messaggio di errore esplicativo;
+  \item viene visualizzato un messaggio di errore esplicativo.
   \end{itemize}
 \end{itemize}
 \textbf{Postcondizione:} L'operazione di gestione richiesta è andata a buon fine.
 \subsection{UC1.9.1: Aggiunta nuovo utente}
 \textbf{Attore primario:} Amministratore\\ \\
 \textbf{Scopo e descrizione:} L'amministratore intende aggiungere un nuovo utente al sistema \textbf{Actorbase}.\\ \\
-\textbf{Precondizione:} Il database è pronto a ricevere comandi e l'amministratore intende aggiungere un nuovo utente al sistema.\\ \\
+\textbf{Precondizione:} Il \gloss{database} è pronto a ricevere comandi e l'amministratore intende aggiungere un nuovo utente al sistema.\\ \\
 \textbf{Flusso di eventi:}
 \begin{itemize}
 \item Inserimento username nuovo utente;
@@ -670,7 +670,7 @@ modifica di username e di password.\\ \\
 \subsection{UC1.9.1: Rimozione utente esistente}
 \textbf{Attore primario:} Amministratore\\ \\
 \textbf{Scopo e descrizione:} L'amministratore intende rimuovere un utente esistente dal sistema \textbf{Actorbase}.\\ \\
-\textbf{Precondizione:} Il database è pronto a ricevere comandi e l'amministratore intende rimuovere un utente esistente dal sistema.\\ \\
+\textbf{Precondizione:} Il \gloss{database} è pronto a ricevere comandi e l'amministratore intende rimuovere un utente esistente dal sistema.\\ \\
 \textbf{Flusso di eventi:}
 \begin{itemize}
 \item Inserimento username utente.
@@ -679,7 +679,7 @@ modifica di username e di password.\\ \\
 \subsection{UC1.9.2: Concessione permessi a utente}
 \textbf{Attore primario:} Amministratore\\ \\
 \textbf{Scopo e descrizione:} L'amministratore intende concedere permessi ad un utente esistente.\\ \\
-\textbf{Precondizione:} Il database è pronto a ricevere comandi e l'amministratore intende concedere permessi ad un utente esistente nel sistema locale \textbf{Actorbase}.
+\textbf{Precondizione:} Il \gloss{database} è pronto a ricevere comandi e l'amministratore intende concedere permessi ad un utente esistente nel sistema locale \textbf{Actorbase}.
 \textbf{Flusso di eventi:}
 \begin{itemize}
 \item Inserimento username utente.
@@ -688,7 +688,7 @@ modifica di username e di password.\\ \\
 \subsection{UC1.9.3: Revoca permessi a utente}
 \textbf{Attore primario:} Amministratore\\ \\
 \textbf{Scopo e descrizione:} L'amministratore intende revocare permessi ad un utente esistente.\\ \\
-\textbf{Precondizione:} Il database è pronto a ricevere comandi e l'amministratore intende revocare permessi ad un utente esistente nel sistema locale \textbf{Actorbase}.
+\textbf{Precondizione:} Il \gloss{database} è pronto a ricevere comandi e l'amministratore intende revocare permessi ad un utente esistente nel sistema locale \textbf{Actorbase}.
 \textbf{Flusso di eventi:}
 \begin{itemize}
 \item Inserimento username utente.
@@ -736,14 +736,14 @@ modifica di username e di password.\\ \\
 \subsection{UC1.10.3: Errore di contesto}
 \textbf{Attore primario:} Utente \\ \\
 \textbf{Scopo e descrizione:} L'utente ha tentato un operazione non permessa o impossibile da soddisfare.\\ \\
-\textbf{Precondizione:} L'utente ha tentato un operazione non permessa o impossibile da soddisfare.\\ \\
+\textbf{Precondizione:} L'utente ha tentato un'operazione non permessa o impossibile da soddisfare.\\ \\
 \textbf{Flusso di eventi:}
 \begin{itemize}
 \item Il sistema riconosce che il comando inserito non è consentito;
 \item L'operazione viene annullata;
 \item Viene visualizzato il messaggio di errore.
 \end{itemize}
-\textbf{Postcondizione:} Il sistema ha prodotto in output il messaggio di errore nel contesto, l'operazione che lo ha generato è stata annullata.
+\textbf{Postcondizione:} Il sistema ha prodotto in output il messaggio di errore di contesto, l'operazione che lo ha generato è stata annullata.
 \subsection{UC2: Driver - Interazioni}
 \begin{figure}[H]
   \begin{center}
@@ -764,8 +764,8 @@ autenticato. Le operazioni che può eseguire a login effettuato sono:
 \item Effettuare il logout.
 \end{itemize}
 Nel caso in cui si tratti di un amministratore, oltre alle operazioni elencate, può effettuare operazioni di gestione sugli utenti
-esistenti nel database.\\ \\
-\textbf{Precondizione:} Il database è installato correttamente, e il server è in ascolto.\\ \\
+esistenti nel \gloss{database}.\\ \\
+\textbf{Precondizione:} Il \gloss{database} è installato correttamente, e il server è in ascolto.\\ \\
 \textbf{Flusso eventi:}
 \begin{itemize}
 \item UC2.1 Login;
@@ -788,7 +788,7 @@ La descrizione dei requisiti segue le regole descritte nelle \href{run:../Intern
   \hline
   \textbf{Requisito} & \textbf{Tipologia} & \textbf{Descrizione} & \textbf{Fonti}\\
   \hline
-  OBF1 & \multiLineCell{Funzionale\\Obbligatorio} & Il sistema dovrà fornire un Domain Specific Language per comunicare con il database & \multiLineCell{Capitolato\\UC1\\}\\
+  OBF1 & \multiLineCell{Funzionale\\Obbligatorio} & Il sistema dovrà fornire un Domain Specific Language per comunicare con il \gloss{database} & \multiLineCell{Capitolato\\UC1\\}\\
   \hline
   DEF1.1 & \multiLineCell{Funzionale\\Desiderabile} & Il sistema dovrà fornire un comando di assistenza & \multiLineCell{UC1.3\\UC1.3.1\\UC1.3.2\\}\\
   \hline
@@ -830,7 +830,7 @@ La descrizione dei requisiti segue le regole descritte nelle \href{run:../Intern
   \hline
   OBF5.2 & \multiLineCell{Funzionale\\Obbligatorio} & Il sistema dovrà permettere la cancellazione di un \gloss{item} & \multiLineCell{Capitolato\\UC1.5.2\\VERBALE20160112\\}\\
   \hline
-  DEF5.3 & \multiLineCell{Funzionale\\Desiderabile} & Il sistema dovrà permettere tutte le operazioni sugli \gloss{item} anche attraverso importazione di file & \multiLineCell{UC1.5\\UC1.5.1\\UC1.5.1.1\\UC1.5.1.2\\UC1.5.2\\VERBALE20160112\\}\\
+  DEF5.3 & \multiLineCell{Funzionale\\Desiderabile} & Il sistema dovrà permettere tutte le operazioni sugli \gloss{item} anche attraverso importazione di \gloss{file} & \multiLineCell{UC1.5\\UC1.5.1\\UC1.5.1.1\\UC1.5.1.2\\UC1.5.2\\VERBALE20160112\\}\\
   \hline
   OBF6 & \multiLineCell{Funzionale\\Obbligatorio} & Il sistema dovrà fornire un meccanismo di ricerca & \multiLineCell{UC1.6\\UC2\\VERBALE20160112\\}\\
   \hline
@@ -868,7 +868,7 @@ La descrizione dei requisiti segue le regole descritte nelle \href{run:../Intern
   \hline
   DEF12.10 & \multiLineCell{Funzionale\\Desiderabile} & Il \gloss{driver} dovrà permettere la ricerca all'interno di \gloss{collezioni} & \multiLineCell{UC2\\}\\
   \hline
-  DEF12.11 & \multiLineCell{Funzionale\\Desiderabile} & Il \gloss{driver} dovrà permettere il logout dal database & \multiLineCell{UC2\\}\\
+  DEF12.11 & \multiLineCell{Funzionale\\Desiderabile} & Il \gloss{driver} dovrà permettere il logout dal \gloss{database} & \multiLineCell{UC2\\}\\
   \hline
   DEF12.2 & \multiLineCell{Funzionale\\Desiderabile} & Il \gloss{driver} dovrà permettere la creazione di \gloss{collezioni} & \multiLineCell{UC2\\}\\
   \hline
@@ -888,43 +888,43 @@ La descrizione dei requisiti segue le regole descritte nelle \href{run:../Intern
   \hline
   DEF12.8 & \multiLineCell{Funzionale\\Desiderabile} & Il \gloss{driver} dovrà permettere la cancellazione di \gloss{item} dalle \gloss{collezioni} & \multiLineCell{UC2\\}\\
   \hline
-  DEF12.9 & \multiLineCell{Funzionale\\Desiderabile} & Il \gloss{driver} dovrà permettere la ricerca all'interno del database & \multiLineCell{UC2\\}\\
+  DEF12.9 & \multiLineCell{Funzionale\\Desiderabile} & Il \gloss{driver} dovrà permettere la ricerca all'interno del \gloss{database} & \multiLineCell{UC2\\}\\
   \hline
-  OBF19 & \multiLineCell{Funzionale\\Obbligatorio} & Sarà implementato l'\gloss{attore} di tipo storekeeper & \multiLineCell{Capitolato\\}\\
+  OBF19 & \multiLineCell{Funzionale\\Obbligatorio} & Sarà implementato l'\gloss{attore} di tipo \gloss{storekeeper} & \multiLineCell{Capitolato\\}\\
   \hline
-  OBF19.1 & \multiLineCell{Funzionale\\Obbligatorio} & Gli attori di tipo storekeeper dovranno contenere le diverse coppie chiave/valore & \multiLineCell{Capitolato\\}\\
+  OBF19.1 & \multiLineCell{Funzionale\\Obbligatorio} & Gli \gloss{attori} di tipo \gloss{storekeeper} dovranno contenere le diverse coppie chiave/valore & \multiLineCell{Capitolato\\}\\
   \hline
-  OBF19.2 & \multiLineCell{Funzionale\\Obbligatorio} & Gli storekeeper dovranno soddisfare le richieste provenienti dai rispettivi storefinder & \multiLineCell{Capitolato\\}\\
+  OBF19.2 & \multiLineCell{Funzionale\\Obbligatorio} & Gli \gloss{storekeeper} dovranno soddisfare le richieste provenienti dai rispettivi \gloss{storefinder} & \multiLineCell{Capitolato\\}\\
   \hline
-  OBF20 & \multiLineCell{Funzionale\\Obbligatorio} & Sarà implementato l'\gloss{attore} di tipo storefinder & \multiLineCell{Capitolato\\}\\
+  OBF20 & \multiLineCell{Funzionale\\Obbligatorio} & Sarà implementato l'\gloss{attore} di tipo \gloss{storefinder} & \multiLineCell{Capitolato\\}\\
   \hline
-  OBF20.1 & \multiLineCell{Funzionale\\Obbligatorio} & Gli attori storefinder possono ricevere richieste dall'esterno & \multiLineCell{Capitolato\\}\\
+  OBF20.1 & \multiLineCell{Funzionale\\Obbligatorio} & Gli \gloss{attori} \gloss{storefinder} possono ricevere richieste dall'esterno & \multiLineCell{Capitolato\\}\\
   \hline
-  OBF20.2 & \multiLineCell{Funzionale\\Obbligatorio} & Gli attori di tipo storefinder dovranno instradare le richieste ai giusti storekeeper & \multiLineCell{Capitolato\\}\\
+  OBF20.2 & \multiLineCell{Funzionale\\Obbligatorio} & Gli \gloss{attori} di tipo \gloss{storefinder} dovranno instradare le richieste ai giusti \gloss{storekeeper} & \multiLineCell{Capitolato\\}\\
   \hline
-  OBF21 & \multiLineCell{Funzionale\\Obbligatorio} & Sarà implementato l'\gloss{attore} di tipo warehouseman & \multiLineCell{Capitolato\\}\\
+  OBF21 & \multiLineCell{Funzionale\\Obbligatorio} & Sarà implementato l'\gloss{attore} di tipo \gloss{warehousemen} & \multiLineCell{Capitolato\\}\\
   \hline
-  OBF21.1 & \multiLineCell{Funzionale\\Obbligatorio} & Il sistema dovrà permettere agli attori warehousemen di mandare messaggi agli attori di tipo storekeeper & \multiLineCell{Capitolato\\}\\
+  OBF21.1 & \multiLineCell{Funzionale\\Obbligatorio} & Il sistema dovrà permettere agli \gloss{attori} \gloss{warehousemen} di mandare messaggi agli \gloss{attori} di tipo \gloss{storekeeper} & \multiLineCell{Capitolato\\}\\
   \hline
-  OBF21.2 & \multiLineCell{Funzionale\\Obbligatorio} & Il sistema dovrà permettere agli attori warehousemen di ricevere messaggi dagli attori di tipo storekeeper & \multiLineCell{Capitolato\\}\\
+  OBF21.2 & \multiLineCell{Funzionale\\Obbligatorio} & Il sistema dovrà permettere agli \gloss{attori} \gloss{warehousemen} di ricevere messaggi dagli \gloss{attori} di tipo \gloss{storekeeper} & \multiLineCell{Capitolato\\}\\
   \hline
-  OBF21.3 & \multiLineCell{Funzionale\\Obbligatorio} & Il sistema dovrà permettere agli attori warehousemen di persistere i dati su disco & \multiLineCell{Capitolato\\}\\
+  OBF21.3 & \multiLineCell{Funzionale\\Obbligatorio} & Il sistema dovrà permettere agli \gloss{attori} \gloss{warehousemen} di persistere i dati su disco & \multiLineCell{Capitolato\\}\\
   \hline
   OPF22 & \multiLineCell{Funzionale\\Opzionale} & Sarà implementato l'\gloss{attore} di tipo ninja & \multiLineCell{Capitolato\\}\\
   \hline
-  OPF22.1 & \multiLineCell{Funzionale\\Opzionale} & L'\gloss{attore} di tipo ninja dovrà poter essere eletto a storekeeper se necessario & \multiLineCell{Capitolato\\}\\
+  OPF22.1 & \multiLineCell{Funzionale\\Opzionale} & L'\gloss{attore} di tipo ninja dovrà poter essere eletto a \gloss{storekeeper} se necessario & \multiLineCell{Capitolato\\}\\
   \hline
-  OPF22.2 & \multiLineCell{Funzionale\\Opzionale} & L'\gloss{attore} di tipo ninja dovrà essere aggiornato insieme al corrispondente storekeeper & \multiLineCell{Capitolato\\}\\
+  OPF22.2 & \multiLineCell{Funzionale\\Opzionale} & L'\gloss{attore} di tipo ninja dovrà essere aggiornato insieme al corrispondente \gloss{storekeeper} & \multiLineCell{Capitolato\\}\\
   \hline
   OPF23 & \multiLineCell{Funzionale\\Opzionale} & Sarà implementato l'\gloss{attore} di tipo manager & \multiLineCell{Capitolato\\}\\
   \hline
-  OPF23.1 & \multiLineCell{Funzionale\\Opzionale} & L'\gloss{attore} manager dovrà decidere il numero massimo di \gloss{item} contenuti in un'istanza dello storekeeper & \multiLineCell{Capitolato\\}\\
+  OPF23.1 & \multiLineCell{Funzionale\\Opzionale} & L'\gloss{attore} manager dovrà decidere il numero massimo di \gloss{item} contenuti in un'istanza dello \gloss{storekeeper} & \multiLineCell{Capitolato\\}\\
   \hline
-  OPF23.1.1 & \multiLineCell{Funzionale\\Opzionale} & L'\gloss{attore} manager dovrà decidere il numero massimo di \gloss{item} contenuti in un istanza di storekeeper in maniera statica & \multiLineCell{Capitolato\\}\\
+  OPF23.1.1 & \multiLineCell{Funzionale\\Opzionale} & L'\gloss{attore} manager dovrà decidere il numero massimo di \gloss{item} contenuti in un istanza di \gloss{storekeeper} in maniera statica & \multiLineCell{Capitolato\\}\\
   \hline
-  OPF23.1.2 & \multiLineCell{Funzionale\\Opzionale} & L'\gloss{attore} manager dovrà decidere il numero massimo di \gloss{item} contenuti in un istanza di storekeeper in maniera dinamica in base al carico & \multiLineCell{Capitolato\\}\\
+  OPF23.1.2 & \multiLineCell{Funzionale\\Opzionale} & L'\gloss{attore} manager dovrà decidere il numero massimo di \gloss{item} contenuti in un istanza di \gloss{storekeeper} in maniera dinamica in base al carico & \multiLineCell{Capitolato\\}\\
   \hline
-  OPF23.2 & \multiLineCell{Funzionale\\Opzionale} & L'\gloss{attore} manager dovrà poter inviare e ricevere messaggi agli storekeeper & \multiLineCell{Capitolato\\}\\
+  OPF23.2 & \multiLineCell{Funzionale\\Opzionale} & L'\gloss{attore} manager dovrà poter inviare e ricevere messaggi agli \gloss{storekeeper} & \multiLineCell{Capitolato\\}\\
   \hline
   OBF24 & \multiLineCell{Funzionale\\Obbligatorio} & Sarà implementato l'\gloss{attore} di tipo main & \multiLineCell{Capitolato\\}\\
   \hline
