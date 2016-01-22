@@ -36,7 +36,6 @@
 \end{titlepage}
 \restoregeometry
 \clearpage
-\pagenumbering{arabic}
 \setcounter{page}{1}
 \begin{flushleft}
   \vspace{0cm}
@@ -75,7 +74,8 @@
   \end{tabular}
 \end{center}
 \tableofcontents
-\listoffigures
+\newpage
+\pagenumbering{arabic}
 \section{Sommario}
 \subsection{Scopo del documento}
 Le Norme di Progetto hanno l'obiettivo di fornire il metodo di lavoro, le
@@ -297,7 +297,7 @@ fonti e viceversa.
 Abbiamo standardizzato la scrittura di tutti i documenti attraverso un
 \gloss{template} \LaTeX\xspace appositamente creato e presente su
 \textit{\gloss{Github}} nel \gloss{repository} \textit{ActorBase -
-  Documents}.\gloss{git}.\\ L'uso del \gloss{template} ci permette di creare una serie di documenti
+  Documents}.\gloss{git}(vedi \ref{sec:ServiziWeb}).\\ L'uso del \gloss{template} ci permette di creare una serie di documenti
 stilisticamente uniformi tra loro e ci facilita la modifica delle parti in
 comune tra essi.\\Facilita inoltre la creazione di nuove \gloss{macro} e comandi
 \LaTeX\xspace. Nella fattispecie abbiamo creato i seguenti:
@@ -618,6 +618,12 @@ Posto che tutti i componenti del gruppo dovranno effettuare delle \gloss{attivit
 verifica, il redattore di ogni sezione nei documenti non potrà tassativamente
 effettuare verifica e approvazione delle parti redatte dallo stesso,
 coerentemente con le strategie scelte nel \textbf{PQ}.
+I \textit{Verificatori} dovranno attenersi alle seguenti regole per attuare attività di verifica.
+\begin{itemize}
+  \item \textbf{Walkthrough:} per svolgere questa attività il \textit{Verificatore} deve passare in rassegna il documento da controllare, rileggere tutto attentamente e stendere una lista degli errori più comuni, questa lista servirà per attuare solamente verifiche di tipo inspection in futuro;
+  \item \textbf{Ispection:} questa attività va effettuata solamente quando si ha a disposizione una lista di controllo derivante dalle attività di walkthrough precedenti.\\
+  Il \textit{Verificatore} deve controllare secondo la lista di controllo le parti del documento scelto.
+\end{itemize}
 Per eseguire un'accurata verifica dei documenti è necessario seguire il seguente
 protocollo:
 \begin{itemize}
@@ -628,12 +634,16 @@ protocollo:
   l'intervento di un \textit{Verificatore} umano. Ciò implica che ogni documento dovrà essere sottoposto ad un walkthrough(vedi \ref{sec:AnalisiStatica});
 \item\textbf{Uniformità alle norme:} Essendo state redatte alcune regole sulla stesura dei documenti, è compito dei \textit{Verificatori}
   accertarsi che i documenti siano conformi a tali norme, seguendo il metodo di walkthrough;
-\item\textbf{Verifica termini da glossario:} Utilizzando
-\item\textbf{Indice Gulpease:} Su ogni documento redatto il \gloss{Verificatore} deve calcolare l'indice di leggibilità utilizzando lo strumento fornito
-  con la macchina virtuale (vedi sezioni \ref{ref:MacchinaVirtuale} e \ref{ref:script});
-\item\textbf{Segnalazione degli errori riscontrati:}
+\item\textbf{Verifica termini da glossario:} L'operazione è fortemente automatizzabile, compito del \textit{Verificatore} è utilizzare gli strumenti di supporto
+  forniti nell'ambiente di lavoro descritti nella sezione \ref{sec:script}. Tuttavia l'\gloss{attività} di verifica finale dovrà essere effettuata secondo il metodo
+  walkthrough;
+\item\textbf{Indice Gulpease:} Su ogni documento redatto il \textit{Verificatore} deve calcolare l'indice di leggibilità utilizzando lo strumento fornito
+  con la macchina virtuale (vedi sezioni \ref{sec:MacchinaVirtuale} e \ref{sec:script});
+\item\textbf{Segnalazione degli errori riscontrati:} Il \textit{Verificatore} dovrà stendere una lista di controllo e inserirla sul \gloss{forum} del gruppo.
 \end{itemize}
-
+Successivamente, basandosi sui cambiamenti del diario delle modifiche, i
+\textit{Verificatori} potranno applicare il metodo di inspection seguendo la
+lista redatta in prima istanza di verifica.
 \subsection{Glossario}
 Il glossario è un documento unico per tutti i documenti, esso conterrà tutte le
 definizioni, in ordine lessicografico crescente, dei termini inerenti al tema
@@ -657,6 +667,7 @@ operare in remoto, il gruppo ha scelto di utilizzare quanto più possibile gli
 strumenti di condivisione e \gloss{versionamento} erogati come servizi web,
 centralizzando gli strumenti organizzativi su server privato.
 \paragraph{Servizi web}
+\label{sec:ServiziWeb}
 I servizi web utilizzati sono:
 \begin{itemize}
 \item\textbf{Google Drive:} è usato per lo scambio di \gloss{file} e documenti all'interno del gruppo, principalmente per \gloss{file} che non necessitano di \gloss{versionamento}.\\
@@ -728,20 +739,11 @@ inglese ed essere esplicativi del loro utilizzo.
 % TODO: test su piu OS / docker machines
 \subsubsection{Ambiente di verifica e validazione}
 \paragraph{Analisi statica}
-\label{sec:AnalisStatica}
-I \textit{Verificatori} dovranno attenersi alle seguenti regole per attuare attività di verifica.
-\begin{itemize}
-  \item \textbf{Walkthrough:} per svolgere questa attività il \textit{Verificatore} deve passare in rassegna il documento da controllare, rileggere tutto attentamente e stendere una lista degli errori più comuni, questa lista servirà per attuare solamente verifiche di tipo inspection in futuro;
-  \item \textbf{Ispection:} questa attività va effettuata solamente quando si ha a disposizione una lista di controllo derivante dalle attività di walkthrough precedenti.\\
-  Il \textit{Verificatore} deve controllare secondo la lista di controllo le parti del documento scelto.
-\end{itemize}
-Gli strumenti da utilizzare per le attività di analisi statica saranno:
+\label{sec:AnalisiStatica}
+Gli strumenti da utilizzare per le \gloss{attività} di analisi statica saranno:
 \begin{itemize}
 \item\textbf{ScalaStyle:} \gloss{plugin} per compilatori \gloss{Scala}, fornisce controlli qualitativi esaustivi su codice automaticamente durante la compilazione dei sorgenti;
-\item\textbf{Scapegoat:} altro \gloss{plugin} per compilatori \gloss{Scala}, anch'esso funziona automaticamente in compilazione;
-  % TODO: uno dei due
 \item\textbf{loc:} \gloss{script} di controllo qualità, forniscono il rapporto tra righe di codice e righe di commento.
-  % TODO: scrivere il funzionamento
 \end{itemize}
 \paragraph{Integrazione continua}
 Fin da subito, i \gloss{repository} saranno collegati ad un sistema di
@@ -759,29 +761,28 @@ che dopo ogni \gloss{pull} e notificare il \textit{Responsabile} via mail su
 eventuali \gloss{commit} che non superino i test predisposti o violino
 determinate regole.
 \subparagraph{Docker}
-Dopo varie ricerche, \gloss{Docker} è stato adottato per uniformare quanto più
+Dopo varie ricerche, \textit{\gloss{Docker} versione 1.9.1} è stato adottato per uniformare quanto più
 possibile l'ambiente di test, grazie al sistema di \gloss{containerizzazione} e
 \gloss{versionamento} delle immagini virtuali che offre.\\ Mediante un \gloss{file} di
 configurazione principale, il \gloss{Dockerfile}, è possibile istruire il
 programma e generare una o più immagini virtuali fornite dei soli pacchetti o
-\gloss{script} necessari al testing a cui sarà adibito. Utilizzato in \gloss{tandem} con
+\gloss{script} necessari al testing a cui saranno adibite. Utilizzato in coppia con
 \textit{Travis-CI} permette di effettuare test molto precisi e, allo stesso
-tempo, di versionare un gran numero immagini virtuali per diversificare i test e
+tempo, di versionare un gran numero di immagini virtuali per diversificare i test e
 gli ambienti su cui lanciarli. I \gloss{Dockerfile} infatti possono essere
 versionati mediante un \gloss{repository} \textit{Github} direttamente collegato a
-\textit{Travis-CI}, il quale, istruito a tal fine, si occuperà di generare
+\textit{Travis-CI}, il quale, istruito ad hoc, si occuperà di generare
 l'immagine \gloss{Docker} e caricarla mediante un \gloss{push} sull'\gloss{hub}
-\gloss{Docker} presente al sito \url{hub.docker.com}.\\ In questo modo i test
+\gloss{Docker} presente nel sito \url{hub.docker.com}.\\ In questo modo i test
 potranno essere versionati di pari passo con l'\gloss{attività} di sviluppo, garantendo
 un accurata \gloss{attività} di verifica sui sorgenti e documenti senza gravare in alcun
-modo sull'ambiente di lavoro e la banda disponile individuale di ogni singolo
-membro.
+modo sull'ambiente di lavoro di ogni singolo membro.
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.7\textwidth,keepaspectratio]{Docker.png}
   \caption{Integrazione continua - Travis-CI + Docker}
 \end{figure}
-% TODO: da continuare / precisare
+Attualmente è in uso l'immagine \verb=scalatekids-latex= per la verifica dei documenti.
 \paragraph{Ambiente di lavoro individuale}
 Per il lavoro individuale, è stato pensato ad un modo di uniformare quanto più
 possibile l'ambiente di sviluppo tra i componenti; il \textit{Responsabile} e
@@ -796,6 +797,7 @@ utilizzati dai componenti del gruppo, purché si tratti di modifiche rapide o
 stesura di \gloss{script} di utilità generale.\\
 Per la stesura dei documenti, l'\gloss{IDE} di riferimento è \textit{TeXstudio}.
 \subparagraph{Installazione virtual machine}
+\label{ref:MacchinaVirtuale}
 Una volta ottenuto il \gloss{file} \textit{.vdi} presente sul \gloss{\textit{Drive}} del gruppo
 in forma compattata \textit{.7z}, ogni componente dovrà installare il software
 \textit{Virtualbox} sul proprio computer e procedere con la creazione della
@@ -840,7 +842,7 @@ generale da utilizzare all'interno della macchina virtuale:
 \item\textbf{extgloss:} estrae tutti i termini da glossario contrassegnati da
   \verb=\gloss= dai \gloss{file} del progetto, anche questo comando può essere lanciato con
   o senza argomenti;
-\item\textbf{checkgloss:} genera una lista di termini da glossario leggendo il
+\item\textbf{verifygloss:} genera una lista di termini da glossario leggendo il
 	\gloss{file} \href{run:../Esterni/Glossario\_v0.0.1.pdf}{Glossario v1.0.0}, in seguito controlla tutti i \gloss{file} del
   progetto eccetto il glossario, e inserisce il comando \verb=\gloss= sui termini
   contenuti in lista trovati nei \gloss{file}. Con argomenti esegue le medesime
@@ -855,7 +857,7 @@ generale da utilizzare all'interno della macchina virtuale:
 \subparagraph{Script di utilità remoti}
 Questi \gloss{script}, \textbf{init.sh} e \textbf{update.sh}, risiederanno sul server
 privato, e avranno rispettivamente lo scopo esclusivo di inizializzare e
-aggiornare l'ambiente di lavoro della virtual machine.
+aggiornare l'ambiente di lavoro della \gloss {virtual machine}.
 \subparagraph{Scala e Java Virtual Machine}
 La scelta sulla versione di Scala da utilizzare è ricaduta sulla \gloss{major}
 2.11, principalmente dovuta ai requisiti minimi delle librerie \textit{akka}, e
@@ -946,4 +948,7 @@ può essere utile per spiegare i cambiamenti apportati.
 La sezione \gloss{Wiki} di \textit{Redmine} può essere molto utile, di fatto si tratta di uno spazio in cui è possibile scrivere del testo libero, inserire immagini o altro.\\
 Noi abbiamo deciso di usarla come raccoglitore di link a guide inerenti al nostro progetto.
 Per contribuire alla nostra \gloss{Wiki} basta andare nella suddetta sezione e premere su \textbf{modifica}. Si presenterà un editor di testo in cui è possibile modificare o semplicemente aggiungere del testo.
+\newpage
+\appendix
+\listoffigures
 \end{document}
