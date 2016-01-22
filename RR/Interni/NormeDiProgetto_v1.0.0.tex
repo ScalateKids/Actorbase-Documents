@@ -275,7 +275,7 @@ Il corpo della mail dovrà avere una struttura del tipo:
 
 \subsubsection{Esiti Riunioni}
 Ad ogni riunione verrà dato il compito a uno dei presenti di verbalizzare un riassunto sugli argomenti trattati e i chiarimenti emersi durante tale riunione.\\
-Il redattore del verbale avrà poi l'obbligo di condividerlo con tutti i componenti sul \textit{\gloss{Drive}} del gruppo e di notificare l'avvenuto caricamento tramite \textit{forum}.
+Il redattore del verbale avrà poi l'obbligo di condividerlo con tutti sul \gloss{forum} del gruppo.
 
 \subsection{Requisiti di Progetto}
 Tutti i requisiti di progetto vanno elencati, suddivisi e tracciati secondo le regole stabilite alla sezione \ref{sec:adr}.
@@ -287,7 +287,7 @@ gruppo.\\Essa si interfaccia con un database relazionale risiedente sul server
 privato del gruppo(vedi \ref{sec:server}) e permette una visualizzazione chiara dei
 requisiti e dei casi d'uso. Una volta completata la procedura d'inserimento dei
 dati, previa verifica, è possibile esportare in formato
-\LaTeX\xspace ed eseguire il tracciamenti automatico dei requisiti rispetto alle
+\LaTeX\xspace ed eseguire il tracciamento automatico dei requisiti rispetto alle
 fonti e viceversa.
 
 \section{Processi di Supporto}
@@ -306,7 +306,8 @@ comune tra essi.\\Facilita inoltre la creazione di nuove \gloss{macro} e comandi
 \item\verb=\glossDef=: Da utilizzare all'interno del documento \textit{Glossario} per inserire nuove definizioni;
 \item\verb=\glossaryLetter=: Da utilizzare all'interno del documento \textit{Glossario} per inserire le sezioni alfabetiche preformattate;
 \item\verb=\prodPurpose=: Da utilizzare per creare la sottosezione ``Scopo del Prodotto'', da inserire nelle parti comuni di tutti i documenti (Sommario);
-\item\verb=\glossExpl=: Da utilizzare per creare la sottosezione ``Glossario'', da inserire nelle parti comuni di tutti i documenti per spiegare come vengono identificati i termini da glossario.
+\item\verb=\glossExpl=: Da utilizzare per creare la sottosezione ``Glossario'', da inserire nelle parti comuni di tutti i documenti per spiegare come vengono identificati i termini da glossario;
+\item\verb=\multiLineCell=: Da utilizzare per creare celle multilinea nelle tabelle.
 \end{itemize}
 Sono stati infine ridefiniti alcuni comportamenti dei comandi standard di
 \LaTeX\xspace, per esempio le intestazioni e i piè pagina automatizzati, la
@@ -437,7 +438,7 @@ Per non incorrere in diverse modalità di integrazione per l'uso di vari termini
 \begin{center}
   \verb=abbiamo utilizzato dei= \textit{repository} \verb=per... (non= \textit{repositories}\verb=)=.
 \end{center}
-Questa scelta è derivata da una ricerca che ha fornito diverse fonti riguardanti l'uso di questa norma nella lingua italiana, il sottostante sito web raccoglie ne raccoglie buona parte:\\
+Questa scelta è derivata da una ricerca che ha fornito diverse fonti riguardanti l'uso di questa norma nella lingua italiana, il sottostante sito web ne raccoglie buona parte:\\
 \begin{center}
   \url{http://www.darsch.it/?pg=sphere&postid=954}
 \end{center}
@@ -462,7 +463,7 @@ in cui:
 \end{itemize}
 La citazione di una versione specifica di un documento deve comprendere sia il nome che il numero di versione aderente al formato:
 \begin{center}
-  \textit{NomeDocumento vX.Y.Z}
+  \textit{NomeDocumento_vX.Y.Z}
 \end{center}
 \subsubsection{Ciclo di vita dei documenti}
 Tutti i documenti nascono nello stato di \textit{in lavorazione}.\\
