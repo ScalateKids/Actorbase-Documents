@@ -36,6 +36,7 @@
 \end{titlepage}
 \restoregeometry
 \clearpage
+\pagenumbering{Roman}
 \setcounter{page}{1}
 \begin{flushleft}
   \vspace{0cm}
@@ -128,7 +129,7 @@ Il controllo di qualità del prodotto si suddividerà in tre parti:
 \end{itemize}
 \subsection{Organizzazione}
 Per garantire la qualità del prodotto finale verranno effettuate \gloss{attività} di verifica su ogni processo attuato. I controlli su ogni processo avranno come obiettivo garantire la qualità sia del processo stesso sia dell'eventuale prodotto da esso ricavato.\\
-Ogni fase descritta in \href{run:./PianoDiProgetto\_v1.0.0.pdf}{Piano di Progetto v1.0.0} necessità di \gloss{attività} di verifica diverse a causa della differenza natura del loro output. Di seguito sono elencate le strategie di verifica usate per ciascuna fase:
+Ogni fase descritta in \href{run:./PianoDiProgetto\_v1.0.0.pdf}{Piano di Progetto v1.0.0} necessita di \gloss{attività} di verifica diverse a causa della differenza natura del loro output. Di seguito sono elencate le strategie di verifica usate per ciascuna fase:
 \begin{itemize}
 \item\textbf{Analisi:} durante questa fase verrà verificato che ogni documento creato sia conforme a quanto descritto nel documento \href{run:../Interni/NormeDiProgetto\_v1.0.0.pdf}{Norme di Progetto v1.0.0}, inoltre sarà necessario controllare che ogni requisito sia associato a un caso d'uso e viceversa;
 \item\textbf{Progettazione:} durante questa fase l'\gloss{attività} di verifica si concentrerà sul processo incrementale dei documenti prodotti in fase di Analisi e sui processi attuati per l'\gloss{attività} di progettazione assicurandosi che ogni documento e ogni processo sia conforme a quanto descritto nelle \href{run:../Interni/NormeDiProgetto\_v1.0.0.pdf}{Norme di Progetto v1.0.0};
@@ -147,9 +148,9 @@ Per organizzare al meglio il lavoro e in particolare le \gloss{attività} di ver
 \subsubsection{Analisi statica}
 L'analisi statica è una tecnica atta a trovare errori e anomalie. Questa tecnica è applicabile sia alla documentazione sia al \gloss{codice}.
 \paragraph{Walkthrough}
-\label{sec:walkthrough}Come descritto nelle \textit{\href{run:../Interni/NormeDiProgetto_v1.0.0.pdf}{Norme di Progetto v1.0.0}} verrà effettuata tecnica walkthrough nelle fasi iniziali di ogni \gloss{attività} per passare il prima possibile a \gloss{attività} di \textit{Inspection} (paragrafo seguente).
+\label{sec:walkthrough}Come descritto nelle \textit{\href{run:../Interni/NormeDiProgetto_v1.0.0.pdf}{Norme di Progetto v1.0.0}} verrà effettuata la tecnica walkthrough nelle fasi iniziali di ogni \gloss{attività} per passare il prima possibile ad \gloss{attività} di \textit{Inspection} (paragrafo seguente).
 \paragraph{Inspection}
-\label{sec:inspection}Successivamente all'\gloss{attività} di \ref{sec:walkthrough}{Walthrough} verrà fatta \gloss{attività} di inspection (seguendo \textit{Norme di Progetto} (paragrafo precedente)) rispetto alla lista di controllo ottenuta in precedenza.
+\label{sec:inspection}Successivamente all'\gloss{attività} di \ref{sec:walkthrough} {Walthrough} verrà fatta \gloss{attività} di inspection (seguendo \textit{Norme di Progetto} (paragrafo precedente)) rispetto alla lista di controllo ottenuta in precedenza.
 \subsubsection{Analisi dinamica}
 L'analisi dinamica si applica solo al prodotto software e serve a trovare errori o difetti nell'implementazione.\\I test effettuati devono essere \textit{ripetibili}; questa caratteristica è fondamentale poiché un test deve produrre sempre lo stesso risultato dato un input in un ambiente per trovare errori.
 \paragraph{Test di unità}
@@ -168,7 +169,7 @@ Questo corrisponde al collaudo vero e proprio del software da svolgersi col \tex
 Per rendere quantificabile il processo di verifica verranno usate delle metriche elencate sotto. Soltanto due tipi di \gloss{range} saranno accettati:
 \begin{itemize}
   \item \textbf{Ottimale}: contiene i valori che si deve cercare di ottenere, valori al di fuori di questo \gloss{range} dovranno essere verificati e, se necessario, discussi dal gruppo;
-  \item \textbf{Accettazione}: valori per avere un accentazione del prodotto.
+  \item \textbf{Accettazione}: valori per avere un'accettazione del prodotto.
 \end{itemize}
 \subsubsection{Metriche per i documenti}
 Per la stesura dei documenti è stato scelto di utilizzare un \textit{indice di leggibilità} per la lingua italiana.
