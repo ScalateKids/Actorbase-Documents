@@ -145,7 +145,7 @@ Per organizzare al meglio il lavoro e in particolare le \gloss{attività} di ver
 \subsection{Tecniche di analisi}
 \label{sec:TecnicheDiAnalisi}
 \subsubsection{Analisi statica}
-L'analisi statica è una tecnica atta a trovare errori e anomalie. Questa tecnica è applicabile sia alla documentazione sia al codice.
+L'analisi statica è una tecnica atta a trovare errori e anomalie. Questa tecnica è applicabile sia alla documentazione sia al \gloss{codice}.
 \paragraph{Walkthrough}
 \label{sec:walkthrough}Come descritto nelle \textit{\href{run:../Interni/NormeDiProgetto_v1.0.0.pdf}{Norme di Progetto v1.0.0}} verrà effettuata tecnica walkthrough nelle fasi iniziali di ogni \gloss{attività} per passare il prima possibile a \gloss{attività} di \textit{Inspection} (paragrafo seguente).
 \paragraph{Inspection}
@@ -200,14 +200,14 @@ Lo script applicato su un documento produrrà in output un valore intero compres
 \subsubsection{Metriche per il software}
 Per perseguire una buona qualità software sono state pensate diverse metriche di valutazione descritte nei prossimi paragrafi. Tuttavia questa sezione è una sezione che potrà subire cambiamenti durante le prossime revisioni.
 \paragraph{Linee di codice per linee di commento}
-Applicato su un file produrrà un valore in output che rappresenta la percentuale di righe di commento rispetto alle linee di codice.\\
+Applicato su un file produrrà un valore in output che rappresenta la percentuale di righe di commento rispetto alle linee di \gloss{codice}.\\
 \textbf{Range accettabili:}
 \begin{itemize}
   \item \gloss{Range} ottimale: 30 - 40\%;
   \item \gloss{Range} di accettazione: 20 - 30\%.
 \end{itemize}
 \subsubsection{Copertura del codice}
-La copertura del codice indica il numero di istruzioni che vengono eseguite durante i test rispetto alla totalità delle istruzioni. Per avere una minor possibilità di presenza di errori nel codice si dovrà avere una percentuale il più alta possibile di istruzioni testate.\\Tuttavia metodi molto semplici che non necessitano testing andranno a influire negativamente in questo ambito.\\
+La copertura del \gloss{codice} indica il numero di istruzioni che vengono eseguite durante i test rispetto alla totalità delle istruzioni. Per avere una minor possibilità di presenza di errori nel \gloss{codice} si dovrà avere una percentuale il più alta possibile di istruzioni testate.\\Tuttavia metodi molto semplici che non necessitano testing andranno a influire negativamente in questo ambito.\\
 \textbf{Range accettabili:}
 \begin{itemize}
   \item \gloss{Range} ottimale: 60 - 100\%;
@@ -228,8 +228,8 @@ Un numero troppo elevato di parametri in un metodo potrebbe indicare il non sodd
   \item Range di accettazione: 4 - 8.
 \end{itemize}
 \subsubsection{Complessità ciclomatica}
-La complessità ciclomatica è usata per misurare la complessità di parti di codice come funzioni, metodi, classi o moduli.\\
-Questa è calcolata attraverso un grafo di controllo del flusso del programma.\\La complessità ciclomatica di una sezione di codice è il numero di cammini linearmente indipendenti attraverso il codice sorgente. Per esempio, se il codice sorgente non contiene punti decisionali come IF o cicli FOR, allora la complessità sarà 1, poiché esiste un solo cammino nel sorgente (e quindi nel grafo). Se il codice ha un singolo IF contenente una singola condizione, allora ci saranno due cammini possibili: il primo se l'IF viene valutato a TRUE e un secondo se l'IF viene valutato a FALSE.\\
+La complessità ciclomatica è usata per misurare la complessità di parti di \gloss{codice} come funzioni, metodi, classi o moduli.\\
+Questa è calcolata attraverso un grafo di controllo del flusso del programma.\\La complessità ciclomatica di una sezione di \gloss{codice} è il numero di cammini linearmente indipendenti attraverso il \gloss{codice} sorgente. Per esempio, se il \gloss{codice} sorgente non contiene punti decisionali come IF o cicli FOR, allora la complessità sarà 1, poiché esiste un solo cammino nel sorgente (e quindi nel grafo). Se il \gloss{codice} ha un singolo IF contenente una singola condizione, allora ci saranno due cammini possibili: il primo se l'IF viene valutato a TRUE e un secondo se l'IF viene valutato a FALSE.\\
 \textbf{Range accettabili:}
 \begin{itemize}
   \item \gloss{Range} ottimale: 0 - 10;
@@ -300,9 +300,9 @@ Il \gloss{ciclo di Deming}, anche chiamato \gloss{PDCA}, è un modello che conse
 \end{figure}
 \subsection{Standard ISO/IEC 9126}
 \label{sec:ISO/IEC9126}
-Lo standard \gloss{ISO}/\gloss{IEC} 9126 definisce un modello per migliorare l'organizzazione e i processi, avendo come conseguenza il miglioramento della qualità del prodotto finale. I criteri qualitativi sono divisi in tre macro aree:
+Lo standard \gloss{ISO}/\gloss{IEC} 9126 definisce un modello per migliorare l'organizzazione e i processi, avendo come conseguenza il miglioramento della qualità del prodotto finale. I criteri qualitativi sono divisi in tre \gloss{macro} aree:
 \begin{itemize}
-  \item{\textbf{Qualità interna:} è la qualità del prodotto software vista dall'interno. Si riferisce alla valutazione del codice sorgente e dell'architettura prima che il prodotto sia ultimato;}
+  \item{\textbf{Qualità interna:} è la qualità del prodotto software vista dall'interno. Si riferisce alla valutazione del \gloss{codice} sorgente e dell'architettura prima che il prodotto sia ultimato;}
   \item{\textbf{Qualità esterna:} è la qualità del prodotto software vista dall'esterno. Si riferisce al risultato dei test condotti sul prodotto ultimato in un ambiente di prova;}
   \item{\textbf{Qualità in uso:} è la qualità del prodotto vista dall'utilizzatore finale del prodotto. Si riferisce alla qualità dopo il rilascio dell'applicazione.}
 \end{itemize}
@@ -345,7 +345,7 @@ Non potendo testare la qualità in uso nell'ambito di questo progetto si è scel
     \end{itemize}
   \item{\textbf{Manutenibilità:} capacità del prodotto di essere modificato e migliorato. Questa categoria si suddivide in:}
     \begin{itemize}
-      \item{\textbf{Analizzabilità:} facilità di analisi del codice per la localizzazione di errori;}
+      \item{\textbf{Analizzabilità:} facilità di analisi del \gloss{codice} per la localizzazione di errori;}
       \item{\textbf{Modificabilità:} capacità del prodotto di permettere la sostituzione di componenti per implementare una determinata modifica;}
       \item{\textbf{Stabilità:} capacità del prodotto di evitare errori derivanti da modifiche errate;}
       \item{\textbf{Testabilità:} capacità del prodotto di essere facilmente testato rispetto alle modifiche apportate.}
