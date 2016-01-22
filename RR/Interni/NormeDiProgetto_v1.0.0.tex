@@ -36,6 +36,7 @@
 \end{titlepage}
 \restoregeometry
 \clearpage
+\pagenumbering{Roman}
 \setcounter{page}{1}
 \begin{flushleft}
   \vspace{0cm}
@@ -102,18 +103,18 @@ chiarire dubbi o definire comportamenti da seguire in specifici scenari.
 \section{Processi Organizzativi}
 \subsection{Ruoli di progetto}
 Durante l'intera \gloss{attività} di sviluppo del progetto, dalla formazione del gruppo alla
-\textit{Revisione di Accettazione} vi saranno alcuni ruoli ben precisi da ricoprire. Si
+\textit{Revisione di Accettazione}, vi saranno alcuni ruoli ben precisi da ricoprire. Si
 tratta di funzioni aziendali assegnate a progetto, specializzate in campi ben
 specifici all'interno dell'azienda. Tra questi ruoli, alcuni avranno maggior
-presenza in determinate fasi del progetto rispetto ad altre, dove addirittura
-potrebbero non figurare definitivamente, ma tutti sono essenziali per il buon
+presenza in determinate fasi rispetto ad altre, dove addirittura
+potrebbero non figurare completamente, ma tutti sono essenziali per il buon
 esito del progetto.\\ Ciascun componente dovrà ricoprire almeno una volta ogni
 ruolo. Sarà inoltre possibile ricoprire più ruoli, sia contemporaneamente che in
 distinte fasi del progetto, purché sia garantita l'assenza di conflitti
 d'interesse nello svolgimento di \gloss{attività} di verifica e approvazione.
 \subsubsection{Responsabile di Progetto}
-Il \textit{Responsabile di Progetto} rappresenta il progetto presso il fornitore
-e presso il committente, è il ruolo più presente lungo tutto l'arco temporale di
+Il \textit{Responsabile di Progetto} rappresenta il progetto presso il \textit{Proponente}
+e presso il \textit{Committente}. E' il ruolo più presente lungo tutto l'arco temporale di
 sviluppo del prodotto, in quanto deve partecipare e seguire la
 crescita fino al rilascio del prodotto. Deve avere conoscenze e capacità
 tecniche in modo da comprendere e anticipare l'evoluzione del progetto.\\
@@ -183,7 +184,7 @@ del prodotto.\\ Ricopre le seguenti responsabilità:
 \end{itemize}
 Si occupa della redazione del \textit{Piano di Qualifica}.
 \subsubsection{Rotazione dei ruoli}
-Al fine di garantire che tutti i componenti ricoprano tutti i ruoli almeno una volta il gruppo seguirà le seguenti regole:
+Al fine di garantire che tutti i componenti ricoprano tutti i ruoli almeno una volta, il gruppo seguirà le seguenti regole:
 \begin{itemize}
 \item Ogni componente non deve impiegare più del 50\% delle ore di lavoro in un unico ruolo;
 \item Tutti i ruoli eccetto \textit{Responsabile di Progetto} e \textit{Amministratore} dovranno ruotare ogni due settimane;
@@ -201,11 +202,11 @@ Per le comunicazioni esterne è stata creata una apposita casella di posta elett
   \verb=scalatekids@gmail.com=
 \end{center}
 Questa casella e-mail viene gestita dal \textit{Responsabile di Progetto} che è
-colui che si occupa di comunicare con il committente del progetto o con
+colui che si occupa di comunicare con il \textit{Committente} del progetto o con
 qualsiasi altra persona esterna al gruppo di lavoro. È stata impostata per
-effettuare l'inoltro automatico di tutte le mail in entrata verso gli indirizzi
+effettuare l'inoltro automatico delle mail in entrata verso gli indirizzi
 di tutti i componenti del gruppo, in modo tale che ognuno possa ricevere una
-copia della posta in ingresso, tuttavia soltanto il \textit{Responsabile} ha il
+copia della posta in ingresso. Soltanto il \textit{Responsabile} ha il
 potere di inviare posta in uscita.
 
 \subsubsection{Comunicazioni interne}
@@ -268,7 +269,7 @@ a importanti date, è possibile indire una riunione di gruppo con meno component
 presenti, sempre previa approvazione del \textit{Responsabile}.
 
 \subsubsection{Riunioni esterne}
-Le riunioni esterne (incontri col Committente o Proponente) possono essere
+Le riunioni esterne (incontri col \textit{Committente} o \textit{Proponente}) possono essere
 proposte da qualunque membro del gruppo. Spetta sempre al \textit{Responsabile
   di Progetto} la decisione finale.\\ È necessaria la presenza di almeno il
 50\% + 1 dei componenti.
@@ -279,7 +280,7 @@ Le richieste vanno effettuate tramite mail al \textit{Responsabile} e devono ave
 \begin{center}
   \verb=Richiesta riunione <tipo riunione>=
 \end{center}
-tipo riunione può essere interna o esterna.
+\verb=tipo riunione= può essere interna o esterna.
 Il corpo della mail dovrà avere una struttura del tipo:
 \begin{center}
   \verb=Motivazione: <motivo riunione>=
@@ -310,7 +311,7 @@ fonti e viceversa.
 \label{sec:strutturadoc}
 Abbiamo standardizzato la scrittura di tutti i documenti attraverso un
 \gloss{template} \LaTeX\xspace appositamente creato e presente su
-\textit{\gloss{Github}} nel \gloss{repository} \textit{ActorBase -
+\textit{\gloss{GitHub}} nel \gloss{repository} \textit{ActorBase -
   Documents}.\gloss{git}(vedi \ref{sec:ServiziWeb}).\\ L'uso del \gloss{template} ci permette di creare una serie di documenti
 stilisticamente uniformi tra loro e ci facilita la modifica delle parti in
 comune tra essi.\\Facilita inoltre la creazione di nuove \gloss{macro} e comandi
@@ -324,7 +325,7 @@ comune tra essi.\\Facilita inoltre la creazione di nuove \gloss{macro} e comandi
 \item\verb=\multiLineCell=: Da utilizzare per creare celle multilinea nelle tabelle.
 \end{itemize}
 Sono stati infine ridefiniti alcuni comportamenti dei comandi standard di
-\LaTeX\xspace, per esempio le intestazioni e i piè pagina automatizzati, la
+\LaTeX\xspace, per esempio le intestazioni e i piè pagina automatizzate, la
 profondità delle \gloss{section}, dell'indice dei contenuti e le colorazioni dei
 \gloss{link}:
 \begin{itemize}
@@ -382,6 +383,7 @@ Per uniformare il più possibile la stesura di tutti i documenti queste sono le 
 \begin{itemize}
 \item \textbf{Corsivo}: il corsivo dev'essere utilizzato per:
   \begin{itemize}
+  \item Figure inerenti al progetto;
   \item Abbreviazioni;
   \item Citazioni;
   \item Documenti (es \textit{Analisi dei Requisiti});
@@ -435,11 +437,11 @@ Per uniformare il più possibile la stesura di tutti i documenti queste sono le 
   \begin{itemize}
   \item Ruoli: come già scritto in precedenza i ruoli di progetto devono essere scritti con la prima lettera di ogni parola maiuscola ed in corsivo, escludendo le proposizioni (es. \textit{Responsabile di Progetto});
   \item Nomi dei \gloss{file}: i nomi dei \gloss{file} relativi a documenti devono seguire;
-    la notazione \textit{\gloss{CamelCase}}, seguiti da \textit{\_v} e dalla
+    la notazione \textit{\gloss{UpperCamelCase}}, seguiti da \textit{\_v} e dalla
     versione del \gloss{file} (es. NormeDiProgetto\_v1.0.1.pdf);
   \item Nome del progetto: sarà indicato come \textbf{Actorbase};
-  \item Nome del committente: il committente sarà indicato come \textit{prof. Tullio Vardanega};
-  \item Nome del proponente: il proponente sarà indicato come \textit{prof. Riccardo Cardin};
+  \item Nome del \textit{Committente}: il \textit{Committente} sarà indicato come \textit{prof. Tullio Vardanega};
+  \item Nome del \textit{Proponente}: il \textit{Proponente} sarà indicato come \textit{prof. Riccardo Cardin};
   \item Nome del gruppo: il gruppo sarà indicato come \textit{ScalateKids}.
   \end{itemize}
 \end{itemize}
@@ -562,16 +564,14 @@ La \textit{Progettazione} precede la produzione, ed è l'\gloss{attività} che
 passa dai requisiti del problema estratti dagli \textit{Analisti} durante
 l'\textbf{Analisi}, ad una soluzione del problema preposto a carico dei
 \textbf{Progettisti}. Dovrà rispettare tutti i requisiti che il gruppo ha
-concordato con il committente.
+concordato con il \textit{Committente}.
 \paragraph{Stile di progettazione}
 L'\gloss{attività} di \textit{Progettazione} dovrà fare utilizzo di
 \gloss{design pattern} globalmente affermati e dovrà giustificarne la
 scelta.\\Dovranno inoltre essere rispettati al massimo i paradigmi di \gloss{OOP} (programmazione orientata agli oggetti) del linguaggio \gloss{Scala}, con eventuale utilizzo
 di costrutti \gloss{funzionali}, coerentemente con l'utilizzo delle librerie
-\textit{Akka}.
-% TODO: Adesione al Reactive Manifesto?
+\textit{\gloss{Akka}}.
 \subsubsection{Norme di codifica dei file}
-\subsubsection{Codifica}
 Tutti i \gloss{file} contenenti \gloss{codice} o documentazione dovranno essere conformi alla
 codifica \gloss{UTF-8}.
 \paragraph{Linee guida stilistiche}
@@ -661,7 +661,7 @@ Successivamente, basandosi sui cambiamenti del diario delle modifiche, i
 lista redatta in prima istanza di verifica.
 \subsection{Glossario}
 Il glossario è un documento unico per tutti i documenti, esso conterrà tutte le
-definizioni, in ordine lessicografico crescente, dei termini inerenti al tema
+definizioni, in ordine lessicografico crescente dei termini inerenti al tema
 del progetto o che possono essere fraintesi. I termini che dovranno essere
 inseriti nel glossario saranno contrassegnati da una \textit{G} pedice
 all'interno dei documenti. Prima di inserire un nuovo termine bisognerà
@@ -688,9 +688,9 @@ I servizi web utilizzati sono:
 \item\textbf{Google Drive:} è usato per lo scambio di \gloss{file} e documenti all'interno del gruppo, principalmente per \gloss{file} che non necessitano di \gloss{versionamento}.\\
   Questo spazio del gruppo è suddiviso in diverse cartelle per una migliore gestione e per facilitare la ricerca all'interno di esso;\\
   Il \textit{Responsabile di Progetto} ha il potere amministrativo dell'\gloss{account} in questione, quindi sarà quest'ultima persona ad occuparsi di garantire i giusti diritti ai membri del gruppo.
-\item\textbf{Github:} per tutti i \gloss{file} che necessitano un sistema di \gloss{versionamento} viene usato il servizio offerto da \textit{Github}, l'indirizzo web del gruppo è:\\
+\item\textbf{GitHub:} per tutti i \gloss{file} che necessitano un sistema di \gloss{versionamento} viene usato il servizio offerto da \textit{GitHub}, l'indirizzo web del gruppo è:\\
   \begin{center}
-    \uurl{https://github.com/scalatekids}
+    \url{https://github.com/scalatekids}
   \end{center}
 \item\textbf{Twiddla:} è un sistema che offre una lavagna online condivisa, questo servizio è utilizzato dai membri del gruppo per discutere e lavorare assieme da remoto, utile all'\gloss{attività} di \gloss{brainstorming} e \textbf{Analisi};
 \item\textbf{Gantter for Google Drive:} è uno strumento gratuito per la creazione di \gloss{diagrammi di Gantt}, utile alla creazione dei Gantt predittivi;
@@ -724,7 +724,7 @@ Per la gestione e il tracciamento dei requisiti è stata creata un'interfaccia p
 \paragraph{Versionamento}
 Lo strumento scelto è \gloss{git}, principalmente per la grande diffusione negli
 ambienti di sviluppo e per l'integrazione offerta dal servizio web
-\textit{Github}, il quale è inoltre offre un esaustiva documentazione
+\textit{GitHub}, il quale è inoltre offre un esaustiva documentazione
 sull'utilizzo del programma in questione. Infine \gloss{git} si è rivelato essere
 il più conosciuto tra i membri del gruppo, l'alternativa \gloss{SVN}, nonostante
 i simili principi di funzionamento, costituiva una scelta più difficoltosa, in
@@ -768,7 +768,7 @@ gruppo.
 \subparagraph{Travis-CI}
 È un servizio di \gloss{integrazione continua} comprensivo di un piano di
 utilizzo gratuito. Facilmente configurabile, il collegamento ai \gloss{repository}
-\textit{Github} avviene mediante un \gloss{file} di configurazione chiamato \textit{.travis.yml}
+\textit{GitHub} avviene mediante un \gloss{file} di configurazione chiamato \textit{.travis.yml}
 da inserire all'interno del \gloss{repository}. È inoltre possibile fornire
 direttive al servizio e automatizzare unità di test su tutti i \gloss{file} del
 \gloss{repository}, le quali possono essere lanciate sia dopo ogni \gloss{push}
@@ -785,7 +785,7 @@ programma e generare una o più immagini virtuali fornite dei soli pacchetti o
 \textit{Travis-CI} permette di effettuare test molto precisi e, allo stesso
 tempo, di versionare un gran numero di immagini virtuali per diversificare i test e
 gli ambienti su cui lanciarli. I \gloss{Dockerfile} infatti possono essere
-versionati mediante un \gloss{repository} \textit{Github} direttamente collegato a
+versionati mediante un \gloss{repository} \textit{GitHub} direttamente collegato a
 \textit{Travis-CI}, il quale, istruito ad hoc, si occuperà di generare
 l'immagine \gloss{Docker} e caricarla mediante un \gloss{push} sull'\gloss{hub}
 \gloss{Docker} presente nel sito \url{hub.docker.com}.\\ In questo modo i test
@@ -812,7 +812,7 @@ utilizzati dai componenti del gruppo, purché si tratti di modifiche rapide o
 stesura di \gloss{script} di utilità generale.\\
 Per la stesura dei documenti, l'\gloss{IDE} di riferimento è \textit{TeXstudio}.
 \subparagraph{Installazione virtual machine}
-\label{ref:MacchinaVirtuale}
+\label{sec:MacchinaVirtuale}
 Una volta ottenuto il \gloss{file} \textit{.vdi} presente sul \gloss{\textit{Drive}} del gruppo
 in forma compattata \textit{.7z}, ogni componente dovrà installare il software
 \textit{Virtualbox} sul proprio computer e procedere con la creazione della
@@ -875,7 +875,7 @@ privato, e avranno rispettivamente lo scopo esclusivo di inizializzare e
 aggiornare l'ambiente di lavoro della \gloss {virtual machine}.
 \subparagraph{Scala e Java Virtual Machine}
 La scelta sulla versione di Scala da utilizzare è ricaduta sulla \gloss{major}
-2.11, principalmente dovuta ai requisiti minimi delle librerie \textit{akka}, e
+2.11, principalmente dovuta ai requisiti minimi delle librerie \textit{\gloss{akka}}, e
 ad una maggiore sicurezza sul mantenimento del \gloss{codice}, infatti le due versioni
 principali di \gloss{Scala} risultano essere non compatibili a livello binario,
 pertanto è preferibile rimanere sulla versione più avanzata. La versione 2.11
@@ -888,7 +888,7 @@ mantenuta e stabile, da utilizzare con versioni di \gloss{Scala} \verb=2.11= o
 \subsection{Redmine}
 \label{sec:redmine}
 Questo capitolo rappresenta un tutorial su come usare correttamente \textit{Redmine}.
-Questo software offre una vasta gamma di servizi molto utili per la gestione di un progetto, in particolare il \textit{forum}, la sezione \gloss{wiki} ed il sistema di segnalazioni che automaticamente costruisce il diagramma di \textit{Gantt}. Tramite installazioni di \gloss{plugin} è possibile aggiungere funzionalità. Qualora un componente del gruppo ritenga necessaria l'installazione di un \gloss{plugin}, costui può proporla al \textit{Responsabile di Progetto} il quale affiderà il compito ad un \textit{Amministratore} se la riterrà una funzionalità utile.
+Il software in questiona offre una vasta gamma di servizi molto utili per la gestione di un progetto, in particolare il \textit{forum}, la sezione \gloss{wiki} ed il sistema di segnalazioni che automaticamente costruisce il diagramma di \textit{Gantt}. Tramite installazioni di \gloss{plugin} è possibile aggiungere funzionalità. Qualora un componente del gruppo ritenga necessaria l'installazione di un \gloss{plugin}, costui può proporla al \textit{Responsabile di Progetto} il quale affiderà il compito ad un \textit{Amministratore} se la riterrà una funzionalità utile.
 \subsubsection{Creare un sottoprogetto}
 La creazione di sottoprogetti è molto utile per mantenere una chiara divisione funzionale tra le \gloss{attività}, la creazione di un sottoprogetto è molto semplice come si vede in figura sottostante
 \begin{figure}[H]
@@ -918,12 +918,12 @@ Per creare un nuovo messaggio basta andare nel \gloss{topic} desiderato e seguir
 \end{figure}
 Per la corretta creazione di un messaggio è necessario seguire le norme scritte nella sezione \ref{sec:ComunicazioniInterne}
 \paragraph{Rispondere ad un messaggio}
-Per rispondere ad un messaggio presente nel \gloss{forum} è necessario aprire il messaggio voluto e premere su \textbf{Rispondi}, automaticamente ci verrà presentato un \gloss{form} \textit{pre compilato} in cui dovremo solamente inserire il corpo della nostra risposta.
+Per rispondere ad un messaggio presente nel \gloss{forum} è necessario aprire il messaggio voluto e premere su \textbf{Rispondi}, automaticamente si presenterà un \gloss{form} \textit{pre compilato} in cui sarà necessario solamente inserire il corpo della nostra risposta.
 \subsubsection{Gestione delle segnalazioni}
-Una segnalazione rappresenterà una \gloss{attività} che il \textit{Responsabile} assegnerà ad uno o più membri del gruppo, queste \gloss{attività} possono essere suddivise in diverse compiti più semplici da assegnare ad un membro, questi compiti saranno chiamati \gloss{task}.\\
-Il sistema di segnalazioni è la cosa più importante di \textit{Redmine}, perciò solamente il \textit{Responsabile di Progetto} ha il potere di creare nuove segnalazioni così da mantenere ordine nel progetto. \\Gli altri membri del gruppo potranno invece aggiornare le segnalazioni assegnate ad essi.
+Una segnalazione rappresenterà una \gloss{attività} che il \textit{Responsabile} assegnerà ad uno o più membri del gruppo, queste \gloss{attività} possono essere suddivise in diversi compiti più semplici da assegnare ad un membro, questi compiti saranno chiamati \gloss{task}.\\
+Il sistema di segnalazioni è la cosa più importante di \textit{Redmine}, perciò solamente il \textit{Responsabile di Progetto} ha il potere di creare nuove segnalazioni così da mantenere ordine nel progetto. \\Gli altri membri del gruppo potranno invece aggiornare le segnalazioni a loro assegnate.
 \paragraph{Creare una segnalazione}
-Il \textit{Responsabile di Progetto} può creare nuove segnalazioni facendo come illustrato nelle seguenti immagini
+Il \textit{Responsabile di Progetto} può creare nuove segnalazioni come illustrato nelle seguenti immagini
 \begin{figure}[H]
   \centering
   \includegraphics[width=1\textwidth]{tutorialsRedmine/creasegn1.png}
@@ -934,7 +934,7 @@ Il \textit{Responsabile di Progetto} può creare nuove segnalazioni facendo come
   \includegraphics[width=1\textwidth]{tutorialsRedmine/creasegn2.jpg}
   \caption{come creare una segnalazione - figura 2\label{fig:crea-segnalazione-2}}
 \end{figure}
-Come possiamo vedere in figura \ref{fig:crea-segnalazione-2} ci sono diversi campi da compilare:
+Dalla figura \ref{fig:crea-segnalazione-2} è possibile notare diversi campi da compilare:
 \begin{itemize}
 \item \textbf{Tracker:} lasciare selezionato \textit{Segnalazione};
 \item \textbf{Oggetto:} l'oggetto della segnalazione, questo deve essere breve e non equivocabile;
@@ -951,8 +951,8 @@ Come possiamo vedere in figura \ref{fig:crea-segnalazione-2} ci sono diversi cam
 Il lavoro di aggiornamento di una segnalazione deve essere svolto dai vari
 membri del gruppo che lavorano alla segnalazione stessa.\\ Ad ogni avanzamento
 relativo ad una \gloss{attività} si deve aggiornare la segnalazione relativa ad
-essa. Per fare ciò bisogna entrare nella pagina personale di \textit{Redmine} e
-nella sezione \textbf{Le mie segnalazioni} selezionare la segnalazione
+essa. Per fare ciò bisogna entrare nella pagina personale di \textit{Redmine} e,
+nella sezione \textbf{Le mie segnalazioni}, selezionare la segnalazione
 desiderata, quindi premere su \textbf{Modifica}. La schermata che si presenterà
 davanti permetterà diverse operazioni come mostrato in figura
 \ref{fig:crea-segnalazione-2}, si dovrà quindi aggiornare lo \textbf{stato} (se
@@ -961,8 +961,8 @@ cambiato), la \textbf{\% completata} e aggiornare inoltre il \textbf{tempo
 può essere utile per spiegare i cambiamenti apportati.
 \subsubsection{Modificare la Wiki}
 La sezione \gloss{Wiki} di \textit{Redmine} può essere molto utile, di fatto si tratta di uno spazio in cui è possibile scrivere del testo libero, inserire immagini o altro.\\
-Noi abbiamo deciso di usarla come raccoglitore di \gloss{link} a guide inerenti al nostro progetto.
-Per contribuire alla nostra \gloss{Wiki} basta andare nella suddetta sezione e premere su \textbf{modifica}. Si presenterà un editor di testo in cui è possibile modificare o semplicemente aggiungere del testo.
+La nostra scelta è stata di usarla come raccoglitore di \gloss{link} a guide inerenti al nostro progetto.
+Per contribuire alla \gloss{Wiki} basta andare nella suddetta sezione e premere su \textbf{modifica}. Si presenterà un editor di testo in cui è possibile modificare o semplicemente aggiungere del testo.
 \newpage
 \appendix
 \listoffigures
