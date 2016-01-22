@@ -161,7 +161,7 @@ le seguenti responsabilità:
 \begin{itemize}
 \item Implementazione delle soluzioni descritte dal \textit{Progettista}
   seguendone i design pattern proposti;
-\item Documentare e commentare il codice in modo da renderlo più facilmente
+\item Documentare e commentare il \gloss{codice} in modo da renderlo più facilmente
   mantenibile;
 \item Implementare dei test utili in fase di verifica e validazione.
 \end{itemize}
@@ -387,7 +387,7 @@ Per uniformare il più possibile la stesura di tutti i documenti queste sono le 
   \item Sezioni e sottosezioni dei documenti.
   \end{itemize}
 \item \textbf{Maiuscolo}: gli acronimi saranno scritti interamente in maiuscolo (es. \textit{SQL});
-\item \textbf{Monospace}: i font monospace saranno usati per riportare parti di codice.
+\item \textbf{Monospace}: i font monospace saranno usati per riportare parti di \gloss{codice}.
 \end{itemize}
 
 \subsubsection{Formati di riferimento}
@@ -398,11 +398,11 @@ Per uniformare il più possibile la stesura di tutti i documenti queste sono le 
     \begin{center}
       \verb=\url{percorso}=
     \end{center}
-  \item Link ad altri \gloss{PDF}:
+  \item \Gloss{Link} ad altri \gloss{PDF}:
     \begin{center}
       \verb=\href{run:<pathToPDF>/<namefile.pdf>}{<name of the link>}=
     \end{center}
-  \item Link a sezioni interne al documento: per link a sezioni interne al documento corrente deve essere utilizzato il documento \LaTeX\xspace
+  \item \Gloss{Link} a sezioni interne al documento: per \gloss{link} a sezioni interne al documento corrente deve essere utilizzato il documento \LaTeX\xspace
     \begin{center}
       \verb=\ref{riferimento a sezione}=
     \end{center}
@@ -506,7 +506,7 @@ univocamente il caso d'uso. Se un caso d'uso è derivato da un altro, il suo id
 sarà preceduto dall'id del caso d'uso da cui deriva e separato da esso con un
 punto.
 \subsubsection{Analisi dei requisiti}
-Dal capitolato e dall'attività di \gloss{brainstorming} effettuata inizialmente,
+Dal capitolato e dall'\gloss{attività} di \gloss{brainstorming} effettuata inizialmente,
 integrata con le riunioni esterne da effettuare con il \textit{Proponente}, gli
 \textit{Analisti} dovranno stilare una lista di casi d'uso ed estrarre i
 requisiti emergenti.
@@ -566,10 +566,10 @@ di costrutti \gloss{funzionali}, coerentemente con l'utilizzo delle librerie
 % TODO: Adesione al Reactive Manifesto?
 \subsubsection{Norme di codifica dei file}
 \subsubsection{Codifica}
-Tutti i \gloss{file} contenenti codice o documentazione dovranno essere conformi alla
+Tutti i \gloss{file} contenenti \gloss{codice} o documentazione dovranno essere conformi alla
 codifica \gloss{UTF-8}.
 \paragraph{Linee guida stilistiche}
-La stesura del codice dovrà seguire pedissequamente alcune regole al fine di
+La stesura del \gloss{codice} dovrà seguire pedissequamente alcune regole al fine di
 garantire un buon livello di manutenibilità e verificabilità del prodotto, in
 particolare gli sviluppatori dovranno attenersi alla \textit{Scala Style Guide}
 (\url{https://docs.scala-lang.org/style/}), in particolar modo non possono
@@ -580,7 +580,7 @@ essere infrante le seguenti regole:
 \item Posizionamento di parentesi graffe in linea con il blocco struttura di
   riferimento;
 \end{itemize}
-Tutti i \gloss{file} contenenti codice dovranno essere redatti in lingua inglese.
+Tutti i \gloss{file} contenenti \gloss{codice} dovranno essere redatti in lingua inglese.
 \subparagraph{Nomenclatura}
 I nomi di variabili, metodi e funzioni seguiranno la convenzione
 \textit{\gloss{lowerCamelCase}}, i nomi di classi invece
@@ -591,7 +591,7 @@ necessario fornire una prova di terminazione e il costo in memoria. L'utilizzo
 deve giustificare la spesa in termini di memoria rispetto al risparmio in
 termini di istruzioni.
 \subparagraph{Documentazione}
-I \gloss{file} contenenti codice dovranno essere adeguatamente commentati seguendo le
+I \gloss{file} contenenti \gloss{codice} dovranno essere adeguatamente commentati seguendo le
 linee guida \gloss{scaladoc} \url{https://docs.scala-lang.org/style/scaladoc.html} ed essere provvisti di un
 intestazione contenente:
 \begin{lstlisting}
@@ -618,7 +618,7 @@ Prima di ogni metodo dovrà essere presente un commento \gloss{scaladoc} contene
   */
 \end{lstlisting}
 La documentazione verrà generate da \gloss{scaladoc}. Nel caso si verifichi la
-necessità di documentare del codice di difficile comprensione, sarà possibile
+necessità di documentare del \gloss{codice} di difficile comprensione, sarà possibile
 inserire un commento nelle righe precedenti, dopo aver verificato
 l'impossibilità di effettuare un \gloss{refactoring}.
 
@@ -681,7 +681,7 @@ I servizi web utilizzati sono:
 \begin{itemize}
 \item\textbf{Google Drive:} è usato per lo scambio di \gloss{file} e documenti all'interno del gruppo, principalmente per \gloss{file} che non necessitano di \gloss{versionamento}.\\
   Questo spazio del gruppo è suddiviso in diverse cartelle per una migliore gestione e per facilitare la ricerca all'interno di esso;\\
-  Il \textit{Responsabile di Progetto} ha il potere amministrativo dell'account in questione, quindi sarà quest'ultima persona ad occuparsi di garantire i giusti diritti ai membri del gruppo.
+  Il \textit{Responsabile di Progetto} ha il potere amministrativo dell'\gloss{account} in questione, quindi sarà quest'ultima persona ad occuparsi di garantire i giusti diritti ai membri del gruppo.
 \item\textbf{Github:} per tutti i \gloss{file} che necessitano un sistema di \gloss{versionamento} viene usato il servizio offerto da \textit{Github}, l'indirizzo web del gruppo è:\\
   \begin{center}
     \url{https://github.com/scalatekids}
@@ -703,7 +703,7 @@ login, i componenti possono usufruire delle seguenti applicazioni:
 Redmine è un'applicazione web atta alla gestione di progetti.\\
 Offre diverse funzionalità che il gruppo dovrà utilizzare, quali:
 \begin{itemize}
-\item\textbf{Sezione wiki:} una pagina web in cui il gruppo andrà a condividere una serie di link di interesse riguardanti ogni tecnologia o aspetto inerente al progetto.
+\item\textbf{Sezione wiki:} una pagina web in cui il gruppo andrà a condividere una serie di \gloss{link} di interesse riguardanti ogni tecnologia o aspetto inerente al progetto.
 \item\textbf{Sistema di segnalazioni:} un sistema di segnalazioni gestite dall'\textit{Responsabile}, ogni segnalazione rappresenta un \gloss{task} assegnato ad uno o più membri del gruppo, il suo conseguimento servirà per il soddisfacimento di un requisito.
 \item\textbf{Gantt:} \textit{Redmine} costruisce automaticamente un \gloss{diagramma di Gantt} con le segnalazioni create dall'\textit{Responsabile}
 \end{itemize}
@@ -740,7 +740,7 @@ Sono stati creati due \gloss{repository} all'indirizzo \url{https://github.com/s
     \item Actorbase-Docker/Scala.\gloss{git}: Conterrà il \gloss{Dockerfile}
       istruito per la creazione di un'immagine \textit{Ubuntu:Thrusty} fornita
       di \textit{JVM v8} e \gloss{sbt}, corredata dai test di unità e
-      \gloss{script} di analisi statica e qualitativa del codice.
+      \gloss{script} di analisi statica e qualitativa del \gloss{codice}.
   \end{itemize}
 \end{itemize}
 I \gloss{branch} dovranno essere nominati completamente in minuscolo, in lingua
@@ -751,8 +751,8 @@ inglese ed essere esplicativi del loro utilizzo.
 \label{sec:AnalisiStatica}
 Gli strumenti da utilizzare per le \gloss{attività} di analisi statica saranno:
 \begin{itemize}
-\item\textbf{ScalaStyle:} \gloss{plugin} per compilatori \gloss{Scala}, fornisce controlli qualitativi esaustivi su codice automaticamente durante la compilazione dei sorgenti;
-\item\textbf{loc:} \gloss{script} di controllo qualità, forniscono il rapporto tra righe di codice e righe di commento.
+\item\textbf{ScalaStyle:} \gloss{plugin} per compilatori \gloss{Scala}, fornisce controlli qualitativi esaustivi su \gloss{codice} automaticamente durante la compilazione dei sorgenti;
+\item\textbf{loc:} \gloss{script} di controllo qualità, forniscono il rapporto tra righe di \gloss{codice} e righe di commento.
 \end{itemize}
 \paragraph{Integrazione continua}
 Fin da subito, i \gloss{repository} saranno collegati ad un sistema di
@@ -870,7 +870,7 @@ aggiornare l'ambiente di lavoro della \gloss {virtual machine}.
 \subparagraph{Scala e Java Virtual Machine}
 La scelta sulla versione di Scala da utilizzare è ricaduta sulla \gloss{major}
 2.11, principalmente dovuta ai requisiti minimi delle librerie \textit{akka}, e
-ad una maggiore sicurezza sul mantenimento del codice, infatti le due versioni
+ad una maggiore sicurezza sul mantenimento del \gloss{codice}, infatti le due versioni
 principali di \gloss{Scala} risultano essere non compatibili a livello binario,
 pertanto è preferibile rimanere sulla versione più avanzata. La versione 2.11
 necessita della \gloss{JVM} versione 8.
@@ -955,7 +955,7 @@ cambiato), la \textbf{\% completata} e aggiornare inoltre il \textbf{tempo
 può essere utile per spiegare i cambiamenti apportati.
 \subsubsection{Modificare la Wiki}
 La sezione \gloss{Wiki} di \textit{Redmine} può essere molto utile, di fatto si tratta di uno spazio in cui è possibile scrivere del testo libero, inserire immagini o altro.\\
-Noi abbiamo deciso di usarla come raccoglitore di link a guide inerenti al nostro progetto.
+Noi abbiamo deciso di usarla come raccoglitore di \gloss{link} a guide inerenti al nostro progetto.
 Per contribuire alla nostra \gloss{Wiki} basta andare nella suddetta sezione e premere su \textbf{modifica}. Si presenterà un editor di testo in cui è possibile modificare o semplicemente aggiungere del testo.
 \newpage
 \appendix

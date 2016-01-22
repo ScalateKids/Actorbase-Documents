@@ -167,7 +167,7 @@ Questo corrisponde al collaudo vero e proprio del software da svolgersi col \tex
 \subsection{Metriche di valutazione}
 Per rendere quantificabile il processo di verifica verranno usate delle metriche elencate sotto. Soltanto due tipi di \gloss{range} saranno accettati:
 \begin{itemize}
-  \item \textbf{Ottimale}: contiene i valori che si deve cercare di ottenere, valori al di fuori di questo range dovranno essere verificati e, se necessario, discussi dal gruppo;
+  \item \textbf{Ottimale}: contiene i valori che si deve cercare di ottenere, valori al di fuori di questo \gloss{range} dovranno essere verificati e, se necessario, discussi dal gruppo;
   \item \textbf{Accettazione}: valori per avere un accentazione del prodotto.
 \end{itemize}
 \subsubsection{Metriche per i documenti}
@@ -194,8 +194,8 @@ Lo script applicato su un documento produrrà in output un valore intero compres
 \end{itemize}
 \textbf{Range accettabili:}
 \begin{itemize}
-  \item Range ottimale: 60 - 100;
-  \item Range di accettazione: 45 - 60.
+  \item \gloss{Range} ottimale: 60 - 100;
+  \item \gloss{Range} di accettazione: 45 - 60.
 \end{itemize}
 \subsubsection{Metriche per il software}
 Per perseguire una buona qualità software sono state pensate diverse metriche di valutazione descritte nei prossimi paragrafi. Tuttavia questa sezione è una sezione che potrà subire cambiamenti durante le prossime revisioni.
@@ -203,22 +203,22 @@ Per perseguire una buona qualità software sono state pensate diverse metriche d
 Applicato su un file produrrà un valore in output che rappresenta la percentuale di righe di commento rispetto alle linee di codice.\\
 \textbf{Range accettabili:}
 \begin{itemize}
-  \item Range ottimale: 30 - 40\%;
-  \item Range di accettazione: 20 - 30\%.
+  \item \gloss{Range} ottimale: 30 - 40\%;
+  \item \gloss{Range} di accettazione: 20 - 30\%.
 \end{itemize}
 \subsubsection{Copertura del codice}
 La copertura del codice indica il numero di istruzioni che vengono eseguite durante i test rispetto alla totalità delle istruzioni. Per avere una minor possibilità di presenza di errori nel codice si dovrà avere una percentuale il più alta possibile di istruzioni testate.\\Tuttavia metodi molto semplici che non necessitano testing andranno a influire negativamente in questo ambito.\\
 \textbf{Range accettabili:}
 \begin{itemize}
-  \item Range ottimale: 60 - 100\%;
-  \item Range di accettazione: 40 - 60\%.
+  \item \gloss{Range} ottimale: 60 - 100\%;
+  \item \gloss{Range} di accettazione: 40 - 60\%.
 \end{itemize}
 \subsubsection{Numero di attributi per classe}
 Un numero troppo elevato di attributi in una classe potrebbe indicare il non soddisfacimento del principio di \textit{\gloss{single responsability}}. Questo potrebbe significare la necessità di una divisione in più classi relazionate tra loro per dividere le diverse funzionalità o un possibile errore di progettazione.\\
 \textbf{Range accettabili:}
 \begin{itemize}
-  \item Range ottimale: 3 - 6;
-  \item Range di accettazione: 0 - 12.
+  \item \gloss{Range} ottimale: 3 - 6;
+  \item \gloss{Range} di accettazione: 0 - 12.
 \end{itemize}
 \subsubsection{Numero di parametri per metodo}
 Un numero troppo elevato di parametri in un metodo potrebbe indicare il non soddisfacimento del principio di \textit{\gloss{single responsability}}. Questo potrebbe significare la necessità di una divisione in sotto metodi per dividere le diverse funzionalità o un possibile errore di progettazione.\\
@@ -232,15 +232,15 @@ La complessità ciclomatica è usata per misurare la complessità di parti di co
 Questa è calcolata attraverso un grafo di controllo del flusso del programma.\\La complessità ciclomatica di una sezione di codice è il numero di cammini linearmente indipendenti attraverso il codice sorgente. Per esempio, se il codice sorgente non contiene punti decisionali come IF o cicli FOR, allora la complessità sarà 1, poiché esiste un solo cammino nel sorgente (e quindi nel grafo). Se il codice ha un singolo IF contenente una singola condizione, allora ci saranno due cammini possibili: il primo se l'IF viene valutato a TRUE e un secondo se l'IF viene valutato a FALSE.\\
 \textbf{Range accettabili:}
 \begin{itemize}
-  \item Range ottimale: 0 - 10;
-  \item Range di accettazione: 10 - 15.
+  \item \gloss{Range} ottimale: 0 - 10;
+  \item \gloss{Range} di accettazione: 10 - 15.
 \end{itemize}
 \subsubsection{Livelli di annidamento}
 Indica il numero di livelli di annidamento di funzioni e metodi. Un valore alto di questo indice implica un livello di complessità molto elevato, aumentando la probabilità di commettere errori.\\
 \textbf{Range accettabili:}
 \begin{itemize}
-  \item Range ottimale: 1 - 4;
-  \item Range di accettazione 5 - 8.
+  \item \gloss{Range} ottimale: 1 - 4;
+  \item \gloss{Range} di accettazione 5 - 8.
 \end{itemize}
 \newpage
 \appendix
