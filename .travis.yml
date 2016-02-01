@@ -3,7 +3,7 @@ sudo: required
 notifications:
     email:
         recipients:
-            - a.g.baldan@gmail.com
+            - scalatekids@gmail.com
         on_success:
                 never
         on_failure:
