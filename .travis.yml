@@ -20,7 +20,7 @@ before_install:
     - docker pull scalatekids/scalatekids-latex
 
 script:
-    - docker run --rm -i --net=none -v `pwd`:/root/actorbase scalatekids/scalatekids-latex:latest verify
+#    - docker run --rm -i --net=none -v `pwd`:/root/actorbase scalatekids/scalatekids-latex:latest verify
 #    - docker run --rm -i --net=none -v `pwd`:/root/actorbase scalatekids/scalatekids-latex:latest verifygloss
     - echo "y" | docker run --rm -i --net=none -v `pwd`:/root/actorbase scalatekids/scalatekids-latex:latest build
 #    - docker run --rm -i --net=none -v `pwd`:/root/actorbase scalatekids/scalatekids-latex:latest readability
