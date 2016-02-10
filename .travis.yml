@@ -3,7 +3,7 @@ sudo: required
 notifications:
     email:
         recipients:
-            - scalatekids@gmail.com
+            - a.g.baldan@gmail.com
         on_success:
                 never
         on_failure:
@@ -23,4 +23,5 @@ script:
     - docker run --rm -i --net=none -v `pwd`:/root/actorbase scalatekids/scalatekids-latex:latest verify
     - docker run --rm -i --net=none -v `pwd`:/root/actorbase scalatekids/scalatekids-latex:latest verifygloss
     - echo "y" | docker run --rm -i --net=none -v `pwd`:/root/actorbase scalatekids/scalatekids-latex:latest build
-    - docker run --rm -i --net=none -v `pwd`:/root/actorbase scalatekids/scalatekids-latex:latest readability
+#    - docker run --rm -i --net=none -v `pwd`:/root/actorbase scalatekids/scalatekids-latex:latest readability
+    - docker run --rm -i --net=none -v `pwd`:/root/actorbase scalatekids/scalatekids-latex:latest readaruby
