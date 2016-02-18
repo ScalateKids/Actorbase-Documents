@@ -13,5 +13,5 @@ verifygloss:
 	@script/verifygloss
 
 readability:
-	@script/gulpease
+	@script/readability
 
