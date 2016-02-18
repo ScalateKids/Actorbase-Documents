@@ -1,3 +1,11 @@
+.PHONY: build
+
+all:
+	@make verify
+	@make verifygloss
+	@make build
+	@make readability
+
 build:
 	@mkdir -p "build"
 	@rm -f build/*

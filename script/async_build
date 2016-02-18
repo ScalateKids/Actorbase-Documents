@@ -20,6 +20,7 @@ our $total = 0;
 my ($dir) = @ARGV || 'RP';
 $dir = uc($dir);
 
+print "\e[1m \nBuilding PDF from .tex..\e[0m\n";
 print "\n";
 finddepth({wanted => \&list_files, no_chdir => 1}, $dir);
 

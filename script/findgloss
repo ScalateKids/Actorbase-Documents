@@ -1,0 +1,59 @@
+#!/usr/bin/perl
+#
+# find_summary_words.pl
+# Find all occurence of \gloss{xxx} words and list them without repetition
+# Author: Andrea Giacomo Baldan
+# Version: 2.0
+
+use warnings;
+use strict;
+use open qw/:std :utf8/;
+
+my $DIR = 'RP';
+my @tex_files;
+
+if(@ARGV == 0) {
+    @tex_files = `find $DIR -type f -name "*.tex" -a -not -name "Glossario*"`;
+} else {
+    (@tex_files) = @ARGV;
+}
+my @base;
+my $glossary_file = `find $DIR -type f -name "Glossario*.tex"`;
+chomp $glossary_file;
+open my $fh, '<:encoding(UTF-8)', $glossary_file or die "Could not open file $glossary_file for read $!";
+# populate @base array with glossary words
+while(<$fh>) {
+    if($_ =~/(?<=\\glossDef\{)(.*?)(?=\})/g) {
+        push @base, $1;
+    }
+}
+close $fh;
+foreach my $file(@tex_files){
+    my ($fh, @matches, @unique);
+    chomp $file;
+    open($fh, "<:encoding(UTF-8)", $file) or die "Error opening $file $!";
+    while(<$fh>) {
+        if($_ =~/(?<=gloss\{)(.*?)(?=\})/g) {
+            push  @matches, $1;
+        }
+    }
+    @unique = do { my %seen; grep { !$seen{$_}++ } @matches } ;
+    my @sorted_unique = sort { lc($a) cmp lc($b) } @unique;
+    close $fh;
+    print "\n[\e[32m*\e[39m]GLOSSARY WORDS\n\n";
+    foreach(@sorted_unique) {
+        print $_."\n";
+    }
+    my @not_in_glossary;
+    foreach my $gloss(@sorted_unique) {
+        if (grep { lc($_) eq lc($gloss) } @base) {
+            next;
+        } else {
+            push @not_in_glossary, $gloss;
+        }
+    }
+    print "\n[\e[32m*\e[39m] Not in glossary already:\n\n";
+    foreach(@not_in_glossary) {
+        print $_."\n";
+    }
+}
