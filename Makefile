@@ -13,3 +13,5 @@ readability:
 	@script/install
 	@script/readability
 
+readability2:
+	@script/readability_alt

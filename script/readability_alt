@@ -1,0 +1,135 @@
+#!/usr/bin/perl
+#
+# readabilty
+# Calculate some readability index of a given pdf for ScalateKids VM
+# Author: Andrea Giacomo Baldan
+# Version: 2.0
+
+use warnings;
+use strict;
+use open qw/:std :utf8/;
+
+my $DIR = 'build';
+my ($sentenceCount, $wordCount, $charCount, @pdf_files);
+
+sub syllables {
+    my $_V = "[aeiouàèéìòù]";
+    my $_C = "[b-df-hj-np-tv-z]";
+    my $_Y = "[b-df-hj-mp-tv-z]";
+    my $_S = "iut";
+    my $_X = "fi|aci";
+    my $_Z = "i[aeo]";
+    my(@words) = split(/[^a-zA-Zàèéìòù'0-9]+/, join(" ", @_));
+    my @result = ();
+    foreach my $word (@words) {
+        $word =~ s/($_V)($_S)/$1=iu=t/gi;
+        $word =~ s/($_V)($_Z)/$1=$2/gi;
+        $word =~ s/($_X)($_V)/$1=$2/gi;
+        $word =~ s/($_C)($_V)($_V)($_Y)/$1$2=$3=$4/gi;
+        $word =~ s/($_V)([bcfgptv][lr])/$1=$2/gi;
+        $word =~ s/($_V)([cg]h)/$1=$2/gi;
+        $word =~ s/($_V)(gn)/$1=$2/gi;
+        $word =~ s/($_C)\1/$1=$1/gi;
+        $word =~ s/(s$_C)/=$1/gi;
+        1 while $word =~ s/($_V*$_C+$_V+)($_C$_V)/$1=$2/gi;
+        1 while $word =~ s/($_V*$_C+$_V+$_C)($_C)/$1=$2/gi;
+        $word =~ s/^($_V+$_C)($_C)/$1=$2/gi;
+        $word =~ s/^($_V+)($_C$_V)/$1=$2/gi;
+        $word =~ s/^=//;
+        $word =~ s/=$//;
+        $word =~ s/=+/=/g;
+        # special cases
+        $word =~ s/(le)([oa]n)/$1=$2/gi;
+        $word =~ s/(le)([oa])(an)/$1=$2=$3/gi;
+        $word =~ s/(spe)=(le)=(o)/$1=$2$3/gi;
+        $word =~ s/([gd]i)=($_V)/$1$2/gi;
+        $word =~ s/(ni)=($_V)/$1$2/gi;
+        $word =~ s/=(e)=(l)/$1$2/gi;
+        push(@result, split(/=/, $word));
+    }
+    return @result;
+}
+
+sub print_gulpease {
+    my $gulpease = shift;
+    my ($bold, $red, $green, $yellow, $reset) = ("\e[1m", "\e[31m", "\e[32m", "\e[33m", "\e[0m");
+    if ($^O eq 'darwin') {
+        ($bold, $red, $green, $yellow, $reset) = ("\033[1m", "\033[31m", "\033[32m", "\033[33m", "\033[0m");
+    }
+    if ($gulpease < 45) {
+        printf " $bold - Gulpease:$reset\t  $red%.2f$reset\n", $gulpease;
+    } elsif($gulpease > 45 && $gulpease < 60) {
+        printf " $bold - Gulpease:$reset\t  $yellow%.2f$reset\n", $gulpease;
+    } else {
+        printf " $bold - Gulpease:$reset\t  $green%.2f$reset\n", $gulpease;
+    }
+}
+
+sub print_flesch {
+    my $flesch = shift;
+    my ($bold, $red, $green, $yellow, $reset) = ("\e[1m", "\e[31m", "\e[32m", "\e[33m", "\e[0m");
+    if ($^O eq 'darwin') {
+        ($bold, $red, $green, $yellow, $reset) = ("\033[1m", "\033[31m", "\033[32m", "\033[33m", "\033[0m");
+    }
+    if ($flesch < 30) {
+        printf " $bold - Flesch:$reset\t  $red%.2f$reset\n", $flesch;
+    } elsif($flesch > 30 && $flesch < 70) {
+        printf " $bold - Flesch:$reset\t  $yellow%.2f$reset\n", $flesch;
+    } else {
+        printf " $bold - Flesch:$reset\t  $green%.2f$reset\n", $flesch;
+    }
+}
+
+if(@ARGV == 0) {
+    # find all project files .pdf
+    @pdf_files = `find $DIR -type f -name "*.pdf"`;
+} else {
+    (@pdf_files) = @ARGV;
+    # .pdf extension check on arguments
+    if(grep(/(?<!\.pdf)$/, @pdf_files)) {
+        print "Only .pdf files allowed\n";
+        exit 1;
+    }
+}
+foreach my $pdf(@pdf_files) {
+    chomp $pdf;
+    my $text = `pdftotext $pdf -`;
+    $sentenceCount = 0;
+    $wordCount = 0;
+    $charCount = 0;
+    ++$sentenceCount while $text =~ /["']?[A-Z][^.:;?!]+((?![.:;?!]['"]?\s["']?[A-Z][^.:;?!]).)+[.:;?!'"]+/g;
+    $text =~ s/[^\w\dèòàù\(\)\[\]\{\}]/ /g;
+    ++$wordCount while $text =~ /\S+/g;
+    my $syllabes = scalar syllables($text);
+    $text =~ s/[[:punct:]][[:space:]]//g;
+    ++$charCount while $text =~ /[a-zA-Z0-9_àòèéùì\(\)\[\]\{\}]/g;
+
+    ##### GULPEASE #####
+
+    my $gulpease = 89 + (((300 * $sentenceCount) - (10 * $charCount)) / $wordCount);
+
+    ##### FLESCH #####
+
+    my $flesch = 206.0 - 65.0 * ($syllabes / $wordCount) - ($wordCount / $sentenceCount);
+
+    print "\n";
+    if($^O eq 'darwin') {
+        print "\033[1m$pdf:\033[0m\n\n";
+        print "\033[1m[*] STATS\033[0m\n\n";
+        print "\033[1m  - Sentences:\033[0m\t\033[94m$sentenceCount\033[0m\t\033[1m  - Words:\033[94m\t\033[94m$wordCount\033[0m\n";
+        print "\033[1m  - Characters:\033[0m\t\033[94m$charCount\033[0m\t\033[1m  - Syllabes:\033[0m\t\033[94m$syllabes\033[0m\n";
+        print "\n";
+        print "\033[1m[*] READABILITY REPORT\033[0m\n";
+    } else {
+        print "\e[1m$pdf:\e[0m\n\n";
+        print "\e[1m[*] STATS\033[0m\n\n";
+        print "\e[1m  - Sentences:\e[0m\t\e[94m$sentenceCount\e[0m\t\e[1m  - Words:\e[0m\t\e[94m$wordCount\e[0m\n";
+        print "\e[1m  - Characters:\e[0m\t\e[94m$charCount\e[0m\t\e[1m  - Syllabes:\e[0m\t\e[94m$syllabes\e[0m\n";
+        print "\n";
+        print "\e[1m[*] READABILITY REPORT\e[0m\n";
+    }
+    print "\n";
+    print_gulpease($gulpease);
+    print_flesch($flesch);
+}
+print "\n";
