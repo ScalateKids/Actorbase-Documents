@@ -1,0 +1,156 @@
+\documentclass[10pt,a4paper]{letter} % Specify the font size (10pt, 11pt and 12pt) and paper size (letterpaper, a4paper, etc)
+
+\usepackage{graphicx} % Required for including pictures
+\usepackage{microtype} % Improves typography
+\usepackage[T1]{fontenc} % Required for accented characters
+\usepackage[utf8]{inputenc}
+\usepackage[official]{eurosym}
+\usepackage[T1]{fontenc}
+\usepackage[scaled]{beraserif}
+\usepackage[scaled]{berasans}
+\usepackage[scaled]{beramono}
+\graphicspath{{img/}{../../img/}}
+% Create a new command for the horizontal rule in the document which allows thickness specification
+\makeatletter
+\def\vhrulefill#1{\leavevmode\leaders\hrule\@height#1\hfill \kern\z@}
+\makeatother
+
+%----------------------------------------------------------------------------------------
+%	DOCUMENT MARGINS
+%----------------------------------------------------------------------------------------
+
+\textwidth 6.75in
+\textheight 9.25in
+\oddsidemargin -.25in
+\evensidemargin -.25in
+\topmargin -1in
+\longindentation 0.50\textwidth
+\parindent 0.4in
+
+%----------------------------------------------------------------------------------------
+%	SENDER INFORMATION
+%----------------------------------------------------------------------------------------
+\def\Who{Prof. Tullio Vardanega} % Your name
+\def\What{Alla cortese attenzione del Commitente:} % Your title
+\def\Where{Università degli Studi di Padova} % Your department/institution
+\def\Address{Via Trieste, 63} % Your address
+\def\CityZip{35121 Padova} % Your city, zip code, country, etc
+\def\Department{Dipartimento di Matematica Pura ed Applicata}
+%----------------------------------------------------------------------------------------
+%	HEADER AND FROM ADDRESS STRUCTURE
+%----------------------------------------------------------------------------------------
+
+\address{
+  \includegraphics[width=1in]{sklogo.png} % Include the logo of your institution
+  \hspace{5.3in} % Position of the institution logo, increase to move left, decrease to move right
+  \vskip -1.07in~\\ % Position of the text in relation to the institution logo, increase to move down, decrease to move up
+  \Large\hspace{1.5in}ScalateKids \hfill ~\\[0.05in]\normalsize % Second line of institution name, adjust hspace if your logo is wide
+  ~\\[-0.11in] % Reduce the whitespace above the horizontal rule
+  \hspace{1.5in}\vhrulefill{1pt} \\ % Horizontal rule, adjust hspace if your logo is wide and \vhrulefill for the thickness of the rule
+  \hspace{\fill}\parbox[t]{3.30in}{ % Create a box for your details underneath the horizontal rule on the right
+    \footnotesize % Use a smaller font size for the details
+    \What \\
+    \Who \\ \em % Your name, all text after this will be italicized
+    \Where\\ % Your department
+    \Department\\
+    \Address\\ % Your address
+    \CityZip\\ % Your city and zip code
+  }
+  \hspace{-1.4in} % Horizontal position of this block, increase to move left, decrease to move right
+  \vspace{-1in} % Move the letter content up for a more compact look
+}
+
+%----------------------------------------------------------------------------------------
+%	TO ADDRESS STRUCTURE
+%----------------------------------------------------------------------------------------
+
+\def\opening#1{\thispagestyle{empty}
+  {\centering\fromaddress \vspace{0.6in} \\ % Print the header and from address here, add whitespace to move date down
+    \hspace*{\longindentation}22 gennaio 2016\hspace*{\fill}\par} % Print today's date, remove \today to not display it
+  {\raggedright \toname \\ \toaddress \par} % Print the to name and address
+  \vspace{0.4in} % White space after the to address
+  \noindent #1 % Print the opening line
+  % Uncomment the 4 lines below to print a footnote with custom text
+  \def\thefootnote{}
+  \def\footnoterule{\hrule}
+  \footnotetext{\hspace*{\fill}{\footnotesize\em ScalateKids - scalatekids@gmail.com}}
+  \def\thefootnote{\arabic{footnote}}
+}
+
+%----------------------------------------------------------------------------------------
+%	SIGNATURE STRUCTURE
+%----------------------------------------------------------------------------------------
+
+\signature{
+  \begin{center}
+    \textit{
+      Andrea Giacomo Baldan \\
+      Responsabile ScalateKids \\
+    }
+  \end{center}
+} % The signature is a combination of your name and title
+
+\long\def\closing#1{
+  \vspace{0.1in} % Some whitespace after the letter content and before the signature
+  \noindent % Stop paragraph indentation
+  %% \hspace*{\longindentation} % Move the signature right
+  \parbox{\indentedwidth}{\raggedright
+    #1 % Print the signature text
+    \vskip 0.45in % Whitespace between the signature text and your name
+    \fromsig}} % Print your name and title
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	TO ADDRESS
+%----------------------------------------------------------------------------------------
+
+\begin{letter}{}
+
+  %----------------------------------------------------------------------------------------
+  %	LETTER CONTENT
+  %----------------------------------------------------------------------------------------
+
+  \opening{Egregio Prof. Tullio Vardanega,\\}
+
+  Con la presente, il gruppo \textit{ScalateKids} costituito dai componenti:
+  \begin{center}
+    \begin{tabular}[H]{l l l}
+      Agostini Francesco & 1051519 & francesco.agostini.93@gmail.com \\
+      Baldan Andrea Giacomo & 579117 & a.g.baldan@gmail.com \\
+      Boseggia Marco & 1044608 & boseggiam91@gmail.com \\
+      De Agostini Alberto & 579100 & albertodeagostini88@gmail.com \\
+      Munaro Michael & 1049522 & munaro.michael@gmail.com \\
+      Trevisan Davide & 1070686 & trevisan.davide94@libero.it \\
+      Vanin Giacomo & 1026988 & giacomo.vanin92@gmail.com \\
+    \end{tabular}
+  \end{center}
+  Intende inviarLe i documenti necessari al sostenimento della Revisione dei Requisiti in data 2016-01-22.
+  Alla presente si allegano, quindi, i seguenti documenti:
+  \begin{itemize}
+  \item interni
+    \begin{itemize}
+    \item Norme di Progetto v1.0.0;
+    \item Studio di Fattibilità v1.0.0;
+    \item Verbali riunioni esterne.
+    \end{itemize}
+  \item esterni
+    \begin{itemize}
+    \item Analisi dei Requisiti v1.0.0;
+    \item Glossario v1.0.0;
+    \item Piano di Progetto v1.0.0;
+    \item Piano di Qualifica v1.0.0.
+    \end{itemize}
+  \end{itemize}
+  Il gruppo \textit{ScalateKids} ha stimato di consegnare il prodotto richiesto entro la fine del secondo semestre dell'anno accademico 2015-2016,
+  precisamente in data 17 giugno 2016, corrispondente alla prima Revisione di Accettazione, con un preventivo di costo pari a \textbf{14052\euro{}}.\\
+  I dettagli di analisi del prodotto, di pianificazione e di qualità sono trattati in maniera esaustiva nei documenti allegati.\\
+  Rimango a Sua completa disposizione per ogni ulteriore chiarimento.\\
+  La ringrazio anticipatamente per la Sua attenzione. \\ \\ 
+  \closing{Cordiali saluti,}
+  %----------------------------------------------------------------------------------------
+
+\end{letter}
+\end{document}

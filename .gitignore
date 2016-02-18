@@ -3,6 +3,8 @@
 *.toc
 *.out
 *.soc
+*.lot
+*.loc
+*.lof
 
-*.sh
-*.pl
+*.pdf

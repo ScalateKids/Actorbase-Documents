@@ -1,0 +1,440 @@
+\documentclass{scalatekids-article}
+\begin{document}
+\lfoot{Piano Di Qualifica 1.0.0}
+\newgeometry{top=3.5cm}
+\begin{titlepage}
+  \begin{center}
+    \begin{center}
+      \includegraphics[width=10cm]{sklogo.png}
+    \end{center}
+    \vspace{1cm}
+    \begin{Huge}
+      \begin{center}
+        \textbf{Piano di Qualifica}
+      \end{center}
+    \end{Huge}
+    \vspace{11pt}
+    \bgroup
+    \def\arraystretch{1.3}
+    \begin{tabular}{r|l}
+      \multicolumn{2}{c}{\textbf{Informazioni sul documento}} \\
+      \hline
+      \setbox0=\hbox{0.0.1\unskip}\ifdim\wd0=0pt
+      \\
+      \else
+      \textbf{Versione} & 1.0.0\\
+      \fi
+      \textbf{Redazione} & \multiLineCell[t]{Francesco Agostini\\Giacomo  Vanin\\Marco Boseggia}\\
+      \textbf{Verifica} & \multiLineCell[t]{Andrea Giacomo Baldan\\Michael Munaro}\\
+      \textbf{Approvazione} & \multiLineCell[t]{Alberto De Agostini}\\
+      \textbf{Uso} & Esterno\\
+      \textbf{Lista di Distribuzione} & \multiLineCell[t]{ScalateKids\\Prof. Tullio Vardanega\\Prof. Riccardo Cardin}\\
+    \end{tabular}
+    \egroup
+    \vspace{22pt}
+  \end{center}
+\end{titlepage}
+\restoregeometry
+\clearpage
+\pagenumbering{Roman}
+\setcounter{page}{1}
+\begin{flushleft}
+  \vspace{0cm}
+         {\large\bfseries Diario delle modifiche \par}
+\end{flushleft}
+\vspace{0cm}
+\begin{center}
+  \begin{tabular}{| l | l | l | l | p{5cm} |}
+    \hline
+    Versione & Autore & Ruolo & Data & Descrizione \\
+    \hline
+    1.0.0 & Alberto De Agostini & Responsabile & 2016-01-21 & Approvazione documento\\
+    \hline
+    0.6.0 & Andrea Giacomo Baldan & Verificatore & 2016-01-21 & Verifica capitolo Resoconto attività di Verifica\\
+    \hline
+    0.5.2 & Francesco Agostini & Analista & 2016-01-21 & Stesura capitolo Resoconto attività di Verifica\\
+    \hline
+    0.5.1 & Francesco Agostini & Analista & 2016-01-20 & Creazione scheletro capitolo Resoconto attività di Verifica\\
+    \hline
+    0.5.0 & Michael Munaro & Verificatore & 2016-01-20 & Verifica Pianificazione dei test\\
+    \hline
+    0.4.2 & Marco Boseggia & Analista & 2016-01-18 & Integrazione capitolo Pianificazione dei test\\
+    \hline
+    0.4.1 & Giacomo Vanin & Analista & 2016-01-17 & Stesura capitolo Pianificazione dei test\\
+    \hline
+    0.4.0 & Michael Munaro & Verificatore & 2016-01-16 & Verifica Correzioni capitolo Standard di Qualità\\
+    \hline
+    0.3.1 & Giacomo Vanin & Analista & 2016-01-16 & Correzioni capitolo Standard di Qualità\\
+    \hline
+    0.3.0 & Andrea Giacomo Baldan & Verificatore & 2016-01-12 & Verifica capitolo Standard di Qualità\\
+    \hline
+    0.2.1 & Marco Boseggia & Analista & 2016-01-09 & Stesura capitolo Standard di Qualità\\
+    \hline
+    0.2.0 & Michael Munaro & Verificatore & 2016-01-07 & Verifica Correzione effettuata\\
+    \hline
+    0.1.1 & Giacomo Vanin & Analista & 2016-01-08 & Correzione capitolo Gestione amministrativa della revisione\\
+    \hline
+    0.1.0 & Andrea Giacomo Baldan & Verificatore & 2016-01-05 & Verifica capitoli stesi in precedenza\\
+    \hline
+    0.0.3 & Giacomo Vanin & Analista & 2016-01-04 & Stesura capitolo Gestione amministrativa della revisione\\
+    \hline
+    0.0.2 & Francesco Agostini & Analista & 2016-01-02 & Stesura capitolo Visione generale della strategia di verifica\\
+    \hline
+    0.0.1 & Andrea Giacomo Baldan & Amministratore & 2015-12-16 & Creazione scheletro del documento\\
+    \hline
+  \end{tabular}
+\end{center}
+\tableofcontents
+\newpage
+\pagenumbering{arabic}
+\section{Sommario}
+\subsection{Scopo del documento}
+Il seguente documento ha lo scopo di delineare le strategie che il gruppo \textit{ScalateKids} ha deciso di adottare per garantire degli obiettivi qualitativi da applicare ai processi sfruttati per lo sviluppo del progetto \textbf{ActorBase}. Per raggiungere tali obiettivi è necessario svolgere un'\gloss{attività} di verifica continua in modo da rilevare e correggere errori o malfunzionamenti minimizzando lo spreco di risorse.
+\prodPurpose
+\glossExpl
+\subsection{Riferimenti}
+\subsubsection{Normativi}
+\begin{itemize}
+\item\textbf{Capitolato d'appalto C1:} \textit{Actorbase: a NoSQL DB based on the Actor model;}\\
+  \url{http://www.math.unipd.it/~tullio/IS-1/2015/Progetto/C1.pdf}
+\item\textbf{Norme di Progetto:} \href{run:../Interni/NormeDiProgetto\_v1.0.0.pdf}{Norme di Progetto v1.0.0.}
+\end{itemize}
+\subsubsection{Informativi}
+\begin{itemize}
+\item\textbf{Piano di Progetto:} \href{run:./PianoDiProgetto\_v1.0.0.pdf}{Piano di Progetto v1.0.0}
+\item\textbf{Dispense fornite dall'insegnamento Ingegneria del Software mod. A:}\\
+  \url{http://www.math.unipd.it/~tullio/IS-1/2015/}
+\item\textbf{Standard \gloss{ISO}/\gloss{IEC} 15504:}\\
+\url{https://en.wikipedia.org/wiki/ISO/IEC_15504}
+\item\textbf{Standard \gloss{ISO}/\gloss{IEC} 9126:}\\
+\url{https://it.wikipedia.org/wiki/ISO/IEC_9126}
+\item\textbf{\gloss{Ciclo di Deming}:}\\
+\url{https://en.wikipedia.org/wiki/PDCA}
+\end{itemize}
+\newpage
+\section{Visione generale della strategia di verifica}
+\subsection{Definizione obiettivi}
+\subsubsection{Qualità di processo}
+Per perseguire la qualità del prodotto è necessario garantire la qualità dei processi attuati per la sua creazione. Per raggiungere questo scopo i \textit{Verificatori} con approvazione del \textit{Responsabile} hanno trovato utile adottare lo standard \gloss{ISO}/\gloss{IEC} 15504\footnote[1]{Per approfondimenti consultare la sezione \ref{sec:ISO/IEC15504}.} denominato SPICE (Software Process Improvement and Capability dEtermination). Il \gloss{ciclo di Deming}\footnote[2]{Per approfondimenti consultare la sezione \ref{PDCA}.} (noto anche come ciclo \gloss{PDCA}) è stato scelto per applicare correttamente questo standard. Esso definisce un metodo di controllo costante sui processi consentendo in questo modo un miglioramento incrementale della qualità continuo.
+\subsubsection{Qualità di prodotto}
+I \textit{Verificatori} con approvazione del \textit{Responsabile} hanno deciso di seguire lo standard \gloss{ISO}/\gloss{IEC} 9126\footnote[3]{Per approfondimenti consultare la sezione \ref{sec:ISO/IEC9126}.} che ha lo scopo di delineare delle metriche per la misurazione della qualità di prodotto. Questa è fondamentale per garantire che il prodotto \gloss{software} finale funzioni correttamente e rispetti degli obiettivi di qualità prefissati.
+\subsection{Procedure di controllo di qualità di processo}
+La qualità dei processi è assicurata dall'applicazione del ciclo \gloss{PDCA} a ogni processo. Tale metodo consente di migliorare continuamente ogni processo coinvolto nell’\gloss{attività} di sviluppo. Per applicare correttamente il ciclo \gloss{PDCA} è necessario avere una pianificazione di processi e risorse dettagliata. La descrizione dettagliata della pianificazione si trova nel \href{run:./PianoDiProgetto\_v1.0.0.pdf}{Piano di Progetto v1.0.0}.\\
+\subsection{Procedure di controllo di qualità di prodotto}
+Il controllo di qualità del prodotto si suddividerà in tre parti:
+\begin{itemize}
+\item{Attuazione di tecniche di analisi statica e dinamica descritte nella sezione \ref{sec:TecnicheDiAnalisi};}
+\item{Verifica costante dell'output di ogni \gloss{attività}, i cui risultati verranno riportati nell'appendice \ref{sec:resAttivitaVerifica};}
+\item{Validazione, ovvero la conferma che il prodotto risponda correttamente ai requisiti attesi.}
+\end{itemize}
+\subsection{Organizzazione}
+Per garantire la qualità del prodotto finale verranno effettuate \gloss{attività} di verifica su ogni processo attuato. I controlli su ogni processo avranno come obiettivo garantire la qualità sia del processo stesso sia dell'eventuale prodotto da esso ricavato.\\
+Ogni fase descritta in \href{run:./PianoDiProgetto\_v1.0.0.pdf}{Piano di Progetto v1.0.0} necessita di \gloss{attività} di verifica diverse a causa della differenza natura del loro output. Di seguito sono elencate le strategie di verifica usate per ciascuna fase:
+\begin{itemize}
+\item\textbf{Analisi:} durante questa fase verrà verificato che ogni documento creato sia conforme a quanto descritto nel documento \href{run:../Interni/NormeDiProgetto\_v1.0.0.pdf}{Norme di Progetto v1.0.0}, inoltre sarà necessario controllare che ogni requisito sia associato a un caso d'uso e viceversa;
+\item\textbf{Progettazione:} durante questa fase l'\gloss{attività} di verifica si concentrerà sul processo incrementale dei documenti prodotti in fase di Analisi e sui processi attuati per l'\gloss{attività} di progettazione assicurandosi che ogni documento e ogni processo sia conforme a quanto descritto nelle \href{run:../Interni/NormeDiProgetto\_v1.0.0.pdf}{Norme di Progetto v1.0.0};
+\item\textbf{Codifica:} durante questa fase l'\gloss{attività} di verifica si concentrerà sul processo incrementale dei documenti prodotti in fase di Analisi e sui processi attuati per l'\gloss{attività} di codifica assicurandosi che ogni documento e ogni processo sia conforme a quanto descritto nelle \href{run:../Interni/NormeDiProgetto\_v1.0.0.pdf}{Norme di Progetto v1.0.0}.
+\item\textbf{Verifica e Validazione:} durante questa fase l'\gloss{attività} di verifica continuerà ad essere sul processo incrementale dei documenti prodotti nelle precedenti fasi. Inoltre sarà effettuata una corposa \gloss{attività} di verifica per il collaudo del prodotto.
+\end{itemize}
+In ogni documento viene inoltre tenuto un diario delle modifiche per permettere di mantenere uno storico delle \gloss{attività} svolte su di esso e delle responsabilità per ogni \gloss{attività}.
+\subsection{Pianificazione strategica e temporale}
+L'\gloss{attività} di redazione di ogni documento sarà sempre anticipata da uno studio sulla struttura e sui contenuti del documento interessato. In questo modo si riduce la possibilità di errori concettuali e il tempo effettivo di scrittura del documento viene ridotto.\\
+Il processo di verifica deve essere ben organizzato e pianificato per rispettare le scadenze fissate nel \href{run:./PianoDiProgetto\_v1.0.0.pdf}{Piano di Progetto v1.0.0}.\\
+L'attività di verifica segue le metodologie descritte nelle \href{run:../Interni/NormeDiProgetto\_v1.0.0.pdf}{Norme di Progetto v1.0.0}. Esse sono state pensate in maniera tale da consentire l'individuazione e la correzione degli errori il più presto possibile evitando che si diffondano.
+\subsection{Responsabilità}
+Per organizzare al meglio il lavoro e in particolare le \gloss{attività} di verifica e validazione vengono assegnati questi compiti ai soli \textit{Verificatori} e al \textit{Responsabile}. Inoltre le \gloss{attività} di verifica non potranno essere svolte da un membro che ha partecipato allo sviluppo di tale sezione per garantire assenza di conflitto di interessi.
+\subsection{Tecniche di analisi}
+\label{sec:TecnicheDiAnalisi}
+\subsubsection{Analisi statica}
+L'analisi statica è una tecnica atta a trovare errori e anomalie. Questa tecnica è applicabile sia alla documentazione sia al \gloss{codice}.
+\paragraph{Walkthrough}
+\label{sec:walkthrough}Come descritto nelle \textit{\href{run:../Interni/NormeDiProgetto_v1.0.0.pdf}{Norme di Progetto v1.0.0}} verrà effettuata la tecnica walkthrough nelle fasi iniziali di ogni \gloss{attività} per passare il prima possibile ad \gloss{attività} di \textit{Inspection} (paragrafo seguente).
+\paragraph{Inspection}
+\label{sec:inspection}Successivamente all'\gloss{attività} di \ref{sec:walkthrough} {Walthrough} verrà fatta \gloss{attività} di inspection (seguendo \textit{Norme di Progetto} (paragrafo precedente)) rispetto alla lista di controllo ottenuta in precedenza.
+\subsubsection{Analisi dinamica}
+L'analisi dinamica si applica solo al prodotto software e serve a trovare errori o difetti nell'implementazione.\\I test effettuati devono essere \textit{ripetibili}; questa caratteristica è fondamentale poiché un test deve produrre sempre lo stesso risultato dato un input in un ambiente per trovare errori.
+\paragraph{Test di unità}
+Test per verificare ogni unità del software prodotto. Per unità si intende la più piccola quantità di software che è utile verificare singolarmente.\\L'obiettivo di questi test è trovare ed eliminare possibili errori creati dai \textit{programmatori}.
+\paragraph{Test di integrazione}
+Test per verificare che l'integrazione tra due o più unità software funzionino correttamente.\\In mancanza di unità questi test possono essere svolti tramite la creazione di una o più componenti fittizie che simulano il comportamento delle unità con cui l'unità creata deve interfacciarsi.
+\paragraph{Test di sistema}
+Test per verificare la totale copertura dei requisiti software emersi in fase di \textit{Analisi dei Requisiti}. Questi test verificano la totalità del prodotto software al suo raggiungimento di una versione definitiva.
+\paragraph{Test di regressione}
+Test da effettuare per verificare che una modifica del software non pregiudichi il funzionamento del sistema o di altre parti del prodotto prima correttamente funzionanti.\\
+Questa \gloss{attività} dev'essere svolta tenendo conto del tracciamento dei requisiti per individuare i giusti test di unità, di integrazione e di sistema che possono essere influenzati dalle modifiche effettuate.\\
+\paragraph{Test di accettazione}
+Questo corrisponde al collaudo vero e proprio del software da svolgersi col \textit{Proponente}.
+
+\subsection{Metriche di valutazione}
+Per rendere quantificabile il processo di verifica verranno usate delle metriche elencate sotto. Soltanto due tipi di \gloss{range} saranno accettati:
+\begin{itemize}
+  \item \textbf{Ottimale}: contiene i valori che si deve cercare di ottenere, valori al di fuori di questo \gloss{range} dovranno essere verificati e, se necessario, discussi dal gruppo;
+  \item \textbf{Accettazione}: valori per avere un'accettazione del prodotto.
+\end{itemize}
+\subsubsection{Metriche per i documenti}
+Per la stesura dei documenti è stato scelto di utilizzare un \textit{indice di leggibilità} per la lingua italiana.
+\paragraph{Indice Gulpease}
+\label{par:metricheGulpease}
+Questo indice indica il grado di leggibilità di un documento.\\L'indice di Gulpease prende in considerazione principalmente tre variabili:
+\begin{itemize}
+\item Numero delle frasi;
+\item Numero delle lettere;
+\item Numero delle parole.
+\end{itemize}
+La formula applicata per calcolare il suddetto indice è:
+\begin{center}
+\begin{equation}
+  89 + \cfrac{300 * (numero delle frasi) - 10 * (numero delle lettere)}{numero delle parole}
+\end{equation}
+\end{center}
+Lo script applicato su un documento produrrà in output un valore intero compreso tra zero e cento, in particolare i significati sono i seguenti:
+\begin{itemize}
+  \item Indice inferiore a 80 rappresenta un documento difficile da leggere per persone con una licenza di scuola elementare;
+  \item Indice inferiore a 60 rappresenta un documento difficile da leggere per persone con una licenza di scuola media inferiore;
+  \item Indice inferiore a 40 rappresenta un documento difficile da leggere per persone con una licenza di diploma superiore;
+\end{itemize}
+\textbf{Range accettabili:}
+\begin{itemize}
+  \item \gloss{Range} ottimale: 60 - 100;
+  \item \gloss{Range} di accettazione: 45 - 60.
+\end{itemize}
+\subsubsection{Metriche per il software}
+Per perseguire una buona qualità software sono state pensate diverse metriche di valutazione descritte nei prossimi paragrafi. Tuttavia questa sezione è una sezione che potrà subire cambiamenti durante le prossime revisioni.
+\paragraph{Linee di codice per linee di commento}
+Applicato su un file produrrà un valore in output che rappresenta la percentuale di righe di commento rispetto alle linee di \gloss{codice}.\\
+\textbf{Range accettabili:}
+\begin{itemize}
+  \item \gloss{Range} ottimale: 30 - 40\%;
+  \item \gloss{Range} di accettazione: 20 - 30\%.
+\end{itemize}
+\subsubsection{Copertura del codice}
+La copertura del \gloss{codice} indica il numero di istruzioni che vengono eseguite durante i test rispetto alla totalità delle istruzioni. Per avere una minor possibilità di presenza di errori nel \gloss{codice} si dovrà avere una percentuale il più alta possibile di istruzioni testate.\\Tuttavia metodi molto semplici che non necessitano testing andranno a influire negativamente in questo ambito.\\
+\textbf{Range accettabili:}
+\begin{itemize}
+  \item \gloss{Range} ottimale: 60 - 100\%;
+  \item \gloss{Range} di accettazione: 40 - 60\%.
+\end{itemize}
+\subsubsection{Numero di attributi per classe}
+Un numero troppo elevato di attributi in una classe potrebbe indicare il non soddisfacimento del principio di \textit{\gloss{single responsability}}. Questo potrebbe significare la necessità di una divisione in più classi relazionate tra loro per dividere le diverse funzionalità o un possibile errore di progettazione.\\
+\textbf{Range accettabili:}
+\begin{itemize}
+  \item \gloss{Range} ottimale: 3 - 6;
+  \item \gloss{Range} di accettazione: 0 - 12.
+\end{itemize}
+\subsubsection{Numero di parametri per metodo}
+Un numero troppo elevato di parametri in un metodo potrebbe indicare il non soddisfacimento del principio di \textit{\gloss{single responsability}}. Questo potrebbe significare la necessità di una divisione in sotto metodi per dividere le diverse funzionalità o un possibile errore di progettazione.\\
+\textbf{Range accettabili:}
+\begin{itemize}
+  \item Range ottimale: 0 - 4;
+  \item Range di accettazione: 4 - 8.
+\end{itemize}
+\subsubsection{Complessità ciclomatica}
+La complessità ciclomatica è usata per misurare la complessità di parti di \gloss{codice} come funzioni, metodi, classi o moduli.\\
+Questa è calcolata attraverso un grafo di controllo del flusso del programma.\\La complessità ciclomatica di una sezione di \gloss{codice} è il numero di cammini linearmente indipendenti attraverso il \gloss{codice} sorgente. Per esempio, se il \gloss{codice} sorgente non contiene punti decisionali come IF o cicli FOR, allora la complessità sarà 1, poiché esiste un solo cammino nel sorgente (e quindi nel grafo). Se il \gloss{codice} ha un singolo IF contenente una singola condizione, allora ci saranno due cammini possibili: il primo se l'IF viene valutato a TRUE e un secondo se l'IF viene valutato a FALSE.\\
+\textbf{Range accettabili:}
+\begin{itemize}
+  \item \gloss{Range} ottimale: 0 - 10;
+  \item \gloss{Range} di accettazione: 10 - 15.
+\end{itemize}
+\subsubsection{Livelli di annidamento}
+Indica il numero di livelli di annidamento di funzioni e metodi. Un valore alto di questo indice implica un livello di complessità molto elevato, aumentando la probabilità di commettere errori.\\
+\textbf{Range accettabili:}
+\begin{itemize}
+  \item \gloss{Range} ottimale: 1 - 4;
+  \item \gloss{Range} di accettazione 5 - 8.
+\end{itemize}
+\newpage
+\appendix
+\section{Standard di qualità}
+\subsection{Standard ISO/IEC 15504}
+\label{sec:ISO/IEC15504}
+Lo standard \gloss{ISO}/\gloss{IEC} 15504 definisce un metodo per controllare continuamente la qualità di ogni processo. Questo metodo sfrutta un modello denominato SPY (Software Process Assessment and Improvement) per la valutazione di processo.\\
+%TODO immagine SPY
+Questo standard fornisce i seguenti nove attributi di qualità di processo:
+\begin{itemize}
+  \item{\textbf{Process performance:} il processo riesce a trasformare input identificabili in output identificabili.;}
+  \item{\textbf{Performance management:} Il processo viene attuato e controllato seguendo una pianificazione che garantisca il raggiungimento degli obiettivi;}
+  \item{\textbf{Work product management:} Il processo viene attuato e controllato seguendo una pianificazione che garantisca risultati documentati e verificati;}
+  \item{\textbf{Process definition:} Il processo viene attuato seguendo standard di processo per garantire i risultati;}
+  \item{\textbf{Process resource:} Il processo ha risorse adeguate per la sua attuazione;}
+  \item{\textbf{Process measurement:} I risultati raggiunti e le misure rilevate durante l'attuazione di un processo sono stati usati per assicurarsi che tale processo supporti il raggiungimento di specifici obiettivi;}
+  \item{\textbf{Process control:} Ogni processo è controllato attraverso la raccolta, analisi ed utilizzo delle misure di prodotto e di processo rilevate, per migliorare, eventualmente, le sue modalità di attuazione;}
+  \item{\textbf{Process change:} Le modifiche alla definizione, gestione e attuazione di ogni processo sono controllate;}
+  \item{\textbf{Continuous improvement:} Le modifiche ad ogni processo sono identificate ed implementate per assicurare il continuo miglioramento nel raggiungimento degli obiettivi rilevanti per l'organizzazione.}
+\end{itemize}
+Questi attributi vengono utilizzati per suddividere la maturità di un processo nei seguenti sei livelli:
+\begin{itemize}
+  \item{\textbf{Livello 0 - Incompleto:} Il processo non raggiunge i suoi obiettivi;}
+  \item{\textbf{Livello 1 - Attuato:} Il processo raggiunge i suoi obiettivi ma non è controllato. Il raggiungimento di questo livello è dimostrato dal possesso dell'attributo di \textit{Process Performance};}
+  \item{\textbf{Livello 2 - Gestito:} Il processo è attuato, pianificato, tracciato, verificato e migliorato sulla base di obiettivi ben definiti. Il raggiungimento di questo livello è dimostrato dal possesso dell'attributo di \textit{Performance management} e \textit{Work product management};}
+  \item{\textbf{Livello 3 - Definito:} Il processo è attuato, pianificato e controllato su procedure basate sui principi del software engineering. Il raggiungimento di questo livello è dimostrato dal possesso dell'attributo di \textit{Process definition} e \textit{Process resource};}
+  \item{\textbf{Livello 4 - Predicibile:} Il processo è stabilizzato ed è attuato all’interno di definiti limiti riguardo i risultati attesi, le performance e le risorse impiegate. Il raggiungimento di questo livello è dimostrato dal possesso dell'attributo di \textit{Performance measurement} e \textit{Process control};}
+  \item{\textbf{Livello 5 - Ottimizzante:} Il processo è predicibile ed in grado di adattarsi per raggiungere obiettivi specifici e rilevanti per la organizzazione. Il raggiungimento di questo livello è dimostrato dal possesso dell'attributo di \textit{Process change} e \textit{Continuous improvement}.}
+\end{itemize}
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.6\textwidth, keepaspectratio]{ISO15504.png}
+    \caption{Visione piramidale dei sei livelli di maturità di processo.}
+  \end{center}
+\end{figure}
+Infine per stabilire in che livello si trovi un processo ci sono quattro livelli di possesso per ogni attributo:
+\begin{itemize}
+  \item{\textbf{N:} Non posseduto;}
+  \item{\textbf{P:} Parzialmente posseduto;}
+  \item{\textbf{L:} Largamente posseduto;}
+  \item{\textbf{F:} Pienamente (Fully) posseduto.}
+\end{itemize}
+\subsection{Ciclo di Deming}
+\label{PDCA}
+Il \gloss{ciclo di Deming}, anche chiamato \gloss{PDCA}, è un modello che consente il miglioramento continuo dei processi. Si suddivide nelle seguenti quattro \gloss{attività}:
+\begin{itemize}
+  \item{\textbf{Plan:} \gloss{attività} di pianificazione di \gloss{attività}, risorse, scadenze e responsabilità;}
+  \item{\textbf{Do:} \gloss{attività} di esecuzione delle \gloss{attività} pianificate;}
+  \item{\textbf{Check:} \gloss{attività} di verifica dei risultati dell'\gloss{attività} di esecuzione, questi risultati verranno poi confrontati con i risultati pianificati nella fase di pianificazione;}
+  \item{\textbf{Act:} \gloss{attività} di messa in pratica del miglioramento dei processi sfruttando i risultati dell'\gloss{attività} di verifica per trovare e modificare gli aspetti critici.}
+\end{itemize}
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.5\textwidth, keepaspectratio]{PDCA.png}
+    \caption{Ciclo di Deming}
+  \end{center}
+\end{figure}
+\subsection{Standard ISO/IEC 9126}
+\label{sec:ISO/IEC9126}
+Lo standard \gloss{ISO}/\gloss{IEC} 9126 definisce un modello per migliorare l'organizzazione e i processi, avendo come conseguenza il miglioramento della qualità del prodotto finale. I criteri qualitativi sono divisi in tre \gloss{macro} aree:
+\begin{itemize}
+  \item{\textbf{Qualità interna:} è la qualità del prodotto software vista dall'interno. Si riferisce alla valutazione del \gloss{codice} sorgente e dell'architettura prima che il prodotto sia ultimato;}
+  \item{\textbf{Qualità esterna:} è la qualità del prodotto software vista dall'esterno. Si riferisce al risultato dei test condotti sul prodotto ultimato in un ambiente di prova;}
+  \item{\textbf{Qualità in uso:} è la qualità del prodotto vista dall'utilizzatore finale del prodotto. Si riferisce alla qualità dopo il rilascio dell'applicazione.}
+\end{itemize}
+Non potendo testare la qualità in uso nell'ambito di questo progetto si è scelto di concentrarsi sulla qualità interna ed esterna. Queste qualità nello standard \gloss{ISO}/\gloss{IEC} 9126 sono ulteriormente suddivise in sei categorie:
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.9\textwidth, keepaspectratio]{Modello_ISO-IEC_9126.png}
+    \caption{Modello dello standard ISO/IEC 9126}
+  \end{center}
+\end{figure}
+\begin{itemize}
+  \item{\textbf{Funzionalità:} capacità del prodotto di fornire funzioni che soddisfino esigenze stabilite. Questa categoria si suddivide in:}
+    \begin{itemize}
+      \item{\textbf{Appropriatezza:} capacità del prodotto di fornire un appropriato insieme di funzioni che rispondano a determinati requisiti;}
+      \item{\textbf{Accuratezza:} capacità del prodotto di fornire dei risultati corretti o con precisione concordata;}
+      \item{\textbf{Interoperabilità:} capacità del prodotto di interagire con uno o più sistemi esterni;}
+      \item{\textbf{Conformità:} capacità del prodotto di aderire a standard del settore di applicazione;}
+      \item{\textbf{Sicurezza:} capacità del prodotto di proteggere i dati, ad esempio negando l'accesso a utenti non autorizzati.}
+    \end{itemize}
+  \item{\textbf{Affidabilità:} capacità del prodotto di mantenere uno specificato livello di prestazioni durante un determinato periodo. Questa categoria si suddivide in:}
+    \begin{itemize}
+      \item{\textbf{Maturità:} capacità del prodotto di evitare che si verifichino risultati non corretti a causa di errori nel software;}
+      \item{\textbf{Tolleranza agli errori:} capacità del prodotto di mantenere uno specificato livello di prestazioni anche in presenza di errori nel software o di uso scorretto del prodotto;}
+      \item{\textbf{Recuperabilità:} capacità del prodotto di ristabilire un livello adeguato di prestazioni in seguito a un malfunzionamento;}
+      \item{\textbf{Aderenza:} capacità del prodotto di a standard riguardanti l'affidabilità.}
+    \end{itemize}
+  \item{\textbf{Efficienza:} capacità del prodotto di fornire prestazioni appropriate in relazione alle risorse usate. Questa categoria si suddivide in:}
+    \begin{itemize}
+      \item{\textbf{Comportamento rispetto al tempo:} capacità del prodotto di fornire i risultati in tempi adeguati;}
+      \item{\textbf{Utilizzo delle risorse:} capacità del prodotto di utilizzare le risorse in modo adeguato;}
+      \item{\textbf{Conformità:} capacità del prodotto di aderire a standard sull'efficienza.}
+    \end{itemize}
+  \item{\textbf{Usabilità:} capacità del prodotto di essere capito e usato dall'utente. Questa categoria si suddivide in:}
+    \begin{itemize}
+      \item{\textbf{Comprensibilità:} facilità di comprensione del prodotto;}
+      \item{\textbf{Apprendibilità:} capacità di ridurre l'impegno richiesto all'utente per imparare come usare correttamente il prodotto finale;}
+      \item{\textbf{Operabilità:} capacità del prodotto di fare in modo che gli utenti riescano a farne uso per i propri scopi;}
+      \item{\textbf{Attrattiva:} capacità del prodotto di essere piacevole per l'utente;}
+      \item{\textbf{Conformità:} capacità del prodotto di aderire a standard sull'usabilità.}
+    \end{itemize}
+  \item{\textbf{Manutenibilità:} capacità del prodotto di essere modificato e migliorato. Questa categoria si suddivide in:}
+    \begin{itemize}
+      \item{\textbf{Analizzabilità:} facilità di analisi del \gloss{codice} per la localizzazione di errori;}
+      \item{\textbf{Modificabilità:} capacità del prodotto di permettere la sostituzione di componenti per implementare una determinata modifica;}
+      \item{\textbf{Stabilità:} capacità del prodotto di evitare errori derivanti da modifiche errate;}
+      \item{\textbf{Testabilità:} capacità del prodotto di essere facilmente testato rispetto alle modifiche apportate.}
+    \end{itemize}
+  \item{\textbf{Portabilità:} capacità del prodotto di essere trasportato in un altro ambiente di lavoro. Questa categoria si suddivide in:}
+    \begin{itemize}
+      \item{\textbf{Adattabilità:} capacità del prodotto di essere adattato per ambienti operativi diversi senza modifiche diverse da quelle fornite;}
+      \item{\textbf{Installabilità:} capacità del prodotto di essere installato in specifici ambienti;}
+      \item{\textbf{Conformità:} capacità del prodotto di aderire a standard sulla portabilità;}
+      \item{\textbf{Sostituibilità:} capacità del prodotto di essere utilizzato al posto di un altro software per svolgere gli stessi compiti.}
+    \end{itemize}
+\end{itemize}
+\newpage
+\section{Resoconto attività di verifica}
+\label{sec:resAttivitaVerifica}
+\subsection{Documenti}
+Nella tabella di seguito sono riportati i valori degli indici di Gulpease per ogni documento prodotto durante l'\gloss{attività} di Analisi. L'esito della verifica dipenderà dal valore di questo indice come descritto nella sezione \ref{par:metricheGulpease}.
+\begin{center}
+  \begin{tabular}{| c | c | c |}
+    \hline
+    Documento & Valore indice & Esito\\
+    \hline
+    \textit{Studio di Fattibilità v1.0.0} & 54.18 & Superato\\
+    \textit{Norme di Progetto v1.0.0} & 52.04 & Superato\\
+    \textit{Piano di Progetto v1.0.0} & 54.87 & Superato\\
+    \textit{Piano di Qualifica v1.0.0} & 52.82 & Superato\\
+    \textit{Analisi dei Requisiti v1.0.0} & 68.06 & Superato\\
+    \textit{Glossario v1.0.0} & 47.42 & Superato\\
+    \hline
+  \end{tabular}
+\end{center}
+\newpage
+\section{Pianificazione dei test}
+Di seguito sono descritti i test di sistema. In futuro questa sezione verrà aggiornata con i test di integrazione e di unità.
+\subsection{Test di sistema}
+I test di sistema permettono di verificare il comportamento del sistema rispetto ai requisiti descritti nell'\href{run:./AnalisiDeiRequisiti\_v1.0.0.pdf}{Analisi dei requisiti v1.0.0}.\\
+La tabella seguente descrive i test dei requisiti ritenuti meritevoli di verifica. \\
+La colonna "Stato" nella tabella è lasciata vuota in quanto i test saranno effettuati successivamente.
+\begin{center}
+  \begin{longtable}[H]{| l | p{10cm} | l | l |}
+    \hline
+    Test & Descrizione & Stato & Requisito\\
+    \hline
+    TS.OBF1 & Viene verificato che il sistema fornisca un Domain Specific Language funzionante &  & OBF1\\
+    \hline
+    TS.OBF2 & Viene verificato che il meccanismo di autenticazione sia funzionante & & OBF2\\
+    \hline
+    TS.OBF3 & Viene verificato che il meccanismo di persistenza dei dati sia funzionante & & OBF3\\
+    \hline
+    TS.OBF4 & Viene verificato che il sistema fornisca la possibilità di eseguire operazioni sulle collezioni correttamente & & OBF4\\
+    \hline
+    TS.OBF5 & Viene verificato che il sistema fornisca la possibilità di eseguire operazioni sugli item correttamente & & OBF5\\
+    \hline
+    TS.OBF6 & Viene verificato che il sistema fornisca un meccanismo di ricerca funzionante & & OBF6\\
+    \hline
+    TS.OBF7 & Viene verificato che il sistema fornisca un meccanismo di gestione del proprio \gloss{account} & & OBF7\\
+    \hline
+    TS.OBF8 & Viene verificato che il sistema fornisca un meccanismo di logout funzionante & & OBF8\\
+    \hline
+    TS.DEF9 & Viene verificato che il sistema fornisca agli amministratori delle operazioni sugli account di altri utenti & & DEF9\\
+    \hline
+    TS.OBF10 & Viene verificato che il sistema fornisca un meccanismo di connessione ad istanze esterne funzionante & & OBF10\\
+    \hline
+    TS.OBF11 & Viene verificato che il sistema visualizzi correttamente un messaggio di errore & & OBF11\\
+    \hline
+    TS.DEF12 & Viene verificato che il sistema fornisca un driver Scala per interfacciarsi con \textit{Actorbase} & & DEF12\\
+    \hline
+    TS.OBV13 & Viene verificato che il sistema funzioni in ambienti Ubuntu 14.04 o superiori & & OBV13\\
+    \hline
+    TS.DEV15 & Viene verificato che il sistema funzioni in ambienti Windows 10 o superiori & & DEV15\\
+    \hline
+    TS.DEV16 & Viene verificato che il sistema funzioni in ambienti OSX el capitan o superiori & & DEV16\\
+    \hline
+    TS.OBF19 & Viene verificato che il sistema fornisca un'implementazione dell'\gloss{attore} di tipo \gloss{storekeeper} & & OBF19\\
+    \hline
+    TS.OBF20 & Viene verificato che il sistema fornisca un'implementazione dell'\gloss{attore} di tipo storefinder & & OBF20\\
+    \hline
+    TS.OBF21 & Viene verificato che il sistema fornisca un'implementazione dell'\gloss{attore} di tipo \gloss{warehousemen} & & OBF21\\
+    \hline
+    TS.OPF22 & Viene verificato che il sistema fornisca un'implementazione dell'\gloss{attore} di tipo \gloss{ninja} & & OPF22\\
+    \hline
+    TS.OPF23 & Viene verificato che il sistema fornisca un'implementazione dell'\gloss{attore} di tipo \gloss{manager} & & OPF23\\
+    \hline
+    TS.OBF24 & Viene verificato che il sistema fornisca un'implementazione dell'\gloss{attore} di tipo main & & OBF24\\
+    \hline
+    TS.OBF26 & Viene verificato che il sistema distingua gli account non autenticati, autenticati e amministratori & & OBF26\\
+    \hline
+  \end{longtable}
+\end{center}
+\listoffigures
+\end{document}
