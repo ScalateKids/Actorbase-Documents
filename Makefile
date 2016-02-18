@@ -1,6 +1,3 @@
-default:
-	@script/install
-
 build:
 	@mkdir -p "build"
 	@rm -f build/*
@@ -13,5 +10,6 @@ verifygloss:
 	@script/verifygloss
 
 readability:
+	@script/install
 	@script/readability
 
