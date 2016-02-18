@@ -1,0 +1,16 @@
+#!/usr/bin/ruby
+#
+# gulpease.rb
+# Calculate Gulpease index of given pdf for ScalateKids VM
+# Author: Andrea Giacomo Baldan
+# Version: 1.0
+
+require 'lingua/it/readability'
+
+rep = Lingua::IT::Readability.new
+Dir.glob('build/*.pdf') do |pdf|
+  text = `pdftotext #{pdf} -`
+  rep.analyze(text, ':', ';')
+  puts "\n\e[1m[*] " + pdf + "\e[0m\n\n"
+  puts rep.report
+end

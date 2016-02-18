@@ -1,0 +1,104 @@
+#!/bin/bash
+#
+# verify
+# Bash script to verify latex files before compilation.
+# Author: Andrea Giacomo Baldan
+# Version: 1.0
+
+DIR=RP
+
+function verify() {
+    regex="$1"
+    error="$2"
+    files=$(find $DIR -type f -name '*.tex')
+
+    result=$(grep -w --color=always "$regex" $files)
+    status="$?"
+
+    if [ "$status" -gt 1 ]; then
+        echo -e "\e[1m\e[31m[!] ]Grep error, exit status\e[39m $status\e[0m"
+        exit 2
+    fi
+
+    if [ "$status" == "0" ]; then
+        echo -e "\e[1m\e[31m [!] $error\e[39m\e[0m"
+        echo -e "$result"
+    fi
+}
+
+function correct() {
+    regex="$1"
+    subs="$2"
+    files=$(find $DIR -type f -name '*.tex')
+
+    result=$(find $DIR -type f -name '*.tex' -exec sed -i "s/$regex/$subs/g" '{}' \;)
+    status="$?"
+
+    if [ "$status" -gt 1 ]; then
+        echo -e "\e[1m\e[31m[!] ]Sed error, exit status\e[39m $status\e[0m"
+        exit 2
+    fi
+
+    if [ "$status" == "0" ]; then
+        echo -e "\e[1m[*] Corrected documents succesfully\e[0m"
+    fi
+}
+
+if [[ $PWD/ = ~/actorbase/Actorbase-Documents* ]]; then
+    if [ $# -gt 0 ]; then
+        if [ $1 = "-c" ]; then
+            correct "E'" "È"
+            csterms=('Obbiettivo' 'Obbietivo' 'Obietivo')
+            for csterm in $csterms; do
+                correct "$csterm" "Obiettivo"
+            done
+            cpterms=('Obbiettivi' 'Obbietivi' 'Obietivi')
+            for cpterm in $cpterms; do
+                correct "$cpterm" "Obiettivi"
+            done
+            lsterms=('obbiettivo' 'obbietivo' 'obietivo')
+            for lsterm in $lsterms; do
+                correct "$lsterm" "obiettivo"
+            done
+            lpterms=('obbiettivi' 'obbietivi' 'obietivi')
+            for lpterm in $lpterms; do
+                correct "$lpterm" "obiettivi"
+            done
+        fi
+    else
+        # underscore not escaped
+        verify " [[:alpha:]]{2,}_" "Underscore not escaped, use \_"
+
+        # grammar
+        verify "E'" "Substituite E' with È (ascii code alt 212)"
+        verify "[[:alpha:]]\'[aeou]" "Incorrect accents with one of àèòù"
+        # english terms
+        terms=('[Uu]se cases' '[Ss]cripts' '[Rr]epositories' '[Dd]irectories' '[Ff]iles' '[Rr]oles' '[Pp]rojects' '[Ff]eatures' '[Tt]hreads' '[Uu]sers' '[Tt]emplates' '[Dd]ocuments')
+        for term in $terms; do
+	        verify "$term" "Plural english terms must be singular"
+        done
+
+        # special code
+        verify "TODO" "Unresolved TODO"
+        verify "^>>>>>>" "Unresolved merge"
+        verify "^======" "Unsersolved merge"
+        verify "^<<<<<<" "Unresolved merge"
+
+        # dates
+        verify "[[:digit:]]{2}/[[:digit:]]{2}/[[:digit:]]{4}" "dd/mm/AAAA wrong format date, use AAAA-mm-dd"
+        verify "[[:digit:]]{2}-[[:digit:]]{2}-[[:digit:]]{4}" "dd-mm-AAAA wrong format date, use AAAA-mm-dd"
+
+        # tullio
+        verify "[Ff]as[ei]" "'Fase' word to check"
+        verify "[Oo]bbiettiv[oi]" "Just one 'b' in word 'ob(b)iettivo'"
+        verify "[Oo]bbietiv[oi]" "Just one 'b' and two 't' in word 'ob(b)iettivo'"
+		# read from file
+		input=common_misspell.txt
+		while read -r line
+		do
+			verify "$line" "Mispell error"
+		done < $input
+        echo -e "\n\e[1m[*] Use 'verify -c' to correct tedious errors (e.g E')\n\e[0m"
+    fi
+fi
+

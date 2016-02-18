@@ -1,0 +1,68 @@
+#!/bin/bash
+#
+# verifygloss
+# check if there are glossary words not enclosed inside \gloss{word} pattern
+# author: Andrea Giacomo Baldan
+# version: 1.0
+
+source lib/lib.sh
+readonly DIR=RP
+
+files=$(find $DIR -type f -name "*.tex" -a -not -name "Glossario*")
+saveIFS="$IFS"
+function verify() {
+	IFS=":"
+	gloss_file=$(find $DIR -type f -name 'Glossario*.tex')
+	glossary=($(grep "\\\\glossDef{[^}]*}" -osh $gloss_file | sed 's/.glossDef{\([^}]*\)}/\1:/g' | sort | uniq))
+	all=($(grep "\\\\glossDef{[^}]*}" -osh $gloss_file | sed 's/.glossDef{\([^}]*\)}/\1:/g' | sort | uniq | awk -F'[()]' '{print $2}' | sort | uniq))
+	al=($(grep "\\\\glossDef{[^}]*}" -osh $gloss_file | sed 's/.glossDef{\([^}]*\)}/\1:/g' | sort | uniq | awk -F'[()]' '{print $1}' | sort | uniq))
+	global=( "${glossary[@]}" "${all[@]}" "${al[@]}")
+	glob=($(echo "${global[@]}" | sed '/[(]/d' | sort | uniq))
+	for gl in "${glob[@]}"; do
+		verify_gloss $gl
+	done
+}
+
+function verify_gloss() {
+	words="$1"
+	lwords="$words"
+	words=($(echo $words | tr '\n' ':'))
+	lwords=($(echo $lwords | tr '\n' ':' | tr '[:upper:]' '[:lower:]'))
+	IFS="$saveIFS"
+	for word in "${words[@]}"; do
+		word=$(echo $word)
+		result=$(grep -i -w --color=always -P '(?!\\gloss\{)(^'"$word"'| '"$word"')(?!\})' $files)
+		status="$?"
+
+		if [ "$status" -gt 1 ]; then
+			set_bold; set_red; echo -ne "[!] Grep error, exit status"; reset_color;
+			echo "";
+			echo -ne " $status"; reset_text;
+			exit 2
+		fi
+
+		if [ "$status" == "0" ]; then
+			set_bold; set_red; echo -ne "[!] Missing glossary words"; reset_text;
+			echo "";
+			echo -e "$result"
+		fi
+	done
+	for word in "${lwords[@]}"; do
+		word=$(echo $word)
+		result=$(grep -w --color=always -Pi '(?!\\gloss\{)(^'"$word"'| '"$word"')(?!\})' $files)
+		status="$?"
+
+		if [ "$status" -gt 1 ]; then
+			set_bold; set_red; echo -ne "[!] Grep error, exit status"; reset_color; echo -ne " $status"; reset_text;
+			exit 2
+		fi
+
+		if [ "$status" == "0" ]; then
+			set_bold; set_red; echo -ne "[!] Missing glossary words"; reset_text;
+			echo "";
+			echo -e "$result"
+		fi
+	done
+}
+
+verify;

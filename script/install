@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+if !Gem::Specification::find_all_by_name('lingua-it-readability').any?
+  exec("sudo gem install lingua-it-readability")
+end
