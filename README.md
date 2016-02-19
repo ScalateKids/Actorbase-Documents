@@ -1,6 +1,7 @@
 [![Build Status](https://travis-ci.org/ScalateKids/Actorbase-Documents.svg)](https://travis-ci.org/ScalateKids/Actorbase-Documents)
 
 # Actorbase-Documents
+
 Documentation for Actorbase, a NoSQL DB based on the Actor model
 
 ## Cheatsheet Make
@@ -9,36 +10,35 @@ Check errors, glossary words, build al documents and finally calculate
 readability stats.
 
 ```sh
-make all
+$ make all
 ```
 
 Build all documents into build folder
 
 ```sh
-make build
+$ make build
 ```
-
 
 Verify errors
 
 ```sh
-make verify
+$ make verify
 ```
 
 Verify glossary words not enclosed by \gloss
 
 ```sh
-make verifygloss
+$ make verifygloss
 ```
 
 Calculate readability stats
 
 ```sh
-make readability
+$ make readability
 ```
 
 Calculate readability stats alternative scripts
 
 ```sh
-make readability2
+$ make readability2
 ```
