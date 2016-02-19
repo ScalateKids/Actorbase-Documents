@@ -49,6 +49,8 @@
     \hline
     Versione & Autore & Ruolo & Data & Descrizione \\
     \hline
+    1.0.1 & Alberto De Agostini & Analista & 2016-02-19 & modifiche alle captions dei diagrammi di Gantt, specificata la distinzione tra ore investite e rendicontante cap 5.1.1, modifica alla terminologia usata in 5.1\\
+    \hline
     1.0.0 & Andrea Giacomo Baldan & Responsabile & 2016-01-21 & Approvazione documento\\
     \hline
     0.5.0 & Francesco Agostini & Verificatore & 2016-01-21 & Verifica capitolo Consuntivo\\
@@ -102,7 +104,7 @@ Nel documento verranno specificati:
 \begin{itemize}
 \item \textbf{Diagrammi di Gantt:} \url{https://it.wikipedia.org/wiki/Diagramma_di_Gantt}.
 \end{itemize}
-\section{Scelta del modello di ciclo di vita}
+\section{Scelta del modello di sviluppo}
 Per lo sviluppo del progetto \textbf{Actorbase} il gruppo ha scelto di applicare
 ai processi il modello incrementale. Questa scelta è dovuta alle seguenti
 proprietà offerte da questo modello:
@@ -278,13 +280,14 @@ questo garantisce un buon grado di controllo, ma allo stesso tempo espone a magg
 \subsection{Suddivisione attività}
 \label{sub:fasi}
 Per semplificare la pianificazione del prospetto orario, sono state identificate
-quattro \gloss{attività} principali che rappresentano l'intero ciclo di sviluppo del prodotto.\\
+quattro fasi principali che rappresentano l'intero ciclo di sviluppo del prodotto.\\
 Esse sono:
 \begin{itemize}
-\item\textbf{Analisi (AN):} rappresenta la prima \gloss{attività} del progetto, dalla
+\item\textbf{Analisi (AN):} rappresenta il primo periodo del progetto, 
+dalla
   pubblicazione dei capitolati d'appalto all'inizio dell'\gloss{attività} di progettazione.\\
   Figure maggiormente coinvolte: \textit{Responsabile, Amministratore, Analista, Verificatore};
-\item\textbf{Analisi di Dettaglio (AD) e Progettazione Architetturale (PA):} segue l'\gloss{attività} di Analisi, e
+\item\textbf{Analisi di Dettaglio (AD) e Progettazione Architetturale (PA):} segue la fase di Analisi, e
   racchiude il lasso temporale dedicato alla correzione degli errori rilevati in
   sede di Revisione di Requisiti e alla progettazione dell'architettura sulla
   base dei requisiti emersi. Comprende anche lo studio di \gloss{design pattern}
@@ -292,9 +295,9 @@ Esse sono:
   \textit{Responsabile, Amministratore, Progettista, Verificatore};
 \item\textbf{Progettazione di Dettaglio (PD) e Codifica(C):} comprende la correzione degli errori rilevati in sede di Revisione di Progettazione e la stesura del \gloss{codice} secondo le direttive emerse durante l'\gloss{attività} di progettazione.\\Figure maggiormente coinvolte:
   \textit{Responsabile, Amministratore, Programmatore, Verificatore};
-\item\textbf{Verifica e Validazione (VV):} in questa fase si andranno a correggere eventuali errori emersi in Revisione di Qualifica e si finirà il prodotto in tutti i suoi componenti per poi fare il collaudo finale col \textit{Proponente}.
+\item\textbf{Validazione (VV):} in questa fase si andranno a correggere eventuali errori emersi in Revisione di Qualifica e si finirà il prodotto in tutti i suoi componenti per poi fare il collaudo finale col \textit{Proponente}.
 \end{itemize}
-Tutte le fasi descritte sono comprensive di numerose \gloss{attività} di \textbf{Verifica e Validazione}, in quanto necessaria durante tutto l'arco di sviluppo del prodotto.\\Ogni \gloss{attività} prevede l'impiego di alcuni ruoli in misura maggiore rispetto ad altri, nella distribuzione di questi sarà garantita un equa ripartizione del
+Tutte le fasi descritte sono comprensive di numerose \gloss{attività} di \textbf{Verofoca}, in quanto necessaria durante tutto l'arco di sviluppo del prodotto.\\Ogni \gloss{attività} prevede l'impiego di alcuni ruoli in misura maggiore rispetto ad altri, nella distribuzione di questi sarà garantita un equa ripartizione del
 carico di lavoro individuale.\\
 Come riportato nelle \href{run:../Interni/NormeDiProgetto\_v1.0.0.pdf}{Norme Di Progetto v1.0.0} ogni componente del gruppo potrà ricoprire più ruoli contemporaneamente, purché sia garantita l'assenza di conflitti d'interesse tra le \gloss{attività} svolte.\\ \\
 \textbf{Diagrammi di Gantt}\\
@@ -308,7 +311,7 @@ Nei \gloss{diagrammi di Gantt} verranno riportati diversi elementi importanti:
 \end{itemize}
 \subsubsection{Tabelle di distribuzione dei ruoli}
 Per semplificare la rappresentazione della distribuzione ore/ruoli durante il
-progetto sono state raggruppate le ore con investimento e le ore rendicontate.\\ \\
+progetto sono state raggruppate le ore con investimento e le ore rendicontate. Per ore rendicontate si intendono le ore di lavoro effettive, le ore con investimento rappresentano le ore rendicontate sommate a delle ore di slack. Dal totale si ricava che c'è uno slack medio totale del 18\%. \\ \\
 \textbf{Legenda:}
 \begin{itemize}
 \item\textbf{Res:} \textit{Responsabile di Progetto};
@@ -699,8 +702,8 @@ delle ore riservate per l'\gloss{attività} \textbf{Progettazione di Dettaglio}.
 \normalsize
 \newpage
 
-\subsubsection{Verifica e Validazione}
-Durante le \gloss{attività} di verifica e di validazione, i componenti ricopriranno i ruoli di progetto secondo la distribuzione seguente:
+\subsubsection{Validazione}
+Durante le \gloss{attività} di validazione, i componenti ricopriranno i ruoli di progetto secondo la distribuzione seguente:
 \begin{center}
   \scriptsize
   \begin{tabular}{| c | p{0.35cm}  p{0.35cm} | p{0.35cm}  p{0.35cm} | p{0.35cm}  p{0.35cm} | p{0.35cm}  p{0.35cm} | p{0.35cm}  p{0.35cm} | p{0.35cm}  p{0.35cm} | p{0.35cm}  p{0.35cm} |}
@@ -721,16 +724,16 @@ Durante le \gloss{attività} di verifica e di validazione, i componenti ricoprir
   \end{tabular}
 \end{center}
 \normalsize I seguenti grafici illustrano le ore investite per Persona suddivise
-tra ore investite e ore rendicontate, per le \gloss{attività} di Verifica e Validazione.
+tra ore investite e ore rendicontate, per le \gloss{attività} di Validazione.
 \begin{figure}[H]
   \begin{subfigure}[H]{0.47\textwidth}
     \includegraphics[width=1.2\textwidth,keepaspectratio]{VerificaConInvestimento.png}
-    \caption{Ore con investimento, \gloss{attività} di Verifica e Validazione}
+    \caption{Ore con investimento, \gloss{attività} di Validazione}
   \end{subfigure}
   \qquad
   \begin{subfigure}[H]{0.47\textwidth}
     \includegraphics[width=1.2\textwidth,keepaspectratio]{VerificaConRendicontazione.png}
-    \caption{Ore con rendicontazione, \gloss{attività} di Verifica e Validazione}
+    \caption{Ore con rendicontazione, \gloss{attività} di Validazione}
   \end{subfigure}
 \end{figure}
 
@@ -738,7 +741,7 @@ tra ore investite e ore rendicontate, per le \gloss{attività} di Verifica e Val
 \paragraph{Pianificazione temporale}
 \begin{figure}[H]
   \includegraphics[width=1.0\textwidth, keepaspectratio]{gantt/4-Revisione-Accettazione-gantt-preventivo.png}
-  \caption{Gantt preventivo dell'\gloss{attività} di Verifica e Validazione}
+  \caption{Gantt preventivo dell'\gloss{attività} di Validazione}
 \end{figure}
 
 \newpage
@@ -1012,8 +1015,8 @@ I grafici a seguire rappresentano l'influenza di ciascun ruolo sul totale delle 
   \end{subfigure}
 \end{figure}
 \newpage
-\subsubsection{Verifica e Validazione}
-Durante le \gloss{attività} di Verifica e Validazione, le ore tra i ruoli sono state divise nel seguente modo:
+\subsubsection{Validazione}
+Durante le \gloss{attività} di Validazione, le ore tra i ruoli sono state divise nel seguente modo:
 \begin{center}
   \normalsize
   \begin{tabular}{| c | c | c |}
@@ -1050,16 +1053,16 @@ Durante le \gloss{attività} di Verifica e Validazione, le ore tra i ruoli sono 
     \hline
   \end{tabular}
 \end{center}
-I grafici a seguire rappresentano l'influenza di ciascun ruolo sul totale delle ore e dei costi durante le \gloss{attività} di Verifica e Validazione.
+I grafici a seguire rappresentano l'influenza di ciascun ruolo sul totale delle ore e dei costi durante le \gloss{attività} di Validazione.
 \begin{figure}[H]
   \begin{subfigure}[H]{0.47\textwidth}
     \includegraphics[width=1.2\textwidth,keepaspectratio]{VerificaCC.png}
-    \caption{Costi con investimento, \gloss{attività} di Verifica e Validazione}
+    \caption{Costi con investimento, \gloss{attività} di Validazione}
   \end{subfigure}
   \qquad
   \begin{subfigure}[H]{0.47\textwidth}
     \includegraphics[width=1.2\textwidth,keepaspectratio]{VerificaSC.png}
-    \caption{Costi senza investimento, \gloss{attività} di Verifica e Validazione}
+    \caption{Costi senza investimento, \gloss{attività} di Validazione}
   \end{subfigure}
 \end{figure}
 \newpage
