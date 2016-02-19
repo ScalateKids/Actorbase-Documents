@@ -133,7 +133,7 @@ Al fine dell'aggiudicazione dell'appalto sul capitolato scelto, sarà compito de
 controllo e rendicontazione ben delineati. Dovrà inoltre includere un'accurata
 analisi dei rischi corredata di contromisure e un preventivo che all'avanzare
 del progetto si trasformerà in consuntivo.\\
-Il documento prensenterà infine un organigramma, utile a definire la struttura
+Il documento presenterà infine un organigramma, utile a definire la struttura
 e l'allocazione delle risorse e i ruoli di progetto.\\
 I \gloss{diagrammi di Gantt} e \gloss{PERT} (Program Evaluation Review
 Technique) saranno utilizzati per rappresentare graficamente l'allocazione nel
@@ -144,8 +144,7 @@ Vedi \ref{sec:ServiziWeb} per la strumentazione utile allo scopo.
 \subsection{Sviluppo}
 
 Gli \textit{Analisti} analizzeranno i Requisiti di Sistema del prodotto da
-sviluppare, da questi sarà possibile estrarre i requisiti software e stendere un
-analisi dettagliata.
+sviluppare, da questi sarà possibile estrarre i requisiti software e stendere un'analisi dettagliata.
 
 \subsubsection{Analisi dei Requisiti}
 
@@ -167,7 +166,7 @@ etichettato secondo la seguente regola:
 \begin{center}
     \verb=<Tipo><Id>=
 \end{center}
-Dove:
+Dove \verb=Tipo= può assumere le seguenti sigle:
 \begin{itemize}
     \item\textbf{UC:} diagramma di caso d'uso;
     \item\textbf{CD:} diagramma di classe;
@@ -186,11 +185,11 @@ punto.
 \label{sec:front-end}
 Per facilitare la gestione dei casi d'uso e il tracciamento dei requisiti
 va utilizzata un'applicazione web sviluppata per lo scopo appositamente dal
-gruppo.\\Essa si interfaccia con un database relazionale risiedente sul server
+gruppo.\\Essa si interfaccia con un database relazionale residente sul server
 privato del gruppo(vedi \ref{sec:server}) e permette una visualizzazione chiara dei
 requisiti e dei casi d'uso. Una volta completata la procedura d'inserimento dei
-dati, previa verifica, è possibile esportare in formato
-\LaTeX\xspace ed eseguire il tracciamento automatico dei requisiti rispetto alle
+dati, previa verifica, è possibile esportare i requisiti in formato
+\LaTeX\xspace ed eseguirne il tracciamento automatico rispetto alle
 fonti e viceversa.
 
 \paragraph{Casi d'uso}
@@ -199,8 +198,8 @@ Ogni caso d'uso dovrà presentare i seguenti campi:
 \begin{itemize}
     \item Codice identificativo nella forma \verb=<UC><Id>= con \verb=UC= = Use
         Case mentre \verb=Id= è un numero crescente che identifica univocamente il
-        caso d'uso. Se un caso d'uso è derivato da un altro, il suo id sarà
-        preceduto dall'id del caso d'uso da cui deriva e separato da esso con un
+        caso d'uso. Se un caso d'uso è derivato da un altro, il suo \verb=Id= sarà
+        preceduto dall'\verb=Id= del caso d'uso da cui deriva e separato da esso con un
         punto.
     \item Titolo;
     \item Diagramma \gloss{UML};
@@ -220,7 +219,7 @@ I requisiti all'interno del documento \textit{Analisi dei Requisiti} seguiranno 
 \begin{center}
     \verb=<Importanza><Tipologia><Id>=
 \end{center}
-Di seguito sono elencati i possibili valori che ogni termine tra parentesi angolare può assumere:
+Di seguito sono elencati i possibili valori che ogni termine tra parentesi angolari può assumere:
 \begin{itemize}
     \item \textbf{Importanza}:
         \begin{itemize}
@@ -240,17 +239,17 @@ Di seguito sono elencati i possibili valori che ogni termine tra parentesi angol
 
 \subsubsection{Progettazione architetturale}
 
-La \textit{Progettazione} precede la produzione, ed è l'\gloss{attività} che
-passa dai requisiti del problema estratti dagli \textit{Analisti} durante
+La \textit{Progettazione} precede la produzione ed è l'\gloss{attività} che
+passa dai requisiti del problema, estratti dagli \textit{Analisti} durante
 l'\textbf{Analisi}, ad una soluzione del problema preposto a carico dei
-\textbf{Progettisti}. Dovrà rispettare tutti i requisiti che il gruppo ha
+\textbf{Progettisti}. Essa dovrà rispettare tutti i requisiti che il gruppo ha
 concordato con il \textit{Committente}.\\
 Vengono definite:
 \begin{itemize}
     \item Le componenti software, definite dalla struttura ad alto livello;
     \item Le interfacce verso l'esterno e tra le componenti;
     \item Metodi, tecniche e design pattern per lo sviluppo;
-    \item I Requisiti Software diventano Requisiti Componente più
+    \item I Requisiti Software diventano Requisiti Componenti più
         dettagliati.
 \end{itemize}
 
@@ -288,7 +287,7 @@ comune tra essi.\\Facilita inoltre la creazione di nuove \gloss{macro} e comandi
     \item\verb=\multiLineCell=: Da utilizzare per creare celle multilinea nelle tabelle.
 \end{itemize}
 Sono stati infine ridefiniti alcuni comportamenti dei comandi standard di
-\LaTeX\xspace, per esempio le intestazioni e i piè pagina automatizzate, la
+\LaTeX\xspace, per esempio le intestazioni e i piè pagina automatizzati, la
 profondità delle \gloss{section}, dell'indice dei contenuti e le colorazioni dei
 \gloss{link}:
 \begin{itemize}
@@ -335,17 +334,17 @@ Il piè pagina invece contiene:
 
 \subsubsection{Norme tipografiche}
 
-Per uniformare il più possibile la stesura di tutti i documenti queste sono le regole che tutto il gruppo deve seguire.
+Per uniformare il più possibile la stesura di tutti i documenti queste sono le regole che tutto il gruppo deve seguire:
 
-\subsubsection{Punteggiatura}
+\paragraph{Punteggiatura}
 
 \begin{itemize}
     \item \textbf{Punteggiatura}: tutti i segni di punteggiatura devono essere seguiti da uno spazio e non avere spazi precedenti al segno stesso;
     \item \textbf{Maiuscole}: le lettere maiuscole devono essere usate dove previsto dalla lingua italiana.
-        Saranno inoltre scritti con l'iniziale maiuscola i ruoli, le persone inerenti al progetto e i documenti noti (es. \textit{Committente} \textit{Analisi dei Requisiti});
+        Saranno inoltre scritti con l'iniziale maiuscola i ruoli, le persone inerenti al progetto e i documenti noti (es. \textit{Committente} \textit{Analisi dei Requisiti}). Gli acronimi saranno interamente scritti in maiuscolo (es. \textit{SQL}).
 \end{itemize}
 
-\subsubsection{Stile testo}
+\paragraph{Stile testo}
 
 \begin{itemize}
     \item \textbf{Corsivo}: il corsivo dev'essere utilizzato per:
@@ -353,7 +352,7 @@ Per uniformare il più possibile la stesura di tutti i documenti queste sono le 
             \item Figure inerenti al progetto;
             \item Abbreviazioni;
             \item Citazioni;
-            \item Documenti (es \textit{Analisi dei Requisiti});
+            \item Documenti (es. \textit{Analisi dei Requisiti});
             \item Porre un'enfasi maggiore alla parola e/o frase;
         \end{itemize}
     \item \textbf{Grassetto}: il grassetto dev'essere usato per:
@@ -361,16 +360,15 @@ Per uniformare il più possibile la stesura di tutti i documenti queste sono le 
             \item Evidenziare passaggi o concetti importanti;
             \item Sezioni e sottosezioni dei documenti;
         \end{itemize}
-    \item \textbf{Maiuscolo}: gli acronimi saranno scritti interamente in maiuscolo (es. \textit{SQL});
     \item \textbf{Monospace}: i font monospace saranno usati per riportare parti di \gloss{codice}.
 \end{itemize}
 
-\subsubsection{Formati di riferimento}
+\paragraph{Formati di riferimento}
 
 \begin{itemize}
     \item \textbf{Riferimenti}:
         \begin{itemize}
-            \item Percorsi web: per gli indirizzi web e per gli indirizzi e-mail deve essere usato il comando \LaTeX\xspace
+            \item Percorsi web: per gli indirizzi web e per gli indirizzi e-mail deve essere usato il comando \LaTeX\xspace:
                 \begin{center}
                     \verb=\url{percorso}=
                 \end{center}
@@ -378,7 +376,7 @@ Per uniformare il più possibile la stesura di tutti i documenti queste sono le 
                 \begin{center}
                     \verb=\href{run:<pathToPDF>/<namefile.pdf>}{<name of the link>}=
                 \end{center}
-            \item \gloss{Link} a sezioni interne al documento: per \gloss{link} a sezioni interne al documento corrente deve essere utilizzato il documento \LaTeX\xspace
+            \item \gloss{Link} a sezioni interne al documento: per \gloss{link} a sezioni interne al documento corrente deve essere utilizzato il documento \LaTeX\xspace:
                 \begin{center}
                     \verb=\ref{riferimento a sezione}=
                 \end{center}
@@ -414,11 +412,11 @@ Per uniformare il più possibile la stesura di tutti i documenti queste sono le 
         \end{itemize}
 \end{itemize}
 
-\subsubsection{Immagini}
+\paragraph{Immagini}
 
 Utilizziamo immagini con formato \textit{JPG} o \textit{PNG}, questi ultimi rendono immediata l'inclusione delle suddette immagini nei documenti.
 
-\subsubsection{Integrazione termini di lingua straniera}
+\paragraph{Integrazione termini di lingua straniera}
 
 Per non incorrere in diverse modalità di integrazione per l'uso di vari termini di lingua straniera (es. \gloss{file}, \gloss{repository} ecc...) i termini non italiani non saranno pluralizzati, esempio:\\
 \begin{center}
@@ -437,11 +435,11 @@ La documentazione prodotta deve avere un numero di versione avente la seguente s
 \end{center}
 in cui:
 \begin{itemize}
-    \item \textbf{X}: aumenta  ad ogni approvazione effettuata dal \textit{Responsabile}. Questo valore corrisponderà anche con il numero di uscite formali del documento
+    \item \textbf{X}: aumenta  ad ogni approvazione effettuata dal \textit{Responsabile}. Questo valore corrisponderà anche con il numero di uscite formali del documento:
         \begin{enumerate}
             \item\gloss{Attività} di \textbf{Analisi} che si conclude con la \textbf{RR};
             \item\gloss{Attività} di \textbf{Analisi di Dettaglio} che si conclude con l'ingresso alla \textbf{RP};
-            \item\gloss{Attività} di \textbf{Progettazione architetturale} che si conclude con la \textbf{RP};
+            \item\gloss{Attività} di \textbf{Progettazione Architetturale} che si conclude con la \textbf{RP};
             \item\gloss{Attività} di \textbf{Progettazione di Dettaglio e Codifica} che si conclude con l'ingresso alla \textbf{RQ};
             \item\gloss{Attività} di \textbf{Verifica e Validazione} che si conclude con la \textbf{RA}.
         \end{enumerate}
@@ -481,14 +479,14 @@ essere infrante le seguenti regole:
     \item Lunghezza massima linee 80 caratteri;
     \item Indentazione di 2 spazi;
     \item Posizionamento di parentesi graffe in linea con il blocco struttura di
-        riferimento;
+        riferimento.
 \end{itemize}
 Tutti i \gloss{file} contenenti \gloss{codice} dovranno essere redatti in lingua inglese.
 
 \subparagraph{Nomenclatura}
 
 I nomi di variabili, metodi e funzioni seguiranno la convenzione
-\textit{\gloss{lowerCamelCase}}, i nomi di classi invece
+\textit{\gloss{lowerCamelCase}}, i nomi di classi invece seguiranno la convenzione
 \textit{\gloss{UpperCamelCase}}.
 \subparagraph{Ricorsione}
 La ricorsione va evitata il più possibile. Per ogni funzione ricorsiva sarà
@@ -524,7 +522,7 @@ Prima di ogni metodo dovrà essere presente un commento \gloss{scaladoc} contene
 * @throws Eccezioni lanciate dal metodo
 */
 \end{lstlisting}
-La documentazione verrà generate da \gloss{scaladoc}. Nel caso si verifichi la
+La documentazione verrà generata da \gloss{scaladoc}. Nel caso si verifichi la
 necessità di documentare del \gloss{codice} di difficile comprensione, sarà possibile
 inserire un commento nelle righe precedenti, dopo aver verificato
 l'impossibilità di effettuare un \gloss{refactoring}.
@@ -540,7 +538,7 @@ assicurarsi che non sia già presente.\\ Il comando \LaTeX\xspace da utilizzare
 per contrassegnare un termine da glossario all'interno dei documenti è
 \verb=\gloss=, mentre l'inserimento di una nuova parola all'interno del
 glossario è \verb=\glossDef= (come specificato in \ref{sec:strutturadoc}). La
-scelta di creare un comando apposito per un operazione ``elementare'' è
+scelta di creare un comando apposito per un'operazione ``elementare'' è
 scaturita dall'agevolazione che porta alla stesura della documentazione: avendo
 un modo univoco di riconoscere i termini all'interno del glossario, è possibile
 automatizzare il controllo delle parole da glossario all'interno dei
@@ -551,12 +549,12 @@ documenti(vedi sezione \ref{sec:script}).
 \subsubsection{Norme di verifica documenti}
 
 Posto che tutti i componenti del gruppo dovranno effettuare delle \gloss{attività} di
-verifica, il redattore di ogni sezione nei documenti non potrà tassativamente
+verifica, il redattore di ogni sezione dei documenti non potrà tassativamente
 effettuare verifica e approvazione delle parti redatte dallo stesso,
 coerentemente con le strategie scelte nel \textbf{PQ}.
-I \textit{Verificatori} dovranno attenersi alle seguenti regole per attuare \gloss{attività} di verifica.
+I \textit{Verificatori} dovranno attenersi alle seguenti regole per attuare \gloss{attività} di verifica:
 \begin{itemize}
-    \item \textbf{Walkthrough:} per svolgere questa \gloss{attività} il \textit{Verificatore} deve passare in rassegna il documento da controllare, rileggere tutto attentamente e stendere una lista degli errori più comuni, questa lista servirà per attuare solamente verifiche di tipo inspection in futuro;
+    \item \textbf{Walkthrough:} per svolgere questa \gloss{attività} il \textit{Verificatore} deve passare in rassegna il documento da controllare, rileggere tutto attentamente e stendere una lista degli errori più comuni. Questa lista servirà per attuare solamente verifiche di tipo inspection in futuro;
     \item \textbf{Inspection:} questa \gloss{attività} va effettuata solamente quando si ha a disposizione una lista di controllo derivante dalle \gloss{attività} di walkthrough precedenti.\\
         Il \textit{Verificatore} deve controllare secondo la lista di controllo le parti del documento scelto.
 \end{itemize}
@@ -590,10 +588,10 @@ lista redatta in prima istanza di verifica.
 \label{sec:AnalisiStatica}
 Gli strumenti da utilizzare per le \gloss{attività} di analisi statica saranno:
 \begin{itemize}
-    \item\textbf{ScalaStyle:} \gloss{plugin} per compilatori \gloss{Scala}, fornisce controlli qualitativi esaustivi su \gloss{codice} automaticamente durante la compilazione dei sorgenti;
-    \item\textbf{loc:} \gloss{script} di controllo qualità, forniscono il rapporto tra righe di \gloss{codice} e righe di commento.
+    \item\textbf{ScalaStyle:} \gloss{plugin} per compilatori \gloss{Scala}, fornisce automaticamente controlli qualitativi esaustivi su \gloss{codice} durante la compilazione dei sorgenti;
+    \item\textbf{loc:} \gloss{script} di controllo qualità, fornisce il rapporto tra righe di \gloss{codice} e righe di commento.
     \item\textbf{Complessità ciclomatica (McCabe's complexity):} Utilizzata per
-        misurare la complessità di funzioni, moduli metodi o classi di un
+        misurare la complessità di funzioni, moduli, metodi o classi di un
         programma;
     \item\textbf{Copertura del codice:} Misura la capacità di coprire mediante
         esecuzione di test tutte le linee di codice di un programma; si
@@ -606,7 +604,7 @@ Gli strumenti da utilizzare per le \gloss{attività} di analisi statica saranno:
             \item\textbf{\gloss{Branch} coverage:} Misura la capacità di coprire
                 mediante esecuzione di test tutti i rami di un modulo;
             \item\textbf{Condition coverage:} Ogni espressione booleana è stata
-                valutata sia in true che in false.
+                valutata sia in true che in false;
         \end{itemize}
     \item\textbf{Numero di attributi per classe:} Numero pesato di attributi
         contenuti in ogni classe di un programma;
@@ -637,8 +635,8 @@ Gli strumenti da utilizzare per le \gloss{attività} di analisi statica saranno:
 
 Durante l'intera \gloss{attività} di sviluppo del progetto, dalla formazione del gruppo alla
 \textit{Revisione di Accettazione}, vi saranno alcuni ruoli ben precisi da ricoprire. Si
-tratta di funzioni aziendali assegnate a progetto, specializzate in campi ben
-specifici all'interno dell'azienda. Tra questi ruoli, alcuni avranno maggior
+tratta di funzioni aziendali assegnate al progetto, specializzate in campi ben
+specifici all'interno dell'azienda. Tra questi ruoli alcuni avranno maggior
 presenza in determinate fasi rispetto ad altre, dove addirittura
 potrebbero non figurare completamente, ma tutti sono essenziali per il buon
 esito del progetto.\\ Ciascun componente dovrà ricoprire almeno una volta ogni
@@ -659,11 +657,11 @@ all'accentramento di responsabilità che \textit{Responsabile} e
 
 \subsubsection{Responsabile di Progetto}
 
-Il \textit{Responsabile di Progetto} rappresenta il progetto presso il \textit{Proponente}
+Il \textit{Responsabile di Progetto} rappresenta il gruppo presso il \textit{Proponente}
 e presso il \textit{Committente}. E' il ruolo più presente lungo tutto l'arco temporale di
-sviluppo del prodotto, in quanto deve partecipare e seguire la
-crescita fino al rilascio del prodotto. Deve avere conoscenze e capacità
-tecniche in modo da comprendere e anticipare l'evoluzione del progetto.\\
+sviluppo del prodotto, in quanto deve partecipare e seguire il prodotto dalla
+crescita fino al rilascio. Deve avere conoscenze e capacità
+tecniche tali da comprendere e anticipare l'evoluzione del progetto.\\
 Detiene il potere decisionale e ha responsabilità su:
 \begin{itemize}
     \item Pianificazione;
@@ -765,7 +763,7 @@ principali corrispondenti alle revisioni di avanzamento del progetto:
     \item Revisione di Accettazione.
 \end{itemize}
 Ogni sezione è composta da due sottosezioni, riunioni e comunicazioni, le quali
-conterranno rispettivamente le riunioni indette, seguite dalla disponibilità dei
+conterranno rispettivamente le riunioni indette seguite dalla disponibilità dei
 membri a partecipare e, a seguito di avvenuta riunione, il riassunto dei punti
 discussi e le comunicazioni di carattere più o meno generale riguardanti
 \gloss{attività} della revisione di appartenenza.\\ Ogni \gloss{topic} all'interno di
@@ -793,7 +791,7 @@ Qualora membri del gruppo si scambino informazioni attraverso questi strumenti
 sopra elencati dovranno, se presenti informazioni di interesse per il progetto,
 mandare un sunto della suddetta conversazione sul \gloss{forum} per tenere
 informati tutti i membri del gruppo sullo stato di avanzamento nella
-sottosezione comunicazioni.\\ Solo in caso di necessità derivate dalla mancanza
+sottosezione comunicazioni.\\ Solo in caso di necessità derivante dalla mancanza
 di infrastrutture (es. collegamento a internet) si potrà comunicare attraverso
 SMS o chiamate telefoniche; anche in questo caso si dovrà verbalizzare quanto
 detto attraverso il \gloss{forum} appena possibile.
