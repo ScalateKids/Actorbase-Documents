@@ -806,11 +806,11 @@ Tutti i componenti del gruppo possono avanzare una richiesta per una riunione
 interna seguendo le regole apposite (vedi \ref{sec:RegoleRichiesta}).\\
 Sarà il \textit{Responsabile di Progetto} a decidere se indire
 o meno la riunione proposta, controllando la disponibilità dei membri attraverso il
-\gloss{forum} e in caso avvertendo tutti attraverso un \gloss{topic} come
+\gloss{forum} e, in caso, avvertendo tutti i componenti tramite un \gloss{topic} come
 spiegato in sezione \ref{sec:ComunicazioniInterne}.\\ È richiesta la partecipazione di
 almeno quattro membri del gruppo. In casi particolari, come riunioni che
-trattano specifici ambiti non di interesse di tutti i membri o per l'avvicinarsi
-a importanti date, è possibile indire una riunione di gruppo con meno componenti
+trattano specifici ambiti non di interesse collettivo o per l'avvicinarsi
+a date di rilevante importanza, è possibile indire una riunione di gruppo con meno componenti
 presenti, sempre previa approvazione del \textit{Responsabile}.
 
 \subsubsection{Riunioni esterne}
@@ -837,7 +837,7 @@ Il corpo della mail dovrà avere una struttura del tipo:
 
 \subsubsection{Esiti Riunioni}
 
-Ad ogni riunione verrà dato il compito a uno dei presenti di verbalizzare un riassunto sugli argomenti trattati e i chiarimenti emersi durante tale riunione.\\
+Ad ogni riunione verrà affidato il compito a uno dei presenti di verbalizzare un riassunto sugli argomenti trattati e i chiarimenti emersi durante tale riunione.\\
 Il redattore del verbale avrà poi l'obbligo di condividerlo con tutti sul \gloss{forum} del gruppo.
 
 \subsection{Infrastruttura}
@@ -862,10 +862,10 @@ I servizi web utilizzati sono:
             \url{https://github.com/scalatekids}
         \end{center}
     \item\textbf{Twiddla:} è un sistema che offre una lavagna online condivisa, questo servizio è utilizzato dai membri del gruppo per discutere e lavorare assieme da remoto, utile all'\gloss{attività} di \gloss{brainstorming} e \textbf{Analisi};
-    \item\textbf{Gantter for Google Drive:} è uno strumento gratuito per la creazione di \gloss{diagrammi di Gantt}, utile alla creazione dei Gantt predittivi;
+    \item\textbf{Gantter for Google Drive:} è uno strumento gratuito per la creazione di \gloss{diagrammi di Gantt}, utile alla creazione dei Gantt preventivi;
     \item\textbf{Lucidchart:} piattaforma comprensiva di un piano di utilizzo
         gratuito per studenti, utile per la produzione dei diagrammi
-        \gloss{UML},permette la collaborazione tra i componenti online.
+        \gloss{UML} permettendo la collaborazione tra i componenti online.
 \end{itemize}
 
 \subsubsection{Server dedicato}
@@ -897,9 +897,9 @@ Per la gestione e il tracciamento dei requisiti è stata creata un'interfaccia p
 
 Lo strumento scelto è \gloss{git}, principalmente per la grande diffusione negli
 ambienti di sviluppo e per l'integrazione offerta dal servizio web
-\textit{GitHub}, il quale è inoltre offre un esaustiva documentazione
+\textit{GitHub}. Esso offre, inoltre, un'esaustiva documentazione
 sull'utilizzo del programma in questione. Infine \gloss{git} si è rivelato essere
-il più conosciuto tra i membri del gruppo, l'alternativa \gloss{SVN}, nonostante
+il più conosciuto tra i membri del gruppo. L'alternativa \gloss{SVN}, nonostante
 i simili principi di funzionamento, costituiva una scelta più difficoltosa, in
 quanto nessun membro ha mai avuto esperienze di utilizzo passate.
 
@@ -975,7 +975,7 @@ Attualmente è in uso l'immagine \verb=scalatekids-latex= per la verifica dei do
 
 Per il lavoro individuale, è stato pensato ad un modo di uniformare quanto più
 possibile l'ambiente di sviluppo tra i componenti; il \textit{Responsabile} e
-l'\textit{Amministratore} hanno stabilito il sistema operativo e '\gloss{IDE} di base ed è stata creato
+l'\textit{Amministratore} hanno stabilito il sistema operativo e l'\gloss{IDE} di base ed è stata creato
 un ambiente virtuale comune utilizzando il software \textit{Virtualbox versione 5.0.12} o superiore. Il sistema scelto è \textit{Ubuntu 14.04}.
 Tutti i componenti del gruppo utilizzeranno gli strumenti all'interno della
 \gloss{virtual machine} in modo da garantire omogeneità, e riproducibilità di
@@ -1017,8 +1017,8 @@ occuperà di scaricare e installare gli aggiornamenti richiesti:
     \verb=curl http://codep.kissr.com/sk/scripts/update.sh | sh=
 \end{center}
 Gli \gloss{script} di utilità citati comprenderanno strumenti di verifica e
-leggibilità dei documenti.\verb=Init.sh= e \verb=update.sh=
-presenti sul server privato saranno preparati dall'\textit{Amministratore} e
+leggibilità dei documenti.\verb=Init.sh= e \verb=update.sh=,
+presenti sul server privato, saranno preparati dall'\textit{Amministratore} e
 rilasciati di volta in volta previa approvazione del \textit{Responsabile}.
 
 \paragraph{Script di utilità locali}
@@ -1037,9 +1037,9 @@ generale da utilizzare all'interno della macchina virtuale:
         \verb=\gloss= dai \gloss{file} del progetto, anche questo comando può essere lanciato con
         o senza argomenti;
     \item\textbf{verifygloss:} genera una lista di termini da glossario leggendo il
-        \gloss{file} \href{run:../RR/Esterni/Glossario\_v0.0.1.pdf}{Glossario v1.0.0}, in seguito controlla tutti i \gloss{file} del
-        progetto eccetto il glossario, e inserisce il comando \verb=\gloss= sui termini
-        contenuti in lista trovati nei \gloss{file}. Con argomenti esegue le medesime
+        \gloss{file} \href{run:../RR/Esterni/Glossario\_v1.0.0.pdf}{Glossario v1.0.0}. In seguito controlla tutti i \gloss{file} del
+        progetto (eccetto il glossario), e inserisce il comando \verb=\gloss= sui termini
+        contenuti in lista trovati nei \gloss{file}. Se il comando è seguito da argomenti esegue le medesime
         operazioni soltanto sui \gloss{file} .tex scelti;
     \item\textbf{verify:} scansiona tutti i documenti \verb=.tex= del progetto alla
         ricerca di errori comuni e violazioni delle \textit{Norme di Progetto}, nonché
@@ -1059,9 +1059,9 @@ aggiornare l'ambiente di lavoro della \gloss {virtual machine}.
 
 La scelta sulla versione di Scala da utilizzare è ricaduta sulla \gloss{major}
 2.11, principalmente dovuta ai requisiti minimi delle librerie \textit{\gloss{akka}}, e
-ad una maggiore sicurezza sul mantenimento del \gloss{codice}, infatti le due versioni
+ad una maggiore sicurezza sul mantenimento del \gloss{codice}. Infatti le due versioni
 principali di \gloss{Scala} risultano essere non compatibili a livello binario,
-pertanto è preferibile rimanere sulla versione più avanzata. La versione 2.11
+pertanto è preferibile rimanere sulla versione più recente. La versione 2.11
 necessita della \gloss{JVM} versione 8.
 
 \paragraph{Akka}
@@ -1080,7 +1080,7 @@ Questa sezione rappresenta un tutorial su come usare correttamente \textit{Redmi
 
 \subsection{Creare un sottoprogetto}
 
-La creazione di sottoprogetti è molto utile per mantenere una chiara divisione funzionale tra le \gloss{attività}, la creazione di un sottoprogetto è molto semplice come si vede in figura sottostante
+La creazione di sottoprogetti è molto utile per mantenere una chiara divisione funzionale tra le \gloss{attività}. Si tratta di un'operazione molto semplice, come si vede in figura sottostante
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{tutorialsRedmine/creaproj1.png}
@@ -1114,11 +1114,11 @@ Per la corretta creazione di un messaggio è necessario seguire le norme scritte
 
 \subsubsection{Rispondere ad un messaggio}
 
-Per rispondere ad un messaggio presente nel \gloss{forum} è necessario aprire il messaggio voluto e premere su \textbf{Rispondi}, automaticamente si presenterà un \gloss{form} \textit{pre compilato} in cui sarà necessario solamente inserire il corpo della nostra risposta.
+Per rispondere ad un messaggio presente nel \gloss{forum} è necessario aprire il messaggio desiderato e clickare su \textbf{Rispondi}. Automaticamente si presenterà un \gloss{form} \textit{pre compilato} in cui sarà necessario solamente inserire il corpo della nostra risposta.
 
 \subsection{Gestione delle segnalazioni}
 
-Una segnalazione rappresenterà una \gloss{attività} che il \textit{Responsabile} assegnerà ad uno o più membri del gruppo, queste \gloss{attività} possono essere suddivise in diversi compiti più semplici da assegnare ad un membro, questi compiti saranno chiamati \gloss{task}.\\
+Una segnalazione rappresenterà una \gloss{attività} che il \textit{Responsabile} assegnerà ad uno o più membri del gruppo. Queste \gloss{attività} possono essere suddivise in diversi compiti più semplici da assegnare ad un membro; quest'ultimi saranno chiamati \gloss{task}.\\
 Il sistema di segnalazioni è la cosa più importante di \textit{Redmine}, perciò solamente il \textit{Responsabile di Progetto} ha il potere di creare nuove segnalazioni così da mantenere ordine nel progetto. \\Gli altri membri del gruppo potranno invece aggiornare le segnalazioni a loro assegnate.
 
 \subsubsection{Creare una segnalazione}
@@ -1139,13 +1139,13 @@ Dalla figura \ref{fig:crea-segnalazione-2} è possibile notare diversi campi da 
     \item \textbf{Tracker:} lasciare selezionato \textit{Segnalazione};
     \item \textbf{Oggetto:} l'oggetto della segnalazione, questo deve essere breve e non equivocabile;
     \item \textbf{Descrizione:} descrizione dettagliata dell'\gloss{attività} da svolgere;
-    \item \textbf{Stato:} se è una nuova segnalazione deve rimanere \textit{nuovo}, altrimenti è possibile scegliere altre opzioni, lo stato viene cambiato dall'intestatario della segnalazione stessa;
+    \item \textbf{Stato:} se è una nuova segnalazione deve rimanere \textit{nuovo}, altrimenti è possibile scegliere altre opzioni; lo stato viene cambiato dall'intestatario della segnalazione stessa;
     \item \textbf{Assegnato a:} la persona che deve svolgere l'\gloss{attività};
-    \item \textbf{\gloss{Attività} principale:} se questa è una sotto \gloss{task} di un altra, bisogna inserire l'identificatore della \gloss{task} padre;
+    \item \textbf{\gloss{Attività} principale:} se si tratta di un sotto \gloss{task} di un'altra attività, bisogna inserire l'identificatore del \gloss{task} padre;
     \item \textbf{Inizio:} data in cui deve iniziare l'\gloss{attività};
     \item \textbf{Fine:} data entro cui l'\gloss{attività} deve essere completata;
     \item \textbf{Tempo stimato:} il numero di ore stimato entro cui si dovrebbe completare l'\gloss{attività};
-    \item \textbf{\% completato:} la percentuale di completamento dell'\gloss{attività}, anche questo parametro viene utilizzato dal membro del gruppo che lavora sull'\gloss{attività}.
+    \item \textbf{\% completato:} la percentuale di completamento dell'\gloss{attività}; anche questo parametro viene utilizzato dal membro del gruppo che lavora sull'\gloss{attività}.
     \end{itemize}
 
     \subsubsection{Aggiornare una segnalazione}
@@ -1164,7 +1164,6 @@ Dalla figura \ref{fig:crea-segnalazione-2} è possibile notare diversi campi da 
 
     \subsection{Modificare la Wiki}
 
-    La sezione \gloss{Wiki} di \textit{Redmine} può essere molto utile, di fatto si tratta di uno spazio in cui è possibile scrivere del testo libero, inserire immagini o altro.\\
     La nostra scelta è stata di usarla come raccoglitore di \gloss{link} a guide inerenti al nostro progetto.
     Per contribuire alla \gloss{Wiki} basta andare nella suddetta sezione e premere su \textbf{modifica}. Si presenterà un editor di testo in cui è possibile modificare o semplicemente aggiungere del testo.
 
