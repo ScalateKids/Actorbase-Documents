@@ -7,7 +7,7 @@ notifications:
         on_success:
                 never
         on_failure:
-                never
+                change
 
 branches:
     only:

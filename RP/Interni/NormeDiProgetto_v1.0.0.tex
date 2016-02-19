@@ -109,8 +109,6 @@ chiarire dubbi o definire comportamenti da seguire in specifici scenari.
 
 \section{Processi Primari}
 
-\subsection{Acquisizione}
-% TODO: forse da eliminare
 \subsection{Fornitura}
 
 \subsubsection{Studio di Fattibilità}
@@ -128,7 +126,13 @@ Al fine dell'aggiudicazione dell'appalto sul capitolato scelto, sarà compito de
 \textit{Responsabile} stendere un \textit{Piano di Progetto} con sistemi di
 controllo e rendicontazione ben delineati. Dovrà inoltre includere un'accurata
 analisi dei rischi corredata di contromisure e un preventivo che all'avanzare
-del progetto si trasformerà in consuntivo.
+del progetto si trasformerà in consuntivo.\\
+Il documento prensenterà infine un organigramma, utile a definire la struttura
+e l'allocazione delle risorse e i ruoli di progetto.\\
+I \gloss{diagrammi di Gantt} e \gloss{PERT} (Program Evaluation Review
+Technique) saranno utilizzati per rappresentare graficamente l'allocazione nel
+tempo e la durata dei compiti, evidenziando le dipendendenze tra le attività ed
+il loro impatto sull'intero progetto.
 
 \subsection{Sviluppo}
 
@@ -171,8 +175,11 @@ sarà preceduto dall'id del caso d'uso da cui deriva e separato da esso con un
 punto.
 
 \subsection{Requisiti Software}
+
 Tutti i requisiti di progetto vanno elencati, suddivisi e tracciati secondo le regole stabilite alla sezione \ref{sec:adr}.
+
 \subsubsection{Casi d'uso e tracciamento dei requisiti}
+
 \label{sec:front-end}
 Per facilitare la gestione dei casi d'uso e il tracciamento dei requisiti
 va utilizzata un'applicazione web sviluppata per lo scopo appositamente dal
@@ -235,7 +242,9 @@ passa dai requisiti del problema estratti dagli \textit{Analisti} durante
 l'\textbf{Analisi}, ad una soluzione del problema preposto a carico dei
 \textbf{Progettisti}. Dovrà rispettare tutti i requisiti che il gruppo ha
 concordato con il \textit{Committente}.
+
 \paragraph{Stile di progettazione}
+
 L'\gloss{attività} di \textit{Progettazione} dovrà fare utilizzo di
 \gloss{design pattern} globalmente affermati e dovrà giustificarne la
 scelta.\\Dovranno inoltre essere rispettati al massimo i paradigmi di \gloss{OOP} (programmazione orientata agli oggetti) del linguaggio \gloss{Scala}, con eventuale utilizzo
@@ -861,12 +870,12 @@ Sono stati creati due \gloss{repository} all'indirizzo \url{https://github.com/s
         Si suddivide in:
         \begin{itemize}
             \item Actorbase-Docker/Latex.\gloss{git}: Conterrà il \gloss{Dockerfile}
-                istruito per la creazione di un'immagine \textit{Ubuntu:Thrusty} fornita
+                istruito per la creazione di un'immagine \textit{Ubuntu:Trusty} fornita
                 dei pacchetti latex essenziali alla stesura dei documenti, corredata da
                 \gloss{script} di generazione, verifica ortografica e leggibilità dei
                 \gloss{PDF} generati.
             \item Actorbase-Docker/Scala.\gloss{git}: Conterrà il \gloss{Dockerfile}
-                istruito per la creazione di un'immagine \textit{Ubuntu:Thrusty} fornita
+                istruito per la creazione di un'immagine \textit{Ubuntu:Trusty} fornita
                 di \textit{JVM v8} e \gloss{sbt}, corredata dai test di unità e
                 \gloss{script} di analisi statica e qualitativa del \gloss{codice}.
         \end{itemize}
@@ -1017,8 +1026,103 @@ La versione di riferimento di \gloss{Akka} è la \verb=2.4.1=, attualmente
 mantenuta e stabile, da utilizzare con versioni di \gloss{Scala} \verb=2.11= o
 \verb=2.12.0-M3= e Java 8+.
 
+\newpage
 \appendix
 
-\listoffigures
+\subsection{Redmine}
 
-\end{document}
+\label{sec:redmine}
+Questo capitolo rappresenta un tutorial su come usare correttamente \textit{Redmine}.
+Il software in questiona offre una vasta gamma di servizi molto utili per la gestione di un progetto, in particolare il \textit{forum}, la sezione \gloss{wiki} ed il sistema di segnalazioni che automaticamente costruisce il diagramma di \textit{Gantt}. Tramite installazioni di \gloss{plugin} è possibile aggiungere funzionalità. Qualora un componente del gruppo ritenga necessaria l'installazione di un \gloss{plugin}, costui può proporla al \textit{Responsabile di Progetto} il quale affiderà il compito ad un \textit{Amministratore} se la riterrà una funzionalità utile.
+
+\subsubsection{Creare un sottoprogetto}
+
+La creazione di sottoprogetti è molto utile per mantenere una chiara divisione funzionale tra le \gloss{attività}, la creazione di un sottoprogetto è molto semplice come si vede in figura sottostante
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{tutorialsRedmine/creaproj1.png}
+    \caption{come creare un sottoprogetto - figura 1}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{tutorialsRedmine/creaproj2.jpg}
+    \caption{come creare un sottoprogetto - figura 2\label{fig:figura-2}}
+\end{figure}
+Come si può vedere in figura \ref{fig:figura-2} si dovrà completare un \gloss{form} con i dati necessari per la creazione del progetto.
+
+\subsubsection{Scrivere sul Forum}
+
+Si può partecipare al \gloss{forum} rispondendo a messaggi o creandone di nuovi
+
+\paragraph{Creare un messaggio}
+
+Per creare un nuovo messaggio basta andare nel \gloss{topic} desiderato e seguire la procedura come illustrato nelle seguenti immagini
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{tutorialsRedmine/creamessaggio1.png}
+    \caption{come creare un messaggio - figura 1}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{tutorialsRedmine/creamessaggio2.jpg}
+    \caption{come creare un messaggio - figura 2}
+\end{figure}
+Per la corretta creazione di un messaggio è necessario seguire le norme scritte nella sezione \ref{sec:ComunicazioniInterne}
+\paragraph{Rispondere ad un messaggio}
+Per rispondere ad un messaggio presente nel \gloss{forum} è necessario aprire il messaggio voluto e premere su \textbf{Rispondi}, automaticamente si presenterà un \gloss{form} \textit{pre compilato} in cui sarà necessario solamente inserire il corpo della nostra risposta.
+
+\subsubsection{Gestione delle segnalazioni}
+
+Una segnalazione rappresenterà una \gloss{attività} che il \textit{Responsabile} assegnerà ad uno o più membri del gruppo, queste \gloss{attività} possono essere suddivise in diversi compiti più semplici da assegnare ad un membro, questi compiti saranno chiamati \gloss{task}.\\
+Il sistema di segnalazioni è la cosa più importante di \textit{Redmine}, perciò solamente il \textit{Responsabile di Progetto} ha il potere di creare nuove segnalazioni così da mantenere ordine nel progetto. \\Gli altri membri del gruppo potranno invece aggiornare le segnalazioni a loro assegnate.
+
+\paragraph{Creare una segnalazione}
+
+Il \textit{Responsabile di Progetto} può creare nuove segnalazioni come illustrato nelle seguenti immagini
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{tutorialsRedmine/creasegn1.png}
+    \caption{come creare un segnalazione - figura 1}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{tutorialsRedmine/creasegn2.jpg}
+    \caption{come creare una segnalazione - figura 2\label{fig:crea-segnalazione-2}}
+\end{figure}
+Dalla figura \ref{fig:crea-segnalazione-2} è possibile notare diversi campi da compilare:
+\begin{itemize}
+    \item \textbf{Tracker:} lasciare selezionato \textit{Segnalazione};
+    \item \textbf{Oggetto:} l'oggetto della segnalazione, questo deve essere breve e non equivocabile;
+    \item \textbf{Descrizione:} descrizione dettagliata dell'\gloss{attività} da svolgere;
+    \item \textbf{Stato:} se è una nuova segnalazione deve rimanere \textit{nuovo}, altrimenti è possibile scegliere altre opzioni, lo stato viene cambiato dall'intestatario della segnalazione stessa;
+    \item \textbf{Assegnato a:} la persona che deve svolgere l'\gloss{attività};
+    \item \textbf{\gloss{Attività} principale:} se questa è una sotto \gloss{task} di un altra, bisogna inserire l'identificatore della \gloss{task} padre;
+    \item \textbf{Inizio:} data in cui deve iniziare l'\gloss{attività};
+    \item \textbf{Fine:} data entro cui l'\gloss{attività} deve essere completata;
+    \item \textbf{Tempo stimato:} il numero di ore stimato entro cui si dovrebbe completare l'\gloss{attività};
+    \item \textbf{\% completato:} la percentuale di completamento dell'\gloss{attività}, anche questo parametro viene utilizzato dal membro del gruppo che lavora sull'\gloss{attività}.
+    \end{itemize}
+
+    \paragraph{Aggiornare una segnalazione}
+
+    Il lavoro di aggiornamento di una segnalazione deve essere svolto dai vari
+    membri del gruppo che lavorano alla segnalazione stessa.\\ Ad ogni avanzamento
+    relativo ad una \gloss{attività} si deve aggiornare la segnalazione relativa ad
+    essa. Per fare ciò bisogna entrare nella pagina personale di \textit{Redmine} e,
+    nella sezione \textbf{Le mie segnalazioni}, selezionare la segnalazione
+    desiderata, quindi premere su \textbf{Modifica}. La schermata che si presenterà
+    davanti permetterà diverse operazioni come mostrato in figura
+    \ref{fig:crea-segnalazione-2}, si dovrà quindi aggiornare lo \textbf{stato} (se
+    cambiato), la \textbf{\% completata} e aggiornare inoltre il \textbf{tempo
+    impiegato}. Vi è inoltre la possibilità di inserire un testo libero; questo
+    può essere utile per spiegare i cambiamenti apportati.
+
+    \subsubsection{Modificare la Wiki}
+
+    La sezione \gloss{Wiki} di \textit{Redmine} può essere molto utile, di fatto si tratta di uno spazio in cui è possibile scrivere del testo libero, inserire immagini o altro.\\
+    La nostra scelta è stata di usarla come raccoglitore di \gloss{link} a guide inerenti al nostro progetto.
+    Per contribuire alla \gloss{Wiki} basta andare nella suddetta sezione e premere su \textbf{modifica}. Si presenterà un editor di testo in cui è possibile modificare o semplicemente aggiungere del testo.
+
+    \listoffigures
+
+    \end{document}
