@@ -1,6 +1,6 @@
 \documentclass{scalatekids-article}
 \begin{document}
-\lfoot{Norme di Progetto 1.1.0}
+\lfoot{Norme di Progetto 1.0.6}
 \newgeometry{top=3.5cm}
 \begin{titlepage}
     \begin{center}
@@ -21,7 +21,7 @@
             \setbox0=\hbox{0.0.1\unskip}\ifdim\wd0=0pt
             \\
             \else
-            \textbf{Versione} & 1.1.0\\
+            \textbf{Versione} & 1.0.6\\
             \fi
             \textbf{Redazione} & \multiLineCell[t]{Andrea Giacomo Baldan\\Francesco Agostini}\\
             \textbf{Verifica} & \multiLineCell[t]{Marco Boseggia\\Michael Munaro\\Davide Trevisan\\Giacomo Vanin}\\
@@ -47,27 +47,39 @@
         \hline
         Versione & Autore & Ruolo & Data & Descrizione \\
         \hline
+        1.0.6 & Andrea Giacomo Baldan & Analista & 2016-02-19 & Incremento Appendice\\
+        \hline
+        1.0.5 & Andrea Giacomo Baldan & Analista & 2016-02-19 & Incremento sezione Norme di Verifica\\
+        \hline
+        1.0.4 & Andrea Giacomo Baldan & Analista & 2016-02-19 & Stesura sezione Processi Organizzativi\\
+        \hline
+        1.0.3 & Andrea Giacomo Baldan & Analista & 2016-02-19 & Stesura sezione Processi di Supporto\\
+        \hline
+        1.0.2 & Andrea Giacomo Baldan & Analista & 2016-02-19 & Stesura sezione Processi Primari\\
+        \hline
+        1.0.1 & Andrea Giacomo & Analista & 2016-02-19 & Riorganizzazione generale dei contenuti\\
+        \hline
         1.0.0 & Alberto De Agostini & Responsabile & 2015-12-23 & Approvazione documento\\
         \hline
-        0.5.0 & Davide Trevisan & Verificatore & 2015-12-22 & Verifica capitolo Processi di Sviluppo\\
+        0.5.0 & Davide Trevisan & Verificatore & 2015-12-22 & Verifica sezione Processi di Sviluppo\\
         \hline
-        0.4.0 & Marco Boseggia & Verificatore & 2015-12-22 & Verifica capitolo Processi di Supporto\\
+        0.4.0 & Marco Boseggia & Verificatore & 2015-12-22 & Verifica sezione Processi di Supporto\\
         \hline
-        0.3.2 & Andrea Giacomo Baldan & Amministratore & 2015-12-22 & Correzione capitolo Processi di Sviluppo\\
+        0.3.2 & Andrea Giacomo Baldan & Amministratore & 2015-12-22 & Correzione sezione Processi di Sviluppo\\
         \hline
-        0.3.1 & Francesco Agostini & Amministratore & 2015-12-21 & Correzione capitolo Processi di Supporto\\
+        0.3.1 & Francesco Agostini & Amministratore & 2015-12-21 & Correzione sezione Processi di Supporto\\
         \hline
-        0.3.0 & Marco Boseggia & Verificatore & 2015-12-20 & Verifica capitolo Processi di Sviluppo\\
+        0.3.0 & Marco Boseggia & Verificatore & 2015-12-20 & Verifica sezione Processi di Sviluppo\\
         \hline
-        0.2.0 & Michael Munaro & Verificatore & 2015-12-20 & Verifica capitolo Processi di Supporto\\
+        0.2.0 & Michael Munaro & Verificatore & 2015-12-20 & Verifica sezione Processi di Supporto\\
         \hline
-        0.1.2 & Andrea Giacomo Baldan & Amministratore & 2015-12-18 & Stesura capitolo Processi di Sviluppo\\
+        0.1.2 & Andrea Giacomo Baldan & Amministratore & 2015-12-18 & Stesura sezione Processi di Sviluppo\\
         \hline
-        0.1.1 & Francesco Agostini & Amministratore & 2015-12-18 & Stesura capitolo Processi di Supporto\\
+        0.1.1 & Francesco Agostini & Amministratore & 2015-12-18 & Stesura sezione Processi di Supporto\\
         \hline
-        0.1.0 & Giacomo Vanin & Verificatore & 2015-12-17 & Verifica capitolo Processi Organizzativi\\
+        0.1.0 & Giacomo Vanin & Verificatore & 2015-12-17 & Verifica sezione Processi Organizzativi\\
         \hline
-        0.0.2 & Andrea Giacomo Baldan & Amministratore & 2015-12-17 & Stesura capitolo Processi Organizzativi\\
+        0.0.2 & Andrea Giacomo Baldan & Amministratore & 2015-12-17 & Stesura sezione Processi Organizzativi\\
         \hline
         0.0.1 & Andrea Giacomo Baldan & Amministratore & 2015-12-16 & Creazione scheletro del documento\\
         \hline
@@ -96,15 +108,9 @@ chiarire dubbi o definire comportamenti da seguire in specifici scenari.
 
 \begin{itemize}
     \item\textbf{Redmine:} \url{http://www.redmine.org/};
-    \item\textbf{Docker.io:} \url{https://www.docker.com/};
-    \item\textbf{Travis-ci:} \url{https://travis-ci.com/};
+    \item\textbf{Docker:} \url{https://www.docker.io/};
+    \item\textbf{Travis-ci:} \url{https://travis-ci.org/};
     \item\textbf{Virtual Box:} \url{https://www.virtualbox.org/}.
-\end{itemize}
-\begin{itemize}
-    \item \textbf{Redmine:} \url{http://www.redmine.org/};
-    \item \textbf{Docker.io:} \url{https://www.docker.com/};
-    \item \textbf{Travis-ci:} \url{https://travis-ci.com/};
-    \item \textbf{Virtual Box:} \url{https://www.virtualbox.org/}.
 \end{itemize}
 
 \section{Processi Primari}
@@ -132,11 +138,12 @@ e l'allocazione delle risorse e i ruoli di progetto.\\
 I \gloss{diagrammi di Gantt} e \gloss{PERT} (Program Evaluation Review
 Technique) saranno utilizzati per rappresentare graficamente l'allocazione nel
 tempo e la durata dei compiti, evidenziando le dipendendenze tra le attività ed
-il loro impatto sull'intero progetto.
+il loro impatto sull'intero progetto.\\
+Vedi \ref{sec:ServiziWeb} per la strumentazione utile allo scopo.
 
 \subsection{Sviluppo}
 
-Gli \textit{Analisti} analizzeranno i requisiti di sistema del prodotto da
+Gli \textit{Analisti} analizzeranno i Requisiti di Sistema del prodotto da
 sviluppare, da questi sarà possibile estrarre i requisiti software e stendere un
 analisi dettagliata.
 
@@ -237,7 +244,18 @@ La \textit{Progettazione} precede la produzione, ed è l'\gloss{attività} che
 passa dai requisiti del problema estratti dagli \textit{Analisti} durante
 l'\textbf{Analisi}, ad una soluzione del problema preposto a carico dei
 \textbf{Progettisti}. Dovrà rispettare tutti i requisiti che il gruppo ha
-concordato con il \textit{Committente}.
+concordato con il \textit{Committente}.\\
+Vengono definite:
+\begin{itemize}
+    \item Le componenti software, definite dalla struttura ad alto livello;
+    \item Le interfacce verso l'esterno e tra le componenti;
+    \item Metodi, tecniche e design pattern per lo sviluppo;
+    \item I Requisiti Software diventano Requisiti Componente più
+        dettagliati.
+\end{itemize}
+
+Dalla specifica dei Requisiti delle Componenti deriveranno i test da attuare in
+attività di verifica, come specificato in \ref{sec:AnalisiStatica};
 
 \paragraph{Stile di progettazione}
 
@@ -565,14 +583,44 @@ lista redatta in prima istanza di verifica.
 
 \subsubsection{Norme di verifica codice}
 
-\paragraph{Analisi statica}
+\paragraph{Test di unità}
+
+\subparagraph{Analisi statica}
 
 \label{sec:AnalisiStatica}
 Gli strumenti da utilizzare per le \gloss{attività} di analisi statica saranno:
 \begin{itemize}
     \item\textbf{ScalaStyle:} \gloss{plugin} per compilatori \gloss{Scala}, fornisce controlli qualitativi esaustivi su \gloss{codice} automaticamente durante la compilazione dei sorgenti;
     \item\textbf{loc:} \gloss{script} di controllo qualità, forniscono il rapporto tra righe di \gloss{codice} e righe di commento.
+    \item\textbf{Complessità ciclomatica (McCabe's complexity):} Utilizzata per
+        misurare la complessità di funzioni, moduli metodi o classi di un
+        programma;
+    \item\textbf{Copertura del codice:} Misura la capacità di coprire mediante
+        esecuzione di test tutte le linee di codice di un programma; si
+        suddivide a sua volta in:
+        \begin{itemize}
+            \item\textbf{Copertura di funzione:} Ogni funzione all'interno del
+                programma è stata chiamata;
+            \item\textbf{Copertura di istruzione:} Ogni istruzione all'interno
+                del programma è stata eseguita;
+            \item\textbf{\gloss{Branch} coverage:} Misura la capacità di coprire
+                mediante esecuzione di test tutti i rami di un modulo;
+            \item\textbf{Condition coverage:} Ogni espressione booleana è stata
+                valutata sia in true che in false.
+        \end{itemize}
+    \item\textbf{Numero di attributi per classe:} Numero pesato di attributi
+        contenuti in ogni classe di un programma;
+    \item\textbf{Parametri per metodo:} Numero pesato di parametri utilizzabili
+        nella chiamata di metodi all'interno di una classe;
+    \item\textbf{Livelli di annidamento:} Numero pesato che misura il grado di
+        profondità delle funzioni e dei costrutti all'interno di un programma.
 \end{itemize}
+
+\subparagraph{Analisi dinamica}
+
+\paragraph{Test di integrazione}
+
+\paragraph{Test di sistema}
 
 % TODO: Verifica
 % TODO: Validazione
@@ -1028,7 +1076,7 @@ mantenuta e stabile, da utilizzare con versioni di \gloss{Scala} \verb=2.11= o
 \section{Redmine}
 
 \label{sec:redmine}
-Questo capitolo rappresenta un tutorial su come usare correttamente \textit{Redmine}. Il software in questiona offre una vasta gamma di servizi molto utili per la gestione di un progetto, in particolare il \textit{forum}, la sezione \gloss{wiki} ed il sistema di segnalazioni che automaticamente costruisce il diagramma di \textit{Gantt}. Tramite installazioni di \gloss{plugin} è possibile aggiungere funzionalità. Qualora un componente del gruppo ritenga necessaria l'installazione di un \gloss{plugin}, costui può proporla al \textit{Responsabile di Progetto} il quale affiderà il compito ad un \textit{Amministratore} se la riterrà una funzionalità utile.
+Questa sezione rappresenta un tutorial su come usare correttamente \textit{Redmine}. Il software in questiona offre una vasta gamma di servizi molto utili per la gestione di un progetto, in particolare il \textit{forum}, la sezione \gloss{wiki} ed il sistema di segnalazioni che automaticamente costruisce il diagramma di \textit{Gantt}. Tramite installazioni di \gloss{plugin} è possibile aggiungere funzionalità. Qualora un componente del gruppo ritenga necessaria l'installazione di un \gloss{plugin}, costui può proporla al \textit{Responsabile di Progetto} il quale affiderà il compito ad un \textit{Amministratore} se la riterrà una funzionalità utile.
 
 \subsection{Creare un sottoprogetto}
 
@@ -1098,28 +1146,28 @@ Dalla figura \ref{fig:crea-segnalazione-2} è possibile notare diversi campi da 
     \item \textbf{Fine:} data entro cui l'\gloss{attività} deve essere completata;
     \item \textbf{Tempo stimato:} il numero di ore stimato entro cui si dovrebbe completare l'\gloss{attività};
     \item \textbf{\% completato:} la percentuale di completamento dell'\gloss{attività}, anche questo parametro viene utilizzato dal membro del gruppo che lavora sull'\gloss{attività}.
-\end{itemize}
+    \end{itemize}
 
-\subsubsection{Aggiornare una segnalazione}
+    \subsubsection{Aggiornare una segnalazione}
 
-Il lavoro di aggiornamento di una segnalazione deve essere svolto dai vari
-membri del gruppo che lavorano alla segnalazione stessa.\\ Ad ogni avanzamento
-relativo ad una \gloss{attività} si deve aggiornare la segnalazione relativa ad
-essa. Per fare ciò bisogna entrare nella pagina personale di \textit{Redmine} e,
-nella sezione \textbf{Le mie segnalazioni}, selezionare la segnalazione
-desiderata, quindi premere su \textbf{Modifica}. La schermata che si presenterà
-davanti permetterà diverse operazioni come mostrato in figura
-\ref{fig:crea-segnalazione-2}, si dovrà quindi aggiornare lo \textbf{stato} (se
-cambiato), la \textbf{\% completata} e aggiornare inoltre il \textbf{tempo
-impiegato}. Vi è inoltre la possibilità di inserire un testo libero; questo
-può essere utile per spiegare i cambiamenti apportati.
+    Il lavoro di aggiornamento di una segnalazione deve essere svolto dai vari
+    membri del gruppo che lavorano alla segnalazione stessa.\\ Ad ogni avanzamento
+    relativo ad una \gloss{attività} si deve aggiornare la segnalazione relativa ad
+    essa. Per fare ciò bisogna entrare nella pagina personale di \textit{Redmine} e,
+    nella sezione \textbf{Le mie segnalazioni}, selezionare la segnalazione
+    desiderata, quindi premere su \textbf{Modifica}. La schermata che si presenterà
+    davanti permetterà diverse operazioni come mostrato in figura
+    \ref{fig:crea-segnalazione-2}, si dovrà quindi aggiornare lo \textbf{stato} (se
+    cambiato), la \textbf{\% completata} e aggiornare inoltre il \textbf{tempo
+    impiegato}. Vi è inoltre la possibilità di inserire un testo libero; questo
+    può essere utile per spiegare i cambiamenti apportati.
 
-\subsection{Modificare la Wiki}
+    \subsection{Modificare la Wiki}
 
-La sezione \gloss{Wiki} di \textit{Redmine} può essere molto utile, di fatto si tratta di uno spazio in cui è possibile scrivere del testo libero, inserire immagini o altro.\\
-La nostra scelta è stata di usarla come raccoglitore di \gloss{link} a guide inerenti al nostro progetto.
-Per contribuire alla \gloss{Wiki} basta andare nella suddetta sezione e premere su \textbf{modifica}. Si presenterà un editor di testo in cui è possibile modificare o semplicemente aggiungere del testo.
+    La sezione \gloss{Wiki} di \textit{Redmine} può essere molto utile, di fatto si tratta di uno spazio in cui è possibile scrivere del testo libero, inserire immagini o altro.\\
+    La nostra scelta è stata di usarla come raccoglitore di \gloss{link} a guide inerenti al nostro progetto.
+    Per contribuire alla \gloss{Wiki} basta andare nella suddetta sezione e premere su \textbf{modifica}. Si presenterà un editor di testo in cui è possibile modificare o semplicemente aggiungere del testo.
 
-\listoffigures
+    \listoffigures
 
-\end{document}
+    \end{document}

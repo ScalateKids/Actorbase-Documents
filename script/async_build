@@ -50,7 +50,7 @@ sub compile_tex {
 
 $_->join() foreach(@threads);
 
-printf "\n\e[1m [*] Succesfully compiled %d out of %d. Completed...[%d%%]\e[0m\n", $count, $total, ($count / $total) * 100;
+printf "\n\e[1m [*] Successfully compiled %d out of %d. Completed...[%d%%]\e[0m\n", $count, $total, ($count / $total) * 100;
 system('cd build && rm -f *.log *.aux *.out *.lof *.lot *.soc *.toc');
 
 if(%logs) {
