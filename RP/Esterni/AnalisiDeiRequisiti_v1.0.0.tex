@@ -160,7 +160,7 @@ scalabilità che il prodotto deve fornire ha portato alla suddivisione degli
 attori primari nel modo seguente:\\
 \begin{itemize}
 \item\textbf{Utente non autenticato:}\\
-  Rappresenta l'utente generico che avvia la \gloss{CLI} di \textbf{Actorbase} ma non è ancora connesso al lato server del prodotto;
+  Rappresenta l'utente generico che avvia la \gloss{CLI} (Command Line Interface) di \textbf{Actorbase} ma non è ancora connesso al lato server del prodotto;
 \item\textbf{Utente autenticato:}\\
   Rappresenta l'utente generico connesso al lato server del prodotto;
 \item\textbf{Amministratore:}\\
@@ -316,13 +316,13 @@ Per la registrazione è necessario inserire un nome utente e una password.\\ \\
 \end{figure}
 \textbf{Attore primario:} Utente autenticato\\ \\
 \textbf{Scopo e descrizione:} L'utente è autenticato e desidera effettuare delle operazioni sulle \gloss{collezioni}. Le operazioni previste sono:
-creazione di una nuova \gloss{collezione}, elencazione delle \gloss{collezioni} esistenti, cancellazione di \gloss{collezioni} esistenti, modifica del nome di \gloss{collezioni} esistenti e
+creazione di una nuova \gloss{collezione}, visualizzazione della lista delle \gloss{collezioni} esistenti, cancellazione di \gloss{collezioni} esistenti, modifica del nome di \gloss{collezioni} esistenti e
 aggiunta o rimozione collaboratori a \gloss{collezione} esistente.\\ \\
 \textbf{Precodizione:} Il \gloss{database} è pronto a ricevere comandi e l'utente intende effettuare operazioni su \gloss{collezioni}.\\ \\
 \textbf{Flusso di eventi:}
 \begin{itemize}
 \item UC1.4.1 Creazione nuova \gloss{collezione};
-\item UC1.4.2 Elencazione \gloss{collezioni};
+\item UC1.4.2 Visualizzazione della lista delle \gloss{collezioni};
 \item UC1.4.3 Cancellazione \gloss{collezioni};
 \item UC1.4.4 Modifica nome \gloss{collezione};
 \item UC1.4.5 Aggiunta \gloss{collaboratore};
@@ -365,7 +365,7 @@ aggiunta o rimozione collaboratori a \gloss{collezione} esistente.\\ \\
 \item Inserimento nome \gloss{collezione}
 \end{itemize}
 \textbf{Postcondizione:} La \gloss{collezione} è stata creata.
-\subsection{UC1.4.2: Elencazione collezioni}
+\subsection{UC1.4.2: Visualizzazione della lista delle collezioni}
 \textbf{Attore primario:} Utente autenticato\\ \\
 \textbf{Scopo e descrizione:} L'utente intende elencare tutte le \gloss{collezioni} all'interno di \textbf{Actorbase} secondo la propria \gloss{visibilità}.\\ \\
 \textbf{Precodizione:} Il \gloss{database} è pronto a ricevere comandi e l'utente intende elencare le \gloss{collezioni} al suo interno.\\ \\
