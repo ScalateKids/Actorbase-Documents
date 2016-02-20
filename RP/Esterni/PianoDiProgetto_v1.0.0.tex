@@ -184,6 +184,7 @@ Per ogni possibile rischio previsto l'analisi ha fornito i seguenti parametri:
 \item\textbf{Contromisure di mitigazione}: Provvedimenti da attuare in
   previsione del rischio, e/o di mitigazione in caso di bisogno.
 \end{itemize}
+\iffalse
 \begin{table}[H]
   \centering
   \scriptsize
@@ -215,6 +216,7 @@ Per ogni possibile rischio previsto l'analisi ha fornito i seguenti parametri:
     \hline
   \end{tabular}
 \end{table}
+\fi
 \paragraph{Impegni personali}
 \textbf{Categoria}: Logistica\\
 \textbf{Probabilità}: Alta\\
@@ -232,6 +234,7 @@ di competenze di pianificazione e analisi può portare a rallentamenti nel perse
 \textbf{Contromisure di mitigazione}: I componenti del gruppo si impegneranno a studiare e applicarsi il più possibile
 nella pratica delle competenze richieste ed, eventualmente, il \textit{Responsabile} potrà riassegnare alcuni ruoli provvisoriamente
 basandosi sui punti deboli e forti dei componenti con maggiori difficoltà a portare a termine la propria \gloss{attività}.
+\label{sub:tecnologie}
 \paragraph{Tecnologia di impiego}
 \textbf{Categoria}: Competenza tecnica\\
 \textbf{Probabilità}: Alta\\
@@ -276,6 +279,71 @@ questo garantisce un buon grado di controllo, ma allo stesso tempo espone a magg
 \textbf{Impatto}: Debole\\
 \textbf{Descrizione}: Un dissenso tra componenti potrebbe portare a diversi problemi nella realizzazione del prodotto. Tuttavia questo rischio sembra poter avvenire con scarsa probabilità poiché il gruppo sembra unito e pronto a collaborare secondo regole prestabilite.\\
 \textbf{Contromisure di mitigazione:} I componenti del gruppo cercheranno di aderire quanto più possibile alle \href{run:../Interni/NormeDiProgetto\_v1.0.0.pdf}{Norme di Progetto v1.0.0.}. Esse sono state redatte cercando di evitare questo problema.
+\subsection{Analisi dei rischi dinamica} %TODO se riusciamo cambiamo sto titolo
+Questa capitolo mira a analizzare più in dettaglio la probabilità e le tecniche di mitigazione per i rischi che avranno una maggiore probabilità di insorgere durante questo periodo.\\
+Per questo motivo i paragrafi a seguire saranno modificati ad ogni revisione per aggiornare dinamicamente l'analisi di questi fattori di rischio.\\ \\
+\textbf{Tabella delle probabilità}
+\begin{table}[H]
+  \centering
+  \scriptsize
+  \caption{Tabella Analisi dei Rischi Dinamica}
+  \begin{tabular}{|m{1cm}|m{3cm}|m{3cm}|m{3cm}|m{3cm}|}
+    \hline
+    & \multicolumn{4}{|c|}{\textbf{Probabilità}}\\
+    \hline
+    \bf Impatto & \bf Bassa & \bf Media & \bf Alta & \textbf{Molto alta} \\
+    \hline
+    \bf Molto Forte & \cellcolor{red!50} & \cellcolor{red!50} & \cellcolor{red!50} &\cellcolor{red!50} \\
+    \hline
+    \bf Forte & \cellcolor{yellow!50}Guasti hardware & \cellcolor{yellow!50}Stime attività & \cellcolor{red!50}Analisi requisiti &\cellcolor{red!50}\\[8pt]
+    \hline
+    \bf Medio & \cellcolor{green!50} & \cellcolor{yellow!50} &\cellcolor{yellow!50}Tecnologia di impiego &\cellcolor{red!50}Inesperienza \\[8pt]
+    \hline
+    \bf Debole & \cellcolor{green!50}Dissensi tra componenti & \cellcolor{green!50}Ambiente di lavoro non omogeneo &\cellcolor{yellow!50}Impegni personali &\cellcolor{yellow!50} \\
+    \hline
+  \end{tabular} \\
+\end{table}
+\begin{table}[H]
+  \centering
+  \caption{Legenda colorazione rischi}
+  \begin{tabular}{|c|l|}
+    \hline \bf Colore & \bf Legenda \\
+    \hline \cellcolor{red! 50} & Rischio non accettabile - riduzione obbligatoria \\
+    \hline \cellcolor{yellow! 50} & Rischio medio - considerare una riduzione \\
+    \hline \cellcolor{green! 50} & Rischio accettabile \\
+    \hline
+  \end{tabular}
+\end{table}
+\begin{table}[H]
+  \centering
+  \caption{Legenda probabilità di riscontro rischi}
+  \begin{tabular}{|c|l|}
+    \hline \bf Nome & \bf Probabilità prevista \\
+    \hline \textbf{Bassa} & 0\% < p < 25\% \\
+    \hline \textbf{Media} & 25\% < p < 50\% \\
+    \hline \textbf{Alta} & 50\% < p < 75\% \\
+    \hline \textbf{Molto Alta} & p > 75\% \\
+    \hline
+  \end{tabular}
+\end{table}
+\subsubsection{Riscontro}
+\paragraph{Guasti hardware}
+Si è verificato in un paio di occasioni questo tipo di problema.\\Un computer di un membro del gruppo ha smesso di funzionare. Questo non ha causato grossi disagi poichè questa persona è ricorsa all'uso del laboratorio informatico in Paolotti per la durata del periodo in cui era sprovvisto del suo computer.
+\paragraph{Stime di attività}
+Le stime delle attività non sono state sempre molto precise, tuttavia attuando le contromisure indicate nella sezione precedente l'impatto di questo rischio è stato ridotto notevolmente confermando buona tale contromisura.
+\paragraph{Analisi dei requisiti}
+L'inesperienza del gruppo ha portato a redigere un analisi dei requisiti non precisa, per questo motivo sono state indette delle riunioni col proponente tempestivamente per poter correggere nel minor tempo possibile questo documento per poter riprendere poi la pianificazione fatta in precedenza.
+\paragraph{Tecnologie di impiego}
+Le tecnologie di impiego finora non sono state oggetto di problemi. Questo può essere un risultato ottenuto dall'attuazione delle contromisure che il gruppo si era preposto (vedi capitolo \ref{sub:tecnologie}).
+\paragraph{Inesperienza}
+Questo rischio come pensavamo è stato oggetto di qualche problema. Per mitigare questi problemi tutti i membri hanno cercato di studiare le materie di interesse il più possibile, inoltre anche discussioni e scambi di idee tra i componenti hanno aiutato nella risoluzione.
+\paragraph{Dissensi tra componenti del gruppo}
+Come il gruppo pensava non è mai insorto nessun problema di questo genere.
+\paragraph{Ambiente di lavoro non omogeneo}
+Il gruppo si è impegnato molto per l'installazione e l'uso di un ambiente uniforme tra tutti i membri del gruppo (come da \href{run:../Interni/NormeDiProgetto\_v1.0.0.pdf}{Norme Di Progetto v2.0.0}), questo impegno è stato premiato non riscontrando mai questo tipo di problema.
+\paragraph{Impegni personali}
+Gli impegni personali dei membri del gruppo non hanno comportato ritardi o problemi di nessun genere grazie alle misure di prevenzione scritte in precedenza.
+
 \section{Pianificazione}
 \subsection{Suddivisione attività}
 \label{sub:fasi}
