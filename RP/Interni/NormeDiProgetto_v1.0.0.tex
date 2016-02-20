@@ -1,6 +1,6 @@
 \documentclass{scalatekids-article}
 \begin{document}
-\lfoot{Norme di Progetto 1.0.6}
+\lfoot{Norme di Progetto 1.2.2}
 \newgeometry{top=3.5cm}
 \begin{titlepage}
     \begin{center}
@@ -21,7 +21,7 @@
             \setbox0=\hbox{0.0.1\unskip}\ifdim\wd0=0pt
             \\
             \else
-            \textbf{Versione} & 1.0.6\\
+            \textbf{Versione} & 1.2.2\\
             \fi
             \textbf{Redazione} & \multiLineCell[t]{Andrea Giacomo Baldan\\Francesco Agostini}\\
             \textbf{Verifica} & \multiLineCell[t]{Marco Boseggia\\Michael Munaro\\Davide Trevisan\\Giacomo Vanin}\\
@@ -47,19 +47,23 @@
         \hline
         Versione & Autore & Ruolo & Data & Descrizione \\
         \hline
+        1.2.2 & Andrea Giacomo Baldan & Analista & 2016-02-20 & Incremento sezione 2.2.2.1 (ScalateTrack)\\
+        \hline
+        1.2.1 & Andrea Giacomo Baldan & Analista & 2016-02-20 & Incremento sezione 4.5.1.3 (Script di utilità locale)\\
+        \hline
         1.2.0 & Michael Munaro & Verificatore & 2016-02-19 & Verifica sezioni 3.2, 4 e appendice A \\
         \hline
         1.1.3 & Andrea Giacomo Baldan & Analista & 2016-02-19 & Incremento Appendice\\
         \hline
-        1.1.2 & Andrea Giacomo Baldan & Analista & 2016-02-19 & Incremento sezione Norme di Verifica\\
+        1.1.2 & Andrea Giacomo Baldan & Analista & 2016-02-19 & Incremento sezione 3.2.1 Norme di Verifica\\
         \hline
-        1.1.1 & Andrea Giacomo Baldan & Analista & 2016-02-19 & Stesura sezione Processi Organizzativi\\
+        1.1.1 & Andrea Giacomo Baldan & Analista & 2016-02-19 & Stesura sezione 4 Processi Organizzativi\\
         \hline
         1.1.0 & Marco Boseggia & Verificatore & 2016-02-19 & Verifica sezioni 1, 2 e 3\\
         \hline
-        1.0.3 & Andrea Giacomo Baldan & Analista & 2016-02-19 & Stesura sezione Processi di Supporto\\
+        1.0.3 & Andrea Giacomo Baldan & Analista & 2016-02-19 & Stesura sezione 3 Processi di Supporto\\
         \hline
-        1.0.2 & Andrea Giacomo Baldan & Analista & 2016-02-19 & Stesura sezione Processi Primari\\
+        1.0.2 & Andrea Giacomo Baldan & Analista & 2016-02-19 & Stesura sezione 2 Processi Primari\\
         \hline
         1.0.1 & Andrea Giacomo & Analista & 2016-02-19 & Riorganizzazione generale dei contenuti\\
         \hline
@@ -104,7 +108,8 @@ Tutti i componenti del gruppo sono tenuti a leggere il presente documento e a se
 le regole contenute; esso verrà integrato ogni qualvolta si presenti la necessità di
 chiarire dubbi o definire comportamenti da seguire in specifici scenari.
 
-\prodPurpose \glossExpl
+\prodPurpose
+\glossExpl
 
 \subsection{Riferimenti}
 
@@ -143,7 +148,7 @@ I \gloss{diagrammi di Gantt} e \gloss{PERT} (Program Evaluation Review
 Technique) saranno utilizzati per rappresentare graficamente l'allocazione nel
 tempo e la durata dei compiti, evidenziando le dipendendenze tra le attività ed
 il loro impatto sull'intero progetto.\\
-Vedi \ref{sec:ServiziWeb} per la strumentazione utile allo scopo.
+Vedi~\ref{sec:ServiziWeb} per la strumentazione utile allo scopo.
 
 \subsection{Sviluppo}
 
@@ -187,14 +192,31 @@ punto.
 \subsubsection{Casi d'uso e tracciamento dei requisiti}
 
 \label{sec:front-end}
+
+\paragraph{ScalateTrack}
+
 Per facilitare la gestione dei casi d'uso e il tracciamento dei requisiti
 va utilizzata un'applicazione web sviluppata per lo scopo appositamente dal
 gruppo.\\Essa si interfaccia con un database relazionale residente sul server
-privato del gruppo(vedi \ref{sec:server}) e permette una visualizzazione chiara dei
+privato del gruppo (vedi~\ref{sec:server}) e permette una visualizzazione chiara dei
 requisiti e dei casi d'uso. Una volta completata la procedura d'inserimento dei
 dati, previa verifica, è possibile esportare i requisiti in formato
 \LaTeX\xspace ed eseguirne il tracciamento automatico rispetto alle
 fonti e viceversa.
+
+\begin{figure}[H]
+    \begin{subfigure}[H]{0.47\textwidth}
+        \centering
+        \includegraphics[width=0.8\textwidth]{AggiuntaRequisito.png}
+        \caption{Creazione nuovo requisito}
+    \end{subfigure}
+    \qquad
+    \begin{subfigure}[H]{0.47\textwidth}
+        \centering
+        \includegraphics[width=0.8\textwidth]{AggiuntaUseCase.png}
+        \caption{Creazione nuovo requisito}
+    \end{subfigure}
+\end{figure}
 
 \paragraph{Casi d'uso}
 
@@ -248,6 +270,10 @@ passa dai requisiti del problema, estratti dagli \textit{Analisti} durante
 l'\textbf{Analisi}, ad una soluzione del problema preposto a carico dei
 \textbf{Progettisti}. Essa dovrà rispettare tutti i requisiti che il gruppo ha
 concordato con il \textit{Committente}.\\
+
+\paragraph{Specifica Tecnica}
+
+Sarà compiti dei \textit{Progettisti} definire la struttura ad alto livello.\\
 Vengono definite:
 \begin{itemize}
     \item Le componenti software, definite dalla struttura ad alto livello;
@@ -258,7 +284,7 @@ Vengono definite:
 \end{itemize}
 
 Dalla specifica dei Requisiti delle Componenti deriveranno i test da attuare in
-attività di verifica, come specificato in \ref{sec:AnalisiStatica};
+attività di verifica, come specificato in~\ref{sec:NormeDiVerifica};
 
 \paragraph{Stile di progettazione}
 
@@ -267,7 +293,7 @@ L'\gloss{attività} di \textit{Progettazione} dovrà fare utilizzo di
 scelta.\\Dovranno inoltre essere rispettati al massimo i paradigmi di \gloss{OOP} (programmazione orientata agli oggetti) del linguaggio \gloss{Scala}, con eventuale utilizzo
 di costrutti \gloss{funzionali}, coerentemente con l'utilizzo delle librerie
 \textit{\gloss{Akka}}.
-
+% TODO: Tracciamento componenti
 \section{Processi di Supporto}
 
 \subsection{Documentazione}
@@ -277,8 +303,8 @@ di costrutti \gloss{funzionali}, coerentemente con l'utilizzo delle librerie
 \label{sec:strutturadoc}
 Abbiamo standardizzato la scrittura di tutti i documenti attraverso un
 \gloss{template} \LaTeX\xspace appositamente creato e presente su
-\textit{\gloss{GitHub}} nel \gloss{repository} \textit{ActorBase -
-Documents}.\gloss{git}(vedi \ref{sec:ServiziWeb}).\\ L'uso del \gloss{template} ci permette di creare una serie di documenti
+\textit{\gloss{GitHub}} nel \gloss{repository} \textit{ActorBase-Documents}.\gloss{git} (vedi~\ref{sec:ServiziWeb}).\\
+L'uso del \gloss{template} ci permette di creare una serie di documenti
 stilisticamente uniformi tra loro e ci facilita la modifica delle parti in
 comune tra essi.\\Facilita inoltre la creazione di nuove \gloss{macro} e comandi
 \LaTeX\xspace. Nella fattispecie abbiamo creato i seguenti:
@@ -422,7 +448,8 @@ Utilizziamo immagini con formato \textit{JPG} o \textit{PNG}, questi ultimi rend
 
 \paragraph{Integrazione termini di lingua straniera}
 
-Per non incorrere in diverse modalità di integrazione per l'uso di vari termini di lingua straniera (es. \gloss{file}, \gloss{repository} ecc...) i termini non italiani non saranno pluralizzati, esempio:\\
+Per non incorrere in diverse modalità di integrazione per l'uso di vari termini
+di lingua straniera (es. \gloss{file}, \gloss{repository} etc.) i termini non italiani non saranno pluralizzati, esempio:\\
 \begin{center}
     \verb=abbiamo utilizzato dei= \textit{repository} \verb=per... (non= \textit{repositories}\verb=)=.
 \end{center}
@@ -541,16 +568,18 @@ all'interno dei documenti. Prima di inserire un nuovo termine bisognerà
 assicurarsi che non sia già presente.\\ Il comando \LaTeX\xspace da utilizzare
 per contrassegnare un termine da glossario all'interno dei documenti è
 \verb=\gloss=, mentre l'inserimento di una nuova parola all'interno del
-glossario è \verb=\glossDef= (come specificato in \ref{sec:strutturadoc}). La
+glossario è \verb=\glossDef= (come specificato in~\ref{sec:strutturadoc}). La
 scelta di creare un comando apposito per un'operazione ``elementare'' è
 scaturita dall'agevolazione che porta alla stesura della documentazione: avendo
 un modo univoco di riconoscere i termini all'interno del glossario, è possibile
 automatizzare il controllo delle parole da glossario all'interno dei
-documenti(vedi sezione \ref{sec:script}).
+documenti (vedi sezione~\ref{sec:script}).
 
 \subsection{Assicurazione Qualità}
 
 \subsubsection{Norme di verifica documenti}
+
+\label{sec:VerificaDocumenti}
 
 Posto che tutti i componenti del gruppo dovranno effettuare delle \gloss{attività} di
 verifica, il redattore di ogni sezione dei documenti non potrà tassativamente
@@ -566,17 +595,17 @@ Per eseguire un'accurata verifica dei documenti è necessario seguire il seguent
 protocollo:
 \begin{itemize}
     \item\textbf{Controllo ortografico:} Utilizzando \textit{GNU Aspell} vengono evidenziati e corretti
-        gli errori grammaticali più evidenti. Inoltre, come spiegato in sezione \ref{sec:script}, sono stati
+        gli errori grammaticali più evidenti. Inoltre, come spiegato in sezione~\ref{sec:script}, sono stati
         creati alcuni strumenti ad hoc per automatizzare le \gloss{attività} di verifica.\\
         Tuttavia il controllo dei periodi e di parole grammaticalmente corrette ma errate nel contesto richiedono
-        l'intervento di un \textit{Verificatore} umano. Ciò implica che ogni documento dovrà essere sottoposto ad un walkthrough(vedi \ref{sec:AnalisiStatica});
+        l'intervento di un \textit{Verificatore} umano. Ciò implica che ogni documento dovrà essere sottoposto ad un walkthrough;
     \item\textbf{Uniformità alle norme:} Essendo state redatte alcune regole sulla stesura dei documenti, è compito dei \textit{Verificatori}
         accertarsi che i documenti siano conformi a tali norme, seguendo il metodo di walkthrough;
     \item\textbf{Verifica termini da glossario:} L'operazione è fortemente automatizzabile, compito del \textit{Verificatore} è utilizzare gli strumenti di supporto
-        forniti nell'ambiente di lavoro descritti nella sezione \ref{sec:script}. Tuttavia l'\gloss{attività} di verifica finale dovrà essere effettuata secondo il metodo
+        forniti nell'ambiente di lavoro descritti nella sezione~\ref{sec:script}. Tuttavia l'\gloss{attività} di verifica finale dovrà essere effettuata secondo il metodo
         walkthrough;
     \item\textbf{Indice Gulpease:} Su ogni documento redatto il \textit{Verificatore} deve calcolare l'indice di leggibilità utilizzando lo strumento fornito
-        con la macchina virtuale (vedi sezioni \ref{sec:MacchinaVirtuale} e \ref{sec:script});
+        con la macchina virtuale (vedi sezioni~\ref{sec:MacchinaVirtuale} e~\ref{sec:script});
     \item\textbf{Segnalazione degli errori riscontrati:} Il \textit{Verificatore} dovrà stendere una lista di controllo e inserirla sul \gloss{forum} del gruppo.
 \end{itemize}
 Successivamente, basandosi sui cambiamenti del diario delle modifiche, i
@@ -584,12 +613,13 @@ Successivamente, basandosi sui cambiamenti del diario delle modifiche, i
 lista redatta in prima istanza di verifica.
 
 \subsubsection{Norme di verifica codice}
+\label{sec:NormeDiVerifica}
 
 \paragraph{Test di unità}
 
 \subparagraph{Analisi statica}
-
 \label{sec:AnalisiStatica}
+
 Gli strumenti da utilizzare per le \gloss{attività} di analisi statica saranno:
 \begin{itemize}
     \item\textbf{ScalaStyle:} \gloss{plugin} per compilatori \gloss{Scala}, fornisce automaticamente controlli qualitativi esaustivi su \gloss{codice} durante la compilazione dei sorgenti;
@@ -758,7 +788,7 @@ potere di inviare posta in uscita.
 
 \label{sec:ComunicazioniInterne}
 Per le comunicazioni interne verrà utilizzato un \gloss{forum} apposito su
-\textit{Redmine} (vedi sezione \ref{sec:redmine}), suddiviso in quattro sezioni
+\textit{Redmine} (vedi sezione~\ref{sec:redmine}), suddiviso in quattro sezioni
 principali corrispondenti alle revisioni di avanzamento del progetto:
 \begin{itemize}
     \item Revisione dei Requisiti;
@@ -774,10 +804,10 @@ discussi e le comunicazioni di carattere più o meno generale riguardanti
 queste due sottosezioni dovrà rispettare il seguente formato:
 \begin{itemize}
     \item\textbf{Riunioni:}\\
-        \textit{Riunione Dominio - Data AAAA-mm-dd - Oggetto}\\
+        \textit{Riunione Dominio\ -\ Data AAAA-mm-dd\ -\ Oggetto}\\
         (es: Riunione Interna - 2015-12-29 - Strategie Ciclo di Vita)
     \item\textbf{Comunicazioni:}\\
-        \textit{Oggetto - Data}\\
+        \textit{Oggetto\ -\ Data}\\
         (es: Design Pattern - 2016-01-12)
 \end{itemize}
 La voce \textit{Oggetto} dovrà essere esplicativa del contenuto, il più
@@ -796,7 +826,7 @@ sopra elencati dovranno, se presenti informazioni di interesse per il progetto,
 mandare un sunto della suddetta conversazione sul \gloss{forum} per tenere
 informati tutti i membri del gruppo sullo stato di avanzamento nella
 sottosezione comunicazioni.\\ Solo in caso di necessità derivante dalla mancanza
-di infrastrutture (es. collegamento a internet) si potrà comunicare attraverso
+di infrastrutture (es\. collegamento a internet) si potrà comunicare attraverso
 SMS o chiamate telefoniche; anche in questo caso si dovrà verbalizzare quanto
 detto attraverso il \gloss{forum} appena possibile.
 
@@ -805,11 +835,11 @@ detto attraverso il \gloss{forum} appena possibile.
 \subsubsection{Riunioni Interne}
 
 Tutti i componenti del gruppo possono avanzare una richiesta per una riunione
-interna seguendo le regole apposite (vedi \ref{sec:RegoleRichiesta}).\\
+interna seguendo le regole apposite (vedi~\ref{sec:RegoleRichiesta}).\\
 Sarà il \textit{Responsabile di Progetto} a decidere se indire
 o meno la riunione proposta, controllando la disponibilità dei membri attraverso il
 \gloss{forum} e, in caso, avvertendo tutti i componenti tramite un \gloss{topic} come
-spiegato in sezione \ref{sec:ComunicazioniInterne}.\\ È richiesta la partecipazione di
+spiegato in sezione~\ref{sec:ComunicazioniInterne}.\\ È richiesta la partecipazione di
 almeno quattro membri del gruppo. In casi particolari, come riunioni che
 trattano specifici ambiti non di interesse collettivo o per l'avvicinarsi
 a date di rilevante importanza, è possibile indire una riunione di gruppo con meno componenti
@@ -887,13 +917,13 @@ Offre diverse funzionalità che il gruppo dovrà utilizzare, quali:
     \item\textbf{Sistema di segnalazioni:} un sistema di segnalazioni gestite dall'\textit{Responsabile}, ogni segnalazione rappresenta un \gloss{task} assegnato ad uno o più membri del gruppo, il suo conseguimento servirà per il soddisfacimento di un requisito.
     \item\textbf{Gantt:} \textit{Redmine} costruisce automaticamente un \gloss{diagramma di Gantt} con le segnalazioni create dall'\textit{Responsabile}
 \end{itemize}
-Per maggiori esplicazioni sull'utilizzo è stata redatta una sezione apposita \ref{sec:redmine}.
+Per maggiori esplicazioni sull'utilizzo è stata redatta una sezione apposita~\ref{sec:redmine}.
 
 \paragraph{PHPMyAdmin}
 
 \textit{PHPMyAdmin} è uno strumento scritto in linguaggio \textit{PHP} che offre una facile amministrazione di \textit{\gloss{database}}.\\
 Questo strumento verrà usato per la creazione di un back-end per la gestione dei requisiti.\\
-Per la gestione e il tracciamento dei requisiti è stata creata un'interfaccia protetta da login (vedi sezione \ref{sec:front-end}).
+Per la gestione e il tracciamento dei requisiti è stata creata un'interfaccia protetta da login (vedi sezione~\ref{sec:front-end}).
 
 \subsubsection{Versionamento}
 
@@ -969,7 +999,7 @@ modo sull'ambiente di lavoro di ogni singolo membro.
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.7\textwidth,keepaspectratio]{Docker.png}
-    \caption{Integrazione continua - Travis-CI + Docker}
+    \caption{Integrazione continua\ -\ Travis-CI + Docker}
 \end{figure}
 Attualmente è in uso l'immagine \verb=scalatekids-latex= per la verifica dei documenti.
 
@@ -1030,9 +1060,10 @@ L'\textit{Amministratore} si è occupato di scrivere alcuni \gloss{script} di ut
 generale da utilizzare all'interno della macchina virtuale:
 \begin{itemize}
     \item\textbf{build:} lanciato senza argomenti, genera tutti i \gloss{PDF} del
-        progetto dai .tex, eliminando tutti i \gloss{file} \verb=.log= \verb=.aux= \verb=.out= \verb=.soc=
+        progetto dai \.tex, eliminando tutti i \gloss{file} \verb=.log= \verb=.aux= \verb=.out= \verb=.soc=
         \verb=.lof= \verb=.lot= e \verb=.toc=
-        generati. Può avere un numero indefinito di argomenti, purché siano \gloss{file} .tex,
+        generati. Può avere un numero indefinito di argomenti, purché siano
+        \gloss{file} \.tex,
         questi verranno allo stesso modo generati eliminando tutti i \gloss{file}
         \verb=.log .aux .out .soc= e \verb=.toc=;
     \item\textbf{extgloss:} estrae tutti i termini da glossario contrassegnati da
@@ -1042,13 +1073,16 @@ generale da utilizzare all'interno della macchina virtuale:
         \gloss{file} \href{run:../RR/Esterni/Glossario\_v1.0.0.pdf}{Glossario v1.0.0}. In seguito controlla tutti i \gloss{file} del
         progetto (eccetto il glossario), e inserisce il comando \verb=\gloss= sui termini
         contenuti in lista trovati nei \gloss{file}. Se il comando è seguito da argomenti esegue le medesime
-        operazioni soltanto sui \gloss{file} .tex scelti;
+        operazioni soltanto sui \gloss{file} \.tex scelti;
     \item\textbf{verify:} scansiona tutti i documenti \verb=.tex= del progetto alla
         ricerca di errori comuni e violazioni delle \textit{Norme di Progetto}, nonché
         TODO o \gloss{merge} irrisolti. Lanciato con l'opzione \verb=-c=
         esegue le correzioni grammaticali basilari sui documenti che riportano una o
         più occorrenze di tali sviste.\\
-        Opzionalmente accetta in input liste di errori grammaticali comuni.
+        Opzionalmente accetta in input liste di errori grammaticali comuni;
+    \item\textbf{readability:} Calcola alcune statistiche sul testo, come numero
+        frasi, parole e sillabe, da queste ricava l'indice di Gulpease sulla
+        leggibilità.
 \end{itemize}
 
 \paragraph{Script di utilità remoti}
@@ -1086,14 +1120,14 @@ La creazione di sottoprogetti è molto utile per mantenere una chiara divisione 
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{tutorialsRedmine/creaproj1.png}
-    \caption{come creare un sottoprogetto - figura 1}
+    \caption{come creare un sottoprogetto\ -\ figura 1}
 \end{figure}
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{tutorialsRedmine/creaproj2.jpg}
-    \caption{come creare un sottoprogetto - figura 2\label{fig:figura-2}}
+    \caption{come creare un sottoprogetto\ -\ figura 2\label{fig:figura-2}}
 \end{figure}
-Come si può vedere in figura \ref{fig:figura-2} si dovrà completare un \gloss{form} con i dati necessari per la creazione del progetto.
+Come si può vedere in figura~\ref{fig:figura-2} si dovrà completare un \gloss{form} con i dati necessari per la creazione del progetto.
 
 \subsection{Scrivere sul Forum}
 
@@ -1105,14 +1139,14 @@ Per creare un nuovo messaggio basta andare nel \gloss{topic} desiderato e seguir
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{tutorialsRedmine/creamessaggio1.png}
-    \caption{come creare un messaggio - figura 1}
+    \caption{come\ creare\ un\ messaggio\ -\ figura\ 1}
 \end{figure}
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{tutorialsRedmine/creamessaggio2.jpg}
-    \caption{come creare un messaggio - figura 2}
+    \caption{come\ creare\ un\ messaggio\ -\ figura 2}
 \end{figure}
-Per la corretta creazione di un messaggio è necessario seguire le norme scritte nella sezione \ref{sec:ComunicazioniInterne}
+Per la corretta creazione di un messaggio è necessario seguire le norme scritte nella sezione~\ref{sec:ComunicazioniInterne}
 
 \subsubsection{Rispondere ad un messaggio}
 
@@ -1129,14 +1163,14 @@ Il \textit{Responsabile di Progetto} può creare nuove segnalazioni come illustr
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{tutorialsRedmine/creasegn1.png}
-    \caption{come creare un segnalazione - figura 1}
+    \caption{come\ creare\ un\ segnalazione\ -\ figura\ 1}
 \end{figure}
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{tutorialsRedmine/creasegn2.jpg}
-    \caption{come creare una segnalazione - figura 2\label{fig:crea-segnalazione-2}}
+    \caption{come\ creare\ una\ segnalazione\ -\ figura\ 2\label{fig:crea-segnalazione-2}}
 \end{figure}
-Dalla figura \ref{fig:crea-segnalazione-2} è possibile notare diversi campi da compilare:
+Dalla figura~\ref{fig:crea-segnalazione-2} è possibile notare diversi campi da compilare:
 \begin{itemize}
     \item \textbf{Tracker:} lasciare selezionato \textit{Segnalazione};
     \item \textbf{Oggetto:} l'oggetto della segnalazione, questo deve essere breve e non equivocabile;
@@ -1158,8 +1192,8 @@ Dalla figura \ref{fig:crea-segnalazione-2} è possibile notare diversi campi da 
     essa. Per fare ciò bisogna entrare nella pagina personale di \textit{Redmine} e,
     nella sezione \textbf{Le mie segnalazioni}, selezionare la segnalazione
     desiderata, quindi premere su \textbf{Modifica}. La schermata che si presenterà
-    davanti permetterà diverse operazioni come mostrato in figura
-    \ref{fig:crea-segnalazione-2}, si dovrà quindi aggiornare lo \textbf{stato} (se
+    davanti permetterà diverse operazioni come mostrato in figura~\ref{fig:crea-segnalazione-2},
+    si dovrà quindi aggiornare lo \textbf{stato} (se
     cambiato), la \textbf{\% completata} e aggiornare inoltre il \textbf{tempo
     impiegato}. Vi è inoltre la possibilità di inserire un testo libero; questo
     può essere utile per spiegare i cambiamenti apportati.
