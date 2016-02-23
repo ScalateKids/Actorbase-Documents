@@ -3,7 +3,7 @@
 # verify
 # Bash script to verify latex files before compilation.
 # Author: Andrea Giacomo Baldan
-# Version: 1.0
+# Version: 1.5
 
 DIR=RP
 
@@ -12,7 +12,7 @@ function verify() {
     error="$2"
     files=$(find $DIR -type f -name '*.tex')
 
-    result=$(grep -w --color=always "$regex" $files)
+    result=$(grep -wE --color=always "$regex" $files)
     status="$?"
 
     if [ "$status" -gt 1 ]; then
@@ -21,7 +21,7 @@ function verify() {
     fi
 
     if [ "$status" == "0" ]; then
-        echo -e "\e[1m\e[31m [!] $error\e[39m\e[0m"
+        echo -e "\n\e[1m\e[31m [!] $error\e[39m\e[0m\n"
         echo -e "$result"
     fi
 }
@@ -73,9 +73,9 @@ if [[ $PWD/ = ~/actorbase/Actorbase-Documents* ]]; then
         verify "E'" "Substituite E' with È (ascii code alt 212)"
         verify "[[:alpha:]]\'[aeou]" "Incorrect accents with one of àèòù"
         # english terms
-        terms=('[Uu]se cases' '[Ss]cripts' '[Rr]epositories' '[Dd]irectories' '[Ff]iles' '[Rr]oles' '[Pp]rojects' '[Ff]eatures' '[Tt]hreads' '[Uu]sers' '[Tt]emplates' '[Dd]ocuments')
+        terms=('[Cc]ases' '[Ss]cripts' '[Rr]epositories' '[Dd]irectories' '[Ff]iles' '[Rr]oles' '[Pp]rojects' '[Ff]eatures' '[Tt]hreads' '[Uu]sers' '[Tt]emplates' '[Dd]ocuments' '[Aa]ctors')
         for term in $terms; do
-	        verify "$term" "Plural english terms must be singular"
+            verify "$term" "Plural english terms must be singular"
         done
 
         # special code
@@ -88,17 +88,22 @@ if [[ $PWD/ = ~/actorbase/Actorbase-Documents* ]]; then
         verify "[[:digit:]]{2}/[[:digit:]]{2}/[[:digit:]]{4}" "dd/mm/AAAA wrong format date, use AAAA-mm-dd"
         verify "[[:digit:]]{2}-[[:digit:]]{2}-[[:digit:]]{4}" "dd-mm-AAAA wrong format date, use AAAA-mm-dd"
 
-        # tullio
+        # Acronyms
+        verify "[A-Z]{2,}" "Check for first time acronyms, they should be paired with expanded meaning"
+
+        # Tullio warning
         verify "[Ff]as[ei]" "'Fase' word to check"
         verify "[Oo]bbiettiv[oi]" "Just one 'b' in word 'ob(b)iettivo'"
         verify "[Oo]bbietiv[oi]" "Just one 'b' and two 't' in word 'ob(b)iettivo'"
-		# read from file
-		input=common_misspell.txt
-		while read -r line
-		do
-			verify "$line" "Mispell error"
-		done < $input
+        verify "[Ff]ittizzi[aeo]*" "Just one 'z' in word 'fittiz(z)i*'"
+        verify "[Ii]ndir[r][r]*e" "Just one 'r' in word 'indr(r)e'"
+
+        # read from file
+        input=script/common_misspell.txt
+        while read -r line
+        do
+            verify "$line" "Mispell error"
+        done < $input
         echo -e "\n\e[1m[*] Use 'verify -c' to correct tedious errors (e.g E')\n\e[0m"
     fi
 fi
-
