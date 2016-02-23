@@ -17,10 +17,9 @@ my $count :shared = 0;
 our @threads;
 our $total = 0;
 
-my ($dir) = @ARGV || 'RP';
-$dir = uc($dir);
+my $dir = 'RP';
 
-print "\e[1m \nBuilding PDF from .tex. Output inside ./build directory.\e[0m\n";
+print "\e[1m \nBuilding $dir PDF from .tex. Output inside ./build directory.\e[0m\n";
 print "\n";
 finddepth({wanted => \&list_files, no_chdir => 1}, $dir);
 
