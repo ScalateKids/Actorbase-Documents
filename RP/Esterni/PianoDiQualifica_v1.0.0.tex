@@ -130,7 +130,7 @@ Per applicare correttamente il \gloss{PDCA} è necessario che le seguenti condiz
 \item{I processi siano controllati.}
 \end{itemize}
 La pianificazione descritta nel \href{run:./PianoDiProgetto\_v1.0.0.pdf}{Piano di Progetto v1.0.0} è stata fatta cercando di soddisfare queste condizioni.\\
-Per avere una misurazione oggettiva e quantitativa della qualità su ogni processo sono state stabilite delle metriche di valutazione descritte nella sezione \ref{sec:metriche}.\\
+Per avere una misurazione oggettiva e quantitativa della qualità su ogni processo sono state stabilite delle metriche di valutazione descritte nella sezione \ref{sec:metricheProcesso}.\\
 L'insieme di queste condizioni e metriche consente l'utilizzo del \gloss{PDCA} garantendo un miglioramento continuo della qualità di ogni processo e, di conseguenza, del prodotto finale.
 \subsection{Procedure di controllo di qualità di prodotto}
 Il controllo di qualità del prodotto si suddividerà in tre parti:
@@ -139,6 +139,7 @@ Il controllo di qualità del prodotto si suddividerà in tre parti:
 \item{Verifica costante dell'output di ogni \gloss{attività}, i cui risultati verranno riportati nell'appendice \ref{sec:resAttivitaVerifica};}
 \item{Validazione, ovvero la conferma che il prodotto risponda correttamente ai requisiti attesi.}
 \end{itemize}
+Per avere una misurazione oggettiva e quantitativa della qualità su ogni procdotto sono state stabilite delle metriche di valutazione per documenti e software descritte nelle sezioni, rispettivamente, \ref{sec:metricheDocumenti} e \ref{sec:metricheSW}.\\
 \subsection{Organizzazione}
 Per garantire la qualità del prodotto finale verranno effettuate \gloss{attività} di verifica su ogni processo attuato. I controlli su ogni processo avranno come obiettivo garantire la qualità sia del processo stesso sia dell'eventuale prodotto da esso ricavato.\\
 Ogni fase descritta in \href{run:./PianoDiProgetto\_v1.0.0.pdf}{Piano di Progetto v1.0.0} necessita di \gloss{attività} di verifica diverse a causa della differenza natura del loro output. Di seguito sono elencate le strategie di verifica usate per ciascuna fase:
@@ -177,31 +178,32 @@ Questa \gloss{attività} dev'essere svolta tenendo conto del tracciamento dei re
 \paragraph{Test di accettazione}
 Questo corrisponde al collaudo vero e proprio del software da svolgersi col \textit{Proponente}.
 \subsection{Metriche di valutazione}
-\label{sec:metriche}
 Per rendere quantificabile il processo di verifica verranno usate delle metriche elencate sotto. Soltanto due tipi di \gloss{range} saranno accettati:
 \begin{itemize}
   \item \textbf{Ottimale}: contiene i valori che si deve cercare di ottenere, valori al di fuori di questo \gloss{range} dovranno essere verificati e, se necessario, discussi dal gruppo;
   \item \textbf{Accettazione}: valori per avere un'accettazione del prodotto.
 \end{itemize}
 \subsubsection{Metriche per i processi}
+\label{sec:metricheProcesso}
 Per garantire un monitoraggio e un controllo dei processi è stato scelto di utilizzare un indice sui costi e un indice temporale. %%TODO non so come introdurre ste metriche della minchia
 \paragraph{Budget Variance (BV)}
 Questo indice indica se alla data corrente si è in linea con i costi preventivati.\\
 Se \gloss{BV} è $\geq$ 0 significa che le spese sostenute sono minori rispetto ai costi preventivati.\\
 \textbf{Range accettabili:}
 \begin{itemize}
-  \item \gloss{Range} ottimale: $\geq$ ;%todo come calcoliamo sto numero dimmmerda?
-  \item \gloss{Range} di accettazione: $\geq$ 0.
+  \item \gloss{Range} ottimale: $\geq$ 0;
+  \item \gloss{Range} di accettazione: $\geq$. %TODO percentuale di accettazione
 \end{itemize}
 \paragraph{Schedule Variance (SV)}
 Questo indice indica se alla data corrente si è in anticipo o in ritardo rispetto alla pianificazione temporale.\\
 Se \gloss{SV} è $\geq$ 0 significa che si è in anticipo rispetto a quanto pianificato.
 \textbf{Range accettabili:}
 \begin{itemize}
-  \item \gloss{Range} ottimale: $\geq$ ;%todo come calcoliamo sto numero dimmmerda?
-  \item \gloss{Range} di accettazione: $\geq$ 0.
+  \item \gloss{Range} ottimale: $\geq$ 0;
+  \item \gloss{Range} di accettazione: $\geq$. %TODO percentuale di accettazione
 \end{itemize}
 \subsubsection{Metriche per i documenti}
+\label{sec:metricheDocumenti}
 Per la stesura dei documenti è stato scelto di utilizzare un \textit{indice di leggibilità} per la lingua italiana.
 \paragraph{Indice Gulpease}
 \label{par:metricheGulpease}
@@ -229,6 +231,7 @@ Lo script applicato su un documento produrrà in output un valore intero compres
   \item \gloss{Range} di accettazione: 45 - 60.
 \end{itemize}
 \subsubsection{Metriche per il software}
+\label{sec:metricheSW}
 Per perseguire una buona qualità software sono state pensate diverse metriche di valutazione descritte nei prossimi paragrafi. Tuttavia questa sezione è una sezione che potrà subire cambiamenti durante le prossime revisioni.
 \paragraph{Linee di codice per linee di commento}
 Applicato su un file produrrà un valore in output che rappresenta la percentuale di righe di commento rispetto alle linee di \gloss{codice}.\\
