@@ -91,7 +91,7 @@ Il seguente documento ha lo scopo di presentare le funzionalità che il prodotto
 \textbf{Actorbase} esporrà all'utilizzatore finale. Inoltre elenca e descrive i
 requisiti derivanti dalle suddette funzionalità, emersi durante le riunioni
 interne ed esterne con il \textit{Proponente}.
-\prodPurpose \glossExpl
+\prodPurpose{}\glossExpl{}
 \subsection{Riferimenti}
 \subsubsection{Normativi}
 \begin{itemize}
@@ -174,7 +174,7 @@ attori primari nel modo seguente:\\
 Rispetto al classico sistema di permessi di lettura e scrittura, \textbf{Actorbase}
 prevede un meccanismo semplificato di \gloss{visibilità} secondo le seguenti regole:
 \begin{itemize}
-\item Ogni utente generico inizialmente ha \gloss{visibilità} solo sulle proprie \gloss{collezioni} e/o su \gloss{collezioni} di proprietà altrui su cui è in collaborazione;
+\item Ogni utente autenticato inizialmente ha \gloss{visibilità} solo sulle proprie \gloss{collezioni} e/o su \gloss{collezioni} di proprietà altrui su cui è in collaborazione;
 \item L'utente amministratore ha \gloss{visibilità} su tutto il sistema \textbf{Actorbase}.
 \end{itemize}
 La \gloss{visibilità} garantisce privilegi sia in lettura che in scrittura. Di
@@ -189,7 +189,7 @@ dovranno essere redistribuiti e bilanciati tra i nuovi nodi inseriti. In questo
 modo è idealmente possibile ottenere infinita capacità di carico semplicemente
 aggiungendo risorse hardware qualora necessario.
 \subsection{Visione generale}
-L'immagine che segue rappresenta uno schema della visione d'insieme del funzionamento di Actorbase. Al suo interno è possibile identificare 
+L'immagine che segue rappresenta uno schema della visione d'insieme del funzionamento di Actorbase. Al suo interno è possibile identificare
 l'utente che, mediante CLI e accesso alla rete, è in grado di interagire con la rete Actorbase. Essa è formata da un sistema di database distribuiti la cui distribuzione è assolutamente trasparente all'utente. Ogni elemento del sistema è in comunicazione con tutte le altre istanze con cui è in grado di interagire in maniera autonoma.
 \begin{figure}[H]
   \begin{center}
@@ -197,42 +197,37 @@ l'utente che, mediante CLI e accesso alla rete, è in grado di interagire con la
     \caption{Actorbase: Visione generale semplificata rete Actorbase}
   \end{center}
 \end{figure}
-\subsection{UC1: Actorbase}
+\subsection{Visione generale delle interazioni tramite \gloss{CLI}}
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC1.jpeg}
-    \caption{Caso d'uso 1: Interazioni basilari}
+    \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/CLI-Generale.png}
+    \caption{Visione generale - Interazioni tramite \gloss{CLI}}
   \end{center}
 \end{figure}
-\textbf{Attori primari:} Utente non autenticato, Utente autenticato, Amministratore\\ \\
+\subsection{UC1: Login}
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC1.png}
+    \caption{Caso d'uso 1: Login}
+  \end{center}
+\end{figure}
+\textbf{Attori primari:} Utente non autenticato\\
+\textbf{Attori secondari:} Terminale\\ \\
 \textbf{Scopo e descrizione:}
-L’utente ha appena avviato la \gloss{CLI}, risulta essere non autenticato e può quindi
-registrarsi oppure, se è già registrato, può effettuare il login diventando utente
-autenticato. Le operazioni che l'utente può eseguire a login effettuato sono:
+L’utente ha appena avviato la \gloss{CLI}, risulta essere non autenticato e può effettuare il login diventando utente
+autenticato.\\ \\
+\textbf{Precondizione:} Il \gloss{database} è installato correttamente, il server è in ascolto.\\ \\
+\textbf{Scenario principale:}
 \begin{itemize}
-\item Gestire il proprio \gloss{account};
-\item Operazioni sulle \gloss{collezioni};
-\item Operazioni sugli \gloss{item};
-\item Ricerca;
-\item Richiedere aiuto;
-\item Effettuare il logout.
+\item UC1.1 Inserimento username;
+\item UC1.2 Inserimento password.
 \end{itemize}
-Nel caso in cui si tratti di un amministratore, oltre alle operazioni elencate, l'utente può effettuare operazioni di gestione sugli utenti
-esistenti nel \gloss{database}.\\ \\
-\textbf{Precondizione:} Il \gloss{database} è installato correttamente e il server è in ascolto.\\ \\
-\textbf{Flusso eventi:}
+\textbf{Estensioni:}
 \begin{itemize}
-\item UC1.1 Registrazione;
-\item UC1.2 Login;
-\item UC1.3 Richiesta di aiuto;
-\item UC1.4 Operazioni sulle \gloss{collezioni};
-\item UC1.5 Operazioni sugli \gloss{item};
-\item UC1.6 Ricerca;
-\item UC1.7 Gestione \gloss{account};
-\item UC1.8 Effettuare il logout;
-\item UC1.9 Gestione utenti;
+\item UC1.3 Visualizzazione Errore username;
+\item UC1.4 Visualizzazione Errore password.
 \end{itemize}
-\textbf{Postcondizione:} Il sistema ha prodotto l'output corrispondente al comando immesso dall'utente.
+\textbf{Postcondizione:} L'Utente ha acceduto al sistema con successo e risulta essere autenticato.
 \subsection{UC1.1: Registrazione}
 \textbf{Attore primario:} Utente non autenticato\\ \\
 \textbf{Scopo e descrizione:} L'utente intende accedere al sistema \textbf{Actorbase}. Per farlo deve registrarsi nel sistema.
