@@ -85,15 +85,21 @@
 \tableofcontents
 \newpage
 \pagenumbering{arabic}
+
 \section{Sommario}
+
 \subsection{Scopo del documento}
+
 Il seguente documento ha lo scopo di presentare le funzionalità che il prodotto
 \textbf{Actorbase} esporrà all'utilizzatore finale. Inoltre elenca e descrive i
 requisiti derivanti dalle suddette funzionalità, emersi durante le riunioni
 interne ed esterne con il \textit{Proponente}.
 \prodPurpose{}\glossExpl{}
+
 \subsection{Riferimenti}
+
 \subsubsection{Normativi}
+
 \begin{itemize}
 \item\textbf{Capitolato d'appalto C1:} \textit{Actorbase: a NoSQL DB based on the Actor model}\\
   \url{http://www.math.unipd.it/~tullio/IS-1/2015/Progetto/C1.pdf}
@@ -103,7 +109,9 @@ interne ed esterne con il \textit{Proponente}.
 \item\textbf{Norme di Progetto:}\\
   \href{run:../Interni/NormeDiProgetto\_v1.0.0.pdf}{Norme di Progetto v1.0.0}
 \end{itemize}
+
 \subsubsection{Informativi}
+
 \begin{itemize}
 \item\textbf{Dispense fornite dall'insegnamento Ingegneria del Software mod. A:}\\
   \url{http://www.math.unipd.it/~tullio/IS-1/2015/Dispense/L06.pdf}
@@ -119,13 +127,18 @@ interne ed esterne con il \textit{Proponente}.
 \item\textbf{Leader election:}\\
   \url{https://en.wikipedia.org/wiki/Leader_election}
 \end{itemize}
+
 \section{Descrizione generale}
+
 \subsection{Prospettive del prodotto}
+
 l'obiettivo del prodotto è fornire un \gloss{database} \gloss{NoSQL} di tipo
 \gloss{key-value}, quindi senza schemi predefiniti e tabelle; che utilizzi il
 modello ad \gloss{attori} per garantire un alto grado di \gloss{concorrenza} e
 \gloss{scalabilità orizzontale} idealmente illimitata.
+
 \subsection{Funzioni}
+
 Il software fornirà un sistema di interazione con l'utente basata su \gloss{UI}
 testuale direttamente da riga di comando. Questa permetterà di effettuare le operazioni
 basilari che ogni \gloss{database} fornisce:
@@ -140,21 +153,29 @@ basilari che ogni \gloss{database} fornisce:
 \end{itemize}
 Il programma inoltre permetterà la richiesta di un aiuto esplicativo sull'uso
 dei comandi.
+
 \subsection{Caratteristiche utenza}
+
 Il prodotto è orientato all'utilizzo da parte di clientela interessata a
 sviluppo di applicazioni \gloss{reactive}, che trattino grandi moli di dati e
 debbano fornire brevissimi tempi di risposta sacrificando dunque le
 funzionalità relazionali tipiche dei tradizionali \gloss{database} \textit{SQL} in
 favore di un sistema fortemente \gloss{concorrente} e senza l'\gloss{overhead} generato
 dagli schemi \gloss{SQL}.
+
 \subsection{Vincoli}
+
 Per far funzionare \textbf{Actorbase} sarà necessario disporre di un computer con
 installata la \textit{\gloss{JVM} versione 8}. Non ci sono ulteriori richieste hardware o software.
+
 \section{Casi d'uso}
+
 Le aspettative di esperienza utente derivano dall'utilizzo da parte dei
 componenti del gruppo di \gloss{Amazon DynamoDB}, un \gloss{database} \gloss{key-value}
 sviluppato da \textit{Amazon}, utilizzato come modello di riferimento per lo sviluppo. I casi d'uso seguono le norme di stesura elencate nel documento \href{run:../Interni/NormeDiProgetto\_v1.0.0.pdf}{Norme di Progetto v1.0.0}.
+
 \subsection{Identificazione attori}
+
 L'analisi del capitolato e le riunioni con il \textit{Proponente} hanno fatto emergere
 alcune considerazioni sull'obiettivo che \textbf{Actorbase} si pone di raggiungere.
 Trattandosi di un'applicazione distribuita il prodotto finale sarà costituito
@@ -170,7 +191,9 @@ attori primari nel modo seguente:\\
 \item\textbf{Amministratore:}\\
   Rappresenta un superutente con privilegi di \gloss{visibilità} maggiori rispetto a utenti generici e poteri di modifica sulla \gloss{visibilità} di questi ultimi.
 \end{itemize}
+
 \subsubsection{Visibilità}
+
 Rispetto al classico sistema di permessi di lettura e scrittura, \textbf{Actorbase}
 prevede un meccanismo semplificato di \gloss{visibilità} secondo le seguenti regole:
 \begin{itemize}
@@ -180,7 +203,9 @@ prevede un meccanismo semplificato di \gloss{visibilità} secondo le seguenti re
 La \gloss{visibilità} garantisce privilegi sia in lettura che in scrittura. Di
 conseguenza tutte le azioni descritte nei casi d'uso si applicano al livello di
 \gloss{visibilità} proprio dell'attore che le effettua.
+
 \subsubsection{Scalabilità orizzontale}
+
 Il vantaggio più grande che il prodotto dovrà offrire sarà la possibilità di
 \gloss{scale out} semplificata al massimo. Dovrà quindi essere possibile
 aggiungere potenza di calcolo e capacità di carico mediante affiancamento di
@@ -188,27 +213,31 @@ macchine aggiuntive. I dati contenuti all'interno della base di dati originaria
 dovranno essere redistribuiti e bilanciati tra i nuovi nodi inseriti. In questo
 modo è idealmente possibile ottenere infinita capacità di carico semplicemente
 aggiungendo risorse hardware qualora necessario.
+
 \subsection{Visione generale}
+
 L'immagine che segue rappresenta uno schema della visione d'insieme del funzionamento di Actorbase. Al suo interno è possibile identificare
 l'utente che, mediante CLI e accesso alla rete, è in grado di interagire con la rete Actorbase. Essa è formata da un sistema di database distribuiti la cui distribuzione è assolutamente trasparente all'utente. Ogni elemento del sistema è in comunicazione con tutte le altre istanze con cui è in grado di interagire in maniera autonoma.
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/ActorbaseNetwork.png}
-    \caption{Actorbase: Visione generale semplificata rete Actorbase}
+    \caption*{Actorbase: Visione generale semplificata rete Actorbase}
   \end{center}
 \end{figure}
 \subsection{Visione generale delle interazioni tramite \gloss{CLI}}
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/CLI-Generale.png}
-    \caption{Visione generale - Interazioni tramite \gloss{CLI}}
+    \caption*{Visione generale - Interazioni tramite \gloss{CLI}}
   \end{center}
 \end{figure}
+
 \subsection{UC1: Login}
+
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC1.png}
-    \caption{Caso d'uso 1: Login}
+    \caption**{Caso d'uso 1: Login}
   \end{center}
 \end{figure}
 \textbf{Attori primari:} Utente non autenticato\\
@@ -228,7 +257,9 @@ autenticato.\\ \\
 \item UC1.4 Visualizzazione Errore password.
 \end{itemize}
 \textbf{Postcondizione:} L'Utente ha acceduto al sistema con successo e risulta essere autenticato.
+
 \subsection{UC1.1: Registrazione}
+
 \textbf{Attore primario:} Utente non autenticato\\ \\
 \textbf{Scopo e descrizione:} L'utente intende accedere al sistema \textbf{Actorbase}. Per farlo deve registrarsi nel sistema.
 Per la registrazione è necessario inserire un nome utente e una password.\\ \\
@@ -255,7 +286,9 @@ Per la registrazione è necessario inserire un nome utente e una password.\\ \\
   \end{itemize}
 \end{itemize}
 \textbf{Postcondizione:} L'utente è registrato all'interno del sistema \textbf{Actorbase}.
+
 \subsection{UC1.2: Login}
+
 \textbf{Attore primario:} Utente non autenticato\\ \\
 \textbf{Scopo e descrizione:} L’utente, già registrato, intende accedere al sistema \textbf{Actorbase}. Deve inserire le proprie credenziali di accesso. \\ \\
 \textbf{Flusso di eventi:}
@@ -275,11 +308,13 @@ Per la registrazione è necessario inserire un nome utente e una password.\\ \\
   \end{itemize}
 \end{itemize}
 \textbf{Postcondizione:} L'utente è autenticato all'interno del sistema \textbf{Actorbase}.
+
 \subsection{UC1.3: Richiesta aiuto}
+
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC1_3.jpeg}
-    \caption{Caso d'uso 1.3: Richiesta aiuto}
+    \caption*{Caso d'uso 1.3: Richiesta aiuto}
   \end{center}
 \end{figure}
 \textbf{Attore primario:} Utente\\ \\
@@ -291,7 +326,9 @@ Per la registrazione è necessario inserire un nome utente e una password.\\ \\
 \item UC1.3.2 Inserimento comando per richiesta di aiuto specifico.
 \end{itemize}
 \textbf{Postcondizione:} Il sistema ha risposto producendo in output l'aiuto richiesto.
+
 \subsection{UC1.3.1: Richiesta di aiuto generale}
+
 \textbf{Attore primario:} Utente\\ \\
 \textbf{Scopo e descrizione:} L'utente intende richiedere aiuto generale sull'utilizzo del sistema \textbf{Actorbase}.\\ \\
 \textbf{Precondizione:} Il \gloss{database} è pronto a ricevere comandi e l'utente intende richiedere supporto.\\ \\
@@ -300,7 +337,9 @@ Per la registrazione è necessario inserire un nome utente e una password.\\ \\
 \item Inserimento comando per richiesta di aiuto.
 \end{itemize}
 \textbf{Postcondizione:} Il sistema ha risposto visualizzando l'aiuto richiesto dall'utente in output.
+
 \subsection{UC1.3.2: Richiesta di aiuto specifico}
+
 \textbf{Attore primario:} Utente\\ \\
 \textbf{Scopo e descrizione:} L'utente intende richiedere aiuto su uno specifico comando del sistema \textbf{Actorbase}.\\ \\
 \textbf{Flusso di eventi:}
@@ -309,11 +348,13 @@ Per la registrazione è necessario inserire un nome utente e una password.\\ \\
 \item Inserimento nome comando.
 \end{itemize}
 \textbf{Postcondizione:} Il sistema ha risposto visualizzando l'aiuto richiesto dall'utente in output.
+
 \subsection{UC1.4: Operazioni sulle collezioni}
+
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC1_4.jpeg}
-    \caption{Caso d'uso 1.4: Operazioni sulle \gloss{collezioni}}
+    \caption*{Caso d'uso 1.4: Operazioni sulle \gloss{collezioni}}
   \end{center}
 \end{figure}
 \textbf{Attore primario:} Utente autenticato\\ \\
@@ -358,7 +399,9 @@ aggiunta o rimozione collaboratori a \gloss{collezione} esistente.\\ \\
   \end{itemize}
 \end{itemize}
 \textbf{Postcondizione:} L'operazione richiesta è stata eseguita.
+
 \subsection{UC1.4.1: Creazione nuova collezione}
+
 \textbf{Attore primario:} Utente autenticato\\ \\
 \textbf{Scopo e descrizione:} L'utente richiede la creazione di una \gloss{collezione} all'interno del \gloss{database}, deve inserire il nome della nuova \gloss{collezione}.\\ \\
 \textbf{Precodizione:} Il \gloss{database} è pronto a ricevere comandi e l'utente intende creare una \gloss{collezione}.\\ \\
@@ -367,12 +410,16 @@ aggiunta o rimozione collaboratori a \gloss{collezione} esistente.\\ \\
 \item Inserimento nome \gloss{collezione}
 \end{itemize}
 \textbf{Postcondizione:} La \gloss{collezione} è stata creata.
+
 \subsection{UC1.4.2: Visualizzazione della lista delle collezioni}
+
 \textbf{Attore primario:} Utente autenticato\\ \\
 \textbf{Scopo e descrizione:} L'utente intende elencare tutte le \gloss{collezioni} all'interno di \textbf{Actorbase} secondo la propria \gloss{visibilità}.\\ \\
 \textbf{Precodizione:} Il \gloss{database} è pronto a ricevere comandi e l'utente intende elencare le \gloss{collezioni} al suo interno.\\ \\
 \textbf{Postcondizione:} Il \gloss{database} restituisce la lista delle \gloss{collezioni} esistenti secondo la \gloss{visibilità} dell'utente.
+
 \subsection{UC1.4.3: Cancellazione di una o più collezioni}
+
 \textbf{Attore primario:} Utente autenticato\\ \\
 \textbf{Scopo e descrizione:} L’utente intende cancellare una o più \gloss{collezioni} presenti nel \gloss{database}.\\ \\
 \textbf{Precodizione:} Il \gloss{database} è pronto a ricevere comandi e l’utente intende cancellare una o più \gloss{collezioni}.\\ \\
@@ -381,7 +428,9 @@ aggiunta o rimozione collaboratori a \gloss{collezione} esistente.\\ \\
 \item Inserimento di uno o più nomi di \gloss{collezioni} da cancellare.
 \end{itemize}
 \textbf{Postcondizione:} Le \gloss{collezioni} sono state rimosse dal \gloss{database}.
+
 \subsection{UC1.4.4: Modifica nome collezione}
+
 \textbf{Attore primario:} Utente autenticato \\ \\
 \textbf{Scopo e descrizione:} L’utente intende modificare il nome di una \gloss{collezione}, deve inserire il nome della \gloss{collezione} da modificare e il nuovo nome da assegnare. \\ \\
 \textbf{Precondizione:} Il \gloss{database} è pronto a ricevere comandi e l’utente intende modificare il nome di una \gloss{collezione}.\\ \\
@@ -391,7 +440,9 @@ aggiunta o rimozione collaboratori a \gloss{collezione} esistente.\\ \\
 \item Inserimento nuovo nome della \gloss{collezione}.
 \end{itemize}
 \textbf{Postcondizione:} Il nome della \gloss{collezione} è stato modificato.
+
 \subsection{UC1.4.5: Aggiunta di un collaboratore a propria collezione}
+
 \textbf{Attore primario:} Utente autenticato\\ \\
 \textbf{Scopo e descrizione:} L'utente intende aggiungere un \gloss{collaboratore} ad una \gloss{collezione} di sua proprietà. Deve inserire il nome della \gloss{collezione} e lo username dell'utente da aggiungere.\\ \\
 \textbf{Precondizione:} Il \gloss{database} è pronto a ricevere comandi e l'utente intende aggiungere un \gloss{collaboratore} ad una \gloss{collezione} di sua proprietà.\\ \\
@@ -401,7 +452,9 @@ aggiunta o rimozione collaboratori a \gloss{collezione} esistente.\\ \\
 \item Inserimento username \gloss{collaboratore}.
 \end{itemize}
 \textbf{Postcondizione:} L'utente designato per la collaborazione è stato aggiunto tra i \gloss{collaboratori} della \gloss{collezione} scelta.
+
 \subsection{UC1.4.6: Rimozione di un collaboratore da una propria collezione}
+
 \textbf{Attore primario:} Utente autenticato\\ \\
 \textbf{Scopo e descrizione:} L'utente intende rimuovere un \gloss{collaboratore} da una \gloss{collezione} di sua proprietà. Deve inserire il nome della \gloss{collezione} e lo username del \gloss{collaboratore} da rimuovere.\\ \\
 \textbf{Precondizione:} Il \gloss{database} è pronto a ricevere comandi e l'utente intende rimuovere un \gloss{collaboratore} da una \gloss{collezione} di sua proprietà.\\ \\
@@ -411,11 +464,13 @@ aggiunta o rimozione collaboratori a \gloss{collezione} esistente.\\ \\
 \item Inserimento username \gloss{collaboratore}.
 \end{itemize}
 \textbf{Postcondizione:} L'utente designato per la rimozione dai \gloss{collaboratori} è stato rimosso dalla \gloss{collezione} scelta.
+
 \subsection{UC1.5: Operazioni sugli item}
+
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC1_5.jpeg}
-    \caption{Caso d'uso 1.5: Operazioni sugli \gloss{item}}
+    \caption*{Caso d'uso 1.5: Operazioni sugli \gloss{item}}
   \end{center}
 \end{figure}
 \textbf{Attore primario:} Utente autenticato\\ \\
@@ -447,11 +502,13 @@ inserimento e cancellazione.\\ \\
   \end{itemize}
 \end{itemize}
 \textbf{Postcondizione:} L'operazione richiesta è stata effettuata correttamente.
+
 \subsection{UC1.5.1: Inserimento nuovo item}
+
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC1_5_1.jpeg}
-    \caption{Caso d'uso 1.5.1: Inserimento nuovo \gloss{item}}
+    \caption*{Caso d'uso 1.5.1: Inserimento nuovo \gloss{item}}
   \end{center}
 \end{figure}
 \textbf{Attore primario:} Utente autenticato\\ \\
@@ -463,7 +520,9 @@ inserimento e cancellazione.\\ \\
 \item UC1.5.1.2 Inserimento senza sovrascrittura.
 \end{itemize}
 \textbf{Postcondizione:} L'operazione di inserimento richiesta è stata effettuata correttamente.
+
 \subsection{UC1.5.1.1: Inserimento con sovrascrittura (aggiornamento)}
+
 \textbf{Attore primario:} Utente autenticato\\ \\
 \textbf{Scopo e descrizione:} L'utente intende inserire un nuovo \gloss{item}; deve selezionare la \gloss{collezione} e inserire i parametri di definizione dell'\gloss{item} da inserire, quali chiave e valore associato. La procedura di inserimento non terrà conto di
 eventuali chiavi già presenti all'interno della \gloss{collezione}\\ \\
@@ -474,7 +533,9 @@ eventuali chiavi già presenti all'interno della \gloss{collezione}\\ \\
 \item Inserimento coppia chiave-valore da inserire.
 \end{itemize}
 \textbf{Postcondizione:} L'operazione di inserimento con sovrascrittura è andata a buon fine, eventuali chiavi già presenti avranno i valori associati aggiornati.
+
 \subsection{UC1.5.1.2: Inserimento senza sovrascrittura}
+
 \textbf{Attore primario:} Utente autenticato \\ \\
 \textbf{Scopo e descrizione:} L'utente intende inserire un nuovo \gloss{item}; deve selezionare la \gloss{collezione} e inserire i parametri di definizione dell'\gloss{item} da inserire, quali chiave e valore associato. La procedura di inserimento terrà conto di chiavi già presenti all'interno della \gloss{collezione} selezionata.\\ \\
 \textbf{Precondizione:} Il \gloss{database} è pronto a ricevere comandi e l'utente intende effettuare un inserimento di un nuovo \gloss{item}.\\ \\
@@ -491,7 +552,9 @@ eventuali chiavi già presenti all'interno della \gloss{collezione}\\ \\
   \end{itemize}
 \end{itemize}
 \textbf{Postcondizione:} L'operazione di inserimento senza sovrascrittura è andata a buon fine.
+
 \subsection{UC1.5.2: Cancellazione di un item}
+
 \textbf{Attore primario:} Utente autenticato\\ \\
 \textbf{Scopo e descrizione:} L'utente intende cancellare un \gloss{item} all'interno di una \gloss{collezione} esistente. Deve selezionare la \gloss{collezione} e inserire la chiave del valore da cancellare.\\ \\
 \textbf{Precondizione:} Il \gloss{database} è pronto a ricevere comandi e l'utente intende effettuare la cancellazione di un \gloss{item}.\\ \\
@@ -501,11 +564,13 @@ eventuali chiavi già presenti all'interno della \gloss{collezione}\\ \\
 \item Inserimento chiave.
 \end{itemize}
 \textbf{Postcondizione:} L'operazione di cancellazione di un \gloss{item} è andata a buon fine.
+
 \subsection{UC1.6: Ricerca generale}
+
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC1_6.jpeg}
-    \caption{Caso d'uso 1.6: Ricerca generale}
+    \caption*{Caso d'uso 1.6: Ricerca generale}
   \end{center}
 \end{figure}
 \textbf{Attore primario:} Utente autenticato \\ \\
@@ -531,7 +596,9 @@ eventuali chiavi già presenti all'interno della \gloss{collezione}\\ \\
   \end{itemize}
 \end{itemize}
 \textbf{Postcondizione:} Il sistema ha prodotto in output i risultati della ricerca effettuata.
+
 \subsection{UC1.6.1: Ricerca all'interno della base di dati}
+
 \textbf{Attore primario:} Utente autenticato \\ \\
 \textbf{Scopo e descrizione:} L’utente intende effettuare una ricerca sull’intera base di dati a lui visibile, deve inserire i parametri di ricerca.\\ \\
 \textbf{Precondizione:} Il \gloss{database} è pronto a ricevere comandi e l’utente intende effettuare una ricerca generale\\ \\
@@ -540,7 +607,9 @@ eventuali chiavi già presenti all'interno della \gloss{collezione}\\ \\
 \item Inserimento parametri di ricerca.
 \end{itemize}
 \textbf{Postcondizione:} Il sistema ha prodotto in output i risultati della ricerca effettuata.
+
 \subsection{UC1.6.2: Ricerca all'interno di una specifica collezione (o più)}
+
 \textbf{Attore primario:} Utente autenticato \\ \\
 \textbf{Scopo e descrizione:} L’utente intende effettuare una ricerca all’interno di una o più \gloss{collezioni} specifiche, deve inserire le \gloss{collezioni} su cui effettuare la ricerca e i parametri di ricerca.\\ \\
 \textbf{Precondizione:} Il \gloss{database} è pronto a ricevere comandi e l’utente intende effettuare una ricerca dettagliata\\ \\
@@ -550,11 +619,13 @@ eventuali chiavi già presenti all'interno della \gloss{collezione}\\ \\
 \item Inserimento parametri di ricerca.
 \end{itemize}
 \textbf{Postcondizione:} Il sistema ha prodotto in output i risultati della ricerca effettuata.
+
 \subsection{UC1.7: Gestione account}
+
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC1_7.jpeg}
-    \caption{Caso d'uso 1.7: Gestione \gloss{account}}
+    \caption*{Caso d'uso 1.7: Gestione \gloss{account}}
   \end{center}
 \end{figure}
 \textbf{Attore primario:} Utente autenticato\\ \\
@@ -582,7 +653,9 @@ modifica di username e di password.\\ \\
   \end{itemize}
 \end{itemize}
 \textbf{Postcondizione:} Il sistema ha eseguito correttamente l'operazione richiesta.
+
 \subsection{UC1.7.1: Modifica username}
+
 \textbf{Attore primario:} Utente autenticato\\ \\
 \textbf{Scopo e descrizione:} L'utente intende effettuare la modifica del proprio username nel sistema \textbf{Actorbase}. Dovrà inserire il nuovo username.\\ \\
 \textbf{Precondizione:} Il \gloss{database} è pronto a ricevere comandi e l'utente intende modificare il proprio username.\\
@@ -591,7 +664,9 @@ modifica di username e di password.\\ \\
 \item Inserimento nuovo username.
 \end{itemize}
 \textbf{Postcondizione:} L'utente ha aggiornato correttamente il proprio username.
+
 \subsection{UC1.7.2: Modifica password}
+
 \textbf{Attore primario:} Utente autenticato\\ \\
 \textbf{Scopo e descrizione:} L'utente intende effettuare la modifica della propria password nel sistema \textbf{Actorbase}. Dovrà inserire la vecchia password e la nuova password.\\ \\
 \textbf{Precondizione:} Il \gloss{database} è pronto a ricevere comandi e l'utente intende modificare la propria password.\\
@@ -600,7 +675,9 @@ modifica di username e di password.\\ \\
 \item Inserimento nuova password.
 \end{itemize}
 \textbf{Postcondizione:} L'utente ha aggiornato correttamente la propria password.
+
 \subsection{UC1.8: Logout}
+
 \textbf{Attore primario:} Utente autenticato\\ \\
 \textbf{Scopo e descrizione:} L'utente intende effettuare il logout dal sistema \textbf{Actorbase}.\\ \\
 \textbf{Precondizione:} Il \gloss{database} è pronto a ricevere comandi e l'utente intende effettuare il logout dal sistema.\\ \\
@@ -616,11 +693,13 @@ modifica di username e di password.\\ \\
   \end{itemize}
 \end{itemize}
 \textbf{Postcondizione:} L'utente è deautenticato dal sistema \textbf{Actorbase}.
+
 \subsection{UC1.9: Gestione utenti}
+
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC1_9.jpeg}
-    \caption{Caso d'uso 1.9: Gestione utenti}
+    \caption*{Caso d'uso 1.9: Gestione utenti}
   \end{center}
 \end{figure}
 \textbf{Attore primario:} Amministratore\\ \\
@@ -657,7 +736,9 @@ modifica di username e di password.\\ \\
   \end{itemize}
 \end{itemize}
 \textbf{Postcondizione:} L'operazione di gestione richiesta è andata a buon fine.
+
 \subsection{UC1.9.1: Aggiunta nuovo utente}
+
 \textbf{Attore primario:} Amministratore\\ \\
 \textbf{Scopo e descrizione:} L'amministratore intende aggiungere un nuovo utente al sistema \textbf{Actorbase}.\\ \\
 \textbf{Precondizione:} Il \gloss{database} è pronto a ricevere comandi e l'amministratore intende aggiungere un nuovo utente al sistema.\\ \\
@@ -667,7 +748,9 @@ modifica di username e di password.\\ \\
 \item Inserimento password nuovo utente.
 \end{itemize}
 \textbf{Postcondizione:} Il nuovo utente designato per l'aggiunta è presente all'interno del sistema \textbf{Actorbase}.
+
 \subsection{UC1.9.1: Rimozione utente esistente}
+
 \textbf{Attore primario:} Amministratore\\ \\
 \textbf{Scopo e descrizione:} L'amministratore intende rimuovere un utente esistente dal sistema \textbf{Actorbase}.\\ \\
 \textbf{Precondizione:} Il \gloss{database} è pronto a ricevere comandi e l'amministratore intende rimuovere un utente esistente dal sistema.\\ \\
@@ -676,7 +759,9 @@ modifica di username e di password.\\ \\
 \item Inserimento username utente.
 \end{itemize}
 \textbf{Postcondizione:} L'utente designato per la rimozione non è presente all'interno del sistema \textbf{Actorbase}.
+
 \subsection{UC1.9.2: Concessione permessi a utente}
+
 \textbf{Attore primario:} Amministratore\\ \\
 \textbf{Scopo e descrizione:} L'amministratore intende concedere permessi ad un utente esistente.\\ \\
 \textbf{Precondizione:} Il \gloss{database} è pronto a ricevere comandi e l'amministratore intende concedere permessi ad un utente esistente nel sistema locale \textbf{Actorbase}.
@@ -685,7 +770,9 @@ modifica di username e di password.\\ \\
 \item Inserimento username utente.
 \end{itemize}
 \textbf{Postcondizione:} L'utente designato ha ricevuto i permessi dall'amministratore.
+
 \subsection{UC1.9.3: Revoca permessi a utente}
+
 \textbf{Attore primario:} Amministratore\\ \\
 \textbf{Scopo e descrizione:} L'amministratore intende revocare permessi ad un utente esistente.\\ \\
 \textbf{Precondizione:} Il \gloss{database} è pronto a ricevere comandi e l'amministratore intende revocare permessi ad un utente esistente nel sistema locale \textbf{Actorbase}.
@@ -694,11 +781,13 @@ modifica di username e di password.\\ \\
 \item Inserimento username utente.
 \end{itemize}
 \textbf{Postcondizione:} All'utente designato sono stati revocati i permessi dall'amministratore.
+
 \subsection{UC1.10: Visualizzazione errore}
+
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC1_10.jpeg}
-    \caption{Caso d'uso 1.10: Visualizzazione errore}
+    \caption*{Caso d'uso 1.10: Visualizzazione errore}
   \end{center}
 \end{figure}
 \textbf{Attore primario:} Utente \\ \\
@@ -711,7 +800,9 @@ modifica di username e di password.\\ \\
 \item UC1.10.3 Errore di contesto.
 \end{itemize}
 \textbf{Postcondizione:} Il sistema ha prodotto in output il messaggio di errore, l'operazione che lo ha generato è stata annullata.
+
 \subsection{UC1.10.1: Errore di scrittura comando}
+
 \textbf{Attore primario:} Utente \\ \\
 \textbf{Scopo e descrizione:} L'utente ha inserito un comando errato, il sistema non riconosce il comando.\\ \\
 \textbf{Precondizione:} L'utente ha inserito un comando errato.\\ \\
@@ -722,7 +813,9 @@ modifica di username e di password.\\ \\
 \item Viene visualizzato il messaggio di errore.
 \end{itemize}
 \textbf{Postcondizione:} Il sistema ha prodotto in output il messaggio di errore, l'operazione che lo ha generato è stata annullata.
+
 \subsection{UC1.10.2: Errore di timeout}
+
 \textbf{Attore primario:} Utente \\ \\
 \textbf{Scopo e descrizione:} L'utente ha inserito un comando, il tempo di risposta da parte del sistema ha superato una soglia prefissata.\\ \\
 \textbf{Precondizione:} L'operazione richiesta dall'utente sta richiedendo un tempo di risposta troppo elevato.\\ \\
@@ -733,7 +826,9 @@ modifica di username e di password.\\ \\
 \item Viene visualizzato il messaggio di errore di timeout.
 \end{itemize}
 \textbf{Postcondizione:} Il sistema ha prodotto in output il messaggio di errore, l'operazione che lo ha generato è stata annullata.
+
 \subsection{UC1.10.3: Errore di contesto}
+
 \textbf{Attore primario:} Utente \\ \\
 \textbf{Scopo e descrizione:} L'utente ha tentato un operazione non permessa o impossibile da soddisfare.\\ \\
 \textbf{Precondizione:} L'utente ha tentato un'operazione non permessa o impossibile da soddisfare.\\ \\
@@ -744,11 +839,13 @@ modifica di username e di password.\\ \\
 \item Viene visualizzato il messaggio di errore.
 \end{itemize}
 \textbf{Postcondizione:} Il sistema ha prodotto in output il messaggio di errore di contesto, l'operazione che lo ha generato è stata annullata.
-\subsection{UC2: Driver - Interazioni}
+
+\subsection{UC2: Driver\ -\ Interazioni}
+
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC2.jpeg}
-    \caption{Caso d'uso 2: \gloss{Driver} interazioni}
+    \caption*{Caso d'uso 2: \gloss{Driver} interazioni}
   \end{center}
 \end{figure}
 \textbf{Attori primari:} Utente non autenticato, Utente autenticato, Amministratore\\ \\
@@ -781,8 +878,11 @@ comando immesso dall'utente.\\ \\ I sottocasi d'uso derivati da UC2 sono pari
 agli omonimi del caso d'uso UC1. Per evitare una ridondanza in questo documento
 si è scelto quindi di non scendere più in dettaglio nell'analisi di questo caso
 d'uso.
+
 \section{Requisiti}
+
 \subsection{Requisiti funzionali}
+
 La descrizione dei requisiti segue le regole descritte nelle \href{run:../Interni/NormeDiProgetto\_v1.0.0.pdf}{Norme di Progetto}.
 \begin{longtable}[H]{|l|p{2cm}|p{6cm}|p{4cm}|}
   \hline
@@ -931,7 +1031,9 @@ La descrizione dei requisiti segue le regole descritte nelle \href{run:../Intern
   OBF26 & \multiLineCell{Funzionale\\Obbligatorio} & Il sistema dovrà distinguere diversi tipi di \gloss{account}. Utente non autenticato, utente autenticato e utente amministratore & \multiLineCell{UC1\\UC1.1\\UC1.2\\UC1.7\\UC1.7.1\\UC1.7.2\\UC1.8\\UC1.9\\UC1.9.1\\UC1.9.2\\VERBALE20160112\\}\\
   \hline
 \end{longtable}
+
 \subsection{Requisiti di vincolo}
+
 \begin{longtable}[H]{|l|p{2cm}|p{6cm}|p{4cm}|}
   \hline
   \textbf{Requisito} & \textbf{Tipologia} & \textbf{Descrizione} & \textbf{Fonti}\\
@@ -947,7 +1049,9 @@ La descrizione dei requisiti segue le regole descritte nelle \href{run:../Intern
   OBV25 & \multiLineCell{Vincolo\\Obbligatorio} & Il sistema dovrà utilizzare la libreria Akka & \multiLineCell{Capitolato\\}\\
   \hline
 \end{longtable}
+
 \subsection{Requisiti di qualità}
+
 \begin{longtable}[H]{|l|p{2cm}|p{6cm}|p{4cm}|}
   \hline
   \textbf{Requisito} & \textbf{Tipologia} & \textbf{Descrizione} & \textbf{Fonti}\\
@@ -959,7 +1063,9 @@ La descrizione dei requisiti segue le regole descritte nelle \href{run:../Intern
   OBQ18.1 & \multiLineCell{Qualitativo\\Obbligatorio} & Dovrà essere prodotta documentazione in Scaladoc del prodotto & \multiLineCell{NORME\\}\\
   \hline
 \end{longtable}
+
 \section{Tracciamento Requisiti-Fonti}
+
 \begin{longtable}[H]{|p{5.5cm}|p{5.5cm}|}
   \hline
   \textbf{Requisito} & \textbf{Fonti}\\
@@ -1124,7 +1230,9 @@ La descrizione dei requisiti segue le regole descritte nelle \href{run:../Intern
   \hline
 \end{longtable}
 \newpage
+
 \section{Tracciamento Fonti-Requisiti}
+
 \begin{longtable}[H]{|p{5.5cm}|p{5.5cm}|}
   \hline
   \textbf{Fonte} & \textbf{Requisiti}\\
@@ -1204,10 +1312,12 @@ La descrizione dei requisiti segue le regole descritte nelle \href{run:../Intern
   VERBALE20160119 & \multiLineCell[t]{DEV15\\DEV16\\OBF10\\OBF2.1\\OBF2.2\\OBF4.1.1\\OBV13\\}\\
   \hline
 \end{longtable}
+
 \section{Riepilogo}
+
 \begin{table}[H]
   \centering
-  \caption{Riepilogo requisiti}
+  \caption*{Riepilogo requisiti}
   \begin{tabular}{|l|l|l|l|}
     \hline
     Categoria & Obbligatorio & Desiderabile & Opzionale\\
