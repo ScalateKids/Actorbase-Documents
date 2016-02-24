@@ -237,7 +237,7 @@ l'utente che, mediante CLI e accesso alla rete, è in grado di interagire con la
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC1.png}
-    \caption**{Caso d'uso 1: Login}
+    \caption*{Caso d'uso 1: Login}
   \end{center}
 \end{figure}
 \textbf{Attori primari:} Utente non autenticato\\
@@ -253,61 +253,18 @@ autenticato.\\ \\
 \end{itemize}
 \textbf{Estensioni:}
 \begin{itemize}
-\item UC1.3 Visualizzazione Errore username;
-\item UC1.4 Visualizzazione Errore password.
+  \item Nel caso in cui l'utente inserisca uno username già censita a sistema:
+    \begin{itemize}
+    \item L'utente non accede al sistema;
+    \item UC1.3 Visualizzazione Errore username.
+    \end{itemize}
+  \item Nel caso in cui l'utente inserisca una password errata:
+    \begin{itemize}
+    \item L'utente non accede al sistema
+    \item UC1.4 Visualizzazione Errore password.
+    \end{itemize}
 \end{itemize}
 \textbf{Postcondizione:} L'Utente ha acceduto al sistema con successo e risulta essere autenticato.
-
-\subsection{UC1.1: Registrazione}
-
-\textbf{Attore primario:} Utente non autenticato\\ \\
-\textbf{Scopo e descrizione:} L'utente intende accedere al sistema \textbf{Actorbase}. Per farlo deve registrarsi nel sistema.
-Per la registrazione è necessario inserire un nome utente e una password.\\ \\
-\textbf{Precondizione:} L'utente non è registrato e richiede la registrazione.\\ \\
-\textbf{Flusso eventi:}
-\begin{itemize}
-\item Inserimento username;
-\item Inserimento password;
-\item Conferma password.
-\end{itemize}
-\textbf{Estensioni:}
-\begin{itemize}
-\item Nel caso in cui l'utente utilizzi un comando sconosciuto:
-  \begin{itemize}
-  \item viene visualizzato un messaggio di errore esplicativo (e rimando all'aiuto).
-  \end{itemize}
-\item Nel caso in cui l'utente utilizzi un comando conosciuto ma con parametri errati:
-  \begin{itemize}
-  \item viene visualizzato un messaggio di supporto che indica come usare correttamente il comando.
-  \end{itemize}
-\item Nel caso in cui lo username inserito sia già presente all'interno del sistema:
-  \begin{itemize}
-  \item viene visualizzato un messaggio di errore esplicativo.
-  \end{itemize}
-\end{itemize}
-\textbf{Postcondizione:} L'utente è registrato all'interno del sistema \textbf{Actorbase}.
-
-\subsection{UC1.2: Login}
-
-\textbf{Attore primario:} Utente non autenticato\\ \\
-\textbf{Scopo e descrizione:} L’utente, già registrato, intende accedere al sistema \textbf{Actorbase}. Deve inserire le proprie credenziali di accesso. \\ \\
-\textbf{Flusso di eventi:}
-\begin{itemize}
-\item Inserimento username;
-\item Inserimento password.
-\end{itemize}
-\textbf{Estensioni:}
-\begin{itemize}
-\item Nel caso in cui l'utente utilizzi un comando sconosciuto:
-  \begin{itemize}
-  \item viene visualizzato un messaggio di errore esplicativo (e rimando all'aiuto).
-  \end{itemize}
-\item Nel caso in cui l'utente utilizzi un comando conosciuto ma con parametri errati:
-  \begin{itemize}
-  \item viene visualizzato un messaggio di supporto che indica come usare correttamente il comando.
-  \end{itemize}
-\end{itemize}
-\textbf{Postcondizione:} L'utente è autenticato all'interno del sistema \textbf{Actorbase}.
 
 \subsection{UC1.3: Richiesta aiuto}
 
