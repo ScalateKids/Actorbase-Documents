@@ -183,6 +183,7 @@ da due \gloss{macro} componenti: un lato server e un lato client fornito di inte
 comandi testuale per poter dialogare con la base di dati.\\ In particolare la
 scalabilità che il prodotto deve fornire ha portato alla suddivisione degli
 attori primari nel modo seguente:\\
+\textbf{Primari}
 \begin{itemize}
 \item\textbf{Utente non autenticato:}\\
   Rappresenta l'utente generico che avvia la \gloss{CLI} (Command Line Interface) di \textbf{Actorbase} ma non è ancora connesso al lato server del prodotto;
@@ -190,6 +191,15 @@ attori primari nel modo seguente:\\
   Rappresenta l'utente generico connesso al lato server del prodotto;
 \item\textbf{Amministratore:}\\
   Rappresenta un superutente con privilegi di \gloss{visibilità} maggiori rispetto a utenti generici e poteri di modifica sulla \gloss{visibilità} di questi ultimi.
+\end{itemize}
+\textbf{Secondari}
+\begin{itemize}
+\item\textbf{Terminale:}\\
+  Il sistema riceverà comandi mendiante l'utilizzo di una \gloss{CLI}, pertanto il terminale rappresenta l'attore necessario ai primari per raggiugere lo scopo prefissato, ovvero
+  l'inserimento dei comandi da inviare al sistema;
+\item\textbf{Driver:}\\
+  Nel caso di utilizzo del sistema da un programma esterno in linguaggio Scala, il driver rappresenta effettivamente l'attore necessario agli utenti (attori primari) per raggiugere
+  lo scopo prefissato, ovvero l'inserimento dei comandi da inviare al sistema.
 \end{itemize}
 
 \subsubsection{Visibilità}
