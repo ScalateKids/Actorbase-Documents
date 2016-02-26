@@ -1,0 +1,97 @@
+\documentclass{scalatekids-article}
+\begin{document}
+\lfoot{Specifica Tecnica 1.0.0}
+\newgeometry{top=3.5cm}
+\begin{titlepage}
+  \begin{center}
+    \begin{center}
+      \includegraphics[width=10cm]{sklogo.png}
+    \end{center}
+    \vspace{1cm}
+    \begin{Huge}
+      \begin{center}
+        \textbf{Specifica Tecnica}
+      \end{center}
+    \end{Huge}
+    \vspace{11pt}
+    \bgroup
+    \def\arraystretch{1.3}
+    \begin{tabular}{r|l}
+      \multicolumn{2}{c}{\textbf{Informazioni sul documento}} \\
+      \hline
+      \setbox0=\hbox{0.0.1\unskip}\ifdim\wd0=0pt
+      \\
+      \else
+      \textbf{Versione} & 1.0.0\\
+      \fi
+      \textbf{Redazione} & \multiLineCell[t]{}\\
+      \textbf{Verifica} & \multiLineCell[t]{}\\
+      \textbf{Approvazione} & \multiLineCell[t]{}\\
+      \textbf{Uso} & Esterno\\
+      \textbf{Lista di Distribuzione} & \multiLineCell[t]{ScalateKids\\Prof. Tullio Vardanega\\Prof. Riccardo Cardin}\\
+    \end{tabular}
+    \egroup
+    \vspace{22pt}
+  \end{center}
+\end{titlepage}
+\restoregeometry
+\clearpage
+\pagenumbering{Roman}
+\setcounter{page}{1}
+\begin{flushleft}
+  \vspace{0cm}
+         {\large\bfseries Diario delle modifiche \par}
+\end{flushleft}
+\vspace{0cm}
+\begin{center}
+  \begin{tabular}{| l | l | l | l | p{5cm} |}
+    \hline
+    Versione & Autore & Ruolo & Data & Descrizione \\
+    \hline
+    0.0.2 & Marco Boseggia & Progettista & 2016-02-26 & Stesura sezioni 1 e 2\\
+    \hline
+    0.0.1 & Andrea Giacomo Baldan & Amministratore & 2016-02-26 & Creazione scheletro del documento\\
+    \hline
+  \end{tabular}
+\end{center}
+\tableofcontents
+\newpage
+\pagenumbering{arabic}
+\section{Sommario}
+\subsection{Scopo del documento}
+Il seguente documento ha lo scopo di descrivere la progettazione ad alto livello che il gruppo \textit{ScalateKids} ha scelto per il progetto \textbf{ActorBase}.\\
+Sarà descritta l'\gloss{architettura} generale del progetto, in particolare la scelta dei \gloss{design pattern} e delle componenti che andranno a comporre il software.
+\prodPurpose
+\glossExpl
+\subsection{Riferimenti}
+\subsubsection{Normativi}
+\begin{itemize}
+\item\textbf{Capitolato d'appalto C1:} \textit{Actorbase: a NoSQL DB based on the Actor model;}\\
+  \url{http://www.math.unipd.it/~tullio/IS-1/2015/Progetto/C1.pdf}
+\item\textbf{Norme di Progetto:} \href{run:../Interni/NormeDiProgetto\_v1.0.0.pdf}{Norme di Progetto v1.0.0.}
+\end{itemize}
+\subsubsection{Informativi}
+\begin{itemize}
+\item\textbf{Piano di Progetto:} \href{run:./PianoDiProgetto\_v1.0.0.pdf}{Piano di Progetto v1.0.0}
+\item\textbf{Dispense fornite dall'insegnamento Ingegneria del Software mod. A:}\\
+  \url{http://www.math.unipd.it/~tullio/IS-1/2015/}
+\item\textbf{Documentazione di \gloss{Akka} su \gloss{Scala}:}
+  \url{http://doc.akka.io/docs/akka/2.4.2/scala.html}
+\end{itemize}
+\newpage
+\section{Tecnologie utilizzate}
+In questa sezione saranno descritte le tecnologie scelte per lo sviluppo del progetto \textbf{ActorBase} e le motivazioni che ci hanno spinto a sceglierle.
+\subsection{Akka}
+La scelta della libreria \gloss{Akka} è stata dettata dal capitolato. Tuttavia l'avremmo scelta comunque per i seguenti motivi:
+\begin{itemize}
+  \item\textbf{Implementazione del \gloss{modello ad attori}:} \gloss{Akka} rende semplice la creazione e l'utilizzo degli \gloss{attori}. Grazie a ciò viene naturale la distribuibilità del progetto e l'asincronia tra i processi;
+  \item\textbf{Tolleranza agli errori:} \gloss{Akka} implementa un sistema di gerarchia di supervisori. Questa gerarchia consente ai supervisori di un \gloss{attore}, nel caso in cui quest'ultimo lanci un'eccezione, di mandarlo in \gloss{crash} e farlo poi ripartire. In questo modo il sistema è resiliente agli errori;
+  \item\textbf{Persistenza:} Ogni messaggio ricevuto da ciascun \gloss{attore} può essere salvato in maniera tale che al riavvio esso possa riprendere da dov'era prima del suo spegnimento.
+\end{itemize}
+\subsection{Scala}
+Il capitolato richiede l'utilizzo di un linguaggio di programmazione a scelta tra \gloss{Scala} e \gloss{Java}. Abbiamo scelto \gloss{Scala} per i seguenti motivi:
+\begin{itemize}
+  \item\textbf{\gloss{Programmazione funzionale}:} Questa tecnica di programmazione evita che ci siano degli effetti collaterali tra funzioni, rendendole quindi \gloss{thread-safe};
+  \item\textbf{Implementazione di \gloss{Akka}:} \gloss{Akka} risulta più facilmente implementabile in \gloss{Scala} che in \gloss{Java}. Questo perchè la \gloss{programmazione funzionale} con i suoi paradigmi si integra meglio con il \gloss{modello ad attori};%%TODO completare lista
+\end{itemize}
+\end{document}
