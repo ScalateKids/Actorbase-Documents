@@ -1042,10 +1042,47 @@ L'utente ha appena avviato la \gloss{CLI}, risulta essere non autenticato e ha g
 \end{itemize}
 \textbf{Postcondizioni:} Il login fallisce, l'utente risulta essere non autenticato.
 
-\subsection{UC1.10: }
+\subsection{UC1.10: Visualizzazione errore password attuale}
+
+\textbf{Attori primari:} Utente autenticato\\ \\
+\textbf{Attori secondari:} Terminale\\ \\
+\textbf{Scopo e descrizione:}
+L'utente ha inserito il comando per la modifica password, ha inserito i parametri necessari (password attuale, nuova password e password di conferma) per modificare la propria password.\\ \\
+\textbf{Precondizioni:} Il server è in ascolto, l'utente ha inserito il comando per la modifica password, ha inserito i parametri necessari (password attuale, nuova password e password di conferma) e intende modificare la propria password. Il sistema non riconosce la password attuale inserita.
+\textbf{Scenario principale:}
+\begin{itemize}
+  \item Viene visualizzato un messaggio di errore esplicativo.
+\end{itemize}
+\textbf{Postcondizioni:} La modifica password fallisce, la password dell'utente resta quella di prima.
+
+\subsection{UC1.11: Visualizzazione errore nuova password}
+
+\textbf{Attori primari:} Utente autenticato\\ \\
+\textbf{Attori secondari:} Terminale\\ \\
+\textbf{Scopo e descrizione:}
+L'utente ha inserito il comando per la modifica password, ha inserito i parametri necessari (password attuale, nuova password e password di conferma) per modificare la propria password.\\ \\
+\textbf{Precondizioni:} Il server è in ascolto, l'utente ha inserito il comando per la modifica password, ha inserito i parametri necessari (password attuale, nuova password e password di conferma) e intende modificare la propria password. Il sistema non riconosce la nuova password inserita.
+\textbf{Scenario principale:}
+\begin{itemize}
+  \item Viene visualizzato un messaggio di errore esplicativo.
+\end{itemize}
+\textbf{Postcondizioni:} La modifica password fallisce, la password dell'utente resta quella di prima.
+
+\subsection{UC1.12: Visualizzazione errore nuova password}
+
+\textbf{Attori primari:} Utente autenticato\\ \\
+\textbf{Attori secondari:} Terminale\\ \\
+\textbf{Scopo e descrizione:}
+L'utente ha inserito il comando per la modifica password, ha inserito i parametri necessari (password attuale, nuova password e password di conferma) per modificare la propria password.\\ \\
+\textbf{Precondizioni:} Il server è in ascolto, l'utente ha inserito il comando per la modifica password, ha inserito i parametri necessari (password attuale, nuova password e password di conferma) e intende modificare la propria password. Il sistema non riconosce la password di conferma inserita.
+\textbf{Scenario principale:}
+\begin{itemize}
+  \item Viene visualizzato un messaggio di errore esplicativo.
+\end{itemize}
+\textbf{Postcondizioni:} La modifica password fallisce, la password dell'utente resta quella di prima.
 
 
-%                         QUI INIZIANO I CASI D'USO DEL DRIVER            %
+%             QUI INIZIANO I CASI D'USO DEL DRIVER            %
 \subsection{UC2: Interazioni tramite Driver}
 \begin{figure}[H]
   \begin{center}
