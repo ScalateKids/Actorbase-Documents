@@ -1123,7 +1123,6 @@ L'utente intende effettuare login al database da un programma \gloss{Scala} este
 \textbf{Precondizione:} Il server è in ascolto.\\ \\
 \textbf{Scenario principale:}
 \begin{itemize}
-\item 
 \item UC2.1.1 Inserimento username;
 \item UC2.1.2 Inserimento password.
 \end{itemize}
@@ -1185,7 +1184,7 @@ L'utente intende effettuare login al database da un programma \gloss{Scala} este
 \end{figure}
 \textbf{Attore primario:} Utente autenticato\\ \\
 \textbf{Attore secondario:} Driver\\ \\
-\textbf{Scopo e descrizione:} L'utente è autenticato e desidera effettuare delle operazioni sulle \gloss{collezioni}. L'utente può effettuare le seguenti operazioni:
+\textbf{Scopo e descrizione:} L'utente è autenticato e desidera effettuare delle operazioni sulle \gloss{collezioni} da un programma \gloss{Scala} esterno. L'utente può effettuare le seguenti operazioni:
 \begin{itemize}
 \item Creazione una nuova \gloss{collezione};
 \item Visualizzazione della lista delle \gloss{collezioni} esistenti;
@@ -1464,13 +1463,251 @@ L'utente intende effettuare login al database da un programma \gloss{Scala} este
 \end{itemize}
 \textbf{Postcondizioni:} Lo username è stato inserito correttamente.
 
-\subsection{UC11.7: Esportazione su file}
+\subsection{UC2.2.7: Esportazione di una o più collezioni su file}
 
-\subsection{UC11.7.1: Esportazione una o più collezione}
+\textbf{Attore primario:} Utente autenticato\\ \\
+\textbf{Attore secondario:} Driver\\ \\
+\textbf{Scopo e descrizione:} L'utente intende esportare su file il contenuto di una o più collezioni da un programma \gloss{Scala} esterno.\\ \\
+\textbf{Precondizione:} Il server è in ascolto e l'utente intende esportare il contenuto di una o più collezioni su file.
+\textbf{Scenario principale:}
+\begin{itemize}
+  \item L'utente può inserire la lista di collezioni da esportare. %TODO bisogna emttere il sotto caso d'uso inserire lista collezioni?
+\end{itemize}
+\textbf{Postcondizione:} Il contenuto delle collezioni selezionate è stato esportato su file.
 
-\subsection{UC11.7.2: Esportazione di tutto il database}
+\subsection{UC2.3: Operazioni sugli item}
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC2_3.png}
+    \caption*{Caso d'uso 2.3: Operazioni sugli \gloss{item}}
+  \end{center}
+\end{figure}
+\textbf{Attore primario:} Utente autenticato\\ \\
+\textbf{Attore secondario:} Driver\\ \\
+\textbf{Scopo e descrizione:} L'utente intende effettuare operazioni sugli \gloss{item} di una \gloss{collezione} esistente da un programma \gloss{Scala} esterno. Le operazioni previste sono:
+inserimento e cancellazione.\\ \\
+\textbf{Precondizione:} Il \gloss{database} è pronto a ricevere comandi e l'utente intende effettuare operazioni di inserimento o cancellazione su una \gloss{collezione} esistente.\\ \\
+\textbf{Scenario principale:}
+\begin{itemize}
+  \item UC2.3.1 Inserimento nuovo \gloss{item};
+  \begin{itemize}
+    \item UC2.3.1.1 Inserimento \gloss{item} manuale;
+    \item UC2.3.1.2 Inserimento \gloss{item} item da file.
+  \end{itemize}
+  \item UC2.3.2 Cancellazione \gloss{item}.
+\end{itemize}
+\textbf{Estensioni:}
+\begin{itemize} %%INSERIRE 2.3.3!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  \item Nel caso in cui la \gloss{collezione} su cui effettuare cancellazione non sia presente:
+  \begin{itemize}
+    \item UC2.3.5 Visualizzazione errore collezione inesistente.
+  \end{itemize}
+  \item Nel caso in cui la chiave dell'item da inserire sia già presente:
+  \begin{itemize}
+    \item UC2.3.4 Visualizzazione errore chiave già esistente.
+  \end{itemize}
+  \item Nel caso in cui la collezione su cui effettuare l'inserimento sia inesistente:
+  \begin{itemize}
+    \item UC2.3.6 Creazione nuova collezione.
+  \end{itemize}
+\end{itemize}
+\textbf{Postcondizione:} L'operazione richiesta è stata effettuata correttamente.
 
-\subsection{UC12: Operazioni sugli item}
+\subsection{UC2.3.1: Inserimento item}
+
+\textbf{Attore primario:} Utente autenticato\\ \\
+\textbf{Attore secondario:} Driver\\ \\
+\textbf{Scopo e descrizione:} L'utente intende inserire un nuovo \gloss{item} all'interno di una \gloss{collezione} esistente. Deve selezionare la \gloss{collezione} e inserire i parametri di definizione dell'\gloss{item}. Questi sono la chiave, il valore associato e il \gloss{flag} di sovrascrittura. Può scegliere di effettuare l'inserimento mediante due modalità distinte:
+\begin{itemize}
+  \item Manuale;
+  \item Da file.
+\end{itemize}
+\textbf{Precondizione:} Il \gloss{database} è pronto a ricevere comandi e l'utente intende effettuare un inserimento di un nuovo \gloss{item}.\\ \\
+\textbf{Scenario principale:}
+\begin{itemize}
+  \item UC2.3.1.1 Inserimento item manuale;
+  \item UC2.3.1.2 Inserimento item da file.
+\end{itemize}
+\textbf{Postcondizioni:} L'operazione di inserimento richiesta è stata effettuata correttamente.
+
+\subsection{UC2.3.1.1: Inserimento item manuale}
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC1_4_1_1.png}
+    \caption*{Caso d'uso 1.4.1.1: Inserimento item manuale}
+  \end{center}
+\end{figure}
+\textbf{Attore primario:} Utente autenticato\\ \\
+\textbf{Attore secondario} Driver\\ \\
+\textbf{Scopo e descrizione:} L'utente intende inserire manualmente un nuovo \gloss{item} all'interno di una \gloss{collezione} esistente. Deve selezionare la \gloss{collezione} e inserire i parametri di definizione dell'\gloss{item}. Questi sono la chiave, il valore associato e il \gloss{flag} di sovrascrittura.\\ \\
+\textbf{Precondizione:} Il server è in ascolto e l'utente intende inserire un nuovo item in modalità manuale.\\ \\
+\textbf{Scenario principale:}
+\begin{itemize}
+  \item UC2.3.1.1.1 Inserimento nome collezione;
+  \item UC2.3.1.1.2 Inserimento chiave;
+  \item UC2.3.1.1.3 Inserimento valore;
+  \item UC2.3.1.1.4 Inserimento flag sovrascrittura.
+\end{itemize}
+\textbf{Estensioni:}
+\begin{itemize}
+  \item Nel caso in cui l'utente inserisca un \gloss{item} con \gloss{flag} di sovrascrittura attivo contenente una chiave già esistente all'interno del sistema:
+  \begin{itemize}
+  \item UC2.3.4 Visualizzazione errore chiave già esistente.
+  \end{itemize}
+\end{itemize}
+\textbf{Postcondizioni:} L'item è stato inserito con successo.
+
+\subsubsection{UC2.3.1.1.1: Inserimento nome collezione}
+
+\textbf{Attore primario:} Utente autenticato\\ \\
+\textbf{Attore secondario:} Driver\\ \\
+\textbf{Scopo e descrizione:} L'utente intende inserire manualmente un nuovo \gloss{item} all'interno di una \gloss{collezione} esistente. Deve inserire il nome della collezione.\\ \\
+\textbf{Precondizione:} Il server è in ascolto e l'utente ha inserito il comando per l'inserimento item manuale.\\ \\
+\textbf{Scenario principale:}
+\begin{itemize}
+  \item L'utente può inserire il nome della collezione su cui effettuare l'inserimento.
+\end{itemize}
+\textbf{Estensioni:}
+\begin{itemize}
+  \item Nel caso in cui l'utente inserisca il nome di una collezione non esistente all'interno del sistema:
+  \begin{itemize}
+    \item UC2.3.6 Creazione nuova collezione. %TODO non so se sia proprio giusto
+  \end{itemize}
+\end{itemize}
+\textbf{Postcondizione:} Il nome della collezione è stato inserito correttamente.
+
+\subsubsection{UC2.3.1.1.2: Inserimento chiave}
+
+\textbf{Attore primario:} Utente autenticato\\ \\
+\textbf{Attore secondario:} Driver\\ \\
+\textbf{Scopo e descrizione:} L'utente intende inserire manualmente un nuovo \gloss{item} all'interno di una \gloss{collezione} esistente. Deve inserire la chiave dell'item.\\ \\
+\textbf{Precondizione:} Il server è in ascolto, l'utente ha inserito il comando per l'inserimento item manuale e ha inserito il nome della collezione.\\ \\
+\textbf{Scenario principale:}
+\begin{itemize}
+  \item L'utente può inserire la chiave associata all'item.
+\end{itemize}
+\textbf{Estensioni:}
+\begin{itemize}
+  \item Nel caso in cui l'utente inserisca un item con \gloss{flag} di sovrascrittura attivo associato ad una chiave già presente all'interno del sistema:
+  \begin{itemize}
+    \item UC2.3.4 Visualizzazione errore chiave già esistente
+  \end{itemize}
+\end{itemize}
+\textbf{Postcondizioni:} La chiave è stata inserita correttamente.
+
+\subsubsection{UC2.3.1.1.3: Inserimento valore}
+
+\textbf{Attore primario:} Utente autenticato\\ \\
+\textbf{Attore secondario:} Driver\\ \\
+\textbf{Scopo e descrizione:} L'utente intende inserire manualmente un nuovo \gloss{item} all'interno di una \gloss{collezione} esistente. Deve inserire il valore associato alla chiave dell'item.\\ \\
+\textbf{Precondizione:} Il server è in ascolto, l'utente ha inserito il comando per l'inserimento item manuale, il nome della collezione e la chiave da inserire.\\ \\
+\textbf{Scenario principale:}
+\begin{itemize}
+  \item L'utente può inserire il valore associato alla chiave dell'item.
+\end{itemize}
+\textbf{Postcondizioni:} Il valore è stato inserito correttamente.
+
+\subsubsection{UC2.3.1.1.4: Inserimento flag sovrascrittura}
+
+\textbf{Attore primario:} Utente autenticato\\ \\
+\textbf{Attore secondario:} Driver\\ \\
+\textbf{Scopo e descrizione:} L'utente intende inserire manualmente un nuovo \gloss{item} all'interno di una \gloss{collezione} esistente. Deve inserire il \gloss{flag} di sovrascrittura item.\\ \\
+\textbf{Precondizione:} Il server è in ascolto, l'utente ha inserito il comando per l'inserimento item manuale, il nome della collezione, la chiave e il valore dell'\gloss{item}.\\ \\
+\textbf{Scenario principale:}
+\begin{itemize}
+  \item L'utente può inserire il \gloss{flag} di sovrascrittura item. %TODO il flag può fare errore... lo inglobiamo negli errori di battitura?
+\end{itemize}
+\textbf{Postcondizioni:} Il \gloss{flag} è stato inserito correttamente.
+
+\subsection{UC2.3.1.2: Inserimento item da file}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC1_4_1_2.png}
+    \caption*{Caso d'uso 1.4.1.2: Inserimento \gloss{item} da file}
+  \end{center}
+\end{figure}
+\textbf{Attore primario:} Utente\\ \\
+\textbf{Attore secondario:} Driver\\ \\
+\textbf{Scopo e descrizione:} L'utente intende inserire nuovi \gloss{item} da file. Deve inserire il \gloss{path} del file su filesystem.\\ \\ %filesystem?
+\textbf{Precondizione:} Il server è in ascolto e l'utente intende inserire nuovi \gloss{item} da file.\\ \\
+\textbf{Scenario principale:}
+\begin{itemize}
+  \item L'utente può inserire il \gloss{path} del file.
+\end{itemize}
+\textbf{Estensioni:}
+\begin{itemize}
+  \item Nel caso in cui il file non esista nel filesystem: %filesystem?
+  \begin{itemize}
+    \item UC2.3.3 Visualizzazione errore file inesistente.
+  \end{itemize}
+  %TODO se il file è "costruito male" credo sia un altro errore da aggiungere qua
+\end{itemize}
+\textbf{Postcondizioni:} Gli item scritti all'interno del file inserito sono stati inseriti con successo all'interno del sistema.%TODO vaben così? %Il \gloss{path} è stato inserito correttamente.
+
+\subsubsection{UC2.3.1.2.1: Inserimento path file} %da tenere?
+
+\textbf{Attore primario:} Utente autenticato\\ \\
+\textbf{Attore secondario:} Driver\\ \\
+\textbf{Scopo e descrizione:} L'utente intende inserire nuovi \gloss{item} da file. Deve inserire il \gloss{path} del file su filesystem.\\ \\
+\textbf{Precondizione:} Il server è in ascolto e l'utente ha inserito il comando per l'inserimento di \gloss{item} da file.\\ \\
+\textbf{Scenario principale:}
+\begin{itemize}
+  \item L'utente può inserire il \gloss{path} del file.
+\end{itemize}
+\textbf{Postcondizioni:} Il \gloss{path} è stato inserito correttamente.
+
+\subsection{UC2.3.2: Cancellazione item}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC1_4_2.png}
+    \caption*{Caso d'uso 2.3.2: Cancellazione \gloss{item}}
+  \end{center}
+\end{figure}
+\textbf{Attore primario:} Utente autenticato\\ \\
+\textbf{Attore secondario:} Driver\\ \\
+\textbf{Scopo e descrizione:} L'utente intende cancellare un item da una collezione.\\ \\
+\textbf{Precondizioni:} Il server è in ascolto e l'utente intende cancellare un item.\\ \\
+\textbf{Scenario principale:}
+\begin{itemize}
+  \item UC2.3.2.1 Inserimento nome \gloss{collezione};
+  \item UC2.3.2.2 Inserimento chiave \gloss{item}.
+\end{itemize}
+\textbf{Estensioni:}
+\begin{itemize}
+  \item Nel caso in cui l'utente inserisca il nome di una \gloss{collezione} inesistente:
+  \begin{itemize}
+    \item UC2.3.5 Lancio eccezione collezione inesistente.
+  \end{itemize}
+\end{itemize}
+\textbf{Postcondizioni:} L'\gloss{item} è stato cancellato correttamente.
+
+\subsection{UC2.3.2.1: Inserimento nome collezione}
+
+\textbf{Attore primario:} Utente autenticato\\ \\
+\textbf{Attore secondario:} Driver\\ \\
+\textbf{Scopo e descrizione:} L'utente intende cancellare un \gloss{item} all'interno di una \gloss{collezione} esistente. Deve inserire il nome della collezione.\\ \\
+\textbf{Precondizione:} Il server è in ascolto e l'utente ha inserito il comando di cancellazione item.\\ \\
+\textbf{Scenario principale:}
+\begin{itemize}
+  \item L'utente può inserire il nome della collezione su cui effettuare la cancellazione.
+\end{itemize}
+\textbf{Postcondizioni:} Il nome della collezione è stato inserito correttamente.
+
+\subsection{UC2.3.2.2: Inserimento chiave item}
+
+\textbf{Attore primario:} Utente autenticato\\ \\
+\textbf{Attore secondario:} Driver\\ \\
+\textbf{Scopo e descrizione:} L'utente intende cancellare un \gloss{item} all'interno di una \gloss{collezione} esistente. Deve inserire la chiave dell'item.\\ \\
+\textbf{Precondizione:} Il server è in ascolto, l'utente ha inserito il comando di cancellazione item e ha inserito il nome della collezione.\\ \\
+\textbf{Scenario principale:}
+\begin{itemize}
+  \item L'utente può inserire la chiave dell'item da eliminare.
+\end{itemize}
+\textbf{Postcondizioni:} La chiave è stata inserita correttamente.
+
+\iffalse \subsection{UC2.3: Operazioni sugli item}
 
 \begin{figure}[H]
   \begin{center}
@@ -1479,13 +1716,12 @@ L'utente intende effettuare login al database da un programma \gloss{Scala} este
   \end{center}
 \end{figure}
 \textbf{Attore primario:} Utente autenticato\\ \\
-\textbf{Scopo e descrizione:} L'utente intende effettuare operazioni sugli \gloss{item} di una \gloss{collezione} esistente. Le operazioni previste sono:
-inserimento e cancellazione.\\ \\
+\textbf{Scopo e descrizione:} L'utente intende effettuare operazioni sugli \gloss{item} di una \gloss{collezione} esistente da un programma \gloss{Scala} esterno. Le operazioni previste sono quelle di inserimento e cancellazione.\\ \\
 \textbf{Precondizione:} Il \gloss{database} è pronto a ricevere comandi e l'utente intende effettuare operazioni di inserimento o cancellazione su una \gloss{collezione} esistente.\\ \\
 \textbf{Scenario principale:}
 \begin{itemize}
-\item UC1.5.1 Inserimento nuovo \gloss{item};
-\item UC1.5.2 Cancellazione \gloss{item}.
+\item UC2.3.1 Inserimento nuovo \gloss{item};
+\item UC2.3.2 Cancellazione \gloss{item}.
 \end{itemize}
 \textbf{Estensioni:}
 \begin{itemize}
@@ -1559,7 +1795,8 @@ inserimento e cancellazione.\\ \\
 
 \subsection{UC12.2.1: Inserimento nome collezione}
 
-\subsection{UC12.2.2: Inserimento chiave item}
+\subsection{UC12.2.2: Inserimento chiave item}\fi
+%%TODO: continuare
 
 \subsection{UC13: Ricerca}
 
