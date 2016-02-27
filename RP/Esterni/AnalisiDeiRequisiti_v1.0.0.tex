@@ -443,7 +443,7 @@ aggiunta o rimozione collaboratori a \gloss{collezione} esistente.\\ \\
 \begin{itemize}
 \item Nel caso in cui nelle procedure di creazione collezione o modifica nome collezione, l'utente inserisca il nome di una collezione già censita all'iterno del sistema:
   \begin{itemize}
-  \item UC1.3.7 Visualizzazione errore \gloss{collezione} già esistente.
+  \item UC1.3.10 Visualizzazione errore \gloss{collezione} già esistente.
   \end{itemize}
 \item Nel caso in cui nelle procedure di modifica, cancellazione collezione, aggiunta collaboratore a collezione o rimozione collaboratore a collezione, l'utente inserisca il nome di una collezione non censita all'interno del sistema:
   \begin{itemize}
@@ -501,7 +501,7 @@ aggiunta o rimozione collaboratori a \gloss{collezione} esistente.\\ \\
 \begin{itemize}
   \item Nel caso in cui l'utente inserisca come nuovo nome per la collezione da modificare, un nome di una collezione già esistente all'interno del sistema:
   \begin{itemize}
-    \item UC1.3.7 Visualizzazione errore collezione già esistente.
+    \item UC1.3.10 Visualizzazione errore collezione già esistente.
   \end{itemize}
   \item Nel caso in cui l'utente inserisca come nome della collezione da modificare, un nome di una collezione inesistente all'interno del sistema:
   \begin{itemize}
@@ -661,6 +661,51 @@ aggiunta o rimozione collaboratori a \gloss{collezione} esistente.\\ \\
 \end{itemize}
 \textbf{Postcondizione:} Il contenuto delle collezioni selezionate è stato esportato su file.
 
+\subsection{UC1.3.8: Visualizzazione errore username inesistente}
+
+\textbf{Attori primari:} Utente autenticato\\ \\
+\textbf{Attori secondari:} Terminale\\ \\
+\textbf{Scopo e descrizione:}
+L'utente ha inserito un comando tra:
+\begin{itemize}
+  \item UC1.3.5 Aggiunta collaboratore a collezione
+  \item UC1.3.6 Rimozione collaboratore da collezione
+\end{itemize}
+e i parametri per la sua esecuzione tra cui lo username che risulta essere non già censito all'interno del sistema.\\ \\
+\textbf{Precondizioni:} Il server è in ascolto, l'utente ha inserito il %finire tutti i casi di errore qua sotto
+comando per la modifica password, ha inserito i parametri necessari (password attuale, nuova password e password di conferma) e intende modificare la propria password. Il sistema non riconosce la password di conferma inserita.
+\textbf{Scenario principale:}
+\begin{itemize}
+  \item Viene visualizzato un messaggio di errore esplicativo.
+\end{itemize}
+\textbf{Postcondizioni:} La modifica password fallisce, la password dell'utente resta quella di prima.
+
+\subsection{UC1.3.9: Visualizzazione errore collezione inesistente}
+
+\textbf{Attori primari:} Utente autenticato\\ \\
+\textbf{Attori secondari:} Terminale\\ \\
+\textbf{Scopo e descrizione:}
+L'utente ha inserito il comando per la modifica password, ha inserito i parametri necessari (password attuale, nuova password e password di conferma) per modificare la propria password.\\ \\
+\textbf{Precondizioni:} Il server è in ascolto, l'utente ha inserito il comando per la modifica password, ha inserito i parametri necessari (password attuale, nuova password e password di conferma) e intende modificare la propria password. Il sistema non riconosce la password di conferma inserita.
+\textbf{Scenario principale:}
+\begin{itemize}
+  \item Viene visualizzato un messaggio di errore esplicativo.
+\end{itemize}
+\textbf{Postcondizioni:} La modifica password fallisce, la password dell'utente resta quella di prima.
+
+\subsection{UC1.3.10: Visualizzazione errore collezione già esistente}
+
+\textbf{Attori primari:} Utente autenticato\\ \\
+\textbf{Attori secondari:} Terminale\\ \\
+\textbf{Scopo e descrizione:}
+L'utente ha inserito il comando per la modifica password, ha inserito i parametri necessari (password attuale, nuova password e password di conferma) per modificare la propria password.\\ \\
+\textbf{Precondizioni:} Il server è in ascolto, l'utente ha inserito il comando per la modifica password, ha inserito i parametri necessari (password attuale, nuova password e password di conferma) e intende modificare la propria password. Il sistema non riconosce la password di conferma inserita.
+\textbf{Scenario principale:}
+\begin{itemize}
+  \item Viene visualizzato un messaggio di errore esplicativo.
+\end{itemize}
+\textbf{Postcondizioni:} La modifica password fallisce, la password dell'utente resta quella di prima.
+
 \subsection{UC1.4: Operazioni sugli item}
 \begin{figure}[H]
   \begin{center}
@@ -669,6 +714,7 @@ aggiunta o rimozione collaboratori a \gloss{collezione} esistente.\\ \\
   \end{center}
 \end{figure}
 \textbf{Attore primario:} Utente autenticato\\ \\
+\textbf{Atttore secondario:} Terminale\\ \\
 \textbf{Scopo e descrizione:} L'utente intende effettuare operazioni sugli \gloss{item} di una \gloss{collezione} esistente. Le operazioni previste sono:
 inserimento e cancellazione.\\ \\
 \textbf{Precondizione:} Il \gloss{database} è pronto a ricevere comandi e l'utente intende effettuare operazioni di inserimento o cancellazione su una \gloss{collezione} esistente.\\ \\
@@ -694,6 +740,10 @@ inserimento e cancellazione.\\ \\
   \item Nel caso in cui la collezione su cui effettuare l'inserimento sia inesistente:
   \begin{itemize}
     \item UC1.4.6 Creazione nuova collezione.
+  \end{itemize}
+  \item Nel caso in cui il file che contiene gli item da inserire non sia presente nel path inserito:
+  \begin{itemize}
+    \item UC1.4.3 Visualizzazione errore file inesistente.
   \end{itemize}
 \end{itemize}
 \textbf{Postcondizione:} L'operazione richiesta è stata effettuata correttamente.
