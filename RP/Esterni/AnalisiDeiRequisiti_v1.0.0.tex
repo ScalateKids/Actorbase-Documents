@@ -1032,15 +1032,15 @@ L'utente ha appena avviato la \gloss{CLI}, risulta essere non autenticato e ha g
     \caption*{Caso d'uso 2: Interazioni tramite driver}
   \end{center}
 \end{figure}
-\textbf{Attori primari:} utente non autenticato, utente autenticato, utente amministratore\\ \\
+\textbf{Attori primari:} Utente non autenticato, utente autenticato, utente amministratore\\ \\
 \textbf{Attore secondario:} Terminale\\ \\
-\textbf{Scopo e descrizione:} L'utente intende effettuare operazioni al database da un programma \gloss{scala} esterno, le operazioni che può eseguire sono:
+\textbf{Scopo e descrizione:} L'utente intende effettuare operazioni al database da un programma \gloss{Scala} esterno, le operazioni che può eseguire sono:
 \begin{itemize}
-  \item Nel caso sia un \textbf{utente non autenticato}:
+  \item Nel caso sia un \textbf{utente non autenticato} può:
   \begin{itemize}
     \item Effettuare il login
   \end{itemize}
-  \item Nel caso sia un \textbf{utente autenticato} o un \textbf{utente amministratore}:
+  \item Nel caso sia un \textbf{utente autenticato} o un \textbf{utente amministratore} può:
   \begin{itemize}
     \item Effettuare operazioni sulle \gloss{collezioni}
     \item Effettuare operazioni sugli \gloss{item}
@@ -1048,7 +1048,7 @@ L'utente ha appena avviato la \gloss{CLI}, risulta essere non autenticato e ha g
     \item Modificare la propria password
     \item Effettuare il logout
   \end{itemize}
-  \item Nel caso sia un \textbf{utente amministratore}:
+  \item Nel caso sia un \textbf{utente amministratore} può:
   \begin{itemize}
     \item Effettuare operazioni di gestione utente
   \end{itemize}
@@ -1056,7 +1056,7 @@ L'utente ha appena avviato la \gloss{CLI}, risulta essere non autenticato e ha g
 \textbf{Precondizione:} il server è in ascolto\\ \\
 \textbf{Scenario principale utente non autenticato:} 
 \begin{itemize}
-  \item UC2.1 - login
+  \item UC2.1 - Login
 \end{itemize}
 \textbf{Scenario principale utente autenticato o utente amministratore:} 
 \begin{itemize}
@@ -1098,16 +1098,17 @@ L'utente ha appena avviato la \gloss{CLI}, risulta essere non autenticato e ha g
 \textbf{Attori primari:} Utente non autenticato\\ \\
 \textbf{Attori secondari:} Driver\\ \\
 \textbf{Scopo e descrizione:}
-L'utente intende effettuare login al database da un programma \gloss{scala} esterno, risulta essere non autenticato e può effettuare il login diventando utente autenticato.\\ \\
+L'utente intende effettuare login al database da un programma \gloss{Scala} esterno, risulta essere non autenticato e può effettuare il login diventando utente autenticato.\\ \\
 \textbf{Precondizione:} Il server è in ascolto.\\ \\
 \textbf{Scenario principale:}
 \begin{itemize}
+\item 
 \item UC2.1.1 Inserimento username;
 \item UC2.1.2 Inserimento password.
 \end{itemize}
 \textbf{Estensione:}
 \begin{itemize}
-\item Nel caso in cui l'utente inserisca una coppia username e password non corrette:
+\item Nel caso in cui l'utente inserisca una coppia username password non corretta:
   \begin{itemize}
     \item UC2.8 - Lancio eccezione credenziali errate
   \end{itemize}
@@ -1119,8 +1120,8 @@ L'utente intende effettuare login al database da un programma \gloss{scala} este
 \textbf{Attori primari:} Utente non autenticato\\ \\
 \textbf{Attori secondari:} Driver\\ \\
 \textbf{Scopo e descrizione:}
-L'utente intende effettuare login al database da un programma \gloss{scala} esterno, risulta essere non autenticato e può inserire il proprio username per effettuare il login.\\ \\
-\textbf{Precondizioni:} Il server è in ascolto, l'utente intende effettuare il login.
+L'utente intende effettuare login al database da un programma \gloss{Scala} esterno, risulta essere non autenticato e può inserire il proprio username per effettuare il login.\\ \\
+\textbf{Precondizioni:} Il server è in ascolto, l'utente ha inserito il comando di login.\\ \\
 \textbf{Scenario principale:}
 \begin{itemize}
 \item L'utente può inserire il proprio username.
@@ -1132,24 +1133,24 @@ L'utente intende effettuare login al database da un programma \gloss{scala} este
 \textbf{Attori primari:} Utente non autenticato\\ \\
 \textbf{Attori secondari:} Terminale\\ \\
 \textbf{Scopo e descrizione:}
-L'utente intende effettuare login al database da un programma \gloss{scala} esterno, risulta essere non autenticato e può inserire la propria password per effettuare il login.\\ \\
-\textbf{Precondizioni:} Il server è in ascolto, l'utente intende effettuare il login.
+L'utente intende effettuare login al database da un programma \gloss{Scala} esterno, risulta essere non autenticato e può inserire la propria password per effettuare il login.\\ \\
+\textbf{Precondizioni:} Il server è in ascolto, l'utente ha inserito il comando di login e il proprio username.\\ \\
 \textbf{Scenario principale:}
 \begin{itemize}
 \item L'utente può inserire la propria password.
 \end{itemize}
 \textbf{Postcondizioni:} L'utente ha inserito la propria password.
 
-\subsubsection{UC2.8: Visualizzazione Errore credenziali errate}
+\subsubsection{UC2.8: Lancio eccezione credenziali errate}
 
 \textbf{Attori primari:} Utente non autenticato\\ \\
 \textbf{Attori secondari:} Terminale\\ \\
 \textbf{Scopo e descrizione:}
-L'utente intende effettuare login al database da un programma \gloss{scala} esterno, risulta essere non autenticato e ha già inserito il proprio username e la propria password per l'autenticazione all'interno del sistema.\\ \\
-\textbf{Precondizioni:} Il server è in ascolto, l'utente ha inserito le proprie credenziali (username e password) e intende effettuare il login. Il sistema non riconosce le credenziali.
+L'utente intende effettuare login al database da un programma \gloss{Scala} esterno, risulta essere non autenticato e ha già inserito il proprio username e la propria password per l'autenticazione all'interno del sistema.\\ \\
+\textbf{Precondizioni:} Il server è in ascolto, l'utente ha inserito il comando di login e le proprie credenziali (username e password). Il sistema non riconosce le credenziali.\\ \\
 \textbf{Scenario principale:}
 \begin{itemize}
-\item Viene lanciata un eccezione per errore credenziali errate.
+\item Viene lanciata un'eccezione per credenziali errate.
 \end{itemize}
 \textbf{Postcondizioni:} Il login fallisce, l'utente risulta essere non autenticato.
 
@@ -1163,10 +1164,17 @@ L'utente intende effettuare login al database da un programma \gloss{scala} este
 \end{figure}
 \textbf{Attore primario:} Utente autenticato\\ \\
 \textbf{Attore secondario:} Driver\\ \\
-\textbf{Scopo e descrizione:} L'utente è autenticato e desidera effettuare delle operazioni sulle \gloss{collezioni}. Le operazioni previste sono:
-creazione di una nuova \gloss{collezione}, visualizzazione della lista delle \gloss{collezioni} esistenti, cancellazione di \gloss{collezioni} esistenti, modifica del nome di \gloss{collezioni} esistenti,
-aggiunta o rimozione collaboratori a \gloss{collezione} esistente e esportazione su file di una o più \gloss{collezioni}.\\ \\
-\textbf{Precodizione:} L'utente intende effettuare operazioni su \gloss{collezioni}.\\ \\
+\textbf{Scopo e descrizione:} L'utente è autenticato e desidera effettuare delle operazioni sulle \gloss{collezioni}. L'utente può effettuare le seguenti operazioni:
+\begin{itemize}
+\item Creazione una nuova \gloss{collezione};
+\item Visualizzazione della lista delle \gloss{collezioni} esistenti;
+\item Cancellazione di \gloss{collezioni} esistenti;
+\item Modifica del nome di \gloss{collezioni} esistenti;
+\item Aggiunta di collaboratori a \gloss{collezioni} esistenti;
+\item Rimozione di collaboratori da \gloss{collezioni} esistenti;
+\item Esportazione su file di una o più \gloss{collezioni}.
+\end{itemize}
+\textbf{Precondizione:} L'utente intende effettuare operazioni su \gloss{collezioni}.\\ \\
 \textbf{Scenario principale:}
 \begin{itemize}
 \item UC2.2.1 Creazione \gloss{collezione};
@@ -1175,41 +1183,41 @@ aggiunta o rimozione collaboratori a \gloss{collezione} esistente e esportazione
 \item UC2.2.4 Modifica nome \gloss{collezione};
 \item UC2.2.5 Aggiunta \gloss{collaboratore};
 \item UC2.2.6 Rimozione \gloss{collaboratore};
-\item UC2.2.7 Esportazione di una o più di \gloss{collezionie} su file.
+\item UC2.2.7 Esportazione di una o più \gloss{collezioni} su file.
 \end{itemize}
 \textbf{Estensioni:}
 \begin{itemize}
-\item Nel caso in cui nella procedura di creazione collezione l'utente inserisca il nome di una collezione già censita all'iterno del sistema:
+\item Nel caso in cui nella procedura di creazione \gloss{collezione} l'utente inserisca il nome di una \gloss{collezione} già censita all'interno del sistema:
   \begin{itemize}
-    \item UC2.2.8 Lancio eccezione errore \gloss{collezione} già esistente.
+    \item UC2.2.8 Lancio eccezione \gloss{collezione} già esistente.
   \end{itemize}
-\item Nel caso in cui nella procedura di modifica nome collezione l'utente inserisca come nuovo nome il nome di una collezione già censita all'interno del sistema:
+\item Nel caso in cui nella procedura di modifica nome \gloss{collezione} l'utente inserisca come nuovo nome il nome di una \gloss{collezione} già censita all'interno del sistema:
   \begin{itemize}
-    \item UC2.2.8 Lancio eccezione errore \gloss{collezione} già esistente.
+    \item UC2.2.8 Lancio eccezione \gloss{collezione} già esistente.
   \end{itemize}
-\item Nel caso in cui nella procedura di cancellazione collezione l'utente inserisca il nome di una collezione non censita all'interno del sistema:
+\item Nel caso in cui nella procedura di cancellazione \gloss{collezione} l'utente inserisca il nome di una \gloss{collezione} non censita all'interno del sistema:
   \begin{itemize}
-    \item UC2.2.9 Lancio eccezione errore collezione inesistente.
+    \item UC2.2.9 Lancio eccezione \gloss{collezione} inesistente.
   \end{itemize}
-\item Nel caso in cui nella procedura di modifica nome collezione l'utente insererisca nome di una collezione non censita all'interno del sistema:
+\item Nel caso in cui nella procedura di modifica nome \gloss{collezione} l'utente inserisca nome di una \gloss{collezione} non censita all'interno del sistema:
   \begin{itemize}
-    \item UC2.2.9 Lancio eccezione errore collezione inesistente.
+    \item UC2.2.9 Lancio eccezione \gloss{collezione} inesistente.
   \end{itemize}
-\item Nel caso in cui nella procedura di aggiunta collaboratore ad una  collezione l'utente inserisca il nome di una collezione non censita all'interno del sistema:
+\item Nel caso in cui nella procedura di aggiunta collaboratore ad una collezione l'utente inserisca il nome di una collezione non censita all'interno del sistema:
   \begin{itemize}
-    \item UC2.2.9 Lancio eccezione errore collezione inesistente.
-  \end{itemize}
-\item Nel caso in cui nella procedura di eliminazione di un collaboratore da una collezione l'utente inserisca il nome di una collezione non censita all'interno del sistema:
-  \begin{itemize}
-    \item UC2.2.9 Lancio eccezione errore collezione inesistente.
-  \end{itemize}
-\item Nel caso in cui nella procedura di aggiunta di un collaboratore da una collezione l'utente inserisca il nome di una collezione non censita all'interno del sistema:
-  \begin{itemize}
-    \item UC2.2.9 Lancio eccezione errore username inesistente.
+    \item UC2.2.9 Lancio eccezione collezione inesistente.
   \end{itemize}
 \item Nel caso in cui nella procedura di eliminazione di un collaboratore da una collezione l'utente inserisca il nome di una collezione non censita all'interno del sistema:
   \begin{itemize}
-    \item UC2.2.9 Lancio eccezione errore username inesistente.
+    \item UC2.2.9 Lancio eccezione collezione inesistente.
+  \end{itemize}
+\item Nel caso in cui nella procedura di aggiunta di un collaboratore ad una collezione l'utente inserisca il nome di una collezione non censita all'interno del sistema:
+  \begin{itemize}
+    \item UC2.2.10 Lancio eccezione username inesistente.
+  \end{itemize}
+\item Nel caso in cui nella procedura di eliminazione di un collaboratore da una collezione l'utente inserisca il nome di una collezione non censita all'interno del sistema:
+  \begin{itemize}
+    \item UC2.2.10 Lancio eccezione username inesistente.
   \end{itemize}
 \end{itemize}
 \textbf{Postcondizioni:} L'operazione richiesta è stata eseguita con successo.
@@ -1219,16 +1227,16 @@ aggiunta o rimozione collaboratori a \gloss{collezione} esistente e esportazione
 \textbf{Attore primario:} Utente autenticato\\ \\
 \textbf{Attore secondario:} Driver\\ \\
 \textbf{Scopo e descrizione:} L'utente richiede la creazione di una \gloss{collezione} all'interno del \gloss{database}, deve inserire il nome della nuova \gloss{collezione}.\\ \\
-\textbf{Precodizione:} Il \gloss{database} è pronto a ricevere comandi e l'utente intende creare una \gloss{collezione}.\\ \\
+\textbf{Precondizione:} Il \gloss{database} è pronto a ricevere comandi e l'utente intende creare una \gloss{collezione}.\\ \\
 \textbf{Scenario principale:}
 \begin{itemize}
-\item Inserimento nome \gloss{collezione}
+\item L'utente può inserire il nome della \gloss{collezione}
 \end{itemize}
 \textbf{Estensioni:}
 \begin{itemize}
 \item Nel caso in cui l'utente inserisca il nome di una collezione già censita all'interno del sistema:
   \begin{itemize}
-  \item UCx Lancio eccezione errore collezione già esistente.
+  \item UC2.2.8 Lancio eccezione errore collezione già esistente.
   \end{itemize}
 \end{itemize}
 \textbf{Postcondizioni:} La \gloss{collezione} è stata creata.
@@ -1238,10 +1246,10 @@ aggiunta o rimozione collaboratori a \gloss{collezione} esistente e esportazione
 \textbf{Attore primario:} Utente autenticato\\ \\
 \textbf{Attore secondario:} Driver\\ \\
 \textbf{Scopo e descrizione:} L'utente intende elencare tutte le \gloss{collezioni} all'interno di \textbf{Actorbase} secondo la propria \gloss{visibilità}.\\ \\
-\textbf{Precodizione:} Il \gloss{database} è pronto a ricevere comandi e l'utente intende avere un elenco delle \gloss{collezioni} al suo interno.\\ \\
+\textbf{Precondizione:} Il \gloss{database} è pronto a ricevere comandi e l'utente intende avere un elenco delle \gloss{collezioni} al suo interno.\\ \\
 \textbf{Scenario principale:}
 \begin{itemize}
-\item L'utente inserisce il comando per la visualizzazione della lista delle collezioni.
+\item L'utente può inserire il comando per la visualizzazione della lista delle collezioni.
 \end{itemize}
 \textbf{Postcondizioni:} Il \gloss{database} restituisce la lista delle \gloss{collezioni} esistenti secondo la \gloss{visibilità} dell'utente.
 
@@ -1255,7 +1263,7 @@ aggiunta o rimozione collaboratori a \gloss{collezione} esistente e esportazione
 \textbf{Attore primario:} Utente autenticato\\ \\
 \textbf{Attore secondario:} Driver\\ \\
 \textbf{Scopo e descrizione:} L’utente intende modificare il nome di una \gloss{collezione} presente nel \gloss{database}.\\ \\
-\textbf{Precodizione:} Il server è in ascolto e l’utente intende modificare il nome di una \gloss{collezione}.\\ \\
+\textbf{Precondizione:} Il server è in ascolto e l’utente intende modificare il nome di una \gloss{collezione}.\\ \\
 \textbf{Scenario principale:}
 \begin{itemize}
 \item UC2.2.3.1 Inserimento nome \gloss{collezione};
@@ -1265,11 +1273,11 @@ aggiunta o rimozione collaboratori a \gloss{collezione} esistente e esportazione
 \begin{itemize}
 \item Nel caso in cui l'utente inserisca il nome di una collezione da modificare inesistente:
   \begin{itemize}
-  \item UCx Lancio eccezione errore \gloss{collezione} inesistente;
+  \item UC2.2.9 Lancio eccezione \gloss{collezione} inesistente;
   \end{itemize}
 \item Nel caso in cui l'utente inserisca il nuovo nome di una collezione corrispondente al nome di una collezione già censita all'interno del sistema:
   \begin{itemize}
-  \item UCy Lancio eccezione errore \gloss{collezione} già esistente.
+  \item UC2.2.8 Lancio eccezione \gloss{collezione} già esistente.
   \end{itemize}
 \end{itemize}
 \textbf{Postcondizioni:} Il nome della \gloss{collezione} è stato modificato correttamente.
@@ -1278,20 +1286,20 @@ aggiunta o rimozione collaboratori a \gloss{collezione} esistente e esportazione
 
 \textbf{Attore primario:} Utente autenticato\\ \\
 \textbf{Attore secondario:} Driver\\ \\
-\textbf{Scopo e descrizione:} L'utente intende modificare il nome di un \gloss{collezione} presente nel \gloss{database}, deve inserire il nome della collezione da modificare.\\ \\
-\textbf{Precondzione:} Il server è in ascolto e l'utente intende modificare il nome di una \gloss{collezione}, ha inserito il comando di modifica nome collezione e ora deve inserire il nome della collezione da modificare.\\ \\
+\textbf{Scopo e descrizione:} L'utente intende modificare il nome di una \gloss{collezione} presente nel \gloss{database}, deve inserire il nome della collezione da modificare.\\ \\
+\textbf{Precondizione:} Il server è in ascolto e l'utente intende modificare il nome di una \gloss{collezione}, ha inserito il comando di modifica nome collezione.\\ \\
 \textbf{Scenario principale:}
 \begin{itemize}
 \item L'utente può inserire il nome della collezione da modificare.
 \end{itemize}
-\textbf{Postcondizioni:} Il nome della \gloss{collezione} da modificare è stato inserito
+\textbf{Postcondizioni:} Il nome della \gloss{collezione} da modificare è stato inserito.
 
 \subsubsection{UC2.2.3.2: Inserimento nuovo nome collezione}
 
 \textbf{Attore primario:} Utente autenticato\\ \\
 \textbf{Attore secondario:} Driver\\ \\
 \textbf{Scopo e descrizione:} L'utente intende modificare il nome di un \gloss{collezione} presente nel \gloss{database}, deve inserire il nome della collezione da modificare.\\ \\
-\textbf{Precondzione:} Il server è in ascolto e l'utente intende modificare il nome di una \gloss{collezione}, ha inserito il comando di modifica nome collezione, ha inserito il nome della collezione da modificare e ora deve inserire il nuovo nome della collezione.\\ \\
+\textbf{Precondizione:} Il server è in ascolto e l'utente intende modificare il nome di una \gloss{collezione}, ha inserito il comando di modifica nome collezione e il nome della collezione da modificare.\\ \\
 \textbf{Scenario principale:}
 \begin{itemize}
 \item L'utente può inserire il nuovo nome della collezione da modificare.
@@ -1303,7 +1311,7 @@ aggiunta o rimozione collaboratori a \gloss{collezione} esistente e esportazione
 \textbf{Attore primario:} Utente autenticato\\ \\
 \textbf{Attore secondario:} Driver\\ \\
 \textbf{Scopo e descrizione:} L’utente intende cancellare una \gloss{collezione} presente nel \gloss{database}.\\ \\
-\textbf{Precodizione:} Il server è in ascolto e l’utente ha inserito il comando per la cancellazione di una \gloss{collezione}.\\ \\
+\textbf{Precodizione:} Il server è in ascolto e l’utente intende cancellare una collezione.\\ \\
 \textbf{Scenario principale:}
 \begin{itemize}
 \item UC2.2.4.1 Inserimento nome \gloss{collezione};
@@ -1312,7 +1320,7 @@ aggiunta o rimozione collaboratori a \gloss{collezione} esistente e esportazione
 \begin{itemize}
 \item Nel caso in cui l'utente inserisca il nome di una collezione da cancellare inesistente:
   \begin{itemize}
-  \item UC2.8 Visualizzazione errore \gloss{collezione} inesistente;
+  \item UC2.2.9 Lancio eccezione \gloss{collezione} inesistente;
   \end{itemize}
 \end{itemize}
 \textbf{Postcondizioni:} La \gloss{collezione} è stato cancellata correttamente.
@@ -1322,10 +1330,10 @@ aggiunta o rimozione collaboratori a \gloss{collezione} esistente e esportazione
 \textbf{Attore primario:} Utente autenticato\\ \\
 \textbf{Attore secondario:} Driver\\ \\
 \textbf{Scopo e descrizione:} L’utente intende cancellare una \gloss{collezione} presente nel \gloss{database}.\\ \\
-\textbf{Precodizione:} Il server è in ascolto e l’utente ha inserito il comando per cancellare una \gloss{collezione}, deve inserire il nome della collezione da cancellare.\\ \\
+\textbf{Precondizione:} Il server è in ascolto e l’utente ha inserito il comando per cancellare una \gloss{collezione}.\\ \\
 \textbf{Scenario principale:}
 \begin{itemize}
-\item L'utente può inserire il nome della \gloss{collezione};
+\item L'utente può inserire il nome della \gloss{collezione}.
 \end{itemize}
 \textbf{Postcondizioni:} Il nome della \gloss{collezione} è stato inserito correttamente.
 
@@ -1339,7 +1347,7 @@ aggiunta o rimozione collaboratori a \gloss{collezione} esistente e esportazione
 \textbf{Attore primario:} Utente autenticato\\ \\
 \textbf{Attore secondario:} Driver\\ \\
 \textbf{Scopo e descrizione:} L'utente intende aggiungere un \gloss{collaboratore} ad una \gloss{collezione} di sua proprietà. Deve inserire il nome della \gloss{collezione} e lo username dell'utente da aggiungere.\\ \\
-\textbf{Precondizione:} Il \gloss{database} è pronto a ricevere comandi e l'utente ha inserito il comando per aggiungere un \gloss{collaboratore} ad una \gloss{collezione} di sua proprietà.\\ \\
+\textbf{Precondizione:} Il server è in ascolto e l'utente intende aggiungere un \gloss{collaboratore} ad una \gloss{collezione} di sua proprietà.\\ \\
 \textbf{Scenario principale:}
 \begin{itemize}
 \item UC2.2.5.1 Inserimento nome \gloss{collezione};
@@ -1349,11 +1357,11 @@ aggiunta o rimozione collaboratori a \gloss{collezione} esistente e esportazione
 \begin{itemize}
 \item Nel caso in cui l'utente inserisca il nome di una collezione inesistente:
   \begin{itemize}
-  \item UCx Lancio eccezione errore \gloss{collezione} inesistente;
+  \item UC2.2.9 Lancio eccezione \gloss{collezione} inesistente;
   \end{itemize}
 \item Nel caso in cui l'utente inserisca uno username inesistente:
   \begin{itemize}
-  \item UCx Lancio eccezione errore \gloss{username} inesistente;
+  \item UC2.2.10 Lancio eccezione \gloss{username} inesistente;
   \end{itemize}
 \end{itemize}
 \textbf{Postcondizione:} L'utente designato per la collaborazione è stato aggiunto tra i \gloss{collaboratori} della \gloss{collezione} scelta.
@@ -1363,7 +1371,7 @@ aggiunta o rimozione collaboratori a \gloss{collezione} esistente e esportazione
 \textbf{Attore primario:} Utente autenticato\\ \\
 \textbf{Attore secondario:} Driver\\ \\
 \textbf{Scopo e descrizione:} L’utente intende aggiungere un collaboratore ad una \gloss{collezione} presente nel \gloss{database}.\\ \\
-\textbf{Precodizione:} Il server è in ascolto e l’utente ha inserito il comando per aggiungere un collaboratore ad una \gloss{collezione}, deve inserire il nome della collezione.\\ \\
+\textbf{Precondizione:} Il server è in ascolto e l’utente ha inserito il comando per aggiungere un collaboratore ad una \gloss{collezione}.\\ \\
 \textbf{Scenario principale:}
 \begin{itemize}
 \item L'utente può inserire il nome della \gloss{collezione};
@@ -1375,14 +1383,14 @@ aggiunta o rimozione collaboratori a \gloss{collezione} esistente e esportazione
 \textbf{Attore primario:} Utente autenticato\\ \\
 \textbf{Attore secondario:} Driver\\ \\
 \textbf{Scopo e descrizione:} L’utente intende aggiungere un collaboratore ad una \gloss{collezione} presente nel \gloss{database}.\\ \\
-\textbf{Precodizione:} Il server è in ascolto e l’utente ha inserito il comando per aggiungere un collaboratore ad una \gloss{collezione}, deve inserire l'username di quest'ultimo.\\ \\
+\textbf{Precondizione:} Il server è in ascolto e l’utente ha inserito il comando per aggiungere un collaboratore ad una \gloss{collezione} e il nome di quest'ultima.\\ \\
 \textbf{Scenario principale:}
 \begin{itemize}
-\item L'utente può inserire lo username del designato collaboratore;
+\item L'utente può inserire lo username del collaboratore;
 \end{itemize}
-\textbf{Postcondizioni:} l'username è stato inserito correttamente.
+\textbf{Postcondizioni:} Lo username è stato inserito correttamente.
 
-\subsection{UC2.2.6: Rimozione di un collaboratore a collezione}
+\subsection{UC2.2.6: Rimozione di un collaboratore da collezione}
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC2_2_6.png}
@@ -1392,11 +1400,22 @@ aggiunta o rimozione collaboratori a \gloss{collezione} esistente e esportazione
 \textbf{Attore primario:} Utente autenticato\\ \\
 \textbf{Attore secondario:} Driver\\ \\
 \textbf{Scopo e descrizione:} L'utente intende rimuovere un \gloss{collaboratore} da una \gloss{collezione} di sua proprietà. Deve inserire il nome della \gloss{collezione} e lo username del \gloss{collaboratore} da rimuovere.\\ \\
-\textbf{Precondizione:} Il \gloss{database} è pronto a ricevere comandi e l'utente ha inserito il comando per rimuovere un \gloss{collaboratore} da una \gloss{collezione} di sua proprietà.\\ \\
+\textbf{Precondizione:} Il server è in ascolto e l'utente intende rimuovere un \gloss{collaboratore} da una \gloss{collezione} di sua proprietà.\\ \\
 \textbf{Scenario principale:}
 \begin{itemize}
 \item UC2.2.6.1 Inserimento nome \gloss{collezione};
 \item UC2.2.6.2 Inserimento username \gloss{collaboratore}.
+\end{itemize}
+\textbf{Estensioni:}
+\begin{itemize}
+\item Nel caso in cui l'utente inserisca il nome di una collezione inesistente:
+  \begin{itemize}
+  \item UC2.2.9 Lancio eccezione \gloss{collezione} inesistente;
+  \end{itemize}
+\item Nel caso in cui l'utente inserisca uno username inesistente:
+  \begin{itemize}
+  \item UC2.2.10 Lancio eccezione \gloss{username} inesistente;
+  \end{itemize}
 \end{itemize}
 \textbf{Postcondizione:} L'utente designato per la rimozione dai \gloss{collaboratori} è stato rimosso dalla \gloss{collezione} scelta.
 
@@ -1404,8 +1423,8 @@ aggiunta o rimozione collaboratori a \gloss{collezione} esistente e esportazione
 
 \textbf{Attore primario:} Utente autenticato\\ \\
 \textbf{Attore secondario:} Driver\\ \\
-\textbf{Scopo e descrizione:} L’utente intende rimuovere un collaboratore ad una \gloss{collezione} presente nel \gloss{database}.\\ \\
-\textbf{Precodizione:} Il server è in ascolto e l’utente ha inserito il comando per rimuovere un collaboratore ad una \gloss{collezione}, deve inserire il nome della collezione.\\ \\
+\textbf{Scopo e descrizione:} L’utente intende rimuovere un collaboratore da una \gloss{collezione} presente nel \gloss{database}.\\ \\
+\textbf{Precondizione:} Il server è in ascolto e l’utente ha inserito il comando per rimuovere un collaboratore ad una \gloss{collezione}.\\ \\
 \textbf{Scenario principale:}
 \begin{itemize}
 \item L'utente può inserire il nome della \gloss{collezione};
@@ -1416,13 +1435,13 @@ aggiunta o rimozione collaboratori a \gloss{collezione} esistente e esportazione
 
 \textbf{Attore primario:} Utente autenticato\\ \\
 \textbf{Attore secondario:} Driver\\ \\
-\textbf{Scopo e descrizione:} L’utente intende rimuovere un collaboratore ad una \gloss{collezione} presente nel \gloss{database}.\\ \\
-\textbf{Precodizione:} Il server è in ascolto e l’utente ha inserito il comando per rimuovere un collaboratore ad una \gloss{collezione}, deve inserire l'username di quest'ultimo.\\ \\
+\textbf{Scopo e descrizione:} L’utente intende rimuovere un collaboratore da una \gloss{collezione} presente nel \gloss{database}.\\ \\
+\textbf{Precondizione:} Il server è in ascolto e l’utente ha inserito il comando per rimuovere un collaboratore ad una \gloss{collezione} e il nome di quest'ultima.\\ \\
 \textbf{Scenario principale:}
 \begin{itemize}
 \item L'utente può inserire lo username del collaboratore da rimuovere;
 \end{itemize}
-\textbf{Postcondizioni:} l'username è stato inserito correttamente.
+\textbf{Postcondizioni:} Lo username è stato inserito correttamente.
 
 \subsection{UC11.7: Esportazione su file}
 
