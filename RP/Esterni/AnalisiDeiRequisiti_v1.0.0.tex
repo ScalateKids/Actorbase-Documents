@@ -34,7 +34,7 @@
     \vspace{22pt}
   \end{center}
 \end{titlepage}
-\restoregeometry
+\restoregeometry{}
 \clearpage
 \pagenumbering{Roman}
 \setcounter{page}{1}
@@ -1838,7 +1838,48 @@ inserimento e cancellazione.\\
 \end{itemize}
 \textbf{Postcondizioni:} La chiave è stata inserita correttamente.
 
-\iffalse \subsection{UC2.3: Operazioni sugli item}
+\subsection{UC2.4: Ricerca}
+
+\textbf{Attore primario:} Utente autenticato\\
+\textbf{Attore secondario:} Driver\\
+\textbf{Scopo e descrizione:} L'utente intende effettuare una ricerca di \gloss{item} all'interno del sistema; può decidere di effettuare la ricerca su una lista di collezioni eventualmente vuota, in tal caso la
+ricerca verrà estesa a tutto il sistema entro i limiti imposti dal grado di visibilità (vedi~\ref{sec:visibilità}) dell'utente.\\
+In caso di inserimento di nome \gloss{collezione} inesistente, o in caso di risultati di ricerca nulli, il sistema riporterà una lista risultata vuota.\\ % TODO: stesso per chiavi?
+\textbf{Precondizione:} Il server è in ascolto, l'utente intende effettuare una ricerca di \gloss{item} all'interno del sistema da un programma Scala esterno.\\
+\textbf{Scenario principale:}
+\begin{itemize}
+\item UC1.5.1 Inserimento lista collezioni;
+\item UC1.5.2 Inserimento chiave di ricerca.
+\end{itemize}
+\textbf{Postcondizioni:} Il sistema ha riportato la lista dei risultati di ricerca.
+
+\subsection{UC2.4.1: Inserimento lista collezioni}
+
+\textbf{Attore primario:} Utente autenticato\\
+\textbf{Attore secondario:} Driver\\
+\textbf{Scopo e descrizione:} L'utente intende effettuare una ricerca di \gloss{item} all'interno del sistema; deve inserire la lista delle collezioni su cui effettuare tale ricerca. In caso di lista di ricerca vuota
+la funzione di ricerca verrà estesa a tutto il sistema entro i limit imposti dal grado di visibilità (vedi~\ref{sec:visibilità}) dell'utente.\\
+In caso di inserimento di nome \gloss{collezione} inesistente, o in caso di risultati di ricerca nulli, il sistema riporterà una lista risultata vuota.\\ % TODO: stesso per chiavi?
+\textbf{Precondizione:} Il server è in ascolto, l'utente intende effettuare una ricerca di \gloss{item} all'interno del  sistema da un programma Scala esterno.\\
+\textbf{Scenario principale:}
+\begin{itemize}
+\item Inserimento lista collezioni.
+\end{itemize}
+\textbf{Postcondizioni:} La lista di collezioni su cui effettuare la ricerca è stata inserita correttamente.
+
+\subsection{UC2.4.2: Inserimento chiave di ricerca}
+
+\textbf{Attore primario:} Utente autenticato\\
+\textbf{Attore secondario:} Driver\\
+\textbf{Scopo e descrizione:} L'utente intende effettuare una ricerca di \gloss{item} all'interno del sistema; deve inserire la chiave di cui effettuare tale ricerca.\\
+In caso di inserimento di nome \gloss{collezione} inesistente, o in caso di risultati di ricerca nulli, il sistema riporterà una lista risultata vuota.\\ % TODO: stesso per chiavi?
+\textbf{Precondizione:} Il server è in ascolto, l'utente intende effettuare una ricerca di \gloss{item} all'interno del  sistema da un programma Scala esterno.\\
+\textbf{Scenario principale:}
+\begin{itemize}
+\item Inserimento chiave di ricerca
+\end{itemize}
+\textbf{Postcondizioni:} La chiave da ricerca all'interno del sistema è stata inserita correttamente.
+\subsection{UC2.3: Operazioni sugli item}
 
 \begin{figure}[H]
   \begin{center}
@@ -1847,6 +1888,7 @@ inserimento e cancellazione.\\
   \end{center}
 \end{figure}
 \textbf{Attore primario:} Utente autenticato\\
+\textbf{Attore secondario:} Driver\\
 \textbf{Scopo e descrizione:} L'utente intende effettuare operazioni sugli \gloss{item} di una \gloss{collezione} esistente da un programma \gloss{Scala} esterno. Le operazioni previste sono quelle di inserimento e cancellazione.\\
 \textbf{Precondizione:} Il \gloss{database} è pronto a ricevere comandi e l'utente intende effettuare operazioni di inserimento o cancellazione su una \gloss{collezione} esistente.\\
 \textbf{Scenario principale:}
@@ -1878,6 +1920,7 @@ inserimento e cancellazione.\\
 \subsection{UC12.1: Inserimento item}
 
 \textbf{Attore primario:} Utente autenticato\\
+\textbf{Attore secondario:} Driver\\
 \textbf{Scopo e descrizione:} L'utente intende inserire un nuovo \gloss{item} all'interno di una \gloss{collezione} esistente. Deve selezionare la \gloss{collezione} e inserire i parametri di definizione dell'\gloss{item}. Questi sono la chiave e il valore associato.\\
 \textbf{Precondizione:} Il \gloss{database} è pronto a ricevere comandi e l'utente intende effettuare un inserimento di un nuovo \gloss{item}.\\
 \textbf{Scenario principale:}
@@ -1928,12 +1971,6 @@ inserimento e cancellazione.\\
 
 \subsection{UC12.2.2: Inserimento chiave item}\fi
 %%TODO: continuare
-
-\subsection{UC13: Ricerca}
-
-\subsection{UC13.1: Ricerca su una o più collezioni}
-
-\subsection{UC13.2: Ricerca su intero database}
 
 \subsection{UC14: Modifica password}
 
