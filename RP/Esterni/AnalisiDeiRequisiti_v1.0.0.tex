@@ -1962,7 +1962,7 @@ inserimento e cancellazione.\\
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC1_4_1_2.png}
-    \caption*{Caso d'uso 1.4.1.2: Inserimento \gloss{item} da file}
+    \caption*{Caso d'uso 2.3.1.2: Inserimento \gloss{item} da file}
   \end{center}
 \end{figure}
 \textbf{Attore primario:} Utente\\
@@ -2159,44 +2159,138 @@ In caso di inserimento di nome \gloss{collezione} inesistente, o in caso di risu
   \end{center}
 \end{figure}
 
+\textbf{Attore primario:} Utente amministratore\\
+\textbf{Scopo e descrizione:} L'amministratore intende effettuare operazioni di gestione sugli utenti del sistema da un programma \gloss{Scala} esterno; le operazioni possibili sono:
+\begin{itemize}
+\item Aggiunta di un nuovo utente;
+\item Rimozione di un utente;
+\item Effettuare un reset della password.
+\end{itemize}
+\textbf{Precondizione:} Il server è in ascolto e l'amministratore intende effettuare operazioni di gestione sugli utenti.\\
+\textbf{Scenario principale:}
+\begin{itemize}
+\item UC2.7.1\ -\ Aggiunta utente;
+\item UC2.7.2\ -\ Rimozione utente;
+\item UC2.7.3\ -\ Reset password.
+\end{itemize}
+\textbf{Estensioni:}
+\begin{itemize}
+\item Condizione: in UC2.7.1 l'utente amministratore inserisce uno username già censito all'interno del sistema:
+  \begin{itemize}
+  \item UC2.7.4\ -\ Visualizzazione errore username già presente;
+  \end{itemize}
+\item Condizione: in UC2.7.2 o in UC2.7.3 l'utente amministratore inserisce uno username non esistente all'interno del sistema:
+  \begin{itemize}
+  \item UC2.7.5\ -\ Visualizzazione errore username non presente.
+  \end{itemize}
+\end{itemize}
+\textbf{Postcondizioni:} L'operazione di gestione richiesta è andata a buon fine, gli eventuali cambiamenti sono stati resi persistenti all'interno del sistema.
+
 \subsection{UC2.7.1: Aggiunta utente}
 
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC2_7_1.png}
-    \caption*{Caso d'uso 4: Operazioni sugli \gloss{item}}
+    \caption*{Caso d'uso 2.7.1: Operazioni sugli \gloss{item}}
   \end{center}
 \end{figure}
+\textbf{Attore primario:} Utente amministratore\\
+\textbf{Scopo e descrizione:} L'amministratore intende aggiungere un nuovo utente all'interno del sistema. Deve inserire lo username e confermare l'operazione\\
+\textbf{Precondizione:} Il server è in ascolto e l'amministratore intende aggiungere un nuovo utente all'interno del sistema.\\
+\textbf{Scenario principale:}
+\begin{itemize}
+\item UC2.7.1.1\ -\ Inserimento username;
+\end{itemize}
+\textbf{Estensioni:}
+\begin{itemize}
+  \item Condizione: in UC2.7.1.1 l'utente amministratore inserisce uno username già censito all'interno del sistema:
+  \begin{itemize}
+    \item UC2.7.4\ -\ Visualizzazione errore username già presente.
+  \end{itemize}
+\end{itemize}
+\textbf{Postcondizioni:} Il nuovo utente è stato inserito all'interno del sistema con successo.
 
 \subsection{UC2.7.1.1: Inserimento username}
 
-\subsection{UC2.7.1.2: Conferma aggiunta utente}
+\textbf{Attore primario:} Utente amministratore\\
+\textbf{Scopo e descrizione:} L'amministratore intende aggiungere un nuovo utente all'interno del sistema. Deve inserire lo username del nuovo utente.\\
+\textbf{Precondizione:} Il server è in ascolto e l'amministratore intende aggiungere un nuovo utente all'interno del sistema.\\
+\textbf{Scenario principale:}
+\begin{itemize}
+\item Utente amministratore inserisce username nuovo utente.
+\end{itemize}
+\textbf{Postcondizioni:} Lo username del nuovo utente è stato inserito con successo.
 
 \subsection{UC2.7.2: Rimozione utente}
 
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC2_7_2.png}
-    \caption*{Caso d'uso 2.7.2: Rimozione utente}
+    \caption*{Caso d'uso 2.7.2: Operazioni sugli \gloss{item}}
   \end{center}
 \end{figure}
+\textbf{Attore primario:} Utente amministratore\\
+\textbf{Scopo e descrizione:} L'amministratore intende rimuovere un utente dal sistema. Deve inserire lo username e confermare l'operazione\\
+\textbf{Precondizione:} Il server è in ascolto e l'amministratore intende rimuovere un utente dal sistema.\\
+\textbf{Scenario principale:}
+\begin{itemize}
+  \item UC2.7.2.1\ -\ Inserimento username.
+\end{itemize}
+\textbf{Estensioni:}
+\begin{itemize}
+  \item Condizione: in UC2.7.2.1 l'utente amministratore inserisce uno username non presente all'interno del sistema:
+  \begin{itemize}
+    \item UC2.7.5\ -\ Visualizzazione errore username non presente.
+  \end{itemize}
+\end{itemize}
+\textbf{Postcondizioni:} Il nuovo utente è stato rimosso dal sistema con successo.
 
-\subsection{UC2.7.2.1: Inserimento username}
+\subsubsection{UC1.8.2.1: Inserimento username}
 
-\subsection{UC2.7.2.2: Conferma rimozione utente}
+\textbf{Attore primario:} Utente amministratore\\
+\textbf{Scopo e descrizione:} L'amministratore intende rimuovere un utente dal sistema. Deve inserire lo username dell'utente da rimuovere.\\
+\textbf{Precondizione:} Il server è in ascolto e l'amministratore intende rimuovere un utente dal sistema.\\
+\textbf{Scenario principale:}
+\begin{itemize}
+  \item Utente amministratore inserisce username utente da rimuovere.
+\end{itemize}
+\textbf{Postcondizioni:} Lo username dell'utente da rimuovere è stato inserito con successo.
 
 \subsection{UC2.7.3: Reset password}
 
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC2_7_3.png}
-    \caption*{Caso d'uso 2.7: Reset password}
+    \caption*{Caso d'uso 2.7.3: Operazioni sugli \gloss{item}}
   \end{center}
 \end{figure}
+\textbf{Attore primario:} Utente amministratore\\
+\textbf{Scopo e descrizione:} L'amministratore intende effettuare il reset della password di un utente all'interno del sistema. Deve inserire lo username e confermare il reset, la password
+verrà modificata al valore prescelto ``actorbase''.\\
+\textbf{Precondizione:} Il server è in ascolto e l'amministratore intende effettuare il reset della password di un utente all'interno del sistema.\\
+\textbf{Scenario principale:}
+\begin{itemize}
+  \item UC2.7.3.1\ -\ Inserimento username.
+\end{itemize}
+\textbf{Estensioni}
+  \item Condizione: in UC2.7.3.1 l'utente amministratore inserisce uno username non presente all'interno del sistema:
+  \begin{itemize}
+    \item UC2.7.5\ -\ Visualizzazione errore username non presente.
+  \end{itemize}
+\end{itemize}
+\textbf{Postcondizioni:} La password dell'utente designato è stata modificata in ``actorbase'' con successo.
 
-\subsection{UC2.7.3.1: Inserimento username}
+\subsubsection{UC2.7.3.1: Inserimento username}
 
-\subsection{UC2.7.3.2: Conferma reset}
+\textbf{Attore primario:} Utente amministratore\\
+\textbf{Scopo e descrizione:} L'amministratore intende effettuare il reset della password di un utente all'interno del sistema. Deve inserire lo username e confermare il reset, la password
+verrà modificata al valore prescelto ``actorbase''.\\
+\textbf{Precondizione:} Il server è in ascolto e l'amministratore effettuare il reset della password di un utente all'interno del sistema.\\
+\textbf{Scenario principale:}
+\begin{itemize}
+  \item Utente amministratore inserisce username utente designato al reset password.
+\end{itemize}
+\textbf{Postcondizioni:} Lo username dell'utente designato al reset password è stato inserito con successo.
 
 \section{Requisiti}
 
