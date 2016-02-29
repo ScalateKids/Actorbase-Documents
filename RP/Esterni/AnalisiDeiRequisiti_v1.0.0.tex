@@ -1842,14 +1842,14 @@ inserimento e cancellazione.\\
 
 \textbf{Attore primario:} Utente autenticato\\
 \textbf{Attore secondario:} Driver\\
-\textbf{Scopo e descrizione:} L'utente intende effettuare una ricerca di \gloss{item} all'interno del sistema; può decidere di effettuare la ricerca su una lista di collezioni eventualmente vuota, in tal caso la
+\textbf{Scopo e descrizione:} L'utente intende effettuare una ricerca di \gloss{item} all'interno del sistema da un programma Scala esterno; può decidere di effettuare la ricerca su una lista di collezioni eventualmente vuota, in tal caso la
 ricerca verrà estesa a tutto il sistema entro i limiti imposti dal grado di visibilità (vedi~\ref{sec:visibilità}) dell'utente.\\
 In caso di inserimento di nome \gloss{collezione} inesistente, o in caso di risultati di ricerca nulli, il sistema riporterà una lista risultata vuota.\\ % TODO: stesso per chiavi?
-\textbf{Precondizione:} Il server è in ascolto, l'utente intende effettuare una ricerca di \gloss{item} all'interno del sistema da un programma Scala esterno.\\
+\textbf{Precondizione:} Il server è in ascolto, l'utente intende effettuare una ricerca di \gloss{item} all'interno del sistema.\\
 \textbf{Scenario principale:}
 \begin{itemize}
-\item UC1.5.1 Inserimento lista collezioni;
-\item UC1.5.2 Inserimento chiave di ricerca.
+  \item UC2.4.1 Inserimento lista collezioni;
+  \item UC2.4.2 Inserimento chiave di ricerca.
 \end{itemize}
 \textbf{Postcondizioni:} Il sistema ha riportato la lista dei risultati di ricerca.
 
@@ -1860,10 +1860,10 @@ In caso di inserimento di nome \gloss{collezione} inesistente, o in caso di risu
 \textbf{Scopo e descrizione:} L'utente intende effettuare una ricerca di \gloss{item} all'interno del sistema; deve inserire la lista delle collezioni su cui effettuare tale ricerca. In caso di lista di ricerca vuota
 la funzione di ricerca verrà estesa a tutto il sistema entro i limit imposti dal grado di visibilità (vedi~\ref{sec:visibilità}) dell'utente.\\
 In caso di inserimento di nome \gloss{collezione} inesistente, o in caso di risultati di ricerca nulli, il sistema riporterà una lista risultata vuota.\\ % TODO: stesso per chiavi?
-\textbf{Precondizione:} Il server è in ascolto, l'utente intende effettuare una ricerca di \gloss{item} all'interno del  sistema da un programma Scala esterno.\\
+\textbf{Precondizione:} Il server è in ascolto, l'utente ha inserito il comando ricerca.\\
 \textbf{Scenario principale:}
 \begin{itemize}
-\item Inserimento lista collezioni.
+  \item Inserimento lista collezioni.
 \end{itemize}
 \textbf{Postcondizioni:} La lista di collezioni su cui effettuare la ricerca è stata inserita correttamente.
 
@@ -1873,12 +1873,16 @@ In caso di inserimento di nome \gloss{collezione} inesistente, o in caso di risu
 \textbf{Attore secondario:} Driver\\
 \textbf{Scopo e descrizione:} L'utente intende effettuare una ricerca di \gloss{item} all'interno del sistema; deve inserire la chiave di cui effettuare tale ricerca.\\
 In caso di inserimento di nome \gloss{collezione} inesistente, o in caso di risultati di ricerca nulli, il sistema riporterà una lista risultata vuota.\\ % TODO: stesso per chiavi?
-\textbf{Precondizione:} Il server è in ascolto, l'utente intende effettuare una ricerca di \gloss{item} all'interno del  sistema da un programma Scala esterno.\\
+\textbf{Precondizione:} Il server è in ascolto, l'utente ha inserito il comando ricerca e la lista di collezioni su cui effettuare la ricerca.\\
 \textbf{Scenario principale:}
 \begin{itemize}
-\item Inserimento chiave di ricerca
+  \item Inserimento chiave di ricerca
 \end{itemize}
 \textbf{Postcondizioni:} La chiave da ricerca all'interno del sistema è stata inserita correttamente.
+
+
+
+\iffalse
 \subsection{UC2.3: Operazioni sugli item}
 
 \begin{figure}[H]
@@ -1893,8 +1897,8 @@ In caso di inserimento di nome \gloss{collezione} inesistente, o in caso di risu
 \textbf{Precondizione:} Il \gloss{database} è pronto a ricevere comandi e l'utente intende effettuare operazioni di inserimento o cancellazione su una \gloss{collezione} esistente.\\
 \textbf{Scenario principale:}
 \begin{itemize}
-\item UC2.3.1 Inserimento nuovo \gloss{item};
-\item UC2.3.2 Cancellazione \gloss{item}.
+  \item UC2.3.1 Inserimento nuovo \gloss{item};
+  \item UC2.3.2 Cancellazione \gloss{item}.
 \end{itemize}
 \textbf{Estensioni:}
 \begin{itemize}
@@ -1916,6 +1920,10 @@ In caso di inserimento di nome \gloss{collezione} inesistente, o in caso di risu
   \end{itemize}
 \end{itemize}
 \textbf{Postcondizione:} L'operazione richiesta è stata effettuata correttamente.
+\fi
+
+
+
 
 \subsection{UC12.1: Inserimento item}
 
@@ -1925,8 +1933,8 @@ In caso di inserimento di nome \gloss{collezione} inesistente, o in caso di risu
 \textbf{Precondizione:} Il \gloss{database} è pronto a ricevere comandi e l'utente intende effettuare un inserimento di un nuovo \gloss{item}.\\
 \textbf{Scenario principale:}
 \begin{itemize}
-\item UC4.1.1 Inserimento item manuale;
-\item UC4.1.2 Inserimento item da file.
+  \item UC4.1.1 Inserimento item manuale;
+  \item UC4.1.2 Inserimento item da file.
 \end{itemize}
 \textbf{Postcondizione:} L'operazione di inserimento richiesta è stata effettuata correttamente.
 
@@ -1969,7 +1977,7 @@ In caso di inserimento di nome \gloss{collezione} inesistente, o in caso di risu
 
 \subsection{UC12.2.1: Inserimento nome collezione}
 
-\subsection{UC12.2.2: Inserimento chiave item}\fi
+\subsection{UC12.2.2: Inserimento chiave item}
 %%TODO: continuare
 
 \subsection{UC14: Modifica password}
