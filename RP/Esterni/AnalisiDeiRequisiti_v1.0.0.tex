@@ -1168,10 +1168,11 @@ L'utente ha inserito il comando per la modifica password, ha inserito i parametr
 \item UC1.8.1.1\ -\ Inserimento username;
 \item UC1.8.1.2\ -\ Conferma aggiunta utente.
 \end{itemize}
-\textbf{Estensioni}
-\item Condizione: in UC1.8.1.2 l'utente amministratore inserisce uno username già censito all'interno del sistema in UC1.8.1.1:
+\textbf{Estensioni:}
+\begin{itemize}
+  \item Condizione: in UC1.8.1.2 l'utente amministratore inserisce uno username già censito all'interno del sistema in UC1.8.1.1:
   \begin{itemize}
-  \item UC1.8.4\ -\ Visualizzazione errore username già presente.
+    \item UC1.8.4\ -\ Visualizzazione errore username già presente.
   \end{itemize}
 \end{itemize}
 \textbf{Postcondizioni:} Il nuovo utente è stato inserito all'interno del sistema con successo.
@@ -1218,13 +1219,14 @@ L'utente ha inserito il comando per la modifica password, ha inserito i parametr
 \textbf{Precondizione:} Il server è in ascolto e l'amministratore intende rimuovere un utente dal sistema.\\
 \textbf{Scenario principale:}
 \begin{itemize}
-\item UC1.8.2.1\ -\ Inserimento username;
-\item UC1.8.2.2\ -\ Conferma rimozione utente.
+  \item UC1.8.2.1\ -\ Inserimento username;
+  \item UC1.8.2.2\ -\ Conferma rimozione utente.
 \end{itemize}
-\textbf{Estensioni}
-\item Condizione: in UC1.8.2.2 l'utente amministratore inserisce uno username non presente all'interno del sistema in UC1.8.2.1:
+\textbf{Estensioni:}
+\begin{itemize}
+  \item Condizione: in UC1.8.2.2 l'utente amministratore inserisce uno username non presente all'interno del sistema in UC1.8.2.1:
   \begin{itemize}
-  \item UC1.8.5\ -\ Visualizzazione errore username non presente.
+    \item UC1.8.5\ -\ Visualizzazione errore username non presente.
   \end{itemize}
 \end{itemize}
 \textbf{Postcondizioni:} Il nuovo utente è stato rimosso dal sistema con successo.
@@ -1236,7 +1238,7 @@ L'utente ha inserito il comando per la modifica password, ha inserito i parametr
 \textbf{Precondizione:} Il server è in ascolto e l'amministratore intende rimuovere un utente dal sistema.\\
 \textbf{Scenario principale:}
 \begin{itemize}
-\item Utente amministratore inserisce username utente da rimuovere.
+  \item Utente amministratore inserisce username utente da rimuovere.
 \end{itemize}
 \textbf{Postcondizioni:} Lo username dell'utente da rimuovere è stato inserito con successo.
 
@@ -1247,13 +1249,13 @@ L'utente ha inserito il comando per la modifica password, ha inserito i parametr
 \textbf{Precondizione:} Il server è in ascolto e l'amministratore intende rimuovere un utente dal sistema.\\
 \textbf{Scenario principale:}
 \begin{itemize}
-\item Utente amministratore conferma la rimozione dell'utente.
+  \item Utente amministratore conferma la rimozione dell'utente.
 \end{itemize}
 \textbf{Estensioni:}
 \begin{itemize} % TODO: ???
-\item Condizione: in UC1.8.2.1 l'utente amministratore ha inserito uno username non esistente all'interno del sistema:
+  \item Condizione: in UC1.8.2.1 l'utente amministratore ha inserito uno username non esistente all'interno del sistema:
   \begin{itemize}
-  \item UC1.8.5\ -\ Visualizzazione errore username non presente.
+    \item UC1.8.5\ -\ Visualizzazione errore username non presente.
   \end{itemize}
 \end{itemize}
 \textbf{Postcondizioni:} La rimozione dell'utente è stata confermata con successo.
@@ -1278,13 +1280,13 @@ verrà modificata al valore prescelto ``actorbase''.\\
 \textbf{Precondizione:} Il server è in ascolto e l'amministratore intende effettuare il reset della password di un utente all'interno del sistema.\\
 \textbf{Scenario principale:}
 \begin{itemize}
-\item UC1.8.3.1\ -\ Inserimento username;
-\item UC1.8.3.2\ -\ Conferma reset password.
+  \item UC1.8.3.1\ -\ Inserimento username;
+  \item UC1.8.3.2\ -\ Conferma reset password.
 \end{itemize}
 \textbf{Estensioni}
-\item Condizione: in UC1.8.3.2 l'utente amministratore inserisce uno username non presente all'interno del sistema in UC1.8.3.1:
+  \item Condizione: in UC1.8.3.2 l'utente amministratore inserisce uno username non presente all'interno del sistema in UC1.8.3.1:
   \begin{itemize}
-  \item UC1.8.5\ -\ Visualizzazione errore username non presente.
+    \item UC1.8.5\ -\ Visualizzazione errore username non presente.
   \end{itemize}
 \end{itemize}
 \textbf{Postcondizioni:} La password dell'utente designato è stata modificata in ``actorbase'' con successo.
@@ -1297,7 +1299,7 @@ verrà modificata al valore prescelto ``actorbase''.\\
 \textbf{Precondizione:} Il server è in ascolto e l'amministratore effettuare il reset della password di un utente all'interno del sistema.\\
 \textbf{Scenario principale:}
 \begin{itemize}
-\item Utente amministratore inserisce username utente designato al reset password.
+  \item Utente amministratore inserisce username utente designato al reset password.
 \end{itemize}
 \textbf{Postcondizioni:} Lo username dell'utente designato al reset password è stato inserito con successo.
 
@@ -1308,13 +1310,13 @@ verrà modificata al valore prescelto ``actorbase''.\\
 \textbf{Precondizione:} Il server è in ascolto e l'amministratore intende effettuare il reset della password di un utente all'interno del sistema.\\
 \textbf{Scenario principale:}
 \begin{itemize}
-\item Utente amministratore conferma il reset della password dell'utente designato.
+  \item Utente amministratore conferma il reset della password dell'utente designato.
 \end{itemize}
 \textbf{Estensioni:}
 \begin{itemize} % TODO: ???
-\item Condizione: in UC1.8.3.1 l'utente amministratore ha inserito uno username non esistente all'interno del sistema:
+  \item Condizione: in UC1.8.3.1 l'utente amministratore ha inserito uno username non esistente all'interno del sistema:
   \begin{itemize}
-  \item UC1.8.5\ -\ Visualizzazione errore username non presente.
+    \item UC1.8.5\ -\ Visualizzazione errore username non presente.
   \end{itemize}
 \end{itemize}
 \textbf{Postcondizioni:} Il reset della password dell'utente designato è stato confermato con successo.
@@ -1328,7 +1330,7 @@ L'utente ha appena avviato la \gloss{CLI}, risulta essere non autenticato e ha g
 \textbf{Precondizioni:} Il server è in ascolto, l'utente ha inserito le proprie credenziali (username e password) e intende effettuare il login. Il sistema non riconosce le credenziali.\\
 \textbf{Scenario principale:}
 \begin{itemize}
-\item Viene visualizzato un messaggio di errore esplicativo.
+  \item Viene visualizzato un messaggio di errore esplicativo.
 \end{itemize}
 \textbf{Postcondizioni:} Il login fallisce, l'utente risulta essere non autenticato.
 
@@ -1340,7 +1342,7 @@ L'utente ha appena avviato la \gloss{CLI}, risulta essere non autenticato e ha g
 \textbf{Precondizioni:} Il server è in ascolto, l'utente ha inserito la propria password attuale, la nuova password e la conferma. Il sistema non riconosce la password attuale pre modifica.\\
 \textbf{Scenario principale:}
 \begin{itemize}
-\item Viene visualizzato un messaggio di errore esplicativo.
+  \item Viene visualizzato un messaggio di errore esplicativo.
 \end{itemize}
 \textbf{Postcondizioni:} La modifica della password fallisce, la password rimane invariata.
 
