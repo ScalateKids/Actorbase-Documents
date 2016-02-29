@@ -1818,7 +1818,7 @@ L'utente intende effettuare login al database da un programma \gloss{Scala} este
 \textbf{Attore secondario:} Driver\\
 \textbf{Scopo e descrizione:} L'utente intende effettuare operazioni sugli \gloss{item} di una \gloss{collezione} esistente da un programma \gloss{Scala} esterno. Le operazioni previste sono:
 inserimento e cancellazione.\\
-\textbf{Precondizione:} Il \gloss{database} è pronto a ricevere comandi e l'utente intende effettuare operazioni di inserimento o cancellazione su una \gloss{collezione} esistente.\\
+\textbf{Precondizione:} Il \gloss{database} è pronto a ricevere comandi e l'utente intende effettuare operazioni di inserimento o cancellazione su una \gloss{collezione}.\\
 \textbf{Scenario principale:}
 \begin{itemize}
 \item UC2.3.1 Inserimento nuovo \gloss{item};
@@ -1829,7 +1829,7 @@ inserimento e cancellazione.\\
 \item UC2.3.2 Cancellazione \gloss{item}.
 \end{itemize}
 \textbf{Estensioni:}
-\begin{itemize} %%INSERIRE 2.3.3!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+\begin{itemize}
 \item Nel caso in cui la \gloss{collezione} su cui effettuare cancellazione non sia presente:
   \begin{itemize}
   \item UC2.3.5 Visualizzazione errore collezione inesistente.
@@ -1841,6 +1841,10 @@ inserimento e cancellazione.\\
 \item Nel caso in cui la collezione su cui effettuare l'inserimento sia inesistente:
   \begin{itemize}
   \item UC2.3.6 Creazione nuova collezione.
+  \end{itemize}
+\item Nel caso in cui il file che contiene gli item da inserire non sia presente nel path inserito:
+  \begin{itemize}
+  \item UC2.3.3 Visualizzazione errore file inesistente.
   \end{itemize}
 \end{itemize}
 \textbf{Postcondizione:} L'operazione richiesta è stata effettuata correttamente.
@@ -1975,7 +1979,7 @@ inserimento e cancellazione.\\
   \end{itemize}
   % TODO se il file è "costruito male" credo sia un altro errore da aggiungere qua
 \end{itemize}
-\textbf{Postcondizioni:} Gli item scritti all'interno del file inserito sono stati inseriti con successo all'interno del sistema.%TODO vaben così? %Il \gloss{path} è stato inserito correttamente.
+\textbf{Postcondizioni:} Gli item scritti all'interno del file inserito sono stati inseriti con successo all'interno del sistema. Il \gloss{path} è stato inserito correttamente.%TODO vaben così? 
 
 \subsubsection{UC2.3.1.2.1: Inserimento path file} %da tenere?
 
@@ -2081,70 +2085,116 @@ In caso di inserimento di nome \gloss{collezione} inesistente, o in caso di risu
 \end{itemize}
 \textbf{Postcondizioni:} La chiave da ricerca all'interno del sistema è stata inserita correttamente.
 
-\subsection{UC14: Modifica password}
+\subsection{UC2.5: Modifica password}
+% TODO: dialogo
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC2_5.png}
+    \caption*{Caso d'uso 2.5: Modifica password}
+  \end{center}
+\end{figure}
+\textbf{Attori primari:} Utente autenticato\\
+\textbf{Scopo e descrizione:} L'utente intende modificare la propria password da un programma \gloss{Scala} esterno, deve inserire la propria password attuale e la nuova password.\\
+\textbf{Precondizione:} Il server è in ascolto.
+\textbf{Scenario principale:}
+\begin{itemize}
+\item UC2.5.1 Inserimento password attuale;
+\item UC2.5.2 Inserimento nuova password;
+\end{itemize}
+\textbf{Estensioni:} %TODO controllare ste estensioni
+\begin{itemize}
+\item Nel caso in cui durante UC2.5.1 l'utente inserisca una password attuale non corretta:
+  \begin{itemize}
+  \item UC2.5.3 Visualizzazione errore password attuale
+  \end{itemize}
+\item Nel caso in cui durante UC2.5.2 l'utente inserisca una nuova password che non rispetta i vincoli di sistema:
+  \begin{itemize}
+  \item UC2.5.4 Visualizzazione errore nuova password
+  \end{itemize}
+\end{itemize}
+\textbf{Postcondizioni:} La password è stata sostituita con la nuova.
+
+\subsubsection{UC2.5.1: Inserimento vecchia password}
+
+\textbf{Attori primari:} Utente autenticato\\
+\textbf{Attori secondari:} Terminale\\
+\textbf{Scopo e descrizione:} L'utente intende modificare la propria password, deve inserire la propria password attuale.\\
+\textbf{Precondizione:} Il server è in ascolto e l'utente ha inserito il comando per la modifica password.
+\textbf{Scenario principale:}
+\begin{itemize}
+\item L'utente può inserire la propria password attuale.
+\end{itemize}
+\textbf{Postcondizioni:} La password è stata inserita.
+
+\subsubsection{UC2.5.2: Inserimento nuova password}
+
+\textbf{Attori primari:} Utente autenticato\\
+\textbf{Attori secondari:} Terminale\\
+\textbf{Scopo e descrizione:} L'utente intende modificare la propria password, deve inserire la nuova password.\\
+\textbf{Precondizione:} Il server è in ascolto, l'utente ha inserito il comando per la modifica password e ha inserito la vecchia password.
+\textbf{Scenario principale:}
+\begin{itemize}
+\item L'utente può inserire la nuova password.
+\end{itemize}
+\textbf{Postcondizioni:} La nuova password è stata inserita.
+
+\subsection{UC2.6: Logout}
+\textbf{Attori primari:} Utente autenticato, utente amministratore\\
+\textbf{Scopo e descrizione:} L'utente intende effettuare il logout dal sistema\\
+\textbf{Precondizione:} Il server è in ascolto e l'utente intende effettuare il logout dal sistema\\
+\textbf{Scenario principale:}
+\begin{itemize}
+\item L'utente può inserire il comando di logout.
+\end{itemize}
+\textbf{Postcondizioni:} L'utente ha effettuato il logout e ora è un utente non autenticato per il sistema.
+
+\subsection{UC2.7: Gestione utenti}
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC14.png}
+    \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC2_7.png}
+    \caption*{Caso d'uso 2.7: Gestione utenti}
+  \end{center}
+\end{figure}
+
+\subsection{UC2.7.1: Aggiunta utente}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC2_7_1.png}
     \caption*{Caso d'uso 4: Operazioni sugli \gloss{item}}
   \end{center}
 \end{figure}
 
-\subsection{UC14.1: Inserimento vecchia password}
+\subsection{UC2.7.1.1: Inserimento username}
 
-\subsection{UC14.2: Inserimento nuova password}
+\subsection{UC2.7.1.2: Conferma aggiunta utente}
 
-\subsection{UC14.3: Conferma password}
-
-\subsection{UC15: Logout}
-
-\subsection{UC16: Gestione utenti}
+\subsection{UC2.7.2: Rimozione utente}
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC16.png}
-    \caption*{Caso d'uso 4: Operazioni sugli \gloss{item}}
+    \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC2_7_2.png}
+    \caption*{Caso d'uso 2.7.2: Rimozione utente}
   \end{center}
 \end{figure}
 
-\subsection{UC16.1: Aggiunta utente}
+\subsection{UC2.7.2.1: Inserimento username}
+
+\subsection{UC2.7.2.2: Conferma rimozione utente}
+
+\subsection{UC2.7.3: Reset password}
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC16_1.png}
-    \caption*{Caso d'uso 4: Operazioni sugli \gloss{item}}
+    \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC2_7_3.png}
+    \caption*{Caso d'uso 2.7: Reset password}
   \end{center}
 \end{figure}
 
-\subsection{UC16.1.1: Inserimento username}
+\subsection{UC2.7.3.1: Inserimento username}
 
-\subsection{UC16.1.2: Conferma aggiunta utente}
-
-\subsection{UC16.2: Rimozione utente}
-
-\begin{figure}[H]
-  \begin{center}
-    \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC16_2.png}
-    \caption*{Caso d'uso 4: Operazioni sugli \gloss{item}}
-  \end{center}
-\end{figure}
-
-\subsection{UC16.2.1: Inserimento username}
-
-\subsection{UC16.2.2: Conferma rimozione utente}
-
-\subsection{UC16.3: Reset password}
-
-\begin{figure}[H]
-  \begin{center}
-    \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC16_3.png}
-    \caption*{Caso d'uso 4: Operazioni sugli \gloss{item}}
-  \end{center}
-\end{figure}
-
-\subsection{UC16.3.1: Inserimento username}
-
-\subsection{UC16.3.2: Conferma reset}
+\subsection{UC2.7.3.2: Conferma reset}
 
 \section{Requisiti}
 
