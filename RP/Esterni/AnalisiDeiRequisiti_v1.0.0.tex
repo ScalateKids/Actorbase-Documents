@@ -1621,19 +1621,6 @@ L'utente intende effettuare login al database da un programma \gloss{Scala} este
 \end{itemize}
 \textbf{Postcondizioni:} L'utente ha inserito la propria password.
 
-\subsubsection{UC2.8: Lancio eccezione credenziali errate}
-
-\textbf{Attori primari:} Utente non autenticato\\
-\textbf{Attori secondari:} Terminale\\
-\textbf{Scopo e descrizione:}
-L'utente intende effettuare login al database da un programma \gloss{Scala} esterno, risulta essere non autenticato e ha già inserito il proprio username e la propria password per l'autenticazione all'interno del sistema.\\
-\textbf{Precondizioni:} Il server è in ascolto, l'utente ha inserito il comando di login e le proprie credenziali (username e password). Il sistema non riconosce le credenziali.\\
-\textbf{Scenario principale:}
-\begin{itemize}
-\item Viene lanciata un'eccezione per credenziali errate.
-\end{itemize}
-\textbf{Postcondizioni:} Il login fallisce, l'utente risulta essere non autenticato.
-
 \subsection{UC2.2: Operazioni sulle collezioni}
 
 \begin{figure}[H]
@@ -1721,7 +1708,7 @@ L'utente intende effettuare login al database da un programma \gloss{Scala} este
 \end{itemize}
 \textbf{Postcondizioni:} La \gloss{collezione} è stata creata.
 
-\subsection{UC2.2.1.1: Inserimento nome collezione}
+\subsubsection{UC2.2.1.1: Inserimento nome collezione}
 
 \textbf{Attore primario:} Utente autenticato, utente amministratore\\
 \textbf{Attore secondario:} Driver\\
@@ -1746,6 +1733,7 @@ L'utente intende effettuare login al database da un programma \gloss{Scala} este
 \textbf{Postcondizioni:} Il \gloss{database} restituisce la lista delle \gloss{collezioni} esistenti secondo la \gloss{visibilità} dell'utente, per ogni collezione viene visualizzato il nome della collezione stessa.
 
 \subsection{UC2.2.3: Modifica nome collezione}
+
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC2_2_3.png}
@@ -1830,6 +1818,7 @@ L'utente intende effettuare login al database da un programma \gloss{Scala} este
 \textbf{Postcondizioni:} Il nome della \gloss{collezione} è stato inserito correttamente.
 
 \subsection{UC2.2.5: Aggiunta di un collaboratore a collezione}
+
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC2_2_5.png}
@@ -1883,6 +1872,7 @@ L'utente intende effettuare login al database da un programma \gloss{Scala} este
 \textbf{Postcondizioni:} Lo username è stato inserito correttamente.
 
 \subsection{UC2.2.6: Rimozione di un collaboratore da collezione}
+
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC2_2_6.png}
@@ -1961,6 +1951,7 @@ L'utente intende effettuare login al database da un programma \gloss{Scala} este
 
 
 \subsection{UC2.3: Operazioni sugli item}
+
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC2_3.png}
@@ -2240,7 +2231,7 @@ In caso di inserimento di nome \gloss{collezione} inesistente, o in caso di risu
 \end{itemize}
 \textbf{Postcondizioni:} Il sistema ha riportato la lista dei risultati di ricerca.
 
-\subsection{UC2.4.1: Inserimento lista collezioni}
+\subsubsection{UC2.4.1: Inserimento lista collezioni}
 
 \textbf{Attore primario:} Utente autenticato\\
 \textbf{Attore secondario:} Driver\\
@@ -2254,7 +2245,7 @@ In caso di inserimento di nome \gloss{collezione} inesistente, o in caso di risu
 \end{itemize}
 \textbf{Postcondizioni:} La lista di collezioni su cui effettuare la ricerca è stata inserita correttamente.
 
-\subsection{UC2.4.2: Inserimento chiave di ricerca}
+\subsubsection{UC2.4.2: Inserimento chiave di ricerca}
 
 \textbf{Attore primario:} Utente autenticato, utente amministratore\\
 \textbf{Attore secondario:} Driver\\
@@ -2268,6 +2259,7 @@ In caso di inserimento di nome \gloss{collezione} inesistente, o in caso di risu
 \textbf{Postcondizioni:} La chiave da ricerca all'interno del sistema è stata inserita correttamente.
 
 \subsection{UC2.5: Modifica password}
+
 % TODO: dialogo
 \begin{figure}[H]
   \begin{center}
@@ -2322,6 +2314,7 @@ In caso di inserimento di nome \gloss{collezione} inesistente, o in caso di risu
 \textbf{Postcondizioni:} La nuova password è stata inserita.
 
 \subsection{UC2.6: Logout}
+
 \textbf{Attori primari:} Utente autenticato, utente amministratore\\
 \textbf{Attore secondario:} Driver\\
 \textbf{Scopo e descrizione:} L'utente intende effettuare il logout dal sistema\\
@@ -2393,7 +2386,7 @@ In caso di inserimento di nome \gloss{collezione} inesistente, o in caso di risu
 \end{itemize}
 \textbf{Postcondizioni:} Il nuovo utente è stato inserito all'interno del sistema con successo.
 
-\subsection{UC2.7.1.1: Inserimento username}
+\subsubsection{UC2.7.1.1: Inserimento username}
 
 \textbf{Attore primario:} Utente amministratore\\
 \textbf{Scopo e descrizione:} L'amministratore intende aggiungere un nuovo utente all'interno del sistema. Deve inserire lo username del nuovo utente.\\
@@ -2478,6 +2471,19 @@ verrà modificata al valore prescelto ``actorbase''.\\
 \item Utente amministratore inserisce username utente designato al reset password.
 \end{itemize}
 \textbf{Postcondizioni:} Lo username dell'utente designato al reset password è stato inserito con successo.
+
+\subsection{UC2.8: Lancio eccezione credenziali errate}
+
+\textbf{Attori primari:} Utente non autenticato\\
+\textbf{Attori secondari:} Terminale\\
+\textbf{Scopo e descrizione:}
+L'utente intende effettuare login al database da un programma \gloss{Scala} esterno, risulta essere non autenticato e ha già inserito il proprio username e la propria password per l'autenticazione all'interno del sistema.\\
+\textbf{Precondizioni:} Il server è in ascolto, l'utente ha inserito il comando di login e le proprie credenziali (username e password). Il sistema non riconosce le credenziali.\\
+\textbf{Scenario principale:}
+\begin{itemize}
+\item Viene lanciata un'eccezione per credenziali errate.
+\end{itemize}
+\textbf{Postcondizioni:} Il login fallisce, l'utente risulta essere non autenticato.
 
 \section{Requisiti}
 
