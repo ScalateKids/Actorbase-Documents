@@ -665,27 +665,50 @@ L'attore ha appena avviato la \gloss{CLI}, risulta essere non autenticato e può
 \end{itemize}
 \textbf{Postcondizione:} Il contenuto delle \gloss{collezioni} selezionate è stato esportato su file.
 
-\subsection{UC1.3.8: Visualizzazione errore username inesistente}
+\subsection{UC1.3.8: Visualizzazione errore collezione inesistente}
 
 \textbf{Attori primari:} Utente autenticato, utente amministratore\\
-\textbf{Scopo e descrizione:}
-L'attore ha inserito un comando tra:
+\textbf{Scopo e descrizione:} L'attore ha inserito un comando che necessita del nome della \gloss{collezione} su cui effettuare operazioni, lo username inserito risulta essere inesistente all'interno del sistema.\\
+\textbf{Precondizione:}
+Il server è in ascolto l'attore ha inserito un comando tra:
 \begin{itemize}
+\item UC1.3.3\ -\ Modifica nome \gloss{collezione}
+\item UC1.3.4\ -\ Cancellazione \gloss{collezione}
 \item UC1.3.5\ -\ Aggiunta \gloss{collaboratore} a \gloss{collezione}
 \item UC1.3.6\ -\ Rimozione \gloss{collaboratore} da \gloss{collezione}
 \end{itemize}
-e i parametri per la sua esecuzione tra cui lo username che risulta essere non già censito all'interno del sistema.\\
-\textbf{Precondizioni:} Il server è in ascolto, l'attore ha inserito il %finire tutti i casi di errore qua sotto
-comando per la modifica password, ha inserito i parametri necessari (password attuale, nuova password e password di conferma) e intende modificare la propria password. Il sistema non riconosce la password di conferma inserita.\\
+e i parametri per la sua esecuzione, tra cui il nome della \gloss{collezione}, il quale risulta essere inesistene all'interno del sistema.\\
 \textbf{Scenario principale:}
 \begin{itemize}
 \item Viene visualizzato un messaggio di errore esplicativo.
 \end{itemize}
-\textbf{Postcondizioni:} La modifica password fallisce, la password dell'attore resta quella di prima.
+\textbf{Postcondizioni:} Il comando inserito non viene eseguito, viene visualizzato il messaggio d'errore esplicativo.
 
-\subsection{UC1.3.9: Visualizzazione errore collezione inesistente}
-
+\subsection{UC1.3.9: Visualizzazione errore username inesistente}
+% TODO: da rivedere
 \textbf{Attori primari:} Utente autenticato\\
+\textbf{Scopo e descrizione:}
+L'attore ha inserito il comando per l'aggiunta \gloss{collaboratore} a
+\gloss{collezione} o il comando per la rimozione \gloss{collaboratore} a
+\gloss{collezione}. Ha inserito il nome della \gloss{collezione} a cui
+aggiungere o rimuovere il \gloss{collaboratore} e lo username del
+\gloss{collaboratore} stesso, quest'ultimo risulta essere inesistente all'interno
+del sistema.\\
+\textbf{Precondizioni:} Il server è in ascolto, l'attore ha inserito il comando per l'aggiunta \gloss{collaboratore} a
+\gloss{collezione} o il comando per la rimozione \gloss{collaboratore} a
+\gloss{collezione}. Ha inserito il nome della \gloss{collezione} a cui
+aggiungere o rimuovere il \gloss{collaboratore} e lo username del
+\gloss{collaboratore} stesso, quest'ultimo risulta essere inesistente all'interno
+del sistema.
+\textbf{Scenario principale:}
+\begin{itemize}
+\item Viene visualizzato un messaggio di errore esplicativo.
+\end{itemize}
+\textbf{Postcondizioni:} Il comando inserito non viene eseguito, viene visualizzato il messaggio d'errore esplicativo.
+
+\subsection{UC1.3.10: Visualizzazione errore collezione già esistente}
+
+\textbf{Attori primari:} Utente autenticato, utente amministratore\\
 \textbf{Scopo e descrizione:}
 L'attore ha inserito il comando per la modifica password, ha inserito i parametri necessari (password attuale, nuova password e password di conferma) per modificare la propria password.\\
 \textbf{Precondizioni:} Il server è in ascolto, l'attore ha inserito il comando per la modifica password, ha inserito i parametri necessari (password attuale, nuova password e password di conferma) e intende modificare la propria password. Il sistema non riconosce la password di conferma inserita.\\
@@ -695,7 +718,7 @@ L'attore ha inserito il comando per la modifica password, ha inserito i parametr
 \end{itemize}
 \textbf{Postcondizioni:} La modifica password fallisce, la password dell'attore resta quella di prima.
 
-\subsection{UC1.3.10: Visualizzazione errore collezione già esistente}
+\subsection{UC1.3.11: Visualizzazione errore collezione già esistente}
 
 \textbf{Attori primari:} Utente autenticato, utente amministratore\\
 \textbf{Scopo e descrizione:}
@@ -745,6 +768,10 @@ inserimento e cancellazione.\\
 \item Condizione: in UC1.4.1.2  il file che contiene gli \gloss{item} da inserire non sia presente nel path inserito:
   \begin{itemize}
   \item UC1.4.3\ -\ Visualizzazione errore file inesistente.
+  \end{itemize}
+\item Condizione: in UC1.4.1 l'attore inserisce il nome \gloss{collezione} inesistente all'interno del sistema:
+  \begin{itemize}
+  \item UC1.4.7\ -\ Inserimento con creazione nuova \gloss{collezione}.
   \end{itemize}
 \end{itemize}
 \textbf{Postcondizione:} L'operazione richiesta è stata effettuata correttamente.
@@ -896,6 +923,16 @@ inserimento e cancellazione.\\
 \item L'attore inserisce la chiave dell'\gloss{item} da eliminare.
 \end{itemize}
 \textbf{Postcondizioni:} La chiave è stata inserita correttamente.
+
+\subsection{UC1.4.3: Visualizzazione errore file inesistente}
+
+\subsection{UC1.4.4: Visualizzazione errore chiave già esistente}
+
+\subsection{UC1.4.5: Visualizzazione errore collezione inesistente}
+
+\subsection{UC1.4.6: Visualizzazione errore file malformato}
+
+\subsection{UC1.4.7: Inserimento con creazione nuova collezione}
 
 \subsection{UC1.5: Ricerca}
 
@@ -1199,23 +1236,27 @@ verrà modificata al valore prescelto ``actorbase''.\\
 \end{itemize}
 \textbf{Postcondizioni:} Il reset della password dell'utente designato è stato confermato con successo.
 
+\subsection{UC1.8.4: Visualizzazione errore username già presente}
+
+\subsection{UC1.8.5: Visualizzazione errore username inesistente}
+
 \subsection{UC1.9: Visualizzazione errore credenziali errate}
 
 \textbf{Attori primari:} Utente non autenticato\\
 \textbf{Scopo e descrizione:}
-L'utente ha appena avviato la \gloss{CLI}, risulta essere non autenticato e ha già inserito il proprio username e la propria password per l'autenticazione all'interno del sistema.\\
-\textbf{Precondizioni:} Il server è in ascolto, l'utente ha inserito le proprie credenziali (username e password) e intende effettuare il login. Il sistema non riconosce le credenziali.\\
+L'attore ha appena avviato la \gloss{CLI}, risulta essere non autenticato e ha già inserito il proprio username e la propria password per l'autenticazione all'interno del sistema.\\
+\textbf{Precondizioni:} Il server è in ascolto, l'attore ha inserito le proprie credenziali (username e password) e intende effettuare il login. Il sistema non riconosce le credenziali.\\
 \textbf{Scenario principale:}
 \begin{itemize}
 \item Viene visualizzato un messaggio di errore esplicativo.
 \end{itemize}
-\textbf{Postcondizioni:} Il login fallisce, l'utente risulta essere non autenticato.
+\textbf{Postcondizioni:} Il login fallisce, l'attore risulta essere non autenticato.
 
 \subsection{UC1.10: Visualizzazione errore password attuale}
 
-\textbf{Attori primari:} Utente non autenticato\\
-\textbf{Scopo e descrizione:} L'utente già autenticato all'interno del sistema intende modificare la propria password, ha già inserito la password attuale e la nuova password con conferma.\\
-\textbf{Precondizioni:} Il server è in ascolto, l'utente ha inserito la propria password attuale, la nuova password e la conferma. Il sistema non riconosce la password attuale pre modifica.\\
+\textbf{Attori primari:} Utente autenticato\\
+\textbf{Scopo e descrizione:} L'attore intende modificare la propria password, ha già inserito la password attuale e la nuova password con conferma.\\
+\textbf{Precondizioni:} Il server è in ascolto, l'attore ha inserito la propria password attuale, la nuova password e la conferma. Il sistema non riconosce la password attuale pre modifica.\\
 \textbf{Scenario principale:}
 \begin{itemize}
 \item Viene visualizzato un messaggio di errore esplicativo.
@@ -1224,9 +1265,9 @@ L'utente ha appena avviato la \gloss{CLI}, risulta essere non autenticato e ha g
 
 \subsection{UC1.11: Visualizzazione errore nuova password}
 
-\textbf{Attori primari:} Utente non autenticato\\
-\textbf{Scopo e descrizione:} L'utente già autenticato all'interno del sistema intende modificare la propria password, ha già inserito la password attuale e la nuova password con conferma.\\
-\textbf{Precondizioni:} Il server è in ascolto, l'utente ha inserito la propria password attuale, la nuova password e la conferma. Il sistema non accetta la nuova password in quanto non conforme ai
+\textbf{Attori primari:} Utente autenticato\\
+\textbf{Scopo e descrizione:} L'attore intende modificare la propria password, ha già inserito la password attuale e la nuova password con conferma.\\
+\textbf{Precondizioni:} Il server è in ascolto, l'attore ha inserito la propria password attuale, la nuova password e la conferma. Il sistema non accetta la nuova password in quanto non conforme ai
 vincoli imposti. I vincoli imposti dal sistema sono:
 \begin{itemize}
 \item Lunghezza password minima di 8 caratteri.
@@ -1239,9 +1280,9 @@ vincoli imposti. I vincoli imposti dal sistema sono:
 
 \subsection{UC1.12: Visualizzazione errore conferma nuova password}
 
-\textbf{Attori primari:} Utente non autenticato\\
-\textbf{Scopo e descrizione:} L'utente già autenticato all'interno del sistema intende modificare la propria password, ha già inserito la password attuale e la nuova password con conferma.\\
-\textbf{Precondizioni:} Il server è in ascolto, l'utente ha inserito la propria password attuale, la nuova password e la conferma. Il sistema non accetta la conferma nuova password in quanto non conforme ai
+\textbf{Attori primari:} Utente autenticato\\
+\textbf{Scopo e descrizione:} L'attore intende modificare la propria password, ha già inserito la password attuale e la nuova password con conferma.\\
+\textbf{Precondizioni:} Il server è in ascolto, l'attore ha inserito la propria password attuale, la nuova password e la conferma. Il sistema non accetta la conferma nuova password in quanto non conforme ai
 vincoli imposti. I vincoli imposti sulla conferma password dal sistema sono:
 \begin{itemize}
 \item Lunghezza password minima di 8 caratteri;
@@ -1252,6 +1293,39 @@ vincoli imposti. I vincoli imposti sulla conferma password dal sistema sono:
 \item Viene visualizzato un messaggio di errore esplicativo.
 \end{itemize}
 \textbf{Postcondizioni:} La modifica della password fallisce, la password rimane invariata.
+
+\subsection{UC1.13: Visualizzazione dell'intera collezione}
+
+\textbf{Attori primari:} Utente autenticato\\
+\textbf{Scopo e descrizione:} L'attore intende effettuare una ricerca su una lista di \gloss{collezioni} senza specificare chiavi di ricerca.\\
+\textbf{Precondizioni:} Il server è in ascolto, l'attore ha inserito una lista non vuota di \gloss{collezioni} e nessuna chiave di ricerca.\\
+\textbf{Scenario principale:}
+\begin{itemize}
+\item Vengono visualizzate le coppie chiave-valore dell'intera \gloss{collezione}.
+\end{itemize}
+\textbf{Postcodizioni:} Viene visualizzata l'intera \gloss{collezione}.
+
+\subsection{UC1.14: Ricerca sull'intero database}
+
+\textbf{Attori primari:} Utente autenticato\\
+\textbf{Scopo e descrizione:} L'attore intende effettuare una ricerca su una lista di \gloss{collezioni} vuota. Deve specificare una chiave di ricerca.\\
+\textbf{Precondizioni:} Il server è in ascolto, l'attore ha inserito una lista vuota di \gloss{collezioni} ed una chiave di ricerca.\\
+\textbf{Scenario principale:}
+\begin{itemize}
+\item Vengono ricercate e visualizzate le coppie chiave-valore sull'intero \gloss{database}.
+\end{itemize}
+\textbf{Postcodizioni:} La ricerca avviene sull'intero \gloss{database} con successo.
+
+\subsection{UC1.15: Visualizzazione dell'intero database}
+
+\textbf{Attori primari:} Utente autenticato\\
+\textbf{Scopo e descrizione:} L'attore intende effettuare una ricerca su una lista di \gloss{collezioni} vuota senza specificare chiavi di ricerca.\\
+\textbf{Precondizioni:} Il server è in ascolto, l'attore ha inserito una lista vuota di \gloss{collezioni} e nessuna chiave di ricerca.\\
+\textbf{Scenario principale:}
+\begin{itemize}
+\item Vengono ricercate e visualizzate le coppie chiave-valore sull'intero \gloss{database} comprensivo di tutte le \gloss{collezioni} secondo la visibilità dell'attore (vedi ~\ref{sec:visibilità}).
+\end{itemize}
+\textbf{Postcodizioni:} Viene visualizzato l'intero \gloss{database} comprensivo di tutte le \gloss{collezioni} con successo.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % QUI INIZIANO I CASI D'USO DEL DRIVER            %
