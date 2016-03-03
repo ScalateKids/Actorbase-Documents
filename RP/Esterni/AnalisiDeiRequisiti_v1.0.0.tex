@@ -200,7 +200,7 @@ attori primari nel modo seguente:\\
 \end{itemize}
 \textbf{Secondari}
 \begin{itemize}
-\item\textbf{Driver:}\\
+\item\textbf{Actorbase:}\\ % TODO: da spiegare
   Nel caso di utilizzo del sistema da un programma esterno in linguaggio Scala, il driver rappresenta effettivamente l'attore necessario agli utenti (attori primari) per raggiugere
   lo scopo prefissato, ovvero l'inserimento dei comandi da inviare al sistema.
 \end{itemize}
@@ -248,7 +248,6 @@ l'utente che, mediante CLI e accesso alla rete, è in grado di interagire con la
   \end{center}
 \end{figure}
 \textbf{Attori primari:} utente non autenticato, utente autenticato, utente amministratore\\
-\textbf{Attore secondario:} Terminale\\
 \textbf{Scopo e descrizione:} L'utente ha appena avviato la \gloss{CLI}, le operazioni che può eseguire sono:
 \begin{itemize}
 \item Nel caso sia un \textbf{utente non autenticato}:
@@ -315,6 +314,14 @@ l'utente che, mediante CLI e accesso alla rete, è in grado di interagire con la
   \begin{itemize}
   \item UC1.12\ -\ Visualizzazione errore conferma nuova password
   \end{itemize}
+\item Condizione: in UC1.5 l'attore non inserisce la chiave da ricercare:
+  \begin{itemize}
+    \item UC1.13\ -\ Ricerca dell'intera \gloss{collezione} senza chiave
+  \end{itemize}
+\item Condizione: in UC1.5 l'attore inserisce una lista \gloss{collezioni} vuota:
+  \begin{itemize}
+    \item UC1.14\ -\ Ricerca sull'intero database.
+  \end{itemize}
 \end{itemize}
 \textbf{Postcondizione:} Il sistema ha eseguito correttamente il comando inserito dall'utente.
 
@@ -328,7 +335,6 @@ l'utente che, mediante CLI e accesso alla rete, è in grado di interagire con la
   \end{center}
 \end{figure}
 \textbf{Attori primari:} Utente non autenticato\\
-\textbf{Attori secondari:} Terminale\\
 \textbf{Scopo e descrizione:}
 L’utente ha appena avviato la \gloss{CLI}, risulta essere non autenticato e può effettuare il login diventando utente
 autenticato.\\
@@ -338,19 +344,11 @@ autenticato.\\
 \item UC1.1.1\ -\ Inserimento username;
 \item UC1.1.2\ -\ Inserimento password.
 \end{itemize}
-\textbf{Estensioni:}
-\begin{itemize}
-\item Condizione: l'utente inserisce una coppia username-password non corrette:
-  \begin{itemize}
-  \item UC1.9 Visualizzazione Errore credenziali errate.
-  \end{itemize}
-\end{itemize}
 \textbf{Postcondizioni:} L'utente ha acceduto al sistema con successo e risulta essere autenticato.
 
 \subsubsection{UC1.1.1: Inserimento username}
 
 \textbf{Attori primari:} Utente non autenticato\\
-\textbf{Attori secondari:} Terminale\\
 \textbf{Scopo e descrizione:}
 L'utente ha appena avviato la \gloss{CLI}, risulta essere non autenticato e può inserire il proprio username per effettuare il login.\\
 \textbf{Precondizioni:} Il server è in ascolto, l'utente ha inserito il comando per effettuare il login.
@@ -363,7 +361,6 @@ L'utente ha appena avviato la \gloss{CLI}, risulta essere non autenticato e può
 \subsubsection{UC1.1.2: Inserimento password}
 
 \textbf{Attori primari:} Utente non autenticato\\
-\textbf{Attori secondari:} Terminale\\
 \textbf{Scopo e descrizione:}
 L'utente ha appena avviato la \gloss{CLI}, risulta essere non autenticato e può inserire la propria password per effettuare il login.\\
 \textbf{Precondizioni:} Il server è in ascolto, l'utente ha inserito il comando per effettuare il login e il suo username.
@@ -376,7 +373,6 @@ L'utente ha appena avviato la \gloss{CLI}, risulta essere non autenticato e può
 \subsection{UC1.2: Richiesta aiuto}
 
 \textbf{Attori primari:} Utente non autenticato, Utente autenticato, Utente amministratore\\
-\textbf{Attore secondario:} Terminale\\
 \textbf{Scopo e descrizione:} L'utente intende richiedere aiuto sulla piattaforma o su un comando specifico.\\Nel caso di richiesta di aiuto generale, i diversi tipi di utente riceveranno la lista dei comandi da loro eseguibili\.\
 \textbf{Precondizione:} L'utente intende richiedere supporto.\\
 \textbf{Scenario principale:}
@@ -389,7 +385,6 @@ L'utente ha appena avviato la \gloss{CLI}, risulta essere non autenticato e può
 \subsection{UC1.2.1: Aiuto generale}
 
 \textbf{Attore primario:} Utente non autenticato, Utente autenticato, Utente amministratore\\
-\textbf{Attore secondario:} Terminale\\
 \textbf{Scopo e descrizione:} L'utente intende richiedere aiuto generale sull'utilizzo del sistema \textbf{Actorbase}.\\
 \textbf{Precondizione:} Il server è in ascolto.\\
 \textbf{Scenario principale:}
@@ -401,7 +396,6 @@ L'utente ha appena avviato la \gloss{CLI}, risulta essere non autenticato e può
 \subsection{UC1.2.2: Aiuto specifico}
 
 \textbf{Attore primario:} Utente non autenticato, Utente autenticato, Utente amministratore\\
-\textbf{Attore secondario:} Terminale\\
 \textbf{Scopo e descrizione:} L'utente intende richiedere aiuto su uno specifico comando del sistema \textbf{Actorbase}.\\
 \textbf{Precondizione:} Il server è in ascolto.\\
 \textbf{Scenario principale:}
@@ -413,7 +407,6 @@ L'utente ha appena avviato la \gloss{CLI}, risulta essere non autenticato e può
 \subsubsection{UC1.2.2.1: Inserimento nome comando}
 
 \textbf{Attore primario:} Utente non autenticato, Utente autenticato, Utente amministratore\\
-\textbf{Attore secondario:} Terminale\\
 \textbf{Scopo e descrizione:} L'utente intende richiedere aiuto specifico sull'utilizzo di un preciso comando del sistema.\\
 \textbf{Precondizione:} Il server è in ascolto e l'utente ha inserito il comando di aiuto specifico.\\
 \textbf{Scenario principale:}
@@ -431,7 +424,6 @@ L'utente ha appena avviato la \gloss{CLI}, risulta essere non autenticato e può
   \end{center}
 \end{figure}
 \textbf{Attore primario:} Utente autenticato, utente amministratore\\
-\textbf{Attore secondario:} Terminale\\
 \textbf{Scopo e descrizione:} L'utente desidera effettuare delle operazioni sulle \gloss{collezioni}. Le operazioni previste sono:
 \begin{itemize}
 \item creazione di una nuova \gloss{collezione};
@@ -464,7 +456,11 @@ L'utente ha appena avviato la \gloss{CLI}, risulta essere non autenticato e può
   \end{itemize}
 \item Condizione: in UC1.3.5 o UC1.3.6 l'utente inserisce uno username non censito all'interno del sistema:
   \begin{itemize}
-  \item UC1.3.9\ -\ Visualizzazione errore username inesistente.
+  \item UC1.3.9\ -\ Visualizzazione errore username non presente tra i collaboratori.
+  \end{itemize}
+\item Condizione: in UC1.3.7 l'utente inserisce una lista \gloss{collezioni} vuota:
+  \begin{itemize}
+  \item UC1.3.11\ -\ Esportazione di tutto il database su file.
   \end{itemize}
 \end{itemize}
 \textbf{Postcondizioni:} L'operazione richiesta è stata eseguita con successo.
@@ -472,45 +468,28 @@ L'utente ha appena avviato la \gloss{CLI}, risulta essere non autenticato e può
 \subsection{UC1.3.1: Creazione collezione}
 
 \textbf{Attore primario:} Utente autenticato, utente amministratore\\
-\textbf{Attore secondario:} Terminale\\
 \textbf{Scopo e descrizione:} L'utente richiede la creazione di una \gloss{collezione} all'interno del \gloss{database}, deve inserire il nome della nuova \gloss{collezione}.\\
 \textbf{Precodizione:} Il server è in ascolto e l'utente intende creare una \gloss{collezione}.\\
 \textbf{Scenario principale:}
 \begin{itemize}
 \item UC1.3.1.1\ -\ Inserimento nome \gloss{collezione}. % TODO qua bisogna mettere il sotto caso d'uso utente inserisce nome collezione da creare? credo di si
 \end{itemize}
-\textbf{Estensioni:}
-\begin{itemize}
-\item Condizione: in UC1.3.1.1 l'utente inserisce il nome di una \gloss{collezione} già censita all'interno del sistema.
-  \begin{itemize}
-  \item UC1.3.10\ -\ Visualizzazione errore \gloss{collezione} già esistente.
-  \end{itemize}
-\end{itemize}
 \textbf{Postcondizioni:} La \gloss{collezione} è stata creata con successo.
 
 \subsubsection{UC1.3.1.1: Inserimento nome collezione}
 
 \textbf{Attore primario:} Utente autenticato, utente amministratore\\
-\textbf{Attore secondario:} Terminale\\
 \textbf{Scopo e descrizione:} L'utente richiede la creazione di una \gloss{collezione} all'interno del \gloss{database}, deve inserire il nome della nuova \gloss{collezione}.\\
 \textbf{Precodizione:} Il server è in ascolto e l'utente intende creare una \gloss{collezione}.\\
 \textbf{Scenario principale:}
 \begin{itemize}
 \item L'utente inserisce il nome \gloss{collezione}.
 \end{itemize}
-\textbf{Estensioni:}
-\begin{itemize}
-\item Condizione: l'utente inserisce il nome di una \gloss{collezione} già censita all'interno del sistema.
-  \begin{itemize}
-  \item UC1.3.10\ -\ Visualizzazione errore \gloss{collezione} già esistente.
-  \end{itemize}
-\end{itemize}
 \textbf{Postcondizioni:} La \gloss{collezione} è stata creata con successo.
 
 \subsection{UC1.3.2: Visualizzazione della lista delle collezioni}
 
 \textbf{Attore primario:} Utente autenticato, utente amministratore\\
-\textbf{Attore secondario:} Terminale\\
 \textbf{Scopo e descrizione:} L'utente intende elencare tutte le \gloss{collezioni} all'interno di \textbf{Actorbase} secondo la propria \gloss{visibilità} (vedi~\ref{sec:visibilità}).\\
 \textbf{Precodizione:} Il server è in ascolto e l'utente intende elencare le \gloss{collezioni} al suo interno.\\
 \textbf{Scenario principale:}
@@ -528,7 +507,6 @@ L'utente ha appena avviato la \gloss{CLI}, risulta essere non autenticato e può
   \end{center}
 \end{figure}
 \textbf{Attore primario:} Utente autenticato, utente amministratore\\
-\textbf{Attore secondario:} Terminale\\
 \textbf{Scopo e descrizione:} L’utente intende modificare il nome di una \gloss{collezione} all'interno del sistema.\\
 \textbf{Precodizione:} Il server è in ascolto e l’utente intende modificare il nome di una \gloss{collezione}.\\
 \textbf{Scenario principale:}
@@ -536,92 +514,49 @@ L'utente ha appena avviato la \gloss{CLI}, risulta essere non autenticato e può
 \item UC1.3.3.1\ -\ Inserimento nome \gloss{collezione};
 \item UC1.3.3.2\ -\ Inserimento nuovo nome \gloss{collezione}.
 \end{itemize}
-\textbf{Estensioni:}
-\begin{itemize}
-\item Condizione: in UC1.3.3.1 l'utente inserisce come nome della \gloss{collezione} da modificare, un nome di una \gloss{collezione} inesistente all'interno del sistema:
-  \begin{itemize}
-  \item UC1.3.8\ -\ Visualizzazione errore \gloss{collezione} inesistente.
-  \end{itemize}
-\item Condizione: in UC1.3.3.2 l'utente inserisce un nome di una \gloss{collezione} già esistente all'interno del sistema:
-  \begin{itemize}
-  \item UC1.3.10\ -\ Visualizzazione errore \gloss{collezione} già esistente.
-  \end{itemize}
-\end{itemize}
 \textbf{Postcondizioni:} Il nome della \gloss{collezione} è stato modificato correttamente.
 
 \subsubsection{UC1.3.3.1: Inserimento nome collezione}
 
 \textbf{Attore primario:} Utente autenticato, utente amministratore\\
-\textbf{Attore secondario:} Terminale\\
 \textbf{Scopo e descrizione:} L'utente intende modificare il nome di un \gloss{collezione} presente nel \gloss{database}, deve inserire il nome della \gloss{collezione} da modificare.\\
 \textbf{Precondzione:} Il server è in ascolto e l'utente intende modificare il nome di una \gloss{collezione}, deve inserire il nome della \gloss{collezione} da modificare.\\
 \textbf{Scenario principale:}
 \begin{itemize}
 \item L'utente inserisce il nome della \gloss{collezione} da modificare.
 \end{itemize}
-\textbf{Estensioni:}
-\begin{itemize}
-\item L'utente inserisce il nome di una \gloss{collezione} da modificare inesistene all'interno del sistema:
-  \begin{itemize}
-  \item UC1.3.8\ -\ Visualizzazione errore \gloss{collezione} inesistente.
-  \end{itemize}
-\end{itemize}
 \textbf{Postcondizioni:} Il nome della \gloss{collezione} da modificare è stato inserito
 
 \subsubsection{UC1.3.3.2: Inserimento nuovo nome collezione}
 
 \textbf{Attore primario:} Utente autenticato, utente amministratore\\
-\textbf{Attore secondario:} Terminale\\
 \textbf{Scopo e descrizione:} L'utente intende modificare il nome di un \gloss{collezione} presente nel \gloss{database}, deve inserire il nuovo nome della \gloss{collezione} da modificare.\\
 \textbf{Precondzione:} Il server è in ascolto e l'utente intende modificare il nome di una \gloss{collezione}, deve inserire il nuovo nome della \gloss{collezione} da modificare.\\
 \textbf{Scenario principale:}
 \begin{itemize}
 \item L'utente inserisce il nuovo nome della \gloss{collezione} da modificare.
 \end{itemize}
-\textbf{Estensioni:}
-\begin{itemize}
-\item L'utente inserisce come nuovo nome della \gloss{collezione} da modificare un nome già censito all'interno del sistema:
-  \begin{itemize}
-  \item UC1.3.10\ -\ Visualizzazione errore \gloss{collezione} già esistente.
-  \end{itemize}
-\end{itemize}
 \textbf{Postcondizioni:} Il nuovo nome della \gloss{collezione} da modificare è stato inserito
 
 \subsection{UC1.3.4: Cancellazione collezione}
 
 \textbf{Attore primario:} Utente autenticato, utente amministratore\\
-\textbf{Attore secondario:} Terminale\\
 \textbf{Scopo e descrizione:} L’utente intende cancellare una \gloss{collezione} presente nel \gloss{database}.\\
 \textbf{Precodizione:} Il server è in ascolto e l’utente intende cancellare una \gloss{collezione}.\\
 \textbf{Scenario principale:}
 \begin{itemize}
 \item UC1.3.4.1\ -\ Inserimento nome \gloss{collezione}.
 \end{itemize}
-\textbf{Estensioni:}
-\begin{itemize}
-\item Condizione: in UC1.3.4.1 l'utente inserisce il nome di una \gloss{collezione} da cancellare inesistente:
-  \begin{itemize}
-  \item UC1.3.8\ -\ Visualizzazione errore \gloss{collezione} inesistente;
-  \end{itemize}
-\end{itemize}
 \textbf{Postcondizioni:} La \gloss{collezione} è stato cancellata correttamente.
 
 \subsubsection{UC1.3.4.1: Inserimento nome collezione}
 
 \textbf{Attore primario:} Utente autenticato, utente amministratore\\
-\textbf{Attore secondario:} Terminale\\
 \textbf{Scopo e descrizione:} L'utente intende cancellare il nome di un \gloss{collezione} presente nel \gloss{database}, deve inserire il nome della \gloss{collezione} da cancellare.\\
 \textbf{Precondzione:} Il server è in ascolto e l'utente intende cancellare il nome di una \gloss{collezione}, deve inserire il nome della \gloss{collezione} da cancellare.\\
 \textbf{Scenario principale:}
 \begin{itemize}
 \item L'utente inserisce il nome della \gloss{collezione} da cancellare.
-\end{itemize}
-\textbf{Estensioni:}
-\begin{itemize}
-\item Condizione: l'utente inserisce come nome della \gloss{collezione} da cancellare un nome inesistente all'interno del sistema:
-  \begin{itemize}
-  \item UC1.3.8\ -\ Visualizzazione errore \gloss{collezione} inesistente;
-  \end{itemize}
 \end{itemize}
 \textbf{Postcondizioni:} Il nome della \gloss{collezione} da cancellare è stato inserito
 
@@ -634,7 +569,6 @@ L'utente ha appena avviato la \gloss{CLI}, risulta essere non autenticato e può
   \end{center}
 \end{figure}
 \textbf{Attore primario:} Utente autenticato, utente amministratore\\
-\textbf{Attore secondario:} Terminale\\
 \textbf{Scopo e descrizione:} L'utente intende aggiungere un \gloss{collaboratore} ad una \gloss{collezione} di sua proprietà. Deve inserire il nome della \gloss{collezione} e lo username dell'utente da aggiungere.\\
 \textbf{Precondizione:} Il \gloss{database} è pronto a ricevere comandi e l'utente intende aggiungere un \gloss{collaboratore} ad una \gloss{collezione} di sua proprietà.\\
 \textbf{Scenario principale:}
@@ -642,54 +576,27 @@ L'utente ha appena avviato la \gloss{CLI}, risulta essere non autenticato e può
 \item UC1.3.5.1\ -\ Inserimento nome \gloss{collezione};
 \item UC1.3.5.2\ -\ Inserimento username \gloss{collaboratore}.
 \end{itemize}
-\textbf{Estensioni:}
-\begin{itemize}
-\item Condizione: in UC1.3.5.1 l'utente inserisce il nome di una \gloss{collezione} non censita all'interno del sistema:
-  \begin{itemize}
-  \item UC1.3.8\ -\ Visualizzazione errore \gloss{collezione} inesistente.
-  \end{itemize}
-\item Condizione: in UC1.3.5.2 l'utente inserisce uno username non censito all'interno del sistema:
-  \begin{itemize}
-  \item UC1.3.9\ -\ Visualizzazione errore username inesistente.
-  \end{itemize}
-\end{itemize}
 \textbf{Postcondizioni:} L'utente designato per la collaborazione è stato aggiunto tra i \gloss{collaboratori} della \gloss{collezione} scelta.
 
 \subsubsection{UC1.3.5.1: Inserimento nome collezione}
 
 \textbf{Attore primario:} Utente autenticato, utente amministratore\\
-\textbf{Attore secondario:} Terminale\\
 \textbf{Scopo e descrizione:} L'utente intende aggiungere un \gloss{collaboratore} ad una \gloss{collezione} di sua proprietà; deve inserire il nome della \gloss{collezione} in questione.\\
 \textbf{Precondizione:} Il server è in ascolto e l'utente ha inserito il comando per l'aggiunta di un \gloss{collaboratore} ad una \gloss{collezione}.
 \textbf{Scenario principale:}
 \begin{itemize}
 \item L'utente inserisce il nome della \gloss{collezione}.
 \end{itemize}
-\textbf{Estensioni:}
-\begin{itemize}
-\item Condizione: l'utente inserisce il nome di una \gloss{collezione} non censita all'interno del sistema:
-  \begin{itemize}
-  \item UC1.3.8\ -\ Visualizzazione errore \gloss{collezione} inesistente.
-  \end{itemize}
-\end{itemize}
 \textbf{Postcondizioni:} Il nome della \gloss{collezione} designata all'aggiunta di un \gloss{collaboratore} è stato inserito correttamente.
 
 \subsubsection{UC1.3.5.2: Inserimento username collaboratore}
 
 \textbf{Attore primario:} Utente autenticato, utente amministratore\\
-\textbf{Attore secondario:} Terminale\\
 \textbf{Scopo e descrizione:} L'utente intende aggiungere un \gloss{collaboratore} ad una \gloss{collezione} di sua proprietà; deve inserire lo username del \gloss{collaboratore} da aggiugere.\\
 \textbf{Precondizione:} Il server è in ascolto, l'utente ha inserito il comando per l'aggiunta di un \gloss{collaboratore} ad una \gloss{collezione} e ha inserito il nome della \gloss{collezione}.\\
 \textbf{Scenario principale:}
 \begin{itemize}
 \item L'utente inserisce il nome del \gloss{collaboratore}.
-\end{itemize}
-\textbf{Estensioni:}
-\begin{itemize}
-\item Condizione: l'utente inserisce uno username non censito all'interno del sistema:
-  \begin{itemize}
-  \item UC1.3.9\ -\ Visualizzazione errore username inesistente.
-  \end{itemize}
 \end{itemize}
 \textbf{Postcondizioni:} Il nome del \gloss{collaboratore} designato all'aggiunta ad una \gloss{collezione} è stato inserito correttamente.
 
@@ -708,61 +615,33 @@ L'utente ha appena avviato la \gloss{CLI}, risulta essere non autenticato e può
 \item UC1.3.6.1\ -\ Inserimento nome \gloss{collezione};
 \item UC1.3.6.2\ -\ Inserimento username \gloss{collaboratore}.
 \end{itemize}
-\textbf{Estensioni:}
-\begin{itemize}
-\item Condizione: in UC1.3.6.1 l'utente inserisce il nome di una \gloss{collezione} non censita all'interno del sistema:
-  \begin{itemize}
-  \item UC1.3.8\ -\ Visualizzazione errore \gloss{collezione} inesistente.
-  \end{itemize}
-\item Condizione: in UC1.3.6.2 l'utente inserisce uno username non censito all'interno del sistema:
-  \begin{itemize}
-  \item UC1.3.9\ -\ Visualizzazione errore username inesistente.
-  \end{itemize}
-\end{itemize}
 \textbf{Postcondizione:} L'utente designato per la rimozione dai \gloss{collaboratori} è stato rimosso dalla \gloss{collezione} scelta.
 
 \subsubsection{UC1.3.6.1: Inserimento nome collezione}
 
 \textbf{Attore primario:} Utente autenticato, utente amministratore\\
-\textbf{Attore secondario:} Terminale\\
 \textbf{Scopo e descrizione:} L'utente intende aggiungere un \gloss{collaboratore} ad una \gloss{collezione} di sua proprietà; deve inserire il nome della \gloss{collezione} in questione.\\
 \textbf{Precondizione:} Il server è in ascolto e l'utente ha inserito il comando per la rimozione di un \gloss{collaboratore} da una \gloss{collezione}.
 \textbf{Scenario principale:}
 \begin{itemize}
 \item L'utente inserisce il nome della \gloss{collezione}.
 \end{itemize}
-\textbf{Estensioni:}
-\begin{itemize}
-\item Condizione: l'utente inserisce il nome di una \gloss{collezione} non censita all'interno del sistema:
-  \begin{itemize}
-  \item UC1.3.8\ -\ Visualizzazione errore \gloss{collezione} inesistente.
-  \end{itemize}
-\end{itemize}
 \textbf{Postcondizioni:} Il nome della \gloss{collezione} designata all'aggiunta di un \gloss{collaboratore} è stato inserito correttamente.
 
 \subsubsection{UC1.3.6.2: Inserimento username collaboratore}
 
 \textbf{Attore primario:} Utente autenticato, utente amministratore\\
-\textbf{Attore secondario:} Terminale\\
 \textbf{Scopo e descrizione:} L'utente intende aggiungere un \gloss{collaboratore} ad una \gloss{collezione} di sua proprietà; deve inserire lo username del \gloss{collaboratore} da aggiugere.\\
 \textbf{Precondizione:} Il server è in ascolto, l'utente ha inserito il comando per la rimozione di un \gloss{collaboratore} da una \gloss{collezione} e ha inserito il nome della \gloss{collezione}.\\
 \textbf{Scenario principale:}
 \begin{itemize}
 \item L'utente inserisce il nome del \gloss{collaboratore}.
 \end{itemize}
-\textbf{Estensioni:}
-\begin{itemize}
-\item Condizione: l'utente inserisce uno username non censito tra i \gloss{collaboratori} della \gloss{collezione}:
-  \begin{itemize}
-  \item UC1.3.9\ -\ Visualizzazione errore username inesistente.
-  \end{itemize}
-\end{itemize}
 \textbf{Postcondizioni:} Il nome del \gloss{collaboratore} designato all'aggiunta ad una \gloss{collezione} è stato inserito correttamente.
 
 \subsection{UC1.3.7: Esportazione su file}
 
 \textbf{Attore primario:} Utente autenticato, utente amministratore\\
-\textbf{Attore secondario:} Terminale\\
 \textbf{Scopo e descrizione:} L'utente intende esportare su file il contenuto di una o più \gloss{collezioni}\\
 \textbf{Precondizione:} Il server è in ascolto e l'utente intende esportare il contenuto di una o più \gloss{collezioni} su file.
 \textbf{Scenario principale:}
@@ -774,7 +653,6 @@ L'utente ha appena avviato la \gloss{CLI}, risulta essere non autenticato e può
 \subsubsection{UC1.3.7.1: Inserimento lista di collezioni da esportare}
 
 \textbf{Attore primario:} Utente autenticato, utente amministratore\\
-\textbf{Attore secondario:} Terminale\\
 \textbf{Scopo e descrizione:} L'utente intende esportare su file il contenuto di una o più \gloss{collezioni}\\
 \textbf{Precondizione:} Il server è in ascolto e l'utente intende esportare il contenuto di una o più \gloss{collezioni} su file.
 \textbf{Scenario principale:}
@@ -786,7 +664,6 @@ L'utente ha appena avviato la \gloss{CLI}, risulta essere non autenticato e può
 \subsection{UC1.3.8: Visualizzazione errore username inesistente}
 
 \textbf{Attori primari:} Utente autenticato, utente amministratore\\
-\textbf{Attori secondari:} Terminale\\
 \textbf{Scopo e descrizione:}
 L'utente ha inserito un comando tra:
 \begin{itemize}
@@ -805,7 +682,6 @@ comando per la modifica password, ha inserito i parametri necessari (password at
 \subsection{UC1.3.9: Visualizzazione errore collezione inesistente}
 
 \textbf{Attori primari:} Utente autenticato\\
-\textbf{Attori secondari:} Terminale\\
 \textbf{Scopo e descrizione:}
 L'utente ha inserito il comando per la modifica password, ha inserito i parametri necessari (password attuale, nuova password e password di conferma) per modificare la propria password.\\
 \textbf{Precondizioni:} Il server è in ascolto, l'utente ha inserito il comando per la modifica password, ha inserito i parametri necessari (password attuale, nuova password e password di conferma) e intende modificare la propria password. Il sistema non riconosce la password di conferma inserita.\\
@@ -818,7 +694,6 @@ L'utente ha inserito il comando per la modifica password, ha inserito i parametr
 \subsection{UC1.3.10: Visualizzazione errore collezione già esistente}
 
 \textbf{Attori primari:} Utente autenticato, utente amministratore\\
-\textbf{Attori secondari:} Terminale\\
 \textbf{Scopo e descrizione:}
 L'utente ha inserito il comando per la modifica password, ha inserito i parametri necessari (password attuale, nuova password e password di conferma) per modificare la propria password.\\
 \textbf{Precondizioni:} Il server è in ascolto, l'utente ha inserito il comando per la modifica password, ha inserito i parametri necessari (password attuale, nuova password e password di conferma) e intende modificare la propria password. Il sistema non riconosce la password di conferma inserita.\\
@@ -837,7 +712,6 @@ L'utente ha inserito il comando per la modifica password, ha inserito i parametr
   \end{center}
 \end{figure}
 \textbf{Attore primario:} Utente autenticato, utente amministratore\\
-\textbf{Atttore secondario:} Terminale\\
 \textbf{Scopo e descrizione:} L'utente intende effettuare operazioni sugli \gloss{item} di una \gloss{collezione} esistente. Le operazioni previste sono:
 inserimento e cancellazione.\\
 \textbf{Precondizione:} Il server è in ascolto e l'utente intende effettuare operazioni di inserimento o cancellazione su una \gloss{collezione} esistente.\\
@@ -874,7 +748,6 @@ inserimento e cancellazione.\\
 \subsection{UC1.4.1: Inserimento item}
 
 \textbf{Attore primario:} Utente autenticato, utente amministratore\\
-\textbf{Attore secondario:} Terminale\\
 \textbf{Scopo e descrizione:} L'utente intende inserire un nuovo \gloss{item} all'interno di una \gloss{collezione} esistente. Deve selezionare la \gloss{collezione} e inserire i parametri di definizione dell'\gloss{item}. Questi sono la chiave, il valore associato e il \gloss{flag} di sovrascrittura. Può scegliere di inserire mediante due modalità distinte:
 \begin{itemize}
 \item Manuale;
@@ -885,13 +758,6 @@ inserimento e cancellazione.\\
 \begin{itemize}
 \item UC1.4.1.1\ -\ Inserimento \gloss{item} manuale;
 \item UC1.4.1.2\ -\ Inserimento \gloss{item} da file.
-\end{itemize}
-\textbf{Estensioni:}
-\begin{itemize}
-\item Condizione: in UC1.4.1.1 o UC1.4.1.2, in caso di flag di sovrascrittura attivo, la chiave dell'\gloss{item} da inserire sia già presente:
-  \begin{itemize}
-  \item UC1.4.4\ -\ Visualizzazione errore chiave già esistente.
-  \end{itemize}
 \end{itemize}
 \textbf{Postcondizioni:} L'operazione di inserimento richiesta è stata effettuata correttamente.
 
@@ -904,7 +770,6 @@ inserimento e cancellazione.\\
   \end{center}
 \end{figure}
 \textbf{Attore primario:} Utente autenticato, utente amministratore\\
-\textbf{Attore secondario} Terminale\\
 \textbf{Scopo e descrizione:} L'utente intende inserire manualmente un nuovo \gloss{item} all'interno di una \gloss{collezione} esistente. Deve selezionare la \gloss{collezione} e inserire i parametri di definizione dell'\gloss{item}. Questi sono la chiave, il valore associato e il \gloss{flag} di sovrascrittura.\\
 \textbf{Precondizione:} Il server è in ascolto e l'utente intende inserire un nuovo \gloss{item} in modalità manuale.\\
 \textbf{Scenario principale:}
@@ -914,57 +779,33 @@ inserimento e cancellazione.\\
 \item UC1.4.1.1.3\ -\ Inserimento valore;
 \item UC1.4.1.1.4\ -\ Inserimento flag sovrascrittura.
 \end{itemize}
-\textbf{Estensioni:}
-\begin{itemize}
-\item Condizione: in UC1.4.1.1.2 l'utente inserisce una chiave \gloss{item} con 1.4.1.1.4 attivo,  già esistente all'interno del sistema:
-  \begin{itemize}
-  \item UC1.4.4\ -\ Visualizzazione errore chiave già esistente.
-  \end{itemize}
-\end{itemize}
 \textbf{Postcondizioni:} L'\gloss{item} è stato inserito con successo.
 
 \subsubsection{UC1.4.1.1.1: Inserimento nome collezione}
 
 \textbf{Attore primario:} Utente autenticato, utente amministratore\\
-\textbf{Attore secondario:} Terminale\\
 \textbf{Scopo e descrizione:} L'utente intende inserire manualmente un nuovo \gloss{item} all'interno di una \gloss{collezione} esistente. Deve inserire il nome della \gloss{collezione}.\\
 \textbf{Precondizione:} Il server è in ascolto e l'utente ha inserito il comando per l'inserimento \gloss{item} manuale.\\
 \textbf{Scenario principale:}
 \begin{itemize}
 \item L'utente inserisce il nome della \gloss{collezione} su cui effettuare l'inserimento.
 \end{itemize}
-\textbf{Estensioni:}
-\begin{itemize}
-\item Condizione: l'utente inserisce il nome di una \gloss{collezione} non esistente all'interno del sistema:
-  \begin{itemize}
-  \item UC4.6\ -\ Creazione nuova \gloss{collezione}. %TODO non so se sia proprio giusto
-  \end{itemize}
-\end{itemize}
 \textbf{Postcondizione:} Il nome della \gloss{collezione} è stato inserito correttamente.
 
 \subsubsection{UC1.4.1.1.2: Inserimento chiave}
 
 \textbf{Attore primario:} Utente autenticato, utente amministratore\\
-\textbf{Attore secondario:} Terminale\\
 \textbf{Scopo e descrizione:} L'utente intende inserire manualmente un nuovo \gloss{item} all'interno di una \gloss{collezione} esistente. Deve inserire la chiave dell'\gloss{item}.\\
 \textbf{Precondizione:} Il server è in ascolto, l'utente ha inserito il comando per l'inserimento \gloss{item} manuale e ha inserito il nome della \gloss{collezione}.\\
 \textbf{Scenario principale:}
 \begin{itemize}
 \item L'utente inserisce la chiave associata all'\gloss{item}.
 \end{itemize}
-\textbf{Estensioni:}
-\begin{itemize}
-\item Condizione: l'utente inserisce un \gloss{item} con \gloss{flag} di sovrascrittura attivo associato ad una chiave già presente all'interno del sistema:
-  \begin{itemize}
-  \item UC1.4.4\ -\ Visualizzazione errore chiave già esistente
-  \end{itemize}
-\end{itemize}
 \textbf{Postcondizioni:} La chiave è stata inserita correttamente.
 
 \subsubsection{UC1.4.1.1.3: Inserimento valore}
 
 \textbf{Attore primario:} Utente autenticato, utente amministratore\\
-\textbf{Attore secondario:} Terminale\\
 \textbf{Scopo e descrizione:} L'utente intende inserire manualmente un nuovo \gloss{item} all'interno di una \gloss{collezione} esistente. Deve inserire il valore associato alla chiave dell'\gloss{item}.\\
 \textbf{Precondizione:} Il server è in ascolto, l'utente ha inserito il comando per l'inserimento \gloss{item} manuale, ha inserito il nome della \gloss{collezione} e ha inserito la chiave.\\
 \textbf{Scenario principale:}
@@ -976,7 +817,6 @@ inserimento e cancellazione.\\
 \subsubsection{UC1.4.1.1.4: Inserimento flag sovrascrittura}
 
 \textbf{Attore primario:} Utente autenticato, utente amministratore\\
-\textbf{Attore secondario:} Terminale\\
 \textbf{Scopo e descrizione:} L'utente intende inserire manualmente un nuovo \gloss{item} all'interno di una \gloss{collezione} esistente. Deve inserire il \gloss{flag} di sovrascrittura \gloss{item}.\\
 \textbf{Precondizione:} Il server è in ascolto, l'utente ha inserito il comando per l'inserimento \gloss{item} manuale, ha inserito il nome della \gloss{collezione}, ha inserito la chiave e il valore dell'\gloss{item}.\\
 \textbf{Scenario principale:}
@@ -994,31 +834,17 @@ inserimento e cancellazione.\\
   \end{center}
 \end{figure}
 \textbf{Attore primario:} Utente autenticato, utente amministratore\\
-\textbf{Attore secondario:} Terminale\\
 \textbf{Scopo e descrizione:} L'utente intende inserire nuovi \gloss{item} da file. Deve inserire il \gloss{path} del file su filesystem.\\
 \textbf{Precondizione:} Il server è in ascolto e l'utente intende inserire nuovi \gloss{item} da file.\\
 \textbf{Scenario principale:}
 \begin{itemize}
 \item L'utente inserisce \gloss{path} del file.
 \end{itemize}
-\textbf{Estensioni:}
-\begin{itemize}
-\item Condizione: il file non esista nel filesystem:
-  \begin{itemize}
-  \item UC1.4.3\ -\ Visualizzazione errore file inesistente.
-  \end{itemize}
-\item Condizione: il file da importare è malformato:
-  \begin{itemize}
-  \item UC1.4.6\ -\ Visualizzazion errore file malformato.
-  \end{itemize}
-  % TODO se il file è "costruito male" credo sia un altro errore da aggiungere qua
-\end{itemize}
 \textbf{Postcondizioni:} Gli \gloss{item} scritti all'interno del file inserito sono stati inseriti con successo all'interno del sistema.%TODO vaben così? %Il \gloss{path} è stato inserito correttamente.
 
 \subsubsection{UC1.4.1.2.1: Inserimento path file}
 
 \textbf{Attore primario:} Utente autenticato, utente amministratore\\
-\textbf{Attore secondario:} Terminale\\
 \textbf{Scopo e descrizione:} L'utente intende inserire nuovi \gloss{item} da file. Deve inserire il \gloss{path} del file su filesystem.\\
 \textbf{Precondizione:} Il server è in ascolto e l'utente ha inserito il comando per l'inserimento di \gloss{item} da file.\\
 \textbf{Scenario principale:}
@@ -1036,7 +862,6 @@ inserimento e cancellazione.\\
   \end{center}
 \end{figure}
 \textbf{Attore primario:} Utente autenticato, utente amministratore\\
-\textbf{Attore secondario:} Terminale\\
 \textbf{Scopo e descrizione:} L'utente intende cancellare un \gloss{item} da una \gloss{collezione}.\\
 \textbf{Precondizioni:} Il server è in ascolto e l'utente intende cancellare un \gloss{item}.\\
 \textbf{Scenario principale:}
@@ -1044,19 +869,11 @@ inserimento e cancellazione.\\
 \item UC1.4.2.1\ -\ Inserimento nome \gloss{collezione};
 \item UC1.4.2.2\ -\ Inserimento chiave \gloss{item}.
 \end{itemize}
-\textbf{Estensioni:}
-\begin{itemize}
-\item Condizione: in UC1.4.2.1 l'utente inserisce il nome di una \gloss{collezione} inesistente:
-  \begin{itemize}
-  \item UC1.4.5\ -\ Visualizzazione errore \gloss{collezione} inesistente.
-  \end{itemize}
-\end{itemize}
 \textbf{Postcondizioni:} L'\gloss{item} è stato cancellato correttamente.
 
 \subsection{UC1.4.2.1: Inserimento nome collezione}
 
 \textbf{Attore primario:} Utente autenticato, utente amministratore\\
-\textbf{Attore secondario:} Terminale\\
 \textbf{Scopo e descrizione:} L'utente intende cancellare un \gloss{item} all'interno di una \gloss{collezione} esistente. Deve inserire il nome della \gloss{collezione}.\\
 \textbf{Precondizione:} Il server è in ascolto e l'utente ha inserito il comando di cancellazione \gloss{item}.\\
 \textbf{Scenario principale:}
@@ -1068,7 +885,6 @@ inserimento e cancellazione.\\
 \subsection{UC1.4.2.2: Inserimento chiave item}
 
 \textbf{Attore primario:} Utente autenticato, utente amministratore\\
-\textbf{Attore secondario:} Terminale\\
 \textbf{Scopo e descrizione:} L'utente intende cancellare un \gloss{item} all'interno di una \gloss{collezione} esistente. Deve inserire la chiave dell'\gloss{item}.\\
 \textbf{Precondizione:} Il server è in ascolto, l'utente ha inserito il comando di cancellazione \gloss{item} e ha inserito il nome della \gloss{collezione}.\\
 \textbf{Scenario principale:}
@@ -1080,7 +896,6 @@ inserimento e cancellazione.\\
 \subsection{UC1.5: Ricerca}
 
 \textbf{Attore primario:} Utente autenticato, utente amministratore\\
-\textbf{Attore secondario:} Terminale\\
 \textbf{Scopo e descrizione:} L'utente intende effettuare una ricerca di \gloss{item} all'interno del sistema; può decidere di effettuare la ricerca su una lista di \gloss{collezioni} eventualmente vuota, in tal caso la
 ricerca verrà estesa a tutto il sistema entro i limiti imposti dal grado di visibilità (vedi~\ref{sec:visibilità}) dell'utente.\\
 In caso di inserimento di nome \gloss{collezione} inesistente, o in caso di risultati di ricerca nulli, il sistema riporterà una lista risultata vuota.\\ % TODO: stesso per chiavi?
@@ -1095,7 +910,6 @@ In caso di inserimento di nome \gloss{collezione} inesistente, o in caso di risu
 \subsection{UC1.5.1: Inserimento lista collezioni}
 
 \textbf{Attore primario:} Utente autenticato, utente amministratore\\
-\textbf{Attore secondario:} Terminale\\
 \textbf{Scopo e descrizione:} L'utente intende effettuare una ricerca di \gloss{item} all'interno del sistema; deve inserire la lista delle \gloss{collezioni} su cui effettuare tale ricerca. In caso di lista di ricerca vuota
 la funzione di ricerca verrà estesa a tutto il sistema entro i limit imposti dal grado di visibilità (vedi~\ref{sec:visibilità}) dell'utente.\\
 In caso di inserimento di nome \gloss{collezione} inesistente, o in caso di risultati di ricerca nulli, il sistema riporterà una lista risultata vuota.\\ % TODO: stesso per chiavi?
@@ -1109,7 +923,6 @@ In caso di inserimento di nome \gloss{collezione} inesistente, o in caso di risu
 \subsection{UC1.5.2: Inserimento chiave di ricerca}
 
 \textbf{Attore primario:} Utente autenticato, utente amministratore\\
-\textbf{Attore secondario:} Terminale\\
 \textbf{Scopo e descrizione:} L'utente intende effettuare una ricerca di \gloss{item} all'interno del sistema; deve inserire la chiave di cui effettuare tale ricerca.\\
 In caso di inserimento di nome \gloss{collezione} inesistente, o in caso di risultati di ricerca nulli, il sistema riporterà una lista risultata vuota.\\ % TODO: stesso per chiavi?
 \textbf{Precondizione:} Il server è in ascolto, l'utente intende effettuare una ricerca di \gloss{item} all'interno del  sistema.\\
@@ -1128,7 +941,6 @@ In caso di inserimento di nome \gloss{collezione} inesistente, o in caso di risu
   \end{center}
 \end{figure}
 \textbf{Attori primari:} Utente autenticato, utente amministratore\\
-\textbf{Attori secondari:} Terminale\\
 \textbf{Scopo e descrizione:} L'utente intende modificare la propria password, deve inserire la propria password attuale, inserire poi la nuova password e confermarla.\\
 \textbf{Precondizione:} Il server è in ascolto.
 \textbf{Scenario principale:}
@@ -1137,27 +949,11 @@ In caso di inserimento di nome \gloss{collezione} inesistente, o in caso di risu
 \item UC1.6.2\ -\ Inserimento nuova password;
 \item UC1.6.3\ -\ Conferma password.
 \end{itemize}
-\textbf{Estensioni:} %TODO controllare ste estensioni
-\begin{itemize}
-\item In UC1.6.1\ -\ l'utente inserisce una password attuale non corretta:
-  \begin{itemize}
-  \item UC1.6.4\ -\ Visualizzazione errore password attuale
-  \end{itemize}
-\item In UC1.6.2\ -\ l'utente inserisce una nuova password che non rispetta i vincoli di sistema:
-  \begin{itemize}
-  \item UC1.6.5\ -\ Visualizzazione errore nuova password
-  \end{itemize}
-\item In UC1.6.3\ -\ l'utente inserisce una password di conferma che non corrisponde alla nuova password inserita in UC1.6.2:
-  \begin{itemize}
-  \item UC1.6.6\ -\ Visualizzazione errore conferma nuova password
-  \end{itemize}
-\end{itemize}
 \textbf{Postcondizioni:} La password è stata sostituita con la nuova.
 
 \subsubsection{UC1.6.1: Inserimento vecchia password}
 
 \textbf{Attori primari:} Utente autenticato, utente amministratore\\
-\textbf{Attori secondari:} Terminale\\
 \textbf{Scopo e descrizione:} L'utente intende modificare la propria password, deve inserire la propria password attuale.\\
 \textbf{Precondizione:} Il server è in ascolto e l'utente ha inserito il comando per la modifica password.
 \textbf{Scenario principale:}
@@ -1169,7 +965,6 @@ In caso di inserimento di nome \gloss{collezione} inesistente, o in caso di risu
 \subsubsection{UC1.6.2: Inserimento nuova password}
 
 \textbf{Attori primari:} Utente autenticato, utente amministratore\\
-\textbf{Attori secondari:} Terminale\\
 \textbf{Scopo e descrizione:} L'utente intende modificare la propria password, deve inserire la nuova password.\\
 \textbf{Precondizione:} Il server è in ascolto, l'utente ha inserito il comando per la modifica password e ha inserito la vecchia password.
 \textbf{Scenario principale:}
@@ -1181,7 +976,6 @@ In caso di inserimento di nome \gloss{collezione} inesistente, o in caso di risu
 \subsubsection{UC1.6.3: Conferma password}
 
 \textbf{Attori primari:} Utente autenticato, utente amministratore\\
-\textbf{Attori secondari:} Terminale\\
 \textbf{Scopo e descrizione:} L'utente intende modificare la propria password, deve confermare la modifica reinserendo la nuova password.\\
 \textbf{Precondizione:} Il server è in ascolto, l'utente ha inserito il comando per la modifica password, ha inserito la vecchia password e ha inserito la nuova password.
 \textbf{Scenario principale:}
@@ -1193,7 +987,6 @@ In caso di inserimento di nome \gloss{collezione} inesistente, o in caso di risu
 \subsubsection{UC1.6.4: Visualizzazione errore password attuale}
 
 \textbf{Attori primari:} Utente autenticato, utente amministratore\\
-\textbf{Attori secondari:} Terminale\\
 \textbf{Scopo e descrizione:}
 L'utente ha inserito il comando per la modifica password, ha inserito i parametri necessari (password attuale, nuova password e password di conferma) per modificare la propria password.\\
 \textbf{Precondizioni:} Il server è in ascolto, l'utente ha inserito il comando per la modifica password, ha inserito i parametri necessari (password attuale, nuova password e password di conferma) e intende modificare la propria password. Il sistema non riconosce la password attuale inserita.\\
@@ -1206,7 +999,6 @@ L'utente ha inserito il comando per la modifica password, ha inserito i parametr
 \subsubsection{UC1.6.5: Visualizzazione errore nuova password}
 
 \textbf{Attori primari:} Utente autenticato, utente amministratore\\
-\textbf{Attori secondari:} Terminale\\
 \textbf{Scopo e descrizione:}
 L'utente ha inserito il comando per la modifica password, ha inserito i parametri necessari (password attuale, nuova password e password di conferma) per modificare la propria password.\\
 \textbf{Precondizioni:} Il server è in ascolto, l'utente ha inserito il comando per la modifica password, ha inserito i parametri necessari (password attuale, nuova password e password di conferma) e intende modificare la propria password. Il sistema non riconosce la nuova password inserita.\\
@@ -1219,7 +1011,6 @@ L'utente ha inserito il comando per la modifica password, ha inserito i parametr
 \subsubsection{UC1.6.6: Visualizzazione errore nuova password}
 
 \textbf{Attori primari:} Utente autenticato, utente amministratore\\
-\textbf{Attori secondari:} Terminale\\
 \textbf{Scopo e descrizione:}
 L'utente ha inserito il comando per la modifica password, ha inserito i parametri necessari (password attuale, nuova password e password di conferma) per modificare la propria password.\\
 \textbf{Precondizioni:} Il server è in ascolto, l'utente ha inserito il comando per la modifica password, ha inserito i parametri necessari (password attuale, nuova password e password di conferma) e intende modificare la propria password. Il sistema non riconosce la password di conferma inserita.\\
@@ -1232,7 +1023,6 @@ L'utente ha inserito il comando per la modifica password, ha inserito i parametr
 \subsection{UC1.7: Logout}
 
 \textbf{Attori primari:} Utente autenticato, utente amministratore\\
-\textbf{Attori secondari:} Terminale\\
 \textbf{Scopo e descrizione:} L'utente intende effettuare il logout dal sistema\\
 \textbf{Precondizione:} Il server è in ascolto e l'utente intende effettuare il logout dal sistema\\
 \textbf{Scenario principale:}
@@ -1293,13 +1083,6 @@ L'utente ha inserito il comando per la modifica password, ha inserito i parametr
 \item UC1.8.1.1\ -\ Inserimento username;
 \item UC1.8.1.2\ -\ Conferma aggiunta utente.
 \end{itemize}
-\textbf{Estensioni:}
-\begin{itemize}
-\item Condizione: in UC1.8.1.2 l'utente amministratore inserisce uno username già censito all'interno del sistema in UC1.8.1.1:
-  \begin{itemize}
-  \item UC1.8.4\ -\ Visualizzazione errore username già presente.
-  \end{itemize}
-\end{itemize}
 \textbf{Postcondizioni:} Il nuovo utente è stato inserito all'interno del sistema con successo.
 
 \subsection{UC1.8.1.1: Inserimento username}
@@ -1322,13 +1105,6 @@ L'utente ha inserito il comando per la modifica password, ha inserito i parametr
 \begin{itemize}
 \item Utente amministratore conferma l'aggiunta di un nuovo utente.
 \end{itemize}
-\textbf{Estensioni:}
-\begin{itemize} % TODO: ???
-\item Condizione: in UC1.8.1.1 l'utente amministratore ha inserito uno username già esistente all'interno del sistema:
-  \begin{itemize}
-  \item UC1.8.4\ -\ Visualizzazione errore username già presente.
-  \end{itemize}
-\end{itemize}
 \textbf{Postcondizioni:} L'aggiunta del nuovo utente è stata confermata con successo.
 
 \subsection{UC1.8.2: Rimozione utente}
@@ -1346,13 +1122,6 @@ L'utente ha inserito il comando per la modifica password, ha inserito i parametr
 \begin{itemize}
 \item UC1.8.2.1\ -\ Inserimento username;
 \item UC1.8.2.2\ -\ Conferma rimozione utente.
-\end{itemize}
-\textbf{Estensioni:}
-\begin{itemize}
-\item Condizione: in UC1.8.2.2 l'utente amministratore inserisce uno username non presente all'interno del sistema in UC1.8.2.1:
-  \begin{itemize}
-  \item UC1.8.5\ -\ Visualizzazione errore username non presente.
-  \end{itemize}
 \end{itemize}
 \textbf{Postcondizioni:} Il nuovo utente è stato rimosso dal sistema con successo.
 
@@ -1375,13 +1144,6 @@ L'utente ha inserito il comando per la modifica password, ha inserito i parametr
 \textbf{Scenario principale:}
 \begin{itemize}
 \item Utente amministratore conferma la rimozione dell'utente.
-\end{itemize}
-\textbf{Estensioni:}
-\begin{itemize} % TODO: ???
-\item Condizione: in UC1.8.2.1 l'utente amministratore ha inserito uno username non esistente all'interno del sistema:
-  \begin{itemize}
-  \item UC1.8.5\ -\ Visualizzazione errore username non presente.
-  \end{itemize}
 \end{itemize}
 \textbf{Postcondizioni:} La rimozione dell'utente è stata confermata con successo.
 
@@ -1408,13 +1170,6 @@ verrà modificata al valore prescelto ``actorbase''.\\
 \item UC1.8.3.1\ -\ Inserimento username;
 \item UC1.8.3.2\ -\ Conferma reset password.
 \end{itemize}
-\textbf{Estensioni}
-\begin{itemize}
-\item Condizione: in UC1.8.3.2 l'utente amministratore inserisce uno username non presente all'interno del sistema in UC1.8.3.1:
-  \begin{itemize}
-  \item UC1.8.5\ -\ Visualizzazione errore username non presente.
-  \end{itemize}
-\end{itemize}
 \textbf{Postcondizioni:} La password dell'utente designato è stata modificata in ``actorbase'' con successo.
 
 \subsubsection{UC1.8.3.1: Inserimento username}
@@ -1438,19 +1193,11 @@ verrà modificata al valore prescelto ``actorbase''.\\
 \begin{itemize}
 \item Utente amministratore conferma il reset della password dell'utente designato.
 \end{itemize}
-\textbf{Estensioni:}
-\begin{itemize} % TODO: ???
-\item Condizione: in UC1.8.3.1 l'utente amministratore ha inserito uno username non esistente all'interno del sistema:
-  \begin{itemize}
-  \item UC1.8.5\ -\ Visualizzazione errore username non presente.
-  \end{itemize}
-\end{itemize}
 \textbf{Postcondizioni:} Il reset della password dell'utente designato è stato confermato con successo.
 
 \subsection{UC1.9: Visualizzazione errore credenziali errate}
 
 \textbf{Attori primari:} Utente non autenticato\\
-\textbf{Attori secondari:} Terminale\\
 \textbf{Scopo e descrizione:}
 L'utente ha appena avviato la \gloss{CLI}, risulta essere non autenticato e ha già inserito il proprio username e la propria password per l'autenticazione all'interno del sistema.\\
 \textbf{Precondizioni:} Il server è in ascolto, l'utente ha inserito le proprie credenziali (username e password) e intende effettuare il login. Il sistema non riconosce le credenziali.\\
@@ -1463,7 +1210,6 @@ L'utente ha appena avviato la \gloss{CLI}, risulta essere non autenticato e ha g
 \subsection{UC1.10: Visualizzazione errore password attuale}
 
 \textbf{Attori primari:} Utente non autenticato\\
-\textbf{Attori secondari:} Terminale\\
 \textbf{Scopo e descrizione:} L'utente già autenticato all'interno del sistema intende modificare la propria password, ha già inserito la password attuale e la nuova password con conferma.\\
 \textbf{Precondizioni:} Il server è in ascolto, l'utente ha inserito la propria password attuale, la nuova password e la conferma. Il sistema non riconosce la password attuale pre modifica.\\
 \textbf{Scenario principale:}
@@ -1475,7 +1221,6 @@ L'utente ha appena avviato la \gloss{CLI}, risulta essere non autenticato e ha g
 \subsection{UC1.11: Visualizzazione errore nuova password}
 
 \textbf{Attori primari:} Utente non autenticato\\
-\textbf{Attori secondari:} Terminale\\
 \textbf{Scopo e descrizione:} L'utente già autenticato all'interno del sistema intende modificare la propria password, ha già inserito la password attuale e la nuova password con conferma.\\
 \textbf{Precondizioni:} Il server è in ascolto, l'utente ha inserito la propria password attuale, la nuova password e la conferma. Il sistema non accetta la nuova password in quanto non conforme ai
 vincoli imposti. I vincoli imposti dal sistema sono:
@@ -1491,7 +1236,6 @@ vincoli imposti. I vincoli imposti dal sistema sono:
 \subsection{UC1.12: Visualizzazione errore conferma nuova password}
 
 \textbf{Attori primari:} Utente non autenticato\\
-\textbf{Attori secondari:} Terminale\\
 \textbf{Scopo e descrizione:} L'utente già autenticato all'interno del sistema intende modificare la propria password, ha già inserito la password attuale e la nuova password con conferma.\\
 \textbf{Precondizioni:} Il server è in ascolto, l'utente ha inserito la propria password attuale, la nuova password e la conferma. Il sistema non accetta la conferma nuova password in quanto non conforme ai
 vincoli imposti. I vincoli imposti sulla conferma password dal sistema sono:
@@ -1505,7 +1249,10 @@ vincoli imposti. I vincoli imposti sulla conferma password dal sistema sono:
 \end{itemize}
 \textbf{Postcondizioni:} La modifica della password fallisce, la password rimane invariata.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % QUI INIZIANO I CASI D'USO DEL DRIVER            %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \subsection{UC2: Interazioni tramite Driver}
 \begin{figure}[H]
   \begin{center}
@@ -2152,7 +1899,7 @@ inserimento e cancellazione.\\
 	\item UC2.3.5 Lancio eccezione file malformato.
 	\end{itemize}
 \end{itemize}
-\textbf{Postcondizioni:} Gli item scritti all'interno del file inserito sono stati inseriti con successo all'interno del sistema.%TODO vaben così? 
+\textbf{Postcondizioni:} Gli item scritti all'interno del file inserito sono stati inseriti con successo all'interno del sistema.%TODO vaben così?
 
 \subsubsection{UC2.3.1.2.1: Inserimento path file} %TODO da tenere?
 
