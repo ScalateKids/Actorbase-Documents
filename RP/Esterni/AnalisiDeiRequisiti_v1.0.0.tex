@@ -1264,9 +1264,9 @@ vincoli imposti. I vincoli imposti sulla conferma password dal sistema sono:
     \caption*{Caso d'uso 2: Interazioni tramite driver}
   \end{center}
 \end{figure}
-\textbf{Attori primari:} Utente non autenticato, utente autenticato, utente amministratore\\
-\textbf{Attore secondario:} Terminale\\
-\textbf{Scopo e descrizione:} L'utente intende effettuare operazioni al database da un programma \gloss{Scala} esterno, le operazioni che può eseguire sono:
+\textbf{Attori primari:} Programma esterno su \gloss{JVM}\\
+\textbf{Attore secondario:} Actorbase\\
+\textbf{Scopo e descrizione:} L'attore intende effettuare operazioni al database da un programma \gloss{Scala} esterno, le operazioni che può eseguire sono:
 \begin{itemize}
 \item Nel caso sia un \textbf{utente non autenticato} può:
   \begin{itemize}
@@ -1304,17 +1304,17 @@ vincoli imposti. I vincoli imposti sulla conferma password dal sistema sono:
 \end{itemize}
 \textbf{Estensioni:}
 \begin{itemize}
-\item Condizione: in UC2.1 l'utente inserisce una coppia username password non riconosciuta dal sistema:
+\item Condizione: in UC2.1 l'attore inserisce una coppia username password non riconosciuta dal sistema:
   \begin{itemize}
-  \item UC2.8\ -\ Visualizzazione errore credenziali errate
+  \item UC2.8\ -\ Lancio eccezione credenziali errate
   \end{itemize}
-\item Condizione: in UC2.5 l'utente inserisce una password attuale non corretta:
+\item Condizione: in UC2.5 l'attore inserisce una password attuale non corretta:
   \begin{itemize}
-  \item UC2.9\ -\ Visualizzazione errore password attuale
+  \item UC2.9\ -\ Lancio eccezione password attuale
   \end{itemize}
-\item Condizione: in UC2.5 l'utente inserisce la password nuova che non rispetta i vincoli imposti dal sistema: %TODO scrivere questi vincoli da qualche parte
+\item Condizione: in UC2.5 l'attore inserisce la password nuova che non rispetta i vincoli imposti dal sistema: %TODO scrivere questi vincoli da qualche parte
   \begin{itemize}
-  \item UC2.10\ -\ Visualizzazione errore nuova password
+  \item UC2.10\ -\ Lancio eccezione nuova password
   \end{itemize}
 \end{itemize}
 \textbf{Postcondizione:} Il sistema ha eseguito correttamente il comando inserito dall'utente.
@@ -1327,10 +1327,10 @@ vincoli imposti. I vincoli imposti sulla conferma password dal sistema sono:
     \caption*{Caso d'uso 2.1: Login}
   \end{center}
 \end{figure}
-\textbf{Attori primari:} Utente non autenticato\\
-\textbf{Attori secondari:} Driver\\
+\textbf{Attori primari:} Programma esterno su \gloss{JVM}\\
+\textbf{Attori secondari:} Actorbase\\
 \textbf{Scopo e descrizione:}
-L'utente intende effettuare login al database da un programma \gloss{Scala} esterno, risulta essere non autenticato e può effettuare il login diventando utente autenticato.\\
+L'attore intende effettuare login al database da un programma \gloss{Scala} esterno, risulta essere non autenticato e può effettuare il login diventando utente autenticato.\\
 \textbf{Precondizione:} Il server è in ascolto.\\
 \textbf{Scenario principale:}
 \begin{itemize}
@@ -1339,38 +1339,38 @@ L'utente intende effettuare login al database da un programma \gloss{Scala} este
 \end{itemize}
 \textbf{Estensione:}
 \begin{itemize}
-\item Condizione: l'utente inserisce una coppia username password non corretta:
+\item Condizione: l'attore inserisce una coppia username password non corretta:
   \begin{itemize}
   \item UC2.8\ -\ Lancio eccezione credenziali errate
   \end{itemize}
 \end{itemize}
-\textbf{Postcondizioni:} L'utente ha acceduto al sistema con successo e risulta essere autenticato.
+\textbf{Postcondizioni:} L'attore ha acceduto al sistema con successo e risulta essere autenticato.
 
 \subsubsection{UC2.1.1: Inserimento username}
 
-\textbf{Attori primari:} Utente non autenticato\\
-\textbf{Attori secondari:} Driver\\
+\textbf{Attori primari:} Programma esterno su \gloss{JVM}\\
+\textbf{Attori secondari:} Actorbase\\
 \textbf{Scopo e descrizione:}
-L'utente intende effettuare login al database da un programma \gloss{Scala} esterno, risulta essere non autenticato e può inserire il proprio username per effettuare il login.\\
-\textbf{Precondizioni:} Il server è in ascolto, l'utente ha inserito il comando di login.\\
+L'attore intende effettuare login al database da un programma \gloss{Scala} esterno, risulta essere non autenticato e può inserire il proprio username per effettuare il login.\\
+\textbf{Precondizioni:} Il server è in ascolto, l'attore ha inserito il comando di login.\\
 \textbf{Scenario principale:}
 \begin{itemize}
-\item L'utente può inserire il proprio username.
+\item L'attore può inserire il proprio username.
 \end{itemize}
-\textbf{Postcondizioni:} L'utente ha inserito il proprio username.
+\textbf{Postcondizioni:} L'attore ha inserito il proprio username.
 
 \subsubsection{UC2.1.2: Inserimento password}
 
-\textbf{Attori primari:} Utente non autenticato\\
-\textbf{Attori secondari:} Terminale\\
+\textbf{Attori primari:} Programma esterno su \gloss{JVM}\\
+\textbf{Attori secondari:} Actorbase\\
 \textbf{Scopo e descrizione:}
-L'utente intende effettuare login al database da un programma \gloss{Scala} esterno, risulta essere non autenticato e può inserire la propria password per effettuare il login.\\
-\textbf{Precondizioni:} Il server è in ascolto, l'utente ha inserito il comando di login e il proprio username.\\
+L'attore intende effettuare login al database da un programma \gloss{Scala} esterno, risulta essere non autenticato e può inserire la propria password per effettuare il login.\\
+\textbf{Precondizioni:} Il server è in ascolto, l'attore ha inserito il comando di login e il proprio username.\\
 \textbf{Scenario principale:}
 \begin{itemize}
-\item L'utente può inserire la propria password.
+\item L'attore può inserire la propria password.
 \end{itemize}
-\textbf{Postcondizioni:} L'utente ha inserito la propria password.
+\textbf{Postcondizioni:} L'attore ha inserito la propria password.
 
 \subsection{UC2.2: Operazioni sulle collezioni}
 
@@ -1380,9 +1380,9 @@ L'utente intende effettuare login al database da un programma \gloss{Scala} este
     \caption*{Caso d'uso 2.2: Operazioni sulle \gloss{collezioni}}
   \end{center}
 \end{figure}
-\textbf{Attore primario:} Utente autenticato\\
-\textbf{Attore secondario:} Driver\\
-\textbf{Scopo e descrizione:} L'utente è autenticato e desidera effettuare delle operazioni sulle \gloss{collezioni} da un programma \gloss{Scala} esterno. L'utente può effettuare le seguenti operazioni:
+\textbf{Attori primari:} Programma esterno su \gloss{JVM}\\
+\textbf{Attori secondari:} Actorbase\\
+\textbf{Scopo e descrizione:} L'attore è autenticato e desidera effettuare delle operazioni sulle \gloss{collezioni} da un programma \gloss{Scala} esterno. L'attore può effettuare le seguenti operazioni:
 \begin{itemize}
 \item Creazione una nuova \gloss{collezione};
 \item Visualizzazione della lista delle \gloss{collezioni} esistenti;
@@ -1392,7 +1392,7 @@ L'utente intende effettuare login al database da un programma \gloss{Scala} este
 \item Rimozione di collaboratori da \gloss{collezioni} esistenti;
 \item Esportazione su file di una o più \gloss{collezioni}.
 \end{itemize}
-\textbf{Precondizione:} L'utente intende effettuare operazioni su \gloss{collezioni}.\\
+\textbf{Precondizione:} L'attore intende effettuare operazioni su \gloss{collezioni}.\\
 \textbf{Scenario principale:}
 \begin{itemize}
 \item UC2.2.1 Creazione \gloss{collezione};
@@ -1405,11 +1405,11 @@ L'utente intende effettuare login al database da un programma \gloss{Scala} este
 \end{itemize}
 \textbf{Estensioni:}
 \begin{itemize}
-\item Condizione: in UC2.2.1 l'utente inserisce il nome di una \gloss{collezione} già censita all'interno del sistema:
+\item Condizione: in UC2.2.1 l'attore inserisce il nome di una \gloss{collezione} già censita all'interno del sistema:
   \begin{itemize}
   \item UC2.2.8 Lancio eccezione \gloss{collezione} già esistente.
   \end{itemize}
-\item Condizione: in UC2.2.4  l'utente inserisca come nuovo nome il nome di una \gloss{collezione} già censita all'interno del sistema:
+\item Condizione: in UC2.2.4  l'attore inserisca come nuovo nome il nome di una \gloss{collezione} già censita all'interno del sistema:
   \begin{itemize}
   \item UC2.2.8 Lancio eccezione \gloss{collezione} già esistente.
   \end{itemize}
