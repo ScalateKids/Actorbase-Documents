@@ -514,10 +514,6 @@ L'attore ha appena avviato la \gloss{CLI}, risulta essere non autenticato e può
 \textbf{Attore primario:} Utente autenticato, utente amministratore\\
 \textbf{Scopo e descrizione:} L'attore intende elencare tutte le \gloss{collezioni} all'interno di \textbf{Actorbase} secondo la propria \gloss{visibilità} (vedi~\ref{sec:visibilità}).\\
 \textbf{Precodizione:} Il server è in ascolto e l'attore intende elencare le \gloss{collezioni} al suo interno.\\
-\textbf{Scenario principale:}
-\begin{itemize}
-\item L'attore inserisce nome \gloss{collezione}.
-\end{itemize}
 \textbf{Postcondizioni:} Il sistema restituisce la lista delle \gloss{collezioni} esistenti secondo la \gloss{visibilità} dell'attore, per ogni \gloss{collezione} viene visualizzato il nome della \gloss{collezione} stessa.
 
 \subsection{UC1.3.3: Modifica nome collezione}
@@ -2228,20 +2224,6 @@ In caso di inserimento di nome \gloss{collezione} inesistente, o in caso di risu
 \item L'utente può inserire la chiave di ricerca
 \end{itemize}
 \textbf{Postcondizioni:} La chiave da ricerca all'interno del sistema è stata inserita correttamente.
-
-\subsection{UC2.4: Ricerca}
-
-\textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
-\textbf{Attore secondario:} Actorbase\\
-\textbf{Scopo e descrizione:} L'attore intende effettuare una ricerca di \gloss{item} all'interno del sistema da un programma Scala esterno.\\
-In caso di inserimento di nome \gloss{collezione} inesistente, o in caso di risultati di ricerca nulli, il sistema riporterà una lista risultata vuota.\\ % TODO: stesso per chiavi?
-\textbf{Precondizione:} Il server è in ascolto, l'attore intende effettuare una ricerca di \gloss{item} all'interno del sistema.\\
-\textbf{Scenario principale:}
-\begin{itemize}
-\item UC2.4.1 Inserimento lista collezioni;
-\item UC2.4.2 Inserimento chiave di ricerca.
-\end{itemize}
-\textbf{Postcondizioni:} Il sistema ha riportato la lista dei risultati di ricerca.
 
 \subsection{UC2.5: Modifica password}
 
