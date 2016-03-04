@@ -926,13 +926,68 @@ inserimento e cancellazione.\\
 
 \subsection{UC1.4.3: Visualizzazione errore file inesistente}
 
+\textbf{Attore primario:} Utente autenticato\\
+\textbf{Scopo e descrizione:} L'attore, con l'intenzione di inserire \gloss{item} da file, ha inserito un \gloss{path} che porta ad un file inesistente nel filesystem.\\
+\textbf{Precondizione:} Il server è in ascolto, l'attore ha inserito un \gloss{path} che punta ad un file inesistente nel filesystem della propria macchina.\\
+\textbf{Scenario principale:}
+\begin{itemize}
+\item Viene visualizzato un messaggio di errore esplicativo.
+\end{itemize}
+\textbf{Postcondizioni:} L'inserimento per importazione file fallisce.
+
 \subsection{UC1.4.4: Visualizzazione errore chiave già esistente}
+
+\textbf{Attore primario:} Utente autenticato\\
+\textbf{Scopo e descrizione:} L'attore, con l'intenzione di inserire \gloss{item} in modalità manuale o per esportazione da file, ha inserito un \gloss{item} con \gloss{flag} di sovrascrittura
+attivo e una chiave di ricerca già presente all'interno della \gloss{collezione} designata all'inserimento.\\
+\textbf{Precondizione:} Il server è in ascolto, l'attore, con l'intezione di inserire un item con \gloss{flag} di sovrascrittura attivo, ha inserito una chiave di ricerca già presente
+all'interno della \gloss{collezione} designata all'inserimento.\\
+\textbf{Scenario principale:}
+\begin{itemize}
+\item Viene visualizzato un messaggio di errore esplicativo.
+\end{itemize}
+\textbf{Postcondizioni:} L'inserimento nuovo \gloss{item} fallisce.
 
 \subsection{UC1.4.5: Visualizzazione errore collezione inesistente}
 
+\textbf{Attore primario:} Utente autenticato\\
+\textbf{Scopo e descrizione:} L'attore, con l'intenzione di cancellare un \gloss{item} da una \gloss{collezione}, ha inserito il nome di una \gloss{collezione} inesistente
+all'interno del sistema.\\
+\textbf{Precondizione:} Il server è in ascolto, l'attore, con l'intezione di cancellare un \gloss{item} da una \gloss{collezione}, ha inserito il nome di una \gloss{collezione} inesistente
+all'interno del sistema.\\
+\textbf{Scenario principale:}
+\begin{itemize}
+\item Viene visualizzato un messaggio di errore esplicativo.
+\end{itemize}
+\textbf{Postcondizioni:} La cancellazione \gloss{item} fallisce.
+
 \subsection{UC1.4.6: Visualizzazione errore file malformato}
 
+\textbf{Attore primario:} Utente autenticato\\
+\textbf{Scopo e descrizione:} L'attore, con l'intenzione di inserire \gloss{item} da file, ha inserito un \gloss{path} che porta ad un file inesistente nel filesystem.\\
+\textbf{Precondizione:} Il server è in ascolto, l'attore ha inserito un \gloss{path} che punta ad un file inesistente nel filesystem della propria macchina.\\
+\textbf{Scenario principale:}
+\begin{itemize}
+\item Viene visualizzato un messaggio di errore esplicativo.
+\end{itemize}
+\textbf{Postcondizioni:} L'inserimento per importazione file fallisce.
+
 \subsection{UC1.4.7: Inserimento con creazione nuova collezione}
+
+\textbf{Attore primario:} Utente autenticato\\
+\textbf{Scopo e descrizione:} L'attore intende inserire un nuovo \gloss{item} all'interno di una \gloss{collezione} esistente. Deve selezionare la \gloss{collezione} e inserire i parametri di definizione dell'\gloss{item}. Questi sono la chiave, il valore associato e il \gloss{flag} di sovrascrittura. Può scegliere di inserire mediante due modalità distinte:
+\begin{itemize}
+\item Manuale;
+\item Da file.
+\end{itemize}
+Il nome della \gloss{collezione} risulta essere inesistente all'interno del sistema.\\
+\textbf{Precondizione:} Il server è in ascolto e l'attore intende effettuare un inserimento di un nuovo \gloss{item}, la \gloss{collezione} designata all'inserimento è inesistente all'interno del sistema.\\
+\textbf{Scenario principale:}
+\begin{itemize}
+\item UC1.4.1.1\ -\ Inserimento \gloss{item} manuale;
+\item UC1.4.1.2\ -\ Inserimento \gloss{item} da file.
+\end{itemize}
+\textbf{Postcondizioni:} L'operazione di inserimento richiesta è stata effettuata correttamente, la \gloss{collezione} designata all'inserimento è stata creata.
 
 \subsection{UC1.5: Ricerca}
 
@@ -1238,7 +1293,30 @@ verrà modificata al valore prescelto ``actorbase''.\\
 
 \subsection{UC1.8.4: Visualizzazione errore username già presente}
 
+\textbf{Attore primario:} Utente amministratore\\
+\textbf{Scopo e descrizione:} L'attore intende aggiungere un nuovo utente al sistema, deve inserire lo username del nuovo utente e confermarne l'aggiunta al sistema.
+Lo username inserito risulta essere già censito all'interno del sistema.
+\textbf{Precondizione:} Il server è in ascolto e l'attore intende aggiungere un nuovo utente al sistema. Lo username del nuovo utente da inserire risulta essere già
+censito all'interno del sistema.
+\textbf{Scenario principale:}
+\begin{itemize}
+\item Viene visualizzato un messaggio di errore esplicativo.
+\end{itemize}
+\textbf{Postcondizioni:} L'aggiunta nuovo utente al sistema fallisce.
+
 \subsection{UC1.8.5: Visualizzazione errore username inesistente}
+
+\textbf{Attore primario:} Utente amministratore\\
+\textbf{Scopo e descrizione:} L'attore intende rimuovere un utente dal sistema o, in alternativa, effettuare un reset della password di un utente. Deve inserire lo username dell'utente designato
+alla rimozione dal sistema o al reset della password e confermare l'operazione.
+Lo username inserito risulta essere inesistente all'interno del sistema.
+\textbf{Precondizione:} Il server è in ascolto e l'attore intende rimuovere un utente dal sistema, o in alternativa, effettuare un reset della password di un utente.
+Lo username dell' utente su cui effettuare l'operazione risulta essere inesistente all'interno del sistema.
+\textbf{Scenario principale:}
+\begin{itemize}
+\item Viene visualizzato un messaggio di errore esplicativo.
+\end{itemize}
+\textbf{Postcondizioni:} L'operazione richiesta fallisce.
 
 \subsection{UC1.9: Visualizzazione errore credenziali errate}
 
