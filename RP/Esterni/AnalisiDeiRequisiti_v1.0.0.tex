@@ -1424,7 +1424,7 @@ vincoli imposti. I vincoli imposti sulla conferma password dal sistema sono:
 \subsection{UC2: Interazioni tramite Driver}
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/driver-generale.png}
+    \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC2.png}
     \caption*{Caso d'uso 2: Interazioni tramite driver}
   \end{center}
 \end{figure}
@@ -2035,13 +2035,6 @@ inserimento e cancellazione.\\
 
 \subsection{UC2.3.1.2: Inserimento item da file}
 
-\begin{figure}[H]
-  \begin{center}
-    \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC2_3_1_2.png}
-    \caption*{Caso d'uso 2.3.1.2: Inserimento \gloss{item} da file}
-  \end{center}
-\end{figure}
-
 \textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
 \textbf{Attore secondario:} Actorbase\\
 \textbf{Scopo e descrizione:} L'attore intende inserire nuovi \gloss{item} da file. Deve inserire il \gloss{path} del file su filesystem.\\
@@ -2438,7 +2431,7 @@ L'attore intende rimuovere un utente o effettuare il reset password di un utente
 \textbf{Scopo e descrizione:}
 L'attore intende effettuare login al server, risulta essere non autenticato, ha inserito il comando di login, il proprio username e la propria password per effettuare l'autenticazione all'interno del sistema.\\
 \textbf{Precondizioni:} Il server è in ascolto, l'attore ha inserito il comando di login e le proprie credenziali (username e password). Il sistema non riconosce le credenziali.\\
-\textbf{Scenario principale:}
+\textbf{Scenario principale:}cd RP
 \begin{itemize}
 \item Viene lanciata un'eccezione per credenziali errate.
 \end{itemize}
