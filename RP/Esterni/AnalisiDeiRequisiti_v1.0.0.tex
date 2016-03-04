@@ -1953,7 +1953,7 @@ inserimento e cancellazione.\\
   \end{itemize}
 \item Condizione: in UC2.3.1.2 l'attore inserisce un nome collezione non presente nel sistema:
   \begin{itemize}
-  \item UC2.2.6 Creazione nuova collezione.%TODO no
+  \item UC2.3.7 Inserimento con creazione nuova collezione.
   \end{itemize}
 \item Condizione: in UC2.3.1.2 l'attore iscerisce un path relativo ad un file non esistente:
   \begin{itemize}
@@ -2120,7 +2120,7 @@ inserimento e cancellazione.\\
 \end{itemize}
 \textbf{Postcondizioni:} La chiave è stata inserita correttamente.
 
-\subserction{UC2.3.3: Lancio eccezione file inesistente}
+\subsection{UC2.3.3: Lancio eccezione file inesistente}
 
 \textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
 \textbf{Attore secondario:} Actorbase\\
@@ -2133,7 +2133,7 @@ L'attore intende aggiungere item da file.\\
 \end{itemize}
 \textbf{Postcondizioni:} L'aggiunta item fallisce.
 
-\subserction{UC2.3.4: Lancio eccezione chiave già esistente}
+\subsection{UC2.3.4: Lancio eccezione chiave già esistente}
 
 \textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
 \textbf{Attore secondario:} Actorbase\\
@@ -2146,7 +2146,7 @@ L'attore intende aggiungere item a una collezione.\\
 \end{itemize}
 \textbf{Postcondizioni:} L'aggiunta item fallisce, l'item non viene aggiunto alla collezione.
 
-\subserction{UC2.3.5: Lancio eccezione collezione inesistente}
+\subsection{UC2.3.5: Lancio eccezione collezione inesistente}
 
 \textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
 \textbf{Attore secondario:} Actorbase\\
@@ -2159,7 +2159,7 @@ L'attore intende cancellare un item da una collezione.\\
 \end{itemize}
 \textbf{Postcondizioni:} La cancellazione item fallisce.
 
-\subserction{UC2.3.6: Lancio eccezione file malformato}
+\subsection{UC2.3.6: Lancio eccezione file malformato}
 
 \textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
 \textbf{Attore secondario:} Actorbase\\
@@ -2171,6 +2171,24 @@ L'attore intende aggiungere item da file.\\
 \item Viene lanciata un'eccezione file malformato.
 \end{itemize}
 \textbf{Postcondizioni:} L'aggiunta item fallisce.
+
+\subsection{UC2.3.7: Inserimento con creazione nuova collezione}
+
+\textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
+\textbf{Attore secondario:} Actorbase\\
+\textbf{Scopo e descrizione:} L'attore intende inserire un nuovo \gloss{item} all'interno di una \gloss{collezione} esistente. Deve selezionare la \gloss{collezione} e inserire i parametri di definizione dell'\gloss{item}. Questi sono la chiave, il valore associato e il \gloss{flag} di sovrascrittura. Può scegliere di inserire mediante due modalità distinte:
+\begin{itemize}
+\item Manuale;
+\item Da file.
+\end{itemize}
+Il nome della \gloss{collezione} risulta essere inesistente all'interno del sistema.\\
+\textbf{Precondizione:} Il server è in ascolto e l'attore intende effettuare un inserimento di un nuovo \gloss{item}, la \gloss{collezione} designata all'inserimento è inesistente all'interno del sistema.\\
+\textbf{Scenario principale:}
+\begin{itemize}
+\item UC2.3.1.1\ -\ Inserimento \gloss{item} manuale;
+\item UC2.3.1.2\ -\ Inserimento \gloss{item} da file.
+\end{itemize}
+\textbf{Postcondizioni:} L'operazione di inserimento richiesta è stata effettuata correttamente, la \gloss{collezione} designata all'inserimento è stata creata.
 
 \subsection{UC2.4: Ricerca}
 
