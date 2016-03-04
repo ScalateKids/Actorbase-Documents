@@ -172,13 +172,22 @@ installata la \textit{\gloss{JVM} versione 8}. I sistemi operativi supportati so
 \item Windows 10;
 \item Mac OSX El Capitan o superiore.
 \end{itemize}
+I requisiti minimi per Java 8 sono:
+\begin{itemize}
+\item RAM:\@128 MB;\@
+\item Spazio su disco: 124MB;\@
+\item Processore: minimo Pentium 2 a 266 MHz;
+\end{itemize}
 Non ci sono ulteriori richieste hardware o software.
-% TODO: vincoli RAM, sistema operativo etc.
+
 \section{Casi d'uso}
 
 Le aspettative di esperienza utente derivano dall'utilizzo da parte dei
-componenti del gruppo di \gloss{Amazon DynamoDB}, un \gloss{database} \gloss{key-value}
-sviluppato da \textit{Amazon}, utilizzato come modello di riferimento per lo sviluppo. I casi d'uso seguono le norme di stesura elencate nel documento \href{run:../Interni/NormeDiProgetto\_v1.0.0.pdf}{Norme di Progetto v1.0.0}.
+componenti del gruppo di \gloss{Amazon DynamoDB}, un \gloss{database}
+\gloss{key-value} sviluppato da \textit{Amazon}, utilizzato come modello di
+riferimento per lo sviluppo. I casi d'uso seguono le norme di stesura elencate
+nel documento \href{run:../Interni/NormeDiProgetto\_v1.0.0.pdf}{Norme di
+  Progetto v1.0.0}.
 
 \subsection{Identificazione attori}
 
@@ -186,9 +195,7 @@ L'analisi del capitolato e le riunioni con il \textit{Proponente} hanno fatto em
 alcune considerazioni sull'obiettivo che \textbf{Actorbase} si pone di raggiungere.
 Trattandosi di un'applicazione distribuita il prodotto finale sarà costituito
 da due \gloss{macro} componenti: un lato server e un lato client fornito di interfaccia
-comandi testuale per poter dialogare con la base di dati.\\ In particolare la
-scalabilità che il prodotto deve fornire ha portato alla suddivisione degli
-attori primari nel modo seguente:\\
+comandi testuale per poter dialogare con la base di dati.\\ Suddivisione attori:\\
 \textbf{Primari}
 \begin{itemize}
 \item\textbf{Utente non autenticato:}\\
@@ -197,6 +204,8 @@ attori primari nel modo seguente:\\
   Rappresenta l'utente generico connesso al lato server del prodotto;
 \item\textbf{Amministratore:}\\
   Rappresenta un superutente con privilegi di \gloss{visibilità} maggiori rispetto a utenti generici e poteri di modifica sulla \gloss{visibilità} di questi ultimi.
+\item\textbf{Programma esterno su JVM:}\\
+  Rappresenta
 \end{itemize}
 \textbf{Secondari}
 \begin{itemize}
@@ -230,8 +239,13 @@ aggiungendo risorse hardware qualora necessario.
 
 \subsection{Visione generale}
 
-L'immagine che segue rappresenta uno schema della visione d'insieme del funzionamento di Actorbase. Al suo interno è possibile identificare
-l'utente che, mediante CLI e accesso alla rete, è in grado di interagire con la rete Actorbase. Essa è formata da un sistema di database distribuiti la cui distribuzione è assolutamente trasparente all'utente. Ogni elemento del sistema è in comunicazione con tutte le altre istanze con cui è in grado di interagire in maniera autonoma.
+L'immagine che segue rappresenta uno schema della visione d'insieme del
+funzionamento di Actorbase. Al suo interno è possibile identificare l'utente
+che, mediante CLI e accesso alla rete, è in grado di interagire con la rete
+Actorbase. Essa è formata da un sistema di database distribuiti la cui
+distribuzione è assolutamente trasparente all'utente. Ogni elemento del sistema
+è in comunicazione con tutte le altre istanze con cui è in grado di interagire
+in maniera autonoma.
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/ActorbaseNetwork.png}
@@ -757,7 +771,7 @@ inserimento e cancellazione.\\
   \begin{itemize}
   \item UC1.4.5\ -\ Visualizzazione errore \gloss{collezione} inesistente.
   \end{itemize}
-\item Condizione: in UC1.4.1.1 o UC1.4.1.2, in caso di flag di sovrascrittura attivo, la chiave dell'\gloss{item} da inserire sia già presente:
+\item Condizione: in UC1.4.1.1 o UC1.4.1.2, in caso di flag di sovrascrittura non attivo, la chiave dell'\gloss{item} da inserire sia già presente:
   \begin{itemize}
   \item UC1.4.4\ -\ Visualizzazione errore chiave già esistente.
   \end{itemize}
@@ -939,8 +953,8 @@ inserimento e cancellazione.\\
 
 \textbf{Attore primario:} Utente autenticato\\
 \textbf{Scopo e descrizione:} L'attore, con l'intenzione di inserire \gloss{item} in modalità manuale o per esportazione da file, ha inserito un \gloss{item} con \gloss{flag} di sovrascrittura
-attivo e una chiave di ricerca già presente all'interno della \gloss{collezione} designata all'inserimento.\\
-\textbf{Precondizione:} Il server è in ascolto, l'attore, con l'intezione di inserire un item con \gloss{flag} di sovrascrittura attivo, ha inserito una chiave di ricerca già presente
+non attivo e una chiave di ricerca già presente all'interno della \gloss{collezione} designata all'inserimento.\\
+\textbf{Precondizione:} Il server è in ascolto, l'attore, con l'intezione di inserire un item con \gloss{flag} di sovrascrittura non attivo, ha inserito una chiave di ricerca già presente
 all'interno della \gloss{collezione} designata all'inserimento.\\
 \textbf{Scenario principale:}
 \begin{itemize}
@@ -1401,7 +1415,7 @@ vincoli imposti. I vincoli imposti sulla conferma password dal sistema sono:
 \textbf{Precondizioni:} Il server è in ascolto, l'attore ha inserito una lista vuota di \gloss{collezioni} e nessuna chiave di ricerca.\\
 \textbf{Scenario principale:}
 \begin{itemize}
-\item Vengono ricercate e visualizzate le coppie chiave-valore sull'intero \gloss{database} comprensivo di tutte le \gloss{collezioni} secondo la visibilità dell'attore (vedi ~\ref{sec:visibilità}).
+\item Vengono ricercate e visualizzate le coppie chiave-valore sull'intero \gloss{database} comprensivo di tutte le \gloss{collezioni} secondo la visibilità dell'attore (vedi~\ref{sec:visibilità}).
 \end{itemize}
 \textbf{Postcodizioni:} Viene visualizzato l'intero \gloss{database} comprensivo di tutte le \gloss{collezioni} con successo.
 
@@ -1419,7 +1433,7 @@ vincoli imposti. I vincoli imposti sulla conferma password dal sistema sono:
 \textbf{Attori primari:} Programma esterno su \gloss{JVM}\\
 \textbf{Attore secondario:} Actorbase\\
 \textbf{Scopo e descrizione:} L'attore intende effettuare operazioni al database da un programma \gloss{Scala} esterno, le operazioni che può eseguire sono:
-\begin{itemize}
+\begin{itemize} % TODO togliere la gerarchia utenti
 \item Nel caso sia un \textbf{utente non autenticato} può:
   \begin{itemize}
   \item Effettuare il login
@@ -1468,6 +1482,18 @@ vincoli imposti. I vincoli imposti sulla conferma password dal sistema sono:
   \begin{itemize}
   \item UC2.10\ -\ Lancio eccezione nuova password
   \end{itemize}
+\item Condizione: in UC2.4 l'attore inserisce una lista di collezioni vuota:
+  \begin{itemize}
+  \item UC2.11\ -\ Ricerca sull'intero database
+  \end{itemize}
+\item Condizione: in UC2.4 l'attore non inserisce una chiave:
+  \begin{itemize}
+  \item UC2.12\ -\ Visualizzazione della intera collezione
+  \end{itemize}
+\item Condizione: in UC2.4 l'attore inserisce una lista di collezioni vuota e non inserisce una chiave:
+  \begin{itemize}
+  \item UC2.13\ -\ Visualizzazione dell'intero database
+  \end{itemize}
 \end{itemize}
 \textbf{Postcondizione:} Il sistema ha eseguito correttamente il comando inserito dall'utente.
 
@@ -1488,13 +1514,6 @@ L'attore intende effettuare login al database da un programma \gloss{Scala} este
 \begin{itemize}
 \item UC2.1.1 Inserimento username;
 \item UC2.1.2 Inserimento password.
-\end{itemize}
-\textbf{Estensione:}
-\begin{itemize}
-\item Condizione: l'attore inserisce una coppia username password non corretta:
-  \begin{itemize}
-  \item UC2.8\ -\ Lancio eccezione credenziali errate
-  \end{itemize}
 \end{itemize}
 \textbf{Postcondizioni:} L'attore ha acceduto al sistema con successo e risulta essere autenticato.
 
@@ -1589,6 +1608,10 @@ L'attore intende effettuare login al database da un programma \gloss{Scala} este
   \begin{itemize}
   \item UC2.2.10 Lancio eccezione username inesistente.
   \end{itemize}
+\item Condizione: in UC2.2.7 l'attore inseriesce una lista di collezioni vuota:
+  \begin{itemize}
+  \item UC2.2.11 Esportazione di tutto il database su file.
+  \end{itemize}
 \end{itemize}
 \textbf{Postcondizioni:} L'operazione richiesta è stata eseguita con successo.
 
@@ -1602,38 +1625,31 @@ L'attore intende effettuare login al database da un programma \gloss{Scala} este
 \begin{itemize}
 \item UC2.2.1.1 Inserimento nome \gloss{collezione}
 \end{itemize}
-\textbf{Estensioni:}
-\begin{itemize}
-\item Condizione: in UC2.2.1.1 l'utente inserisce il nome di una collezione già censita all'interno del sistema:
-  \begin{itemize}
-  \item UC2.2.8 Lancio eccezione errore collezione già esistente.
-  \end{itemize}
-\end{itemize}
 \textbf{Postcondizioni:} La \gloss{collezione} è stata creata.
 
 \subsubsection{UC2.2.1.1: Inserimento nome collezione}
 
-\textbf{Attore primario:} Utente autenticato, utente amministratore\\
-\textbf{Attore secondario:} Driver\\
-\textbf{Scopo e descrizione:} L'utente richiede la creazione di una \gloss{collezione} all'interno del \gloss{database}, ha inserito il comando di creazione collezione e deve inserire il nome della collezione da aggiungere.\\
-\textbf{Precondizione:} Il server è pronto a ricevere comandi e l'utente ha inserito il comando di creazione \gloss{collezione}.\\
+\textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
+\textbf{Attore secondario:} Actorbase\\
+\textbf{Scopo e descrizione:} L'attore richiede la creazione di una \gloss{collezione} all'interno del \gloss{database}, ha inserito il comando di creazione collezione e deve inserire il nome della collezione da aggiungere.\\
+\textbf{Precondizione:} Il server è pronto a ricevere comandi e l'attore ha inserito il comando di creazione \gloss{collezione}.\\
 \textbf{Scenario principale:}
 \begin{itemize}
-\item L'utente può inserire il nome della \gloss{collezione}.
+\item L'attore può inserire il nome della \gloss{collezione}.
 \end{itemize}
 \textbf{Postcondizioni:} Il nome della collezione è stato inserito correttamente.
 
 \subsection{UC2.2.2: Visualizzazione della lista delle collezioni}
 
-\textbf{Attore primario:} Utente autenticato, utente amministratore\\
-\textbf{Attore secondario:} Driver\\
-\textbf{Scopo e descrizione:} L'utente intende elencare tutte le \gloss{collezioni} all'interno di \textbf{Actorbase} secondo la propria \gloss{visibilità}.\\
-\textbf{Precondizione:} Il \gloss{database} è pronto a ricevere comandi e l'utente intende avere un elenco delle \gloss{collezioni} al suo interno.\\
+\textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
+\textbf{Attore secondario:} Actorbase\\
+\textbf{Scopo e descrizione:} L'attore intende elencare tutte le \gloss{collezioni} all'interno di \textbf{Actorbase} secondo la propria \gloss{visibilità}.\\
+\textbf{Precondizione:} Il \gloss{database} è pronto a ricevere comandi e l'attore intende avere un elenco delle \gloss{collezioni} al suo interno.\\
 \textbf{Scenario principale:}
 \begin{itemize}
-\item L'utente può inserire il comando per la visualizzazione della lista delle collezioni.
+\item L'attore può inserire il comando per la visualizzazione della lista delle collezioni.
 \end{itemize}
-\textbf{Postcondizioni:} Il \gloss{database} restituisce la lista delle \gloss{collezioni} esistenti secondo la \gloss{visibilità} dell'utente, per ogni collezione viene visualizzato il nome della collezione stessa.
+\textbf{Postcondizioni:} Il \gloss{database} restituisce la lista delle \gloss{collezioni} esistenti secondo la \gloss{visibilità} dell'attore, per ogni collezione viene visualizzato il nome della collezione stessa.
 
 \subsection{UC2.2.3: Modifica nome collezione}
 
@@ -1643,80 +1659,62 @@ L'attore intende effettuare login al database da un programma \gloss{Scala} este
     \caption*{Caso d'uso 2.2.3: Modifica nome collezione}
   \end{center}
 \end{figure}
-\textbf{Attore primario:} Utente autenticato, utente amministratore\\
-\textbf{Attore secondario:} Driver\\
-\textbf{Scopo e descrizione:} L’utente intende modificare il nome di una \gloss{collezione} presente nel \gloss{database}.\\
-\textbf{Precondizione:} Il server è in ascolto e l’utente intende modificare il nome di una \gloss{collezione}.\\
+\textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
+\textbf{Attore secondario:} Actorbase\\
+\textbf{Scopo e descrizione:} L'attore intende modificare il nome di una \gloss{collezione} presente nel \gloss{database}.\\
+\textbf{Precondizione:} Il server è in ascolto e l’attore intende modificare il nome di una \gloss{collezione}.\\
 \textbf{Scenario principale:}
 \begin{itemize}
 \item UC2.2.3.1 Inserimento nome \gloss{collezione};
 \item UC2.2.3.2 Inserimento nuovo nome \gloss{collezione}.
 \end{itemize}
-\textbf{Estensioni:}
-\begin{itemize}
-\item Condizione: in UC2.2.3.1 l'utente inserisce il nome di una collezione da modificare inesistente:
-  \begin{itemize}
-  \item UC2.2.9 Lancio eccezione \gloss{collezione} inesistente;
-  \end{itemize}
-\item Condizione: in UC2.2.3.2 l'utente inserisce il nuovo nome di una collezione corrispondente al nome di una collezione già censita all'interno del sistema:
-  \begin{itemize}
-  \item UC2.2.8 Lancio eccezione \gloss{collezione} già esistente.
-  \end{itemize}
-\end{itemize}
 \textbf{Postcondizioni:} Il nome della \gloss{collezione} è stato modificato correttamente.
 
 \subsubsection{UC2.2.3.1: Inserimento nome collezione}
 
-\textbf{Attore primario:} Utente autenticato, utente amministratore\\
-\textbf{Attore secondario:} Driver\\
-\textbf{Scopo e descrizione:} L'utente intende modificare il nome di una \gloss{collezione} presente nel \gloss{database}, deve inserire il nome della collezione da modificare.\\
-\textbf{Precondizione:} Il server è in ascolto e l'utente intende modificare il nome di una \gloss{collezione}, ha inserito il comando di modifica nome collezione.\\
+\textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
+\textbf{Attore secondario:} Actorbase\\
+\textbf{Scopo e descrizione:} L'attore intende modificare il nome di una \gloss{collezione} presente nel \gloss{database}, deve inserire il nome della collezione da modificare.\\
+\textbf{Precondizione:} Il server è in ascolto e l'attore intende modificare il nome di una \gloss{collezione}, ha inserito il comando di modifica nome collezione.\\
 \textbf{Scenario principale:}
 \begin{itemize}
-\item L'utente può inserire il nome della collezione da modificare.
+\item L'attore può inserire il nome della collezione da modificare.
 \end{itemize}
 \textbf{Postcondizioni:} Il nome della \gloss{collezione} da modificare è stato inserito.
 
 \subsubsection{UC2.2.3.2: Inserimento nuovo nome collezione}
 
-\textbf{Attore primario:} Utente autenticato, utente amministratore\\
-\textbf{Attore secondario:} Driver\\
-\textbf{Scopo e descrizione:} L'utente intende modificare il nome di un \gloss{collezione} presente nel \gloss{database}, deve inserire il nome della collezione da modificare.\\
-\textbf{Precondizione:} Il server è in ascolto e l'utente intende modificare il nome di una \gloss{collezione}, ha inserito il comando di modifica nome collezione e il nome della collezione da modificare.\\
+\textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
+\textbf{Attore secondario:} Actorbase\\
+\textbf{Scopo e descrizione:} L'attore intende modificare il nome di un \gloss{collezione} presente nel \gloss{database}, deve inserire il nome della collezione da modificare.\\
+\textbf{Precondizione:} Il server è in ascolto e l'attore intende modificare il nome di una \gloss{collezione}, ha inserito il comando di modifica nome collezione e il nome della collezione da modificare.\\
 \textbf{Scenario principale:}
 \begin{itemize}
-\item L'utente può inserire il nuovo nome della collezione da modificare.
+\item L'attore può inserire il nuovo nome della collezione da modificare.
 \end{itemize}
 \textbf{Postcondizione:} Il nome della \gloss{collezione} è stato modificato.
 
 \subsection{UC2.2.4: Cancellazione collezione}
 
-\textbf{Attore primario:} Utente autenticato, utente amministratore\\
-\textbf{Attore secondario:} Driver\\
-\textbf{Scopo e descrizione:} L’utente intende cancellare una \gloss{collezione} presente nel \gloss{database}.\\
-\textbf{Precodizione:} Il server è in ascolto e l’utente intende cancellare una collezione.\\
+\textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
+\textbf{Attore secondario:} Actorbase\\
+\textbf{Scopo e descrizione:} L'attore intende cancellare una \gloss{collezione} presente nel \gloss{database}.\\
+\textbf{Precodizione:} Il server è in ascolto e l'attore intende cancellare una collezione.\\
 \textbf{Scenario principale:}
 \begin{itemize}
 \item UC2.2.4.1 Inserimento nome \gloss{collezione};
-\end{itemize}
-\textbf{Estensioni:}
-\begin{itemize}
-\item Nel caso in cui l'utente inserisca il nome di una collezione da cancellare inesistente:
-  \begin{itemize}
-  \item UC2.2.9 Lancio eccezione \gloss{collezione} inesistente;
-  \end{itemize}
 \end{itemize}
 \textbf{Postcondizioni:} La \gloss{collezione} è stato cancellata correttamente.
 
 \subsubsection{UC2.2.4.1: Inserimento nome collezione}
 
-\textbf{Attore primario:} Utente autenticato, utente amministratore\\
-\textbf{Attore secondario:} Driver\\
-\textbf{Scopo e descrizione:} L’utente intende cancellare una \gloss{collezione} presente nel \gloss{database}.\\
-\textbf{Precondizione:} Il server è in ascolto e l’utente ha inserito il comando per cancellare una \gloss{collezione}.\\
+\textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
+\textbf{Attore secondario:} Actorbase\\
+\textbf{Scopo e descrizione:} L'attore intende cancellare una \gloss{collezione} presente nel \gloss{database}.\\
+\textbf{Precondizione:} Il server è in ascolto e l'attore ha inserito il comando per cancellare una \gloss{collezione}.\\
 \textbf{Scenario principale:}
 \begin{itemize}
-\item L'utente può inserire il nome della \gloss{collezione}.
+\item L'attore può inserire il nome della \gloss{collezione}.
 \end{itemize}
 \textbf{Postcondizioni:} Il nome della \gloss{collezione} è stato inserito correttamente.
 
@@ -1728,49 +1726,38 @@ L'attore intende effettuare login al database da un programma \gloss{Scala} este
     \caption*{Caso d'uso 2.2.5: Aggiunta collaboratore a una collezione}
   \end{center}
 \end{figure}
-\textbf{Attore primario:} Utente autenticato, utente amministratore\\
-\textbf{Attore secondario:} Driver\\
-\textbf{Scopo e descrizione:} L'utente intende aggiungere un \gloss{collaboratore} ad una \gloss{collezione} di sua proprietà. Deve inserire il nome della \gloss{collezione} e lo username dell'utente da aggiungere.\\
-\textbf{Precondizione:} Il server è in ascolto e l'utente intende aggiungere un \gloss{collaboratore} ad una \gloss{collezione} di sua proprietà.\\
+\textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
+\textbf{Attore secondario:} Actorbase\\
+\textbf{Scopo e descrizione:} L'attore intende aggiungere un \gloss{collaboratore} ad una \gloss{collezione} di sua proprietà. Deve inserire il nome della \gloss{collezione} e lo username dell'utente da aggiungere.\\
+\textbf{Precondizione:} Il server è in ascolto e l'attore intende aggiungere un \gloss{collaboratore} ad una \gloss{collezione} di sua proprietà.\\
 \textbf{Scenario principale:}
 \begin{itemize}
 \item UC2.2.5.1 Inserimento nome \gloss{collezione};
 \item UC2.2.5.2 Inserimento username \gloss{collaboratore}.
 \end{itemize}
-\textbf{Estensioni:}
-\begin{itemize}
-\item Condizione: in UC2.2.5.1 l'utente inserisce il nome di una collezione inesistente:
-  \begin{itemize}
-  \item UC2.2.9 Lancio eccezione \gloss{collezione} inesistente;
-  \end{itemize}
-\item Condizione: in UC2.2.5.2 l'utente inserisce uno username inesistente:
-  \begin{itemize}
-  \item UC2.2.10 Lancio eccezione \gloss{username} inesistente;
-  \end{itemize}
-\end{itemize}
-\textbf{Postcondizione:} L'utente designato per la collaborazione è stato aggiunto tra i \gloss{collaboratori} della \gloss{collezione} scelta.
+\textbf{Postcondizione:} L'attore designato per la collaborazione è stato aggiunto tra i \gloss{collaboratori} della \gloss{collezione} scelta.
 
 \subsubsection{UC2.2.5.1: Inserimento nome collezione}
 
-\textbf{Attore primario:} Utente autenticato, utente amministratore\\
-\textbf{Attore secondario:} Driver\\
-\textbf{Scopo e descrizione:} L’utente intende aggiungere un collaboratore ad una \gloss{collezione} presente nel \gloss{database}.\\
-\textbf{Precondizione:} Il server è in ascolto e l’utente ha inserito il comando per aggiungere un collaboratore ad una \gloss{collezione}.\\
+\textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
+\textbf{Attore secondario:} Actorbase\\
+\textbf{Scopo e descrizione:} L’attore intende aggiungere un collaboratore ad una \gloss{collezione} presente nel \gloss{database}.\\
+\textbf{Precondizione:} Il server è in ascolto e l’attore ha inserito il comando per aggiungere un collaboratore ad una \gloss{collezione}.\\
 \textbf{Scenario principale:}
 \begin{itemize}
-\item L'utente può inserire il nome della \gloss{collezione};
+\item L'attore può inserire il nome della \gloss{collezione};
 \end{itemize}
 \textbf{Postcondizioni:} Il nome della \gloss{collezione} è stato inserito correttamente.
 
 \subsubsection{UC2.2.5.2: Inserimento username}
 
-\textbf{Attore primario:} Utente autenticato, utente amministratore\\
-\textbf{Attore secondario:} Driver\\
-\textbf{Scopo e descrizione:} L’utente intende aggiungere un collaboratore ad una \gloss{collezione} presente nel \gloss{database}.\\
-\textbf{Precondizione:} Il server è in ascolto e l’utente ha inserito il comando per aggiungere un collaboratore ad una \gloss{collezione} e il nome di quest'ultima.\\
+\textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
+\textbf{Attore secondario:} Actorbase\\
+\textbf{Scopo e descrizione:} L’attore intende aggiungere un collaboratore ad una \gloss{collezione} presente nel \gloss{database}.\\
+\textbf{Precondizione:} Il server è in ascolto e l’attore ha inserito il comando per aggiungere un collaboratore ad una \gloss{collezione} e il nome di quest'ultima.\\
 \textbf{Scenario principale:}
 \begin{itemize}
-\item L'utente può inserire lo username del collaboratore;
+\item L'attore può inserire lo username del collaboratore;
 \end{itemize}
 \textbf{Postcondizioni:} Lo username è stato inserito correttamente.
 
@@ -1782,34 +1769,23 @@ L'attore intende effettuare login al database da un programma \gloss{Scala} este
     \caption*{Caso d'uso 2.2.6: Rimozione di un collaboratore da collezione}
   \end{center}
 \end{figure}
-\textbf{Attore primario:} Utente autenticato, utente amministratore\\
-\textbf{Attore secondario:} Driver\\
-\textbf{Scopo e descrizione:} L'utente intende rimuovere un \gloss{collaboratore} da una \gloss{collezione} di sua proprietà. Deve inserire il nome della \gloss{collezione} e lo username del \gloss{collaboratore} da rimuovere.\\
-\textbf{Precondizione:} Il server è in ascolto e l'utente intende rimuovere un \gloss{collaboratore} da una \gloss{collezione} di sua proprietà.\\
+\textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
+\textbf{Attore secondario:} Actorbase\\
+\textbf{Scopo e descrizione:} L'attore intende rimuovere un \gloss{collaboratore} da una \gloss{collezione} di sua proprietà. Deve inserire il nome della \gloss{collezione} e lo username del \gloss{collaboratore} da rimuovere.\\
+\textbf{Precondizione:} Il server è in ascolto e l'attore intende rimuovere un \gloss{collaboratore} da una \gloss{collezione} di sua proprietà.\\
 \textbf{Scenario principale:}
 \begin{itemize}
 \item UC2.2.6.1 Inserimento nome \gloss{collezione};
 \item UC2.2.6.2 Inserimento username \gloss{collaboratore}.
 \end{itemize}
-\textbf{Estensioni:}
-\begin{itemize}
-\item Condizione: in UC2.2.6.1 l'utente inserisce il nome di una collezione inesistente:
-  \begin{itemize}
-  \item UC2.2.9 Lancio eccezione \gloss{collezione} inesistente;
-  \end{itemize}
-\item Condizione: in UC2.2.6.2 l'utente inserisce uno username non censito tra i collaboratori:
-  \begin{itemize}
-  \item UC2.2.10 Lancio eccezione \gloss{username} inesistente;
-  \end{itemize}
-\end{itemize}
 \textbf{Postcondizione:} L'utente designato per la rimozione dai \gloss{collaboratori} è stato rimosso dalla \gloss{collezione} scelta.
 
 \subsubsection{UC2.2.6.1: Inserimento nome collezione}
 
-\textbf{Attore primario:} Utente autenticato, utente amministratore\\
-\textbf{Attore secondario:} Driver\\
-\textbf{Scopo e descrizione:} L’utente intende rimuovere un collaboratore da una \gloss{collezione} presente nel \gloss{database}.\\
-\textbf{Precondizione:} Il server è in ascolto e l’utente ha inserito il comando per rimuovere un collaboratore ad una \gloss{collezione}.\\
+\textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
+\textbf{Attore secondario:} Actorbase\\
+\textbf{Scopo e descrizione:} L’attore intende rimuovere un collaboratore da una \gloss{collezione} presente nel \gloss{database}.\\
+\textbf{Precondizione:} Il server è in ascolto e l’attore ha inserito il comando per rimuovere un collaboratore ad una \gloss{collezione}.\\
 \textbf{Scenario principale:}
 \begin{itemize}
 \item L'utente può inserire il nome della \gloss{collezione};
@@ -1818,40 +1794,47 @@ L'attore intende effettuare login al database da un programma \gloss{Scala} este
 
 \subsubsection{UC2.2.6.2: Inserimento username}
 
-\textbf{Attore primario:} Utente autenticato, utente amministratore\\
-\textbf{Attore secondario:} Driver\\
-\textbf{Scopo e descrizione:} L’utente intende rimuovere un collaboratore da una \gloss{collezione} presente nel \gloss{database}.\\
-\textbf{Precondizione:} Il server è in ascolto e l’utente ha inserito il comando per rimuovere un collaboratore ad una \gloss{collezione} e il nome di quest'ultima.\\
+\textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
+\textbf{Attore secondario:} Actorbase\\
+\textbf{Scopo e descrizione:} L’attore intende rimuovere un collaboratore da una \gloss{collezione} presente nel \gloss{database}.\\
+\textbf{Precondizione:} Il server è in ascolto e l’attore ha inserito il comando per rimuovere un collaboratore ad una \gloss{collezione} e il nome di quest'ultima.\\
 \textbf{Scenario principale:}
 \begin{itemize}
-\item L'utente può inserire lo username del collaboratore da rimuovere;
+\item L'attore può inserire lo username del collaboratore da rimuovere;
 \end{itemize}
 \textbf{Postcondizioni:} Lo username è stato inserito correttamente.
 
 \subsection{UC2.2.7: Esportazione di una o più collezioni su file}
 
-\textbf{Attore primario:} Utente autenticato, utente amministratore\\
-\textbf{Attore secondario:} Driver\\
-\textbf{Scopo e descrizione:} L'utente intende esportare su file il contenuto di una o più collezioni da un programma \gloss{Scala} esterno.\\
-\textbf{Precondizione:} Il server è in ascolto e l'utente intende esportare il contenuto di una o più collezioni su file.\\
+\textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
+\textbf{Attore secondario:} Actorbase\\
+\textbf{Scopo e descrizione:} L'attore intende esportare su file il contenuto di una o più collezioni da un programma \gloss{Scala} esterno.\\
+\textbf{Precondizione:} Il server è in ascolto e l'attore intende esportare il contenuto di una o più collezioni su file.\\
 \textbf{Scenario principale:}
 \begin{itemize}
-\item UC2.2.7.1 Inserimento lista collezioni da esportare. %TODO bisogna emttere il sotto caso d'uso inserire lista collezioni?
+\item UC2.2.7.1 Inserimento lista collezioni da esportare.
 \end{itemize}
 \textbf{Postcondizione:} Il contenuto delle collezioni selezionate è stato esportato su file.
 
 \subsubsection{UC2.2.7.1 Inserimento lista collezioni}
 
-\textbf{Attore primario:} Utente autenticato, utente amministratore\\
-\textbf{Attore secondario:} Driver\\
-\textbf{Scopo e descrizione:} L'utente intende esportare su file il contenuto di una o più collezioni da un programma \gloss{Scala} esterno.\\
-\textbf{Precondizione:} Il server è in ascolto e l'utente ha inserito il domando per l'esportazione di una o più collezioni su file.\\
+\textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
+\textbf{Attore secondario:} Actorbase\\
+\textbf{Scopo e descrizione:} L'attore intende esportare su file il contenuto di una o più collezioni da un programma \gloss{Scala} esterno.\\
+\textbf{Precondizione:} Il server è in ascolto e l'attore ha inserito il domando per l'esportazione di una o più collezioni su file.\\
 \textbf{Scenario principale:}
 \begin{itemize}
-\item L'utente può inserire la lista collezioni da esportare. %TODO bisogna emttere il sotto caso d'uso inserire lista collezioni?
+\item L'attore può inserire la lista collezioni da esportare.
 \end{itemize}
-\textbf{Postcondizione:} Il contenuto delle collezioni selezionate è stato esportato su file.
+\textbf{Postcondizione:} La lista delle collezioni da esportare è stato inserito correttamente
 
+\subsection{UC2.2.11: Esportazione di tutto il database su file}
+
+\textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
+\textbf{Attore secondario:} Actorbase\\
+\textbf{Scopo e descrizione:} L'attore intende esportare su file il contenuto di tutto il database (secondo la sua visibilità) da un programma \gloss{Scala} esterno.\\ % TODO linkare visibilità
+\textbf{Precondizione:} Il server è in ascolto e l'attore ha inserito il comando di esportazione di una o più collezioni su file e ha inserito una lista di collezioni vuote.\\
+\textbf{Postcondizione:} Il contenuto del database è stato esportato su file.
 
 \subsection{UC2.3: Operazioni sugli item}
 
@@ -1861,11 +1844,11 @@ L'attore intende effettuare login al database da un programma \gloss{Scala} este
     \caption*{Caso d'uso 2.3: Operazioni sugli \gloss{item}}
   \end{center}
 \end{figure}
-\textbf{Attore primario:} Utente autenticato, utente amministratore\\
-\textbf{Attore secondario:} Driver\\
-\textbf{Scopo e descrizione:} L'utente intende effettuare operazioni sugli \gloss{item} di una \gloss{collezione} esistente da un programma \gloss{Scala} esterno. Le operazioni previste sono:
+\textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
+\textbf{Attore secondario:} Actorbase\\
+\textbf{Scopo e descrizione:} L'attore intende effettuare operazioni sugli \gloss{item} di una \gloss{collezione} esistente da un programma \gloss{Scala} esterno. Le operazioni previste sono:
 inserimento e cancellazione.\\
-\textbf{Precondizione:} Il \gloss{database} è pronto a ricevere comandi e l'utente intende effettuare operazioni di inserimento o cancellazione su una \gloss{collezione}.\\
+\textbf{Precondizione:} Il \gloss{database} è pronto a ricevere comandi e l'attore intende effettuare operazioni di inserimento o cancellazione su una \gloss{collezione}.\\
 \textbf{Scenario principale:}
 \begin{itemize}
 \item UC2.3.1 Inserimento nuovo \gloss{item};
@@ -1877,503 +1860,517 @@ inserimento e cancellazione.\\
 \end{itemize}
 \textbf{Estensioni:}
 \begin{itemize}
-\item Condizione: in UC2.3.2 l'utente inserisce un nome di una la \gloss{collezione} su cui effettuare cancellazione e non è presente nel sistema:
+\item Condizione: in UC2.3.2 l'attore inserisce un nome di una la \gloss{collezione} su cui effettuare cancellazione e non è presente nel sistema:
   \begin{itemize}
-  \item UC2.3.5 Visualizzazione errore collezione inesistente.
+  \item UC2.3.5 Lancio eccezione collezione inesistente.
   \end{itemize}
-\item Condizione: in UC2.3.1 l'utente inserisce la chiave dell'item da inserire ed è già presente nella collezione:
+\item Condizione: in UC2.3.1 l'attore inserisce la chiave dell'item da inserire ed è già presente nella collezione:
   \begin{itemize}
-  \item UC2.3.4 Visualizzazione errore chiave già esistente.
+  \item UC2.3.4 Lancio eccezione chiave già esistente.
   \end{itemize}
-\item Condizione: in UC2.3.1 l'utente inserisce un nome collezione non presente nel sistema:
+\item Condizione: in UC2.3.1 l'attore inserisce un nome collezione non presente nel sistema:
   \begin{itemize}
-  \item UC2.2.6 Creazione nuova collezione.
+  \item UC2.2.6 Creazione nuova collezione. % TODO come cazzo facciamo questo?
   \end{itemize}
-\item Condizione: in UC2.3.1.2 l'utente iscerisce un path relativo ad un file non esistente:
+\item Condizione: in UC2.3.1.2 l'attore iscerisce un path relativo ad un file non esistente:
   \begin{itemize}
-  \item UC2.3.3 Visualizzazione errore file inesistente.
+  \item UC2.3.3 Lancio eccezione file inesistente.
   \end{itemize}
 \end{itemize}
 \textbf{Postcondizione:} L'operazione richiesta è stata effettuata correttamente.
 
 \subsection{UC2.3.1: Inserimento item}
 
-\textbf{Attore primario:} Utente autenticato, utente amministratore\\
-\textbf{Attore secondario:} Driver\\
-\textbf{Scopo e descrizione:} L'utente intende inserire un nuovo \gloss{item} all'interno di una \gloss{collezione} esistente. Deve selezionare la \gloss{collezione} e inserire i parametri di definizione dell'\gloss{item}. Questi sono la chiave, il valore associato e il \gloss{flag} di sovrascrittura. Può scegliere di effettuare l'inserimento mediante due modalità distinte:
+\textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
+\textbf{Attore secondario:} Actorbase\\
+\textbf{Scopo e descrizione:} L'attore intende inserire un nuovo \gloss{item} all'interno di una \gloss{collezione} esistente. Deve selezionare la \gloss{collezione} e inserire i parametri di definizione dell'\gloss{item}. Questi sono la chiave, il valore associato e il \gloss{flag} di sovrascrittura. Può scegliere di effettuare l'inserimento mediante due modalità distinte:
 \begin{itemize}
 \item Manuale;
 \item Da file.
 \end{itemize}
-\textbf{Precondizione:} Il \gloss{database} è pronto a ricevere comandi e l'utente intende effettuare un inserimento di un nuovo \gloss{item}.\\
+\textbf{Precondizione:} Il \gloss{database} è pronto a ricevere comandi e l'attore intende effettuare un inserimento di un nuovo \gloss{item}.\\
 \textbf{Scenario principale:}
 \begin{itemize}
 \item UC2.3.1.1 Inserimento item manuale;
 \item UC2.3.1.2 Inserimento item da file.
 \end{itemize}
 \textbf{Estensioni:}
-\item Condizione: in UC2.3.1.1  l'utente inserisce la chiave dell'item da inserire ed è già presente nella collezione:
+\begin{itemize}
+\item Condizione: in UC2.3.1.1  l'attore inserisce la chiave dell'item da inserire ed è già presente nella collezione:
   \begin{itemize}
   \item UC2.3.4 Lancio eccezione chiave già esistente.
   \end{itemize}
-\item Condizione: in UC2.3.1.1 l'utente inserisce un nome collezione non presente nel sistema:
+\item Condizione: in UC2.3.1.1 l'attore inserisce un nome collezione non presente nel sistema:
   \begin{itemize}
-  \item UC2.2.6 Creazione nuova collezione.
+  \item UC2.2.6 Creazione nuova collezione. %TODO no
   \end{itemize}
-\item Condizione: in UC2.3.1.2  l'utente inserisce la chiave dell'item da inserire ed è già presente nella collezione:
+\item Condizione: in UC2.3.1.2  l'attore inserisce la chiave dell'item da inserire ed è già presente nella collezione:
   \begin{itemize}
   \item UC2.3.4 Lancio eccezione chiave già esistente.
   \end{itemize}
-\item Condizione: in UC2.3.1.2 l'utente inserisce un nome collezione non presente nel sistema:
+\item Condizione: in UC2.3.1.2 l'attore inserisce un nome collezione non presente nel sistema:
   \begin{itemize}
-  \item UC2.2.6 Creazione nuova collezione.
+  \item UC2.2.6 Creazione nuova collezione.%TODO no
   \end{itemize}
-\item Condizione: in UC2.3.1.2 l'utente iscerisce un path relativo ad un file non esistente:
+\item Condizione: in UC2.3.1.2 l'attore iscerisce un path relativo ad un file non esistente:
   \begin{itemize}
   \item UC2.3.3 Lancio eccezione file inesistente.
-  \item Condizione: in UC2.3.1.2 l'utente inserisce un path relativo ad un file malformato: %TODO spiegare malformato
-    \begin{itemize}
-    \item UC2.3.4 Lancio eccezione file malformato
-    \end{itemize}
   \end{itemize}
-  \textbf{Postcondizioni:} L'operazione di inserimento richiesta è stata effettuata correttamente.
-
-  \subsection{UC2.3.1.1: Inserimento item manuale}
-
-  \begin{figure}[H]
-    \begin{center}
-      \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC2_3_1_1.png}
-      \caption*{Caso d'uso 2.3.1.1: Inserimento item manuale}
-    \end{center}
-  \end{figure}
-  \textbf{Attore primario:} Utente autenticato, utente amministratore\\
-  \textbf{Attore secondario} Driver\\
-  \textbf{Scopo e descrizione:} L'utente intende inserire manualmente un nuovo \gloss{item} all'interno di una \gloss{collezione} esistente. Deve selezionare la \gloss{collezione} e inserire i parametri di definizione dell'\gloss{item}. Questi sono la chiave, il valore associato e il \gloss{flag} di sovrascrittura.\\
-  \textbf{Precondizione:} Il server è in ascolto e l'utente intende inserire un nuovo item in modalità manuale.\\
-  \textbf{Scenario principale:}
+\item Condizione: in UC2.3.1.2 l'attore inserisce un path relativo ad un file malformato: %TODO spiegare malformato
   \begin{itemize}
-  \item UC2.3.1.1.1 Inserimento nome collezione;
-  \item UC2.3.1.1.2 Inserimento chiave;
-  \item UC2.3.1.1.3 Inserimento valore;
-  \item UC2.3.1.1.4 Inserimento flag sovrascrittura.
+  \item UC2.3.6 Lancio eccezione file malformato
   \end{itemize}
-  \textbf{Estensioni:}
+\end{itemize}
+\textbf{Postcondizioni:} L'operazione di inserimento richiesta è stata effettuata correttamente.
+
+\subsection{UC2.3.1.1: Inserimento item manuale}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC2_3_1_1.png}
+    \caption*{Caso d'uso 2.3.1.1: Inserimento item manuale}
+  \end{center}
+\end{figure}
+\textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
+\textbf{Attore secondario:} Actorbase\\
+\textbf{Scopo e descrizione:} L'attore intende inserire manualmente un nuovo \gloss{item} all'interno di una \gloss{collezione} esistente. Deve selezionare la \gloss{collezione} e inserire i parametri di definizione dell'\gloss{item}. Questi sono la chiave, il valore associato e il \gloss{flag} di sovrascrittura.\\
+\textbf{Precondizione:} Il server è in ascolto e l'attore intende inserire un nuovo item in modalità manuale.\\
+\textbf{Scenario principale:}
+\begin{itemize}
+\item UC2.3.1.1.1 Inserimento nome collezione;
+\item UC2.3.1.1.2 Inserimento chiave;
+\item UC2.3.1.1.3 Inserimento valore;
+\item UC2.3.1.1.4 Inserimento flag sovrascrittura.
+\end{itemize}
+\textbf{Postcondizioni:} L'item è stato inserito con successo.
+
+\subsubsection{UC2.3.1.1.1: Inserimento nome collezione}
+
+\textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
+\textbf{Attore secondario:} Actorbase\\
+\textbf{Scopo e descrizione:} L'attore intende inserire manualmente un nuovo \gloss{item} all'interno di una \gloss{collezione} esistente. Deve inserire il nome della collezione.\\
+\textbf{Precondizione:} Il server è in ascolto e l'attore ha inserito il comando per l'inserimento item manuale.\\
+\textbf{Scenario principale:}
+\begin{itemize}
+\item L'attore può inserire il nome della collezione su cui effettuare l'inserimento.
+\end{itemize}
+\textbf{Postcondizione:} Il nome della collezione è stato inserito correttamente.
+
+\subsubsection{UC2.3.1.1.2: Inserimento chiave}
+
+\textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
+\textbf{Attore secondario:} Actorbase\\
+\textbf{Scopo e descrizione:} L'attore intende inserire manualmente un nuovo \gloss{item} all'interno di una \gloss{collezione} esistente. Deve inserire la chiave dell'item.\\
+\textbf{Precondizione:} Il server è in ascolto, l'attore ha inserito il comando per l'inserimento item manuale e ha inserito il nome della collezione.\\
+\textbf{Scenario principale:}
+\begin{itemize}
+\item L'attore può inserire la chiave associata all'item.
+\end{itemize}
+\textbf{Postcondizioni:} La chiave è stata inserita correttamente.
+
+\subsubsection{UC2.3.1.1.3: Inserimento valore}
+
+\textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
+\textbf{Attore secondario:} Actorbase\\
+\textbf{Scopo e descrizione:} L'attore intende inserire manualmente un nuovo \gloss{item} all'interno di una \gloss{collezione} esistente. Deve inserire il valore associato alla chiave dell'item.\\
+\textbf{Precondizione:} Il server è in ascolto, l'attore ha inserito il comando per l'inserimento item manuale, il nome della collezione e la chiave da inserire.\\
+\textbf{Scenario principale:}
+\begin{itemize}
+\item L'attore può inserire il valore associato alla chiave dell'item.
+\end{itemize}
+\textbf{Postcondizioni:} Il valore è stato inserito correttamente.
+
+\subsubsection{UC2.3.1.1.4: Inserimento flag sovrascrittura}
+
+\textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
+\textbf{Attore secondario:} Actorbase\\
+\textbf{Scopo e descrizione:} L'attore intende inserire manualmente un nuovo \gloss{item} all'interno di una \gloss{collezione} esistente. Deve inserire il \gloss{flag} di sovrascrittura item.\\
+\textbf{Precondizione:} Il server è in ascolto, l'attore ha inserito il comando per l'inserimento item manuale, il nome della collezione, la chiave e il valore dell'\gloss{item}.\\
+\textbf{Scenario principale:}
+\begin{itemize}
+\item L'attore può inserire il \gloss{flag} di sovrascrittura item.
+\end{itemize}
+\textbf{Postcondizioni:} Il \gloss{flag} è stato inserito correttamente.
+
+\subsection{UC2.3.1.2: Inserimento item da file}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC2_3_1_2.png}
+    \caption*{Caso d'uso 2.3.1.2: Inserimento \gloss{item} da file}
+  \end{center}
+\end{figure}
+
+\textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
+\textbf{Attore secondario:} Actorbase\\
+\textbf{Scopo e descrizione:} L'attore intende inserire nuovi \gloss{item} da file. Deve inserire il \gloss{path} del file su filesystem.\\
+\textbf{Precondizione:} Il server è in ascolto e l'attore intende inserire nuovi \gloss{item} da file.\\
+\textbf{Scenario principale:}
+\begin{itemize}
+\item L'attore può inserire il \gloss{path} del file.
+\end{itemize}
+\textbf{Estensioni:}
+\begin{itemize}
+\item Nel caso in cui il file non esista nel filesystem:
   \begin{itemize}
-  \item Nel caso in cui l'utente inserisca un \gloss{item} con \gloss{flag} di sovrascrittura attivo contenente una chiave già esistente all'interno del sistema:
-    \begin{itemize}
-    \item UC2.3.4 Visualizzazione errore chiave già esistente.
-    \end{itemize}
+  \item UC2.3.3 Lancio eccezione file inesistente.
   \end{itemize}
-  \textbf{Postcondizioni:} L'item è stato inserito con successo.
-
-  \subsubsection{UC2.3.1.1.1: Inserimento nome collezione}
-
-  \textbf{Attore primario:} Utente autenticato, utente amministratore\\
-  \textbf{Attore secondario:} Driver\\
-  \textbf{Scopo e descrizione:} L'utente intende inserire manualmente un nuovo \gloss{item} all'interno di una \gloss{collezione} esistente. Deve inserire il nome della collezione.\\
-  \textbf{Precondizione:} Il server è in ascolto e l'utente ha inserito il comando per l'inserimento item manuale.\\
-  \textbf{Scenario principale:}
+\item Nel caso in cui il file sia malformato:
   \begin{itemize}
-  \item L'utente può inserire il nome della collezione su cui effettuare l'inserimento.
+  \item UC2.3.6 Lancio eccezione file malformato.
   \end{itemize}
-  \textbf{Estensioni:}
+\end{itemize}
+\textbf{Postcondizioni:} Gli item scritti all'interno del file inserito sono stati inseriti con successo all'interno del sistema.%TODO vaben così?
+
+\subsubsection{UC2.3.1.2.1: Inserimento path file} %TODO da tenere?
+
+\textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
+\textbf{Attore secondario:} Actorbase\\
+\textbf{Scopo e descrizione:} L'attore intende inserire nuovi \gloss{item} da file. Deve inserire il \gloss{path} del file.\\
+\textbf{Precondizione:} Il server è in ascolto e l'attore ha inserito il comando per l'inserimento di \gloss{item} da file.\\
+\textbf{Scenario principale:}
+\begin{itemize}
+\item L'attore può inserire il \gloss{path} del file.
+\end{itemize}
+\textbf{Postcondizioni:} Il \gloss{path} è stato inserito correttamente.
+
+\subsection{UC2.3.2: Cancellazione item}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC2_3_2.png}
+    \caption*{Caso d'uso 2.3.2: Cancellazione \gloss{item}}
+  \end{center}
+\end{figure}
+\textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
+\textbf{Attore secondario:} Actorbase\\
+\textbf{Scopo e descrizione:} L'attore intende cancellare un item da una collezione.\\
+\textbf{Precondizioni:} Il server è in ascolto e l'attore intende cancellare un item.\\
+\textbf{Scenario principale:}
+\begin{itemize}
+\item UC2.3.2.1 Inserimento nome \gloss{collezione};
+\item UC2.3.2.2 Inserimento chiave \gloss{item}.
+\end{itemize}
+\textbf{Postcondizioni:} L'\gloss{item} è stato cancellato correttamente.
+
+\subsection{UC2.3.2.1: Inserimento nome collezione}
+
+\textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
+\textbf{Attore secondario:} Actorbase\\
+\textbf{Scopo e descrizione:} L'attore intende cancellare un \gloss{item} all'interno di una \gloss{collezione} esistente. Deve inserire il nome della collezione.\\
+\textbf{Precondizione:} Il server è in ascolto e l'attore ha inserito il comando di cancellazione item.\\
+\textbf{Scenario principale:}
+\begin{itemize}
+\item L'attore può inserire il nome della collezione su cui effettuare la cancellazione.
+\end{itemize}
+\textbf{Postcondizioni:} Il nome della collezione è stato inserito correttamente.
+
+\subsection{UC2.3.2.2: Inserimento chiave item}
+
+\textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
+\textbf{Attore secondario:} Actorbase\\
+\textbf{Scopo e descrizione:} L'attore intende cancellare un \gloss{item} all'interno di una \gloss{collezione} esistente. Deve inserire la chiave dell'item.\\
+\textbf{Precondizione:} Il server è in ascolto, l'attore ha inserito il comando di cancellazione item e ha inserito il nome della collezione.\\
+\textbf{Scenario principale:}
+\begin{itemize}
+\item L'attore può inserire la chiave dell'item da eliminare.
+\end{itemize}
+\textbf{Postcondizioni:} La chiave è stata inserita correttamente.
+
+\subserction{UC2.3.3: Lancio eccezione file inesistente}
+
+\textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
+\textbf{Attore secondario:} Actorbase\\
+\textbf{Scopo e descrizione:}
+L'attore intende aggiungere item da file.\\
+\textbf{Precondizioni:} Il server è in ascolto, l'attore ha inserito il comando di inserimento item da file e il path di un file non presente nel filesystem.\\
+\textbf{Scenario principale:}
+\begin{itemize}
+\item Viene lanciata un'eccezione file inesistente.
+\end{itemize}
+\textbf{Postcondizioni:} L'aggiunta item fallisce.
+
+\subserction{UC2.3.4: Lancio eccezione chiave già esistente}
+
+\textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
+\textbf{Attore secondario:} Actorbase\\
+\textbf{Scopo e descrizione:}
+L'attore intende aggiungere item a una collezione.\\
+\textbf{Precondizioni:} Il server è in ascolto, l'attore ha inserito il comando di inserimento item e i parametri dell'item da inserire tra cui il flag di sovrascrittura inattivo.\\
+\textbf{Scenario principale:}
+\begin{itemize}
+\item Viene lanciata un'eccezione chiave già esistente.
+\end{itemize}
+\textbf{Postcondizioni:} L'aggiunta item fallisce, l'item non viene aggiunto alla collezione.
+
+\subserction{UC2.3.5: Lancio eccezione collezione inesistente}
+
+\textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
+\textbf{Attore secondario:} Actorbase\\
+\textbf{Scopo e descrizione:}
+L'attore intende cancellare un item da una collezione.\\
+\textbf{Precondizioni:} Il server è in ascolto, l'attore ha inserito il comando di cancellazione item e un nome collezione non già presente all'interno del sistema.\\
+\textbf{Scenario principale:}
+\begin{itemize}
+\item Viene lanciata un'eccezione collezione inesistente.
+\end{itemize}
+\textbf{Postcondizioni:} La cancellazione item fallisce.
+
+\subserction{UC2.3.6: Lancio eccezione file malformato}
+
+\textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
+\textbf{Attore secondario:} Actorbase\\
+\textbf{Scopo e descrizione:}
+L'attore intende aggiungere item da file.\\
+\textbf{Precondizioni:} Il server è in ascolto, l'attore ha inserito il comando di inserimento item da file e il path di un file non formato correttamente.\\ %TODO linkare malformato
+\textbf{Scenario principale:}
+\begin{itemize}
+\item Viene lanciata un'eccezione file malformato.
+\end{itemize}
+\textbf{Postcondizioni:} L'aggiunta item fallisce.
+
+\subsection{UC2.4: Ricerca}
+
+\textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
+\textbf{Attore secondario:} Actorbase\\
+\textbf{Scopo e descrizione:} L'attore intende effettuare una ricerca di \gloss{item} all'interno del sistema da un programma Scala esterno.\\
+In caso di inserimento di nome \gloss{collezione} inesistente, o in caso di risultati di ricerca nulli, il sistema riporterà una lista risultata vuota.\\ % TODO: stesso per chiavi?
+\textbf{Precondizione:} Il server è in ascolto, l'attore intende effettuare una ricerca di \gloss{item} all'interno del sistema.\\
+\textbf{Scenario principale:}
+\begin{itemize}
+\item UC2.4.1 Inserimento lista collezioni;
+\item UC2.4.2 Inserimento chiave di ricerca.
+\end{itemize}
+\textbf{Postcondizioni:} Il sistema ha riportato la lista dei risultati di ricerca.
+
+\subsubsection{UC2.4.1: Inserimento lista collezioni}
+
+\textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
+\textbf{Attore secondario:} Actorbase\\
+\textbf{Scopo e descrizione:} L'attore intende effettuare una ricerca di \gloss{item} all'interno del sistema; deve inserire la lista delle collezioni su cui effettuare tale ricerca.\\
+\textbf{Precondizione:} Il server è in ascolto, l'attore ha inserito il comando ricerca.\\
+\textbf{Scenario principale:}
+\begin{itemize}
+\item L'attore può inserire la lista delle \gloss{collezioni}.
+\end{itemize}
+\textbf{Postcondizioni:} La lista di collezioni su cui effettuare la ricerca è stata inserita correttamente.
+
+\subsubsection{UC2.4.2: Inserimento chiave di ricerca}
+
+\textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
+\textbf{Attore secondario:} Actorbase\\
+\textbf{Scopo e descrizione:} L'attore intende effettuare una ricerca di \gloss{item} all'interno del sistema; deve inserire la chiave di cui effettuare tale ricerca.\\
+\textbf{Precondizione:} Il server è in ascolto, l'attore ha inserito il comando ricerca e la lista di collezioni su cui effettuare la ricerca.\\
+\textbf{Scenario principale:}
+\begin{itemize}
+\item L'utente può inserire la chiave di ricerca
+\end{itemize}
+\textbf{Postcondizioni:} La chiave da ricerca all'interno del sistema è stata inserita correttamente.
+
+\subsection{UC2.4: Ricerca}
+
+\textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
+\textbf{Attore secondario:} Actorbase\\
+\textbf{Scopo e descrizione:} L'attore intende effettuare una ricerca di \gloss{item} all'interno del sistema da un programma Scala esterno.\\
+In caso di inserimento di nome \gloss{collezione} inesistente, o in caso di risultati di ricerca nulli, il sistema riporterà una lista risultata vuota.\\ % TODO: stesso per chiavi?
+\textbf{Precondizione:} Il server è in ascolto, l'attore intende effettuare una ricerca di \gloss{item} all'interno del sistema.\\
+\textbf{Scenario principale:}
+\begin{itemize}
+\item UC2.4.1 Inserimento lista collezioni;
+\item UC2.4.2 Inserimento chiave di ricerca.
+\end{itemize}
+\textbf{Postcondizioni:} Il sistema ha riportato la lista dei risultati di ricerca.
+
+\subsection{UC2.5: Modifica password}
+
+% TODO: dialogo
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC2_5.png}
+    \caption*{Caso d'uso 2.5: Modifica password}
+  \end{center}
+\end{figure}
+\textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
+\textbf{Attore secondario:} Actorbase\\
+\textbf{Scopo e descrizione:} L'attore intende modificare la propria password da un programma \gloss{Scala} esterno, deve inserire la propria password attuale e la nuova password.\\
+\textbf{Precondizione:} Il server è in ascolto.\\
+\textbf{Scenario principale:}
+\begin{itemize}
+\item UC2.5.1 Inserimento password attuale;
+\item UC2.5.2 Inserimento nuova password;
+\end{itemize}
+\textbf{Postcondizioni:} La password è stata sostituita con la nuova.
+
+\subsubsection{UC2.5.1: Inserimento vecchia password}
+
+\textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
+\textbf{Attore secondario:} Actorbase\\
+\textbf{Scopo e descrizione:} L'attore intende modificare la propria password, deve inserire la propria password attuale.\\
+\textbf{Precondizione:} Il server è in ascolto e l'attore ha inserito il comando per la modifica password.\\
+\textbf{Scenario principale:}
+\begin{itemize}
+\item L'attore può inserire la propria password attuale.
+\end{itemize}
+\textbf{Postcondizioni:} La password è stata inserita.
+
+\subsubsection{UC2.5.2: Inserimento nuova password}
+
+\textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
+\textbf{Attore secondario:} Actorbase\\
+\textbf{Scopo e descrizione:} L'attore intende modificare la propria password, deve inserire la nuova password.\\
+\textbf{Precondizione:} Il server è in ascolto, l'attore ha inserito il comando per la modifica password e ha inserito la vecchia password.
+\textbf{Scenario principale:}
+\begin{itemize}
+\item L'attore può inserire la nuova password.
+\end{itemize}
+\textbf{Postcondizioni:} La nuova password è stata inserita.
+
+\subsection{UC2.6: Logout}
+
+\textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
+\textbf{Attore secondario:} Actorbase\\
+\textbf{Scopo e descrizione:} L'attore intende effettuare il logout dal sistema\\
+\textbf{Precondizione:} Il server è in ascolto e l'attore intende effettuare il logout dal sistema\\
+\textbf{Scenario principale:}
+\begin{itemize}
+\item L'attore può inserire il comando di logout.
+\end{itemize}
+\textbf{Postcondizioni:} L'attore ha effettuato il logout.
+
+\subsection{UC2.7: Gestione utenti}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC2_7.png}
+    \caption*{Caso d'uso 2.7: Gestione utenti}
+  \end{center}
+\end{figure}
+\textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
+\textbf{Attore secondario:} Actorbase\\
+\textbf{Scopo e descrizione:} L'attore intende effettuare operazioni di gestione sugli utenti del sistema; le operazioni possibili sono:
+\begin{itemize}
+\item Aggiunta di un nuovo utente;
+\item Rimozione di un utente;
+\item Effettuare un reset della password.
+\end{itemize}
+\textbf{Precondizione:} Il server è in ascolto, l'attore ha privilegi amministrativi e intende effettuare operazioni di gestione sugli utenti.\\
+\textbf{Scenario principale:}
+\begin{itemize}
+\item UC2.7.1\ -\ Aggiunta utente;
+\item UC2.7.2\ -\ Rimozione utente;
+\item UC2.7.3\ -\ Reset password.
+\end{itemize}
+\textbf{Estensioni:}
+\begin{itemize}
+\item Condizione: in UC2.7.1 l'attore inserisce uno username già censito all'interno del sistema:
   \begin{itemize}
-  \item Nel caso in cui l'utente inserisca il nome di una collezione non esistente all'interno del sistema:
-    \begin{itemize}
-    \item UC2.2.6 Creazione nuova collezione.
-    \end{itemize}
+  \item UC2.7.4\ -\ Lancio eccezione username già presente;
   \end{itemize}
-  \textbf{Postcondizione:} Il nome della collezione è stato inserito correttamente.
-
-  \subsubsection{UC2.3.1.1.2: Inserimento chiave}
-
-  \textbf{Attore primario:} Utente autenticato, utente amministratore\\
-  \textbf{Attore secondario:} Driver\\
-  \textbf{Scopo e descrizione:} L'utente intende inserire manualmente un nuovo \gloss{item} all'interno di una \gloss{collezione} esistente. Deve inserire la chiave dell'item.\\
-  \textbf{Precondizione:} Il server è in ascolto, l'utente ha inserito il comando per l'inserimento item manuale e ha inserito il nome della collezione.\\
-  \textbf{Scenario principale:}
-  \begin{itemize}
-  \item L'utente può inserire la chiave associata all'item.
-  \end{itemize}
-  \textbf{Estensioni:}
-  \begin{itemize}
-  \item Nel caso in cui l'utente inserisca un item con \gloss{flag} di sovrascrittura attivo associato ad una chiave già presente all'interno del sistema:
-    \begin{itemize}
-    \item UC2.3.4 Visualizzazione errore chiave già esistente
-    \end{itemize}
-  \end{itemize}
-  \textbf{Postcondizioni:} La chiave è stata inserita correttamente.
-
-  \subsubsection{UC2.3.1.1.3: Inserimento valore}
-
-  \textbf{Attore primario:} Utente autenticato, utente amministratore\\
-  \textbf{Attore secondario:} Driver\\
-  \textbf{Scopo e descrizione:} L'utente intende inserire manualmente un nuovo \gloss{item} all'interno di una \gloss{collezione} esistente. Deve inserire il valore associato alla chiave dell'item.\\
-  \textbf{Precondizione:} Il server è in ascolto, l'utente ha inserito il comando per l'inserimento item manuale, il nome della collezione e la chiave da inserire.\\
-  \textbf{Scenario principale:}
-  \begin{itemize}
-  \item L'utente può inserire il valore associato alla chiave dell'item.
-  \end{itemize}
-  \textbf{Postcondizioni:} Il valore è stato inserito correttamente.
-
-  \subsubsection{UC2.3.1.1.4: Inserimento flag sovrascrittura}
-
-  \textbf{Attore primario:} Utente autenticato, utente amministratore\\
-  \textbf{Attore secondario:} Driver\\
-  \textbf{Scopo e descrizione:} L'utente intende inserire manualmente un nuovo \gloss{item} all'interno di una \gloss{collezione} esistente. Deve inserire il \gloss{flag} di sovrascrittura item.\\
-  \textbf{Precondizione:} Il server è in ascolto, l'utente ha inserito il comando per l'inserimento item manuale, il nome della collezione, la chiave e il valore dell'\gloss{item}.\\
-  \textbf{Scenario principale:}
-  \begin{itemize}
-  \item L'utente può inserire il \gloss{flag} di sovrascrittura item.
-  \end{itemize}
-  \textbf{Postcondizioni:} Il \gloss{flag} è stato inserito correttamente.
-
-  \subsection{UC2.3.1.2: Inserimento item da file}
-
-  \begin{figure}[H]
-    \begin{center}
-      \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC2_3_1_2.png}
-      \caption*{Caso d'uso 2.3.1.2: Inserimento \gloss{item} da file}
-    \end{center}
-  \end{figure}
-  \textbf{Attore primario:} Utente autenticato, utente amministratore\\
-  \textbf{Attore secondario:} Driver\\
-  \textbf{Scopo e descrizione:} L'utente intende inserire nuovi \gloss{item} da file. Deve inserire il \gloss{path} del file su filesystem.\\
-  \textbf{Precondizione:} Il server è in ascolto e l'utente intende inserire nuovi \gloss{item} da file.\\
-  \textbf{Scenario principale:}
-  \begin{itemize}
-  \item L'utente può inserire il \gloss{path} del file.
-  \end{itemize}
-  \textbf{Estensioni:}
-  \begin{itemize}
-  \item Nel caso in cui il file non esista nel filesystem: %filesystem?
-    \begin{itemize}
-    \item UC2.3.3 Lancio eccezione file inesistente.
-    \end{itemize}
-  \item Nel caso in cui il file sia malformato:
-    \begin{itemize}
-    \item UC2.3.5 Lancio eccezione file malformato.
-    \end{itemize}
-  \end{itemize}
-  \textbf{Postcondizioni:} Gli item scritti all'interno del file inserito sono stati inseriti con successo all'interno del sistema.%TODO vaben così?
-
-  \subsubsection{UC2.3.1.2.1: Inserimento path file} %TODO da tenere?
-
-  \textbf{Attore primario:} Utente autenticato, utente amministratore\\
-  \textbf{Attore secondario:} Driver\\
-  \textbf{Scopo e descrizione:} L'utente intende inserire nuovi \gloss{item} da file. Deve inserire il \gloss{path} del file.\\
-  \textbf{Precondizione:} Il server è in ascolto e l'utente ha inserito il comando per l'inserimento di \gloss{item} da file.\\
-  \textbf{Scenario principale:}
-  \begin{itemize}
-  \item L'utente può inserire il \gloss{path} del file.
-  \end{itemize}
-  \textbf{Postcondizioni:} Il \gloss{path} è stato inserito correttamente.
-
-  \subsection{UC2.3.2: Cancellazione item}
-
-  \begin{figure}[H]
-    \begin{center}
-      \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC2_3_2.png}
-      \caption*{Caso d'uso 2.3.2: Cancellazione \gloss{item}}
-    \end{center}
-  \end{figure}
-  \textbf{Attore primario:} Utente autenticato, utente amministratore\\
-  \textbf{Attore secondario:} Driver\\
-  \textbf{Scopo e descrizione:} L'utente intende cancellare un item da una collezione.\\
-  \textbf{Precondizioni:} Il server è in ascolto e l'utente intende cancellare un item.\\
-  \textbf{Scenario principale:}
-  \begin{itemize}
-  \item UC2.3.2.1 Inserimento nome \gloss{collezione};
-  \item UC2.3.2.2 Inserimento chiave \gloss{item}.
-  \end{itemize}
-  \textbf{Estensioni:}
-  \begin{itemize}
-  \item Nel caso in cui l'utente inserisca il nome di una \gloss{collezione} inesistente:
-    \begin{itemize}
-    \item UC2.3.5 Lancio eccezione collezione inesistente.
-    \end{itemize}
-  \end{itemize}
-  \textbf{Postcondizioni:} L'\gloss{item} è stato cancellato correttamente.
-
-  \subsection{UC2.3.2.1: Inserimento nome collezione}
-
-  \textbf{Attore primario:} Utente autenticato, utente amministratore\\
-  \textbf{Attore secondario:} Driver\\
-  \textbf{Scopo e descrizione:} L'utente intende cancellare un \gloss{item} all'interno di una \gloss{collezione} esistente. Deve inserire il nome della collezione.\\
-  \textbf{Precondizione:} Il server è in ascolto e l'utente ha inserito il comando di cancellazione item.\\
-  \textbf{Scenario principale:}
-  \begin{itemize}
-  \item L'utente può inserire il nome della collezione su cui effettuare la cancellazione.
-  \end{itemize}
-  \textbf{Postcondizioni:} Il nome della collezione è stato inserito correttamente.
-
-  \subsection{UC2.3.2.2: Inserimento chiave item}
-
-  \textbf{Attore primario:} Utente autenticato, utente amministratore\\
-  \textbf{Attore secondario:} Driver\\
-  \textbf{Scopo e descrizione:} L'utente intende cancellare un \gloss{item} all'interno di una \gloss{collezione} esistente. Deve inserire la chiave dell'item.\\
-  \textbf{Precondizione:} Il server è in ascolto, l'utente ha inserito il comando di cancellazione item e ha inserito il nome della collezione.\\
-  \textbf{Scenario principale:}
-  \begin{itemize}
-  \item L'utente può inserire la chiave dell'item da eliminare.
-  \end{itemize}
-  \textbf{Postcondizioni:} La chiave è stata inserita correttamente.
-
-  \subsection{UC2.4: Ricerca}
-
-  \textbf{Attore primario:} Utente autenticato, utente amministratore\\
-  \textbf{Attore secondario:} Driver\\
-  \textbf{Scopo e descrizione:} L'utente intende effettuare una ricerca di \gloss{item} all'interno del sistema da un programma Scala esterno; può decidere di effettuare la ricerca su una lista di collezioni eventualmente vuota, in tal caso la
-  ricerca verrà estesa a tutto il sistema entro i limiti imposti dal grado di visibilità (vedi~\ref{sec:visibilità}) dell'utente.\\
-  In caso di inserimento di nome \gloss{collezione} inesistente, o in caso di risultati di ricerca nulli, il sistema riporterà una lista risultata vuota.\\ % TODO: stesso per chiavi?
-  \textbf{Precondizione:} Il server è in ascolto, l'utente intende effettuare una ricerca di \gloss{item} all'interno del sistema.\\
-  \textbf{Scenario principale:}
-  \begin{itemize}
-  \item UC2.4.1 Inserimento lista collezioni;
-  \item UC2.4.2 Inserimento chiave di ricerca.
-  \end{itemize}
-  \textbf{Postcondizioni:} Il sistema ha riportato la lista dei risultati di ricerca.
-
-  \subsubsection{UC2.4.1: Inserimento lista collezioni}
-
-  \textbf{Attore primario:} Utente autenticato\\
-  \textbf{Attore secondario:} Driver\\
-  \textbf{Scopo e descrizione:} L'utente intende effettuare una ricerca di \gloss{item} all'interno del sistema; deve inserire la lista delle collezioni su cui effettuare tale ricerca. In caso di lista di ricerca vuota
-  la funzione di ricerca verrà estesa a tutto il sistema entro i limit imposti dal grado di visibilità (vedi~\ref{sec:visibilità}) dell'utente.\\
-  In caso di inserimento di nome \gloss{collezione} inesistente, o in caso di risultati di ricerca nulli, il sistema riporterà una lista risultata vuota.\\ % TODO: stesso per chiavi?
-  \textbf{Precondizione:} Il server è in ascolto, l'utente ha inserito il comando ricerca.\\
-  \textbf{Scenario principale:}
-  \begin{itemize}
-  \item L'utente può inserire la lista delle \gloss{collezioni}.
-  \end{itemize}
-  \textbf{Postcondizioni:} La lista di collezioni su cui effettuare la ricerca è stata inserita correttamente.
-
-  \subsubsection{UC2.4.2: Inserimento chiave di ricerca}
-
-  \textbf{Attore primario:} Utente autenticato, utente amministratore\\
-  \textbf{Attore secondario:} Driver\\
-  \textbf{Scopo e descrizione:} L'utente intende effettuare una ricerca di \gloss{item} all'interno del sistema; deve inserire la chiave di cui effettuare tale ricerca.\\
-  In caso di inserimento di nome \gloss{collezione} inesistente, o in caso di risultati di ricerca nulli, il sistema riporterà una lista risultata vuota.\\ % TODO: stesso per chiavi?
-  \textbf{Precondizione:} Il server è in ascolto, l'utente ha inserito il comando ricerca e la lista di collezioni su cui effettuare la ricerca.\\
-  \textbf{Scenario principale:}
-  \begin{itemize}
-  \item L'utente può inserire la chiave di ricerca
-  \end{itemize}
-  \textbf{Postcondizioni:} La chiave da ricerca all'interno del sistema è stata inserita correttamente.
-
-  \subsection{UC2.5: Modifica password}
-
-  % TODO: dialogo
-  \begin{figure}[H]
-    \begin{center}
-      \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC2_5.png}
-      \caption*{Caso d'uso 2.5: Modifica password}
-    \end{center}
-  \end{figure}
-  \textbf{Attori primari:} Utente autenticato, utente amministratore\\
-  \textbf{Attore secondario:} Driver\\
-  \textbf{Scopo e descrizione:} L'utente intende modificare la propria password da un programma \gloss{Scala} esterno, deve inserire la propria password attuale e la nuova password.\\
-  \textbf{Precondizione:} Il server è in ascolto.\\
-  \textbf{Scenario principale:}
-  \begin{itemize}
-  \item UC2.5.1 Inserimento password attuale;
-  \item UC2.5.2 Inserimento nuova password;
-  \end{itemize}
-  \textbf{Estensioni:} %TODO controllare ste estensioni
-  \begin{itemize}
-  \item Condizione: in UC2.5.1 l'utente inserisce una password attuale non corretta:
-    \begin{itemize}
-    \item UC2.5.3 Visualizzazione errore password attuale
-    \end{itemize}
-  \item Condizione: in UC2.5.2 l'utente inserisce una nuova password che non rispetta i vincoli di sistema:
-    \begin{itemize}
-    \item UC2.5.4 Visualizzazione errore nuova password
-    \end{itemize}
-  \end{itemize}
-  \textbf{Postcondizioni:} La password è stata sostituita con la nuova.
-
-  \subsubsection{UC2.5.1: Inserimento vecchia password}
-
-  \textbf{Attori primari:} Utente autenticato, utente amministratore\\
-  \textbf{Attori secondari:} Driver\\
-  \textbf{Scopo e descrizione:} L'utente intende modificare la propria password, deve inserire la propria password attuale.\\
-  \textbf{Precondizione:} Il server è in ascolto e l'utente ha inserito il comando per la modifica password.\\
-  \textbf{Scenario principale:}
-  \begin{itemize}
-  \item L'utente può inserire la propria password attuale.
-  \end{itemize}
-  \textbf{Postcondizioni:} La password è stata inserita.
-
-  \subsubsection{UC2.5.2: Inserimento nuova password}
-
-  \textbf{Attori primari:} Utente autenticato, utente amministratore\\
-  \textbf{Attori secondari:} Driver\\
-  \textbf{Scopo e descrizione:} L'utente intende modificare la propria password, deve inserire la nuova password.\\
-  \textbf{Precondizione:} Il server è in ascolto, l'utente ha inserito il comando per la modifica password e ha inserito la vecchia password.
-  \textbf{Scenario principale:}
-  \begin{itemize}
-  \item L'utente può inserire la nuova password.
-  \end{itemize}
-  \textbf{Postcondizioni:} La nuova password è stata inserita.
-
-  \subsection{UC2.6: Logout}
-
-  \textbf{Attori primari:} Utente autenticato, utente amministratore\\
-  \textbf{Attore secondario:} Driver\\
-  \textbf{Scopo e descrizione:} L'utente intende effettuare il logout dal sistema\\
-  \textbf{Precondizione:} Il server è in ascolto e l'utente intende effettuare il logout dal sistema\\
-  \textbf{Scenario principale:}
-  \begin{itemize}
-  \item L'utente può inserire il comando di logout.
-  \end{itemize}
-  \textbf{Postcondizioni:} L'utente ha effettuato il logout e ora è un utente non autenticato per il sistema.
-
-  \subsection{UC2.7: Gestione utenti}
-
-  \begin{figure}[H]
-    \begin{center}
-      \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC2_7.png}
-      \caption*{Caso d'uso 2.7: Gestione utenti}
-    \end{center}
-  \end{figure}
-
-  \textbf{Attore primario:} Utente amministratore\\
-  \textbf{Attore secondario:} Driver\\
-  \textbf{Scopo e descrizione:} L'amministratore intende effettuare operazioni di gestione sugli utenti del sistema da un programma \gloss{Scala} esterno; le operazioni possibili sono:
-  \begin{itemize}
-  \item Aggiunta di un nuovo utente;
-  \item Rimozione di un utente;
-  \item Effettuare un reset della password.
-  \end{itemize}
-  \textbf{Precondizione:} Il server è in ascolto e l'amministratore intende effettuare operazioni di gestione sugli utenti.\\
-  \textbf{Scenario principale:}
-  \begin{itemize}
-  \item UC2.7.1\ -\ Aggiunta utente;
-  \item UC2.7.2\ -\ Rimozione utente;
-  \item UC2.7.3\ -\ Reset password.
-  \end{itemize}
-  \textbf{Estensioni:}
-  \begin{itemize}
-  \item Condizione: in UC2.7.1 l'utente amministratore inserisce uno username già censito all'interno del sistema:
-    \begin{itemize}
-    \item UC2.7.4\ -\ Visualizzazione errore username già presente;
-    \end{itemize}
-  \item Condizione: in UC2.7.2 o in UC2.7.3 l'utente amministratore inserisce uno username non esistente all'interno del sistema:
-    \begin{itemize}
-    \item UC2.7.5\ -\ Visualizzazione errore username non presente.
-    \end{itemize}
-  \end{itemize}
-  \textbf{Postcondizioni:} L'operazione di gestione richiesta è andata a buon fine, gli eventuali cambiamenti sono stati resi persistenti all'interno del sistema.
-
-  \subsection{UC2.7.1: Aggiunta utente}
-
-  \begin{figure}[H]
-    \begin{center}
-      \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC2_7_1.png}
-      \caption*{Caso d'uso 2.7.1: Operazioni sugli \gloss{item}}
-    \end{center}
-  \end{figure}
-  \textbf{Attore primario:} Utente amministratore\\
-  \textbf{Scopo e descrizione:} L'amministratore intende aggiungere un nuovo utente all'interno del sistema. Deve inserire lo username e confermare l'operazione\\
-  \textbf{Precondizione:} Il server è in ascolto e l'amministratore intende aggiungere un nuovo utente all'interno del sistema.\\
-  \textbf{Scenario principale:}
-  \begin{itemize}
-  \item UC2.7.1.1\ -\ Inserimento username;
-  \end{itemize}
-  \textbf{Estensioni:}
-  \begin{itemize}
-  \item Condizione: in UC2.7.1.1 l'utente amministratore inserisce uno username già censito all'interno del sistema:
-    \begin{itemize}
-    \item UC2.7.4\ -\ Visualizzazione errore username già presente.
-    \end{itemize}
-  \end{itemize}
-  \textbf{Postcondizioni:} Il nuovo utente è stato inserito all'interno del sistema con successo.
-
-  \subsubsection{UC2.7.1.1: Inserimento username}
-
-  \textbf{Attore primario:} Utente amministratore\\
-  \textbf{Scopo e descrizione:} L'amministratore intende aggiungere un nuovo utente all'interno del sistema. Deve inserire lo username del nuovo utente.\\
-  \textbf{Precondizione:} Il server è in ascolto e l'amministratore intende aggiungere un nuovo utente all'interno del sistema.\\
-  \textbf{Scenario principale:}
-  \begin{itemize}
-  \item Utente amministratore inserisce username nuovo utente.
-  \end{itemize}
-  \textbf{Postcondizioni:} Lo username del nuovo utente è stato inserito con successo.
-
-  \subsection{UC2.7.2: Rimozione utente}
-
-  \begin{figure}[H]
-    \begin{center}
-      \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC2_7_2.png}
-      \caption*{Caso d'uso 2.7.2: Operazioni sugli \gloss{item}}
-    \end{center}
-  \end{figure}
-  \textbf{Attore primario:} Utente amministratore\\
-  \textbf{Attore secondario:} Driver\\
-  \textbf{Scopo e descrizione:} L'amministratore intende rimuovere un utente dal sistema. Deve inserire lo username e confermare l'operazione\\
-  \textbf{Precondizione:} Il server è in ascolto e l'amministratore intende rimuovere un utente dal sistema.\\
-  \textbf{Scenario principale:}
-  \begin{itemize}
-  \item UC2.7.2.1\ -\ Inserimento username.
-  \end{itemize}
-  \textbf{Estensioni:}
-  \begin{itemize}
-  \item Condizione: in UC2.7.2.1 l'utente amministratore inserisce uno username non presente all'interno del sistema:
-    \begin{itemize}
-    \item UC2.7.5\ -\ Visualizzazione errore username non presente.
-    \end{itemize}
-  \end{itemize}
-  \textbf{Postcondizioni:} Il nuovo utente è stato rimosso dal sistema con successo.
-
-  \subsubsection{UC2.7.2.1: Inserimento username}
-
-  \textbf{Attore primario:} Utente amministratore\\
-  \textbf{Attore secondario:} Driver\\
-  \textbf{Scopo e descrizione:} L'amministratore intende rimuovere un utente dal sistema. Deve inserire lo username dell'utente da rimuovere.\\
-  \textbf{Precondizione:} Il server è in ascolto e l'amministratore ha inserito il comando di rimozione utente.\\
-  \textbf{Scenario principale:}
-  \begin{itemize}
-  \item Utente amministratore inserisce username utente da rimuovere.
-  \end{itemize}
-  \textbf{Postcondizioni:} Lo username dell'utente da rimuovere è stato inserito con successo.
-
-  \subsection{UC2.7.3: Reset password}
-
-  \begin{figure}[H]
-    \begin{center}
-      \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC2_7_3.png}
-      \caption*{Caso d'uso 2.7.3: Operazioni sugli \gloss{item}}
-    \end{center}
-  \end{figure}
-  \textbf{Attore primario:} Utente amministratore\\
-  \textbf{Attore secondario:} Driver\\
-  \textbf{Scopo e descrizione:} L'amministratore intende effettuare il reset della password di un utente all'interno del sistema. Deve inserire lo username e confermare il reset, la password
-  verrà modificata al valore prescelto ``actorbase''.\\
-  \textbf{Precondizione:} Il server è in ascolto e l'amministratore intende effettuare il reset della password di un utente all'interno del sistema.\\
-  \textbf{Scenario principale:}
-  \begin{itemize}
-  \item UC2.7.3.1\ -\ Inserimento username.
-  \end{itemize}
-  \textbf{Estensioni}
-\item Condizione: in UC2.7.3.1 l'utente amministratore inserisce uno username non presente all'interno del sistema:
+\item Condizione: in UC2.7.2 o in UC2.7.3 l'attore inserisce uno username non esistente all'interno del sistema:
   \begin{itemize}
   \item UC2.7.5\ -\ Lancio eccezione username non presente.
   \end{itemize}
+\end{itemize}
+\textbf{Postcondizioni:} L'operazione di gestione richiesta è andata a buon fine, gli eventuali cambiamenti sono stati resi persistenti all'interno del sistema.
+
+\subsection{UC2.7.1: Aggiunta utente}
+
+\textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
+\textbf{Attore secondario:} Actorbase\\
+\textbf{Scopo e descrizione:} L'attore intende aggiungere un nuovo utente all'interno del sistema. Deve inserire lo username e confermare l'operazione\\
+\textbf{Precondizione:} Il server è in ascolto, l'attore ha privilegi amministrativi e intende aggiungere un nuovo utente all'interno del sistema.\\
+\textbf{Scenario principale:}
+\begin{itemize}
+\item UC2.7.1.1\ -\ Inserimento username;
+\end{itemize}
+\textbf{Postcondizioni:} Il nuovo utente è stato inserito all'interno del sistema con successo.
+
+\subsubsection{UC2.7.1.1: Inserimento username}
+
+\textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
+\textbf{Attore secondario:} Actorbase\\
+\textbf{Scopo e descrizione:} L'attore intende aggiungere un nuovo utente all'interno del sistema. Deve inserire lo username del nuovo utente.\\
+\textbf{Precondizione:} Il server è in ascolto, l'attore ha privilegi amministrativi e ha inserito il comando di aggiunta utente.\\
+\textbf{Scenario principale:}
+\begin{itemize}
+\item L'attore può inserire lo username del nuovo utente.
+\end{itemize}
+\textbf{Postcondizioni:} Lo username del nuovo utente è stato inserito con successo.
+
+\subsection{UC2.7.2: Rimozione utente}
+
+\textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
+\textbf{Attore secondario:} Actorbase\\
+\textbf{Scopo e descrizione:} L'attore intende rimuovere un utente dal sistema. Deve inserire lo username di quest'ultimo.\\
+\textbf{Precondizione:} Il server è in ascolto, l'attore ha privilegi amministrativi e intende rimuovere un utente dal sistema.\\
+\textbf{Scenario principale:}
+\begin{itemize}
+\item UC2.7.2.1\ -\ Inserimento username.
+\end{itemize}
+\textbf{Postcondizioni:} L'utente è stato rimosso dal sistema con successo.
+
+\subsubsection{UC2.7.2.1: Inserimento username}
+
+\textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
+\textbf{Attore secondario:} Actorbase\\
+\textbf{Scopo e descrizione:} L'attore intende rimuovere un utente dal sistema. Deve inserire lo username dell'utente da rimuovere.\\
+\textbf{Precondizione:} Il server è in ascolto, l'attore ha privilegi amministrativi ed ha inserito il comando per la rimozione utente.\\
+\textbf{Scenario principale:}
+\begin{itemize}
+\item L'attore può inserire lo username dell'utente da rimuovere.
+\end{itemize}
+\textbf{Postcondizioni:} Lo username dell'utente da rimuovere è stato inserito con successo.
+
+\subsection{UC2.7.3: Reset password}
+
+\textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
+\textbf{Attore secondario:} Actorbase\\
+\textbf{Scopo e descrizione:} L'attore intende effettuare il reset della password di un utente all'interno del sistema. Deve inserire lo username, la password verrà modificata al valore prescelto ``actorbase''.\\
+\textbf{Precondizione:} Il server è in ascolto. L'attore ha privilegi amministrativi e intende effettuare il reset della password di un utente all'interno del sistema.\\
+\textbf{Scenario principale:}
+\begin{itemize}
+\item UC2.7.3.1\ -\ Inserimento username.
 \end{itemize}
 \textbf{Postcondizioni:} La password dell'utente designato è stata modificata in ``actorbase'' con successo.
 
 \subsubsection{UC2.7.3.1: Inserimento username}
 
-\textbf{Attore primario:} Utente amministratore\\
-\textbf{Attore secondario:} Driver\\
-\textbf{Scopo e descrizione:} L'amministratore intende effettuare il reset della password di un utente all'interno del sistema. Deve inserire lo username e confermare il reset, la password
+\textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
+\textbf{Attore secondario:} Actorbase\\
+\textbf{Scopo e descrizione:} L'attore intende effettuare il reset della password di un utente all'interno del sistema. Deve inserire lo username e confermare il reset, la password
 verrà modificata al valore prescelto ``actorbase''.\\
-\textbf{Precondizione:} Il server è in ascolto e l'amministratore ha inserito il comando per il reset password.\\
+\textbf{Precondizione:} Il server è in ascolto, l'attore ha privilegi amministrativi e ha inserito il comando per il reset password.\\
 \textbf{Scenario principale:}
 \begin{itemize}
-\item Utente amministratore inserisce username utente designato al reset password.
+\item L'attore può inserire lo username dell'utente designato al reset password.
 \end{itemize}
 \textbf{Postcondizioni:} Lo username dell'utente designato al reset password è stato inserito con successo.
+
+\subsection{UC2.7.4: Lancio eccezione username già presente}
+
+\textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
+\textbf{Attore secondario:} Actorbase\\
+\textbf{Scopo e descrizione:}
+L'attore intende aggiungere un utente al sistema.\\
+\textbf{Precondizioni:} Il server è in ascolto, l'attore ha privilegi amministrativi, ha inserito il comando di aggiunta utente e uno username già presente all'interno del sistema.\\
+\textbf{Scenario principale:}
+\begin{itemize}
+\item Viene lanciata un'eccezione username già presente.
+\end{itemize}
+\textbf{Postcondizioni:} L'aggiunta utente fallisce, l'utente non viene aggiunto al sistema.
+
+\subsection{UC2.7.5: Lancio eccezione username non presente}
+
+\textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
+\textbf{Attore secondario:} Actorbase\\
+\textbf{Scopo e descrizione:}
+L'attore intende rimuovere un utente o effettuare il reset password di un utente.\\
+\textbf{Precondizioni:} Il server è in ascolto, l'attore ha privilegi amministrativi, ha inserito il comando di rimozione utente o di reset password e uno username non presente all'interno del sistema.\\
+\textbf{Scenario principale:}
+\begin{itemize}
+\item Viene lanciata un'eccezione username non presente.
+\end{itemize}
+\textbf{Postcondizioni:} Il comando inserito fallisce.
 
 \subsection{UC2.8: Lancio eccezione credenziali errate}
 
@@ -2387,6 +2384,39 @@ L'utente intende effettuare login al database da un programma \gloss{Scala} este
 \item Viene lanciata un'eccezione per credenziali errate.
 \end{itemize}
 \textbf{Postcondizioni:} Il login fallisce, l'utente risulta essere non autenticato.
+
+\subsection{UC1.13: Visualizzazione dell'intera collezione}
+
+\textbf{Attori primari:} Utente autenticato\\
+\textbf{Scopo e descrizione:} L'attore intende effettuare una ricerca su una lista di \gloss{collezioni} senza specificare chiavi di ricerca.\\
+\textbf{Precondizioni:} Il server è in ascolto, l'attore ha inserito una lista non vuota di \gloss{collezioni} e nessuna chiave di ricerca.\\
+\textbf{Scenario principale:}
+\begin{itemize}
+\item Vengono visualizzate le coppie chiave-valore dell'intera \gloss{collezione}.
+\end{itemize}
+\textbf{Postcodizioni:} Viene visualizzata l'intera \gloss{collezione}.
+
+\subsection{UC1.14: Ricerca sull'intero database}
+
+\textbf{Attori primari:} Utente autenticato\\
+\textbf{Scopo e descrizione:} L'attore intende effettuare una ricerca su una lista di \gloss{collezioni} vuota. Deve specificare una chiave di ricerca.\\
+\textbf{Precondizioni:} Il server è in ascolto, l'attore ha inserito una lista vuota di \gloss{collezioni} ed una chiave di ricerca.\\
+\textbf{Scenario principale:}
+\begin{itemize}
+\item Vengono ricercate e visualizzate le coppie chiave-valore sull'intero \gloss{database}.
+\end{itemize}
+\textbf{Postcodizioni:} La ricerca avviene sull'intero \gloss{database} con successo.
+
+\subsection{UC1.15: Visualizzazione dell'intero database}
+
+\textbf{Attori primari:} Utente autenticato\\
+\textbf{Scopo e descrizione:} L'attore intende effettuare una ricerca su una lista di \gloss{collezioni} vuota senza specificare chiavi di ricerca.\\
+\textbf{Precondizioni:} Il server è in ascolto, l'attore ha inserito una lista vuota di \gloss{collezioni} e nessuna chiave di ricerca.\\
+\textbf{Scenario principale:}
+\begin{itemize}
+\item Vengono ricercate e visualizzate le coppie chiave-valore sull'intero \gloss{database} comprensivo di tutte le \gloss{collezioni} secondo la visibilità dell'attore (vedi ~\ref{sec:visibilità}).
+\end{itemize}
+\textbf{Postcodizioni:} Viene visualizzato l'intero \gloss{database} comprensivo di tutte le \gloss{collezioni} con successo.
 
 \section{Requisiti}
 
