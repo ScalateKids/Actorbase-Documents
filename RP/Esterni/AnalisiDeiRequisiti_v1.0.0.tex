@@ -1418,13 +1418,13 @@ vincoli imposti. I vincoli imposti sulla conferma password dal sistema sono:
 \textbf{Postcodizioni:} Viene visualizzato l'intero \gloss{database} comprensivo di tutte le \gloss{collezioni} con successo.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% QUI INIZIANO I CASI D'USO DEL DRIVER            %
+% 	  QUI INIZIANO I CASI D'USO DEL DRIVER        %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{UC2: Interazioni tramite Driver}
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC2.png}
+    \includegraphics[width=0.9\textwidth,keepaspectratio]{UseCases/UC2.png}
     \caption*{Caso d'uso 2: Interazioni tramite driver}
   \end{center}
 \end{figure}
@@ -1432,11 +1432,11 @@ vincoli imposti. I vincoli imposti sulla conferma password dal sistema sono:
 \textbf{Attore secondario:} Actorbase\\
 \textbf{Scopo e descrizione:} L'attore intende effettuare operazioni al database da un programma \gloss{Scala} esterno, le operazioni che può eseguire sono:
 \begin{itemize} % TODO togliere la gerarchia utenti
-\item Nel caso sia un \textbf{utente non autenticato} può:
+\item Nel caso in cui l'attore abbia privilegi pari ad un \textbf{utente non autenticato} può:
   \begin{itemize}
   \item Effettuare il login
   \end{itemize}
-\item Nel caso sia un \textbf{utente autenticato} o un \textbf{utente amministratore} può:
+\item Nel caso in cui l'attore abbia privilegi pari ad un \textbf{utente autenticato} o un \textbf{utente amministratore} può:
   \begin{itemize}
   \item Effettuare operazioni sulle \gloss{collezioni}
   \item Effettuare operazioni sugli \gloss{item}
@@ -1444,7 +1444,7 @@ vincoli imposti. I vincoli imposti sulla conferma password dal sistema sono:
   \item Modificare la propria password
   \item Effettuare il logout
   \end{itemize}
-\item Nel caso sia un \textbf{utente amministratore} può:
+\item Nel caso in cui l'attore abbia privilegi pari ad un \textbf{utente amministratore} può:
   \begin{itemize}
   \item Effettuare operazioni di gestione utente
   \end{itemize}
@@ -1499,7 +1499,7 @@ vincoli imposti. I vincoli imposti sulla conferma password dal sistema sono:
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC2_1.png}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{UseCases/UC2_1.png}
     \caption*{Caso d'uso 2.1: Login}
   \end{center}
 \end{figure}
@@ -1545,7 +1545,7 @@ L'attore intende effettuare login al database da un programma \gloss{Scala} este
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC2_2.png}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{UseCases/UC2_2.png}
     \caption*{Caso d'uso 2.2: Operazioni sulle \gloss{collezioni}}
   \end{center}
 \end{figure}
@@ -1566,8 +1566,8 @@ L'attore intende effettuare login al database da un programma \gloss{Scala} este
 \begin{itemize}
 \item UC2.2.1 Creazione \gloss{collezione};
 \item UC2.2.2 Visualizzazione della lista delle \gloss{collezioni};
-\item UC2.2.3 Cancellazione \gloss{collezione};
-\item UC2.2.4 Modifica nome \gloss{collezione};
+\item UC2.2.3 Modifica nome \gloss{collezione};
+\item UC2.2.4 Cancellazione \gloss{collezione};
 \item UC2.2.5 Aggiunta \gloss{collaboratore};
 \item UC2.2.6 Rimozione \gloss{collaboratore};
 \item UC2.2.7 Esportazione di una o più \gloss{collezioni} su file.
@@ -1578,15 +1578,15 @@ L'attore intende effettuare login al database da un programma \gloss{Scala} este
   \begin{itemize}
   \item UC2.2.8 Lancio eccezione \gloss{collezione} già esistente.
   \end{itemize}
-\item Condizione: in UC2.2.4  l'attore inserisca come nuovo nome il nome di una \gloss{collezione} già censita all'interno del sistema:
+\item Condizione: in UC2.2.3  l'attore inserisca come nuovo nome il nome di una \gloss{collezione} già censita all'interno del sistema:
   \begin{itemize}
   \item UC2.2.8 Lancio eccezione \gloss{collezione} già esistente.
   \end{itemize}
-\item Condizione: in UC2.2.3 l'attore inserisca il nome di una \gloss{collezione} non censita all'interno del sistema:
+\item Condizione: in UC2.2.4 l'attore inserisca il nome di una \gloss{collezione} non censita all'interno del sistema:
   \begin{itemize}
   \item UC2.2.9 Lancio eccezione \gloss{collezione} inesistente.
   \end{itemize}
-\item Condizione: in UC2.2.4 l'attore inserisca nome di una \gloss{collezione} non censita all'interno del sistema:
+\item Condizione: in UC2.2.3 l'attore inserisca nome di una \gloss{collezione} non censita all'interno del sistema:
   \begin{itemize}
   \item UC2.2.9 Lancio eccezione \gloss{collezione} inesistente.
   \end{itemize}
@@ -1881,7 +1881,7 @@ ma durante l'inserimento dei parametri inserisce un nome collezione non censito 
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC2_3.png}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{UseCases/UC2_3.png}
     \caption*{Caso d'uso 2.3: Operazioni sugli \gloss{item}}
   \end{center}
 \end{figure}
@@ -1911,11 +1911,15 @@ inserimento e cancellazione.\\
   \end{itemize}
 \item Condizione: in UC2.3.1 l'attore inserisce un nome collezione non presente nel sistema:
   \begin{itemize}
-  \item UC2.2.6 Creazione nuova collezione. % TODO come cazzo facciamo questo?
+  \item UC2.3.7 Inserimento con creazione nuova \gloss{collezione}.
   \end{itemize}
 \item Condizione: in UC2.3.1.2 l'attore iscerisce un path relativo ad un file non esistente:
   \begin{itemize}
   \item UC2.3.3 Lancio eccezione file inesistente.
+  \end{itemize}
+\item Condizione: in UC2.3.1.2 l'attore inserisce un path relativo ad un file malformato: %TODO spiegare malformato
+  \begin{itemize}
+  \item UC2.3.6 Lancio eccezione file malformato
   \end{itemize}
 \end{itemize}
 \textbf{Postcondizione:} L'operazione richiesta è stata effettuata correttamente.
@@ -2072,7 +2076,7 @@ inserimento e cancellazione.\\
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC2_3_2.png}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{UseCases/UC2_3_2.png}
     \caption*{Caso d'uso 2.3.2: Cancellazione \gloss{item}}
   \end{center}
 \end{figure}
@@ -2183,6 +2187,12 @@ Il nome della \gloss{collezione} risulta essere inesistente all'interno del sist
 
 \subsection{UC2.4: Ricerca}
 
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{UseCases/UC2_4.png}
+    \caption*{Caso d'uso 2.4: Ricerca \gloss{item}}
+  \end{center}
+\end{figure}
 \textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
 \textbf{Attore secondario:} Actorbase\\
 \textbf{Scopo e descrizione:} L'attore intende effettuare una ricerca di \gloss{item} all'interno del sistema da un programma Scala esterno.\\
@@ -2253,7 +2263,7 @@ In caso di inserimento di nome \gloss{collezione} inesistente, o in caso di risu
 \end{itemize}
 \textbf{Postcondizioni:} La password è stata sostituita con la nuova.
 
-\subsubsection{UC2.5.1: Inserimento vecchia password}
+\subsubsection{UC2.5.1: Inserimento password attuale}
 
 \textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
 \textbf{Attore secondario:} Actorbase\\
@@ -2293,7 +2303,7 @@ In caso di inserimento di nome \gloss{collezione} inesistente, o in caso di risu
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC2_7.png}
+    \includegraphics[width=0.9\textwidth,keepaspectratio]{UseCases/UC2_7.png}
     \caption*{Caso d'uso 2.7: Gestione utenti}
   \end{center}
 \end{figure}
