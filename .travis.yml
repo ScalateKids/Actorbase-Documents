@@ -3,11 +3,11 @@ sudo: required
 notifications:
     email:
         recipients:
-            - scalatekids@gmail.com
+            - munaro.michael@gmail.com
         on_success:
                 never
         on_failure:
-                change
+                always
 
 branches:
     only:
