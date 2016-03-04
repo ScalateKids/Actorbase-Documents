@@ -205,13 +205,15 @@ comandi testuale per poter dialogare con la base di dati.\\ Suddivisione attori:
 \item\textbf{Amministratore:}\\
   Rappresenta un superutente con privilegi di \gloss{visibilità} maggiori rispetto a utenti generici e poteri di modifica sulla \gloss{visibilità} di questi ultimi.
 \item\textbf{Programma esterno su JVM:}\\
-  Rappresenta
+  Nel caso di utilizzo del sistema da un programma esterno su \gloss{JVM}, sarà quest'ultimo ad essere attore primario rispetto al \gloss{driver} da utilizzare per
+  interfacciarsi con il sistema \textbf{Actorbase}. Il sistema \textbf{Actorbase} sarà considerato un attore secondario del \gloss{driver}, in quanto serve allo scopo
+  per raggiungere l'obiettivo richiesto dall'attore primario, ovvero l'inserimento dei comandi al sistema.
 \end{itemize}
 \textbf{Secondari}
 \begin{itemize}
-\item\textbf{Actorbase:}\\ % TODO: da spiegare
-  Nel caso di utilizzo del sistema da un programma esterno in linguaggio Scala, il driver rappresenta effettivamente l'attore necessario agli utenti (attori primari) per raggiugere
-  lo scopo prefissato, ovvero l'inserimento dei comandi da inviare al sistema.
+\item\textbf{Actorbase:}\\
+  Nel caso di utilizzo del sistema da un programma esterno in linguaggio Scala, il sistema \textbf{Actorbase} rappresenta effettivamente l'attore necessario agli attori primari per raggiugere
+  lo scopo prefissato, ovvero l'inserimento dei comandi da inviare al sistema stesso mediante utilizzo del \gloss{driver}.
 \end{itemize}
 
 \subsubsection{Visibilità}
@@ -257,7 +259,7 @@ in maniera autonoma.
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/cli-generale.png}
+    \includegraphics[width=0.6\textwidth,keepaspectratio]{UseCases/UC1.png}
     \caption*{Caso d'uso 1: Interazioni tramite CLI}
   \end{center}
 \end{figure}
@@ -348,7 +350,7 @@ in maniera autonoma.
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC1_1.png}
+    \includegraphics[width=0.4\textwidth,keepaspectratio]{UseCases/UC1_1.png}
     \caption*{Caso d'uso 1.1: Login}
   \end{center}
 \end{figure}
@@ -437,7 +439,7 @@ L'attore ha appena avviato la \gloss{CLI}, risulta essere non autenticato e può
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC1_3.png}
+    \includegraphics[width=0.6\textwidth,keepaspectratio]{UseCases/UC1_3.png}
     \caption*{Caso d'uso 1.3: Operazioni sulle \gloss{collezioni}}
   \end{center}
 \end{figure}
@@ -520,7 +522,7 @@ L'attore ha appena avviato la \gloss{CLI}, risulta essere non autenticato e può
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC1_3_3.png}
+    \includegraphics[width=0.4\textwidth,keepaspectratio]{UseCases/UC1_3_3.png}
     \caption*{Caso d'uso 1.3.3: Login}
   \end{center}
 \end{figure}
@@ -582,7 +584,7 @@ L'attore ha appena avviato la \gloss{CLI}, risulta essere non autenticato e può
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC1_3_5.png}
+    \includegraphics[width=0.4\textwidth,keepaspectratio]{UseCases/UC1_3_5.png}
     \caption*{Caso d'uso 1.3.5: aggiunta di un \gloss{collaboratore} a \gloss{collezione}}
   \end{center}
 \end{figure}
@@ -621,7 +623,7 @@ L'attore ha appena avviato la \gloss{CLI}, risulta essere non autenticato e può
 \subsection{UC1.3.6: Rimozione di un collaboratore da collezione}
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC1_3_6.png}
+    \includegraphics[width=0.4\textwidth,keepaspectratio]{UseCases/UC1_3_6.png}
     \caption*{Caso d'uso 1.3.6: rimozione di un \gloss{collaboratore} da una \gloss{collezione}}
   \end{center}
 \end{figure}
@@ -700,7 +702,7 @@ e i parametri per la sua esecuzione, tra cui il nome della \gloss{collezione}, i
 
 \subsection{UC1.3.9: Visualizzazione errore username inesistente}
 % TODO: da rivedere
-\textbf{Attori primari:} Utente autenticato\\
+\textbf{Attori primari:} Utente autenticato, utente amministratore\\
 \textbf{Scopo e descrizione:}
 L'attore ha inserito il comando per l'aggiunta \gloss{collaboratore} a
 \gloss{collezione} o il comando per la rimozione \gloss{collaboratore} a
@@ -748,7 +750,7 @@ L'attore ha inserito il comando per la modifica password, ha inserito i parametr
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC1_4.png}
+    \includegraphics[width=0.6\textwidth,keepaspectratio]{UseCases/UC1_4.png}
     \caption*{Caso d'uso 1.4: Operazioni sugli \gloss{item}}
   \end{center}
 \end{figure}
@@ -810,7 +812,7 @@ inserimento e cancellazione.\\
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC1_4_1_1.png}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{UseCases/UC1_4_1_1.png}
     \caption*{Caso d'uso 1.4.1.1: Inserimento \gloss{item} manuale}
   \end{center}
 \end{figure}
@@ -872,12 +874,6 @@ inserimento e cancellazione.\\
 
 \subsection{UC1.4.1.2: Inserimento item da file}
 
-\begin{figure}[H]
-  \begin{center}
-    \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC1_4_1_2.png}
-    \caption*{Caso d'uso 1.4.1.2: Inserimento \gloss{item} da file}
-  \end{center}
-\end{figure}
 \textbf{Attore primario:} Utente autenticato, utente amministratore\\
 \textbf{Scopo e descrizione:} L'attore intende inserire nuovi \gloss{item} da file. Deve inserire il \gloss{path} del file su filesystem.\\
 \textbf{Precondizione:} Il server è in ascolto e l'attore intende inserire nuovi \gloss{item} da file.\\
@@ -902,7 +898,7 @@ inserimento e cancellazione.\\
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC1_4_2.png}
+    \includegraphics[width=0.4\textwidth,keepaspectratio]{UseCases/UC1_4_2.png}
     \caption*{Caso d'uso 1.4.2: Cancellazione \gloss{item}}
   \end{center}
 \end{figure}
@@ -940,7 +936,7 @@ inserimento e cancellazione.\\
 
 \subsection{UC1.4.3: Visualizzazione errore file inesistente}
 
-\textbf{Attore primario:} Utente autenticato\\
+\textbf{Attore primario:} Utente autenticato, utente amministratore\\
 \textbf{Scopo e descrizione:} L'attore, con l'intenzione di inserire \gloss{item} da file, ha inserito un \gloss{path} che porta ad un file inesistente nel filesystem.\\
 \textbf{Precondizione:} Il server è in ascolto, l'attore ha inserito un \gloss{path} che punta ad un file inesistente nel filesystem della propria macchina.\\
 \textbf{Scenario principale:}
@@ -951,7 +947,7 @@ inserimento e cancellazione.\\
 
 \subsection{UC1.4.4: Visualizzazione errore chiave già esistente}
 
-\textbf{Attore primario:} Utente autenticato\\
+\textbf{Attore primario:} Utente autenticato, utente amministratore\\
 \textbf{Scopo e descrizione:} L'attore, con l'intenzione di inserire \gloss{item} in modalità manuale o per esportazione da file, ha inserito un \gloss{item} con \gloss{flag} di sovrascrittura
 non attivo e una chiave di ricerca già presente all'interno della \gloss{collezione} designata all'inserimento.\\
 \textbf{Precondizione:} Il server è in ascolto, l'attore, con l'intezione di inserire un item con \gloss{flag} di sovrascrittura non attivo, ha inserito una chiave di ricerca già presente
@@ -964,7 +960,7 @@ all'interno della \gloss{collezione} designata all'inserimento.\\
 
 \subsection{UC1.4.5: Visualizzazione errore collezione inesistente}
 
-\textbf{Attore primario:} Utente autenticato\\
+\textbf{Attore primario:} Utente autenticato, utente amministratore\\
 \textbf{Scopo e descrizione:} L'attore, con l'intenzione di cancellare un \gloss{item} da una \gloss{collezione}, ha inserito il nome di una \gloss{collezione} inesistente
 all'interno del sistema.\\
 \textbf{Precondizione:} Il server è in ascolto, l'attore, con l'intezione di cancellare un \gloss{item} da una \gloss{collezione}, ha inserito il nome di una \gloss{collezione} inesistente
@@ -977,7 +973,7 @@ all'interno del sistema.\\
 
 \subsection{UC1.4.6: Visualizzazione errore file malformato}
 
-\textbf{Attore primario:} Utente autenticato\\
+\textbf{Attore primario:} Utente autenticato, utente amministratore\\
 \textbf{Scopo e descrizione:} L'attore, con l'intenzione di inserire \gloss{item} da file, ha inserito un \gloss{path} che porta ad un file inesistente nel filesystem.\\
 \textbf{Precondizione:} Il server è in ascolto, l'attore ha inserito un \gloss{path} che punta ad un file inesistente nel filesystem della propria macchina.\\
 \textbf{Scenario principale:}
@@ -988,7 +984,7 @@ all'interno del sistema.\\
 
 \subsection{UC1.4.7: Inserimento con creazione nuova collezione}
 
-\textbf{Attore primario:} Utente autenticato\\
+\textbf{Attore primario:} Utente autenticato, utente amministratore\\
 \textbf{Scopo e descrizione:} L'attore intende inserire un nuovo \gloss{item} all'interno di una \gloss{collezione} esistente. Deve selezionare la \gloss{collezione} e inserire i parametri di definizione dell'\gloss{item}. Questi sono la chiave, il valore associato e il \gloss{flag} di sovrascrittura. Può scegliere di inserire mediante due modalità distinte:
 \begin{itemize}
 \item Manuale;
@@ -1005,6 +1001,12 @@ Il nome della \gloss{collezione} risulta essere inesistente all'interno del sist
 
 \subsection{UC1.5: Ricerca}
 
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.4\textwidth,keepaspectratio]{UseCases/UC1_5.png}
+    \caption*{Caso d'uso 1.5: Ricerca su una o più \gloss{collezioni}}
+  \end{center}
+\end{figure}
 \textbf{Attore primario:} Utente autenticato, utente amministratore\\
 \textbf{Scopo e descrizione:} L'attore intende effettuare una ricerca di \gloss{item} all'interno del sistema; può decidere di effettuare la ricerca su una lista di \gloss{collezioni} eventualmente vuota, in tal caso la
 ricerca verrà estesa a tutto il sistema entro i limiti imposti dal grado di visibilità (vedi~\ref{sec:visibilità}) dell'utente.\\
@@ -1046,7 +1048,7 @@ In caso di inserimento di nome \gloss{collezione} inesistente, o in caso di risu
 % TODO: dialogo
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC1_6.png}
+    \includegraphics[width=0.4\textwidth,keepaspectratio]{UseCases/UC1_6.png}
     \caption*{Caso d'uso 1.6: Modifica password}
   \end{center}
 \end{figure}
@@ -1145,7 +1147,7 @@ L'attore ha inserito il comando per la modifica password, ha inserito i parametr
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC8.png}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{UseCases/UC1_8.png}
     \caption*{Caso d'uso 4: Operazioni sugli \gloss{item}}
   \end{center}
 \end{figure}
@@ -1181,7 +1183,7 @@ L'attore ha inserito il comando per la modifica password, ha inserito i parametr
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC8_1.png}
+    \includegraphics[width=0.4\textwidth,keepaspectratio]{UseCases/UC1_8_1.png}
     \caption*{Caso d'uso 4: Operazioni sugli \gloss{item}}
   \end{center}
 \end{figure}
@@ -1221,7 +1223,7 @@ L'attore ha inserito il comando per la modifica password, ha inserito i parametr
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC8_2.png}
+    \includegraphics[width=0.4\textwidth,keepaspectratio]{UseCases/UC1_8_2.png}
     \caption*{Caso d'uso 4: Operazioni sugli \gloss{item}}
   \end{center}
 \end{figure}
@@ -1261,13 +1263,7 @@ L'attore ha inserito il comando per la modifica password, ha inserito i parametr
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC8_3.png}
-    \caption*{Caso d'uso 4: Operazioni sugli \gloss{item}}
-  \end{center}
-\end{figure}
-\begin{figure}[H]
-  \begin{center}
-    \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC8_2.png}
+    \includegraphics[width=0.4\textwidth,keepaspectratio]{UseCases/UC1_8_3.png}
     \caption*{Caso d'uso 4: Operazioni sugli \gloss{item}}
   \end{center}
 \end{figure}
@@ -1346,7 +1342,7 @@ L'attore ha appena avviato la \gloss{CLI}, risulta essere non autenticato e ha g
 
 \subsection{UC1.10: Visualizzazione errore password attuale}
 
-\textbf{Attori primari:} Utente autenticato\\
+\textbf{Attori primari:} Utente autenticato, utente amministratore\\
 \textbf{Scopo e descrizione:} L'attore intende modificare la propria password, ha già inserito la password attuale e la nuova password con conferma.\\
 \textbf{Precondizioni:} Il server è in ascolto, l'attore ha inserito la propria password attuale, la nuova password e la conferma. Il sistema non riconosce la password attuale pre modifica.\\
 \textbf{Scenario principale:}
@@ -1357,7 +1353,7 @@ L'attore ha appena avviato la \gloss{CLI}, risulta essere non autenticato e ha g
 
 \subsection{UC1.11: Visualizzazione errore nuova password}
 
-\textbf{Attori primari:} Utente autenticato\\
+\textbf{Attori primari:} Utente autenticato, utente amministratore\\
 \textbf{Scopo e descrizione:} L'attore intende modificare la propria password, ha già inserito la password attuale e la nuova password con conferma.\\
 \textbf{Precondizioni:} Il server è in ascolto, l'attore ha inserito la propria password attuale, la nuova password e la conferma. Il sistema non accetta la nuova password in quanto non conforme ai
 vincoli imposti. I vincoli imposti dal sistema sono:
@@ -1372,7 +1368,7 @@ vincoli imposti. I vincoli imposti dal sistema sono:
 
 \subsection{UC1.12: Visualizzazione errore conferma nuova password}
 
-\textbf{Attori primari:} Utente autenticato\\
+\textbf{Attori primari:} Utente autenticato, utente amministratore\\
 \textbf{Scopo e descrizione:} L'attore intende modificare la propria password, ha già inserito la password attuale e la nuova password con conferma.\\
 \textbf{Precondizioni:} Il server è in ascolto, l'attore ha inserito la propria password attuale, la nuova password e la conferma. Il sistema non accetta la conferma nuova password in quanto non conforme ai
 vincoli imposti. I vincoli imposti sulla conferma password dal sistema sono:
@@ -1388,7 +1384,7 @@ vincoli imposti. I vincoli imposti sulla conferma password dal sistema sono:
 
 \subsection{UC1.13: Visualizzazione dell'intera collezione}
 
-\textbf{Attori primari:} Utente autenticato\\
+\textbf{Attori primari:} Utente autenticato, utente amministratore\\
 \textbf{Scopo e descrizione:} L'attore intende effettuare una ricerca su una lista di \gloss{collezioni} senza specificare chiavi di ricerca.\\
 \textbf{Precondizioni:} Il server è in ascolto, l'attore ha inserito una lista non vuota di \gloss{collezioni} e nessuna chiave di ricerca.\\
 \textbf{Scenario principale:}
@@ -1399,7 +1395,7 @@ vincoli imposti. I vincoli imposti sulla conferma password dal sistema sono:
 
 \subsection{UC1.14: Ricerca sull'intero database}
 
-\textbf{Attori primari:} Utente autenticato\\
+\textbf{Attori primari:} Utente autenticato, utente amministratore\\
 \textbf{Scopo e descrizione:} L'attore intende effettuare una ricerca su una lista di \gloss{collezioni} vuota. Deve specificare una chiave di ricerca.\\
 \textbf{Precondizioni:} Il server è in ascolto, l'attore ha inserito una lista vuota di \gloss{collezioni} ed una chiave di ricerca.\\
 \textbf{Scenario principale:}
@@ -1410,7 +1406,7 @@ vincoli imposti. I vincoli imposti sulla conferma password dal sistema sono:
 
 \subsection{UC1.15: Visualizzazione dell'intero database}
 
-\textbf{Attori primari:} Utente autenticato\\
+\textbf{Attori primari:} Utente autenticato, utente amministratore\\
 \textbf{Scopo e descrizione:} L'attore intende effettuare una ricerca su una lista di \gloss{collezioni} vuota senza specificare chiavi di ricerca.\\
 \textbf{Precondizioni:} Il server è in ascolto, l'attore ha inserito una lista vuota di \gloss{collezioni} e nessuna chiave di ricerca.\\
 \textbf{Scenario principale:}
