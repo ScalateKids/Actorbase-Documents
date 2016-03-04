@@ -1816,7 +1816,7 @@ L'attore intende effettuare login al database da un programma \gloss{Scala} este
 \end{itemize}
 \textbf{Postcondizione:} Il contenuto delle collezioni selezionate è stato esportato su file.
 
-\subsubsection{UC2.2.7.1 Inserimento lista collezioni}
+\subsubsection{UC2.2.7.1: Inserimento lista collezioni}
 
 \textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
 \textbf{Attore secondario:} Actorbase\\
@@ -1827,6 +1827,49 @@ L'attore intende effettuare login al database da un programma \gloss{Scala} este
 \item L'attore può inserire la lista collezioni da esportare.
 \end{itemize}
 \textbf{Postcondizione:} La lista delle collezioni da esportare è stato inserito correttamente
+
+\subsection{UC2.2.8: Lancio eccezione collezione già esistente}
+
+\textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
+\textbf{Attore secondario:} Actorbase\\
+\textbf{Scopo e descrizione:} L'attore intende creare una nuova collezione o modificare il nome di una già esistente.\\
+\textbf{Precondizione:} Il server è in ascolto, l'attore ha inserito il comando di creazione di una collezione o di modifica nome collezione e ha inserito il nome della collezione.\\
+\textbf{Scenaio principale:}
+\begin{itemize}
+\item Viene lanciata una eccezione collezione già esistente.
+\end{itemize}
+\textbf{Postcondizione:} L'operazione che ha sollevato l'eccezione fallisce.
+
+\subsection{UC2.2.9: Lancio eccezione collezione inesistente}
+
+\textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
+\textbf{Attore secondario:} Actorbase\\
+\textbf{Scopo e descrizione:} L'attore intende effettuare una delle seguenti operazioni:
+\begin{itemize}
+\item Modifica nome collezione;
+\item Cancellazione collezione;
+\item Aggiunta collaboratore a collezione;
+\item Rimozione collaboratore da collezione.
+\end{itemize}
+ma durante l'inserimento dei parametri inserisce un nome collezione non censito all'interno del sistema.\\
+\textbf{Precondizione:} Il server è in ascolto, l'attore ha inserito uno dei comandi sopra elencati e ha inserito il nome della collezione .\\
+\textbf{Scenaio principale:}
+\begin{itemize}
+\item Viene lanciata una eccezione collezione inesistente.
+\end{itemize}
+\textbf{Postcondizione:} L'operazione che ha sollevato l'eccezione fallisce.
+
+\subsection{UC2.2.10: Lancio eccezione username inesistente}
+
+\textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
+\textbf{Attore secondario:} Actorbase\\
+\textbf{Scopo e descrizione:} L'attore intende aggiungere o rimuovere un collaboratore a una collezione.\\
+\textbf{Precondizione:} Il server è in ascolto, l'attore ha inserito il comando di aggiunta o di rimozione collaboratore, ha inserito il nome della collezione e l'username del collaboratore designato.\\
+\textbf{Scenaio principale:}
+\begin{itemize}
+\item Viene lanciata una eccezione username inesistente
+\end{itemize}
+\textbf{Postcondizione:} L'operazione che ha sollevato l'eccezione fallisce.
 
 \subsection{UC2.2.11: Esportazione di tutto il database su file}
 
@@ -2374,49 +2417,80 @@ L'attore intende rimuovere un utente o effettuare il reset password di un utente
 
 \subsection{UC2.8: Lancio eccezione credenziali errate}
 
-\textbf{Attori primari:} Utente non autenticato\\
-\textbf{Attori secondari:} Terminale\\
+\textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
+\textbf{Attore secondario:} Actorbase\\
 \textbf{Scopo e descrizione:}
-L'utente intende effettuare login al database da un programma \gloss{Scala} esterno, risulta essere non autenticato e ha già inserito il proprio username e la propria password per l'autenticazione all'interno del sistema.\\
-\textbf{Precondizioni:} Il server è in ascolto, l'utente ha inserito il comando di login e le proprie credenziali (username e password). Il sistema non riconosce le credenziali.\\
+L'attore intende effettuare login al server, risulta essere non autenticato, ha inserito il comando di login, il proprio username e la propria password per effettuare l'autenticazione all'interno del sistema.\\
+\textbf{Precondizioni:} Il server è in ascolto, l'attore ha inserito il comando di login e le proprie credenziali (username e password). Il sistema non riconosce le credenziali.\\
 \textbf{Scenario principale:}
 \begin{itemize}
 \item Viene lanciata un'eccezione per credenziali errate.
 \end{itemize}
 \textbf{Postcondizioni:} Il login fallisce, l'utente risulta essere non autenticato.
 
-\subsection{UC1.13: Visualizzazione dell'intera collezione}
+\subsection{UC2.9: Lancio eccezione password attuale}
 
-\textbf{Attori primari:} Utente autenticato\\
+\textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
+\textbf{Attore secondario:} Actorbase\\
+\textbf{Scopo e descrizione:}
+L'attore intende effettuare una modifica alla propria password, ha inserito il comando di modifica password, la password attuale e la nuova password.\\
+\textbf{Precondizioni:} Il server è in ascolto, l'attore ha inserito il comando di modifica password, la password attuale e la nuova password. Il sistema non riconosce la password attuale inserita.\\
+\textbf{Scenario principale:}
+\begin{itemize}
+\item Viene lanciata un'eccezione password attuale.
+\end{itemize}
+\textbf{Postcondizioni:} La modifica password fallisce.
+
+\subsection{UC2.10: Lancio eccezione nuova password}
+
+\textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
+\textbf{Attore secondario:} Actorbase\\
+\textbf{Scopo e descrizione:}
+L'attore intende effettuare una modifica alla propria password, ha inserito il comando di modifica password, la password attuale e la nuova password.\\
+\textbf{Precondizioni:} Il server è in ascolto, l'attore ha inserito il comando di modifica password, la password attuale e la nuova password. La nuova password inserita non rispetta i vincoli del sistema.\\ %TODO linkarli
+\textbf{Scenario principale:}
+\begin{itemize}
+\item Viene lanciata un'eccezione nuova password.
+\end{itemize}
+\textbf{Postcondizioni:} La modifica password fallisce.
+
+\subsection{UC2.11: Ricerca sull'intero database}
+
+\textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
+\textbf{Attore secondario:} Actorbase\\
+\textbf{Scopo e descrizione:}
+L'attore intende effettuare una ricerca sull'intero database di item con una cerca chiave.\\
+\textbf{Precondizioni:} Il server è in ascolto, l'attore ha inserito il comando di ricerca, una lista di collezioni vuota e la chiave di ricerca.\\
+\textbf{Scenario principale:}
+\begin{itemize}
+\item Vengono visualizzati tutti gli item relativi alla chiave inserita dell'intero database.
+\end{itemize}
+\textbf{Postcondizioni:} Vengono ritornati tutti gli item relativi alla chiave inserita.
+
+\subsection{UC2.12: Visualizzazione dell'intera collezione}
+
+\textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
+\textbf{Attore secondario:} Actorbase\\
 \textbf{Scopo e descrizione:} L'attore intende effettuare una ricerca su una lista di \gloss{collezioni} senza specificare chiavi di ricerca.\\
-\textbf{Precondizioni:} Il server è in ascolto, l'attore ha inserito una lista non vuota di \gloss{collezioni} e nessuna chiave di ricerca.\\
+\textbf{Precondizioni:} Il server è in ascolto, l'attore ha inserito il comando di ricerca, una lista non vuota di \gloss{collezioni} e nessuna chiave di ricerca.\\
 \textbf{Scenario principale:}
 \begin{itemize}
 \item Vengono visualizzate le coppie chiave-valore dell'intera \gloss{collezione}.
 \end{itemize}
 \textbf{Postcodizioni:} Viene visualizzata l'intera \gloss{collezione}.
 
-\subsection{UC1.14: Ricerca sull'intero database}
+\subsection{UC2.13: Visualizzazione dell'intero database}
 
-\textbf{Attori primari:} Utente autenticato\\
-\textbf{Scopo e descrizione:} L'attore intende effettuare una ricerca su una lista di \gloss{collezioni} vuota. Deve specificare una chiave di ricerca.\\
-\textbf{Precondizioni:} Il server è in ascolto, l'attore ha inserito una lista vuota di \gloss{collezioni} ed una chiave di ricerca.\\
+\textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
+\textbf{Attore secondario:} Actorbase\\
+\textbf{Scopo e descrizione:} L'attore intende effettuare una visualizzazione  dell'intero database.\\
+\textbf{Precondizioni:} Il server è in ascolto, l'attore ha inserito il comando di ricerca, una lista vuota di \gloss{collezioni} e nessuna chiave di ricerca.\\
 \textbf{Scenario principale:}
 \begin{itemize}
-\item Vengono ricercate e visualizzate le coppie chiave-valore sull'intero \gloss{database}.
+\item Vengono visualizzate le coppie chiave-valore dell'intero database.
 \end{itemize}
-\textbf{Postcodizioni:} La ricerca avviene sull'intero \gloss{database} con successo.
+\textbf{Postcodizioni:} Viene visualizzato l'intero database.
 
-\subsection{UC1.15: Visualizzazione dell'intero database}
-
-\textbf{Attori primari:} Utente autenticato\\
-\textbf{Scopo e descrizione:} L'attore intende effettuare una ricerca su una lista di \gloss{collezioni} vuota senza specificare chiavi di ricerca.\\
-\textbf{Precondizioni:} Il server è in ascolto, l'attore ha inserito una lista vuota di \gloss{collezioni} e nessuna chiave di ricerca.\\
-\textbf{Scenario principale:}
-\begin{itemize}
-\item Vengono ricercate e visualizzate le coppie chiave-valore sull'intero \gloss{database} comprensivo di tutte le \gloss{collezioni} secondo la visibilità dell'attore (vedi ~\ref{sec:visibilità}).
-\end{itemize}
-\textbf{Postcodizioni:} Viene visualizzato l'intero \gloss{database} comprensivo di tutte le \gloss{collezioni} con successo.
 
 \section{Requisiti}
 
