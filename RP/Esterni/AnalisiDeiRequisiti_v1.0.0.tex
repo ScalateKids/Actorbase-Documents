@@ -478,7 +478,7 @@ L'attore ha appena avviato la \gloss{CLI}, risulta essere non autenticato e può
   \end{itemize}
 \item Condizione: in UC1.3.5 o UC1.3.6 l'attore inserisce uno username non censito all'interno del sistema:
   \begin{itemize}
-  \item UC1.3.9\ -\ Visualizzazione errore username non presente tra i collaboratori.
+  \item UC1.3.9\ -\ Visualizzazione errore username non esistente.
   \end{itemize}
 \item Condizione: in UC1.3.7 l'attore inserisce una lista \gloss{collezioni} vuota:
   \begin{itemize}
@@ -704,17 +704,13 @@ e i parametri per la sua esecuzione, tra cui il nome della \gloss{collezione}, i
 \textbf{Attori primari:} Utente autenticato, utente amministratore\\
 \textbf{Scopo e descrizione:}
 L'attore ha inserito il comando per l'aggiunta \gloss{collaboratore} a
-\gloss{collezione} o il comando per la rimozione \gloss{collaboratore} a
 \gloss{collezione}. Ha inserito il nome della \gloss{collezione} a cui
-aggiungere o rimuovere il \gloss{collaboratore} e lo username del
-\gloss{collaboratore} stesso, quest'ultimo risulta essere inesistente all'interno
+aggiungere il \gloss{collaboratore} e lo username del \gloss{collaboratore} stesso, quest'ultimo risulta essere inesistente all'interno
 del sistema.\\
 \textbf{Precondizioni:} Il server è in ascolto, l'attore ha inserito il comando per l'aggiunta \gloss{collaboratore} a
-\gloss{collezione} o il comando per la rimozione \gloss{collaboratore} a
 \gloss{collezione}. Ha inserito il nome della \gloss{collezione} a cui
-aggiungere o rimuovere il \gloss{collaboratore} e lo username del
-\gloss{collaboratore} stesso, quest'ultimo risulta essere inesistente all'interno
-del sistema.
+aggiungere il \gloss{collaboratore} e lo username del
+\gloss{collaboratore} stesso, quest'ultimo risulta essere inesistente all'interno del sistema.\\
 \textbf{Scenario principale:}
 \begin{itemize}
 \item Viene visualizzato un messaggio di errore esplicativo.
@@ -1599,10 +1595,6 @@ L'attore intende effettuare login al database da un programma \gloss{Scala} este
   \begin{itemize}
   \item UC2.2.10 Lancio eccezione username inesistente.
   \end{itemize}
-\item Condizione: in UC2.2.6 l'attore inserisca il nome di una collezione non censita all'interno del sistema:
-  \begin{itemize}
-  \item UC2.2.10 Lancio eccezione username inesistente.
-  \end{itemize}
 \item Condizione: in UC2.2.7 l'attore inseriesce una lista di collezioni vuota:
   \begin{itemize}
   \item UC2.2.11 Esportazione di tutto il database su file.
@@ -1858,13 +1850,13 @@ ma durante l'inserimento dei parametri inserisce un nome collezione non censito 
 
 \textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
 \textbf{Attore secondario:} Actorbase\\
-\textbf{Scopo e descrizione:} L'attore intende aggiungere o rimuovere un collaboratore a una collezione.\\
-\textbf{Precondizione:} Il server è in ascolto, l'attore ha inserito il comando di aggiunta o di rimozione collaboratore, ha inserito il nome della collezione e l'username del collaboratore designato.\\
+\textbf{Scopo e descrizione:} L'attore intende aggiungere un collaboratore a una collezione.\\
+\textbf{Precondizione:} Il server è in ascolto, l'attore ha inserito il comando di aggiunta collaboratore, ha inserito il nome della collezione e l'username del collaboratore designato.\\
 \textbf{Scenaio principale:}
 \begin{itemize}
 \item Viene lanciata una eccezione username inesistente
 \end{itemize}
-\textbf{Postcondizione:} L'operazione che ha sollevato l'eccezione fallisce.
+\textbf{Postcondizione:} L'operazione di aggiunta collaboratore fallisce.
 
 \subsection{UC2.2.11: Esportazione di tutto il database su file}
 
