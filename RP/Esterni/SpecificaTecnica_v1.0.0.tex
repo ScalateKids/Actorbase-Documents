@@ -40,7 +40,7 @@
 \setcounter{page}{1}
 \begin{flushleft}
   \vspace{0cm}
-         {\large\bfseries Diario delle modifiche \par}
+  {\large\bfseries Diario delle modifiche \par}
 \end{flushleft}
 \vspace{0cm}
 \begin{center}
@@ -84,14 +84,33 @@ In questa sezione saranno descritte le tecnologie scelte per lo sviluppo del pro
 \subsection{Akka}
 La scelta della libreria \gloss{Akka} è stata dettata dal capitolato. Tuttavia l'avremmo scelta comunque per i seguenti motivi:
 \begin{itemize}
-  \item\textbf{Implementazione del \gloss{modello ad attori}:} \gloss{Akka} rende semplice la creazione e l'utilizzo degli \gloss{attori}. Grazie a ciò viene naturale la distribuibilità del progetto e l'asincronia tra i processi;
-  \item\textbf{Tolleranza agli errori:} \gloss{Akka} implementa un sistema di gerarchia di supervisori. Questa gerarchia consente ai supervisori di un \gloss{attore}, nel caso in cui quest'ultimo lanci un'eccezione, di mandarlo in \gloss{crash} e farlo poi ripartire. In questo modo il sistema è resiliente agli errori;
-  \item\textbf{Persistenza:} Ogni messaggio ricevuto da ciascun \gloss{attore} può essere salvato in maniera tale che al riavvio esso possa riprendere da dov'era prima del suo spegnimento.
+\item\textbf{Implementazione del \gloss{modello ad attori}:} \gloss{Akka} rende semplice la creazione e l'utilizzo degli \gloss{attori}. Grazie a ciò viene naturale la distribuibilità del progetto e l'asincronia tra i processi;
+\item\textbf{Tolleranza agli errori:} \gloss{Akka} implementa un sistema di gerarchia di supervisori. Questa gerarchia consente ai supervisori di un \gloss{attore}, nel caso in cui quest'ultimo lanci un'eccezione, di mandarlo in \gloss{crash} e farlo poi ripartire. In questo modo il sistema è resiliente agli errori;
+\item\textbf{Persistenza:} Ogni messaggio ricevuto da ciascun \gloss{attore} può essere salvato in maniera tale che al riavvio esso possa riprendere da dov'era prima del suo spegnimento.
 \end{itemize}
 \subsection{Scala}
 Il capitolato richiede l'utilizzo di un linguaggio di programmazione a scelta tra \gloss{Scala} e \gloss{Java}. Abbiamo scelto \gloss{Scala} per i seguenti motivi:
 \begin{itemize}
-  \item\textbf{\gloss{Programmazione funzionale}:} Questa tecnica di programmazione evita che ci siano degli effetti collaterali tra funzioni, rendendole quindi \gloss{thread-safe};
-  \item\textbf{Implementazione di \gloss{Akka}:} \gloss{Akka} risulta più facilmente implementabile in \gloss{Scala} che in \gloss{Java}. Questo perchè la \gloss{programmazione funzionale} con i suoi paradigmi si integra meglio con il \gloss{modello ad attori};%%TODO completare lista
+\item\textbf{\gloss{Programmazione funzionale}:} Questa tecnica di programmazione evita che ci siano degli effetti collaterali tra funzioni, rendendole quindi \gloss{thread-safe};
+\item\textbf{Implementazione di \gloss{Akka}:} \gloss{Akka} risulta più facilmente implementabile in \gloss{Scala} che in \gloss{Java}. Questo perchè la \gloss{programmazione funzionale} con i suoi paradigmi si integra meglio con il \gloss{modello ad attori};%%TODO completare lista
 \end{itemize}
+
+\section{Descrizione architettura}
+
+\subsection{Server}
+
+\subsection{Command Line Interface}
+
+\subsection{Driver}
+
+\section{Componenti}
+
+\section{Diagrammi attività}
+
+\section{Design Pattern}
+
+\subsection{Stime di fattibilità e di bisogno di risorse}
+
+\section{Tracciamento}
+
 \end{document}
