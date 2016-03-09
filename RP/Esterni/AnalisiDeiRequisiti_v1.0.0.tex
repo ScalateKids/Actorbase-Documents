@@ -818,6 +818,7 @@ inserimento e cancellazione.\\
 \begin{itemize}
 \item UC1.4.1.1.1\ -\ Inserimento nome \gloss{collezione};
 \item UC1.4.1.1.2\ -\ Inserimento chiave;
+\item UC1.4.1.1.5\ -\ Inserimento tipo;
 \item UC1.4.1.1.3\ -\ Inserimento valore;
 \item UC1.4.1.1.4\ -\ Inserimento flag sovrascrittura.
 \end{itemize}
@@ -849,7 +850,7 @@ inserimento e cancellazione.\\
 
 \textbf{Attore primario:} Utente autenticato, utente amministratore\\
 \textbf{Scopo e descrizione:} L'attore intende inserire manualmente un nuovo \gloss{item} all'interno di una \gloss{collezione} esistente. Deve inserire il valore associato alla chiave dell'\gloss{item}.\\
-\textbf{Precondizione:} Il server è in ascolto, l'attore ha inserito il comando per l'inserimento \gloss{item} manuale, ha inserito il nome della \gloss{collezione} e ha inserito la chiave.\\
+\textbf{Precondizione:} Il server è in ascolto, l'attore ha inserito il comando per l'inserimento \gloss{item} manuale, ha inserito il nome della \gloss{collezione}, ha inserito la chiave e il tipo.\\
 \textbf{Scenario principale:}
 \begin{itemize}
 \item L'attore inserisce il valore associato alla chiave dell'\gloss{item}.
@@ -860,12 +861,23 @@ inserimento e cancellazione.\\
 
 \textbf{Attore primario:} Utente autenticato, utente amministratore\\
 \textbf{Scopo e descrizione:} L'attore intende inserire manualmente un nuovo \gloss{item} all'interno di una \gloss{collezione} esistente. Deve inserire il \gloss{flag} di sovrascrittura \gloss{item}.\\
-\textbf{Precondizione:} Il server è in ascolto, l'attore ha inserito il comando per l'inserimento \gloss{item} manuale, ha inserito il nome della \gloss{collezione}, ha inserito la chiave e il valore dell'\gloss{item}.\\
+\textbf{Precondizione:} Il server è in ascolto, l'attore ha inserito il comando per l'inserimento \gloss{item} manuale, ha inserito il nome della \gloss{collezione}, ha inserito la chiave, il tipo e il valore dell'\gloss{item}.\\
 \textbf{Scenario principale:}
 \begin{itemize}
 \item L'attore inserisce il \gloss{flag} di sovrascrittura \gloss{item}. %TODO il flag può fare errore... lo inglobiamo negli errori di battitura?
 \end{itemize}
 \textbf{Postcondizioni:} Il \gloss{flag} è stato inserito correttamente.
+
+\subsubsection{UC1.4.1.1.5: Inserimento tipo}
+
+\textbf{Attore primario:} Utente autenticato, utente amministratore\\
+\textbf{Scopo e descrizione:} L'attore intende inserire manualmente un nuovo \gloss{item} all'interno di una \gloss{collezione} esistente. Deve inserire il tipo associato alla chiave dell'\gloss{item}.\\
+\textbf{Precondizione:} Il server è in ascolto, l'attore ha inserito il comando per l'inserimento \gloss{item} manuale, ha inserito il nome della \gloss{collezione} e ha inserito la chiave.\\
+\textbf{Scenario principale:}
+\begin{itemize}
+\item L'attore inserisce il tipo del valore associato alla chiave dell'\gloss{item}.
+\end{itemize}
+\textbf{Postcondizioni:} Il valore è stato inserito correttamente.
 
 \subsection{UC1.4.1.2: Inserimento item da file}
 
@@ -1973,6 +1985,7 @@ inserimento e cancellazione.\\
 \begin{itemize}
 \item UC2.3.1.1.1 Inserimento nome collezione;
 \item UC2.3.1.1.2 Inserimento chiave;
+\item UC2.3.1.1.5 Inserimento tipo;
 \item UC2.3.1.1.3 Inserimento valore;
 \item UC2.3.1.1.4 Inserimento flag sovrascrittura.
 \end{itemize}
