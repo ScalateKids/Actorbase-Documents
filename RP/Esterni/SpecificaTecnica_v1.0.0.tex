@@ -97,6 +97,19 @@ Il capitolato richiede l'utilizzo di un linguaggio di programmazione a scelta tr
 
 \section{Descrizione architettura}
 
+\subsection{Metodo e formalismo di specifica}
+
+L'approccio alla progettazione è stato meet-in-the-middle, la prima suddivisione ad alto livello è stata tra sistema come struttura ad attori e
+componenti esterne per utilizzare la base di dati (operazioni CRUD)
+
+\subsection{Architettura generale}
+
+Macroscopicamente il sistema si suddivide in due componenti principali, assimilabili ad un paradigma Client-Server, il sistema ad attori
+dove risiedono la struttura della base di dati ed un server TCP pronto a ricevere comandi dall'esterno rappresentano la componente server,
+la Command Line Interface (CLI) rappresenta la componente client mediante la quale è possibile inviare comandi al sistema e ricevere l'output
+prodotto da essi, essa farà uso della componente \gloss{driver} per comunicare con il sistema lato server mediante un protocollo di comunicazione
+appositamente creato per lo scopo.
+
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=0.2\textwidth,keepaspectratio]{RP/RP-ClientServer.png}
