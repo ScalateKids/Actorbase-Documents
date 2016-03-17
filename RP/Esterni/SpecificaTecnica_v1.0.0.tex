@@ -117,15 +117,61 @@ appositamente creato per lo scopo.
   \end{center}
 \end{figure}
 
+% TODO:
+% \begin{figure}
+%   \centering
+
+%   \caption{Architettura generale - vista package}
+%   \label{fig:architetturaGeneralePackage}
+% \end{figure}
+
+L'intero sistema è rappresentabile mediante una variante del design pattern
+\gloss{MVC}, le tre componenti principali si prestano naturalemente
+all'assegnazione delle tre parti che formano il design pattern, con la
+differenza rispetto ad un approccio più classico, che l'aggiornamento della
+parte \gloss{view} avviene sempre e comunque passando per la parte controller,
+ciò è dovuto alla natura client-server del prodotto, che richiede un protocollo
+di comunicazione ben preciso tra le due parti. Il sistema formato dai package
+dedicati agli attori \gloss{akka} e dal server \gloss{TCP} per la comunicazione
+con l'esterno sono assimilabili alla parte \gloss{model}, rappresenta la
+\gloss{business logic} di \textbf{Actorbase}. La \gloss{CLI} è assimilabile alla
+parte \gloss{view}, unico punto di interazione con l'utente, si occupa di
+processare i comandi in input e restituire l'output opportunamente formattato,
+la componente \gloss{driver} fa da ponte di comunicazione tra \gloss{CLI} e
+server, occupandosi della ``traduzione'' dei comandi input secondo il protocollo
+di comunicazione scelto, rappresenta la parte \gloss{controller}.
+
 \section{Componenti}
 
-Il sistema è suddiviso in tre macro-componenti.
+\subsection{Actorbase}
 
-\subsection{Server}
+% TODO:
+% \begin{figure}
+%   \centering
 
-\subsection{Command Line Interface}
+%   \caption{Componente Actorbase}
+%   \label{fig:componenteActorbase}
+% \end{figure}
 
-\subsection{Driver}
+\subsubsection{Descrizione}
+
+La componente principale rappresentata dal package globale \textbf{Actorbase},
+contiene le parti tipiche del design pattern \gloss{MVC}.
+
+\subsubsection{Package contenuti}
+\begin{itemize}
+\item Actorbase::Model;
+\item Actorbase::Controller;
+\item Actorbase::View.
+\end{itemize}
+
+Rappresentano le tre macro-componenti del sistema.
+
+\subsection{Actorbase::Model\ -\ System}
+
+\subsection{Actorbase::Controller\ -\ Driver}
+
+\subsection{Actorbase::View\ -\ Command Line Interface}
 
 \section{Diagrammi attività}
 
