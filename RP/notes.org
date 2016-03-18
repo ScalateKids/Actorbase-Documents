@@ -1,0 +1,29 @@
+* Note Actorbase
+
+** Idee random
+
+*** Driver
+
+- Parser JSON nella CLI, il driver potrebbe restituire solo JSON, possibile
+  insensatezza che il driver restituisca stringhe
+- Utilizzare notazione OOP per la gestione del DB sul driver e.g:
+
+#+begin_src scala
+val client = new ActorbaseClient("localhost", 9999)
+client.authenticate("foo", "bar") // boolean
+val coll = client.createCollection("customers")
+coll.insert("key", "value")
+// oppure
+coll.insert(new JSON("key", "value")) // da valutare
+#+end_src
+
+- Le collezioni dovranno essere indicizzate in qualche modo per distinguere le
+  collezioni di ogni utente
+- Utilizzare iteratori per restituire le ricerche e.g:
+
+#+begin_src scala
+val cursor = coll.find() // tutto il db
+while(cursor.hasNext) {
+  println(it.next)
+}
+#+end_src
