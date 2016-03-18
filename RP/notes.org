@@ -23,6 +23,7 @@ coll.insert(new JSON("key", "value")) // da valutare
 - Utilizzare iteratori per restituire le ricerche e.g:
 - Data package per classi sulla struttura del database (Collection, item, cursor..)
 - Le classi del package Data avranno il metodo toJSON
+- Valutare interfaccia con metodi toJSON e fromJSON
 
 #+begin_src scala
 val cursor = coll.find() // tutto il db
