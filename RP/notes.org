@@ -6,6 +6,7 @@
 
 - Parser JSON nella CLI, il driver potrebbe restituire solo JSON, possibile
   insensatezza che il driver restituisca stringhe
+- Valutare raccoglimento comandi *molto* simili tra loro nel package control
 - Utilizzare notazione OOP per la gestione del DB sul driver e.g:
 
 #+begin_src scala
@@ -27,3 +28,7 @@ while(cursor.hasNext) {
   println(it.next)
 }
 #+end_src
+
+*** Command Line Interface
+
+- Valutare raccoglimento comandi *molto* simili tra loro nel package commands
