@@ -41,9 +41,9 @@ while(cursor.hasNext) {
 - Gestione tipi di dato
 - Gestione persistenza, possibilità di nodi dedicati allo storage
 - Popolamento iniziale:
-  - Suddivisione mediante directory su FS: e.g. Coll/{0-15, 16-30}
+  - Suddivisione mediante directory su FS: e.g. Coll/{0-63, 64-127}
   - Loader iniziale restituisce future al system e si crea la struttura degli actor
     partendo dagli SF.
-  - Utilizzare i messaggi per proseguire il popolamento degli storekeeper.
-  - Utilizzare un main globale contenente tutti i ref degli sf, le connessioni in ingresso
-    richiederanno al main globale i reference dei propri sf.
+  - Utilizzare i messaggi per proseguire il popolamento degli storekeeper ad albero.
+  - Utilizzare un actor globale contenente tutti i ref degli sf, le connessioni in ingresso
+    richiederanno al globale i reference dei propri sf.
