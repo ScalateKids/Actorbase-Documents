@@ -35,3 +35,13 @@ while(cursor.hasNext) {
 *** Command Line Interface
 
 - Valutare raccoglimento comandi *molto* simili tra loro nel package commands
+
+*** TODO Cluster (System)
+
+- Gestione tipi di dato
+- Gestione persistenza, possibilità di nodi dedicati allo storage
+- Popolamento iniziale:
+  - Suddivisione mediante directory su FS: e.g. Coll/{0-15, 16-30}
+  - Loader iniziale restituisce future al system e si crea la struttura degli actor
+    partendo dagli SF.
+  - Utilizzare i messaggi per proseguire il popolamento degli storekeeper.
