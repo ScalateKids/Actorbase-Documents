@@ -401,6 +401,246 @@ Viene utilizzata per mandare al \gloss{controller} il comando di ricerca con i p
 \item actorbase::view::cli::commands::Command.
 \end{itemize}
 
+\paragraph{actorbase::view::cli::commands::LogoutCommand}
+
+\subparagraph{Descrizione}
+
+Classe per il comando di logout.
+
+\subparagraph{Utilizzo}
+
+Viene utilizzata per mandare al \gloss{controller} il comando di logout.
+
+\subparagraph{Classi ereditate}
+
+\begin{itemize}
+\item actorbase::view::cli::commands::Command.
+\end{itemize}
+
+\paragraph{actorbase::view::cli::commands::ResetPasswordCommand}
+
+\subparagraph{Descrizione}
+
+Classe per il comando di reset della password.
+
+\subparagraph{Utilizzo}
+
+Viene utilizzata per mandare al \gloss{controller} il comando di reset della password dell'utente specificato in input.
+
+\subparagraph{Classi ereditate}
+
+\begin{itemize}
+\item actorbase::view::cli::commands::Command.
+\end{itemize}
+
+\paragraph{actorbase::view::cli::commands::ListCommand}
+
+\subparagraph{Descrizione}
+
+Classe per il comando di visualizzazione dell'elenco dei nomi di tutte le collezioni presenti nel \gloss{database}.
+
+\subparagraph{Utilizzo}
+
+Viene utilizzata per mandare al \gloss{controller} il comando di visualizzazione dell'elenco dei nomi di tutte le collezioni presenti nel \gloss{database}.
+
+\subparagraph{Classi ereditate}
+
+\begin{itemize}
+\item actorbase::view::cli::commands::Command.
+\end{itemize}
+
+\paragraph{actorbase::view::cli::commands::AddContributorCommand}
+
+\subparagraph{Descrizione}
+
+Classe per il comando di aggiunta collaboratore a una collezione.
+
+\subparagraph{Utilizzo}
+
+Viene utilizzata per mandare al \gloss{controller} il comando di aggiunta di un collaboratore a una collezione con il nome della \gloss{collezione} e lo username specificati in input.
+
+\subparagraph{Classi ereditate}
+
+\begin{itemize}
+\item actorbase::view::cli::commands::Command.
+\end{itemize}
+
+\paragraph{actorbase::view::cli::commands::LoginCommand}
+
+\subparagraph{Descrizione}
+
+Classe per il comando di login.
+
+\subparagraph{Utilizzo}
+
+Viene utilizzata per mandare al \gloss{controller} il comando di login con le credenziali immesse dall'utente.
+
+\subparagraph{Classi ereditate}
+
+\begin{itemize}
+\item actorbase::view::cli::commands::Command.
+\end{itemize}
+
+\paragraph{actorbase::view::cli::commands::DeleteCommand}
+
+\subparagraph{Descrizione}
+
+Classe per il comando di rimozione una \gloss{collezione}.
+
+\subparagraph{Utilizzo}
+
+Viene utilizzata per mandare al \gloss{controller} il comando di rimozione di una collezione con i parametri specificati in input.
+
+\subparagraph{Classi ereditate}
+
+\begin{itemize}
+\item actorbase::view::cli::commands::Command.
+\end{itemize}
+
+\paragraph{actorbase::view::cli::commands::RemoveContributorCommand}
+
+\subparagraph{Descrizione}
+
+Classe per il comando di rimozione di un collaboratore da una collezione.
+
+\subparagraph{Utilizzo}
+
+Viene utilizzata per mandare al \gloss{controller} il comando di rimozione di un collaboratore da una collezione con con il nome della \gloss{collezione} e lo username specificati in input.
+
+\subparagraph{Classi ereditate}
+
+\begin{itemize}
+\item actorbase::view::cli::commands::Command.
+\end{itemize}
+
+\paragraph{actorbase::view::cli::commands::RenameCommand}
+
+\subparagraph{Descrizione}
+
+Classe per il comando rinominazione di un item.
+
+\subparagraph{Utilizzo}
+
+Viene utilizzata per mandare al \gloss{controller} il comando di rinominazione di un item con i parametri specificati in input.
+
+\subparagraph{Classi ereditate}
+
+\begin{itemize}
+\item actorbase::view::cli::commands::Command.
+\end{itemize}
+
+\paragraph{actorbase::view::cli::commands::AddUserCommand}
+
+\subparagraph{Descrizione}
+
+Classe per il comando di aggiunta di un utente.
+
+\subparagraph{Utilizzo}
+
+Viene utilizzata per mandare al \gloss{controller} il comando di aggiunta di un utente con i parametri specificati in input.
+
+\subparagraph{Classi ereditate}
+
+\begin{itemize}
+\item actorbase::view::cli::commands::Command.
+\end{itemize}
+
+\paragraph{actorbase::view::cli::commands::RemoveCommand}
+
+\subparagraph{Descrizione}
+
+Classe per il comando di rimozione di un \gloss{item}.
+
+\subparagraph{Utilizzo}
+
+Viene utilizzata per mandare al \gloss{controller} il comando di rimozione di un \gloss{item} con i parametri immessi dall'utente.
+
+\subparagraph{Classi ereditate}
+
+\begin{itemize}
+\item actorbase::view::cli::commands::Command.
+\end{itemize}
+
+\paragraph{actorbase::view::cli::commands::RemoveUserCommand}
+
+\subparagraph{Descrizione}
+
+Classe per il comando di rimozione di un utente.
+
+\subparagraph{Utilizzo}
+
+Viene utilizzata per mandare al \gloss{controller} il comando di rimozione di un utente con i parametri immessi dall'utente.
+
+\subparagraph{Classi ereditate}
+
+\begin{itemize}
+\item actorbase::view::cli::commands::Command.
+\end{itemize}
+
+\paragraph{actorbase::view::cli::commands::ImportCommand}
+
+\subparagraph{Descrizione}
+
+Classe per il comando di importazione da un file \gloss{JSON}.
+
+\subparagraph{Utilizzo}
+
+Viene utilizzata per mandare al \gloss{controller} il comando di importazione da un file \gloss{JSON} con i parametri immessi dall'utente.
+
+\subparagraph{Classi ereditate}
+
+\begin{itemize}
+\item actorbase::view::cli::commands::Command.
+\end{itemize}
+
+\paragraph{actorbase::view::cli::commands::InsertCommand}
+
+\subparagraph{Descrizione}
+
+Classe per il comando di inserimento di un \gloss{item} in una \gloss{collezione}.
+
+\subparagraph{Utilizzo}
+
+Viene utilizzata per mandare al \gloss{controller} il comando di inserimento di un \gloss{item} in una \gloss{collezione} con i parametri immessi dall'utente.
+
+\subparagraph{Classi ereditate}
+
+\begin{itemize}
+\item actorbase::view::cli::commands::Command.
+\end{itemize}
+
+\paragraph{actorbase::view::cli::commands::CreateCommand}
+
+\subparagraph{Descrizione}
+
+Classe per il comando di creazione di una nuova \gloss{collezione}.
+
+\subparagraph{Utilizzo}
+
+Viene utilizzata per mandare al \gloss{controller} il comando di creazione di una nuova \gloss{collezione} con i parametri immessi dall'utente.
+
+\subparagraph{Classi ereditate}
+
+\begin{itemize}
+\item actorbase::view::cli::commands::Command.
+\end{itemize}
+
+\paragraph{actorbase::view::cli::commands::ExportCommand}
+
+\subparagraph{Descrizione}
+
+Classe per il comando di esportazione in file \gloss{JSON}.
+
+\subparagraph{Utilizzo}
+
+Viene utilizzata per mandare al \gloss{controller} il comando di esportazione in file \gloss{JSON} con i parametri immessi dall'utente.
+
+\subparagraph{Classi ereditate}
+
+\begin{itemize}
+\item actorbase::view::cli::commands::Command.
+\end{itemize}
+
 \section{Diagrammi attività}
 
 \section{Design Pattern}
