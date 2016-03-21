@@ -45,3 +45,5 @@ while(cursor.hasNext) {
   - Loader iniziale restituisce future al system e si crea la struttura degli actor
     partendo dagli SF.
   - Utilizzare i messaggi per proseguire il popolamento degli storekeeper.
+  - Utilizzare un main globale contenente tutti i ref degli sf, le connessioni in ingresso
+    richiederanno al main globale i reference dei propri sf.
