@@ -48,9 +48,15 @@
     \hline
     Versione & Autore & Ruolo & Data & Descrizione \\
     \hline
-    0.0.4 & Andrea Giacomo Baldan & Progettista & 2016-03-17 & Stesura sottosezioni 4.1 4.2 4.3 4.4 4.5\\
+    0.2.1 & Marco Boseggia & Progettista & 2016-03-21 & Stesura sezioni 4.6 4.7 4.8 4.9\\
     \hline
-    0.0.3 & Andrea Giacomo Baldan & Progettista & 2016-03-17 & Stesura sottosezioni 3.1 3.2\\
+    0.2.0 & Michael Munaro & Verificatore & 2016-03-21 & Verifica sottosezioni 3.1 3.2 4.1 4.2 4.3 4.4 4.5\\
+    \hline
+    0.1.2 & Andrea Giacomo Baldan & Progettista & 2016-03-17 & Stesura sottosezioni 4.1 4.2 4.3 4.4 4.5\\
+    \hline
+    0.1.1 & Andrea Giacomo Baldan & Progettista & 2016-03-17 & Stesura sottosezioni 3.1 3.2\\
+    \hline
+    0.1.0 & Michael Munaro & Verificatore & 2016-03-16 & Verifica sezioni 1 e 2\\
     \hline
     0.0.2 & Marco Boseggia & Progettista & 2016-02-26 & Stesura sezioni 1 e 2\\
     \hline
@@ -112,7 +118,7 @@ Macroscopicamente il sistema si suddivide in due componenti principali, assimila
 dove risiedono la struttura della base di dati ed un server TCP pronto a ricevere comandi dall'esterno rappresentano la componente server,
 la Command Line Interface (CLI) rappresenta la componente client mediante la quale è possibile inviare comandi al sistema e ricevere l'output
 prodotto da essi, essa farà uso della componente \gloss{driver} per comunicare con il sistema lato server mediante un protocollo di comunicazione
-appositamente creato per lo scopo.
+appositamente creato.
 
 \begin{figure}[H]
   \begin{center}
@@ -130,7 +136,7 @@ appositamente creato per lo scopo.
 % \end{figure}
 
 L'intero sistema è rappresentabile mediante una variante del design pattern
-\gloss{MVC}, le tre componenti principali si prestano naturalemente
+\gloss{MVC}, le tre componenti principali si prestano naturalmente
 all'assegnazione delle tre parti che formano il design pattern, con la
 differenza rispetto ad un approccio più classico, che l'aggiornamento della
 parte \gloss{view} avviene sempre e comunque passando per la parte controller,
@@ -147,7 +153,7 @@ di comunicazione scelto, rappresenta la parte \gloss{controller}.
 
 \section{Componenti}
 
-\subsection{Actorbase}
+\subsection{actorbase}
 
 % TODO:
 % \begin{figure}
@@ -159,60 +165,96 @@ di comunicazione scelto, rappresenta la parte \gloss{controller}.
 
 \subsubsection{Descrizione}
 
-La componente principale rappresentata dal package globale \textbf{Actorbase},
+La componente principale rappresentata dal package globale \textbf{actorbase},
 contiene le parti tipiche del design pattern \gloss{MVC}.
 
 \subsubsection{Package contenuti}
 
 \begin{itemize}
-\item Actorbase::Model;
-\item Actorbase::Controller;
-\item Actorbase::View.
+\item actorbase::model;
+\item actorbase::controller;
+\item actorbase::view.
 \end{itemize}
 
 Rappresentano le tre macro-componenti del sistema.
 
-\subsection{Actorbase::Model\ -\ System}
+\subsection{actorbase::model}
 
 \subsubsection{Descrizione}
 
-\gloss{Package} per la componente \gloss{Model} dell'architettura \gloss{MVC}, rappresenta anche la componente System del prodotto.
+\gloss{Package} per la componente \gloss{Model} dell'architettura \gloss{MVC}, rappresenta anche la componente system del prodotto.
 
 \subsubsection{Package contenuti}
 
 \begin{itemize}
-\item Server;
-\item Actors.
+\item system.
 \end{itemize}
 
-\subsection{Actorbase::Controller\ -\ Driver}
+\subsection{actorbase::model::system}
 
 \subsubsection{Descrizione}
 
-\gloss{Package} per la componente \gloss{Controller} dell'architettura \gloss{MVC}, rappresenta anche la componente Driver del prodotto.
+\gloss{Package} per la componente system del prodotto.
 
 \subsubsection{Package contenuti}
 
 \begin{itemize}
-\item ActorbaseClient;
-\item Connection;
-\item Controls.
+\item server;
+\item actors.
 \end{itemize}
 
-\subsection{Actorbase::View\ -\ Command Line Interface}
+\subsection{actorbase::controller}
 
 \subsubsection{Descrizione}
 
-\gloss{Package} per la componente \gloss{View} dell'architettura \gloss{MVC}, rappresenta anche la componente \gloss{CLI} del prodotto.
+\gloss{Package} per la componente \gloss{Controller} dell'architettura \gloss{MVC}.
 
 \subsubsection{Package contenuti}
 
 \begin{itemize}
-\item ActorbaseView;
-\item Commands.
+\item driver.
 \end{itemize}
 
-\subsection{Actorbase::View::ActorbaseView}
+\subsection{actorbase::controller::driver}
+
+\subsubsection{Descrizione}
+
+\gloss{Package} per la componente \gloss{driver} del prodotto.
+
+\subsubsection{Package contenuti}
+
+\begin{itemize}
+\item client;
+\item controls;
+\item data.
+\end{itemize}
+
+\subsection{actorbase::view}
+
+\subsubsection{Descrizione}
+
+\gloss{Package} per la componente \gloss{View} dell'architettura \gloss{MVC}.
+
+\subsubsection{Package contenuti}
+
+\begin{itemize}
+\item cli.
+\end{itemize}
+
+\subsection{actorbase::view::cli}
+
+\subsubsection{Descrizione}
+
+\gloss{Package} per la componente \gloss{cli} del prodotto.
+
+\subsubsection{Package contenuti}
+
+\begin{itemize}
+\item actorbaseCli;
+\item commands.
+\end{itemize}
+
+\subsection{actorbase::view::cli::actorbaseCli}
 
 \subsubsection{Descrizione}
 
@@ -221,13 +263,13 @@ Componente parte della \gloss{View} per la gestione dei comandi e dell'output pr
 \subsubsection{Interazioni con altre componenti}
 
 \begin{itemize}
-\item Actorbase::View::Commands;
-\item \gloss{Spring Shell}.
+\item actorbase::view::cli::commands;
+\item SpringShell.
 \end{itemize}
 
 \subsubsection{Classi}
 
-\paragraph{Actorbase::View::ActorbaseView::PromptProvider}
+\paragraph{actorbase::view::cli::actorbaseCli::PromptProvider}
 
 \subparagraph{Descrizione}
 
@@ -240,11 +282,11 @@ Viene utilizzata per la creazione di un \gloss{prompt} per l'inserimento dei com
 \subparagraph{Classi ereditate}
 
 \begin{itemize}
-\item Actorbase::View::ActorbaseView::DefaultPromptProvider;
-\item Actorbase::View::ActorbaseView::SpringShell.
+\item DefaultPromptProvider;
+\item SpringShell.
 \end{itemize}
 
-\paragraph{Actorbase::View::ActorbaseView::HistoryFileNameProvider}
+\paragraph{actorbase::view::cli::actorbaseCli::HistoryFileNameProvider}
 
 \subparagraph{Descrizione}
 
@@ -257,11 +299,11 @@ Viene utilizzata per la creazione e gestione del sistema di storico dei comandi 
 \subparagraph{Classi ereditate}
 
 \begin{itemize}
-\item Actorbase::View::ActorbaseView::DefaultFilenameProvider;
-\item Actorbase::View::ActorbaseView::SpringShell.
+\item DefaultFilenameProvider;
+\item SpringShell.
 \end{itemize}
 
-\paragraph{Actorbase::View::ActorbaseView::BannerProvider}
+\paragraph{actorbase::view::cli::actorbaseCli::BannerProvider}
 
 \subparagraph{Descrizione}
 
@@ -274,11 +316,11 @@ Viene utilizzata per la creazione di un \gloss{banner} di presentazione all'ingr
 \subparagraph{Classi ereditate}
 
 \begin{itemize}
-\item Actorbase::View::ActorbaseView::DefaultBannerProvider;
-\item Actorbase::View::ActorbaseView::SpringShell.
+\item DefaultBannerProvider;
+\item SpringShell.
 \end{itemize}
 
-\paragraph{Actorbase::View::ActorbaseView::CLICommands}
+\paragraph{actorbase::view::cli::actorbaseCli::CLICommands}
 
 \subparagraph{Descrizione}
 
@@ -291,25 +333,313 @@ Viene utilizzata per la gestione mediante metodi appositi dei comandi della \glo
 \subparagraph{Classi ereditate}
 
 \begin{itemize}
-\item Actorbase::View::ActorbaseView::CommandMarker;
-\item Actorbase::View::ActorbaseView::SpringShell.
+\item CommandMarker.
 \end{itemize}
 
 \subparagraph{Relazioni con altre classi}
 
 \begin{itemize}
-\item Actorbase::View::ActorbaseView::Commands::Command.
+\item actorbase::view::cli::commands::Command.
 \end{itemize}
 
-\paragraph{Actorbase::View::ActorbaseView::ResultViewer}
+\paragraph{actorbase::view::cli::actorbaseCli::ResultViewer}
 
 \subparagraph{Descrizione}
 
-Classe per la gestione e la formattazione in output dei risultati ottenuti dall'input.
+Classe per la gestione e la formattazione in output dei risultati ottenuti dall'esecuzione del comando ricevuto in input.
 
 \subparagraph{Utilizzo}
 
 Viene utilizzata per la gestione e la formattazione in output dei risultati ottenuti dal server mediante l'inserimento dei comandi.
+
+\subsection{actorbase::view::cli::commands}
+
+\subsubsection{Descrizione}
+
+Componente parte della \gloss{View} per l'esecuzione del comando e l'interazione con il \gloss{Controller}.
+
+\subsubsection{Interazioni con altre componenti}
+
+\begin{itemize}
+\item actorbase::view::cli::actorbaseCli;
+\item actorbase::controller::driver::client.
+\end{itemize}
+
+\subsubsection{Classi}
+
+\paragraph{actorbase::view::cli::commands::Command}
+
+\subparagraph{Descrizione}
+
+Interfaccia generica che rappresenta un comando.
+
+\subparagraph{Utilizzo}
+
+Viene utilizzata per offrire un'interfaccia comune a tutti i comandi.
+
+\subparagraph{Relazioni con altre classi}
+
+\begin{itemize}
+\item actorbase::view::cli::actorbaseCli::CLICommands;
+\item actorbase::view::cli::actorbaseCli::ResultViewer;
+\item actorbase::controller::driver::client::ActorbaseClient.
+\end{itemize}
+
+\paragraph{actorbase::view::cli::commands::FindCommand}
+
+\subparagraph{Descrizione}
+
+Classe per il comando di ricerca.
+
+\subparagraph{Utilizzo}
+
+Viene utilizzata per mandare al \gloss{controller} il comando di ricerca con i parametri immessi dall'utente.
+
+\subparagraph{Classi ereditate}
+
+\begin{itemize}
+\item actorbase::view::cli::commands::Command.
+\end{itemize}
+
+\paragraph{actorbase::view::cli::commands::LogoutCommand}
+
+\subparagraph{Descrizione}
+
+Classe per il comando di logout.
+
+\subparagraph{Utilizzo}
+
+Viene utilizzata per mandare al \gloss{controller} il comando di logout.
+
+\subparagraph{Classi ereditate}
+
+\begin{itemize}
+\item actorbase::view::cli::commands::Command.
+\end{itemize}
+
+\paragraph{actorbase::view::cli::commands::ResetPasswordCommand}
+
+\subparagraph{Descrizione}
+
+Classe per il comando di reset della password.
+
+\subparagraph{Utilizzo}
+
+Viene utilizzata per mandare al \gloss{controller} il comando di reset della password dell'utente specificato in input.
+
+\subparagraph{Classi ereditate}
+
+\begin{itemize}
+\item actorbase::view::cli::commands::Command.
+\end{itemize}
+
+\paragraph{actorbase::view::cli::commands::ListCommand}
+
+\subparagraph{Descrizione}
+
+Classe per il comando di visualizzazione dell'elenco dei nomi di tutte le collezioni presenti nel \gloss{database}.
+
+\subparagraph{Utilizzo}
+
+Viene utilizzata per mandare al \gloss{controller} il comando di visualizzazione dell'elenco dei nomi di tutte le collezioni presenti nel \gloss{database}.
+
+\subparagraph{Classi ereditate}
+
+\begin{itemize}
+\item actorbase::view::cli::commands::Command.
+\end{itemize}
+
+\paragraph{actorbase::view::cli::commands::AddContributorCommand}
+
+\subparagraph{Descrizione}
+
+Classe per il comando di aggiunta collaboratore a una collezione.
+
+\subparagraph{Utilizzo}
+
+Viene utilizzata per mandare al \gloss{controller} il comando di aggiunta di un collaboratore a una collezione con il nome della \gloss{collezione} e lo username specificati in input.
+
+\subparagraph{Classi ereditate}
+
+\begin{itemize}
+\item actorbase::view::cli::commands::Command.
+\end{itemize}
+
+\paragraph{actorbase::view::cli::commands::LoginCommand}
+
+\subparagraph{Descrizione}
+
+Classe per il comando di login.
+
+\subparagraph{Utilizzo}
+
+Viene utilizzata per mandare al \gloss{controller} il comando di login con le credenziali immesse dall'utente.
+
+\subparagraph{Classi ereditate}
+
+\begin{itemize}
+\item actorbase::view::cli::commands::Command.
+\end{itemize}
+
+\paragraph{actorbase::view::cli::commands::DeleteCommand}
+
+\subparagraph{Descrizione}
+
+Classe per il comando di rimozione una \gloss{collezione}.
+
+\subparagraph{Utilizzo}
+
+Viene utilizzata per mandare al \gloss{controller} il comando di rimozione di una collezione con i parametri specificati in input.
+
+\subparagraph{Classi ereditate}
+
+\begin{itemize}
+\item actorbase::view::cli::commands::Command.
+\end{itemize}
+
+\paragraph{actorbase::view::cli::commands::RemoveContributorCommand}
+
+\subparagraph{Descrizione}
+
+Classe per il comando di rimozione di un collaboratore da una collezione.
+
+\subparagraph{Utilizzo}
+
+Viene utilizzata per mandare al \gloss{controller} il comando di rimozione di un collaboratore da una collezione con con il nome della \gloss{collezione} e lo username specificati in input.
+
+\subparagraph{Classi ereditate}
+
+\begin{itemize}
+\item actorbase::view::cli::commands::Command.
+\end{itemize}
+
+\paragraph{actorbase::view::cli::commands::RenameCommand}
+
+\subparagraph{Descrizione}
+
+Classe per il comando rinominazione di un item.
+
+\subparagraph{Utilizzo}
+
+Viene utilizzata per mandare al \gloss{controller} il comando di rinominazione di un item con i parametri specificati in input.
+
+\subparagraph{Classi ereditate}
+
+\begin{itemize}
+\item actorbase::view::cli::commands::Command.
+\end{itemize}
+
+\paragraph{actorbase::view::cli::commands::AddUserCommand}
+
+\subparagraph{Descrizione}
+
+Classe per il comando di aggiunta di un utente.
+
+\subparagraph{Utilizzo}
+
+Viene utilizzata per mandare al \gloss{controller} il comando di aggiunta di un utente con i parametri specificati in input.
+
+\subparagraph{Classi ereditate}
+
+\begin{itemize}
+\item actorbase::view::cli::commands::Command.
+\end{itemize}
+
+\paragraph{actorbase::view::cli::commands::RemoveCommand}
+
+\subparagraph{Descrizione}
+
+Classe per il comando di rimozione di un \gloss{item}.
+
+\subparagraph{Utilizzo}
+
+Viene utilizzata per mandare al \gloss{controller} il comando di rimozione di un \gloss{item} con i parametri immessi dall'utente.
+
+\subparagraph{Classi ereditate}
+
+\begin{itemize}
+\item actorbase::view::cli::commands::Command.
+\end{itemize}
+
+\paragraph{actorbase::view::cli::commands::RemoveUserCommand}
+
+\subparagraph{Descrizione}
+
+Classe per il comando di rimozione di un utente.
+
+\subparagraph{Utilizzo}
+
+Viene utilizzata per mandare al \gloss{controller} il comando di rimozione di un utente con i parametri immessi dall'utente.
+
+\subparagraph{Classi ereditate}
+
+\begin{itemize}
+\item actorbase::view::cli::commands::Command.
+\end{itemize}
+
+\paragraph{actorbase::view::cli::commands::ImportCommand}
+
+\subparagraph{Descrizione}
+
+Classe per il comando di importazione da un file \gloss{JSON}.
+
+\subparagraph{Utilizzo}
+
+Viene utilizzata per mandare al \gloss{controller} il comando di importazione da un file \gloss{JSON} con i parametri immessi dall'utente.
+
+\subparagraph{Classi ereditate}
+
+\begin{itemize}
+\item actorbase::view::cli::commands::Command.
+\end{itemize}
+
+\paragraph{actorbase::view::cli::commands::InsertCommand}
+
+\subparagraph{Descrizione}
+
+Classe per il comando di inserimento di un \gloss{item} in una \gloss{collezione}.
+
+\subparagraph{Utilizzo}
+
+Viene utilizzata per mandare al \gloss{controller} il comando di inserimento di un \gloss{item} in una \gloss{collezione} con i parametri immessi dall'utente.
+
+\subparagraph{Classi ereditate}
+
+\begin{itemize}
+\item actorbase::view::cli::commands::Command.
+\end{itemize}
+
+\paragraph{actorbase::view::cli::commands::CreateCommand}
+
+\subparagraph{Descrizione}
+
+Classe per il comando di creazione di una nuova \gloss{collezione}.
+
+\subparagraph{Utilizzo}
+
+Viene utilizzata per mandare al \gloss{controller} il comando di creazione di una nuova \gloss{collezione} con i parametri immessi dall'utente.
+
+\subparagraph{Classi ereditate}
+
+\begin{itemize}
+\item actorbase::view::cli::commands::Command.
+\end{itemize}
+
+\paragraph{actorbase::view::cli::commands::ExportCommand}
+
+\subparagraph{Descrizione}
+
+Classe per il comando di esportazione in file \gloss{JSON}.
+
+\subparagraph{Utilizzo}
+
+Viene utilizzata per mandare al \gloss{controller} il comando di esportazione in file \gloss{JSON} con i parametri immessi dall'utente.
+
+\subparagraph{Classi ereditate}
+
+\begin{itemize}
+\item actorbase::view::cli::commands::Command.
+\end{itemize}
 
 \section{Diagrammi attività}
 
