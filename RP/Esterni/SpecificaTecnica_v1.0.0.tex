@@ -48,6 +48,8 @@
     \hline
     Versione & Autore & Ruolo & Data & Descrizione \\
     \hline
+    0.2.2 & Marco Boseggia & Progettista & 2016-03-22 & Stesura sezioni 4.10 4.11\\
+    \hline
     0.2.1 & Marco Boseggia & Progettista & 2016-03-21 & Stesura sezioni 4.6 4.7 4.8 4.9\\
     \hline
     0.2.0 & Michael Munaro & Verificatore & 2016-03-21 & Verifica sottosezioni 3.1 3.2 4.1 4.2 4.3 4.4 4.5\\
@@ -228,6 +230,325 @@ Rappresentano le tre macro-componenti del sistema.
 \item controls;
 \item data.
 \end{itemize}
+
+\subsection{actorbase::controller::driver::client}
+
+\subsubsection{Descrizione}
+
+\gloss{Package} per la componente client del \gloss{driver} del \gloss{controller}.
+
+\subsubsection{Interazioni con altre componenti}
+
+\subsubsection{classi}
+
+\paragraph{ActorbaseClient}
+
+\subparagraph{Descrizione}
+
+Classe per %TODO boh?
+
+\subparagraph{Interazioni con altre componenti}
+
+%TODO boh?
+
+\paragraph{Connection}
+
+\subparagraph{Descrizione}
+
+Classe per la connessione tra il \gloss{driver} e il \gloss{server}
+
+\subparagraph{Interazioni con altre componenti}
+
+%TODO boh?
+%TODO inizio sostituzione commands con controls
+\subsection{actorbase::controller::driver::controls}
+
+\subsubsection{Descrizione}
+
+Componente del \gloss{controller} per l'esecuzione del comando e l'interazione con il \gloss{server}.
+
+\subsubsection{Interazioni con altre componenti}
+
+\begin{itemize}
+\item actorbase::model::system::server:: %TODO quando si sarà fatto il server
+\end{itemize}
+
+\subsubsection{Classi}
+
+\paragraph{actorbase::controller::driver::controls::Control}
+
+\subparagraph{Descrizione}
+
+Interfaccia generica che rappresenta un comando.
+
+\subparagraph{Utilizzo}
+
+Viene utilizzata per offrire un'interfaccia comune a tutti i comandi.
+
+\subparagraph{Relazioni con altre classi}
+
+\begin{itemize}
+\item actorbase::controller::driver::client::ActorbaseClient;
+\item actorbase::model::system::server:: %TODO quando si sarà fatto il server
+\end{itemize}
+
+\paragraph{actorbase::controller::driver::controls::FindControl}
+
+\subparagraph{Descrizione}
+
+Classe per il comando di ricerca.
+
+\subparagraph{Utilizzo}
+
+Viene utilizzata per mandare al \gloss{server} il comando di ricerca con i parametri immessi dall'utente.
+
+\subparagraph{Classi ereditate}
+
+\begin{itemize}
+\item actorbase::controller::driver::controls::Control.
+\end{itemize}
+
+\paragraph{actorbase::controller::driver::controls::LogoutControl}
+
+\subparagraph{Descrizione}
+
+Classe per il comando di logout.
+
+\subparagraph{Utilizzo}
+
+Viene utilizzata per mandare al \gloss{server} il comando di logout.
+
+\subparagraph{Classi ereditate}
+
+\begin{itemize}
+\item actorbase::controller::driver::controls::Control.
+\end{itemize}
+
+\paragraph{actorbase::controller::driver::controls::ResetPasswordControl}
+
+\subparagraph{Descrizione}
+
+Classe per il comando di reset della password.
+
+\subparagraph{Utilizzo}
+
+Viene utilizzata per mandare al \gloss{server} il comando di reset della password dell'utente specificato in input.
+
+\subparagraph{Classi ereditate}
+
+\begin{itemize}
+\item actorbase::controller::driver::controls::Control.
+\end{itemize}
+
+\paragraph{actorbase::controller::driver::controls::ListControl}
+
+\subparagraph{Descrizione}
+
+Classe per il comando di visualizzazione dell'elenco dei nomi di tutte le collezioni presenti nel \gloss{database}.
+
+\subparagraph{Utilizzo}
+
+Viene utilizzata per mandare al \gloss{server} il comando di visualizzazione dell'elenco dei nomi di tutte le collezioni presenti nel \gloss{database}.
+
+\subparagraph{Classi ereditate}
+
+\begin{itemize}
+\item actorbase::controller::driver::controls::Control.
+\end{itemize}
+
+\paragraph{actorbase::controller::driver::controls::AddContributorControl}
+
+\subparagraph{Descrizione}
+
+Classe per il comando di aggiunta collaboratore a una collezione.
+
+\subparagraph{Utilizzo}
+
+Viene utilizzata per mandare al \gloss{server} il comando di aggiunta di un collaboratore a una collezione con il nome della \gloss{collezione} e lo username specificati in input.
+
+\subparagraph{Classi ereditate}
+
+\begin{itemize}
+\item actorbase::controller::driver::controls::Control.
+\end{itemize}
+
+\paragraph{actorbase::controller::driver::controls::LoginControl}
+
+\subparagraph{Descrizione}
+
+Classe per il comando di login.
+
+\subparagraph{Utilizzo}
+
+Viene utilizzata per mandare al \gloss{server} il comando di login con le credenziali immesse dall'utente.
+
+\subparagraph{Classi ereditate}
+
+\begin{itemize}
+\item actorbase::controller::driver::controls::Control.
+\end{itemize}
+
+\paragraph{actorbase::controller::driver::controls::DeleteControl}
+
+\subparagraph{Descrizione}
+
+Classe per il comando di rimozione una \gloss{collezione}.
+
+\subparagraph{Utilizzo}
+
+Viene utilizzata per mandare al \gloss{server} il comando di rimozione di una collezione con i parametri specificati in input.
+
+\subparagraph{Classi ereditate}
+
+\begin{itemize}
+\item actorbase::controller::driver::controls::Control.
+\end{itemize}
+
+\paragraph{actorbase::controller::driver::controls::RemoveContributorControl}
+
+\subparagraph{Descrizione}
+
+Classe per il comando di rimozione di un collaboratore da una collezione.
+
+\subparagraph{Utilizzo}
+
+Viene utilizzata per mandare al \gloss{server} il comando di rimozione di un collaboratore da una collezione con con il nome della \gloss{collezione} e lo username specificati in input.
+
+\subparagraph{Classi ereditate}
+
+\begin{itemize}
+\item actorbase::controller::driver::controls::Control.
+\end{itemize}
+
+\paragraph{actorbase::controller::driver::controls::RenameControl}
+
+\subparagraph{Descrizione}
+
+Classe per il comando rinominazione di un item.
+
+\subparagraph{Utilizzo}
+
+Viene utilizzata per mandare al \gloss{server} il comando di rinominazione di un item con i parametri specificati in input.
+
+\subparagraph{Classi ereditate}
+
+\begin{itemize}
+\item actorbase::controller::driver::controls::Control.
+\end{itemize}
+
+\paragraph{actorbase::controller::driver::controls::AddUserControl}
+
+\subparagraph{Descrizione}
+
+Classe per il comando di aggiunta di un utente.
+
+\subparagraph{Utilizzo}
+
+Viene utilizzata per mandare al \gloss{server} il comando di aggiunta di un utente con i parametri specificati in input.
+
+\subparagraph{Classi ereditate}
+
+\begin{itemize}
+\item actorbase::controller::driver::controls::Control.
+\end{itemize}
+
+\paragraph{actorbase::controller::driver::controls::RemoveControl}
+
+\subparagraph{Descrizione}
+
+Classe per il comando di rimozione di un \gloss{item}.
+
+\subparagraph{Utilizzo}
+
+Viene utilizzata per mandare al \gloss{server} il comando di rimozione di un \gloss{item} con i parametri immessi dall'utente.
+
+\subparagraph{Classi ereditate}
+
+\begin{itemize}
+\item actorbase::controller::driver::controls::Control.
+\end{itemize}
+
+\paragraph{actorbase::controller::driver::controls::RemoveUserControl}
+
+\subparagraph{Descrizione}
+
+Classe per il comando di rimozione di un utente.
+
+\subparagraph{Utilizzo}
+
+Viene utilizzata per mandare al \gloss{server} il comando di rimozione di un utente con i parametri immessi dall'utente.
+
+\subparagraph{Classi ereditate}
+
+\begin{itemize}
+\item actorbase::controller::driver::controls::Control.
+\end{itemize}
+
+\paragraph{actorbase::controller::driver::controls::ImportControl}
+
+\subparagraph{Descrizione}
+
+Classe per il comando di importazione da un file \gloss{JSON}.
+
+\subparagraph{Utilizzo}
+
+Viene utilizzata per mandare al \gloss{server} il comando di importazione da un file \gloss{JSON} con i parametri immessi dall'utente.
+
+\subparagraph{Classi ereditate}
+
+\begin{itemize}
+\item actorbase::controller::driver::controls::Control.
+\end{itemize}
+
+\paragraph{actorbase::controller::driver::controls::InsertControl}
+
+\subparagraph{Descrizione}
+
+Classe per il comando di inserimento di un \gloss{item} in una \gloss{collezione}.
+
+\subparagraph{Utilizzo}
+
+Viene utilizzata per mandare al \gloss{server} il comando di inserimento di un \gloss{item} in una \gloss{collezione} con i parametri immessi dall'utente.
+
+\subparagraph{Classi ereditate}
+
+\begin{itemize}
+\item actorbase::controller::driver::controls::Control.
+\end{itemize}
+
+\paragraph{actorbase::controller::driver::controls::CreateControl}
+
+\subparagraph{Descrizione}
+
+Classe per il comando di creazione di una nuova \gloss{collezione}.
+
+\subparagraph{Utilizzo}
+
+Viene utilizzata per mandare al \gloss{server} il comando di creazione di una nuova \gloss{collezione} con i parametri immessi dall'utente.
+
+\subparagraph{Classi ereditate}
+
+\begin{itemize}
+\item actorbase::controller::driver::controls::Control.
+\end{itemize}
+
+\paragraph{actorbase::controller::driver::controls::ExportControl}
+
+\subparagraph{Descrizione}
+
+Classe per il comando di esportazione in file \gloss{JSON}.
+
+\subparagraph{Utilizzo}
+
+Viene utilizzata per mandare al \gloss{server} il comando di esportazione in file \gloss{JSON} con i parametri immessi dall'utente.
+
+\subparagraph{Classi ereditate}
+
+\begin{itemize}
+\item actorbase::controller::driver::controls::Control.
+\end{itemize}
+
+%TODO fine
 
 \subsection{actorbase::view}
 
