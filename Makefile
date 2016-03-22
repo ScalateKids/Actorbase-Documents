@@ -23,3 +23,6 @@ readability:
 
 readability2:
 	@script/readability_alt
+
+findgloss:
+	@script/findgloss
