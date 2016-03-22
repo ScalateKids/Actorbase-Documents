@@ -48,7 +48,7 @@
     \hline
     Versione & Autore & Ruolo & Data & Descrizione \\
     \hline
-    0.2.2 & Marco Boseggia & Progettista & 2016-03-22 & Stesura sezioni 4.10 4.11\\
+    0.2.2 & Marco Boseggia & Progettista & 2016-03-22 & Stesura sezioni 4.10 4.11 4.12\\
     \hline
     0.2.1 & Marco Boseggia & Progettista & 2016-03-21 & Stesura sezioni 4.6 4.7 4.8 4.9\\
     \hline
@@ -241,26 +241,32 @@ Rappresentano le tre macro-componenti del sistema.
 
 \subsubsection{classi}
 
-\paragraph{ActorbaseClient}
+\paragraph{actorbase::controller::driver::client::ActorbaseClient}
 
 \subparagraph{Descrizione}
 
-Classe per %TODO boh?
+Classe che rappresenta un'istanza del \gloss{driver}.
 
 \subparagraph{Interazioni con altre componenti}
 
-%TODO boh?
+\begin{itemize}
+\item actorbase::view::cli::commands::Command;
+\item actorbase::controller::driver::client::Connection;
+\item actorbase::controller::driver::controls::Control.
+\end{itemize}
 
-\paragraph{Connection}
+\paragraph{actorbase::controller::driver::client::Connection}
 
 \subparagraph{Descrizione}
 
 Classe per la connessione tra il \gloss{driver} e il \gloss{server}
 
 \subparagraph{Interazioni con altre componenti}
+\begin{itemize}
+\item actorbase::controller::driver::client::ActorbaseClient;
+\item actorbase::model::system::server:: %TODO quando si sarà fatto il server
+\end{itemize}
 
-%TODO boh?
-%TODO inizio sostituzione commands con controls
 \subsection{actorbase::controller::driver::controls}
 
 \subsubsection{Descrizione}
@@ -548,7 +554,101 @@ Viene utilizzata per mandare al \gloss{server} il comando di esportazione in fil
 \item actorbase::controller::driver::controls::Control.
 \end{itemize}
 
-%TODO fine
+\subsection{actorbase::controller::driver::data}
+
+\subsubsection{Descrizione}
+
+\gloss{Package} per effettuare il parsing dei risultati ritornati dal \gloss{server}.
+
+\subsubsection{Interazioni con altre componenti}
+\begin{itemize}
+\item actorbase::view::cli::commands;
+\item actorbase::controller::driver::client;
+\item actorbase::controller::driver::controls.
+\end{itemize}
+
+\subsubsection{Classi}
+
+\paragraph{actorbase::controller::driver::data::DataStructure}
+
+\subparagraph{Descrizione}
+
+Interfaccia che consente al \gloss{driver} di effettuare il parsing dei file \gloss{JSON}.
+
+\subparagraph{Interazioni con altre componenti}
+
+\begin{itemize}
+\item actorbase::view::cli::commands::Command;
+\item actorbase::controller::driver::client::Connection;
+\item actorbase::controller::driver::controls::Control.
+\end{itemize}
+
+\paragraph{actorbase::controller::driver::data::Collection}
+
+\subparagraph{Descrizione}
+
+Classe che consente al \gloss{driver} di effettuare il parsing dei file \gloss{JSON} differenziandone le \gloss{collezioni}.
+
+\subparagraph{Classi ereditate}
+
+\begin{itemize}
+\item actorbase::controller::driver::data::DataStructure.
+\end{itemize}
+
+\subparagraph{Interazioni con altre componenti}
+
+\begin{itemize}
+\item actorbase::controller::driver::data::Item.
+\item actorbase::controller::driver::data::CollectionCursor.
+\end{itemize}
+
+\paragraph{actorbase::controller::driver::data::Item}
+
+\subparagraph{Descrizione}
+
+Classe che consente al \gloss{driver} di effettuare il parsing dei file \gloss{JSON} differenziandone gli \gloss{item}.
+
+\subparagraph{Classi ereditate}
+
+\begin{itemize}
+\item actorbase::controller::driver::data::DataStructure.
+\end{itemize}
+
+\subparagraph{Interazioni con altre componenti}
+
+\begin{itemize}
+\item actorbase::controller::driver::data::ItemCursor.
+\end{itemize}
+
+\paragraph{actorbase::controller::driver::data::Cursor}
+
+\subparagraph{Descrizione}
+
+Interfaccia che offre un cursore per lo scorrimento di una lista.
+
+\paragraph{actorbase::controller::driver::data::ItemCursor}
+
+\subparagraph{Descrizione}
+
+Classe che offre al \gloss{driver} un cursore per lo scorrimento di una lista di \gloss{item}.
+
+\subparagraph{Classi ereditate}
+
+\begin{itemize}
+\item actorbase::controller::driver::data::Cursor.
+\end{itemize}
+
+\paragraph{actorbase::controller::driver::data::CollectionCursor}
+
+\subparagraph{Descrizione}
+
+Classe che offre al \gloss{driver} un cursore per lo scorrimento di una lista di \gloss{collezioni}.
+
+\subparagraph{Classi ereditate}
+
+\begin{itemize}
+\item actorbase::controller::driver::data::Cursor.
+\end{itemize}
 
 \subsection{actorbase::view}
 
