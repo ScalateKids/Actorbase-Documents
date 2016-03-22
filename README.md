@@ -31,6 +31,11 @@ Verify glossary words not enclosed by \gloss
 $ make verifygloss
 ```
 
+Find all glossary words
+```sh
+$ make findgloss
+```
+
 Calculate readability stats
 
 ```sh
