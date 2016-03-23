@@ -92,6 +92,9 @@ All'interno del modello, gli "attori" vengono trattati come primitive universali
 \glossDef{Amazon DynamoDB} Database proprietario di tipo NoSQL e completamente gestito da Amazon.com all'interno del suo portfolio 'Amazon Web Services'.
 \\
 
+\glossDef{Architettura} Per architettura informatica si intende l'insieme dei criteri e regole in base ai quali è progettato e realizzato un sistema informatico oppure un dispositivo facente parte di esso.
+\\
+
 \glossDef{Attività} Aggregazione di \textit{task} (vedi sotto).
 \\
 
@@ -99,6 +102,9 @@ All'interno del modello, gli "attori" vengono trattati come primitive universali
 \\
 
 \glossaryLetter{B}
+
+\glossDef{Banner} Banner è un termine in lingua inglese che significa bandiera, vessillo o striscione. Un esempio classico di banner è la striscia che solitamente compare all'inizio di una pagina web e che riporta il nome del sito.
+\\
 
 \glossDef{Beacon} il beacon è un piccolo dispositivo BLE (acronimo per Bluetooth Low Energy, cioè Bluetooth a basso consumo energetico) che trasmette piccole quantità di dati ogni secondo o quasi.  A livello di hardware, i beacon sono dispositivi BLE-compatibile che trasmettono dati sotto il protocollo “beacon”.
 A livello software, i beacon sono messaggi inviati da questi dispositivi trasmittenti, che sono poi rilevati e processati da un dispositivo ricevente, come un’app mobile. Nel caso degli iBeacon vengono trasmessi i valori Major e Minor che insieme all’UUID (acronimo di Universally Unique IDentifier), permettono l’identificazione di un iBeacon da parte dell’applicazione.(riferirsi a \url{https://it.wikipedia.org/wiki/IBeacon} e \url{http://www.beaconitaly.it/cose-ibeacon/});
@@ -110,11 +116,20 @@ A livello software, i beacon sono messaggi inviati da questi dispositivi trasmit
 \glossDef{Branch} In computer science, il branch ('salto' in inglese) è un punto in cui in un processo viene alterato il sequenziale flusso delle istruzioni.
 \\
 
-\glossDef{Bundled Software} Si tratta di software distribuito con un altro prodotto come parte di un hardware o come parte di un gruppo di pacchetti software venduti assieme.
-\\
 
 \glossDef{Bug} in informatica, identifica un errore nella scrittura di un programma software, impedendone il corretto funzionamento e provocandone un comportamento imprevisto o comunque diverso da quello specificato dal produttore. Meno comunemente, il termine bug può indicare un difetto di progettazione in un componente hardware.
 L'origine del nome (che in inglese significa "insetto") deriva da un malfunzionamento del computer Mark II nel 1947 dovuto ad una falena incastratasi tra i circuiti.
+\\
+
+\glossDef{Bundled Software} Si tratta di software distribuito con un altro prodotto come parte di un hardware o come parte di un gruppo di pacchetti software venduti assieme.
+\\
+
+\glosseDef{Business Logic} L'espressione logica di business (in inglese business logic) si riferisce a tutta quella logica applicativa che rende operativa un'applicazione cioè la parte o nucleo (core) di elaborazione.
+Con tale nome ci si riferisce quindi all'algoritmica che gestisce lo scambio di informazioni tra una sorgente dati (generalmente una base dati) deputata gestione della persistenza dei dati stessi da una parte e l'interfaccia utente attraverso la logica di presentazione e le elaborazioni intermedie sui dati estratti dall'altra.
+È un termine largamente utilizzato nella progettazione del software per individuare un componente software, un layer (o tier, cioè livello) di una architettura software, ecc.
+\\
+
+\glossDef{BV (Budget Variance)} la differenza tra il budget previsto in entrata per una determinata baseline e l'effettivo budget attualmente disponibile.
 \\
 
 \glossaryLetter{C}
@@ -147,6 +162,9 @@ L'esecuzione contemporanea può condurre a interazione tra processi quando viene
 
 \glossDef{Container docker} I container docker impacchettano un pezzo di software in un filesystem completo, che contiene tutto ciò che è necessario per farlo funzionare: codice, strumenti di sistema, librerie di sistema e tutto ciò che può essere installato su un server.
 Questo garantisce che il software funzionerà sempre allo stesso modo, indipendentemente dall'ambiente in cui si troverà.
+\\
+
+\glossDef{Controller} vedi \textit{MVC (Model-View-Controller)}.
 \\
 
 \glossaryLetter{D}
@@ -194,6 +212,9 @@ Lo scopo principale del diagramma di Gantt è di dislocare temporalmente le atti
 
 \glossDef{File} In informatica, viene utilizzato per riferirsi a un contenitore di informazioni/dati in formato digitale, tipicamente presenti su un supporto digitale di memorizzazione opportunamente formattato in un determinato file system.
 Le informazioni scritte/codificate al suo interno sono leggibili solo tramite uno specifico software in grado di effettuare l'operazione.
+\\
+
+\glossDef{Flag} In informatica, un flag (parola inglese che significa bandiera) è una variabile (solitamente booleana) che può assumere solo due stati ("vero" o "falso", "on" e "off", "1" e "0", "acceso" e "spento") e che segnala, con il suo valore, se un dato evento si è verificato oppure no, o se il sistema è in un certo stato oppure no
 \\
 
 \glossDef{Form} In informatica, un form è un termine usato per indicare l'interfaccia di un'applicazione che consente all'utente client di inserire e inviare al web server uno o più dati liberamente digitati dallo stesso.
@@ -277,12 +298,25 @@ L' \textit{Internet delle cose} è vista come una possibile evoluzione dell'uso 
 
   \glossDef{Merge} mescolare, unire.
   \\
+  
+  \glossDef{Model} vedi \textit{MVC (Model-View-Controller)}.
+  \\
 
   \glossDef{Modello ad attori} vedi \textit{Actormodel}.
   \\
 
   \glossDef{Modello relazionale} modello logico di rappresentazione o strutturazione dei dati di un database implementato su sistemi di 'gestione di basi di dati' (DBMS).
   Si basa sulla teoria degli insiemi e sulla logica del primo ordine ed è strutturato intorno al concetto matematico di relazione (detta anche tabella). Per il suo trattamento ci si avvale di strumenti quali il calcolo relazionale e l'algebra relazionale.
+  \\
+  
+  \glossDef{MVC (Model-View-Controller)} in informatica, è un pattern architetturale molto diffuso nello sviluppo di sistemi software, in particolare nell'ambito della programmazione orientata agli oggetti.
+  Il pattern è basato sulla separazione dei compiti fra i componenti software che interpretano tre ruoli principali:
+  \begin{itemize}
+  	\item il \textit{model} fornisce i metodi per accedere ai dati utili all'applicazione;
+	\item il \textit{view} visualizza i dati contenuti nel model e si occupa dell'interazione con utenti e agenti;
+	\item il \textit{controller} riceve i comandi dell'utente (in genere attraverso il view) e li attua modificando lo stato degli altri due componenti.
+  \end{itemize}
+  Questo schema, fra l'altro, implica anche la tradizionale separazione fra la logica applicativa (in questo contesto spesso chiamata "logica di business"), a carico del controller e del model, e l'interfaccia utente a carico del view.
   \\
 
   \glossaryLetter{N}
@@ -310,6 +344,9 @@ L' \textit{Internet delle cose} è vista come una possibile evoluzione dell'uso 
 
   \glossDef{Package} un pacchetto (o pacchetto di software), in informatica è una serie di programmi che si distribuiscono congiuntamente.
   \\
+  
+  \glosseDef{Path} in informatica indica la posizione di file e directory presenti all'interno della gerarchia di un file system. Il concetto di percorso si basa sulla struttura gerarchica (ad albero) del file system
+  \\
 
   \glossDef{PDCA} il ciclo di Deming (chiamato anche ciclo di PDCA - "plan–do–check–act") è un modello studiato per il miglioramento continuo della qualità in un'ottica a lungo raggio. Serve per promuovere una cultura della qualità che è tesa al miglioramento continuo dei processi e all'utilizzo ottimale delle risorse. Questo strumento parte dall'assunto che per il raggiungimento del massimo della qualità sia necessaria la costante interazione tra ricerca, progettazione, test, produzione e vendita. Per migliorare la qualità e soddisfare il cliente, le quattro fasi devono ruotare costantemente, tenendo come criterio principale la qualità.
   \\
@@ -321,6 +358,13 @@ L' \textit{Internet delle cose} è vista come una possibile evoluzione dell'uso 
 
   \glossDef{Plugin} il plugin in campo informatico è un programma non autonomo che interagisce con un altro programma per ampliarne o estenderne le funzionalità originarie.
   A seconda dei programmi e delle piattaforme software, i plugin possono esser chiamati con sinonimi diversi: add-in, add-on e estensione.
+  \\
+  
+  \glossDef{Programamzione Funzionale} In informatica la programmazione funzionale è un paradigma di programmazione in cui il flusso di esecuzione del programma assume la forma di una serie di valutazioni di funzioni matematiche. Il punto di forza principale di questo paradigma è la mancanza di effetti collaterali (side-effect) delle funzioni, il che comporta una più facile verifica della correttezza e della mancanza di bug del programma e la possibilità di una maggiore ottimizzazione dello stesso.
+  La programmazione funzionale pone, dunque, una maggior attenzione sulla definizione di funzioni, rispetto ai paradigmi procedurali e imperativi, che invece prediligono la specifica di una sequenza di comandi da eseguire.
+  \\
+  
+  \glossDef{Prompt} in una interfaccia a riga di comando, il prompt è il cursore lampeggiante o evidenziato che indica la posizione nella schermata dove verrà eventualmente scritto il comando impartito dall'utente.
   \\
 
   \glossDef{Prototipo} il modello realizzato nell’ultima fase della progettazione e sperimentazione, e destinato a divenire il punto di partenza della produzione in serie
@@ -369,6 +413,10 @@ L' \textit{Internet delle cose} è vista come una possibile evoluzione dell'uso 
   \\
 
   \glossDef{Scale Out} vedi \textit{Scalabilità Orizzontale}
+  \\
+  
+  \glossDef{Schema} %TODO
+  \\
 
   \glossDef{Script} il termine script, in informatica, designa un tipo particolare di programma, scritto in una particolare classe di linguaggi di programmazione, detti linguaggi di scripting.
   La distinzione tra un programma normale ed uno script non è netta ma solitamente gli script si distinguono per la loro complessità relativamente bassa, la mancanza di una propria interfaccia grafica e il fatto di essere utilizzati per svolgere mansioni accessorie e molto specifiche.
@@ -376,7 +424,10 @@ L' \textit{Internet delle cose} è vista come una possibile evoluzione dell'uso 
 
   \glossDef{Section} comando di \LaTeX\xspace che indica l'inizio di una sezione.
   \\
-
+  
+  \glossDef{Server} in informatica è un componente o sottosistema informatico di elaborazione e gestione del traffico di informazioni che fornisce, a livello logico e fisico, un qualunque tipo di servizio ad altre componenti (tipicamente chiamate clients, cioè clienti) che ne fanno richiesta attraverso una rete di computer, all'interno di un sistema informatico o anche direttamente in locale su un computer.
+  \\
+  
   \glossDef{Shell} in informatica, è la parte di un sistema operativo che permette agli utenti di interagire con il sistema stesso, impartendo comandi e richiedendo l'avvio di altri programmi.
   La shell può essere di tipo \textit{testuale} (vedi \textit{terminale}) o \textit{grafico}.
   \\
@@ -399,6 +450,9 @@ L' \textit{Internet delle cose} è vista come una possibile evoluzione dell'uso 
   \end{itemize}
 
   \glossDef{Storekeeper} nel contesto del capitolato da noi considerato, con storekeeper si intende un particolare tipo di attore che mantiene fisicamente al proprio interno le coppie chiave-valore.
+  \\
+  
+  \glossDeg{SV (Schedule Variance)} indica quanto sia in anticipo o in ritardo il progetto rispetto ad una schedulazione fatta a priori
   \\
 
   \glossDef{SVN} SubVersioN (noto anche come svn, che è il nome del suo client a riga di comando) è un sistema di controllo versione per software distribuito come free software sotto licenza Apache.
@@ -449,6 +503,10 @@ L' \textit{Internet delle cose} è vista come una possibile evoluzione dell'uso 
 
   \glossDef{Versionamento} Il versionamento (versioning), in informatica, è la gestione di versioni multiple di un insieme di informazioni.
   Gli strumenti software per il controllo versione sono ritenuti molto spesso necessari per la maggior parte dei progetti di sviluppo software.
+  \\
+  
+  \glossDef{View} Le viste sono un elemento utilizzato dalla maggior parte dei DBMS (DataBase Management System). Si tratta, come suggerisce il nome, di "modi di vedere i dati".
+Una vista è rappresentata da una query, il cui risultato può essere utilizzato come se fosse una tabella (o collezione).
   \\
 
   \glossDef{Virtual Machine} Il termine macchina virtuale (VM) indica un software che, attraverso un processo di virtualizzazione, crea un ambiente virtuale che emula tipicamente il comportamento di una macchina fisica grazie all'assegnazione di risorse hardware (porzioni di disco rigido, RAM e risorse di processamento) ed in cui alcune applicazioni possono essere eseguite come se interagissero con tale macchina.
