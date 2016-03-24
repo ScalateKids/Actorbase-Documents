@@ -1211,7 +1211,108 @@ Viene utilizzata per mandare al \gloss{controller} il comando di esportazione in
 \item actorbase::view::cli::commands::Command.
 \end{itemize}
 
-\section{Diagrammi attività}
+\section{Diagrammi di attività}
+In questa sezione, vengono illustrati i diagrammi di attività che descrivono l'interazione dell'utente con Actorbase tramite l'utilizzo della \gloss{CLI} ad esso associata.
+ stato disegnato un diagramma ad alto livello in cui sono rappresentate le operazioni possibili sul database. Esse vengono poi illustrate tramite dei sotto-diagrammi per poterne comprendere meglio il funzionamente e facilitarne la lettura.
+
+\subsection{Visione Generale}
+L'utente, dopo aver aperto la \gloss{CLI}, ha la possibilità di \textit{loggarsi al database} oppure \textit{chiedere dell'aiuto}. Una volta autenticato, esso può \textit{operare su collezioni e/o item}, \textit{interrogare il database}, \textit{modificare la propria password}, \textit{effettuare il logout} oppure, se si tratta di un amministratore, \textit{gestire gli utenti del database}.
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=0.8\textwidth, keepaspectratio]{img/diagrammiAttivita/visioneGenerale.jpeg}
+		\caption*{Diagrammi attività - Visione Generale}
+	\end{center}
+\end{figure}
+
+\subsection{operazioni su collezioni e/o item}
+Per quanto riguarda le operazioni che l'utente può fare su collezioni e item, abbiamo: \textit{creazione e cancellazione di una o più collezioni}, \textit{visualizzare le collezioni presenti nel database}, \textit{rinominare una collezione}, \textit{inserire e rimuovere un item} e \textit{aggiungere o rimuovere un collaboratore da una collezione}.
+Come si può vedere dalle immagini, le operazioni sono molto lineari e di semplice lettura. Per ogni tipo di operazione è sempre possibile cadere in errore (nel momento in cui si sbaglia la sintassi del comando) e quindi si dovrà riscrivere da zero l'istruzione desiderata.
+Inoltre si può notare che l'inserimento di un item o la creazione di una collezione potranno esser fatti manualmente (i.e scrivendo da riga di comando tutto il necessario) oppure da file (i.e tramite file JSON).
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=0.3\textwidth, keepaspectratio]{img/diagrammiAttivita/creazioneCollezione.jpeg}
+		\caption*{Diagrammi attività - Creazione collezione}
+	\end{center}
+\end{figure}
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=0.3\textwidth, keepaspectratio]{img/diagrammiAttivita/cancCollezione.jpeg}
+		\caption*{Diagrammi attività - Cancellazione Collezione}
+	\end{center}
+\end{figure}
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=0.3\textwidth, keepaspectratio]{img/diagrammiAttivita/visCollezione.jpeg}
+		\caption*{Diagrammi attività - Visualizzazione Collezioni}
+	\end{center}
+\end{figure}
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=0.3\textwidth, keepaspectratio]{img/diagrammiAttivita/modNomeCollezione.jpeg}
+		\caption*{Diagrammi attività - Modifica nome collezione}
+	\end{center}
+\end{figure}
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=0.3\textwidth, keepaspectratio]{img/diagrammiAttivita/InserimentoItem.jpeg}
+		\caption*{Diagrammi attività - Inserimento item}
+	\end{center}
+\end{figure}
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=0.3\textwidth, keepaspectratio]{img/diagrammiAttivita/rimozioneItem.jpeg}
+		\caption*{Diagrammi attività - Rimozione item}
+	\end{center}
+\end{figure}
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=0.3\textwidth, keepaspectratio]{img/diagrammiAttivita/aggCollaboratore.jpeg}
+		\caption*{Diagrammi attività - Aggiunta Collaboratore}
+	\end{center}
+\end{figure}
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=0.3\textwidth, keepaspectratio]{img/diagrammiAttivita/rimozioneCollaboratore.jpeg}
+		\caption*{Diagrammi attività - Rimozione collaboratore}
+	\end{center}
+\end{figure}
+
+\subsection{interrogazione del database}
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=0.3\textwidth, keepaspectratio]{img/diagrammiAttivita/query.jpeg}
+		\caption*{Diagrammi attività - Interrogazione del database}
+	\end{center}
+\end{figure}
+
+\subsection{modifica password}
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=0.3\textwidth, keepaspectratio]{img/diagrammiAttivita/modificaPsw.jpeg}
+		\caption*{Diagrammi attività - Modifica password}
+	\end{center}
+\end{figure}
+
+\subsection{gestione utenti}
+La gestione utenti, possibile solo ad un utente amministratore, prevede la possibilità di \textit{aggiungere o rimuovere un utente dal database} e la possibilità di \textit{resettare la password di un utente}.
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=0.3\textwidth, keepaspectratio]{img/diagrammiAttivita/gestioneUtenti.jpeg}
+		\caption*{Diagrammi attività - Gestione utenti}
+	\end{center}
+\end{figure}
 
 \section{Design Pattern}
 
