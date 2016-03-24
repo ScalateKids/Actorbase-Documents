@@ -205,6 +205,148 @@ Rappresentano le tre macro-componenti del sistema.
 \item actors.
 \end{itemize}
 
+\subsection{actorbase::model::system::actors}
+
+\subsubsection{Descrizione}
+
+\gloss{Package} contenente gli \gloss{attori} che agiranno sul \gloss{database}.
+
+\subsubsection{Interazioni con altre componenti}
+
+\begin{itemize}
+\item actorbase::model::system::server.
+\end{itemize}
+
+\subsubsection{Classi}
+
+\paragraph{actorbase::model::system::actors::Warehouseman}
+
+\subparagraph{Descrizione}
+
+Classe che rappresenta un \gloss{attore} di tipo \gloss{Warehouseman}.
+
+\subparagraph{Utilizzo}
+
+Viene utilizzata per effettuare il salvataggio su filesystem del \gloss{database}.
+
+\subparagraph{Classi ereditate}
+
+\begin{itemize}
+\item actorbase::model::system::actors::Actor.
+\end{itemize}
+
+\paragraph{actorbase::model::system::actors::Persistence}
+
+\subparagraph{Descrizione}
+
+Interfaccia che consente il salvataggio su filesystem.
+
+\subparagraph{Utilizzo}
+
+Viene utilizzata per offrire un'interfaccia per il salvataggio su filesystem.
+
+\subparagraph{Interazioni con altre componenti}
+
+\begin{itemize}
+\item actorbase::model::system::actors::Warehouseman.
+\end{itemize}
+
+\paragraph{actorbase::model::system::actors::BSONPersistence}
+
+\subparagraph{Descrizione}
+
+Classe che consente di salvare su filesystem in formato \gloss{BSON}.
+
+\subparagraph{Utilizzo}
+
+Viene utilizzata per effettuare il salvataggio su filesystem in formato \gloss{BSON} del \gloss{database}.
+
+\subparagraph{Classi ereditate}
+
+\begin{itemize}
+\item actorbase::model::system::actors::Persistence.
+\end{itemize}
+
+\paragraph{actorbase::model::system::actors::Storefinder}
+
+\subparagraph{Descrizione}
+
+Classe che rappresenta un \gloss{attore} di tipo \gloss{Storefinder}.
+
+\subparagraph{Utilizzo}
+
+Viene utilizzata per tenere traccia dei contenuti degli attori di tipo \gloss{Storekeeper}.
+
+\subparagraph{Classi ereditate}
+
+\begin{itemize}
+\item actorbase::model::system::actors::Actor.
+\end{itemize}
+
+\paragraph{actorbase::model::system::actors::MainActor}
+
+\subparagraph{Descrizione}
+
+Classe che rappresenta un \gloss{attore} di tipo \gloss{MainActor}.
+
+\subparagraph{Utilizzo}
+
+Viene utilizzata per tenere traccia dei contenuti degli attori di tipo \gloss{Storefinder}.
+
+\subparagraph{Classi ereditate}
+
+\begin{itemize}
+\item actorbase::model::system::actors::Storefinder.
+\end{itemize}
+
+\paragraph{actorbase::model::system::actors::Storekeeper}
+
+\subparagraph{Descrizione}
+
+Classe che rappresenta un \gloss{attore} di tipo \gloss{Storekeeper}.
+
+\subparagraph{Utilizzo}
+
+Viene utilizzata per contenere gli elementi all'interno del \gloss{database}.
+
+\subparagraph{Classi ereditate}
+
+\begin{itemize}
+\item actorbase::model::system::actors::Actor.
+\end{itemize}
+
+\paragraph{actorbase::model::system::actors::Manager}
+
+\subparagraph{Descrizione}
+
+Classe che rappresenta un \gloss{attore} di tipo \gloss{Manager}.
+
+\subparagraph{Utilizzo}
+
+Viene utilizzata per effettuare procedure di \gloss{load balancing}.
+
+\subparagraph{Classi ereditate}
+
+\begin{itemize}
+\item actorbase::model::system::actors::Actor.
+\end{itemize}
+
+\paragraph{actorbase::model::system::actors::Ninja}
+
+\subparagraph{Descrizione}
+
+Classe che rappresenta un \gloss{attore} di tipo \gloss{Ninja}.
+
+\subparagraph{Utilizzo}
+
+Viene utilizzata per consentire di effettuare un \gloss{backup} dei contenuti degli attori di tipo \gloss{Storekeeper}.
+
+\subparagraph{Classi ereditate}
+
+\begin{itemize}
+\item actorbase::model::system::actors::Actor.
+\end{itemize}
+
 \subsection{actorbase::controller}
 
 \subsubsection{Descrizione}
@@ -239,7 +381,12 @@ Rappresentano le tre macro-componenti del sistema.
 
 \subsubsection{Interazioni con altre componenti}
 
-\subsubsection{classi}
+\begin{itemize}
+\item actorbase::model::system::server;
+\item actorbase::view::cli.%TODO giusto?
+\end{itemize}
+
+\subsubsection{Classi}
 
 \paragraph{actorbase::controller::driver::client::ActorbaseClient}
 
@@ -264,7 +411,7 @@ Classe per la connessione tra il \gloss{driver} e il \gloss{server}
 \subparagraph{Interazioni con altre componenti}
 \begin{itemize}
 \item actorbase::controller::driver::client::ActorbaseClient;
-\item actorbase::model::system::server:: %TODO quando si sarà fatto il server
+\item actorbase::model::system::server::TCPServer.
 \end{itemize}
 
 \subsection{actorbase::controller::driver::controls}
@@ -276,7 +423,7 @@ Componente del \gloss{controller} per l'esecuzione del comando e l'interazione c
 \subsubsection{Interazioni con altre componenti}
 
 \begin{itemize}
-\item actorbase::model::system::server:: %TODO quando si sarà fatto il server
+\item actorbase::model::system::server.
 \end{itemize}
 
 \subsubsection{Classi}
@@ -295,7 +442,7 @@ Viene utilizzata per offrire un'interfaccia comune a tutti i comandi.
 
 \begin{itemize}
 \item actorbase::controller::driver::client::ActorbaseClient;
-\item actorbase::model::system::server:: %TODO quando si sarà fatto il server
+\item actorbase::model::system::server::TCPServer.
 \end{itemize}
 
 \paragraph{actorbase::controller::driver::controls::FindControl}
