@@ -139,7 +139,7 @@ scala> [INFO] [03/26/2016 12:22:30.297] [DumbSystem-akka.actor.default-dispatche
 
 ***** Scala REPL2
 
-#+begin_src
+#+begin_src scala
 Welcome to Scala 2.11.8 (OpenJDK 64-Bit Server VM, Java 1.8.0_74).
 Type in expressions for evaluation. Or try :help.
 
@@ -165,7 +165,7 @@ scala> [INFO] [03/26/2016 12:28:21.588] [DumbSystem-akka.actor.default-dispatche
 
 ***** Scala REPL
 
-#+begin_src
+#+begin_src scala
 scala> [INFO] [03/26/2016 12:26:45.017] [DumbSystem-akka.actor.default-dispatcher-3] [akka.cluster.Cluster(akka://DumbSystem)] Cluster Node [akka.tcp://DumbSystem@127.0.0.1:2500] - Node [akka.tcp://DumbSystem@127.0.0.1:2500] is JOINING, roles []
 [INFO] [03/26/2016 12:26:45.027] [DumbSystem-akka.actor.default-dispatcher-3] [akka.cluster.Cluster(akka://DumbSystem)] Cluster Node [akka.tcp://DumbSystem@127.0.0.1:2500] - Leader is moving node [akka.tcp://DumbSystem@127.0.0.1:2500] to [Up]
 [INFO] [03/26/2016 12:28:21.406] [DumbSystem-akka.actor.default-dispatcher-2] [akka.cluster.Cluster(akka://DumbSystem)] Cluster Node [akka.tcp://DumbSystem@127.0.0.1:2500] - Node [akka.tcp://DumbSystem@127.0.0.1:34570] is JOINING, roles []
@@ -174,7 +174,7 @@ scala> [INFO] [03/26/2016 12:26:45.017] [DumbSystem-akka.actor.default-dispatche
 
 ***** Scala REPL2
 
-#+begin_src
+#+begin_src scala
 scala> val roundRobinPool = RoundRobinPool(nrOfInstances = 4)
 roundRobinPool: akka.routing.RoundRobinPool = RoundRobinPool(4,None,OneForOneStrategy(-1,Duration.Inf,true),akka.actor.default-dispatcher,false)
 
@@ -187,7 +187,7 @@ clusterPool: akka.cluster.routing.ClusterRouterPool = ClusterRouterPool(RoundRob
 
 ***** Scala REPL2
 
-#+begin_src
+#+begin_src scala
 scala> import akka.actor._
 import akka.actor._
 
@@ -218,7 +218,7 @@ scala> [INFO] [03/26/2016 12:31:22.528] [DumbSystem-akka.actor.default-dispatche
 
 ***** Scala REPL1
 
-#+begin_src
+#+begin_src scala
 [INFO] [03/26/2016 12:31:22.710] [DumbSystem-akka.actor.default-dispatcher-14] [akka.tcp://DumbSystem@127.0.0.1:2500/remote/akka.tcp/DumbSystem@127.0.0.1:34570/user/$a/c21] Logger started!
 [INFO] [03/26/2016 12:31:22.718] [DumbSystem-akka.actor.default-dispatcher-15] [akka.tcp://DumbSystem@127.0.0.1:2500/remote/akka.tcp/DumbSystem@127.0.0.1:34570/user/$a/c22] Logger started!
 [INFO] [03/26/2016 12:31:22.721] [DumbSystem-akka.actor.default-dispatcher-15] [akka.tcp://DumbSystem@127.0.0.1:2500/remote/akka.tcp/DumbSystem@127.0.0.1:34570/user/$a/c23] Logger started!
@@ -243,7 +243,7 @@ scala> [INFO] [03/26/2016 12:31:22.528] [DumbSystem-akka.actor.default-dispatche
 
 ***** Scala REPL2
 
-#+begin_src
+#+begin_src scala
 scala> (1 to 80).foreach(i => router ! i)
 [INFO] [03/26/2016 12:31:46.137] [DumbSystem-akka.actor.default-dispatcher-20] [akka.tcp://DumbSystem@127.0.0.1:34570/user/$a/c2] Got msg: 2
 [INFO] [03/26/2016 12:31:46.137] [DumbSystem-akka.actor.default-dispatcher-3] [akka.tcp://DumbSystem@127.0.0.1:34570/user/$a/c1] Got msg: 1
@@ -290,7 +290,7 @@ scala> [INFO] [03/26/2016 12:31:46.138] [DumbSystem-akka.actor.default-dispatche
 
 ***** Scala REPL1
 
-#+begin_src
+#+begin_src scala
 [INFO] [03/26/2016 12:31:46.139] [DumbSystem-akka.actor.default-dispatcher-24] [akka.tcp://DumbSystem@127.0.0.1:2500/remote/akka.tcp/DumbSystem@127.0.0.1:34570/user/$a/c21] Got msg: 21
 [INFO] [03/26/2016 12:31:46.141] [DumbSystem-akka.actor.default-dispatcher-15] [akka.tcp://DumbSystem@127.0.0.1:2500/remote/akka.tcp/DumbSystem@127.0.0.1:34570/user/$a/c22] Got msg: 22
 [INFO] [03/26/2016 12:31:46.142] [DumbSystem-akka.actor.default-dispatcher-24] [akka.tcp://DumbSystem@127.0.0.1:2500/remote/akka.tcp/DumbSystem@127.0.0.1:34570/user/$a/c23] Got msg: 23
