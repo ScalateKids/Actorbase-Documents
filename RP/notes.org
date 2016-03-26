@@ -177,19 +177,19 @@ scala> [INFO] [03/26/2016 12:26:45.017] [DumbSystem-akka.actor.default-dispatche
 #+end_src
 ***** Node B - Scala REPL
 ****** Steps:
-       - create a round robin pool of 4 instances
+       - create a round robin pool of 10 instances
        - create a cluster router pool of 10 total instances distributed equally on cluster (e.g. 5 per node)
        - create a cluster router pool using round robin settings and cluster pool previously created
        - create router actor responsible of his routees distributed across the cluster
 #+begin_src scala
-scala> val roundRobinPool = RoundRobinPool(nrOfInstances = 4)
-roundRobinPool: akka.routing.RoundRobinPool = RoundRobinPool(4,None,OneForOneStrategy(-1,Duration.Inf,true),akka.actor.default-dispatcher,false)
+scala> val roundRobinPool = RoundRobinPool(nrOfInstances = 10)
+roundRobinPool: akka.routing.RoundRobinPool = RoundRobinPool(10,None,OneForOneStrategy(-1,Duration.Inf,true),akka.actor.default-dispatcher,false)
 
 scala> val clusterRoutingSettings = ClusterRouterPoolSettings(totalInstances = 10, maxInstancesPerNode = 5, allowLocalRoutees = true, useRole = None)
 clusterRoutingSettings: akka.cluster.routing.ClusterRouterPoolSettings = ClusterRouterPoolSettings(10,5,true,None)
 
 scala> val clusterPool = ClusterRouterPool(roundRobinPool, clusterRoutingSettings)
-clusterPool: akka.cluster.routing.ClusterRouterPool = ClusterRouterPool(RoundRobinPool(4,None,OneForOneStrategy(-1,Duration.Inf,true),akka.actor.default-dispatcher,false),ClusterRouterPoolSettings(10,5,true,None))
+clusterPool: akka.cluster.routing.ClusterRouterPool = ClusterRouterPool(RoundRobinPool(10,None,OneForOneStrategy(-1,Duration.Inf,true),akka.actor.default-dispatcher,false),ClusterRouterPoolSettings(10,5,true,None))
 
 scala> val router = system.actorOf(clusterPool.props(Props[Logger]))
 router: akka.actor.ActorRef = Actor[akka://DumbSystem/user/$a#1896267896]
