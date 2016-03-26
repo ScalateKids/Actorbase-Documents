@@ -47,3 +47,288 @@ while(cursor.hasNext) {
   - Utilizzare i messaggi per proseguire il popolamento degli storekeeper ad albero.
   - Utilizzare un actor globale contenente tutti i ref degli sf, le connessioni in ingresso
     richiederanno al globale i reference dei propri sf.
+
+**** Simple cluster sample:
+Simple cluster implementation
+
+***** build.sbt
+
+#+begin_src scala
+name := "simple-cluster"
+
+version := "1.0"
+
+scalaVersion := "2.11.8"
+
+libraryDependencies ++= Seq(
+  "com.typesafe.akka" %% "akka-actor" % "2.4.2",
+  "com.typesafe.akka" %% "akka-cluster" % "2.4.2"
+)
+#+end_src
+
+***** Actor.scala
+
+#+begin_src scala
+import akka.actor._
+
+class Logger extends Actor with ActorLogging {
+  log.info("Logger started!")
+
+  def receive = {
+    case msg => log.info("Got msg: {}", msg)
+  }
+}
+#+end_src
+
+***** System.scala
+
+#+begin_src scala
+import akka.actor._
+import akka.routing._
+import akka.cluster._
+import akka.cluster.routing._
+import com.typesafe.config.ConfigFactory
+
+object TestSystem {
+  val config = ConfigFactory.parseString(s"""
+    akka.remote.netty.tcp.port=2500
+    akka.actor.provider=akka.cluster.ClusterActorRefProvider
+    akka.cluster.seed-nodes = ["akka.tcp://DumbSystem@127.0.0.1:2500"]
+    """)
+  val system = ActorSystem("DumbSystem", config)
+  Cluster(system).registerOnMemberUp {}
+}
+
+object NodeSystem {
+  val config = ConfigFactory.parseString(s"""
+    akka.remote.netty.tcp.port=0
+    akka.actor.provider=akka.cluster.ClusterActorRefProvider
+    akka.cluster.seed-nodes = ["akka.tcp://DumbSystem@127.0.0.1:2500"]
+    """)
+  val system = ActorSystem("DumbSystem", config)
+  Cluster(system).registerOnMemberUp {}
+}
+#+end_src
+
+***** Scala REPL
+
+#+begin_src scala
+Welcome to Scala 2.11.8 (OpenJDK 64-Bit Server VM, Java 1.8.0_74).
+Type in expressions for evaluation. Or try :help.
+
+scala> import akka.cluster.routing._
+import akka.cluster.routing._
+
+scala> import akka.routing._
+import akka.routing._
+
+scala> val system = TestSystem.system
+[INFO] [03/26/2016 12:22:29.552] [run-main-0] [akka.remote.Remoting] Starting remoting
+[INFO] [03/26/2016 12:22:29.949] [run-main-0] [akka.remote.Remoting] Remoting started; listening on addresses :[akka.tcp://DumbSystem@127.0.0.1:2500]
+[INFO] [03/26/2016 12:22:29.952] [run-main-0] [akka.remote.Remoting] Remoting now listens on addresses: [akka.tcp://DumbSystem@127.0.0.1:2500]
+[INFO] [03/26/2016 12:22:29.988] [run-main-0] [akka.cluster.Cluster(akka://DumbSystem)] Cluster Node [akka.tcp://DumbSystem@127.0.0.1:2500] - Starting up...
+[INFO] [03/26/2016 12:22:30.211] [run-main-0] [akka.cluster.Cluster(akka://DumbSystem)] Cluster Node [akka.tcp://DumbSystem@127.0.0.1:2500] - Registered cluster JMX MBean [akka:type=Cluster]
+[INFO] [03/26/2016 12:22:30.211] [run-main-0] [akka.cluster.Cluster(akka://DumbSystem)] Cluster Node [akka.tcp://DumbSystem@127.0.0.1:2500] - Started up successfully
+[INFO] [03/26/2016 12:22:30.236] [DumbSystem-akka.actor.default-dispatcher-3] [akka.cluster.Cluster(akka://DumbSystem)] Cluster Node [akka.tcp://DumbSystem@127.0.0.1:2500] - Metrics will be retreived from MBeans, and may be incorrect on some platforms. To increase metric accuracy add the 'sigar.jar' to the classpath and the appropriate platform-specific native libary to 'java.library.path'. Reason: java.lang.ClassNotFoundException: org.hyperic.sigar.Sigar
+[INFO] [03/26/2016 12:22:30.264] [DumbSystem-akka.actor.default-dispatcher-3] [akka.cluster.Cluster(akka://DumbSystem)] Cluster Node [akka.tcp://DumbSystem@127.0.0.1:2500] - Metrics collection has started successfully
+system: akka.actor.ActorSystem = akka://DumbSystem
+
+scala> [INFO] [03/26/2016 12:22:30.297] [DumbSystem-akka.actor.default-dispatcher-4] [akka.cluster.Cluster(akka://DumbSystem)] Cluster Node [akka.tcp://DumbSystem@127.0.0.1:2500] - Node [akka.tcp://DumbSystem@127.0.0.1:2500] is JOINING, roles []
+[INFO] [03/26/2016 12:22:30.304] [DumbSystem-akka.actor.default-dispatcher-4] [akka.cluster.Cluster(akka://DumbSystem)] Cluster Node [akka.tcp://DumbSystem@127.0.0.1:2500] - Leader is moving node [akka.tcp://DumbSystem@127.0.0.1:2500] to [Up]
+#+end_src
+
+***** Scala REPL2
+
+#+begin_src
+Welcome to Scala 2.11.8 (OpenJDK 64-Bit Server VM, Java 1.8.0_74).
+Type in expressions for evaluation. Or try :help.
+
+scala> import akka.routing._
+import akka.routing._
+
+scala> import akka.cluster.routing._
+import akka.cluster.routing._
+
+scala> val system = NodeSystem.system
+[INFO] [03/26/2016 12:28:20.741] [run-main-0] [akka.remote.Remoting] Starting remoting
+[INFO] [03/26/2016 12:28:20.872] [run-main-0] [akka.remote.Remoting] Remoting started; listening on addresses :[akka.tcp://DumbSystem@127.0.0.1:34570]
+[INFO] [03/26/2016 12:28:20.873] [run-main-0] [akka.remote.Remoting] Remoting now listens on addresses: [akka.tcp://DumbSystem@127.0.0.1:34570]
+[INFO] [03/26/2016 12:28:20.887] [run-main-0] [akka.cluster.Cluster(akka://DumbSystem)] Cluster Node [akka.tcp://DumbSystem@127.0.0.1:34570] - Starting up...
+[INFO] [03/26/2016 12:28:20.963] [run-main-0] [akka.cluster.Cluster(akka://DumbSystem)] Cluster Node [akka.tcp://DumbSystem@127.0.0.1:34570] - Registered cluster JMX MBean [akka:type=Cluster]
+[INFO] [03/26/2016 12:28:20.963] [run-main-0] [akka.cluster.Cluster(akka://DumbSystem)] Cluster Node [akka.tcp://DumbSystem@127.0.0.1:34570] - Started up successfully
+[INFO] [03/26/2016 12:28:20.976] [DumbSystem-akka.actor.default-dispatcher-4] [akka.cluster.Cluster(akka://DumbSystem)] Cluster Node [akka.tcp://DumbSystem@127.0.0.1:34570] - Metrics will be retreived from MBeans, and may be incorrect on some platforms. To increase metric accuracy add the 'sigar.jar' to the classpath and the appropriate platform-specific native libary to 'java.library.path'. Reason: java.lang.ClassNotFoundException: org.hyperic.sigar.Sigar
+[INFO] [03/26/2016 12:28:20.998] [DumbSystem-akka.actor.default-dispatcher-4] [akka.cluster.Cluster(akka://DumbSystem)] Cluster Node [akka.tcp://DumbSystem@127.0.0.1:34570] - Metrics collection has started successfully
+system: akka.actor.ActorSystem = akka://DumbSystem
+
+scala> [INFO] [03/26/2016 12:28:21.588] [DumbSystem-akka.actor.default-dispatcher-19] [akka.cluster.Cluster(akka://DumbSystem)] Cluster Node [akka.tcp://DumbSystem@127.0.0.1:34570] - Welcome from [akka.tcp://DumbSystem@127.0.0.1:2500]
+#+end_src
+
+***** Scala REPL
+
+#+begin_src
+scala> [INFO] [03/26/2016 12:26:45.017] [DumbSystem-akka.actor.default-dispatcher-3] [akka.cluster.Cluster(akka://DumbSystem)] Cluster Node [akka.tcp://DumbSystem@127.0.0.1:2500] - Node [akka.tcp://DumbSystem@127.0.0.1:2500] is JOINING, roles []
+[INFO] [03/26/2016 12:26:45.027] [DumbSystem-akka.actor.default-dispatcher-3] [akka.cluster.Cluster(akka://DumbSystem)] Cluster Node [akka.tcp://DumbSystem@127.0.0.1:2500] - Leader is moving node [akka.tcp://DumbSystem@127.0.0.1:2500] to [Up]
+[INFO] [03/26/2016 12:28:21.406] [DumbSystem-akka.actor.default-dispatcher-2] [akka.cluster.Cluster(akka://DumbSystem)] Cluster Node [akka.tcp://DumbSystem@127.0.0.1:2500] - Node [akka.tcp://DumbSystem@127.0.0.1:34570] is JOINING, roles []
+[INFO] [03/26/2016 12:28:21.977] [DumbSystem-akka.actor.default-dispatcher-18] [akka.cluster.Cluster(akka://DumbSystem)] Cluster Node [akka.tcp://DumbSystem@127.0.0.1:2500] - Leader is moving node [akka.tcp://DumbSystem@127.0.0.1:34570] to [Up]
+#+end_src
+
+***** Scala REPL2
+
+#+begin_src
+scala> val roundRobinPool = RoundRobinPool(nrOfInstances = 4)
+roundRobinPool: akka.routing.RoundRobinPool = RoundRobinPool(4,None,OneForOneStrategy(-1,Duration.Inf,true),akka.actor.default-dispatcher,false)
+
+scala> val clusterRoutingSettings = ClusterRouterPoolSettings(totalInstances = 40, maxInstancesPerNode = 20, allowLocalRoutees = true, useRole = None)
+clusterRoutingSettings: akka.cluster.routing.ClusterRouterPoolSettings = ClusterRouterPoolSettings(40,20,true,None)
+
+scala> val clusterPool = ClusterRouterPool(roundRobinPool, clusterRoutingSettings)
+clusterPool: akka.cluster.routing.ClusterRouterPool = ClusterRouterPool(RoundRobinPool(4,None,OneForOneStrategy(-1,Duration.Inf,true),akka.actor.default-dispatcher,false),ClusterRouterPoolSettings(40,20,true,None))
+#+end_src
+
+***** Scala REPL2
+
+#+begin_src
+scala> import akka.actor._
+import akka.actor._
+
+scala> val router = system.actorOf(clusterPool.props(Props[Logger]))
+router: akka.actor.ActorRef = Actor[akka://DumbSystem/user/$a#1896267896]
+
+scala> [INFO] [03/26/2016 12:31:22.528] [DumbSystem-akka.actor.default-dispatcher-18] [akka.tcp://DumbSystem@127.0.0.1:34570/user/$a/c1] Logger started!
+[INFO] [03/26/2016 12:31:22.529] [DumbSystem-akka.actor.default-dispatcher-14] [akka.tcp://DumbSystem@127.0.0.1:34570/user/$a/c2] Logger started!
+[INFO] [03/26/2016 12:31:22.529] [DumbSystem-akka.actor.default-dispatcher-15] [akka.tcp://DumbSystem@127.0.0.1:34570/user/$a/c3] Logger started!
+[INFO] [03/26/2016 12:31:22.529] [DumbSystem-akka.actor.default-dispatcher-2] [akka.tcp://DumbSystem@127.0.0.1:34570/user/$a/c4] Logger started!
+[INFO] [03/26/2016 12:31:22.529] [DumbSystem-akka.actor.default-dispatcher-17] [akka.tcp://DumbSystem@127.0.0.1:34570/user/$a/c5] Logger started!
+[INFO] [03/26/2016 12:31:22.529] [DumbSystem-akka.actor.default-dispatcher-19] [akka.tcp://DumbSystem@127.0.0.1:34570/user/$a/c6] Logger started!
+[INFO] [03/26/2016 12:31:22.531] [DumbSystem-akka.actor.default-dispatcher-16] [akka.tcp://DumbSystem@127.0.0.1:34570/user/$a/c8] Logger started!
+[INFO] [03/26/2016 12:31:22.531] [DumbSystem-akka.actor.default-dispatcher-3] [akka.tcp://DumbSystem@127.0.0.1:34570/user/$a/c9] Logger started!
+[INFO] [03/26/2016 12:31:22.531] [DumbSystem-akka.actor.default-dispatcher-21] [akka.tcp://DumbSystem@127.0.0.1:34570/user/$a/c10] Logger started!
+[INFO] [03/26/2016 12:31:22.531] [DumbSystem-akka.actor.default-dispatcher-20] [akka.tcp://DumbSystem@127.0.0.1:34570/user/$a/c7] Logger started!
+[INFO] [03/26/2016 12:31:22.532] [DumbSystem-akka.actor.default-dispatcher-22] [akka.tcp://DumbSystem@127.0.0.1:34570/user/$a/c11] Logger started!
+[INFO] [03/26/2016 12:31:22.552] [DumbSystem-akka.actor.default-dispatcher-20] [akka.tcp://DumbSystem@127.0.0.1:34570/user/$a/c12] Logger started!
+[INFO] [03/26/2016 12:31:22.552] [DumbSystem-akka.actor.default-dispatcher-20] [akka.tcp://DumbSystem@127.0.0.1:34570/user/$a/c13] Logger started!
+[INFO] [03/26/2016 12:31:22.552] [DumbSystem-akka.actor.default-dispatcher-20] [akka.tcp://DumbSystem@127.0.0.1:34570/user/$a/c14] Logger started!
+[INFO] [03/26/2016 12:31:22.552] [DumbSystem-akka.actor.default-dispatcher-20] [akka.tcp://DumbSystem@127.0.0.1:34570/user/$a/c15] Logger started!
+[INFO] [03/26/2016 12:31:22.554] [DumbSystem-akka.actor.default-dispatcher-21] [akka.tcp://DumbSystem@127.0.0.1:34570/user/$a/c19] Logger started!
+[INFO] [03/26/2016 12:31:22.555] [DumbSystem-akka.actor.default-dispatcher-21] [akka.tcp://DumbSystem@127.0.0.1:34570/user/$a/c20] Logger started!
+[INFO] [03/26/2016 12:31:22.555] [DumbSystem-akka.actor.default-dispatcher-3] [akka.tcp://DumbSystem@127.0.0.1:34570/user/$a/c18] Logger started!
+[INFO] [03/26/2016 12:31:22.555] [DumbSystem-akka.actor.default-dispatcher-20] [akka.tcp://DumbSystem@127.0.0.1:34570/user/$a/c16] Logger started!
+[INFO] [03/26/2016 12:31:22.567] [DumbSystem-akka.actor.default-dispatcher-16] [akka.tcp://DumbSystem@127.0.0.1:34570/user/$a/c17] Logger started!
+#+end_src
+
+***** Scala REPL1
+
+#+begin_src
+[INFO] [03/26/2016 12:31:22.710] [DumbSystem-akka.actor.default-dispatcher-14] [akka.tcp://DumbSystem@127.0.0.1:2500/remote/akka.tcp/DumbSystem@127.0.0.1:34570/user/$a/c21] Logger started!
+[INFO] [03/26/2016 12:31:22.718] [DumbSystem-akka.actor.default-dispatcher-15] [akka.tcp://DumbSystem@127.0.0.1:2500/remote/akka.tcp/DumbSystem@127.0.0.1:34570/user/$a/c22] Logger started!
+[INFO] [03/26/2016 12:31:22.721] [DumbSystem-akka.actor.default-dispatcher-15] [akka.tcp://DumbSystem@127.0.0.1:2500/remote/akka.tcp/DumbSystem@127.0.0.1:34570/user/$a/c23] Logger started!
+[INFO] [03/26/2016 12:31:22.724] [DumbSystem-akka.actor.default-dispatcher-14] [akka.tcp://DumbSystem@127.0.0.1:2500/remote/akka.tcp/DumbSystem@127.0.0.1:34570/user/$a/c24] Logger started!
+[INFO] [03/26/2016 12:31:22.726] [DumbSystem-akka.actor.default-dispatcher-15] [akka.tcp://DumbSystem@127.0.0.1:2500/remote/akka.tcp/DumbSystem@127.0.0.1:34570/user/$a/c25] Logger started!
+[INFO] [03/26/2016 12:31:22.729] [DumbSystem-akka.actor.default-dispatcher-24] [akka.tcp://DumbSystem@127.0.0.1:2500/remote/akka.tcp/DumbSystem@127.0.0.1:34570/user/$a/c26] Logger started!
+[INFO] [03/26/2016 12:31:22.733] [DumbSystem-akka.actor.default-dispatcher-24] [akka.tcp://DumbSystem@127.0.0.1:2500/remote/akka.tcp/DumbSystem@127.0.0.1:34570/user/$a/c27] Logger started!
+[INFO] [03/26/2016 12:31:22.743] [DumbSystem-akka.actor.default-dispatcher-15] [akka.tcp://DumbSystem@127.0.0.1:2500/remote/akka.tcp/DumbSystem@127.0.0.1:34570/user/$a/c28] Logger started!
+[INFO] [03/26/2016 12:31:22.748] [DumbSystem-akka.actor.default-dispatcher-24] [akka.tcp://DumbSystem@127.0.0.1:2500/remote/akka.tcp/DumbSystem@127.0.0.1:34570/user/$a/c29] Logger started!
+[INFO] [03/26/2016 12:31:22.763] [DumbSystem-akka.actor.default-dispatcher-14] [akka.tcp://DumbSystem@127.0.0.1:2500/remote/akka.tcp/DumbSystem@127.0.0.1:34570/user/$a/c30] Logger started!
+[INFO] [03/26/2016 12:31:22.765] [DumbSystem-akka.actor.default-dispatcher-15] [akka.tcp://DumbSystem@127.0.0.1:2500/remote/akka.tcp/DumbSystem@127.0.0.1:34570/user/$a/c31] Logger started!
+[INFO] [03/26/2016 12:31:22.773] [DumbSystem-akka.actor.default-dispatcher-24] [akka.tcp://DumbSystem@127.0.0.1:2500/remote/akka.tcp/DumbSystem@127.0.0.1:34570/user/$a/c33] Logger started!
+[INFO] [03/26/2016 12:31:22.773] [DumbSystem-akka.actor.default-dispatcher-15] [akka.tcp://DumbSystem@127.0.0.1:2500/remote/akka.tcp/DumbSystem@127.0.0.1:34570/user/$a/c32] Logger started!
+[INFO] [03/26/2016 12:31:22.774] [DumbSystem-akka.actor.default-dispatcher-15] [akka.tcp://DumbSystem@127.0.0.1:2500/remote/akka.tcp/DumbSystem@127.0.0.1:34570/user/$a/c34] Logger started!
+[INFO] [03/26/2016 12:31:22.783] [DumbSystem-akka.actor.default-dispatcher-15] [akka.tcp://DumbSystem@127.0.0.1:2500/remote/akka.tcp/DumbSystem@127.0.0.1:34570/user/$a/c35] Logger started!
+[INFO] [03/26/2016 12:31:22.792] [DumbSystem-akka.actor.default-dispatcher-3] [akka.tcp://DumbSystem@127.0.0.1:2500/remote/akka.tcp/DumbSystem@127.0.0.1:34570/user/$a/c36] Logger started!
+[INFO] [03/26/2016 12:31:22.802] [DumbSystem-akka.actor.default-dispatcher-3] [akka.tcp://DumbSystem@127.0.0.1:2500/remote/akka.tcp/DumbSystem@127.0.0.1:34570/user/$a/c37] Logger started!
+[INFO] [03/26/2016 12:31:22.807] [DumbSystem-akka.actor.default-dispatcher-15] [akka.tcp://DumbSystem@127.0.0.1:2500/remote/akka.tcp/DumbSystem@127.0.0.1:34570/user/$a/c38] Logger started!
+[INFO] [03/26/2016 12:31:22.811] [DumbSystem-akka.actor.default-dispatcher-15] [akka.tcp://DumbSystem@127.0.0.1:2500/remote/akka.tcp/DumbSystem@127.0.0.1:34570/user/$a/c39] Logger started!
+[INFO] [03/26/2016 12:31:22.815] [DumbSystem-akka.actor.default-dispatcher-15] [akka.tcp://DumbSystem@127.0.0.1:2500/remote/akka.tcp/DumbSystem@127.0.0.1:34570/user/$a/c40] Logger started!
+#+end_src
+
+***** Scala REPL2
+
+#+begin_src
+scala> (1 to 80).foreach(i => router ! i)
+[INFO] [03/26/2016 12:31:46.137] [DumbSystem-akka.actor.default-dispatcher-20] [akka.tcp://DumbSystem@127.0.0.1:34570/user/$a/c2] Got msg: 2
+[INFO] [03/26/2016 12:31:46.137] [DumbSystem-akka.actor.default-dispatcher-3] [akka.tcp://DumbSystem@127.0.0.1:34570/user/$a/c1] Got msg: 1
+[INFO] [03/26/2016 12:31:46.137] [DumbSystem-akka.actor.default-dispatcher-22] [akka.tcp://DumbSystem@127.0.0.1:34570/user/$a/c3] Got msg: 3
+[INFO] [03/26/2016 12:31:46.137] [DumbSystem-akka.actor.default-dispatcher-22] [akka.tcp://DumbSystem@127.0.0.1:34570/user/$a/c4] Got msg: 4
+[INFO] [03/26/2016 12:31:46.137] [DumbSystem-akka.actor.default-dispatcher-22] [akka.tcp://DumbSystem@127.0.0.1:34570/user/$a/c5] Got msg: 5
+[INFO] [03/26/2016 12:31:46.137] [DumbSystem-akka.actor.default-dispatcher-22] [akka.tcp://DumbSystem@127.0.0.1:34570/user/$a/c6] Got msg: 6
+[INFO] [03/26/2016 12:31:46.137] [DumbSystem-akka.actor.default-dispatcher-22] [akka.tcp://DumbSystem@127.0.0.1:34570/user/$a/c7] Got msg: 7
+[INFO] [03/26/2016 12:31:46.137] [DumbSystem-akka.actor.default-dispatcher-22] [akka.tcp://DumbSystem@127.0.0.1:34570/user/$a/c8] Got msg: 8
+[INFO] [03/26/2016 12:31:46.137] [DumbSystem-akka.actor.default-dispatcher-22] [akka.tcp://DumbSystem@127.0.0.1:34570/user/$a/c9] Got msg: 9
+[INFO] [03/26/2016 12:31:46.137] [DumbSystem-akka.actor.default-dispatcher-22] [akka.tcp://DumbSystem@127.0.0.1:34570/user/$a/c10] Got msg: 10
+[INFO] [03/26/2016 12:31:46.137] [DumbSystem-akka.actor.default-dispatcher-22] [akka.tcp://DumbSystem@127.0.0.1:34570/user/$a/c11] Got msg: 11
+[INFO] [03/26/2016 12:31:46.137] [DumbSystem-akka.actor.default-dispatcher-22] [akka.tcp://DumbSystem@127.0.0.1:34570/user/$a/c12] Got msg: 12
+[INFO] [03/26/2016 12:31:46.137] [DumbSystem-akka.actor.default-dispatcher-20] [akka.tcp://DumbSystem@127.0.0.1:34570/user/$a/c13] Got msg: 13
+[INFO] [03/26/2016 12:31:46.137] [DumbSystem-akka.actor.default-dispatcher-20] [akka.tcp://DumbSystem@127.0.0.1:34570/user/$a/c14] Got msg: 14
+[INFO] [03/26/2016 12:31:46.138] [DumbSystem-akka.actor.default-dispatcher-20] [akka.tcp://DumbSystem@127.0.0.1:34570/user/$a/c15] Got msg: 15
+[INFO] [03/26/2016 12:31:46.138] [DumbSystem-akka.actor.default-dispatcher-20] [akka.tcp://DumbSystem@127.0.0.1:34570/user/$a/c16] Got msg: 16
+[INFO] [03/26/2016 12:31:46.138] [DumbSystem-akka.actor.default-dispatcher-20] [akka.tcp://DumbSystem@127.0.0.1:34570/user/$a/c17] Got msg: 17
+[INFO] [03/26/2016 12:31:46.138] [DumbSystem-akka.actor.default-dispatcher-20] [akka.tcp://DumbSystem@127.0.0.1:34570/user/$a/c18] Got msg: 18
+[INFO] [03/26/2016 12:31:46.138] [DumbSystem-akka.actor.default-dispatcher-20] [akka.tcp://DumbSystem@127.0.0.1:34570/user/$a/c19] Got msg: 19
+[INFO] [03/26/2016 12:31:46.138] [DumbSystem-akka.actor.default-dispatcher-20] [akka.tcp://DumbSystem@127.0.0.1:34570/user/$a/c20] Got msg: 20
+
+scala> [INFO] [03/26/2016 12:31:46.138] [DumbSystem-akka.actor.default-dispatcher-20] [akka.tcp://DumbSystem@127.0.0.1:34570/user/$a/c1] Got msg: 41
+[INFO] [03/26/2016 12:31:46.138] [DumbSystem-akka.actor.default-dispatcher-20] [akka.tcp://DumbSystem@127.0.0.1:34570/user/$a/c2] Got msg: 42
+[INFO] [03/26/2016 12:31:46.138] [DumbSystem-akka.actor.default-dispatcher-20] [akka.tcp://DumbSystem@127.0.0.1:34570/user/$a/c3] Got msg: 43
+[INFO] [03/26/2016 12:31:46.138] [DumbSystem-akka.actor.default-dispatcher-20] [akka.tcp://DumbSystem@127.0.0.1:34570/user/$a/c4] Got msg: 44
+[INFO] [03/26/2016 12:31:46.138] [DumbSystem-akka.actor.default-dispatcher-20] [akka.tcp://DumbSystem@127.0.0.1:34570/user/$a/c5] Got msg: 45
+[INFO] [03/26/2016 12:31:46.138] [DumbSystem-akka.actor.default-dispatcher-20] [akka.tcp://DumbSystem@127.0.0.1:34570/user/$a/c6] Got msg: 46
+[INFO] [03/26/2016 12:31:46.138] [DumbSystem-akka.actor.default-dispatcher-20] [akka.tcp://DumbSystem@127.0.0.1:34570/user/$a/c7] Got msg: 47
+[INFO] [03/26/2016 12:31:46.138] [DumbSystem-akka.actor.default-dispatcher-20] [akka.tcp://DumbSystem@127.0.0.1:34570/user/$a/c8] Got msg: 48
+[INFO] [03/26/2016 12:31:46.138] [DumbSystem-akka.actor.default-dispatcher-20] [akka.tcp://DumbSystem@127.0.0.1:34570/user/$a/c9] Got msg: 49
+[INFO] [03/26/2016 12:31:46.138] [DumbSystem-akka.actor.default-dispatcher-20] [akka.tcp://DumbSystem@127.0.0.1:34570/user/$a/c10] Got msg: 50
+[INFO] [03/26/2016 12:31:46.138] [DumbSystem-akka.actor.default-dispatcher-20] [akka.tcp://DumbSystem@127.0.0.1:34570/user/$a/c11] Got msg: 51
+[INFO] [03/26/2016 12:31:46.138] [DumbSystem-akka.actor.default-dispatcher-20] [akka.tcp://DumbSystem@127.0.0.1:34570/user/$a/c12] Got msg: 52
+[INFO] [03/26/2016 12:31:46.138] [DumbSystem-akka.actor.default-dispatcher-20] [akka.tcp://DumbSystem@127.0.0.1:34570/user/$a/c13] Got msg: 53
+[INFO] [03/26/2016 12:31:46.138] [DumbSystem-akka.actor.default-dispatcher-20] [akka.tcp://DumbSystem@127.0.0.1:34570/user/$a/c14] Got msg: 54
+[INFO] [03/26/2016 12:31:46.139] [DumbSystem-akka.actor.default-dispatcher-20] [akka.tcp://DumbSystem@127.0.0.1:34570/user/$a/c15] Got msg: 55
+[INFO] [03/26/2016 12:31:46.139] [DumbSystem-akka.actor.default-dispatcher-20] [akka.tcp://DumbSystem@127.0.0.1:34570/user/$a/c16] Got msg: 56
+[INFO] [03/26/2016 12:31:46.139] [DumbSystem-akka.actor.default-dispatcher-20] [akka.tcp://DumbSystem@127.0.0.1:34570/user/$a/c17] Got msg: 57
+[INFO] [03/26/2016 12:31:46.139] [DumbSystem-akka.actor.default-dispatcher-20] [akka.tcp://DumbSystem@127.0.0.1:34570/user/$a/c18] Got msg: 58
+[INFO] [03/26/2016 12:31:46.139] [DumbSystem-akka.actor.default-dispatcher-20] [akka.tcp://DumbSystem@127.0.0.1:34570/user/$a/c19] Got msg: 59
+[INFO] [03/26/2016 12:31:46.139] [DumbSystem-akka.actor.default-dispatcher-20] [akka.tcp://DumbSystem@127.0.0.1:34570/user/$a/c20] Got msg: 60
+#+end_src
+
+***** Scala REPL1
+
+#+begin_src
+[INFO] [03/26/2016 12:31:46.139] [DumbSystem-akka.actor.default-dispatcher-24] [akka.tcp://DumbSystem@127.0.0.1:2500/remote/akka.tcp/DumbSystem@127.0.0.1:34570/user/$a/c21] Got msg: 21
+[INFO] [03/26/2016 12:31:46.141] [DumbSystem-akka.actor.default-dispatcher-15] [akka.tcp://DumbSystem@127.0.0.1:2500/remote/akka.tcp/DumbSystem@127.0.0.1:34570/user/$a/c22] Got msg: 22
+[INFO] [03/26/2016 12:31:46.142] [DumbSystem-akka.actor.default-dispatcher-24] [akka.tcp://DumbSystem@127.0.0.1:2500/remote/akka.tcp/DumbSystem@127.0.0.1:34570/user/$a/c23] Got msg: 23
+[INFO] [03/26/2016 12:31:46.144] [DumbSystem-akka.actor.default-dispatcher-15] [akka.tcp://DumbSystem@127.0.0.1:2500/remote/akka.tcp/DumbSystem@127.0.0.1:34570/user/$a/c24] Got msg: 24
+[INFO] [03/26/2016 12:31:46.145] [DumbSystem-akka.actor.default-dispatcher-24] [akka.tcp://DumbSystem@127.0.0.1:2500/remote/akka.tcp/DumbSystem@127.0.0.1:34570/user/$a/c25] Got msg: 25
+[INFO] [03/26/2016 12:31:46.147] [DumbSystem-akka.actor.default-dispatcher-15] [akka.tcp://DumbSystem@127.0.0.1:2500/remote/akka.tcp/DumbSystem@127.0.0.1:34570/user/$a/c26] Got msg: 26
+[INFO] [03/26/2016 12:31:46.147] [DumbSystem-akka.actor.default-dispatcher-24] [akka.tcp://DumbSystem@127.0.0.1:2500/remote/akka.tcp/DumbSystem@127.0.0.1:34570/user/$a/c27] Got msg: 27
+[INFO] [03/26/2016 12:31:46.148] [DumbSystem-akka.actor.default-dispatcher-24] [akka.tcp://DumbSystem@127.0.0.1:2500/remote/akka.tcp/DumbSystem@127.0.0.1:34570/user/$a/c28] Got msg: 28
+[INFO] [03/26/2016 12:31:46.149] [DumbSystem-akka.actor.default-dispatcher-24] [akka.tcp://DumbSystem@127.0.0.1:2500/remote/akka.tcp/DumbSystem@127.0.0.1:34570/user/$a/c29] Got msg: 29
+[INFO] [03/26/2016 12:31:46.158] [DumbSystem-akka.actor.default-dispatcher-15] [akka.tcp://DumbSystem@127.0.0.1:2500/remote/akka.tcp/DumbSystem@127.0.0.1:34570/user/$a/c30] Got msg: 30
+[INFO] [03/26/2016 12:31:46.158] [DumbSystem-akka.actor.default-dispatcher-15] [akka.tcp://DumbSystem@127.0.0.1:2500/remote/akka.tcp/DumbSystem@127.0.0.1:34570/user/$a/c31] Got msg: 31
+[INFO] [03/26/2016 12:31:46.159] [DumbSystem-akka.actor.default-dispatcher-15] [akka.tcp://DumbSystem@127.0.0.1:2500/remote/akka.tcp/DumbSystem@127.0.0.1:34570/user/$a/c32] Got msg: 32
+[INFO] [03/26/2016 12:31:46.159] [DumbSystem-akka.actor.default-dispatcher-15] [akka.tcp://DumbSystem@127.0.0.1:2500/remote/akka.tcp/DumbSystem@127.0.0.1:34570/user/$a/c33] Got msg: 33
+[INFO] [03/26/2016 12:31:46.160] [DumbSystem-akka.actor.default-dispatcher-15] [akka.tcp://DumbSystem@127.0.0.1:2500/remote/akka.tcp/DumbSystem@127.0.0.1:34570/user/$a/c34] Got msg: 34
+[INFO] [03/26/2016 12:31:46.160] [DumbSystem-akka.actor.default-dispatcher-15] [akka.tcp://DumbSystem@127.0.0.1:2500/remote/akka.tcp/DumbSystem@127.0.0.1:34570/user/$a/c35] Got msg: 35
+[INFO] [03/26/2016 12:31:46.161] [DumbSystem-akka.actor.default-dispatcher-15] [akka.tcp://DumbSystem@127.0.0.1:2500/remote/akka.tcp/DumbSystem@127.0.0.1:34570/user/$a/c36] Got msg: 36
+[INFO] [03/26/2016 12:31:46.161] [DumbSystem-akka.actor.default-dispatcher-15] [akka.tcp://DumbSystem@127.0.0.1:2500/remote/akka.tcp/DumbSystem@127.0.0.1:34570/user/$a/c37] Got msg: 37
+[INFO] [03/26/2016 12:31:46.162] [DumbSystem-akka.actor.default-dispatcher-15] [akka.tcp://DumbSystem@127.0.0.1:2500/remote/akka.tcp/DumbSystem@127.0.0.1:34570/user/$a/c38] Got msg: 38
+[INFO] [03/26/2016 12:31:46.162] [DumbSystem-akka.actor.default-dispatcher-15] [akka.tcp://DumbSystem@127.0.0.1:2500/remote/akka.tcp/DumbSystem@127.0.0.1:34570/user/$a/c39] Got msg: 39
+[INFO] [03/26/2016 12:31:46.163] [DumbSystem-akka.actor.default-dispatcher-15] [akka.tcp://DumbSystem@127.0.0.1:2500/remote/akka.tcp/DumbSystem@127.0.0.1:34570/user/$a/c40] Got msg: 40
+[INFO] [03/26/2016 12:31:46.163] [DumbSystem-akka.actor.default-dispatcher-15] [akka.tcp://DumbSystem@127.0.0.1:2500/remote/akka.tcp/DumbSystem@127.0.0.1:34570/user/$a/c21] Got msg: 61
+[INFO] [03/26/2016 12:31:46.164] [DumbSystem-akka.actor.default-dispatcher-15] [akka.tcp://DumbSystem@127.0.0.1:2500/remote/akka.tcp/DumbSystem@127.0.0.1:34570/user/$a/c22] Got msg: 62
+[INFO] [03/26/2016 12:31:46.167] [DumbSystem-akka.actor.default-dispatcher-15] [akka.tcp://DumbSystem@127.0.0.1:2500/remote/akka.tcp/DumbSystem@127.0.0.1:34570/user/$a/c23] Got msg: 63
+[INFO] [03/26/2016 12:31:46.172] [DumbSystem-akka.actor.default-dispatcher-24] [akka.tcp://DumbSystem@127.0.0.1:2500/remote/akka.tcp/DumbSystem@127.0.0.1:34570/user/$a/c25] Got msg: 65
+[INFO] [03/26/2016 12:31:46.172] [DumbSystem-akka.actor.default-dispatcher-24] [akka.tcp://DumbSystem@127.0.0.1:2500/remote/akka.tcp/DumbSystem@127.0.0.1:34570/user/$a/c26] Got msg: 66
+[INFO] [03/26/2016 12:31:46.173] [DumbSystem-akka.actor.default-dispatcher-17] [akka.tcp://DumbSystem@127.0.0.1:2500/remote/akka.tcp/DumbSystem@127.0.0.1:34570/user/$a/c27] Got msg: 67
+[INFO] [03/26/2016 12:31:46.178] [DumbSystem-akka.actor.default-dispatcher-15] [akka.tcp://DumbSystem@127.0.0.1:2500/remote/akka.tcp/DumbSystem@127.0.0.1:34570/user/$a/c24] Got msg: 64
+[INFO] [03/26/2016 12:31:46.179] [DumbSystem-akka.actor.default-dispatcher-24] [akka.tcp://DumbSystem@127.0.0.1:2500/remote/akka.tcp/DumbSystem@127.0.0.1:34570/user/$a/c28] Got msg: 68
+[INFO] [03/26/2016 12:31:46.179] [DumbSystem-akka.actor.default-dispatcher-24] [akka.tcp://DumbSystem@127.0.0.1:2500/remote/akka.tcp/DumbSystem@127.0.0.1:34570/user/$a/c29] Got msg: 69
+[INFO] [03/26/2016 12:31:46.180] [DumbSystem-akka.actor.default-dispatcher-24] [akka.tcp://DumbSystem@127.0.0.1:2500/remote/akka.tcp/DumbSystem@127.0.0.1:34570/user/$a/c30] Got msg: 70
+[INFO] [03/26/2016 12:31:46.181] [DumbSystem-akka.actor.default-dispatcher-24] [akka.tcp://DumbSystem@127.0.0.1:2500/remote/akka.tcp/DumbSystem@127.0.0.1:34570/user/$a/c31] Got msg: 71
+[INFO] [03/26/2016 12:31:46.181] [DumbSystem-akka.actor.default-dispatcher-24] [akka.tcp://DumbSystem@127.0.0.1:2500/remote/akka.tcp/DumbSystem@127.0.0.1:34570/user/$a/c32] Got msg: 72
+[INFO] [03/26/2016 12:31:46.182] [DumbSystem-akka.actor.default-dispatcher-17] [akka.tcp://DumbSystem@127.0.0.1:2500/remote/akka.tcp/DumbSystem@127.0.0.1:34570/user/$a/c33] Got msg: 73
+[INFO] [03/26/2016 12:31:46.182] [DumbSystem-akka.actor.default-dispatcher-24] [akka.tcp://DumbSystem@127.0.0.1:2500/remote/akka.tcp/DumbSystem@127.0.0.1:34570/user/$a/c34] Got msg: 74
+[INFO] [03/26/2016 12:31:46.182] [DumbSystem-akka.actor.default-dispatcher-15] [akka.tcp://DumbSystem@127.0.0.1:2500/remote/akka.tcp/DumbSystem@127.0.0.1:34570/user/$a/c35] Got msg: 75
+[INFO] [03/26/2016 12:31:46.182] [DumbSystem-akka.actor.default-dispatcher-15] [akka.tcp://DumbSystem@127.0.0.1:2500/remote/akka.tcp/DumbSystem@127.0.0.1:34570/user/$a/c36] Got msg: 76
+[INFO] [03/26/2016 12:31:46.182] [DumbSystem-akka.actor.default-dispatcher-17] [akka.tcp://DumbSystem@127.0.0.1:2500/remote/akka.tcp/DumbSystem@127.0.0.1:34570/user/$a/c37] Got msg: 77
+[INFO] [03/26/2016 12:31:46.183] [DumbSystem-akka.actor.default-dispatcher-24] [akka.tcp://DumbSystem@127.0.0.1:2500/remote/akka.tcp/DumbSystem@127.0.0.1:34570/user/$a/c38] Got msg: 78
+[INFO] [03/26/2016 12:31:46.183] [DumbSystem-akka.actor.default-dispatcher-15] [akka.tcp://DumbSystem@127.0.0.1:2500/remote/akka.tcp/DumbSystem@127.0.0.1:34570/user/$a/c39] Got msg: 79
+[INFO] [03/26/2016 12:31:46.183] [DumbSystem-akka.actor.default-dispatcher-17] [akka.tcp://DumbSystem@127.0.0.1:2500/remote/akka.tcp/DumbSystem@127.0.0.1:34570/user/$a/c40] Got msg: 80
+#+end_src
