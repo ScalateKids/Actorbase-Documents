@@ -187,21 +187,22 @@ Per rendere quantificabile il processo di verifica verranno usate delle metriche
 \label{sec:metricheProcesso}
 Per garantire un monitoraggio e un controllo dei processi è stato scelto di utilizzare un indice sui costi e un indice temporale.
 \paragraph{Budget Variance (BV)}
-Questo indice indica se alla data corrente si è in linea con i costi preventivati.\\
+Questo indice indica se alla data corrente si è in linea con i costi preventivati.\\ Per calcolare questo indice basta moltiplicare le ore di lavoro pianificate per i rispettivi costi e sottrarle alla moltiplicazione tra le ore preventivate per i rispettivi costi.
 Se \gloss{BV} è $\geq$ 0 significa che le spese sostenute sono minori rispetto ai costi preventivati.\\
 \textbf{Range accettabili:}
 \begin{itemize}
   \item \gloss{Range} ottimale: $\geq$ 0;
-  \item \gloss{Range} di accettazione: $\geq$. %TODO percentuale di accettazione
+  \item \gloss{Range} di accettazione: $\geq$ -600. %TODO percentuale di accettazione
 \end{itemize}
 \paragraph{Schedule Variance (SV)}
-Questo indice indica se alla data corrente si è in anticipo o in ritardo rispetto alla pianificazione temporale.\\
+Questo indice indica se alla data corrente si è in anticipo o in ritardo rispetto alla pianificazione temporale.\\ Per calcolare questo indice basta sottrarre le ore effettive alle ore pianificate. Il risultato indica una quantità di ore lavoro.\\
 Se \gloss{SV} è $\geq$ 0 significa che si è in anticipo rispetto a quanto pianificato.\\
 \textbf{Range accettabili:}
 \begin{itemize}
   \item \gloss{Range} ottimale: $\geq$ 0;
-  \item \gloss{Range} di accettazione: $\geq$. %TODO percentuale di accettazione
+  \item \gloss{Range} di accettazione: $\geq$ -40.
 \end{itemize}
+
 \subsubsection{Metriche per i documenti}
 \label{sec:metricheDocumenti}
 Per la stesura dei documenti è stato scelto di utilizzare un \textit{indice di leggibilità} per la lingua italiana.
@@ -429,11 +430,6 @@ Nella tabella di seguito sono riportati i valori degli indici di Gulpease per og
     \hline
   \end{tabular}
 \end{center}
-\subsubsection{Processi}
-\paragraph{Schedule Variance}
-Nella tabella di seguito sono riportati i valori dello Schedule Variance calcolati.
-\paragraph{Budget Variance}
-Nella tabella di seguito sono riportati i valori del Budget Variance calcolati.
 \newpage
 \section{Pianificazione dei test}
 Di seguito sono descritti i test di sistema. In futuro questa sezione verrà aggiornata con i test di integrazione e di unità.
