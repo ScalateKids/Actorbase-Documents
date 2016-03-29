@@ -136,4 +136,15 @@ In questo capitolo sono elencate le domande fatte dal gruppo \textit{ScalateKids
 \begin{quote}
   \textit{Per quanto riguarda le \gloss{query} vi consiglio di seguire una sintassi simile a \gloss{SQL}.\\}
 \end{quote}
+\section{Decisioni prese}
+In seguito alla riunione sono state prese le seguenti decisioni:
+\begin{itemize}
+\item Per la realizzazione della \gloss{CLI} verranno cercati dei template o interfacce da implementare;
+\item Verrà implementato l'attore \gloss{Manager} con un algoritmo semplicistico. Questo verrà sviluppato in modo da consentirne facilmente l'estendibilità nel caso in cui si voglia usare un algoritmo più efficace;
+\item Il numero di attori \gloss{main} per \gloss{nodo} sarà configurabile;
+\item L'attore \gloss{main} da associare a un client verrà scelto secondo una politica di routing da definire;
+\item La persistenza su disco verrà implementata sfruttando il formato \gloss{BSON (Binary javaScript Object Notation)};
+\item La persistenza su disco verrà implementata in modo tale da consentirne l'estendibilità facilmente nel caso in cui si voglia usare un formato di salvataggio differente;
+\item L'idea di creare un \gloss{DSL (Domain Specific Language)} simile a \gloss{Javascript} è stata scartata.
+\end{itemize}
 \end{document}

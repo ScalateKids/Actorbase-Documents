@@ -48,6 +48,10 @@
     \hline
     Versione & Autore & Ruolo & Data & Descrizione \\
     \hline
+    0.4.0 & Michael Munaro & Verificatore & 2016-03-25 & Verifica sezione 5\\
+    \hline
+    0.3.1 & Giacomo Vanin & Progettista & 2016-03-24 & Stesura sezione 5\\
+    \hline
     0.3.0 & Alberto De Agostini & Verificatore & 2016-03-22 & Verifica sezioni da 4.6 a 4.13\\
     \hline
     0.2.2 & Marco Boseggia & Progettista & 2016-03-22 & Stesura sezioni 4.10 4.11 4.12 4.13\\
@@ -1219,22 +1223,23 @@ Viene utilizzata per mandare al \gloss{controller} il comando di esportazione in
 
 \section{Diagrammi di attività}
 In questa sezione, vengono illustrati i diagrammi di attività che descrivono l'interazione dell'utente con Actorbase tramite l'utilizzo della \gloss{CLI} ad esso associata.
- stato disegnato un diagramma ad alto livello in cui sono rappresentate le operazioni possibili sul database. Esse vengono poi illustrate tramite dei sotto-diagrammi per poterne comprendere meglio il funzionamente e facilitarne la lettura.
+ É stato disegnato un diagramma ad alto livello in cui sono rappresentate le operazioni possibili sul database. Esse vengono poi illustrate tramite dei sotto-diagrammi per poterne comprendere meglio il funzionamento e facilitarne la lettura.
 
-\subsection{Visione Generale}
-L'utente, dopo aver aperto la \gloss{CLI}, ha la possibilità di \textit{loggarsi al database} oppure \textit{chiedere dell'aiuto}. Una volta autenticato, esso può \textit{operare su collezioni e/o item}, \textit{interrogare il database}, \textit{modificare la propria password}, \textit{effettuare il logout} oppure, se si tratta di un amministratore, \textit{gestire gli utenti del database}.
+\subsection{Visione generale}
+L'utente, dopo aver aperto la \gloss{CLI}, ha la possibilità di autenticarsi al database oppure chiedere dell'aiuto. Una volta autenticato, esso può operare su collezioni e/o item, interrogare il database, modificare la propria password, effettuare il logout oppure, se si tratta di un amministratore, gestire gli utenti del database.
 
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[width=0.8\textwidth, keepaspectratio]{img/diagrammiAttivita/visioneGenerale.jpeg}
-		\caption*{Diagrammi attività - Visione Generale}
+		\caption*{Diagrammi attività - Visione generale}
 	\end{center}
 \end{figure}
 
-\subsection{operazioni su collezioni e/o item}
-Per quanto riguarda le operazioni che l'utente può fare su collezioni e item, abbiamo: \textit{creazione e cancellazione di una o più collezioni}, \textit{visualizzare le collezioni presenti nel database}, \textit{rinominare una collezione}, \textit{inserire e rimuovere un item} e \textit{aggiungere o rimuovere un collaboratore da una collezione}.
-Come si può vedere dalle immagini, le operazioni sono molto lineari e di semplice lettura. Per ogni tipo di operazione è sempre possibile cadere in errore (nel momento in cui si sbaglia la sintassi del comando) e quindi si dovrà riscrivere da zero l'istruzione desiderata.
-Inoltre si può notare che l'inserimento di un item o la creazione di una collezione potranno esser fatti manualmente (i.e scrivendo da riga di comando tutto il necessario) oppure da file (i.e tramite file JSON).
+\subsection{Operazioni su collezioni e/o item}
+\subsubsection{Creazione collezione}
+Questo tipo di operazione permette di inserire una collezione all'interno del database.
+Come si vede dal grafico che segue, l'utente dovrà inserire il comando per la creazione della collezione, il nome della collezione stessa e i suoi parametri.
+Una volta premuto il tasto invio, l'operazione andrà a buon termine se l'utente ha scritto correttamente il comando altrimenti verrà visualizzato un messaggio di errore.
 
 \begin{figure}[H]
 	\begin{center}
@@ -1243,19 +1248,34 @@ Inoltre si può notare che l'inserimento di un item o la creazione di una collez
 	\end{center}
 \end{figure}
 
+\subsubsection{Cancellazione collezione}
+Questo tipo di operazione permette di cancellare una collezione dal database.
+Come si vede dal grafico che segue, l'utente dovrà inserire il comando per la cancellazione di una collezione e il nome della collezione stessa.
+Una volta premuto il tasto invio, l'operazione andrà a buon termine se l'utente ha scritto correttamente il comando altrimenti verrà visualizzato un messaggio di errore.
+
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[width=0.3\textwidth, keepaspectratio]{img/diagrammiAttivita/cancCollezione.jpeg}
-		\caption*{Diagrammi attività - Cancellazione Collezione}
+		\caption*{Diagrammi attività - Cancellazione collezione}
 	\end{center}
 \end{figure}
+
+\subsubsection{Visualizza collezioni}
+Questo tipo di operazione permette di visualizzare le collezioni presenti all'interno dal database.
+Come si vede dal grafico che segue, l'utente dovrà inserire il comando per la visualizzazione delle collezioni.
+Una volta premuto il tasto invio, l'operazione andrà a buon termine (ricevendo la lista delle collezioni) se l'utente ha scritto correttamente il comando altrimenti verrà visualizzato un messaggio di errore.
 
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[width=0.3\textwidth, keepaspectratio]{img/diagrammiAttivita/visCollezione.jpeg}
-		\caption*{Diagrammi attività - Visualizzazione Collezioni}
+		\caption*{Diagrammi attività - Visualizzazione collezioni}
 	\end{center}
 \end{figure}
+
+\subsubsection{Modifica nome collezione}
+Questo tipo di operazione permette di modificare il nome di una collezione presente nel database.
+Come si vede dal grafico che segue, l'utente dovrà inserire il comando per la rinominazione della collezione, il nome della collezione stessa e il nuovo nome per essa.
+Una volta premuto il tasto invio, l'operazione andrà a buon termine se l'utente ha scritto correttamente il comando altrimenti verrà visualizzato un messaggio di errore.
 
 \begin{figure}[H]
 	\begin{center}
@@ -1264,12 +1284,22 @@ Inoltre si può notare che l'inserimento di un item o la creazione di una collez
 	\end{center}
 \end{figure}
 
+\subsubsection{Inserimento item}
+Questo tipo di operazione permette di inserire un item all'interno di una collezione del database.
+Come si vede dal grafico che segue, l'utente dovrà inserire il comando per l'inserimento item, il valore e parametri dell'item stesso e il nome della collezione dove inserire l'item.
+Una volta premuto il tasto invio, l'operazione andrà a buon termine (ricevendo la lista delle collezioni) se l'utente ha scritto correttamente il comando altrimenti verrà visualizzato un messaggio di errore.
+
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[width=0.3\textwidth, keepaspectratio]{img/diagrammiAttivita/inserimentoItem.jpeg}
 		\caption*{Diagrammi attività - Inserimento item}
 	\end{center}
 \end{figure}
+
+\subsubsection{Rimozione item}
+Questo tipo di operazione permette di rimuovere un item dall'interno di una collezione del database.
+Come si vede dal grafico che segue, l'utente dovrà inserire il comando per l'eliminazone di un item, il nome della collezione da dove rimuovere l'item e il nome dell'item stesso.
+Una volta premuto il tasto invio, l'operazione andrà a buon termine (ricevendo la lista delle collezioni) se l'utente ha scritto correttamente il comando altrimenti verrà visualizzato un messaggio di errore.
 
 \begin{figure}[H]
 	\begin{center}
@@ -1278,12 +1308,22 @@ Inoltre si può notare che l'inserimento di un item o la creazione di una collez
 	\end{center}
 \end{figure}
 
+\subsubsection{Aggiunta collaboratore}
+Questo tipo di operazione permette di aggiungere un collaboratore ad una collezione presente nel database.
+Come si vede dal grafico che segue, l'utente dovrà inserire il comando per l'aggiunta di un collaboratore ad una collezione, lo username del collaboratore e il nome della collezione alla quale aggiungerlo.
+Una volta premuto il tasto invio, l'operazione andrà a buon termine se l'utente ha scritto correttamente il comando altrimenti verrà visualizzato un messaggio di errore.
+
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[width=0.3\textwidth, keepaspectratio]{img/diagrammiAttivita/aggCollaboratore.jpeg}
-		\caption*{Diagrammi attività - Aggiunta Collaboratore}
+		\caption*{Diagrammi attività - Aggiunta collaboratore}
 	\end{center}
 \end{figure}
+
+\subsubsection{Rimozione collaboratore}
+Questo tipo di operazione permette di rimuovere un collaboratore da una collezione presente nel database.
+Come si vede dal grafico che segue, l'utente dovrà inserire il comando per la rimozione di un collaboratore da una collezione, lo username del collaboratore e il nome della collezione dalla quale rimuoverlo.
+Una volta premuto il tasto invio, l'operazione andrà a buon termine se l'utente ha scritto correttamente il comando altrimenti verrà visualizzato un messaggio di errore.
 
 \begin{figure}[H]
 	\begin{center}
@@ -1292,7 +1332,22 @@ Inoltre si può notare che l'inserimento di un item o la creazione di una collez
 	\end{center}
 \end{figure}
 
-\subsection{interrogazione del database}
+\subsubsection{Import}
+Questo tipo di operazione permette di importare nel database collezioni o item tramite file \gloss{JSON}.
+Come si vede dal grafico che segue, l'utente dovrà inserire il comando per l'importazione e il path che porta al file desiderato.
+Una volta premuto il tasto invio, l'operazione andrà a buon termine se l'utente ha scritto correttamente il comando altrimenti verrà visualizzato un messaggio di errore.
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=0.3\textwidth, keepaspectratio]{img/diagrammiAttivita/import.jpeg}
+		\caption*{Diagrammi attività - Import}
+	\end{center}
+\end{figure}
+
+\subsection{Interrogazione del database}
+Questo tipo di operazione permette di interrogare il database tramite delle query.
+Come si vede dal grafico che segue, l'utente dovrà inserire il comando per l'interrogazione del database e i parametri per la ricerca.
+Una volta premuto il tasto invio, l'operazione andrà a buon termine se l'utente ha scritto correttamente il comando, ricevendo il risultato della query, altrimenti verrà visualizzato un messaggio di errore.
 
 \begin{figure}[H]
 	\begin{center}
@@ -1301,7 +1356,10 @@ Inoltre si può notare che l'inserimento di un item o la creazione di una collez
 	\end{center}
 \end{figure}
 
-\subsection{modifica password}
+\subsection{Modifica password}
+Questo tipo di operazione permette di modificare la propria password.
+Come si vede dal grafico che segue, l'utente dovrà inserire il comando per la modifica della password, la vecchia password, la nuova password e confermare quest'ultima.
+Una volta premuto il tasto invio, l'operazione andrà a buon termine se l'utente ha scritto correttamente il comando altrimenti verrà visualizzato un messaggio di errore.
 
 \begin{figure}[H]
 	\begin{center}
@@ -1310,8 +1368,11 @@ Inoltre si può notare che l'inserimento di un item o la creazione di una collez
 	\end{center}
 \end{figure}
 
-\subsection{gestione utenti}
-La gestione utenti, possibile solo ad un utente amministratore, prevede la possibilità di \textit{aggiungere o rimuovere un utente dal database} e la possibilità di \textit{resettare la password di un utente}.
+\subsection{Gestione utenti}
+La gestione utenti, possibile solo ad un utente amministratore, prevede la possibilità di aggiungere o rimuovere un utente dal database e la possibilità di resettare la password di un utente.
+Per aggiungere o rimuovere un utente, l'amministratore dovrà inserire il rispettivo comando, lo username dell'utente da aggiungere/rimuovere dal database e una conferma.
+Per resettare la password di un utente, l'amministratore dovrà scrivere il comando per il reset della password, lo username dell'utente interessato e una conferma.
+Una volta premuto il tasto invio, le operazione andranno a buon termine se l'utente ha scritto correttamente il comando altrimenti verrà visualizzato un messaggio di errore.
 
 \begin{figure}[H]
 	\begin{center}
@@ -1326,4 +1387,12 @@ La gestione utenti, possibile solo ad un utente amministratore, prevede la possi
 
 \section{Tracciamento}
 
+\subsection{Tracciamento componenti - requisiti}
+
+\subsection{Tracciamento requisiti - componenti}
+
+\appendix
+\section{Descrizione design pattern}
+\listoftables
+\listoffigures
 \end{document}

@@ -47,3 +47,185 @@ while(cursor.hasNext) {
   - Utilizzare i messaggi per proseguire il popolamento degli storekeeper ad albero.
   - Utilizzare un actor globale contenente tutti i ref degli sf, le connessioni in ingresso
     richiederanno al globale i reference dei propri sf.
+
+**** Simple cluster sample:
+Hello world cluster implementation
+***** build.sbt
+#+begin_src scala
+name := "simple-cluster"
+
+version := "1.0"
+
+scalaVersion := "2.11.8"
+
+libraryDependencies ++= Seq(
+  "com.typesafe.akka" %% "akka-actor" % "2.4.2",
+  "com.typesafe.akka" %% "akka-cluster" % "2.4.2"
+)
+#+end_src
+***** Actor.scala
+#+begin_src scala
+import akka.actor._
+
+class Logger extends Actor with ActorLogging {
+  log.info("Logger started!")
+
+  def receive = {
+    case msg => log.info("Got msg: {}", msg)
+  }
+}
+#+end_src
+***** System.scala
+Specifies one seed node at 127.0.0.1:2500
+#+begin_src scala
+import akka.actor._
+import akka.routing._
+import akka.cluster._
+import akka.cluster.routing._
+import com.typesafe.config.ConfigFactory
+
+object TestSystem {
+  val config = ConfigFactory.parseString(s"""
+    akka.remote.netty.tcp.port=2500
+    akka.actor.provider=akka.cluster.ClusterActorRefProvider
+    akka.cluster.seed-nodes = ["akka.tcp://DumbSystem@127.0.0.1:2500"]
+    """)
+  val system = ActorSystem("DumbSystem", config)
+  Cluster(system).registerOnMemberUp {}
+}
+
+object NodeSystem {
+  val config = ConfigFactory.parseString(s"""
+    akka.remote.netty.tcp.port=0 //random free port
+    akka.actor.provider=akka.cluster.ClusterActorRefProvider
+    akka.cluster.seed-nodes = ["akka.tcp://DumbSystem@127.0.0.1:2500"]
+    """)
+  val system = ActorSystem("DumbSystem", config)
+  Cluster(system).registerOnMemberUp {}
+}
+#+end_src
+***** Node A - Scala REPL
+****** Steps:
+       - import akka packages for routing (akka routing and cluster routing)
+       - create actor system for node A with TestSystem class, start the cluster
+         auto-joining itself
+#+begin_src scala
+Welcome to Scala 2.11.8 (OpenJDK 64-Bit Server VM, Java 1.8.0_74).
+Type in expressions for evaluation. Or try :help.
+
+scala> import akka.cluster.routing._
+import akka.cluster.routing._
+
+scala> import akka.routing._
+import akka.routing._
+
+scala> val system = TestSystem.system
+[INFO] [03/26/2016 12:22:29.552] [run-main-0] [akka.remote.Remoting] Starting remoting
+[INFO] [03/26/2016 12:22:29.949] [run-main-0] [akka.remote.Remoting] Remoting started; listening on addresses :[akka.tcp://DumbSystem@127.0.0.1:2500]
+[INFO] [03/26/2016 12:22:29.952] [run-main-0] [akka.remote.Remoting] Remoting now listens on addresses: [akka.tcp://DumbSystem@127.0.0.1:2500]
+[INFO] [03/26/2016 12:22:29.988] [run-main-0] [akka.cluster.Cluster(akka://DumbSystem)] Cluster Node [akka.tcp://DumbSystem@127.0.0.1:2500] - Starting up...
+[INFO] [03/26/2016 12:22:30.211] [run-main-0] [akka.cluster.Cluster(akka://DumbSystem)] Cluster Node [akka.tcp://DumbSystem@127.0.0.1:2500] - Registered cluster JMX MBean [akka:type=Cluster]
+[INFO] [03/26/2016 12:22:30.211] [run-main-0] [akka.cluster.Cluster(akka://DumbSystem)] Cluster Node [akka.tcp://DumbSystem@127.0.0.1:2500] - Started up successfully
+[INFO] [03/26/2016 12:22:30.236] [DumbSystem-akka.actor.default-dispatcher-3] [akka.cluster.Cluster(akka://DumbSystem)] Cluster Node [akka.tcp://DumbSystem@127.0.0.1:2500] - Metrics will be retreived from MBeans, and may be incorrect on some platforms. To increase metric accuracy add the 'sigar.jar' to the classpath and the appropriate platform-specific native libary to 'java.library.path'. Reason: java.lang.ClassNotFoundException: org.hyperic.sigar.Sigar
+[INFO] [03/26/2016 12:22:30.264] [DumbSystem-akka.actor.default-dispatcher-3] [akka.cluster.Cluster(akka://DumbSystem)] Cluster Node [akka.tcp://DumbSystem@127.0.0.1:2500] - Metrics collection has started successfully
+system: akka.actor.ActorSystem = akka://DumbSystem
+
+scala> [INFO] [03/26/2016 12:22:30.297] [DumbSystem-akka.actor.default-dispatcher-4] [akka.cluster.Cluster(akka://DumbSystem)] Cluster Node [akka.tcp://DumbSystem@127.0.0.1:2500] - Node [akka.tcp://DumbSystem@127.0.0.1:2500] is JOINING, roles []
+[INFO] [03/26/2016 12:22:30.304] [DumbSystem-akka.actor.default-dispatcher-4] [akka.cluster.Cluster(akka://DumbSystem)] Cluster Node [akka.tcp://DumbSystem@127.0.0.1:2500] - Leader is moving node [akka.tcp://DumbSystem@127.0.0.1:2500] to [Up]
+#+end_src
+***** Node B - Scala REPL
+****** Steps:
+       - import akka packages for actor Props and routing (akka routing and cluster routing)
+       - create actor system for node B with NodeSystem class, it'll connect to the cluster using
+         the specified seed-node
+#+begin_src scala
+Welcome to Scala 2.11.8 (OpenJDK 64-Bit Server VM, Java 1.8.0_74).
+Type in expressions for evaluation. Or try :help.
+
+scala> import akka.actor._
+import akka.actor._
+
+scala> import akka.routing._
+import akka.routing._
+
+scala> import akka.cluster.routing._
+import akka.cluster.routing._
+
+scala> val system = NodeSystem.system
+#+end_src
+Output
+#+begin_src scala
+[INFO] [03/26/2016 12:28:20.741] [run-main-0] [akka.remote.Remoting] Starting remoting
+[INFO] [03/26/2016 12:28:20.872] [run-main-0] [akka.remote.Remoting] Remoting started; listening on addresses :[akka.tcp://DumbSystem@127.0.0.1:34570]
+[INFO] [03/26/2016 12:28:20.873] [run-main-0] [akka.remote.Remoting] Remoting now listens on addresses: [akka.tcp://DumbSystem@127.0.0.1:34570]
+[INFO] [03/26/2016 12:28:20.887] [run-main-0] [akka.cluster.Cluster(akka://DumbSystem)] Cluster Node [akka.tcp://DumbSystem@127.0.0.1:34570] - Starting up...
+[INFO] [03/26/2016 12:28:20.963] [run-main-0] [akka.cluster.Cluster(akka://DumbSystem)] Cluster Node [akka.tcp://DumbSystem@127.0.0.1:34570] - Registered cluster JMX MBean [akka:type=Cluster]
+[INFO] [03/26/2016 12:28:20.963] [run-main-0] [akka.cluster.Cluster(akka://DumbSystem)] Cluster Node [akka.tcp://DumbSystem@127.0.0.1:34570] - Started up successfully
+[INFO] [03/26/2016 12:28:20.976] [DumbSystem-akka.actor.default-dispatcher-4] [akka.cluster.Cluster(akka://DumbSystem)] Cluster Node [akka.tcp://DumbSystem@127.0.0.1:34570] - Metrics will be retreived from MBeans, and may be incorrect on some platforms. To increase metric accuracy add the 'sigar.jar' to the classpath and the appropriate platform-specific native libary to 'java.library.path'. Reason: java.lang.ClassNotFoundException: org.hyperic.sigar.Sigar
+[INFO] [03/26/2016 12:28:20.998] [DumbSystem-akka.actor.default-dispatcher-4] [akka.cluster.Cluster(akka://DumbSystem)] Cluster Node [akka.tcp://DumbSystem@127.0.0.1:34570] - Metrics collection has started successfully
+system: akka.actor.ActorSystem = akka://DumbSystem
+
+scala> [INFO] [03/26/2016 12:28:21.588] [DumbSystem-akka.actor.default-dispatcher-19] [akka.cluster.Cluster(akka://DumbSystem)] Cluster Node [akka.tcp://DumbSystem@127.0.0.1:34570] - Welcome from [akka.tcp://DumbSystem@127.0.0.1:2500]
+#+end_src
+***** Node A - Scala REPL
+Output produced after node B joining the cluster
+#+begin_src scala
+scala> [INFO] [03/26/2016 12:26:45.017] [DumbSystem-akka.actor.default-dispatcher-3] [akka.cluster.Cluster(akka://DumbSystem)] Cluster Node [akka.tcp://DumbSystem@127.0.0.1:2500] - Node [akka.tcp://DumbSystem@127.0.0.1:2500] is JOINING, roles []
+[INFO] [03/26/2016 12:26:45.027] [DumbSystem-akka.actor.default-dispatcher-3] [akka.cluster.Cluster(akka://DumbSystem)] Cluster Node [akka.tcp://DumbSystem@127.0.0.1:2500] - Leader is moving node [akka.tcp://DumbSystem@127.0.0.1:2500] to [Up]
+[INFO] [03/26/2016 12:28:21.406] [DumbSystem-akka.actor.default-dispatcher-2] [akka.cluster.Cluster(akka://DumbSystem)] Cluster Node [akka.tcp://DumbSystem@127.0.0.1:2500] - Node [akka.tcp://DumbSystem@127.0.0.1:34570] is JOINING, roles []
+[INFO] [03/26/2016 12:28:21.977] [DumbSystem-akka.actor.default-dispatcher-18] [akka.cluster.Cluster(akka://DumbSystem)] Cluster Node [akka.tcp://DumbSystem@127.0.0.1:2500] - Leader is moving node [akka.tcp://DumbSystem@127.0.0.1:34570] to [Up]
+#+end_src
+***** Node B - Scala REPL
+****** Steps:
+       - create a round robin pool of 10 instances
+       - create a cluster router pool of 10 total instances distributed equally on cluster (e.g. 5 per node)
+       - create a cluster router pool using round robin settings and cluster pool previously created
+       - create router actor responsible of his routees distributed across the cluster
+#+begin_src scala
+scala> val roundRobinPool = RoundRobinPool(nrOfInstances = 10)
+roundRobinPool: akka.routing.RoundRobinPool = RoundRobinPool(10,None,OneForOneStrategy(-1,Duration.Inf,true),akka.actor.default-dispatcher,false)
+
+scala> val clusterRoutingSettings = ClusterRouterPoolSettings(totalInstances = 10, maxInstancesPerNode = 5, allowLocalRoutees = true, useRole = None)
+clusterRoutingSettings: akka.cluster.routing.ClusterRouterPoolSettings = ClusterRouterPoolSettings(10,5,true,None)
+
+scala> val clusterPool = ClusterRouterPool(roundRobinPool, clusterRoutingSettings)
+clusterPool: akka.cluster.routing.ClusterRouterPool = ClusterRouterPool(RoundRobinPool(10,None,OneForOneStrategy(-1,Duration.Inf,true),akka.actor.default-dispatcher,false),ClusterRouterPoolSettings(10,5,true,None))
+
+scala> val router = system.actorOf(clusterPool.props(Props[Logger]))
+router: akka.actor.ActorRef = Actor[akka://DumbSystem/user/$a#1896267896]
+
+scala> [INFO] [03/26/2016 12:57:42.109] [DumbSystem-akka.actor.default-dispatcher-15] [akka.tcp://DumbSystem@127.0.0.1:43420/user/$a/c1] Logger started!
+[INFO] [03/26/2016 12:57:42.109] [DumbSystem-akka.actor.default-dispatcher-2] [akka.tcp://DumbSystem@127.0.0.1:43420/user/$a/c2] Logger started!
+[INFO] [03/26/2016 12:57:42.109] [DumbSystem-akka.actor.default-dispatcher-14] [akka.tcp://DumbSystem@127.0.0.1:43420/user/$a/c3] Logger started!
+[INFO] [03/26/2016 12:57:42.110] [DumbSystem-akka.actor.default-dispatcher-18] [akka.tcp://DumbSystem@127.0.0.1:43420/user/$a/c5] Logger started!
+[INFO] [03/26/2016 12:57:42.111] [DumbSystem-akka.actor.default-dispatcher-16] [akka.tcp://DumbSystem@127.0.0.1:43420/user/$a/c4] Logger started!
+#+end_src
+***** Node A - Scala REPL
+Output after routees are spawned
+#+begin_src scala
+[INFO] [03/26/2016 12:57:42.204] [DumbSystem-akka.actor.default-dispatcher-3] [akka.tcp://DumbSystem@127.0.0.1:2500/remote/akka.tcp/DumbSystem@127.0.0.1:43420/user/$a/c6] Logger started!
+[INFO] [03/26/2016 12:57:42.206] [DumbSystem-akka.actor.default-dispatcher-16] [akka.tcp://DumbSystem@127.0.0.1:2500/remote/akka.tcp/DumbSystem@127.0.0.1:43420/user/$a/c7] Logger started!
+[INFO] [03/26/2016 12:57:42.208] [DumbSystem-akka.actor.default-dispatcher-16] [akka.tcp://DumbSystem@127.0.0.1:2500/remote/akka.tcp/DumbSystem@127.0.0.1:43420/user/$a/c8] Logger started!
+[INFO] [03/26/2016 12:57:42.210] [DumbSystem-akka.actor.default-dispatcher-16] [akka.tcp://DumbSystem@127.0.0.1:2500/remote/akka.tcp/DumbSystem@127.0.0.1:43420/user/$a/c9] Logger started!
+[INFO] [03/26/2016 12:57:42.212] [DumbSystem-akka.actor.default-dispatcher-3] [akka.tcp://DumbSystem@127.0.0.1:2500/remote/akka.tcp/DumbSystem@127.0.0.1:43420/user/$a/c10] Logger started!
+#+end_src
+***** Node B - Scala REPL
+Send 10 messages to the router, they'll be distributed across the cluster according to round robin pool
+previously created
+#+begin_src scala
+scala> (1 to 10).foreach(i => router ! i)
+[INFO] [03/26/2016 13:39:52.005] [DumbSystem-akka.actor.default-dispatcher-17] [akka.tcp://DumbSystem@127.0.0.1:43420/user/$a/c1] Got msg: 1
+[INFO] [03/26/2016 13:39:52.005] [DumbSystem-akka.actor.default-dispatcher-14] [akka.tcp://DumbSystem@127.0.0.1:43420/user/$a/c3] Got msg: 3
+[INFO] [03/26/2016 13:39:52.005] [DumbSystem-akka.actor.default-dispatcher-4] [akka.tcp://DumbSystem@127.0.0.1:43420/user/$a/c2] Got msg: 2
+[INFO] [03/26/2016 13:39:52.005] [DumbSystem-akka.actor.default-dispatcher-14] [akka.tcp://DumbSystem@127.0.0.1:43420/user/$a/c4] Got msg: 4
+[INFO] [03/26/2016 13:39:52.005] [DumbSystem-akka.actor.default-dispatcher-14] [akka.tcp://DumbSystem@127.0.0.1:43420/user/$a/c5] Got msg: 5
+#+end_src
+***** Node A - Scala REPL
+Output of every logger actor
+#+begin_src scala
+[INFO] [03/26/2016 13:39:52.007] [DumbSystem-akka.actor.default-dispatcher-24] [akka.tcp://DumbSystem@127.0.0.1:2500/remote/akka.tcp/DumbSystem@127.0.0.1:43420/user/$a/c6] Got msg: 6
+[INFO] [03/26/2016 13:39:52.007] [DumbSystem-akka.actor.default-dispatcher-15] [akka.tcp://DumbSystem@127.0.0.1:2500/remote/akka.tcp/DumbSystem@127.0.0.1:43420/user/$a/c7] Got msg: 7
+[INFO] [03/26/2016 13:39:52.007] [DumbSystem-akka.actor.default-dispatcher-13] [akka.tcp://DumbSystem@127.0.0.1:2500/remote/akka.tcp/DumbSystem@127.0.0.1:43420/user/$a/c8] Got msg: 8
+[INFO] [03/26/2016 13:39:52.008] [DumbSystem-akka.actor.default-dispatcher-13] [akka.tcp://DumbSystem@127.0.0.1:2500/remote/akka.tcp/DumbSystem@127.0.0.1:43420/user/$a/c9] Got msg: 9
+[INFO] [03/26/2016 13:39:52.008] [DumbSystem-akka.actor.default-dispatcher-13] [akka.tcp://DumbSystem@127.0.0.1:2500/remote/akka.tcp/DumbSystem@127.0.0.1:43420/user/$a/c10] Got msg: 10
+#+end_src
