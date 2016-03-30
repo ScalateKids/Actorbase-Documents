@@ -1,4 +1,5 @@
 \documentclass{scalatekids-article}
+\usepackage[italian]{babel}
 \begin{document}
 \lfoot{Analisi dei Requisiti 1.0.0}
 \newgeometry{top=3.5cm}
@@ -253,7 +254,7 @@ in maniera autonoma.
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/ActorbaseNetwork.png}
-    \caption*{Actorbase: Visione generale semplificata rete Actorbase}
+    \caption{Actorbase: Visione generale semplificata rete Actorbase}
   \end{center}
 \end{figure}
 
@@ -262,7 +263,7 @@ in maniera autonoma.
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=0.6\textwidth,keepaspectratio]{UseCases/UC1.png}
-    \caption*{Caso d'uso 1: Interazioni tramite CLI}
+    \caption{Caso d'uso 1: Interazioni tramite CLI}
   \end{center}
 \end{figure}
 \textbf{Attori primari:} utente non autenticato, utente autenticato, utente amministratore\\
@@ -353,7 +354,7 @@ in maniera autonoma.
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=0.4\textwidth,keepaspectratio]{UseCases/UC1_1.png}
-    \caption*{Caso d'uso 1.1: Login}
+    \caption{Caso d'uso 1.1: Login}
   \end{center}
 \end{figure}
 \textbf{Attori primari:} Utente non autenticato\\
@@ -442,7 +443,7 @@ L'attore ha appena avviato la \gloss{CLI}, risulta essere non autenticato e può
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=0.6\textwidth,keepaspectratio]{UseCases/UC1_3.png}
-    \caption*{Caso d'uso 1.3: Operazioni sulle \gloss{collezioni}}
+    \caption{Caso d'uso 1.3: Operazioni sulle \gloss{collezioni}}
   \end{center}
 \end{figure}
 \textbf{Attore primario:} Utente autenticato, utente amministratore\\
@@ -521,7 +522,7 @@ L'attore ha appena avviato la \gloss{CLI}, risulta essere non autenticato e può
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=0.4\textwidth,keepaspectratio]{UseCases/UC1_3_3.png}
-    \caption*{Caso d'uso 1.3.3: Login}
+    \caption{Caso d'uso 1.3.3: Login}
   \end{center}
 \end{figure}
 \textbf{Attore primario:} Utente autenticato, utente amministratore\\
@@ -583,7 +584,7 @@ L'attore ha appena avviato la \gloss{CLI}, risulta essere non autenticato e può
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=0.4\textwidth,keepaspectratio]{UseCases/UC1_3_5.png}
-    \caption*{Caso d'uso 1.3.5: aggiunta di un \gloss{collaboratore} a \gloss{collezione}}
+    \caption{Caso d'uso 1.3.5: aggiunta di un \gloss{collaboratore} a \gloss{collezione}}
   \end{center}
 \end{figure}
 \textbf{Attore primario:} Utente autenticato, utente amministratore\\
@@ -623,7 +624,7 @@ L'attore ha appena avviato la \gloss{CLI}, risulta essere non autenticato e può
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=0.4\textwidth,keepaspectratio]{UseCases/UC1_3_6.png}
-    \caption*{Caso d'uso 1.3.6: rimozione di un \gloss{collaboratore} da una \gloss{collezione}}
+    \caption{Caso d'uso 1.3.6: rimozione di un \gloss{collaboratore} da una \gloss{collezione}}
   \end{center}
 \end{figure}
 \textbf{Attore primario:} Utente autenticato, utente amministratore\\
@@ -746,7 +747,7 @@ L'attore ha inserito il comando per la modifica password, ha inserito i parametr
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=0.6\textwidth,keepaspectratio]{UseCases/UC1_4.png}
-    \caption*{Caso d'uso 1.4: Operazioni sugli \gloss{item}}
+    \caption{Caso d'uso 1.4: Operazioni sugli \gloss{item}}
   \end{center}
 \end{figure}
 \textbf{Attore primario:} Utente autenticato, utente amministratore\\
@@ -808,7 +809,7 @@ inserimento e cancellazione.\\
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=0.5\textwidth,keepaspectratio]{UseCases/UC1_4_1_1.png}
-    \caption*{Caso d'uso 1.4.1.1: Inserimento \gloss{item} manuale}
+    \caption{Caso d'uso 1.4.1.1: Inserimento \gloss{item} manuale}
   \end{center}
 \end{figure}
 \textbf{Attore primario:} Utente autenticato, utente amministratore\\
@@ -906,7 +907,7 @@ inserimento e cancellazione.\\
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=0.4\textwidth,keepaspectratio]{UseCases/UC1_4_2.png}
-    \caption*{Caso d'uso 1.4.2: Cancellazione \gloss{item}}
+    \caption{Caso d'uso 1.4.2: Cancellazione \gloss{item}}
   \end{center}
 \end{figure}
 \textbf{Attore primario:} Utente autenticato, utente amministratore\\
@@ -1011,7 +1012,7 @@ Il nome della \gloss{collezione} risulta essere inesistente all'interno del sist
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=0.4\textwidth,keepaspectratio]{UseCases/UC1_5.png}
-    \caption*{Caso d'uso 1.5: Ricerca su una o più \gloss{collezioni}}
+    \caption{Caso d'uso 1.5: Ricerca su una o più \gloss{collezioni}}
   \end{center}
 \end{figure}
 \textbf{Attore primario:} Utente autenticato, utente amministratore\\
@@ -1056,7 +1057,7 @@ In caso di inserimento di nome \gloss{collezione} inesistente, o in caso di risu
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=0.4\textwidth,keepaspectratio]{UseCases/UC1_6.png}
-    \caption*{Caso d'uso 1.6: Modifica password}
+    \caption{Caso d'uso 1.6: Modifica password}
   \end{center}
 \end{figure}
 \textbf{Attori primari:} Utente autenticato, utente amministratore\\
@@ -1155,7 +1156,7 @@ L'attore ha inserito il comando per la modifica password, ha inserito i parametr
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=0.5\textwidth,keepaspectratio]{UseCases/UC1_8.png}
-    \caption*{Caso d'uso 4: Operazioni sugli \gloss{item}}
+    \caption{Caso d'uso 4: Operazioni sugli \gloss{item}}
   \end{center}
 \end{figure}
 
@@ -1191,7 +1192,7 @@ L'attore ha inserito il comando per la modifica password, ha inserito i parametr
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=0.4\textwidth,keepaspectratio]{UseCases/UC1_8_1.png}
-    \caption*{Caso d'uso 4: Operazioni sugli \gloss{item}}
+    \caption{Caso d'uso 4: Operazioni sugli \gloss{item}}
   \end{center}
 \end{figure}
 \textbf{Attore primario:} Utente amministratore\\
@@ -1231,7 +1232,7 @@ L'attore ha inserito il comando per la modifica password, ha inserito i parametr
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=0.4\textwidth,keepaspectratio]{UseCases/UC1_8_2.png}
-    \caption*{Caso d'uso 4: Operazioni sugli \gloss{item}}
+    \caption{Caso d'uso 4: Operazioni sugli \gloss{item}}
   \end{center}
 \end{figure}
 \textbf{Attore primario:} Utente amministratore\\
@@ -1271,7 +1272,7 @@ L'attore ha inserito il comando per la modifica password, ha inserito i parametr
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=0.4\textwidth,keepaspectratio]{UseCases/UC1_8_3.png}
-    \caption*{Caso d'uso 4: Operazioni sugli \gloss{item}}
+    \caption{Caso d'uso 4: Operazioni sugli \gloss{item}}
   \end{center}
 \end{figure}
 \textbf{Attore primario:} Utente amministratore\\
@@ -1430,7 +1431,7 @@ vincoli imposti. I vincoli imposti sulla conferma password dal sistema sono:
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=0.9\textwidth,keepaspectratio]{UseCases/UC2.png}
-    \caption*{Caso d'uso 2: Interazioni tramite driver}
+    \caption{Caso d'uso 2: Interazioni tramite driver}
   \end{center}
 \end{figure}
 \textbf{Attori primari:} Programma esterno su \gloss{JVM}\\
@@ -1505,7 +1506,7 @@ vincoli imposti. I vincoli imposti sulla conferma password dal sistema sono:
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=0.5\textwidth,keepaspectratio]{UseCases/UC2_1.png}
-    \caption*{Caso d'uso 2.1: Login}
+    \caption{Caso d'uso 2.1: Login}
   \end{center}
 \end{figure}
 \textbf{Attori primari:} Programma esterno su \gloss{JVM}\\
@@ -1551,7 +1552,7 @@ L'attore intende effettuare login al database da un programma \gloss{Scala} este
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=1.0\textwidth,keepaspectratio]{UseCases/UC2_2.png}
-    \caption*{Caso d'uso 2.2: Operazioni sulle \gloss{collezioni}}
+    \caption{Caso d'uso 2.2: Operazioni sulle \gloss{collezioni}}
   \end{center}
 \end{figure}
 \textbf{Attori primari:} Programma esterno su \gloss{JVM}\\
@@ -1655,7 +1656,7 @@ L'attore intende effettuare login al database da un programma \gloss{Scala} este
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC2_2_3.png}
-    \caption*{Caso d'uso 2.2.3: Modifica nome collezione}
+    \caption{Caso d'uso 2.2.3: Modifica nome collezione}
   \end{center}
 \end{figure}
 \textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
@@ -1722,7 +1723,7 @@ L'attore intende effettuare login al database da un programma \gloss{Scala} este
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC2_2_5.png}
-    \caption*{Caso d'uso 2.2.5: Aggiunta collaboratore a una collezione}
+    \caption{Caso d'uso 2.2.5: Aggiunta collaboratore a una collezione}
   \end{center}
 \end{figure}
 \textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
@@ -1765,7 +1766,7 @@ L'attore intende effettuare login al database da un programma \gloss{Scala} este
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC2_2_6.png}
-    \caption*{Caso d'uso 2.2.6: Rimozione di un collaboratore da collezione}
+    \caption{Caso d'uso 2.2.6: Rimozione di un collaboratore da collezione}
   \end{center}
 \end{figure}
 \textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
@@ -1883,7 +1884,7 @@ ma durante l'inserimento dei parametri inserisce un nome collezione non censito 
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=1.0\textwidth,keepaspectratio]{UseCases/UC2_3.png}
-    \caption*{Caso d'uso 2.3: Operazioni sugli \gloss{item}}
+    \caption{Caso d'uso 2.3: Operazioni sugli \gloss{item}}
   \end{center}
 \end{figure}
 \textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
@@ -1974,7 +1975,7 @@ inserimento e cancellazione.\\
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC2_3_1_1.png}
-    \caption*{Caso d'uso 2.3.1.1: Inserimento item manuale}
+    \caption{Caso d'uso 2.3.1.1: Inserimento item manuale}
   \end{center}
 \end{figure}
 \textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
@@ -2079,7 +2080,7 @@ inserimento e cancellazione.\\
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=0.5\textwidth,keepaspectratio]{UseCases/UC2_3_2.png}
-    \caption*{Caso d'uso 2.3.2: Cancellazione \gloss{item}}
+    \caption{Caso d'uso 2.3.2: Cancellazione \gloss{item}}
   \end{center}
 \end{figure}
 \textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
@@ -2192,7 +2193,7 @@ Il nome della \gloss{collezione} risulta essere inesistente all'interno del sist
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=0.6\textwidth,keepaspectratio]{UseCases/UC2_4.png}
-    \caption*{Caso d'uso 2.4: Ricerca \gloss{item}}
+    \caption{Caso d'uso 2.4: Ricerca \gloss{item}}
   \end{center}
 \end{figure}
 \textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
@@ -2237,7 +2238,7 @@ In caso di inserimento di nome \gloss{collezione} inesistente, o in caso di risu
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC2_5.png}
-    \caption*{Caso d'uso 2.5: Modifica password}
+    \caption{Caso d'uso 2.5: Modifica password}
   \end{center}
 \end{figure}
 \textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
@@ -2292,7 +2293,7 @@ In caso di inserimento di nome \gloss{collezione} inesistente, o in caso di risu
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=0.9\textwidth,keepaspectratio]{UseCases/UC2_7.png}
-    \caption*{Caso d'uso 2.7: Gestione utenti}
+    \caption{Caso d'uso 2.7: Gestione utenti}
   \end{center}
 \end{figure}
 \textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
@@ -2937,7 +2938,7 @@ La descrizione dei requisiti segue le regole descritte nelle \href{run:../Intern
 
 \begin{table}[H]
   \centering
-  \caption*{Riepilogo requisiti}
+  \caption{Riepilogo requisiti}
   \begin{tabular}{|l|l|l|l|}
     \hline
     Categoria & Obbligatorio & Desiderabile & Opzionale\\
