@@ -1,5 +1,6 @@
 \documentclass{scalatekids-article}
 \usepackage[official]{eurosym}
+\usepackage[italian]{babel}
 \begin{document}
 \lfoot{Piano Di Progetto 1.0.0}
 \newgeometry{top=3.5cm}
@@ -139,7 +140,7 @@ quindi una convergenza entro tempi e costi preventivati.
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=1.0\textwidth, keepaspectratio]{CicloIncrementale.png}
-    \caption*{Ciclo di vita incrementale}
+    \caption{Ciclo di vita incrementale}
   \end{center}
 \end{figure}
 \section{Scadenze}
@@ -198,7 +199,7 @@ Per ogni possibile rischio previsto l'analisi ha fornito i seguenti parametri:
 \begin{table}[H]
   \centering
   \scriptsize
-  \caption*{Tabella Analisi dei Rischi}
+  \caption{Tabella Analisi dei Rischi}
   \begin{tabular}{|m{1cm}|m{3cm}|m{3cm}|m{3cm}|m{3cm}|}
     \hline
     & \multicolumn{4}{|c|}{\textbf{Probabilità}}\\
@@ -217,7 +218,7 @@ Per ogni possibile rischio previsto l'analisi ha fornito i seguenti parametri:
 \end{table}
 \begin{table}[H]
   \centering
-  \caption*{Legenda colorazione rischi}
+  \caption{Legenda colorazione rischi}
   \begin{tabular}{|c|c|l|}
     \hline \bf Colore & \bf Probabilità & \bf Legenda \\
     \hline \cellcolor{red! 50} & p > 75\% & Rischio non accettabile - riduzione obbligatoria \\
@@ -248,7 +249,7 @@ Per ogni possibile rischio previsto l'analisi ha fornito i seguenti parametri:
 \end{table}
 \begin{table}[H]
   \centering
-  \caption*{Legenda colorazione rischi}
+  \caption{Legenda colorazione rischi}
   \begin{tabular}{|c|l|}
     \hline \bf Colore & \bf Legenda \\
     \hline \cellcolor{red! 50} & Rischio non accettabile - riduzione obbligatoria \\
@@ -259,7 +260,7 @@ Per ogni possibile rischio previsto l'analisi ha fornito i seguenti parametri:
 \end{table}
 \begin{table}[H]
   \centering
-  \caption*{Legenda probabilità di riscontro rischi}
+  \caption{Legenda probabilità di riscontro rischi}
   \begin{tabular}{|c|l|}
     \hline \bf Nome & \bf Probabilità prevista \\
     \hline \textbf{Bassa} & 0\% < p < 25\% \\
@@ -415,12 +416,12 @@ I seguenti grafici illustrano le ore investite per Persona suddivise tra ore inv
 \begin{figure}[H]
   \begin{subfigure}[H]{0.47\textwidth}
     \includegraphics[width=1.2\textwidth,keepaspectratio]{AnalisiConInvestimento.png}
-    \caption*{Ore con investimento, \gloss{attività} di Analisi}
+    \caption{Ore con investimento, \gloss{attività} di Analisi}
   \end{subfigure}
   \qquad
   \begin{subfigure}[H]{0.47\textwidth}
     \includegraphics[width=1.2\textwidth,keepaspectratio]{AnalisiConRendicontazione.png}
-    \caption*{Ore con rendicontazione, \gloss{attività} di Analisi}
+    \caption{Ore con rendicontazione, \gloss{attività} di Analisi}
   \end{subfigure}
 \end{figure}
 
@@ -428,7 +429,7 @@ I seguenti grafici illustrano le ore investite per Persona suddivise tra ore inv
 \paragraph{Pianificazione temporale}
 \begin{figure}[H]
   \includegraphics[width=1.0\textwidth, keepaspectratio]{gantt/1-Revisione-Requisiti-gantt-preventivo.png}
-  \caption*{Gantt preventivo delle \gloss{attività} di Analisi}
+  \caption{Gantt preventivo delle \gloss{attività} di Analisi}
 \end{figure}
 
 \newpage
@@ -553,12 +554,12 @@ ore riservate all'\gloss{attività} \textbf{Analisi di dettaglio}.
 \begin{figure}[H]
   \begin{subfigure}[H]{0.47\textwidth}
     \includegraphics[width=1.2\textwidth,keepaspectratio]{ProgettazioneConInvestimento.png}
-    \caption*{Ore con investimento, \gloss{attività} di Progettazione}
+    \caption{Ore con investimento, \gloss{attività} di Progettazione}
   \end{subfigure}
   \qquad
   \begin{subfigure}[H]{0.47\textwidth}
     \includegraphics[width=1.2\textwidth,keepaspectratio]{ProgettazioneConRendicontazione.png}
-    \caption*{Ore con rendicontazione, \gloss{attività} di Progettazione}
+    \caption{Ore con rendicontazione, \gloss{attività} di Progettazione}
   \end{subfigure}
 \end{figure}
 
@@ -566,7 +567,7 @@ ore riservate all'\gloss{attività} \textbf{Analisi di dettaglio}.
 \paragraph{Pianificazione temporale}
 \begin{figure}[H]
   \includegraphics[width=1.0\textwidth, keepaspectratio]{gantt/2-Revisione-Progettazione-gantt-preventivo.png}
-  \caption*{Gantt preventivo delle \gloss{attività} di Progettazione}
+  \caption{Gantt preventivo delle \gloss{attività} di Progettazione}
 \end{figure}
 
 \newpage
@@ -677,12 +678,12 @@ delle ore riservate per l'\gloss{attività} \textbf{Progettazione di Dettaglio}.
 \begin{figure}[H]
   \begin{subfigure}[H]{0.47\textwidth}
     \includegraphics[width=1.2\textwidth,keepaspectratio]{CodificaConInvestimento.png}
-    \caption*{Ore con investimento, \gloss{attività} di Codifica}
+    \caption{Ore con investimento, \gloss{attività} di Codifica}
   \end{subfigure}
   \qquad
   \begin{subfigure}[H]{0.47\textwidth}
     \includegraphics[width=1.2\textwidth,keepaspectratio]{CodificaConRendicontazione.png}
-    \caption*{Ore con rendicontazione, \gloss{attività} di Codifica}
+    \caption{Ore con rendicontazione, \gloss{attività} di Codifica}
   \end{subfigure}
 \end{figure}
 
@@ -690,7 +691,7 @@ delle ore riservate per l'\gloss{attività} \textbf{Progettazione di Dettaglio}.
 \paragraph{Pianificazione temporale}
 \begin{figure}[H]
   \includegraphics[width=1.0\textwidth, keepaspectratio]{gantt/3-Revisione-Qualifica-gantt-preventivo.png}
-  \caption*{Gantt preventivo delle \gloss{attività} di codifica}
+  \caption{Gantt preventivo delle \gloss{attività} di codifica}
 \end{figure}
 
 \newpage
@@ -796,12 +797,12 @@ tra ore investite e ore rendicontate, per le \gloss{attività} di Validazione.
 \begin{figure}[H]
   \begin{subfigure}[H]{0.47\textwidth}
     \includegraphics[width=1.2\textwidth,keepaspectratio]{VerificaConInvestimento.png}
-    \caption*{Ore con investimento, \gloss{attività} di Validazione}
+    \caption{Ore con investimento, \gloss{attività} di Validazione}
   \end{subfigure}
   \qquad
   \begin{subfigure}[H]{0.47\textwidth}
     \includegraphics[width=1.2\textwidth,keepaspectratio]{VerificaConRendicontazione.png}
-    \caption*{Ore con rendicontazione, \gloss{attività} di Validazione}
+    \caption{Ore con rendicontazione, \gloss{attività} di Validazione}
   \end{subfigure}
 \end{figure}
 
@@ -809,7 +810,7 @@ tra ore investite e ore rendicontate, per le \gloss{attività} di Validazione.
 \paragraph{Pianificazione temporale}
 \begin{figure}[H]
   \includegraphics[width=1.0\textwidth, keepaspectratio]{gantt/4-Revisione-Accettazione-gantt-preventivo.png}
-  \caption*{Gantt preventivo delle \gloss{attività} di Validazione}
+  \caption{Gantt preventivo delle \gloss{attività} di Validazione}
 \end{figure}
 
 \newpage
@@ -910,12 +911,12 @@ I seguenti grafici illustrano le ore investite per Persona suddivise tra ore inv
 \begin{figure}[H]
   \begin{subfigure}[H]{0.47\textwidth}
     \includegraphics[width=1.2\textwidth,keepaspectratio]{TotaleConInvestimento.png}
-    \caption*{Ore con investimento totali}
+    \caption{Ore con investimento totali}
   \end{subfigure}
   \qquad
   \begin{subfigure}[H]{0.47\textwidth}
     \includegraphics[width=1.2\textwidth,keepaspectratio]{TotaleConRendicontazione.png}
-    \caption*{Ore con rendicontazione totali}
+    \caption{Ore con rendicontazione totali}
   \end{subfigure}
 \end{figure}
 
@@ -923,7 +924,7 @@ I seguenti grafici illustrano le ore investite per Persona suddivise tra ore inv
 \paragraph{Pianificazione temporale}
 \begin{figure}[H]
   \includegraphics[width=1.0\textwidth, keepaspectratio]{gantt/Gantt-Totale.png}
-  \caption*{Gantt preventivo di tutto l'arco temporale}
+  \caption{Gantt preventivo di tutto l'arco temporale}
 \end{figure}
 
 \newpage
@@ -972,12 +973,12 @@ I grafici a seguire rappresentano l'influenza di ciascun ruolo sul totale delle 
 \begin{figure}[H]
   \begin{subfigure}[H]{0.47\textwidth}
     \includegraphics[width=1.2\textwidth,keepaspectratio]{AnalisiCC.png}
-    \caption*{Costi con investimento, \gloss{attività} di Analisi}
+    \caption{Costi con investimento, \gloss{attività} di Analisi}
   \end{subfigure}
   \qquad
   \begin{subfigure}[H]{0.47\textwidth}
     \includegraphics[width=1.2\textwidth,keepaspectratio]{AnalisiSC.png}
-    \caption*{Costi senza investimento, \gloss{attività} di Analisi}
+    \caption{Costi senza investimento, \gloss{attività} di Analisi}
   \end{subfigure}
 \end{figure}
 \newpage
@@ -1023,12 +1024,12 @@ I grafici a seguire rappresentano l'influenza di ciascun ruolo sul totale delle 
 \begin{figure}[H]
   \begin{subfigure}[H]{0.47\textwidth}
     \includegraphics[width=1.2\textwidth,keepaspectratio]{ProgettazioneCC.png}
-    \caption*{Costi con investimento, \gloss{attività} di Progettazione}
+    \caption{Costi con investimento, \gloss{attività} di Progettazione}
   \end{subfigure}
   \qquad
   \begin{subfigure}[H]{0.47\textwidth}
     \includegraphics[width=1.2\textwidth,keepaspectratio]{ProgettazioneSC.png}
-    \caption*{Costi senza investimento, \gloss{attività} di Progettazione}
+    \caption{Costi senza investimento, \gloss{attività} di Progettazione}
   \end{subfigure}
 \end{figure}
 \newpage
@@ -1074,12 +1075,12 @@ I grafici a seguire rappresentano l'influenza di ciascun ruolo sul totale delle 
 \begin{figure}[H]
   \begin{subfigure}[H]{0.47\textwidth}
     \includegraphics[width=1.2\textwidth,keepaspectratio]{CodificaCC.png}
-    \caption*{Costi con investimento, \gloss{attività} di Codifica}
+    \caption{Costi con investimento, \gloss{attività} di Codifica}
   \end{subfigure}
   \qquad
   \begin{subfigure}[H]{0.47\textwidth}
     \includegraphics[width=1.2\textwidth,keepaspectratio]{CodificaSC.png}
-    \caption*{Costi senza investimento, \gloss{attività} di Codifica}
+    \caption{Costi senza investimento, \gloss{attività} di Codifica}
   \end{subfigure}
 \end{figure}
 \newpage
@@ -1125,12 +1126,12 @@ I grafici a seguire rappresentano l'influenza di ciascun ruolo sul totale delle 
 \begin{figure}[H]
   \begin{subfigure}[H]{0.47\textwidth}
     \includegraphics[width=1.2\textwidth,keepaspectratio]{VerificaCC.png}
-    \caption*{Costi con investimento, \gloss{attività} di Validazione}
+    \caption{Costi con investimento, \gloss{attività} di Validazione}
   \end{subfigure}
   \qquad
   \begin{subfigure}[H]{0.47\textwidth}
     \includegraphics[width=1.2\textwidth,keepaspectratio]{VerificaSC.png}
-    \caption*{Costi senza investimento, \gloss{attività} di Validazione}
+    \caption{Costi senza investimento, \gloss{attività} di Validazione}
   \end{subfigure}
 \end{figure}
 \newpage
@@ -1177,12 +1178,12 @@ I grafici a seguire rappresentano l'influenza di ciascun ruolo sul totale delle 
 \begin{figure}[H]
   \begin{subfigure}[H]{0.47\textwidth}
     \includegraphics[width=1.2\textwidth,keepaspectratio]{TotaliCC.png}
-    \caption*{Costi Totali con investimento}
+    \caption{Costi Totali con investimento}
   \end{subfigure}
   \qquad
   \begin{subfigure}[H]{0.47\textwidth}
     \includegraphics[width=1.2\textwidth,keepaspectratio]{TotaliSC.png}
-    \caption*{Costi Totali senza investimento}
+    \caption{Costi Totali senza investimento}
   \end{subfigure}
 \end{figure}
 \section{Meccanismi di controllo e rendicontazione}
