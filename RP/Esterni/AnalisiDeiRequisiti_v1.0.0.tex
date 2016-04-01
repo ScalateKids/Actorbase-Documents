@@ -194,11 +194,7 @@ nel documento \href{run:../Interni/NormeDiProgetto\_v1.0.0.pdf}{Norme di
 
 \subsection{Identificazione attori}
 
-L'analisi del capitolato e le riunioni con il \textit{Proponente} hanno fatto emergere
-alcune considerazioni sull'obiettivo che \textbf{Actorbase} si pone di raggiungere.
-Trattandosi di un'applicazione distribuita il prodotto finale sarà costituito
-da due \gloss{macro} componenti: un lato server e un lato client fornito di interfaccia
-comandi testuale per poter dialogare con la base di dati.\\ Suddivisione attori:\\
+L'analisi del capitolato e le riunioni con il \textit{Proponente} hanno fatto emergere alcune considerazioni sull'obiettivo che \textbf{Actorbase} si pone di raggiungere.\\Trattandosi di un'applicazione distribuita il prodotto finale sarà costituitovda due \gloss{macro} componenti: un lato server e un lato client fornito di interfaccia comandi testuale per poter dialogare con la base di dati.\\ Suddivisione attori:\\
 \textbf{Primari}
 \begin{itemize}
 \item\textbf{Utente non autenticato:}\\
@@ -206,7 +202,7 @@ comandi testuale per poter dialogare con la base di dati.\\ Suddivisione attori:
 \item\textbf{Utente autenticato:}\\
   Rappresenta l'utente generico connesso al lato server del prodotto;
 \item\textbf{Amministratore:}\\
-  Rappresenta un superutente con privilegi di \gloss{visibilità} maggiori rispetto a utenti generici e poteri di modifica sulla \gloss{visibilità} di questi ultimi.
+  Rappresenta un superutente con privilegi di lettura e scrittura su tutte le \gloss{collezioni} presenti all'interno del database;
 \item\textbf{Programma esterno su JVM:}\\
   Nel caso di utilizzo del sistema da un programma esterno su \gloss{JVM}, sarà quest'ultimo ad essere attore primario rispetto al \gloss{driver} da utilizzare per
   interfacciarsi con il sistema \textbf{Actorbase}. Il sistema \textbf{Actorbase} sarà considerato un attore secondario del \gloss{driver}, in quanto serve allo scopo
@@ -219,18 +215,20 @@ comandi testuale per poter dialogare con la base di dati.\\ Suddivisione attori:
   lo scopo prefissato, ovvero l'inserimento dei comandi da inviare al sistema stesso mediante utilizzo del \gloss{driver}.
 \end{itemize}
 
-\subsubsection{Visibilità}
-\label{sec:visibilità}
+\subsubsection{Permessi}
+\label{sec:permessi}
 
-Rispetto al classico sistema di permessi di lettura e scrittura, \textbf{Actorbase}
-prevede un meccanismo semplificato di \gloss{visibilità} secondo le seguenti regole:
-\begin{itemize}
-\item Ogni utente autenticato inizialmente ha \gloss{visibilità} solo sulle proprie \gloss{collezioni} e/o su \gloss{collezioni} di proprietà altrui su cui è in collaborazione;
-\item L'utente amministratore ha \gloss{visibilità} su tutto il sistema \textbf{Actorbase}.
-\end{itemize}
-La \gloss{visibilità} garantisce privilegi sia in lettura che in scrittura. Di
-conseguenza tutte le azioni descritte nei casi d'uso si applicano al livello di
-\gloss{visibilità} proprio dell'attore che le effettua.
+Si è scelto di utilizzare il classico sistema di permessi, ovvero lettura e scrittura. Perciò ogni utente ha permessi di lettura e scrittura sulle proprie \gloss{collezioni}. Se un utente invece decide di aggiungere un collaboratore ad una propria \gloss{collezione}, esso può scegliere se garantire accesso in sola lettura o se dare pieni permessi di lettura e scrittura al collaboratore designato.\\L'utente amministratore essendo tale ha permessi di lettura e scrittura sull'intero database.\\
+
+% *vecchio paragrafo della visibilità* Rispetto al classico sistema di permessi di lettura e scrittura, \textbf{Actorbase}
+%prevede un meccanismo semplificato di \gloss{visibilità} secondo le seguenti regole:
+%\begin{itemize}
+%\item Ogni utente autenticato inizialmente ha \gloss{visibilità} solo sulle proprie \gloss{collezioni} e/o su \gloss{collezioni} di proprietà altrui su cui è in collaborazione;
+%\item L'utente amministratore ha \gloss{visibilità} su tutto il sistema \textbf{Actorbase}.
+%\end{itemize}
+%La \gloss{visibilità} garantisce privilegi sia in lettura che in scrittura. Di
+%conseguenza tutte le azioni descritte nei casi d'uso si applicano al livello di
+%\gloss{visibilità} proprio dell'attore che le effettua.
 
 \subsubsection{Scalabilità orizzontale}
 
@@ -495,7 +493,7 @@ L'attore ha appena avviato la \gloss{CLI}, risulta essere non autenticato e può
 \textbf{Precodizione:} Il server è in ascolto e l'attore intende creare una \gloss{collezione}.\\
 \textbf{Scenario principale:}
 \begin{itemize}
-\item UC1.3.1.1\ -\ Inserimento nome \gloss{collezione}. % TODO qua bisogna mettere il sotto caso d'uso utente inserisce nome collezione da creare? credo di si
+\item UC1.3.1.1\ -\ Inserimento nome \gloss{collezione}.
 \end{itemize}
 \textbf{Postcondizioni:} La \gloss{collezione} è stata creata con successo.
 
@@ -513,9 +511,9 @@ L'attore ha appena avviato la \gloss{CLI}, risulta essere non autenticato e può
 \subsection{UC1.3.2: Visualizzazione della lista delle collezioni}
 
 \textbf{Attore primario:} Utente autenticato, utente amministratore\\
-\textbf{Scopo e descrizione:} L'attore intende elencare tutte le \gloss{collezioni} all'interno di \textbf{Actorbase} secondo la propria \gloss{visibilità} (vedi~\ref{sec:visibilità}).\\
+\textbf{Scopo e descrizione:} L'attore intende elencare tutte le \gloss{collezioni} all'interno di \textbf{Actorbase} secondo i propri \gloss{permessi} (vedi~\ref{sec:permessi}).\\
 \textbf{Precodizione:} Il server è in ascolto e l'attore intende elencare le \gloss{collezioni} al suo interno.\\
-\textbf{Postcondizioni:} Il sistema restituisce la lista delle \gloss{collezioni} esistenti secondo la \gloss{visibilità} dell'attore, per ogni \gloss{collezione} viene visualizzato il nome della \gloss{collezione} stessa.
+\textbf{Postcondizioni:} Il sistema restituisce la lista delle \gloss{collezioni} esistenti secondo i \gloss{permessi} dell'attore, per ogni \gloss{collezione} viene visualizzato il nome della \gloss{collezione} stessa.
 
 \subsection{UC1.3.3: Modifica nome collezione}
 
@@ -593,7 +591,8 @@ L'attore ha appena avviato la \gloss{CLI}, risulta essere non autenticato e può
 \textbf{Scenario principale:}
 \begin{itemize}
 \item UC1.3.5.1\ -\ Inserimento nome \gloss{collezione};
-\item UC1.3.5.2\ -\ Inserimento username \gloss{collaboratore}.
+\item UC1.3.5.2\ -\ Inserimento username \gloss{collaboratore};
+\item UC1.3.5.3\ .\ Inserimento tipo permessi.
 \end{itemize}
 \textbf{Postcondizioni:} L'utente designato per la collaborazione è stato aggiunto tra i \gloss{collaboratori} della \gloss{collezione} scelta.
 
@@ -618,6 +617,17 @@ L'attore ha appena avviato la \gloss{CLI}, risulta essere non autenticato e può
 \item L'attore inserisce il nome del \gloss{collaboratore}.
 \end{itemize}
 \textbf{Postcondizioni:} Il nome del \gloss{collaboratore} designato all'aggiunta ad una \gloss{collezione} è stato inserito correttamente.
+
+\subsubsection{UC1.3.5.2: Inserimento tipo permessi}
+
+\textbf{Attore primario:} Utente autenticato, utente amministratore\\
+\textbf{Scopo e descrizione:} L'attore intende aggiungere un \gloss{collaboratore} ad una \gloss{collezione} di sua proprietà. Può garantire due diversi permessi, può aggiungere un utente in modalità sola lettura o può dare i permessi di letture e scrittura sulla \gloss{collezione} scelta.\\
+\textbf{Precondizione:} Il server è in ascolto, l'attore ha inserito il comando per l'aggiunta di un \gloss{collaboratore} ad una \gloss{collezione}, ha inserito il nome della \gloss{collezione} e l'username del collaboratore designato.\\
+\textbf{Scenario principale:}
+\begin{itemize}
+\item L'attore inserisce il tipo di permessi.
+\end{itemize}
+\textbf{Postcondizioni:} Il tipo di permessi è stato inserito correttamente.
 
 \subsection{UC1.3.6: Rimozione di un collaboratore da collezione}
 
@@ -1017,7 +1027,7 @@ Il nome della \gloss{collezione} risulta essere inesistente all'interno del sist
 \end{figure}
 \textbf{Attore primario:} Utente autenticato, utente amministratore\\
 \textbf{Scopo e descrizione:} L'attore intende effettuare una ricerca di \gloss{item} all'interno del sistema; può decidere di effettuare la ricerca su una lista di \gloss{collezioni} eventualmente vuota, in tal caso la
-ricerca verrà estesa a tutto il sistema entro i limiti imposti dal grado di visibilità (vedi~\ref{sec:visibilità}) dell'utente.\\
+ricerca verrà estesa a tutto il sistema entro i limiti imposti dai permessi (vedi~\ref{sec:permessi}) dell'utente.\\
 In caso di inserimento di nome \gloss{collezione} inesistente, o in caso di risultati di ricerca nulli, il sistema riporterà una lista risultata vuota.\\ % TODO: stesso per chiavi?
 \textbf{Precondizione:} Il server è in ascolto, l'attore intende effettuare una ricerca di \gloss{item} all'interno del sistema.\\
 \textbf{Scenario principale:}
@@ -1031,7 +1041,7 @@ In caso di inserimento di nome \gloss{collezione} inesistente, o in caso di risu
 
 \textbf{Attore primario:} Utente autenticato, utente amministratore\\
 \textbf{Scopo e descrizione:} L'attore intende effettuare una ricerca di \gloss{item} all'interno del sistema; deve inserire la lista delle \gloss{collezioni} su cui effettuare tale ricerca. In caso di lista di ricerca vuota
-la funzione di ricerca verrà estesa a tutto il sistema entro i limiti imposti dal grado di visibilità (vedi~\ref{sec:visibilità}) dell'utente.\\
+la funzione di ricerca verrà estesa a tutto il sistema entro i limiti imposti dai permessi (vedi~\ref{sec:permessi}) dell'utente.\\
 In caso di inserimento di nome \gloss{collezione} inesistente, o in caso di risultati di ricerca nulli, il sistema riporterà una lista risultata vuota.\\ % TODO: stesso per chiavi?
 \textbf{Precondizione:} Il server è in ascolto, l'attore intende effettuare una ricerca di \gloss{item} all'interno del  sistema.\\
 \textbf{Scenario principale:}
@@ -1419,7 +1429,7 @@ vincoli imposti. I vincoli imposti sulla conferma password dal sistema sono:
 \textbf{Precondizioni:} Il server è in ascolto, l'attore ha inserito una lista vuota di \gloss{collezioni} e nessuna chiave di ricerca.\\
 \textbf{Scenario principale:}
 \begin{itemize}
-\item Vengono ricercate e visualizzate le coppie chiave-valore sull'intero \gloss{database} comprensivo di tutte le \gloss{collezioni} secondo la visibilità dell'attore (vedi~\ref{sec:visibilità}).
+\item Vengono ricercate e visualizzate le coppie chiave-valore sull'intero \gloss{database} comprensivo di tutte le \gloss{collezioni} secondo i permessi dell'attore (vedi~\ref{sec:permessi}).
 \end{itemize}
 \textbf{Postcodizioni:} Viene visualizzato l'intero \gloss{database} comprensivo di tutte le \gloss{collezioni} con successo.
 
@@ -1643,13 +1653,13 @@ L'attore intende effettuare login al database da un programma \gloss{Scala} este
 
 \textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
 \textbf{Attore secondario:} Actorbase\\
-\textbf{Scopo e descrizione:} L'attore intende elencare tutte le \gloss{collezioni} all'interno di \textbf{Actorbase} secondo la propria \gloss{visibilità}.\\
+\textbf{Scopo e descrizione:} L'attore intende elencare tutte le \gloss{collezioni} all'interno di \textbf{Actorbase} secondo i propri \gloss{permessi}.\\
 \textbf{Precondizione:} Il \gloss{database} è pronto a ricevere comandi e l'attore intende avere un elenco delle \gloss{collezioni} al suo interno.\\
 \textbf{Scenario principale:}
 \begin{itemize}
 \item L'attore può inserire il comando per la visualizzazione della lista delle collezioni.
 \end{itemize}
-\textbf{Postcondizioni:} Il \gloss{database} restituisce la lista delle \gloss{collezioni} esistenti secondo la \gloss{visibilità} dell'attore, per ogni collezione viene visualizzato il nome della collezione stessa.
+\textbf{Postcondizioni:} Il \gloss{database} restituisce la lista delle \gloss{collezioni} esistenti secondo i \gloss{permessi} dell'attore, per ogni collezione viene visualizzato il nome della collezione stessa.
 
 \subsection{UC2.2.3: Modifica nome collezione}
 
@@ -1875,7 +1885,7 @@ ma durante l'inserimento dei parametri inserisce un nome collezione non censito 
 
 \textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
 \textbf{Attore secondario:} Actorbase\\
-\textbf{Scopo e descrizione:} L'attore intende esportare su file il contenuto di tutto il database (secondo la sua visibilità) da un programma \gloss{Scala} esterno.\\ % TODO linkare visibilità
+\textbf{Scopo e descrizione:} L'attore intende esportare su file il contenuto di tutto il database (secondo i suoi permessi) da un programma \gloss{Scala} esterno. (vedi~\ref{sec:permessi})\\
 \textbf{Precondizione:} Il server è in ascolto e l'attore ha inserito il comando di esportazione di una o più collezioni su file e ha inserito una lista di collezioni vuote.\\
 \textbf{Postcondizione:} Il contenuto del database è stato esportato su file.
 
