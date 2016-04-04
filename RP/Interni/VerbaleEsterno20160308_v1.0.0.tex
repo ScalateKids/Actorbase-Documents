@@ -92,7 +92,7 @@ In questo capitolo sono elencate le domande fatte dal gruppo \textit{ScalateKids
 \end{quote}
 \subsection{Per realizzare il DSL ci consiglia la creazione di una custom REPL Scala?}
 \begin{quote}
-  \textit{Vi consiglierei di cercare qualche template per la creazione di interfacce via shell tramite java.\\}
+  \textit{Vi consiglierei di ricercare qualche template per la creazione di interfacce via shell che magari utilizzino \gloss{JVM}.\\}
 \end{quote}
 \subsection{Deve esserci effettivamente un meccanismo esplicito per creare scalabilità?}
 \begin{quote}
@@ -101,11 +101,11 @@ In questo capitolo sono elencate le domande fatte dal gruppo \textit{ScalateKids
 \end{quote}
 \subsection{Che tipo di connessione dovrà supportare il server (TCP, web socket, etc...)?}
 \begin{quote}
-  \textit{Lascio a voi la scelta della connessione tra un client e il server. All'interno del server Akka userà il TCP.\\}
+  \textit{Lascio a voi la scelta della connessione tra un client e il server. All'interno del server, Akka userà il TCP.\\}
 \end{quote}
 \subsection{Nel caso di estensione aggiungendo nodi dovrà essere previsto un meccanismo di \gloss{load balancing}?}
 \begin{quote}
-  \textit{Ci sono degli attori apposta (\gloss{Manager}) che verificano il carico su ogni \gloss{Storekeeper} e suddividono il carico in maniera da evitare che uno \gloss{Storekeeper} sia troppo carico. 
+  \textit{Ci sono degli attori appositi (\gloss{Manager}) che verificano il carico su ogni \gloss{Storekeeper} e suddividono il carico in maniera da evitare che uno \gloss{Storekeeper} sia troppo carico. 
   Gli algoritmi di \gloss{load balancing} non sono semplici. Voi dovrete costruire un'architettura che sia il più estendibile possibile, vi consiglio di dare un algoritmo semplice di \gloss{load balancing} in maniera che in futuro questo possa essere esteso facilmente. Per quanto riguarda il \gloss{load balancing} tra più nodi il discorso si complica poichè dovreste fare in modo che un \gloss{manager} mandi richieste di ricezione di dati se i propri \gloss{Storekeeper} sono liberi.\\}
 \end{quote}
 \subsection{Quanti attori main dovranno esserci nel sistema?}

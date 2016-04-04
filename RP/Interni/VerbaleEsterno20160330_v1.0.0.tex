@@ -95,7 +95,7 @@ In questo capitolo sono elencate le domande fatte dal gruppo \textit{ScalateKids
 \begin{quote}
   \textit{Credo sia opportuno ipotizzare che al riavvio del database distribuito tra diversi nodi tutti questi debbano essere presenti nuovamente altrimenti saranno necessarie operazioni da sistemista. Quindi opterei per la seconda scelta.}
 \end{quote}
-\subsection{Se potessimo usare i \gloss{Persistence Actor} potremmo far spegnere nodi inutilizzati da molto tempo con previo snapshot su disco, questo snapshot poi sarà utilizzato per \"riaccendere\" l'attore se richiesto\\}
+\subsection{Se potessimo usare i \gloss{Persistence Actor} potremmo far spegnere nodi inutilizzati da molto tempo con previo snapshot su disco, questo snapshot poi sarà utilizzato per "riaccendere" l'attore se richiesto\\}
 \begin{quote}
   \textit{State attenti con una feature come questa. Se ad esempio decideste di mettere in sleep attori dopo 5 secondi di inattività, qualora la vostra applicazione avesse dei momenti di poco carico potrebbe andare in sleep una gran parte del database se non tutto, andando a rallentare le prossime operazioni. In più ogni attore che va in sleep andrà a scrivere un file su disco e se non prevedete un modo intelligente di cancellarli potrebbero accumularsi in fretta.}
 \end{quote}
