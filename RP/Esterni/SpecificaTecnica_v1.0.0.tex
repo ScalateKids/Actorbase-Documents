@@ -887,7 +887,7 @@ Viene utilizzata per la creazione di un \gloss{banner} di presentazione all'avvi
 
 \begin{itemize}
 \item actorbase::cli::views::Banner.
-\end{itemiz
+\end{itemize}
 
 \paragraph{actorbase::cli::views::PromptProvider}
 
@@ -938,37 +938,43 @@ Viene utilizzata per la creazione e gestione del sistema di storico dei comandi 
 \item SpringShell.
 \end{itemize}
 
-\paragraph{actorbase::view::cli::actorbaseCli::CLICommands}
+\paragraph{actorbase::cli::views::Observer}
 
 \subparagraph{Descrizione}
 
-Classe per la gestione dei comandi della \gloss{CLI}.
+Interfaccia per l'implementazione del \gloss{design pattern} \gloss{Observer} che permette di aggiornare la view ad ogni risposta del \gloss{driver}.
 
 \subparagraph{Utilizzo}
 
-Viene utilizzata per la gestione mediante metodi appositi dei comandi della \gloss{CLI}, è responsabile della creazione e gestione dell'help sia generale che specifico per comando.
+Offre un'interfaccia per permettere di aggiornare la \gloss{view} ad ogni risposta ricevuta dal \gloss{driver}.
+
+\subparagraph{Interazioni con altre classi}
+
+\begin{itemize}
+\item actorbase::cli::models::Command.
+\end{itemize}
+
+\paragraph{actorbase::cli::views::ResultView}
+
+\subparagraph{Descrizione}
+
+Classe per la gestione e la formattazione in output dei risultati ottenuti dall'esecuzione del comando ricevuto in input tramite il \gloss{design pattern} \gloss{Observer}.
+
+\subparagraph{Utilizzo}
+
+Viene utilizzata per la gestione e la formattazione in output dei risultati ottenuti dal server mediante l'inserimento dei comandi tramite il \gloss{design pattern} \gloss{Observer}.
 
 \subparagraph{Classi ereditate}
 
 \begin{itemize}
-\item CommandMarker.
+\item actorbase::cli::views::Observer.
 \end{itemize}
 
 \subparagraph{Interazioni con altre classi}
 
 \begin{itemize}
-\item actorbase::view::cli::commands::Command.
+\item actorbase::cli::views::CommandLoop.
 \end{itemize}
-
-\paragraph{actorbase::view::cli::actorbaseCli::ResultViewer}
-
-\subparagraph{Descrizione}
-
-Classe per la gestione e la formattazione in output dei risultati ottenuti dall'esecuzione del comando ricevuto in input.
-
-\subparagraph{Utilizzo}
-
-Viene utilizzata per la gestione e la formattazione in output dei risultati ottenuti dal server mediante l'inserimento dei comandi.
 
 \subsection{actorbase::view::cli::commands}
 
