@@ -143,7 +143,7 @@ appositamente creato.
 %   \caption{Architettura generale - vista package}
 %   \label{fig:architetturaGeneralePackage}
 % \end{figure}
-
+%TODO: sta roba è da cancellare ve?
 L'intero sistema è rappresentabile mediante una variante del design pattern
 \gloss{MVC}, le tre componenti principali si prestano naturalmente
 all'assegnazione delle tre parti che formano il design pattern, con la
@@ -174,15 +174,14 @@ di comunicazione scelto, rappresenta la parte \gloss{controller}.
 
 \subsubsection{Descrizione}
 
-La componente principale rappresentata dal package globale \textbf{actorbase},
-contiene le parti tipiche del design pattern \gloss{MVC}.
+La componente principale rappresentata dal package globale \textbf{actorbase}.
 
 \subsubsection{Package contenuti}
 
 \begin{itemize}
-\item actorbase::model;
-\item actorbase::controller;
-\item actorbase::view.
+\item actorbase::cli;
+\item actorbase::driver;
+\item actorbase::actorsystem.
 \end{itemize}
 
 Rappresentano le tre macro-componenti del sistema.
@@ -242,7 +241,7 @@ Viene utilizzata per effettuare il salvataggio su filesystem del \gloss{database
 \item actorbase::model::system::actors::Actor.
 \end{itemize}
 
-\subparagraph{Relazioni con altre classi}
+\subparagraph{Interazioni con altre classi}
 
 \begin{itemize}
 \item actorbase::model::system::actors::Persistence.
@@ -258,7 +257,7 @@ Interfaccia che consente il salvataggio su filesystem.
 
 Viene utilizzata per offrire un'interfaccia per il salvataggio su filesystem.
 
-\subparagraph{Relazioni con altre classi}
+\subparagraph{Interazioni con altre classi}
 
 \begin{itemize}
 \item actorbase::model::system::actors::Warehouseman.
@@ -407,7 +406,7 @@ Viene utilizzata per consentire di effettuare un \gloss{backup} dei contenuti de
 
 Classe che rappresenta un'istanza del \gloss{driver}.
 
-\subparagraph{Relazioni con altre classi}
+\subparagraph{Interazioni con altre classi}
 
 \begin{itemize}
 \item actorbase::view::cli::commands::Command;
@@ -421,7 +420,7 @@ Classe che rappresenta un'istanza del \gloss{driver}.
 
 Classe per la connessione tra il \gloss{driver} e il \gloss{server}
 
-\subparagraph{Relazioni con altre classi}
+\subparagraph{Interazioni con altre classi}
 \begin{itemize}
 \item actorbase::controller::driver::client::ActorbaseClient;
 \item actorbase::model::system::server::TCPServer.
@@ -451,7 +450,7 @@ Interfaccia generica che rappresenta un comando.
 
 Viene utilizzata per offrire un'interfaccia comune a tutti i comandi.
 
-\subparagraph{Relazioni con altre classi}
+\subparagraph{Interazioni con altre classi}
 
 \begin{itemize}
 \item actorbase::controller::driver::client::ActorbaseClient;
@@ -735,7 +734,7 @@ Viene utilizzata per mandare al \gloss{server} il comando di esportazione in fil
 
 Interfaccia che consente al \gloss{driver} di effettuare il parsing dei file \gloss{JSON}.
 
-\subparagraph{Relazioni con altre classi}
+\subparagraph{Interazioni con altre classi}
 
 \begin{itemize}
 \item actorbase::view::cli::commands::Command;
@@ -755,7 +754,7 @@ Classe che consente al \gloss{driver} di effettuare il parsing dei file \gloss{J
 \item actorbase::controller::driver::data::DataStructure.
 \end{itemize}
 
-\subparagraph{Relazioni con altre classi}
+\subparagraph{Interazioni con altre classi}
 
 \begin{itemize}
 \item actorbase::controller::driver::data::Item.
@@ -774,7 +773,7 @@ Classe che consente al \gloss{driver} di effettuare il parsing dei file \gloss{J
 \item actorbase::controller::driver::data::DataStructure.
 \end{itemize}
 
-\subparagraph{Relazioni con altre classi}
+\subparagraph{Interazioni con altre classi}
 
 \begin{itemize}
 \item actorbase::controller::driver::data::ItemCursor.
@@ -810,61 +809,116 @@ Classe che offre al \gloss{driver} un cursore per lo scorrimento di una lista di
 \item actorbase::controller::driver::data::Cursor.
 \end{itemize}
 
-\subsection{actorbase::view}
+\subsection{actorbase::cli}
 
 \subsubsection{Descrizione}
 
-\gloss{Package} per la componente \gloss{View} dell'architettura \gloss{MVC}.
+\gloss{Package} per la parte di \gloss{client} rappresentata dalla \gloss{cli}. Questa componente viene rappresentata usando il \gloss{design pattern} \gloss{MVC} in versione \gloss{push model}.
 
 \subsubsection{Package contenuti}
 
 \begin{itemize}
-\item cli.
+\item views;
+\item controllers;
+\item models.
 \end{itemize}
 
-\subsection{actorbase::view::cli}
+\subsection{actorbase::cli::views}
 
 \subsubsection{Descrizione}
 
-\gloss{Package} per la componente \gloss{cli} del prodotto.
+\gloss{Package} per la parte \gloss{view} della \gloss{cli}. Questa componente gestisce l'output e offre l'interfaccia tramite cui l'utente può inserire i comandi.
 
-\subsubsection{Package contenuti}
-
-\begin{itemize}
-\item actorbaseCli;
-\item commands.
-\end{itemize}
-
-\subsection{actorbase::view::cli::actorbaseCli}
-
-\subsubsection{Descrizione}
-
-Componente parte della \gloss{View} per la gestione dei comandi e dell'output prodotto verso l'utente.
-
-\subsubsection{Relazioni con altre classi}
+\subsubsection{Interazioni con altre componenti}
 
 \begin{itemize}
-\item actorbase::view::cli::commands;
-\item SpringShell.
+\item actorbase::cli::controllers;
+\item actorbase::cli::models.
 \end{itemize}
 
 \subsubsection{Classi}
 
-\paragraph{actorbase::view::cli::actorbaseCli::PromptProvider}
+\paragraph{actorbase::cli::views::CommandLoop}
 
 \subparagraph{Descrizione}
 
-Classe per la creazione del \gloss{prompt} dei comandi.
+Questa classe verrà utilizzata per leggere i comandi inseriti dall'utente.
 
 \subparagraph{Utilizzo}
 
-Viene utilizzata per la creazione di un \gloss{prompt} per l'inserimento dei comandi e la visualizzazione dell'output.
+Viene utilizzata per la lettura dei comandi inseriti dall'utente.
+
+\subparagraph{Interazioni con altre classi}
+
+\begin{itemize}
+\item actorbase::cli::views::PromptProvider;
+\item actorbase::cli::views::Banner;
+\item actorbase::cli::views::ResultViewer;
+\item actorbase::cli::controllers::GrammarParser.
+\end{itemize}
+
+\paragraph{actorbase::cli::views::Banner}
+
+\subparagraph{Descrizione}
+
+Interfaccia per la creazione di un \gloss{banner} da mostrare all'avvio della \gloss{cli}.
+
+\subparagraph{Utilizzo}
+
+Offre un'interfaccia per la creazione di un \gloss{banner} generico.
+
+\subparagraph{Interazioni con altre classi}
+
+\begin{itemize}
+\item actorbase::cli::views::CommandLoop.
+\end{itemize}
+
+\paragraph{actorbase::cli::views::ActorbaseBanner}
+
+\subparagraph{Descrizione}
+
+Classe che implementa l'interfaccia actorbase::cli::views::Banner per la creazione del \gloss{banner} da mostrare all'avvio della \gloss{CLI}.
+
+\subparagraph{Utilizzo}
+
+Viene utilizzata per la creazione di un \gloss{banner} di presentazione all'avvio della \gloss{CLI}.
 
 \subparagraph{Classi ereditate}
 
 \begin{itemize}
-\item DefaultPromptProvider;
-\item SpringShell.
+\item actorbase::cli::views::Banner.
+\end{itemiz
+
+\paragraph{actorbase::cli::views::PromptProvider}
+
+\subparagraph{Descrizione}
+
+Interfaccia per la creazione del \gloss{prompt} dei comandi.
+
+\subparagraph{Utilizzo}
+
+Offre un'interfaccia per la creazione di un \gloss{prompt} generico.
+
+\subparagraph{Interazioni con altre classi}
+
+\begin{itemize}
+\item actorbase::cli::views::CommandLoop.
+\end{itemize}
+
+\paragraph{actorbase::cli::views::ActorbasePrompt}
+
+\subparagraph{Descrizione}
+
+Classe che implementa l'interfaccia actorbase::clI::views::PromptProvider per la creazione di un \gloss{prompt} dei comandi.
+
+\subparagraph{Utilizzo}
+
+Viene utilizzata per la creazione di un \gloss{prompt} per l'inserimento dei comandi e la visualizzazione delle informazioni relative alla connessione effettuata. %TODO: scrivere meglio
+
+\subparagraph{Classi ereditate}
+
+\begin{itemize}
+\item actorbase::cli::views::PromptProvider.
 \end{itemize}
 
 \paragraph{actorbase::view::cli::actorbaseCli::HistoryFileNameProvider}
@@ -884,23 +938,6 @@ Viene utilizzata per la creazione e gestione del sistema di storico dei comandi 
 \item SpringShell.
 \end{itemize}
 
-\paragraph{actorbase::view::cli::actorbaseCli::BannerProvider}
-
-\subparagraph{Descrizione}
-
-Classe per la creazione del \gloss{banner} d'ingresso alla \gloss{CLI}.
-
-\subparagraph{Utilizzo}
-
-Viene utilizzata per la creazione di un \gloss{banner} di presentazione all'ingresso della \gloss{CLI}.
-
-\subparagraph{Classi ereditate}
-
-\begin{itemize}
-\item DefaultBannerProvider;
-\item SpringShell.
-\end{itemize}
-
 \paragraph{actorbase::view::cli::actorbaseCli::CLICommands}
 
 \subparagraph{Descrizione}
@@ -917,7 +954,7 @@ Viene utilizzata per la gestione mediante metodi appositi dei comandi della \glo
 \item CommandMarker.
 \end{itemize}
 
-\subparagraph{Relazioni con altre classi}
+\subparagraph{Interazioni con altre classi}
 
 \begin{itemize}
 \item actorbase::view::cli::commands::Command.
@@ -958,7 +995,7 @@ Interfaccia generica che rappresenta un comando.
 
 Viene utilizzata per offrire un'interfaccia comune a tutti i comandi.
 
-\subparagraph{Relazioni con altre classi}
+\subparagraph{Interazioni con altre classi}
 
 \begin{itemize}
 \item actorbase::view::cli::actorbaseCli::CLICommands;
