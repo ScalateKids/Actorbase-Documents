@@ -1737,30 +1737,30 @@ l'architettura più manutenibile.\\
 I \gloss{Design Pattern} possono essere suddivisi in:
 
 \begin{itemize}
-\item \bf{architetturali:} operano al livello più alto,
+\item \textbf{architetturali:} operano al livello più alto,
   esprimono schemi di base per impostare l'organizzazione strutturale di un
   sistema software;
-\item \bf{creazionali:} nascondono i costruttori delle classi e mettono dei
+\item \textbf{creazionali:} nascondono i costruttori delle classi e mettono dei
   metodi al loro posto creando un'interfaccia, in questo modo forniscono
   un'astrazione del processo di instanziazione degli oggetti;
-\item \bf{strutturali:} consentono di riutilizzare degli oggetti esistenti
+\item \textbf{strutturali:} consentono di riutilizzare degli oggetti esistenti
   fornendo agli utilizzatori un'interfaccia più adatta alle loro esigenze;
-\item \bf{comportamentali:} definiscono soluzioni per le interazioni tra
+\item \textbf{comportamentali:} definiscono soluzioni per le interazioni tra
   oggetti.
 \end{itemize}
 
 Si rimanda all'Appendice A per un approfondimento dei \gloss{Design Pattern}
-utilizzati nel progetto \bf{Actorbase}.
+utilizzati nel progetto \textbf{Actorbase}.
 
 \subsection{Design Pattern Architetturali}
 
 \subsubsection{MVC}
 
 \begin{itemize}
-\item \bf{Scopo:} E' stato scelto l'utilizzo del pattern \gloss{Model}
+\item \textbf{Scopo:} E' stato scelto l'utilizzo del pattern \gloss{Model}
   \gloss{View} \gloss{Controller} (\gloss{MVC}) per l'alto grado di separazione
   tra la parte logica dell'applicazione e parte grafica che offre;
-\item \bf{Utilizzo:} Viene utilizzato per delineare l'architettura generale
+\item \textbf{Utilizzo:} Viene utilizzato per delineare l'architettura generale
   della componente \gloss{CLI} (Command Line Interface) del progetto. La parte
   \gloss{View} funge da interfaccia con l'utente, si occupa di leggere l'input e
   inviarlo al Controller, il quale si occupa di validare l'input
@@ -1776,9 +1776,9 @@ utilizzati nel progetto \bf{Actorbase}.
 \subsubsection{Singleton}
 
 \begin{itemize}
-\item \bf{Scopo:} Viene utilizzato per le classi di cui è preferibile avere un'unica istanza
+\item \textbf{Scopo:} Viene utilizzato per le classi di cui è preferibile avere un'unica istanza
   durante l'esecuzione dell'applicazione;
-\item \bf{Utilizzo:} E' stato utilizzato una sola volta per la classe di connessione all'interno
+\item \textbf{Utilizzo:} E' stato utilizzato una sola volta per la classe di connessione all'interno
   della componente \gloss{driver}, in modo da offrire un unico punto di accesso al server.
 \end{itemize}
 
@@ -1787,9 +1787,9 @@ utilizzati nel progetto \bf{Actorbase}.
 \subsubsection{Facade}
 
 \begin{itemize}
-\item \bf{Scopo:} Il pattern \gloss{Facade} viene usato per fornire
+\item \textbf{Scopo:} Il pattern \gloss{Facade} viene usato per fornire
   un'interfaccia unica e semplificata a più classi;
-\item \bf{Utilizzo:} Viene utilizzato all'interno della componente
+\item \textbf{Utilizzo:} Viene utilizzato all'interno della componente
   \gloss{driver} per l'esecuzione e l'invio al server dei comandi mediante
   la classe CommandRunner, la quale mediante l'istanza \gloss{Singleton} di
   Connection invia e riceve i comandi al server.
@@ -1802,9 +1802,9 @@ utilizzati nel progetto \bf{Actorbase}.
 \label{sec:CommandPattern}
 
 \begin{itemize}
-\item \bf{Scopo:} Viene utilizzato per separare l'implementazione di un'azione
+\item \textbf{Scopo:} Viene utilizzato per separare l'implementazione di un'azione
   (\gloss{Receiver}) dal richiamante dell'azione stessa (\gloss{Invoker}).
-\item \bf{Utilizzo:} Viene utilizzato per la gestione dei comandi nella componente
+\item \textbf{Utilizzo:} Viene utilizzato per la gestione dei comandi nella componente
   \gloss{CLI}, e funge da \gloss{Model} dell'architettura \gloss{MVC} utilizzata.\\
   Le classi che implementano i comandi realizzando l'interfaccia \verb=Command= sono:
   \begin{itemize}
@@ -1835,8 +1835,8 @@ dell'architettura \gloss{MVC} scelta per la componente \gloss{CLI}.
 \subsubsection{Iterator Pattern}
 
 \begin{itemize}
-\item \bf{Scopo:}
-\item \bf{Utilizzo:}
+\item \textbf{Scopo:}
+\item \textbf{Utilizzo:}
 \end{itemize}
 
 \subsubsection{Observer Pattern}
@@ -1844,16 +1844,16 @@ dell'architettura \gloss{MVC} scelta per la componente \gloss{CLI}.
 \label{sec:ObserverPattern}
 
 \begin{itemize}
-\item \bf{Scopo:}
-\item \bf{Utilizzo:}
+\item \textbf{Scopo:}
+\item \textbf{Utilizzo:}
 \end{itemize}
 
 \subsubsection{Strategy}
 
 \begin{itemize}
-\item \bf{Scopo:} Viene usato per isolare più algoritmi all'interno di oggetti e
+\item \textbf{Scopo:} Viene usato per isolare più algoritmi all'interno di oggetti e
   ne permette la modifica dinamica.
-\item \bf{Utilizzo:} Nella componente \gloss{driver} è stato utilizzato per
+\item \textbf{Utilizzo:} Nella componente \gloss{driver} è stato utilizzato per
   offrire più possibilità di criptazione delle credenziali prima di essere
   serializzate e inviate al server in ascolto nella componente
   \verb=actorsystem=. Inoltre è stato implementato per gli algoritmi di serializzazione
@@ -1863,7 +1863,7 @@ dell'architettura \gloss{MVC} scelta per la componente \gloss{CLI}.
   Contesti di utilizzo:
   \begin{itemize}
 
-  \item \bf{driver:}
+  \item \textbf{driver:}
     \begin{itemize}
     \item Dopo che la classe \verb=Connection= riceve i parametri da inviare è
       possibile selezionare mediante \verb=EncryptionContext=, una delle
@@ -1890,7 +1890,7 @@ dell'architettura \gloss{MVC} scelta per la componente \gloss{CLI}.
       \end{itemize}
     \end{itemize}
 
-  \item \bf{actorsystem:}
+  \item \textbf{actorsystem:}
     \begin{itemize}
     \item All'interno del package \verb=clientactor=, la classe utilizzata per la
       gestione dei messaggi in ingresso \verb=RESPInput= è possibile selezionare
