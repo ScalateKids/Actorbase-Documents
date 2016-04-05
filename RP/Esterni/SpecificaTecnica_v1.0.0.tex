@@ -98,21 +98,21 @@ componentiche andranno a comporre il software.
 \begin{itemize}
 
 \item\textbf{Capitolato d'appalto C1:} \textit{Actorbase: a
-NoSQL DB based on the Actor model;}\\
-\url{http://www.math.unipd.it/~tullio/IS-1/2015/Progetto/C1.pdf}
+    NoSQL DB based on the Actor model;}\\
+  \url{http://www.math.unipd.it/~tullio/IS-1/2015/Progetto/C1.pdf}
 \item\textbf{Norme di Progetto:}
-\href{run:../Interni/NormeDiProgetto\_v2.0.0.pdf}{Norme di Progetto v2.0.0.}
+  \href{run:../Interni/NormeDiProgetto\_v2.0.0.pdf}{Norme di Progetto v2.0.0.}
 \end{itemize}
 
 \subsubsection{Informativi}
 
 \begin{itemize}
 \item\textbf{Piano di Progetto:}
-\href{run:./PianoDiProgetto\_v2.0.0.pdf}{Piano di Progetto v2.0.0}
+  \href{run:./PianoDiProgetto\_v2.0.0.pdf}{Piano di Progetto v2.0.0}
 \item\textbf{Dispense fornite dall'insegnamento Ingegneria del Software mod.
-A:}\\   \url{http://www.math.unipd.it/~tullio/IS-1/2015/}
+    A:}\\   \url{http://www.math.unipd.it/~tullio/IS-1/2015/}
 \item\textbf{Documentazione di \gloss{Akka} su \gloss{Scala}:}
-\url{http://doc.akka.io/docs/akka/2.4.2/scala.html}
+  \url{http://doc.akka.io/docs/akka/2.4.2/scala.html}
 \end{itemize}
 
 \newpage
@@ -128,16 +128,16 @@ La scelta della libreria \gloss{Akka} è stata dettata dal capitolato. Tuttavia
 l'avremmo scelta comunque per i seguenti motivi:
 \begin{itemize}
 \item\textbf{Implementazione del \gloss{modello ad attori}:} \gloss{Akka}
-rende semplice la creazione e l'utilizzo degli \gloss{attori}. Grazie a ciò
-viene naturale la distribuibilità del progetto e l'asincronia tra i processi;
+  rende semplice la creazione e l'utilizzo degli \gloss{attori}. Grazie a ciò
+  viene naturale la distribuibilità del progetto e l'asincronia tra i processi;
 \item\textbf{Tolleranza agli errori:} \gloss{Akka} implementa un sistema di
-gerarchia di supervisori. Questa gerarchia consente ai supervisori di un
-\gloss{attore}, nel caso in cui quest'ultimo lanci un'eccezione, di mandarlo
-in \gloss{crash} e farlo poi ripartire. In questo modo il sistema è resiliente
-agli errori;
+  gerarchia di supervisori. Questa gerarchia consente ai supervisori di un
+  \gloss{attore}, nel caso in cui quest'ultimo lanci un'eccezione, di mandarlo
+  in \gloss{crash} e farlo poi ripartire. In questo modo il sistema è resiliente
+  agli errori;
 \item\textbf{Persistenza:} Ogni messaggio ricevuto da ciascun \gloss{attore}
-può essere salvato in maniera tale che al riavvio esso possa riprendere da
-dov'era prima del suo spegnimento.
+  può essere salvato in maniera tale che al riavvio esso possa riprendere da
+  dov'era prima del suo spegnimento.
 \end{itemize}
 
 \subsection{Scala}
@@ -148,12 +148,12 @@ motivi:
 
 \begin{itemize}
 \item\textbf{gloss{Programmazione funzionale}:} Questa tecnica di
-programmazione evita che ci siano degli effetti collaterali tra funzioni,
-rendendole quindi gloss{thread-safe};
+  programmazione evita che ci siano degli effetti collaterali tra funzioni,
+  rendendole quindi gloss{thread-safe};
 \item\textbf{Implementazione di gloss{Akka}:} gloss{Akka} risulta più
-facilmente implementabile in gloss{Scala} che in gloss{Java}. Questo perchè
-la \gloss{programmazione funzionale} con i suoi paradigmi si integra meglio
-con il gloss{modello ad attori};%%TODO completare lista
+  facilmente implementabile in gloss{Scala} che in gloss{Java}. Questo perchè
+  la \gloss{programmazione funzionale} con i suoi paradigmi si integra meglio
+  con il gloss{modello ad attori};%%TODO completare lista
 \end{itemize}
 
 \section{Descrizione architettura}
@@ -189,7 +189,7 @@ mediante un protocollo di comunicazione appositamente creato.
 %   \caption{Architettura generale - vista package}
 %   \label{fig:architetturaGeneralePackage}
 % \end{figure}
-%TODO: sta roba è da cancellare ve?
+% TODO: sta roba è da cancellare ve?
 L'intero sistema è rappresentabile mediante una variante del design pattern
 \gloss{MVC}, le tre componenti principali si prestano naturalmente
 all'assegnazione delle tre parti che formano il design pattern, con la
@@ -1035,7 +1035,7 @@ risposta ricevuta dal \gloss{driver}.
 
 Classe per la gestione e la formattazione in output dei risultati ottenuti
 dall'esecuzione del comando ricevuto in input tramite il \gloss{design
-pattern} \gloss{Observer}.
+  pattern} \gloss{Observer}.
 
 \subparagraph{Utilizzo}
 
@@ -1105,7 +1105,7 @@ componente \gloss{view} tramite il \gloss{push model} del \gloss{design pattern}
 
 \subsubsection{Classi}
 
-%LISTAcomandi
+% LISTAcomandi
 \subsubsection{Classi}
 
 \paragraph{actorbase::view::cli::commands::Command}
@@ -1421,10 +1421,10 @@ password, effettuare il logout oppure, se si tratta di un amministratore,
 gestire gli utenti del database.
 
 \begin{figure}[H]
-	\begin{center}
-		\includegraphics[width=0.8\textwidth, keepaspectratio]{img/diagrammiAttivita/visioneGenerale.jpeg}
-		\caption{Diagrammi attività - Visione generale}
-	\end{center}
+  \begin{center}
+    \includegraphics[width=0.8\textwidth, keepaspectratio]{img/diagrammiAttivita/visioneGenerale.jpeg}
+    \caption{Diagrammi attività - Visione generale}
+  \end{center}
 \end{figure}
 
 \subsection{Operazioni su collezioni e/o item}
@@ -1438,10 +1438,10 @@ termine se l'utente ha scritto correttamente il comando altrimenti verrà
 visualizzato un messaggio di errore.
 
 \begin{figure}[H]
-	\begin{center}
-		\includegraphics[width=0.3\textwidth, keepaspectratio]{img/diagrammiAttivita/creazioneCollezione.jpeg}
-		\caption{Diagrammi attività - Creazione collezione}
-	\end{center}
+  \begin{center}
+    \includegraphics[width=0.3\textwidth, keepaspectratio]{img/diagrammiAttivita/creazioneCollezione.jpeg}
+    \caption{Diagrammi attività - Creazione collezione}
+  \end{center}
 \end{figure}
 
 \subsubsection{Cancellazione collezione}
@@ -1454,10 +1454,10 @@ scritto correttamente il comando altrimenti verrà visualizzato un messaggio di
 errore.
 
 \begin{figure}[H]
-	\begin{center}
-		\includegraphics[width=0.3\textwidth, keepaspectratio]{img/diagrammiAttivita/cancCollezione.jpeg}
-		\caption{Diagrammi attività - Cancellazione collezione}
-	\end{center}
+  \begin{center}
+    \includegraphics[width=0.3\textwidth, keepaspectratio]{img/diagrammiAttivita/cancCollezione.jpeg}
+    \caption{Diagrammi attività - Cancellazione collezione}
+  \end{center}
 \end{figure}
 
 \subsubsection{Visualizza collezioni}
@@ -1470,10 +1470,10 @@ collezioni) se l'utente ha scritto correttamente il comando altrimenti verrà
 visualizzato un messaggio di errore.
 
 \begin{figure}[H]
-	\begin{center}
-		\includegraphics[width=0.3\textwidth, keepaspectratio]{img/diagrammiAttivita/visCollezione.jpeg}
-		\caption{Diagrammi attività - Visualizzazione collezioni}
-	\end{center}
+  \begin{center}
+    \includegraphics[width=0.3\textwidth, keepaspectratio]{img/diagrammiAttivita/visCollezione.jpeg}
+    \caption{Diagrammi attività - Visualizzazione collezioni}
+  \end{center}
 \end{figure}
 
 \subsubsection{Modifica nome collezione}
@@ -1486,10 +1486,10 @@ l'operazione andrà a buon termine se l'utente ha scritto correttamente il
 comando altrimenti verrà visualizzato un messaggio di errore.
 
 \begin{figure}[H]
-	\begin{center}
-		\includegraphics[width=0.3\textwidth, keepaspectratio]{img/diagrammiAttivita/modNomeCollezione.jpeg}
-		\caption{Diagrammi attività - Modifica nome collezione}
-	\end{center}
+  \begin{center}
+    \includegraphics[width=0.3\textwidth, keepaspectratio]{img/diagrammiAttivita/modNomeCollezione.jpeg}
+    \caption{Diagrammi attività - Modifica nome collezione}
+  \end{center}
 \end{figure}
 
 \subsubsection{Inserimento item}
@@ -1503,10 +1503,10 @@ collezioni) se l'utente ha scritto correttamente il comando altrimenti verrà
 visualizzato un messaggio di errore.
 
 \begin{figure}[H]
-	\begin{center}
-		\includegraphics[width=0.3\textwidth, keepaspectratio]{img/diagrammiAttivita/inserimentoItem.jpeg}
-		\caption{Diagrammi attività - Inserimento item}
-	\end{center}
+  \begin{center}
+    \includegraphics[width=0.3\textwidth, keepaspectratio]{img/diagrammiAttivita/inserimentoItem.jpeg}
+    \caption{Diagrammi attività - Inserimento item}
+  \end{center}
 \end{figure}
 
 \subsubsection{Rimozione item}
@@ -1520,10 +1520,10 @@ delle collezioni) se l'utente ha scritto correttamente il comando altrimenti
 verrà visualizzato un messaggio di errore.
 
 \begin{figure}[H]
-	\begin{center}
-		\includegraphics[width=0.3\textwidth, keepaspectratio]{img/diagrammiAttivita/rimozioneItem.jpeg}
-		\caption{Diagrammi attività - Rimozione item}
-	\end{center}
+  \begin{center}
+    \includegraphics[width=0.3\textwidth, keepaspectratio]{img/diagrammiAttivita/rimozioneItem.jpeg}
+    \caption{Diagrammi attività - Rimozione item}
+  \end{center}
 \end{figure}
 
 \subsubsection{Aggiunta collaboratore}
@@ -1537,10 +1537,10 @@ termine se l'utente ha scritto correttamente il comando altrimenti verrà
 visualizzato un messaggio di errore.
 
 \begin{figure}[H]
-	\begin{center}
-		\includegraphics[width=0.3\textwidth, keepaspectratio]{img/diagrammiAttivita/aggCollaboratore.jpeg}
-		\caption{Diagrammi attività - Aggiunta collaboratore}
-	\end{center}
+  \begin{center}
+    \includegraphics[width=0.3\textwidth, keepaspectratio]{img/diagrammiAttivita/aggCollaboratore.jpeg}
+    \caption{Diagrammi attività - Aggiunta collaboratore}
+  \end{center}
 \end{figure}
 
 \subsubsection{Rimozione collaboratore}
@@ -1554,10 +1554,10 @@ termine se l'utente ha scritto correttamente il comando altrimenti verrà
 visualizzato un messaggio di errore.
 
 \begin{figure}[H]
-	\begin{center}
-		\includegraphics[width=0.3\textwidth, keepaspectratio]{img/diagrammiAttivita/rimozioneCollaboratore.jpeg}
-		\caption{Diagrammi attività - Rimozione collaboratore}
-	\end{center}
+  \begin{center}
+    \includegraphics[width=0.3\textwidth, keepaspectratio]{img/diagrammiAttivita/rimozioneCollaboratore.jpeg}
+    \caption{Diagrammi attività - Rimozione collaboratore}
+  \end{center}
 \end{figure}
 
 \subsubsection{Import}
@@ -1570,10 +1570,10 @@ l'utente ha scritto correttamente il comando altrimenti verrà visualizzato un
 messaggio di errore.
 
 \begin{figure}[H]
-	\begin{center}
-		\includegraphics[width=0.3\textwidth, keepaspectratio]{img/diagrammiAttivita/import.jpeg}
-		\caption{Diagrammi attività - Import}
-	\end{center}
+  \begin{center}
+    \includegraphics[width=0.3\textwidth, keepaspectratio]{img/diagrammiAttivita/import.jpeg}
+    \caption{Diagrammi attività - Import}
+  \end{center}
 \end{figure}
 
 \subsection{Interrogazione del database}
@@ -1586,10 +1586,10 @@ scritto correttamente il comando, ricevendo il risultato della query,
 altrimenti verrà visualizzato un messaggio di errore.
 
 \begin{figure}[H]
-	\begin{center}
-		\includegraphics[width=0.3\textwidth, keepaspectratio]{img/diagrammiAttivita/query.jpeg}
-		\caption{Diagrammi attività - Interrogazione del database}
-	\end{center}
+  \begin{center}
+    \includegraphics[width=0.3\textwidth, keepaspectratio]{img/diagrammiAttivita/query.jpeg}
+    \caption{Diagrammi attività - Interrogazione del database}
+  \end{center}
 \end{figure}
 
 \subsection{Modifica password}
@@ -1602,10 +1602,10 @@ termine se l'utente ha scritto correttamente il comando altrimenti verrà
 visualizzato un messaggio di errore.
 
 \begin{figure}[H]
-	\begin{center}
-		\includegraphics[width=0.3\textwidth, keepaspectratio]{img/diagrammiAttivita/modificaPsw.jpeg}
-		\caption{Diagrammi attività - Modifica password}
-	\end{center}
+  \begin{center}
+    \includegraphics[width=0.3\textwidth, keepaspectratio]{img/diagrammiAttivita/modificaPsw.jpeg}
+    \caption{Diagrammi attività - Modifica password}
+  \end{center}
 \end{figure}
 
 \subsection{Gestione utenti}
@@ -1622,24 +1622,221 @@ scritto correttamente il comando altrimenti verrà visualizzato un messaggio di
 errore.
 
 \begin{figure}[H]
-	\begin{center}
-		\includegraphics[width=0.3\textwidth, keepaspectratio]{img/diagrammiAttivita/gestioneUtenti.jpeg}
-		\caption{Diagrammi attività - Gestione utenti}
-	\end{center}
+  \begin{center}
+    \includegraphics[width=0.3\textwidth, keepaspectratio]{img/diagrammiAttivita/gestioneUtenti.jpeg}
+    \caption{Diagrammi attività - Gestione utenti}
+  \end{center}
 \end{figure}
 
 \section{Design Pattern}
 
-\subsection{Stime di fattibilità e di bisogno di risorse}
+I \gloss{Design Pattern} rappresentano soluzioni progettuali generali ad un
+problema ricorrente. Si tratta di  modelli logici da applicare per la
+risoluzione di un problema ancor prima della definizione dell'algoritmo
+risolutivo vero e proprio, favoriscono il riutilizzo del codice e rendono
+l'architettura più manutenibile.\\
+I \gloss{Design Pattern} possono essere suddivisi in:
+
+\begin{itemize}
+\item \bf{architetturali:} operano al livello più alto,
+  esprimono schemi di base per impostare l'organizzazione strutturale di un
+  sistema software;
+\item \bf{creazionali:} nascondono i costruttori delle classi e mettono dei
+  metodi al loro posto creando un'interfaccia, in questo modo forniscono
+  un'astrazione del processo di instanziazione degli oggetti;
+\item \bf{strutturali:} consentono di riutilizzare degli oggetti esistenti
+  fornendo agli utilizzatori un'interfaccia più adatta alle loro esigenze;
+\item \bf{comportamentali:} definiscono soluzioni per le interazioni tra
+  oggetti.
+\end{itemize}
+
+Si rimanda all'Appendice A per un approfondimento dei \gloss{Design Pattern}
+utilizzati nel progetto \bf{Actorbase}.
+
+\subsection{Design Pattern Architetturali}
+
+\subsubsection{MVC}
+
+\begin{itemize}
+\item \bf{Scopo:} E' stato scelto l'utilizzo del pattern \gloss{Model}
+  \gloss{View} \gloss{Controller} (\gloss{MVC}) per l'alto grado di separazione
+  tra la parte logica dell'applicazione e parte grafica che offre;
+\item \bf{Utilizzo:} Viene utilizzato per delineare l'architettura generale
+  della componente \gloss{CLI} (Command Line Interface) del progetto. La parte
+  \gloss{View} funge da interfaccia con l'utente, si occupa di leggere l'input e
+  inviarlo al Controller, il quale si occupa di validare l'input
+  e inviare il comando estrapolato al \gloss{Model}.\\
+  Il \gloss{Model} mediante un \gloss{Command Pattern} (vedi~\hyperref[sec:CommandPattern]{Command Pattern})
+  esegue il comando richiesto e notifica la \gloss{View} utilizzando un \gloss{Observer Pattern}
+  (vedi~\hyperref[sec:ObserverPattern]{Observer Pattern}) secondo la variante \gloss{Push model}.
+\end{itemize}
+% TODO: diagrammi sequenziali?
+
+\subsection{Design Pattern Creazionali}
+
+\subsubsection{Singleton}
+
+\begin{itemize}
+\item \bf{Scopo:} Viene utilizzato per le classi di cui è preferibile avere un'unica istanza
+  durante l'esecuzione dell'applicazione;
+\item \bf{Utilizzo:} E' stato utilizzato una sola volta per la classe di connessione all'interno
+  della componente \gloss{driver}, in modo da offrire un unico punto di accesso al server.
+\end{itemize}
+
+\subsection{Design Pattern Strutturali}
+
+\subsubsection{Facade}
+
+\begin{itemize}
+\item \bf{Scopo:} Il pattern \gloss{Facade} viene usato per fornire
+  un'interfaccia unica e semplificata a più classi;
+\item \bf{Utilizzo:} Viene utilizzato all'interno della componente
+  \gloss{driver} per l'esecuzione e l'invio al server dei comandi mediante
+  la classe CommandRunner, la quale mediante l'istanza \gloss{Singleton} di
+  Connection invia e riceve i comandi al server.
+\end{itemize}
+
+\subsection{Design Pattern Comportamentali}
+
+\subsubsection{Command Pattern}
+
+\label{sec:CommandPattern}
+
+\begin{itemize}
+\item \bf{Scopo:} Viene utilizzato per separare l'implementazione di un'azione
+  (\gloss{Receiver}) dal richiamante dell'azione stessa (\gloss{Invoker}).
+\item \bf{Utilizzo:} Viene utilizzato per la gestione dei comandi nella componente
+  \gloss{CLI}, e funge da \gloss{Model} dell'architettura \gloss{MVC} utilizzata.\\
+  Le classi che implementano i comandi realizzando l'interfaccia \verb=Command= sono:
+  \begin{itemize}
+  \item \verb=FindCommand=
+  \item \verb=ListCommand=
+  \item \verb=LoginCommand=
+  \item \verb=LogoutCommand=
+  \item \verb=HelpCommand=
+  \item \verb=InsertItemCommand=
+  \item \verb=RemoveItemCommand=
+  \item \verb=RenameCollectionCommand=
+  \item \verb=CreateCollectionCommand=
+  \item \verb=RemoveCollectionCommand=
+  \item \verb=ImportCommand=
+  \item \verb=ExportCommand=
+  \item \verb=AddContributorCommand=
+  \item \verb=RemoveContributorCommand=
+  \item \verb=ResetPasswordCommand=
+  \item \verb=AddUserCommand=
+  \item \verb=RemoveUserCommand=
+  \end{itemize}
+\end{itemize}
+
+La classe incaricata di eseguire i comandi è \verb=CommandReceiver=, invocata mediante
+\verb=CommandInvoker=, utilizzando i parametri ricevuti dalla parte \gloss{Controller}
+dell'architettura \gloss{MVC} scelta per la componente \gloss{CLI}.
+
+\subsubsection{Iterator Pattern}
+
+\begin{itemize}
+\item \bf{Scopo:}
+\item \bf{Utilizzo:}
+\end{itemize}
+
+\subsubsection{Observer Pattern}
+
+\label{sec:ObserverPattern}
+
+\begin{itemize}
+\item \bf{Scopo:}
+\item \bf{Utilizzo:}
+\end{itemize}
+
+\subsubsection{Strategy}
+
+\begin{itemize}
+\item \bf{Scopo:} Viene usato per isolare più algoritmi all'interno di oggetti e
+  ne permette la modifica dinamica.
+\item \bf{Utilizzo:} Nella componente \gloss{driver} è stato utilizzato per
+  offrire più possibilità di criptazione delle credenziali prima di essere
+  serializzate e inviate al server in ascolto nella componente
+  \verb=actorsystem=. Inoltre è stato implementato per gli algoritmi di serializzazione
+  e deserializzazione, sia su componente \gloss{driver} e componente \verb=actorsystem=.\\
+  Negli ultimi due casi viene offerta una singola strategia, con la scelta di mantenere
+  il \gloss{Design Pattern} in vista di eventuali estensioni.
+  Contesti di utilizzo:
+  \begin{itemize}
+
+  \item \bf{driver:}
+    \begin{itemize}
+    \item Dopo che la classe \verb=Connection= riceve i parametri da inviare è
+      possibile selezionare mediante \verb=EncryptionContext=, una delle
+      strategie di criptazione tra:
+      \begin{itemize}
+      \item \verb=SHA1Encryption=
+      \item \verb=BlowfishEncryption=
+      \end{itemize}
+    \end{itemize}
+    \begin{itemize}
+    \item Dopo che la classe \verb=Connection= riceve i parametri da inviare è
+      possibile selezionare mediante \verb=SerializationContext=, una delle
+      strategie di serializzazione tra:
+      \begin{itemize}
+      \item \verb=RESPSerialize=
+      \end{itemize}
+    \end{itemize}
+    \begin{itemize}
+    \item In ricezione dei dati all'interno della classe \verb=Connection= è
+      possibile selezionare mediante \verb=DeserializationContext=, una delle
+      strategie di deserializzazione tra:
+      \begin{itemize}
+      \item \verb=RESPDeserialize=
+      \end{itemize}
+    \end{itemize}
+
+  \item \bf{actorsystem:}
+    \begin{itemize}
+    \item All'interno del package \verb=clientactor=, la classe utilizzata per la
+      gestione dei messaggi in ingresso \verb=RESPInput= è possibile selezionare
+      mediante \verb=DeserializationContext=, una delle strategie di deserializzazione
+      tra:
+      \begin{itemize}
+      \item \verb=RESPDeserialization=
+      \end{itemize}
+    \item All'interno del package \verb=clientactor=, la classe utilizzata per la
+      gestione dei messaggi in uscita \verb=Response= è possibile selezionare
+      mediante \verb=SerializationContext=, una delle strategie di serializzazione
+      tra:
+      \begin{itemize}
+      \item \verb=RESPSerialization=
+      \end{itemize}
+    \item All'interno del package \verb=warehouseman=, la classe utilizzata per
+      la gestione del salvataggio in persistenza dei dati \verb=Save= è
+      possibile selezionare mediante \verb=SerializationContext=, una delle
+      strategie di serializzazione tra:
+      \begin{itemize}
+      \item \verb=PickleSerialization=
+      \end{itemize}
+    \item All'interno del package \verb=warehouseman=, all'interno della
+      strategia di serializzazione è possibile selezionare mediante
+      \verb=Encryption=, una delle strategie di criptazione tra:
+      \begin{itemize}
+      \item \verb=BlowfishEncryption=
+      \item \verb=SHA1Encryption=
+      \end{itemize}
+    \end{itemize}
+
+  \end{itemize}
+
+\end{itemize}
+
+\section{Stime di fattibilità e di bisogno di risorse}
 
 \section{Tracciamento}
 
-\subsection{Tracciamento componenti - requisiti}
+\subsection{Tracciamento componenti\ -\ requisiti}
 
-\subsection{Tracciamento requisiti - componenti}
+\subsection{Tracciamento requisiti\ -\ componenti}
 
 \appendix
-\section{Descrizione design pattern}
+\section{Descrizione Design Pattern}
 \listoftables
 \listoffigures
 \end{document}
