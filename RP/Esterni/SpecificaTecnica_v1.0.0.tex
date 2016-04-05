@@ -1281,8 +1281,12 @@ immesse dall'utente.
 \item \hyperref[sec:actorbase::cli::models::Command]{actorbase::cli::models::Command}.
 \end{itemize}
 
+<<<<<<< HEAD
 \paragraph{actorbase::cli::models::DeleteCommand}
 \label{sec:actorbase::cli::models::DeleteCommand}
+=======
+\paragraph{actorbase::cli::models::RemoveCollectionCommand}
+>>>>>>> 2122b66086a1b58fe9dfbf8ce363bc73a37b3bfe
 
 \subparagraph{Descrizione}
 
@@ -1320,18 +1324,27 @@ specificati in input.
 \item \hyperref[sec:actorbase::cli::models::Command]{actorbase::cli::models::Command}.
 \end{itemize}
 
+<<<<<<< HEAD
 \paragraph{actorbase::cli::models::RenameCommand}
 \label{sec:actorbase::cli::models::RenameCommand}
+=======
+\paragraph{actorbase::cli::models::RenameCollectionCommand}
+>>>>>>> 2122b66086a1b58fe9dfbf8ce363bc73a37b3bfe
 
 \subparagraph{Descrizione}
 
-Classe per il comando rinominazione di un item.
+Classe per il comando rinominazione di una \gloss{collezione}.
 
 \subparagraph{Utilizzo}
 
 Viene utilizzata per chiamare il metodo di
+<<<<<<< HEAD
 \hyperref[sec:actorbase::cli::models::CommandReceiver]{actorbase::cli::models::CommandReceiver} per la rinominazione di un item con i
 parametri specificati in input.
+=======
+actorbase::cli::models::CommandReceiver per la rinominazione di una
+\gloss{collezione} con i parametri specificati in input.
+>>>>>>> 2122b66086a1b58fe9dfbf8ce363bc73a37b3bfe
 
 \subparagraph{Classi ereditate}
 
@@ -1358,8 +1371,24 @@ parametri specificati in input.
 \item \hyperref[sec:actorbase::cli::models::Command]{actorbase::cli::models::Command}.
 \end{itemize}
 
+<<<<<<< HEAD
 \paragraph{actorbase::cli::models::RemoveCommand}
 \label{sec:actorbase::cli::models::RemoveCommand}
+=======
+\paragraph{actorbase::cli::models::HelpCommand}
+
+\subparagraph{Descrizione}
+
+Classe per la richiesta di aiuto.
+
+\subparagraph{Utilizzo}
+
+Viene utilizzata per chiamare il metodo di
+actorbase::cli::models::CommandReceiver per la richiesta di aiuto con i
+parametri immessi dall'utente.
+
+\paragraph{actorbase::cli::models::RemoveItemCommand}
+>>>>>>> 2122b66086a1b58fe9dfbf8ce363bc73a37b3bfe
 
 \subparagraph{Descrizione}
 
@@ -1415,8 +1444,12 @@ Viene utilizzata per chiamare il metodo di
 \item \hyperref[sec:actorbase::cli::models::Command]{actorbase::cli::models::Command}.
 \end{itemize}
 
+<<<<<<< HEAD
 \paragraph{actorbase::cli::models::InsertCommand}
 \label{sec:actorbase::cli::models::InsertCommand}
+=======
+\paragraph{actorbase::cli::models::InsertItemCommand}
+>>>>>>> 2122b66086a1b58fe9dfbf8ce363bc73a37b3bfe
 
 \subparagraph{Descrizione}
 
@@ -1435,8 +1468,12 @@ in una \gloss{collezione} con i parametri immessi dall'utente.
 \item \hyperref[sec:actorbase::cli::models::Command]{actorbase::cli::models::Command}.
 \end{itemize}
 
+<<<<<<< HEAD
 \paragraph{actorbase::cli::models::CreateCommand}
 \label{sec:actorbase::cli::models::CreateCommand}
+=======
+\paragraph{actorbase::cli::models::CreateCollectionCommand}
+>>>>>>> 2122b66086a1b58fe9dfbf8ce363bc73a37b3bfe
 
 \subparagraph{Descrizione}
 
@@ -1471,6 +1508,26 @@ Viene utilizzata per chiamare il metodo di
 
 \begin{itemize}
 \item \hyperref[sec:actorbase::cli::models::Command]{actorbase::cli::models::Command}.
+\end{itemize}
+
+\paragraph{actorbase::cli::models::CommandReceiver}
+
+\subparagraph{Descrizione}
+
+Classe contenente i metodi per richiamare la componente \gloss{driver} per
+l'esecuzione dei comandi o per restituire l'aiuto se richiesto.
+
+\subparagraph{Utilizzo}
+
+Viene utilizzata da actorbase::cli::models::Command per chiamare
+actorbase::driver::client::ActorbaseClient o per ricevere un aiuto da
+visualizzare se richiesto dall'utente.
+
+\subparagraph{Interazioni con altre classi}
+
+\begin{itemize}
+\item actorbase::cli::models::Command;
+\item actorbase::driver::client::ActorbaseClient.
 \end{itemize}
 
 \section{Diagrammi di attività}
