@@ -48,6 +48,10 @@
     \hline
     Versione & Autore & Ruolo & Data & Descrizione \\ %TODO bisogna incrementare a 2.0
     \hline
+    1.4.0 & Davide Trevisan & Verificatore & 2016-02-26 & Verifica sezione norme per la progettazione (2.2.3 e sottosezioni)\\
+    \hline
+    1.3.1 & Michael Munaro & Analista & 2016-02-25 & Aggiunta sezione norme per la progettazione (2.2.3 e sottosezioni)\\
+    \hline
     1.3.0 & Davide Trevisan & Verificatore & 2016-02-23 & Verifica ultime sezioni modificate (2.2.2.1 e 4.5.1.3)\\
     \hline
     1.2.2 & Andrea Giacomo Baldan & Analista & 2016-02-20 & Incremento sezione 2.2.2.1 (ScalateTrack)\\
@@ -197,6 +201,7 @@ punto.
 \label{sec:front-end}
 
 \paragraph{ScalateTrack}
+\label{sec:scalatetrack}
 
 Per facilitare la gestione dei casi d'uso e il tracciamento dei requisiti
 va utilizzata un'applicazione web sviluppata per lo scopo appositamente dal
@@ -281,22 +286,74 @@ Vengono definite:
 \begin{itemize}
 \item Le componenti software, definite dalla struttura ad alto livello;
 \item Le interfacce verso l'esterno e tra le componenti;
-\item Metodi, tecniche e design pattern per lo sviluppo;
-\item I Requisiti Software diventano Requisiti Componenti più
-  dettagliati.
+\item Classi, tecniche e design pattern per lo sviluppo;
+\item I Requisiti Software diventano Requisiti Componenti più dettagliati.
 \end{itemize}
 
 Dalla specifica dei Requisiti delle Componenti deriveranno i test da attuare in
 attività di verifica, come specificato in~\ref{sec:NormeDiVerifica};
 
-\paragraph{Stile di progettazione}
+%\paragraph{Stile di progettazione}
 
+\subparagraph{Design Pattern}
 L'\gloss{attività} di \textit{Progettazione} dovrà fare utilizzo di
 \gloss{design pattern} globalmente affermati e dovrà giustificarne la
 scelta.\\Dovranno inoltre essere rispettati al massimo i paradigmi di \gloss{OOP} (programmazione orientata agli oggetti) del linguaggio \gloss{Scala}, con eventuale utilizzo
 di costrutti \gloss{funzionali}, coerentemente con l'utilizzo delle librerie
 \textit{\gloss{Akka}}.
-% TODO: Tracciamento componenti
+
+\paragraph{Componenti software}
+%TODO mettiamo i colori?
+Le componenti software all'interno del documento \textit{Specifica Tecnica} dovranno essere nominate elencando prima del nome della classe tutti i namespace in cui essa è contenuta separati da una coppia di duepunti.\\
+Qui possiamo vedere un esempio:
+\begin{center}
+  \verb=actorbase::cli::views::CommandLoop=
+\end{center}
+
+\subparagraph{Tracciamento componenti}
+Il software ScalateTrack (\ref{sec:scalatetrack}) si occupa anche del tracciamento dei componenti. Nello specifico ogni requisito può essere tracciato con uno o più componenti, in questo modo il gruppo potrà controllare e garantire che ogni requisito venga soddisfatto.\\ ScalateTrack inoltre generà automaticamente le tabelle dei tracciamenti requisiti-componenti e componenti-requisiti.  
+
+\subparagraph{Diagrammi UML}
+\label{sec:diagrammiUmlSpecTec}
+Nella specifica tecnica dovranno essere presentati diversi tipi di diagrammi, in particolare i \gloss{progettisti} avranno il compito di realizzare i seguenti rispettando le regole imposte dallo standard \gloss{UML} 2.0: %TODO interfacce lollipop?
+\begin{itemize}
+\item \gloss{diagrammi dei package};
+\item \gloss{diagrammi delle classi};
+\item \gloss{diagrammi di sequenza};
+\item \gloss{diagrammi di attività}.
+\end{itemize}
+
+\paragraph{Definizione di prodotto}
+I progettisti oltre a redigere la \textit{Specifica Tecnica} avranno il compito di 
+produrre anche il documento \textit{Definizione di Prodotto} in cui verrà descritta
+la progettazione di dettaglio del sistema andando a analizzare più in profondità 
+l'architettura.
+
+\subparagraph{Definizione delle classi}
+All'interno della \textit{Definizione di prodotto} dovrà essere descritta ogni 
+classe presente all'interno del sistema. Per ognuna di queste classi la descrizione 
+dovrà essere comprensiva di:
+\begin{itemize}
+\item Elenco dei metodi;
+\item Elenco dei parametri;
+\item Spiegazione dello scopo della classe;
+\item Funzionalità che essa modella.
+\end{itemize}
+
+\subparagraph{Tracciamento classi}
+In questo documento dovrà essere presente il tracciamento dei requisiti abbinato 
+alle classi che lo soddisfano.\\Come per la \textit{Specifica Tecnica} anche in questo caso verrà utilizzato il software ScalateTrack (\ref{sec:scalatetrack}) il quale renderà automatico l'esportazione in formato \LaTeX\xspace delle tabelle di 
+tracciamento classi-requisiti e requisiti-classi.
+
+\subparagraph{Diagrammi UML}
+Dovranno essere aggiornati i seguenti diagrammi rispettando gli stessi standard 
+stabiliti per produrre la \textit{Specifica Tecnica} (\ref{sec:diagrammiUmlSpecTec}):
+\begin{itemize}
+\item \gloss{diagrammi delle classi};
+\item \gloss{diagrammi di sequenza};
+\item \gloss{diagrammi di attività}.
+\end{itemize}
+
 \section{Processi di Supporto}
 
 \subsection{Documentazione}
