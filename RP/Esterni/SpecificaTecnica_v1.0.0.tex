@@ -76,58 +76,104 @@
 \tableofcontents
 \newpage
 \pagenumbering{arabic}
+
 \section{Sommario}
+
 \subsection{Scopo del documento}
-Il seguente documento ha lo scopo di descrivere la progettazione ad alto livello che il gruppo \textit{ScalateKids} ha scelto per il progetto \textbf{ActorBase}.\\
-Sarà descritta l'\gloss{architettura} generale del progetto, in particolare la scelta dei \gloss{design pattern} e delle componenti che andranno a comporre il software.
+
+Il seguente documento ha lo scopo di descrivere la progettazione ad alto livello
+che il gruppo \textit{ScalateKids} ha scelto per il
+progetto\textbf{ActorBase}.\\  Sarà descritta l'\gloss{architettura} generale
+del progetto, in particolare  la scelta dei \gloss{design pattern} e delle
+componentiche andranno a comporre il software.
+
 \prodPurpose
+
 \glossExpl
+
 \subsection{Riferimenti}
+
 \subsubsection{Normativi}
+
 \begin{itemize}
-\item\textbf{Capitolato d'appalto C1:} \textit{Actorbase: a NoSQL DB based on the Actor model;}\\
-  \url{http://www.math.unipd.it/~tullio/IS-1/2015/Progetto/C1.pdf}
-\item\textbf{Norme di Progetto:} \href{run:../Interni/NormeDiProgetto\_v2.0.0.pdf}{Norme di Progetto v2.0.0.}
+
+\item\textbf{Capitolato d'appalto C1:} \textit{Actorbase: a
+NoSQL DB based on the Actor model;}\\
+\url{http://www.math.unipd.it/~tullio/IS-1/2015/Progetto/C1.pdf}
+\item\textbf{Norme di Progetto:}
+\href{run:../Interni/NormeDiProgetto\_v2.0.0.pdf}{Norme di Progetto v2.0.0.}
 \end{itemize}
+
 \subsubsection{Informativi}
+
 \begin{itemize}
-\item\textbf{Piano di Progetto:} \href{run:./PianoDiProgetto\_v2.0.0.pdf}{Piano di Progetto v2.0.0}
-\item\textbf{Dispense fornite dall'insegnamento Ingegneria del Software mod. A:}\\
-  \url{http://www.math.unipd.it/~tullio/IS-1/2015/}
+\item\textbf{Piano di Progetto:}
+\href{run:./PianoDiProgetto\_v2.0.0.pdf}{Piano di Progetto v2.0.0}
+\item\textbf{Dispense fornite dall'insegnamento Ingegneria del Software mod.
+A:}\\   \url{http://www.math.unipd.it/~tullio/IS-1/2015/}
 \item\textbf{Documentazione di \gloss{Akka} su \gloss{Scala}:}
-  \url{http://doc.akka.io/docs/akka/2.4.2/scala.html}
+\url{http://doc.akka.io/docs/akka/2.4.2/scala.html}
 \end{itemize}
+
 \newpage
+
 \section{Tecnologie utilizzate}
-In questa sezione saranno descritte le tecnologie scelte per lo sviluppo del progetto \textbf{ActorBase} e le motivazioni che ci hanno spinto a sceglierle.
+
+In questa sezione saranno descritte le tecnologie scelte per lo sviluppo del
+progetto \textbf{ActorBase} e le motivazioni che ci hanno spinto a sceglierle.
+
 \subsection{Akka}
-La scelta della libreria \gloss{Akka} è stata dettata dal capitolato. Tuttavia l'avremmo scelta comunque per i seguenti motivi:
+
+La scelta della libreria \gloss{Akka} è stata dettata dal capitolato. Tuttavia
+l'avremmo scelta comunque per i seguenti motivi:
 \begin{itemize}
-\item\textbf{Implementazione del \gloss{modello ad attori}:} \gloss{Akka} rende semplice la creazione e l'utilizzo degli \gloss{attori}. Grazie a ciò viene naturale la distribuibilità del progetto e l'asincronia tra i processi;
-\item\textbf{Tolleranza agli errori:} \gloss{Akka} implementa un sistema di gerarchia di supervisori. Questa gerarchia consente ai supervisori di un \gloss{attore}, nel caso in cui quest'ultimo lanci un'eccezione, di mandarlo in \gloss{crash} e farlo poi ripartire. In questo modo il sistema è resiliente agli errori;
-\item\textbf{Persistenza:} Ogni messaggio ricevuto da ciascun \gloss{attore} può essere salvato in maniera tale che al riavvio esso possa riprendere da dov'era prima del suo spegnimento.
+\item\textbf{Implementazione del \gloss{modello ad attori}:} \gloss{Akka}
+rende semplice la creazione e l'utilizzo degli \gloss{attori}. Grazie a ciò
+viene naturale la distribuibilità del progetto e l'asincronia tra i processi;
+\item\textbf{Tolleranza agli errori:} \gloss{Akka} implementa un sistema di
+gerarchia di supervisori. Questa gerarchia consente ai supervisori di un
+\gloss{attore}, nel caso in cui quest'ultimo lanci un'eccezione, di mandarlo
+in \gloss{crash} e farlo poi ripartire. In questo modo il sistema è resiliente
+agli errori;
+\item\textbf{Persistenza:} Ogni messaggio ricevuto da ciascun \gloss{attore}
+può essere salvato in maniera tale che al riavvio esso possa riprendere da
+dov'era prima del suo spegnimento.
 \end{itemize}
+
 \subsection{Scala}
-Il capitolato richiede l'utilizzo di un linguaggio di programmazione a scelta tra \gloss{Scala} e \gloss{Java}. Abbiamo scelto \gloss{Scala} per i seguenti motivi:
+
+Il capitolato richiede l'utilizzo di un linguaggio di programmazione a scelta
+tra \gloss{Scala} e \gloss{Java}. Abbiamo scelto \gloss{Scala} per i seguenti
+motivi:
+
 \begin{itemize}
-\item\textbf{\gloss{Programmazione funzionale}:} Questa tecnica di programmazione evita che ci siano degli effetti collaterali tra funzioni, rendendole quindi \gloss{thread-safe};
-\item\textbf{Implementazione di \gloss{Akka}:} \gloss{Akka} risulta più facilmente implementabile in \gloss{Scala} che in \gloss{Java}. Questo perchè la \gloss{programmazione funzionale} con i suoi paradigmi si integra meglio con il \gloss{modello ad attori};%%TODO completare lista
+\item\textbf{gloss{Programmazione funzionale}:} Questa tecnica di
+programmazione evita che ci siano degli effetti collaterali tra funzioni,
+rendendole quindi gloss{thread-safe};
+\item\textbf{Implementazione di gloss{Akka}:} gloss{Akka} risulta più
+facilmente implementabile in gloss{Scala} che in gloss{Java}. Questo perchè
+la \gloss{programmazione funzionale} con i suoi paradigmi si integra meglio
+con il gloss{modello ad attori};%%TODO completare lista
 \end{itemize}
 
 \section{Descrizione architettura}
 
 \subsection{Metodo e formalismo di specifica}
 
-L'approccio alla progettazione è stato meet-in-the-middle, la prima suddivisione ad alto livello è stata tra sistema come struttura ad attori e
-componenti esterne per utilizzare la base di dati (operazioni CRUD)
+L'approccio alla progettazione è stato meet-in-the-middle, la prima
+suddivisione ad alto livello è stata tra sistema come struttura ad attori e
+componenti esterne per utilizzare la base di dati (operazioni CRUD).
 
 \subsection{Architettura generale}
 
-Macroscopicamente il sistema si suddivide in due componenti principali, assimilabili ad un paradigma Client-Server, il sistema ad attori
-dove risiedono la struttura della base di dati ed un server TCP pronto a ricevere comandi dall'esterno rappresentano la componente server,
-la Command Line Interface (CLI) rappresenta la componente client mediante la quale è possibile inviare comandi al sistema e ricevere l'output
-prodotto da essi, essa farà uso della componente \gloss{driver} per comunicare con il sistema lato server mediante un protocollo di comunicazione
-appositamente creato.
+Macroscopicamente il sistema si suddivide in due componenti principali,
+assimilabili ad un paradigma Client-Server, il sistema ad attori dove
+risiedono la struttura della base di dati ed un server TCP pronto a ricevere
+comandi dall'esterno rappresentano la componente server, la Command Line
+Interface (CLI) rappresenta la componente client mediante la quale è possibile
+inviare comandi al sistema e ricevere l'output prodotto da essi, essa farà uso
+della componente \gloss{driver} per comunicare con il sistema lato server
+mediante un protocollo di comunicazione appositamente creato.
 
 \begin{figure}[H]
   \begin{center}
@@ -190,7 +236,8 @@ Rappresentano le tre macro-componenti del sistema.
 
 \subsubsection{Descrizione}
 
-\gloss{Package} per la componente \gloss{Model} dell'architettura \gloss{MVC}, rappresenta anche la componente system del prodotto.
+\gloss{Package} per la componente \gloss{Model} dell'architettura \gloss{MVC},
+rappresenta anche la componente system del prodotto.
 
 \subsubsection{Package contenuti}
 
@@ -233,7 +280,8 @@ Classe che rappresenta un \gloss{attore} di tipo \gloss{Warehouseman}.
 
 \subparagraph{Utilizzo}
 
-Viene utilizzata per effettuare il salvataggio su filesystem del \gloss{database}.
+Viene utilizzata per effettuare il salvataggio su filesystem del
+\gloss{database}.
 
 \subparagraph{Classi ereditate}
 
@@ -271,7 +319,8 @@ Classe che consente di salvare su filesystem in formato \gloss{BSON}.
 
 \subparagraph{Utilizzo}
 
-Viene utilizzata per effettuare il salvataggio su filesystem in formato \gloss{BSON} del \gloss{database}.
+Viene utilizzata per effettuare il salvataggio su filesystem in formato
+\gloss{BSON} del \gloss{database}.
 
 \subparagraph{Classi ereditate}
 
@@ -287,7 +336,8 @@ Classe che rappresenta un \gloss{attore} di tipo \gloss{Storefinder}.
 
 \subparagraph{Utilizzo}
 
-Viene utilizzata per tenere traccia dei contenuti degli attori di tipo \gloss{Storekeeper}.
+Viene utilizzata per tenere traccia dei contenuti degli attori di tipo
+\gloss{Storekeeper}.
 
 \subparagraph{Classi ereditate}
 
@@ -303,7 +353,8 @@ Classe che rappresenta un \gloss{attore} di tipo \gloss{MainActor}.
 
 \subparagraph{Utilizzo}
 
-Viene utilizzata per tenere traccia dei contenuti degli attori di tipo \gloss{Storefinder}.
+Viene utilizzata per tenere traccia dei contenuti degli attori di tipo
+\gloss{Storefinder}.
 
 \subparagraph{Classi ereditate}
 
@@ -351,7 +402,8 @@ Classe che rappresenta un \gloss{attore} di tipo \gloss{Ninja}.
 
 \subparagraph{Utilizzo}
 
-Viene utilizzata per consentire di effettuare un \gloss{backup} dei contenuti degli attori di tipo \gloss{Storekeeper}.
+Viene utilizzata per consentire di effettuare un \gloss{backup} dei contenuti
+degli attori di tipo \gloss{Storekeeper}.
 
 \subparagraph{Classi ereditate}
 
@@ -363,7 +415,8 @@ Viene utilizzata per consentire di effettuare un \gloss{backup} dei contenuti de
 
 \subsubsection{Descrizione}
 
-\gloss{Package} per la componente \gloss{Controller} dell'architettura \gloss{MVC}.
+\gloss{Package} per la componente gloss{Controller} dell'architettura
+\gloss{MVC}.
 
 \subsubsection{Package contenuti}
 
@@ -389,7 +442,8 @@ Viene utilizzata per consentire di effettuare un \gloss{backup} dei contenuti de
 
 \subsubsection{Descrizione}
 
-\gloss{Package} per la componente client del \gloss{driver} del \gloss{controller}.
+\gloss{Package} per la componente client del \gloss{driver} del
+\gloss{controller}.
 
 \subsubsection{Interazioni con altre componenti}
 
@@ -430,7 +484,8 @@ Classe per la connessione tra il \gloss{driver} e il \gloss{server}
 
 \subsubsection{Descrizione}
 
-Componente del \gloss{controller} per l'esecuzione del comando e l'interazione con il \gloss{server}.
+Componente del \gloss{controller} per l'esecuzione del comando e l'interazione
+con il \gloss{server}.
 
 \subsubsection{Interazioni con altre componenti}
 
@@ -465,7 +520,8 @@ Classe per il comando di ricerca.
 
 \subparagraph{Utilizzo}
 
-Viene utilizzata per mandare al \gloss{server} il comando di ricerca con i parametri immessi dall'utente.
+Viene utilizzata per mandare al \gloss{server} il comando di ricerca con i
+parametri immessi dall'utente.
 
 \subparagraph{Classi ereditate}
 
@@ -497,7 +553,8 @@ Classe per il comando di reset della password.
 
 \subparagraph{Utilizzo}
 
-Viene utilizzata per mandare al \gloss{server} il comando di reset della password dell'utente specificato in input.
+Viene utilizzata per mandare al \gloss{server} il comando di reset della
+password dell'utente specificato in input.
 
 \subparagraph{Classi ereditate}
 
@@ -509,11 +566,13 @@ Viene utilizzata per mandare al \gloss{server} il comando di reset della passwor
 
 \subparagraph{Descrizione}
 
-Classe per il comando di visualizzazione dell'elenco dei nomi di tutte le collezioni presenti nel \gloss{database}.
+Classe per il comando di visualizzazione dell'elenco dei nomi di tutte le
+collezioni presenti nel \gloss{database}.
 
 \subparagraph{Utilizzo}
 
-Viene utilizzata per mandare al \gloss{server} il comando di visualizzazione dell'elenco dei nomi di tutte le collezioni presenti nel \gloss{database}.
+Viene utilizzata per mandare al \gloss{server} il comando di visualizzazione
+dell'elenco dei nomi di tutte le collezioni presenti nel \gloss{database}.
 
 \subparagraph{Classi ereditate}
 
@@ -529,7 +588,9 @@ Classe per il comando di aggiunta collaboratore a una collezione.
 
 \subparagraph{Utilizzo}
 
-Viene utilizzata per mandare al \gloss{server} il comando di aggiunta di un collaboratore a una collezione con il nome della \gloss{collezione} e lo username specificati in input.
+Viene utilizzata per mandare al \gloss{server} il comando di aggiunta di un
+collaboratore a una collezione con il nome della \gloss{collezione} e lo
+username specificati in input.
 
 \subparagraph{Classi ereditate}
 
@@ -545,7 +606,8 @@ Classe per il comando di login.
 
 \subparagraph{Utilizzo}
 
-Viene utilizzata per mandare al \gloss{server} il comando di login con le credenziali immesse dall'utente.
+Viene utilizzata per mandare al \gloss{server} il comando di login con le
+credenziali immesse dall'utente.
 
 \subparagraph{Classi ereditate}
 
@@ -561,7 +623,8 @@ Classe per il comando di rimozione una \gloss{collezione}.
 
 \subparagraph{Utilizzo}
 
-Viene utilizzata per mandare al \gloss{server} il comando di rimozione di una collezione con i parametri specificati in input.
+Viene utilizzata per mandare al \gloss{server} il comando di rimozione di una
+collezione con i parametri specificati in input.
 
 \subparagraph{Classi ereditate}
 
@@ -577,7 +640,9 @@ Classe per il comando di rimozione di un collaboratore da una collezione.
 
 \subparagraph{Utilizzo}
 
-Viene utilizzata per mandare al \gloss{server} il comando di rimozione di un collaboratore da una collezione con con il nome della \gloss{collezione} e lo username specificati in input.
+Viene utilizzata per mandare al \gloss{server} il comando di rimozione di un
+collaboratore da una collezione con con il nome della \gloss{collezione} e lo
+username specificati in input.
 
 \subparagraph{Classi ereditate}
 
@@ -593,7 +658,8 @@ Classe per il comando rinominazione di un item.
 
 \subparagraph{Utilizzo}
 
-Viene utilizzata per mandare al \gloss{server} il comando di rinominazione di un item con i parametri specificati in input.
+Viene utilizzata per mandare al \gloss{server} il comando di rinominazione di
+un \gloss{item} con i parametri specificati in input.
 
 \subparagraph{Classi ereditate}
 
@@ -609,7 +675,8 @@ Classe per il comando di aggiunta di un utente.
 
 \subparagraph{Utilizzo}
 
-Viene utilizzata per mandare al \gloss{server} il comando di aggiunta di un utente con i parametri specificati in input.
+Viene utilizzata per mandare al \gloss{server} il comando di aggiunta di un
+utente con i parametri specificati in input.
 
 \subparagraph{Classi ereditate}
 
@@ -625,7 +692,8 @@ Classe per il comando di rimozione di un \gloss{item}.
 
 \subparagraph{Utilizzo}
 
-Viene utilizzata per mandare al \gloss{server} il comando di rimozione di un \gloss{item} con i parametri immessi dall'utente.
+Viene utilizzata per mandare al \gloss{server} il comando di rimozione di un
+\gloss{item} con i parametri immessi dall'utente.
 
 \subparagraph{Classi ereditate}
 
@@ -641,7 +709,8 @@ Classe per il comando di rimozione di un utente.
 
 \subparagraph{Utilizzo}
 
-Viene utilizzata per mandare al \gloss{server} il comando di rimozione di un utente con i parametri immessi dall'utente.
+Viene utilizzata per mandare al \gloss{server} il comando di rimozione di un
+utente con i parametri immessi dall'utente.
 
 \subparagraph{Classi ereditate}
 
@@ -657,7 +726,8 @@ Classe per il comando di importazione da un file \gloss{JSON}.
 
 \subparagraph{Utilizzo}
 
-Viene utilizzata per mandare al \gloss{server} il comando di importazione da un file \gloss{JSON} con i parametri immessi dall'utente.
+Viene utilizzata per mandare al \gloss{server} il comando di importazione da
+un file \gloss{JSON} con i parametri immessi dall'utente.
 
 \subparagraph{Classi ereditate}
 
@@ -673,7 +743,8 @@ Classe per il comando di inserimento di un \gloss{item} in una \gloss{collezione
 
 \subparagraph{Utilizzo}
 
-Viene utilizzata per mandare al \gloss{server} il comando di inserimento di un \gloss{item} in una \gloss{collezione} con i parametri immessi dall'utente.
+Viene utilizzata per mandare al \gloss{server} il comando di inserimento di un
+\gloss{item} in una \gloss{collezione} con i parametri immessi dall'utente.
 
 \subparagraph{Classi ereditate}
 
@@ -689,7 +760,8 @@ Classe per il comando di creazione di una nuova \gloss{collezione}.
 
 \subparagraph{Utilizzo}
 
-Viene utilizzata per mandare al \gloss{server} il comando di creazione di una nuova \gloss{collezione} con i parametri immessi dall'utente.
+Viene utilizzata per mandare al \gloss{server} il comando di creazione di una
+nuova \gloss{collezione} con i parametri immessi dall'utente.
 
 \subparagraph{Classi ereditate}
 
@@ -705,7 +777,8 @@ Classe per il comando di esportazione in file \gloss{JSON}.
 
 \subparagraph{Utilizzo}
 
-Viene utilizzata per mandare al \gloss{server} il comando di esportazione in file \gloss{JSON} con i parametri immessi dall'utente.
+Viene utilizzata per mandare al \gloss{server} il comando di esportazione in
+file \gloss{JSON} con i parametri immessi dall'utente.
 
 \subparagraph{Classi ereditate}
 
@@ -717,7 +790,8 @@ Viene utilizzata per mandare al \gloss{server} il comando di esportazione in fil
 
 \subsubsection{Descrizione}
 
-\gloss{Package} per effettuare il parsing dei risultati ritornati dal \gloss{server}.
+\gloss{Package} per effettuare il parsing dei risultati ritornati dal
+\gloss{server}.
 
 \subsubsection{Interazioni con altre componenti}
 \begin{itemize}
@@ -732,7 +806,8 @@ Viene utilizzata per mandare al \gloss{server} il comando di esportazione in fil
 
 \subparagraph{Descrizione}
 
-Interfaccia che consente al \gloss{driver} di effettuare il parsing dei file \gloss{JSON}.
+Interfaccia che consente al \gloss{driver} di effettuare il parsing dei file
+\gloss{JSON}.
 
 \subparagraph{Interazioni con altre classi}
 
@@ -746,7 +821,8 @@ Interfaccia che consente al \gloss{driver} di effettuare il parsing dei file \gl
 
 \subparagraph{Descrizione}
 
-Classe che consente al \gloss{driver} di effettuare il parsing dei file \gloss{JSON} differenziandone le \gloss{collezioni}.
+Classe che consente al \gloss{driver} di effettuare il parsing dei file
+\gloss{JSON} differenziandone le \gloss{collezioni}.
 
 \subparagraph{Classi ereditate}
 
@@ -765,7 +841,8 @@ Classe che consente al \gloss{driver} di effettuare il parsing dei file \gloss{J
 
 \subparagraph{Descrizione}
 
-Classe che consente al \gloss{driver} di effettuare il parsing dei file \gloss{JSON} differenziandone gli \gloss{item}.
+Classe che consente al \gloss{driver} di effettuare il parsing dei file
+\gloss{JSON} differenziandone gli \gloss{item}.
 
 \subparagraph{Classi ereditate}
 
@@ -789,7 +866,8 @@ Interfaccia che offre un cursore per lo scorrimento di una lista.
 
 \subparagraph{Descrizione}
 
-Classe che offre al \gloss{driver} un cursore per lo scorrimento di una lista di \gloss{item}.
+Classe che offre al \gloss{driver} un cursore per lo scorrimento di una lista
+di \gloss{item}.
 
 \subparagraph{Classi ereditate}
 
@@ -801,7 +879,8 @@ Classe che offre al \gloss{driver} un cursore per lo scorrimento di una lista di
 
 \subparagraph{Descrizione}
 
-Classe che offre al \gloss{driver} un cursore per lo scorrimento di una lista di \gloss{collezioni}.
+Classe che offre al \gloss{driver} un cursore per lo scorrimento di una lista di
+\gloss{collezioni}.
 
 \subparagraph{Classi ereditate}
 
@@ -813,7 +892,9 @@ Classe che offre al \gloss{driver} un cursore per lo scorrimento di una lista di
 
 \subsubsection{Descrizione}
 
-\gloss{Package} per la parte di \gloss{client} rappresentata dalla \gloss{cli}. Questa componente viene rappresentata usando il \gloss{design pattern} \gloss{MVC} in versione \gloss{push model}.
+\gloss{Package} per la parte di \gloss{client} rappresentata dalla \gloss{cli}.
+Questa componente viene rappresentata usando il \gloss{design pattern}
+\gloss{MVC} in versione gloss{push model}.
 
 \subsubsection{Package contenuti}
 
@@ -827,7 +908,9 @@ Classe che offre al \gloss{driver} un cursore per lo scorrimento di una lista di
 
 \subsubsection{Descrizione}
 
-\gloss{Package} per la parte \gloss{view} della \gloss{cli}. Questa componente gestisce l'output e offre l'interfaccia tramite cui l'utente può inserire i comandi.
+\gloss{Package} per la parte \gloss{view} della \gloss{cli}. Questa componente
+gestisce l'output e offre l'interfaccia tramite cui l'utente può inserire i
+comandi.
 
 \subsubsection{Interazioni con altre componenti}
 
@@ -861,7 +944,8 @@ Viene utilizzata per la lettura dei comandi inseriti dall'utente.
 
 \subparagraph{Descrizione}
 
-Interfaccia per la creazione di un \gloss{banner} da mostrare all'avvio della \gloss{cli}.
+Interfaccia per la creazione di un \gloss{banner} da mostrare all'avvio della
+\gloss{cli}.
 
 \subparagraph{Utilizzo}
 
@@ -877,11 +961,13 @@ Offre un'interfaccia per la creazione di un \gloss{banner} generico.
 
 \subparagraph{Descrizione}
 
-Classe che implementa l'interfaccia actorbase::cli::views::Banner per la creazione del \gloss{banner} da mostrare all'avvio della \gloss{CLI}.
+Classe che implementa l'interfaccia actorbase::cli::views::Banner per la
+creazione del \gloss{banner} da mostrare all'avvio della \gloss{CLI}.
 
 \subparagraph{Utilizzo}
 
-Viene utilizzata per la creazione di un \gloss{banner} di presentazione all'avvio della \gloss{CLI}.
+Viene utilizzata per la creazione di un \gloss{banner} di presentazione
+all'avvio della \gloss{CLI}.
 
 \subparagraph{Classi ereditate}
 
@@ -909,11 +995,14 @@ Offre un'interfaccia per la creazione di un \gloss{prompt} generico.
 
 \subparagraph{Descrizione}
 
-Classe che implementa l'interfaccia actorbase::clI::views::PromptProvider per la creazione di un \gloss{prompt} dei comandi.
+Classe che implementa l'interfaccia actorbase::cli::views::PromptProvider per
+la creazione di un \gloss{prompt} dei comandi.
 
 \subparagraph{Utilizzo}
 
-Viene utilizzata per la creazione di un \gloss{prompt} per l'inserimento dei comandi e la visualizzazione delle informazioni relative alla connessione effettuata. %TODO: scrivere meglio
+Viene utilizzata per la creazione di un \gloss{prompt} per l'inserimento dei
+comandi e la visualizzazione delle informazioni relative alla connessione
+effettuata. %TODO: scrivere meglio
 
 \subparagraph{Classi ereditate}
 
@@ -921,32 +1010,18 @@ Viene utilizzata per la creazione di un \gloss{prompt} per l'inserimento dei com
 \item actorbase::cli::views::PromptProvider.
 \end{itemize}
 
-\paragraph{actorbase::view::cli::actorbaseCli::HistoryFileNameProvider}
-
-\subparagraph{Descrizione}
-
-Classe per la gestione dello storico dei comandi \gloss{CLI}.
-
-\subparagraph{Utilizzo}
-
-Viene utilizzata per la creazione e gestione del sistema di storico dei comandi \gloss{CLI}.
-
-\subparagraph{Classi ereditate}
-
-\begin{itemize}
-\item DefaultFilenameProvider;
-\item SpringShell.
-\end{itemize}
-
 \paragraph{actorbase::cli::views::Observer}
 
 \subparagraph{Descrizione}
 
-Interfaccia per l'implementazione del \gloss{design pattern} \gloss{Observer} che permette di aggiornare la view ad ogni risposta del \gloss{driver}.
+Interfaccia per l'implementazione del \gloss{design pattern} \gloss{Observer}
+che permette di aggiornare la \gloss{view} ad ogni risposta della componente
+\gloss{driver}.
 
 \subparagraph{Utilizzo}
 
-Offre un'interfaccia per permettere di aggiornare la \gloss{view} ad ogni risposta ricevuta dal \gloss{driver}.
+Offre un'interfaccia per permettere di aggiornare la \gloss{view} ad ogni
+risposta ricevuta dal \gloss{driver}.
 
 \subparagraph{Interazioni con altre classi}
 
@@ -958,11 +1033,15 @@ Offre un'interfaccia per permettere di aggiornare la \gloss{view} ad ogni rispos
 
 \subparagraph{Descrizione}
 
-Classe per la gestione e la formattazione in output dei risultati ottenuti dall'esecuzione del comando ricevuto in input tramite il \gloss{design pattern} \gloss{Observer}.
+Classe per la gestione e la formattazione in output dei risultati ottenuti
+dall'esecuzione del comando ricevuto in input tramite il \gloss{design
+pattern} \gloss{Observer}.
 
 \subparagraph{Utilizzo}
 
-Viene utilizzata per la gestione e la formattazione in output dei risultati ottenuti dal server mediante l'inserimento dei comandi tramite il \gloss{design pattern} \gloss{Observer}.
+Viene utilizzata per la gestione e la formattazione in output dei risultati
+ottenuti dal server mediante l'inserimento dei comandi tramite il
+\gloss{design pattern} \gloss{Observer}.
 
 \subparagraph{Classi ereditate}
 
@@ -976,19 +1055,57 @@ Viene utilizzata per la gestione e la formattazione in output dei risultati otte
 \item actorbase::cli::views::CommandLoop.
 \end{itemize}
 
-\subsection{actorbase::view::cli::commands}
+\subsection{actorbase::cli::controllers}
 
 \subsubsection{Descrizione}
 
-Componente parte della \gloss{View} per l'esecuzione del comando e l'interazione con il \gloss{Controller}.
+\gloss{Package} per la parte gloss{controller} della \gloss{cli}. Questa
+componente si occupa di passare il comando ricevuto dalla \gloss{view} al
+\gloss{model}.
 
 \subsubsection{Interazioni con altre componenti}
 
 \begin{itemize}
-\item actorbase::view::cli::actorbaseCli;
-\item actorbase::controller::driver::client.
+\item actorbase::cli::views;
+\item actorbase::cli::models.
 \end{itemize}
 
+\subsubsection{Classi}
+
+\paragraph{actorbase::controllers::GrammarParser}
+
+\subparagraph{Descrizione}
+
+Classe che si occupa di effettuare il \gloss{parsing} del comando ricevuto
+dalla componente \gloss{view} e di chiamare la componente \gloss{model} con i
+parametri opportuni.
+
+\subparagraph{Utilizzo}
+
+Viene utilizzata per effettuare il \gloss{parsing} del comando ricevuto da
+actorbase::cli::views::CommandLoop e, in seguito, chiamare
+actorbase::cli::models::CommandInvoker con i parametri corretti per
+l'esecuzione del comando.
+
+\subparagraph{Interazioni con altre classi}
+
+\begin{itemize}
+\item actorbase::cli::views::CommandLoop;
+\item actorbase::cli::models::CommandInvoker.
+\end{itemize}
+
+\subsection{actorbase::cli::models}
+
+\subsubsection{Descrizione}
+
+\gloss{Package} per la parte \gloss{model} della \gloss{cli}. Questa componente
+si occupa della comunicazione con la componente \gloss{driver} e con la
+componente \gloss{view} tramite il \gloss{push model} del \gloss{design pattern}
+\gloss{observer}.
+
+\subsubsection{Classi}
+
+%LISTAcomandi
 \subsubsection{Classi}
 
 \paragraph{actorbase::view::cli::commands::Command}
@@ -1017,7 +1134,8 @@ Classe per il comando di ricerca.
 
 \subparagraph{Utilizzo}
 
-Viene utilizzata per mandare al \gloss{controller} il comando di ricerca con i parametri immessi dall'utente.
+Viene utilizzata per mandare al \gloss{controller} il comando di ricerca con i
+parametri immessi dall'utente.
 
 \subparagraph{Classi ereditate}
 
@@ -1049,7 +1167,8 @@ Classe per il comando di reset della password.
 
 \subparagraph{Utilizzo}
 
-Viene utilizzata per mandare al \gloss{controller} il comando di reset della password dell'utente specificato in input.
+Viene utilizzata per mandare al \gloss{controller} il comando di reset della
+password dell'utente specificato in input.
 
 \subparagraph{Classi ereditate}
 
@@ -1061,11 +1180,14 @@ Viene utilizzata per mandare al \gloss{controller} il comando di reset della pas
 
 \subparagraph{Descrizione}
 
-Classe per il comando di visualizzazione dell'elenco dei nomi di tutte le collezioni presenti nel \gloss{database}.
+Classe per il comando di visualizzazione dell'elenco dei nomi di tutte le
+collezioni presenti nel \gloss{database}.
 
 \subparagraph{Utilizzo}
 
-Viene utilizzata per mandare al \gloss{controller} il comando di visualizzazione dell'elenco dei nomi di tutte le collezioni presenti nel \gloss{database}.
+Viene utilizzata per mandare al \gloss{controller} il comando di
+visualizzazione dell'elenco dei nomi di tutte le collezioni presenti nel
+\gloss{database}.
 
 \subparagraph{Classi ereditate}
 
@@ -1081,7 +1203,9 @@ Classe per il comando di aggiunta collaboratore a una collezione.
 
 \subparagraph{Utilizzo}
 
-Viene utilizzata per mandare al \gloss{controller} il comando di aggiunta di un collaboratore a una collezione con il nome della \gloss{collezione} e lo username specificati in input.
+Viene utilizzata per mandare al \gloss{controller} il comando di aggiunta di
+un collaboratore a una collezione con il nome della \gloss{collezione} e lo
+username specificati in input.
 
 \subparagraph{Classi ereditate}
 
@@ -1097,7 +1221,8 @@ Classe per il comando di login.
 
 \subparagraph{Utilizzo}
 
-Viene utilizzata per mandare al \gloss{controller} il comando di login con le credenziali immesse dall'utente.
+Viene utilizzata per mandare al \gloss{controller} il comando di login con le
+credenziali immesse dall'utente.
 
 \subparagraph{Classi ereditate}
 
@@ -1113,7 +1238,8 @@ Classe per il comando di rimozione una \gloss{collezione}.
 
 \subparagraph{Utilizzo}
 
-Viene utilizzata per mandare al \gloss{controller} il comando di rimozione di una collezione con i parametri specificati in input.
+Viene utilizzata per mandare al \gloss{controller} il comando di rimozione di
+una collezione con i parametri specificati in input.
 
 \subparagraph{Classi ereditate}
 
@@ -1129,7 +1255,9 @@ Classe per il comando di rimozione di un collaboratore da una collezione.
 
 \subparagraph{Utilizzo}
 
-Viene utilizzata per mandare al \gloss{controller} il comando di rimozione di un collaboratore da una collezione con con il nome della \gloss{collezione} e lo username specificati in input.
+Viene utilizzata per mandare al \gloss{controller} il comando di rimozione di
+un collaboratore da una collezione con con il nome della \gloss{collezione} e
+lo username specificati in input.
 
 \subparagraph{Classi ereditate}
 
@@ -1145,7 +1273,8 @@ Classe per il comando rinominazione di un item.
 
 \subparagraph{Utilizzo}
 
-Viene utilizzata per mandare al \gloss{controller} il comando di rinominazione di un item con i parametri specificati in input.
+Viene utilizzata per mandare al \gloss{controller} il comando di rinominazione
+di un item con i parametri specificati in input.
 
 \subparagraph{Classi ereditate}
 
@@ -1161,7 +1290,8 @@ Classe per il comando di aggiunta di un utente.
 
 \subparagraph{Utilizzo}
 
-Viene utilizzata per mandare al \gloss{controller} il comando di aggiunta di un utente con i parametri specificati in input.
+Viene utilizzata per mandare al \gloss{controller} il comando di aggiunta di
+un utente con i parametri specificati in input.
 
 \subparagraph{Classi ereditate}
 
@@ -1177,7 +1307,8 @@ Classe per il comando di rimozione di un \gloss{item}.
 
 \subparagraph{Utilizzo}
 
-Viene utilizzata per mandare al \gloss{controller} il comando di rimozione di un \gloss{item} con i parametri immessi dall'utente.
+Viene utilizzata per mandare al \gloss{controller} il comando di rimozione di
+un \gloss{item} con i parametri immessi dall'utente.
 
 \subparagraph{Classi ereditate}
 
@@ -1193,7 +1324,8 @@ Classe per il comando di rimozione di un utente.
 
 \subparagraph{Utilizzo}
 
-Viene utilizzata per mandare al \gloss{controller} il comando di rimozione di un utente con i parametri immessi dall'utente.
+Viene utilizzata per mandare al \gloss{controller} il comando di rimozione di
+un utente con i parametri immessi dall'utente.
 
 \subparagraph{Classi ereditate}
 
@@ -1209,7 +1341,8 @@ Classe per il comando di importazione da un file \gloss{JSON}.
 
 \subparagraph{Utilizzo}
 
-Viene utilizzata per mandare al \gloss{controller} il comando di importazione da un file \gloss{JSON} con i parametri immessi dall'utente.
+Viene utilizzata per mandare al \gloss{controller} il comando di importazione
+da un file \gloss{JSON} con i parametri immessi dall'utente.
 
 \subparagraph{Classi ereditate}
 
@@ -1221,11 +1354,14 @@ Viene utilizzata per mandare al \gloss{controller} il comando di importazione da
 
 \subparagraph{Descrizione}
 
-Classe per il comando di inserimento di un \gloss{item} in una \gloss{collezione}.
+Classe per il comando di inserimento di un \gloss{item} in una
+\gloss{collezione}.
 
 \subparagraph{Utilizzo}
 
-Viene utilizzata per mandare al \gloss{controller} il comando di inserimento di un \gloss{item} in una \gloss{collezione} con i parametri immessi dall'utente.
+Viene utilizzata per mandare al \gloss{controller} il comando di inserimento
+di un \gloss{item} in una \gloss{collezione} con i parametri immessi
+dall'utente.
 
 \subparagraph{Classi ereditate}
 
@@ -1241,7 +1377,8 @@ Classe per il comando di creazione di una nuova \gloss{collezione}.
 
 \subparagraph{Utilizzo}
 
-Viene utilizzata per mandare al \gloss{controller} il comando di creazione di una nuova \gloss{collezione} con i parametri immessi dall'utente.
+Viene utilizzata per mandare al \gloss{controller} il comando di creazione di
+una nuova \gloss{collezione} con i parametri immessi dall'utente.
 
 \subparagraph{Classi ereditate}
 
@@ -1257,7 +1394,8 @@ Classe per il comando di esportazione in file \gloss{JSON}.
 
 \subparagraph{Utilizzo}
 
-Viene utilizzata per mandare al \gloss{controller} il comando di esportazione in file \gloss{JSON} con i parametri immessi dall'utente.
+Viene utilizzata per mandare al \gloss{controller} il comando di esportazione
+in file \gloss{JSON} con i parametri immessi dall'utente.
 
 \subparagraph{Classi ereditate}
 
@@ -1266,11 +1404,21 @@ Viene utilizzata per mandare al \gloss{controller} il comando di esportazione in
 \end{itemize}
 
 \section{Diagrammi di attività}
-In questa sezione, vengono illustrati i diagrammi di attività che descrivono l'interazione dell'utente con Actorbase tramite l'utilizzo della \gloss{CLI} ad esso associata.
- É stato disegnato un diagramma ad alto livello in cui sono rappresentate le operazioni possibili sul database. Esse vengono poi illustrate tramite dei sotto-diagrammi per poterne comprendere meglio il funzionamento e facilitarne la lettura.
+
+In questa sezione, vengono illustrati i diagrammi di attività che descrivono
+l'interazione dell'utente con Actorbase tramite l'utilizzo della \gloss{CLI}
+ad esso associata.  É stato disegnato un diagramma ad alto livello in cui sono
+rappresentate le operazioni possibili sul database. Esse vengono poi
+illustrate tramite dei sotto-diagrammi per poterne comprendere meglio il
+funzionamento e facilitarne la lettura.
 
 \subsection{Visione generale}
-L'utente, dopo aver aperto la \gloss{CLI}, ha la possibilità di autenticarsi al database oppure chiedere dell'aiuto. Una volta autenticato, esso può operare su collezioni e/o item, interrogare il database, modificare la propria password, effettuare il logout oppure, se si tratta di un amministratore, gestire gli utenti del database.
+
+L'utente, dopo aver aperto la \gloss{CLI}, ha la possibilità di autenticarsi
+al database oppure chiedere dell'aiuto. Una volta autenticato, esso può
+operare su collezioni e/o item, interrogare il database, modificare la propria
+password, effettuare il logout oppure, se si tratta di un amministratore,
+gestire gli utenti del database.
 
 \begin{figure}[H]
 	\begin{center}
@@ -1281,9 +1429,13 @@ L'utente, dopo aver aperto la \gloss{CLI}, ha la possibilità di autenticarsi al
 
 \subsection{Operazioni su collezioni e/o item}
 \subsubsection{Creazione collezione}
-Questo tipo di operazione permette di inserire una collezione all'interno del database.
-Come si vede dal grafico che segue, l'utente dovrà inserire il comando per la creazione della collezione, il nome della collezione stessa e i suoi parametri.
-Una volta premuto il tasto invio, l'operazione andrà a buon termine se l'utente ha scritto correttamente il comando altrimenti verrà visualizzato un messaggio di errore.
+
+Questo tipo di operazione permette di inserire una collezione all'interno del
+database. Come si vede dal grafico che segue, l'utente dovrà inserire il
+comando per la creazione della collezione, il nome della collezione stessa e i
+suoi parametri. Una volta premuto il tasto invio, l'operazione andrà a buon
+termine se l'utente ha scritto correttamente il comando altrimenti verrà
+visualizzato un messaggio di errore.
 
 \begin{figure}[H]
 	\begin{center}
@@ -1293,9 +1445,13 @@ Una volta premuto il tasto invio, l'operazione andrà a buon termine se l'utente
 \end{figure}
 
 \subsubsection{Cancellazione collezione}
+
 Questo tipo di operazione permette di cancellare una collezione dal database.
-Come si vede dal grafico che segue, l'utente dovrà inserire il comando per la cancellazione di una collezione e il nome della collezione stessa.
-Una volta premuto il tasto invio, l'operazione andrà a buon termine se l'utente ha scritto correttamente il comando altrimenti verrà visualizzato un messaggio di errore.
+Come si vede dal grafico che segue, l'utente dovrà inserire il comando per la
+cancellazione di una collezione e il nome della collezione stessa. Una volta
+premuto il tasto invio, l'operazione andrà a buon termine se l'utente ha
+scritto correttamente il comando altrimenti verrà visualizzato un messaggio di
+errore.
 
 \begin{figure}[H]
 	\begin{center}
@@ -1305,9 +1461,13 @@ Una volta premuto il tasto invio, l'operazione andrà a buon termine se l'utente
 \end{figure}
 
 \subsubsection{Visualizza collezioni}
-Questo tipo di operazione permette di visualizzare le collezioni presenti all'interno dal database.
-Come si vede dal grafico che segue, l'utente dovrà inserire il comando per la visualizzazione delle collezioni.
-Una volta premuto il tasto invio, l'operazione andrà a buon termine (ricevendo la lista delle collezioni) se l'utente ha scritto correttamente il comando altrimenti verrà visualizzato un messaggio di errore.
+
+Questo tipo di operazione permette di visualizzare le collezioni presenti
+all'interno dal database. Come si vede dal grafico che segue, l'utente dovrà
+inserire il comando per la visualizzazione delle collezioni. Una volta premuto
+il tasto invio, l'operazione andrà a buon termine (ricevendo la lista delle
+collezioni) se l'utente ha scritto correttamente il comando altrimenti verrà
+visualizzato un messaggio di errore.
 
 \begin{figure}[H]
 	\begin{center}
@@ -1317,9 +1477,13 @@ Una volta premuto il tasto invio, l'operazione andrà a buon termine (ricevendo 
 \end{figure}
 
 \subsubsection{Modifica nome collezione}
-Questo tipo di operazione permette di modificare il nome di una collezione presente nel database.
-Come si vede dal grafico che segue, l'utente dovrà inserire il comando per la rinominazione della collezione, il nome della collezione stessa e il nuovo nome per essa.
-Una volta premuto il tasto invio, l'operazione andrà a buon termine se l'utente ha scritto correttamente il comando altrimenti verrà visualizzato un messaggio di errore.
+
+Questo tipo di operazione permette di modificare il nome di una collezione
+presente nel database. Come si vede dal grafico che segue, l'utente dovrà
+inserire il comando per la rinominazione della collezione, il nome della
+collezione stessa e il nuovo nome per essa. Una volta premuto il tasto invio,
+l'operazione andrà a buon termine se l'utente ha scritto correttamente il
+comando altrimenti verrà visualizzato un messaggio di errore.
 
 \begin{figure}[H]
 	\begin{center}
@@ -1329,9 +1493,14 @@ Una volta premuto il tasto invio, l'operazione andrà a buon termine se l'utente
 \end{figure}
 
 \subsubsection{Inserimento item}
-Questo tipo di operazione permette di inserire un item all'interno di una collezione del database.
-Come si vede dal grafico che segue, l'utente dovrà inserire il comando per l'inserimento item, il valore e parametri dell'item stesso e il nome della collezione dove inserire l'item.
-Una volta premuto il tasto invio, l'operazione andrà a buon termine (ricevendo la lista delle collezioni) se l'utente ha scritto correttamente il comando altrimenti verrà visualizzato un messaggio di errore.
+
+Questo tipo di operazione permette di inserire un item all'interno di una
+collezione del database. Come si vede dal grafico che segue, l'utente dovrà
+inserire il comando per l'inserimento item, il valore e parametri dell'item
+stesso e il nome della collezione dove inserire l'item. Una volta premuto il
+tasto invio, l'operazione andrà a buon termine (ricevendo la lista delle
+collezioni) se l'utente ha scritto correttamente il comando altrimenti verrà
+visualizzato un messaggio di errore.
 
 \begin{figure}[H]
 	\begin{center}
@@ -1341,9 +1510,14 @@ Una volta premuto il tasto invio, l'operazione andrà a buon termine (ricevendo 
 \end{figure}
 
 \subsubsection{Rimozione item}
-Questo tipo di operazione permette di rimuovere un item dall'interno di una \gloss{collezione} del database.
-Come si vede dal grafico che segue, l'utente dovrà inserire il comando per l'eliminazone di un item, il nome della collezione da dove rimuovere l'item e il nome dell'item stesso.
-Una volta premuto il tasto invio, l'operazione andrà a buon termine (ricevendo la lista delle collezioni) se l'utente ha scritto correttamente il comando altrimenti verrà visualizzato un messaggio di errore.
+
+Questo tipo di operazione permette di rimuovere un item dall'interno di una
+\gloss{collezione} del database. Come si vede dal grafico che segue, l'utente
+dovrà inserire il comando per l'eliminazone di un item, il nome della
+collezione da dove rimuovere l'item e il nome dell'item stesso. Una volta
+premuto il tasto invio, l'operazione andrà a buon termine (ricevendo la lista
+delle collezioni) se l'utente ha scritto correttamente il comando altrimenti
+verrà visualizzato un messaggio di errore.
 
 \begin{figure}[H]
 	\begin{center}
@@ -1353,9 +1527,14 @@ Una volta premuto il tasto invio, l'operazione andrà a buon termine (ricevendo 
 \end{figure}
 
 \subsubsection{Aggiunta collaboratore}
-Questo tipo di operazione permette di aggiungere un \gloss{collaboratore} ad una collezione presente nel database.
-Come si vede dal grafico che segue, l'utente dovrà inserire il comando per l'aggiunta di un collaboratore ad una collezione, lo username del collaboratore e il nome della collezione alla quale aggiungerlo.
-Una volta premuto il tasto invio, l'operazione andrà a buon termine se l'utente ha scritto correttamente il comando altrimenti verrà visualizzato un messaggio di errore.
+
+Questo tipo di operazione permette di aggiungere un \gloss{collaboratore} ad
+una collezione presente nel database. Come si vede dal grafico che segue,
+l'utente dovrà inserire il comando per l'aggiunta di un collaboratore ad una
+collezione, lo username del collaboratore e il nome della collezione alla
+quale aggiungerlo. Una volta premuto il tasto invio, l'operazione andrà a buon
+termine se l'utente ha scritto correttamente il comando altrimenti verrà
+visualizzato un messaggio di errore.
 
 \begin{figure}[H]
 	\begin{center}
@@ -1365,9 +1544,14 @@ Una volta premuto il tasto invio, l'operazione andrà a buon termine se l'utente
 \end{figure}
 
 \subsubsection{Rimozione collaboratore}
-Questo tipo di operazione permette di rimuovere un collaboratore da una collezione presente nel database.
-Come si vede dal grafico che segue, l'utente dovrà inserire il comando per la rimozione di un collaboratore da una collezione, lo username del collaboratore e il nome della collezione dalla quale rimuoverlo.
-Una volta premuto il tasto invio, l'operazione andrà a buon termine se l'utente ha scritto correttamente il comando altrimenti verrà visualizzato un messaggio di errore.
+
+Questo tipo di operazione permette di rimuovere un collaboratore da una
+collezione presente nel database. Come si vede dal grafico che segue, l'utente
+dovrà inserire il comando per la rimozione di un collaboratore da una
+collezione, lo username del collaboratore e il nome della collezione dalla
+quale rimuoverlo. Una volta premuto il tasto invio, l'operazione andrà a buon
+termine se l'utente ha scritto correttamente il comando altrimenti verrà
+visualizzato un messaggio di errore.
 
 \begin{figure}[H]
 	\begin{center}
@@ -1377,9 +1561,13 @@ Una volta premuto il tasto invio, l'operazione andrà a buon termine se l'utente
 \end{figure}
 
 \subsubsection{Import}
-Questo tipo di operazione permette di importare nel database collezioni o item tramite file \gloss{JSON}.
-Come si vede dal grafico che segue, l'utente dovrà inserire il comando per l'importazione e il path che porta al file desiderato.
-Una volta premuto il tasto invio, l'operazione andrà a buon termine se l'utente ha scritto correttamente il comando altrimenti verrà visualizzato un messaggio di errore.
+
+Questo tipo di operazione permette di importare nel database collezioni o item
+tramite file \gloss{JSON}. Come si vede dal grafico che segue, l'utente dovrà
+inserire il comando per l'importazione e il path che porta al file desiderato.
+Una volta premuto il tasto invio, l'operazione andrà a buon termine se
+l'utente ha scritto correttamente il comando altrimenti verrà visualizzato un
+messaggio di errore.
 
 \begin{figure}[H]
 	\begin{center}
@@ -1389,9 +1577,13 @@ Una volta premuto il tasto invio, l'operazione andrà a buon termine se l'utente
 \end{figure}
 
 \subsection{Interrogazione del database}
-Questo tipo di operazione permette di interrogare il database tramite delle query.
-Come si vede dal grafico che segue, l'utente dovrà inserire il comando per l'interrogazione del database e i parametri per la ricerca.
-Una volta premuto il tasto invio, l'operazione andrà a buon termine se l'utente ha scritto correttamente il comando, ricevendo il risultato della query, altrimenti verrà visualizzato un messaggio di errore.
+
+Questo tipo di operazione permette di interrogare il database tramite delle
+query. Come si vede dal grafico che segue, l'utente dovrà inserire il comando
+per l'interrogazione del database e i parametri per la ricerca. Una volta
+premuto il tasto invio, l'operazione andrà a buon termine se l'utente ha
+scritto correttamente il comando, ricevendo il risultato della query,
+altrimenti verrà visualizzato un messaggio di errore.
 
 \begin{figure}[H]
 	\begin{center}
@@ -1401,9 +1593,13 @@ Una volta premuto il tasto invio, l'operazione andrà a buon termine se l'utente
 \end{figure}
 
 \subsection{Modifica password}
-Questo tipo di operazione permette di modificare la propria password.
-Come si vede dal grafico che segue, l'utente dovrà inserire il comando per la modifica della password, la vecchia password, la nuova password e confermare quest'ultima.
-Una volta premuto il tasto invio, l'operazione andrà a buon termine se l'utente ha scritto correttamente il comando altrimenti verrà visualizzato un messaggio di errore.
+
+Questo tipo di operazione permette di modificare la propria password. Come si
+vede dal grafico che segue, l'utente dovrà inserire il comando per la modifica
+della password, la vecchia password, la nuova password e confermare
+quest'ultima. Una volta premuto il tasto invio, l'operazione andrà a buon
+termine se l'utente ha scritto correttamente il comando altrimenti verrà
+visualizzato un messaggio di errore.
 
 \begin{figure}[H]
 	\begin{center}
@@ -1413,10 +1609,17 @@ Una volta premuto il tasto invio, l'operazione andrà a buon termine se l'utente
 \end{figure}
 
 \subsection{Gestione utenti}
-La gestione utenti, possibile solo ad un utente amministratore, prevede la possibilità di aggiungere o rimuovere un utente dal database e la possibilità di resettare la password di un utente.
-Per aggiungere o rimuovere un utente, l'amministratore dovrà inserire il rispettivo comando, lo username dell'utente da aggiungere/rimuovere dal database e una conferma.
-Per resettare la password di un utente, l'amministratore dovrà scrivere il comando per il reset della password, lo username dell'utente interessato e una conferma.
-Una volta premuto il tasto invio, le operazione andranno a buon termine se l'utente ha scritto correttamente il comando altrimenti verrà visualizzato un messaggio di errore.
+
+La gestione utenti, possibile solo ad un utente amministratore, prevede la
+possibilità di aggiungere o rimuovere un utente dal database e la possibilità
+di resettare la password di un utente. Per aggiungere o rimuovere un utente,
+l'amministratore dovrà inserire il rispettivo comando, lo username dell'utente
+da aggiungere/rimuovere dal database e una conferma. Per resettare la password
+di un utente, l'amministratore dovrà scrivere il comando per il reset della
+password, lo username dell'utente interessato e una conferma. Una volta
+premuto il tasto invio, le operazione andranno a buon termine se l'utente ha
+scritto correttamente il comando altrimenti verrà visualizzato un messaggio di
+errore.
 
 \begin{figure}[H]
 	\begin{center}
