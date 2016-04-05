@@ -463,7 +463,7 @@ Classe che rappresenta un'istanza del \gloss{driver}.
 \subparagraph{Interazioni con altre classi}
 
 \begin{itemize}
-\item actorbase::view::cli::commands::Command;
+\item actorbase::cli::models::Command;
 \item actorbase::controller::driver::client::Connection;
 \item actorbase::controller::driver::controls::Control.
 \end{itemize}
@@ -795,7 +795,7 @@ file \gloss{JSON} con i parametri immessi dall'utente.
 
 \subsubsection{Interazioni con altre componenti}
 \begin{itemize}
-\item actorbase::view::cli::commands;
+\item actorbase::cli::models::;
 \item actorbase::controller::driver::client;
 \item actorbase::controller::driver::controls.
 \end{itemize}
@@ -812,7 +812,7 @@ Interfaccia che consente al \gloss{driver} di effettuare il parsing dei file
 \subparagraph{Interazioni con altre classi}
 
 \begin{itemize}
-\item actorbase::view::cli::commands::Command;
+\item actorbase::cli::models::Command;
 \item actorbase::controller::driver::client::Connection;
 \item actorbase::controller::driver::controls::Control.
 \end{itemize}
@@ -1098,17 +1098,35 @@ l'esecuzione del comando.
 
 \subsubsection{Descrizione}
 
-\gloss{Package} per la parte \gloss{model} della \gloss{cli}. Questa componente
-si occupa della comunicazione con la componente \gloss{driver} e con la
-componente \gloss{view} tramite il \gloss{push model} del \gloss{design pattern}
-\gloss{observer}.
+\gloss{Package} per la parte \gloss{model} della \gloss{cli}. Questa
+componente si occupa della comunicazione con la componente \gloss{driver} e
+con la componente \gloss{view} tramite il \gloss{push model} del \gloss{design
+pattern} \gloss{observer}. Per la gestione dei comandi si è scelto di
+utilizzare il \gloss{command pattern}.
 
 \subsubsection{Classi}
 
-%LISTAcomandi
-\subsubsection{Classi}
+\paragraph{actorbase::cli::models::CommandInvoker}
 
-\paragraph{actorbase::view::cli::commands::Command}
+\subparagraph{Descrizione}
+
+Questa classe rappresenta l'\gloss{Invoker} del \gloss{command pattern}. Essa
+si occupa di eseguire il comando ricevuto dalla componente \gloss{controller}.
+
+\subparagraph{Utilizzo}
+
+Viene utilizzata per eseguire il comando ricevuto da
+actorbase::cli::controllers::GrammarParser chiamando il metodo opportuno che
+implementa l'interfaccia actorbase::cli::models::Command.
+
+\subparagraph{Interazioni con altre classi}
+
+\begin{itemize}
+\item actorbase::cli::controllers::GrammarParser;
+\item actorbase::cli::models::Command.
+\end{itemize}
+
+\paragraph{actorbase::cli::models::Command}
 
 \subparagraph{Descrizione}
 
@@ -1116,17 +1134,18 @@ Interfaccia generica che rappresenta un comando.
 
 \subparagraph{Utilizzo}
 
-Viene utilizzata per offrire un'interfaccia comune a tutti i comandi.
+Viene utilizzata per offrire un'interfaccia comune a tutti i comandi. Ha un
+riferimento a actorbase::cli::models::CommandReceiver per l'esecuzione del
+comando.
 
 \subparagraph{Interazioni con altre classi}
 
 \begin{itemize}
-\item actorbase::view::cli::actorbaseCli::CLICommands;
-\item actorbase::view::cli::actorbaseCli::ResultViewer;
-\item actorbase::controller::driver::client::ActorbaseClient.
+\item actorbase::cli::models::CommandInvoker;
+\item actorbase::view::cli::models::CommandReceiver.
 \end{itemize}
 
-\paragraph{actorbase::view::cli::commands::FindCommand}
+\paragraph{actorbase::cli::models::FindCommand}
 
 \subparagraph{Descrizione}
 
@@ -1134,16 +1153,17 @@ Classe per il comando di ricerca.
 
 \subparagraph{Utilizzo}
 
-Viene utilizzata per mandare al \gloss{controller} il comando di ricerca con i
-parametri immessi dall'utente.
+Viene utilizzata per chiamare il metodo di
+actorbase::cli::models::CommandReceiver per la ricerca con i parametri immessi
+dall'utente.
 
 \subparagraph{Classi ereditate}
 
 \begin{itemize}
-\item actorbase::view::cli::commands::Command.
+\item actorbase::cli::models::Command.
 \end{itemize}
 
-\paragraph{actorbase::view::cli::commands::LogoutCommand}
+\paragraph{actorbase::cli::models::LogoutCommand}
 
 \subparagraph{Descrizione}
 
@@ -1151,15 +1171,16 @@ Classe per il comando di logout.
 
 \subparagraph{Utilizzo}
 
-Viene utilizzata per mandare al \gloss{controller} il comando di logout.
+Viene utilizzata per chiamare il metodo di
+actorbase::cli::models::CommandReceiver per il logout.
 
 \subparagraph{Classi ereditate}
 
 \begin{itemize}
-\item actorbase::view::cli::commands::Command.
+\item actorbase::cli::models::Command.
 \end{itemize}
 
-\paragraph{actorbase::view::cli::commands::ResetPasswordCommand}
+\paragraph{actorbase::cli::models::ResetPasswordCommand}
 
 \subparagraph{Descrizione}
 
@@ -1167,16 +1188,17 @@ Classe per il comando di reset della password.
 
 \subparagraph{Utilizzo}
 
-Viene utilizzata per mandare al \gloss{controller} il comando di reset della
-password dell'utente specificato in input.
+Viene utilizzata per chiamare il metodo di
+actorbase::cli::models::CommandReceiver per il reset della password
+dell'utente specificato in input.
 
 \subparagraph{Classi ereditate}
 
 \begin{itemize}
-\item actorbase::view::cli::commands::Command.
+\item actorbase::cli::models::Command.
 \end{itemize}
 
-\paragraph{actorbase::view::cli::commands::ListCommand}
+\paragraph{actorbase::cli::models::ListCommand}
 
 \subparagraph{Descrizione}
 
@@ -1185,17 +1207,17 @@ collezioni presenti nel \gloss{database}.
 
 \subparagraph{Utilizzo}
 
-Viene utilizzata per mandare al \gloss{controller} il comando di
-visualizzazione dell'elenco dei nomi di tutte le collezioni presenti nel
-\gloss{database}.
+Viene utilizzata per chiamare il metodo di
+actorbase::cli::models::CommandReceiver per la visualizzazione dell'elenco dei
+nomi di tutte le collezioni presenti nel \gloss{database}.
 
 \subparagraph{Classi ereditate}
 
 \begin{itemize}
-\item actorbase::view::cli::commands::Command.
+\item actorbase::cli::models::Command.
 \end{itemize}
 
-\paragraph{actorbase::view::cli::commands::AddContributorCommand}
+\paragraph{actorbase::cli::models::AddContributorCommand}
 
 \subparagraph{Descrizione}
 
@@ -1203,17 +1225,18 @@ Classe per il comando di aggiunta collaboratore a una collezione.
 
 \subparagraph{Utilizzo}
 
-Viene utilizzata per mandare al \gloss{controller} il comando di aggiunta di
-un collaboratore a una collezione con il nome della \gloss{collezione} e lo
-username specificati in input.
+Viene utilizzata per chiamare il metodo di
+actorbase::cli::models::CommandReceiver per l'aggiunta di un collaboratore a
+una collezione con il nome della \gloss{collezione} e lo username specificati
+in input.
 
 \subparagraph{Classi ereditate}
 
 \begin{itemize}
-\item actorbase::view::cli::commands::Command.
+\item actorbase::cli::models::Command.
 \end{itemize}
 
-\paragraph{actorbase::view::cli::commands::LoginCommand}
+\paragraph{actorbase::cli::models::LoginCommand}
 
 \subparagraph{Descrizione}
 
@@ -1221,16 +1244,17 @@ Classe per il comando di login.
 
 \subparagraph{Utilizzo}
 
-Viene utilizzata per mandare al \gloss{controller} il comando di login con le
-credenziali immesse dall'utente.
+Viene utilizzata per chiamare il metodo di
+actorbase::cli::models::CommandReceiver per il login con le credenziali
+immesse dall'utente.
 
 \subparagraph{Classi ereditate}
 
 \begin{itemize}
-\item actorbase::view::cli::commands::Command.
+\item actorbase::cli::models::Command.
 \end{itemize}
 
-\paragraph{actorbase::view::cli::commands::DeleteCommand}
+\paragraph{actorbase::cli::models::DeleteCommand}
 
 \subparagraph{Descrizione}
 
@@ -1238,16 +1262,17 @@ Classe per il comando di rimozione una \gloss{collezione}.
 
 \subparagraph{Utilizzo}
 
-Viene utilizzata per mandare al \gloss{controller} il comando di rimozione di
-una collezione con i parametri specificati in input.
+Viene utilizzata per chiamare il metodo di
+actorbase::cli::models::CommandReceiver per la rimozione di una collezione con
+i parametri specificati in input.
 
 \subparagraph{Classi ereditate}
 
 \begin{itemize}
-\item actorbase::view::cli::commands::Command.
+\item actorbase::cli::models::Command.
 \end{itemize}
 
-\paragraph{actorbase::view::cli::commands::RemoveContributorCommand}
+\paragraph{actorbase::cli::models::RemoveContributorCommand}
 
 \subparagraph{Descrizione}
 
@@ -1255,17 +1280,18 @@ Classe per il comando di rimozione di un collaboratore da una collezione.
 
 \subparagraph{Utilizzo}
 
-Viene utilizzata per mandare al \gloss{controller} il comando di rimozione di
-un collaboratore da una collezione con con il nome della \gloss{collezione} e
-lo username specificati in input.
+Viene utilizzata per chiamare il metodo di
+actorbase::cli::models::CommandReceiver per la rimozione di un collaboratore
+da una collezione con con il nome della \gloss{collezione} e lo username
+specificati in input.
 
 \subparagraph{Classi ereditate}
 
 \begin{itemize}
-\item actorbase::view::cli::commands::Command.
+\item actorbase::cli::models::Command.
 \end{itemize}
 
-\paragraph{actorbase::view::cli::commands::RenameCommand}
+\paragraph{actorbase::cli::models::RenameCommand}
 
 \subparagraph{Descrizione}
 
@@ -1273,16 +1299,17 @@ Classe per il comando rinominazione di un item.
 
 \subparagraph{Utilizzo}
 
-Viene utilizzata per mandare al \gloss{controller} il comando di rinominazione
-di un item con i parametri specificati in input.
+Viene utilizzata per chiamare il metodo di
+actorbase::cli::models::CommandReceiver per la rinominazione di un item con i
+parametri specificati in input.
 
 \subparagraph{Classi ereditate}
 
 \begin{itemize}
-\item actorbase::view::cli::commands::Command.
+\item actorbase::cli::models::Command.
 \end{itemize}
 
-\paragraph{actorbase::view::cli::commands::AddUserCommand}
+\paragraph{actorbase::cli::models::AddUserCommand}
 
 \subparagraph{Descrizione}
 
@@ -1290,16 +1317,17 @@ Classe per il comando di aggiunta di un utente.
 
 \subparagraph{Utilizzo}
 
-Viene utilizzata per mandare al \gloss{controller} il comando di aggiunta di
-un utente con i parametri specificati in input.
+Viene utilizzata per chiamare il metodo di
+actorbase::cli::models::CommandReceiver per l'aggiunta di un utente con i
+parametri specificati in input.
 
 \subparagraph{Classi ereditate}
 
 \begin{itemize}
-\item actorbase::view::cli::commands::Command.
+\item actorbase::cli::models::Command.
 \end{itemize}
 
-\paragraph{actorbase::view::cli::commands::RemoveCommand}
+\paragraph{actorbase::cli::models::RemoveCommand}
 
 \subparagraph{Descrizione}
 
@@ -1307,16 +1335,17 @@ Classe per il comando di rimozione di un \gloss{item}.
 
 \subparagraph{Utilizzo}
 
-Viene utilizzata per mandare al \gloss{controller} il comando di rimozione di
-un \gloss{item} con i parametri immessi dall'utente.
+Viene utilizzata per chiamare il metodo di
+actorbase::cli::models::CommandReceiver per la rimozione di un \gloss{item}
+con i parametri immessi dall'utente.
 
 \subparagraph{Classi ereditate}
 
 \begin{itemize}
-\item actorbase::view::cli::commands::Command.
+\item actorbase::cli::models::Command.
 \end{itemize}
 
-\paragraph{actorbase::view::cli::commands::RemoveUserCommand}
+\paragraph{actorbase::cli::models::RemoveUserCommand}
 
 \subparagraph{Descrizione}
 
@@ -1324,16 +1353,17 @@ Classe per il comando di rimozione di un utente.
 
 \subparagraph{Utilizzo}
 
-Viene utilizzata per mandare al \gloss{controller} il comando di rimozione di
-un utente con i parametri immessi dall'utente.
+Viene utilizzata per chiamare il metodo di
+actorbase::cli::models::CommandReceiver per la rimozione di un utente con i
+parametri immessi dall'utente.
 
 \subparagraph{Classi ereditate}
 
 \begin{itemize}
-\item actorbase::view::cli::commands::Command.
+\item actorbase::cli::models::Command.
 \end{itemize}
 
-\paragraph{actorbase::view::cli::commands::ImportCommand}
+\paragraph{actorbase::cli::models::ImportCommand}
 
 \subparagraph{Descrizione}
 
@@ -1341,16 +1371,17 @@ Classe per il comando di importazione da un file \gloss{JSON}.
 
 \subparagraph{Utilizzo}
 
-Viene utilizzata per mandare al \gloss{controller} il comando di importazione
-da un file \gloss{JSON} con i parametri immessi dall'utente.
+Viene utilizzata per chiamare il metodo di
+actorbase::cli::models::CommandReceiver per l'importazione da un file
+\gloss{JSON} con i parametri immessi dall'utente.
 
 \subparagraph{Classi ereditate}
 
 \begin{itemize}
-\item actorbase::view::cli::commands::Command.
+\item actorbase::cli::models::Command.
 \end{itemize}
 
-\paragraph{actorbase::view::cli::commands::InsertCommand}
+\paragraph{actorbase::cli::models::InsertCommand}
 
 \subparagraph{Descrizione}
 
@@ -1359,17 +1390,17 @@ Classe per il comando di inserimento di un \gloss{item} in una
 
 \subparagraph{Utilizzo}
 
-Viene utilizzata per mandare al \gloss{controller} il comando di inserimento
-di un \gloss{item} in una \gloss{collezione} con i parametri immessi
-dall'utente.
+Viene utilizzata per chiamare il metodo di
+actorbase::cli::models::CommandReceiver per l'inserimento di un \gloss{item}
+in una \gloss{collezione} con i parametri immessi dall'utente.
 
 \subparagraph{Classi ereditate}
 
 \begin{itemize}
-\item actorbase::view::cli::commands::Command.
+\item actorbase::cli::models::Command.
 \end{itemize}
 
-\paragraph{actorbase::view::cli::commands::CreateCommand}
+\paragraph{actorbase::cli::models::CreateCommand}
 
 \subparagraph{Descrizione}
 
@@ -1377,16 +1408,17 @@ Classe per il comando di creazione di una nuova \gloss{collezione}.
 
 \subparagraph{Utilizzo}
 
-Viene utilizzata per mandare al \gloss{controller} il comando di creazione di
-una nuova \gloss{collezione} con i parametri immessi dall'utente.
+Viene utilizzata per chiamare il metodo di
+actorbase::cli::models::CommandReceiver per la creazione di una nuova
+\gloss{collezione} con i parametri immessi dall'utente.
 
 \subparagraph{Classi ereditate}
 
 \begin{itemize}
-\item actorbase::view::cli::commands::Command.
+\item actorbase::cli::models::Command.
 \end{itemize}
 
-\paragraph{actorbase::view::cli::commands::ExportCommand}
+\paragraph{actorbase::cli::models::ExportCommand}
 
 \subparagraph{Descrizione}
 
@@ -1394,13 +1426,14 @@ Classe per il comando di esportazione in file \gloss{JSON}.
 
 \subparagraph{Utilizzo}
 
-Viene utilizzata per mandare al \gloss{controller} il comando di esportazione
-in file \gloss{JSON} con i parametri immessi dall'utente.
+Viene utilizzata per chiamare il metodo di
+actorbase::cli::models::CommandReceiver per l'esportazione in file
+\gloss{JSON} con i parametri immessi dall'utente.
 
 \subparagraph{Classi ereditate}
 
 \begin{itemize}
-\item actorbase::view::cli::commands::Command.
+\item actorbase::cli::models::Command.
 \end{itemize}
 
 \section{Diagrammi di attività}
