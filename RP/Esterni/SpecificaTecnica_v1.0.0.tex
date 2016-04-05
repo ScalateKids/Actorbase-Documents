@@ -1254,7 +1254,7 @@ immesse dall'utente.
 \item actorbase::cli::models::Command.
 \end{itemize}
 
-\paragraph{actorbase::cli::models::DeleteCommand}
+\paragraph{actorbase::cli::models::RemoveCollectionCommand}
 
 \subparagraph{Descrizione}
 
@@ -1291,17 +1291,17 @@ specificati in input.
 \item actorbase::cli::models::Command.
 \end{itemize}
 
-\paragraph{actorbase::cli::models::RenameCommand}
+\paragraph{actorbase::cli::models::RenameCollectionCommand}
 
 \subparagraph{Descrizione}
 
-Classe per il comando rinominazione di un item.
+Classe per il comando rinominazione di una \gloss{collezione}.
 
 \subparagraph{Utilizzo}
 
 Viene utilizzata per chiamare il metodo di
-actorbase::cli::models::CommandReceiver per la rinominazione di un item con i
-parametri specificati in input.
+actorbase::cli::models::CommandReceiver per la rinominazione di una
+\gloss{collezione} con i parametri specificati in input.
 
 \subparagraph{Classi ereditate}
 
@@ -1327,7 +1327,19 @@ parametri specificati in input.
 \item actorbase::cli::models::Command.
 \end{itemize}
 
-\paragraph{actorbase::cli::models::RemoveCommand}
+\paragraph{actorbase::cli::models::HelpCommand}
+
+\subparagraph{Descrizione}
+
+Classe per la richiesta di aiuto.
+
+\subparagraph{Utilizzo}
+
+Viene utilizzata per chiamare il metodo di
+actorbase::cli::models::CommandReceiver per la richiesta di aiuto con i
+parametri immessi dall'utente.
+
+\paragraph{actorbase::cli::models::RemoveItemCommand}
 
 \subparagraph{Descrizione}
 
@@ -1381,7 +1393,7 @@ actorbase::cli::models::CommandReceiver per l'importazione da un file
 \item actorbase::cli::models::Command.
 \end{itemize}
 
-\paragraph{actorbase::cli::models::InsertCommand}
+\paragraph{actorbase::cli::models::InsertItemCommand}
 
 \subparagraph{Descrizione}
 
@@ -1400,7 +1412,7 @@ in una \gloss{collezione} con i parametri immessi dall'utente.
 \item actorbase::cli::models::Command.
 \end{itemize}
 
-\paragraph{actorbase::cli::models::CreateCommand}
+\paragraph{actorbase::cli::models::CreateCollectionCommand}
 
 \subparagraph{Descrizione}
 
@@ -1441,11 +1453,13 @@ actorbase::cli::models::CommandReceiver per l'esportazione in file
 \subparagraph{Descrizione}
 
 Classe contenente i metodi per richiamare la componente \gloss{driver} per
-l'esecuzione dei comandi.
+l'esecuzione dei comandi o per restituire l'aiuto se richiesto.
 
 \subparagraph{Utilizzo}
 
-Viene utilizzata da actorbase::cli::models::Command per chiamare actorbase::driver::client::ActorbaseClient.
+Viene utilizzata da actorbase::cli::models::Command per chiamare
+actorbase::driver::client::ActorbaseClient o per ricevere un aiuto da
+visualizzare se richiesto dall'utente.
 
 \subparagraph{Interazioni con altre classi}
 
