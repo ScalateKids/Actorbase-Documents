@@ -1436,6 +1436,24 @@ actorbase::cli::models::CommandReceiver per l'esportazione in file
 \item actorbase::cli::models::Command.
 \end{itemize}
 
+\paragraph{actorbase::cli::models::CommandReceiver}
+
+\subparagraph{Descrizione}
+
+Classe contenente i metodi per richiamare la componente \gloss{driver} per
+l'esecuzione dei comandi.
+
+\subparagraph{Utilizzo}
+
+Viene utilizzata da actorbase::cli::models::Command per chiamare actorbase::driver::client::ActorbaseClient.
+
+\subparagraph{Interazioni con altre classi}
+
+\begin{itemize}
+\item actorbase::cli::models::Command;
+\item actorbase::driver::client::ActorbaseClient.
+\end{itemize}
+
 \section{Diagrammi di attività}
 
 In questa sezione, vengono illustrati i diagrammi di attività che descrivono
