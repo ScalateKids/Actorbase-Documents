@@ -97,8 +97,7 @@ componentiche andranno a comporre il software.
 
 \begin{itemize}
 
-\item\textbf{Capitolato d'appalto C1:} \textit{Actorbase: a
-    NoSQL DB based on the Actor model;}\\
+\item\textbf{Capitolato d'appalto C1:} \textit{Actorbase: a NoSQL DB based on the Actor model;}\\
   \url{http://www.math.unipd.it/~tullio/IS-1/2015/Progetto/C1.pdf}
 \item\textbf{Norme di Progetto:}
   \href{run:../Interni/NormeDiProgetto\_v2.0.0.pdf}{Norme di Progetto v2.0.0.}
@@ -160,9 +159,17 @@ motivi:
 
 \subsection{Metodo e formalismo di specifica}
 
-L'approccio alla progettazione è stato meet-in-the-middle, la prima
-suddivisione ad alto livello è stata tra sistema come struttura ad attori e
-componenti esterne per utilizzare la base di dati (operazioni CRUD).
+L'esposizione dell'architettura segue la metodologia \gloss{top-down},
+descrivendo l'architettura iniziando dalle componenti generali e scendendo
+nel dettaglio. Seguirà quindi la descrizione dei \gloss{package} seguiti dalla descrizione
+in dettaglio delle classi e interfacce che vi appartengono, specificando
+per ognuna la funzione e le relazioni in ingresso ed uscita. Il formalismo
+cromatico utilizzato sarà conforme a quanto specificato in \texit{Norme Di Progetto}.\\
+Successivamente si illustreranno i \gloss{Design Pattern} e la loro applicazione
+all'interno delle componenti, con un approfondimento del loro funzionamento
+in \href[sec:appendice]{appendice A}.\\
+Nel trattare le componenti, si chiarisce che sono da intendersi come \gloss{package}
+e i due termini verranno quindi usati come sinonimi.\\
 
 \subsection{Architettura generale}
 
@@ -173,51 +180,33 @@ comandi dall'esterno rappresentano la componente server, la Command Line
 Interface (CLI) rappresenta la componente client mediante la quale è possibile
 inviare comandi al sistema e ricevere l'output prodotto da essi, essa farà uso
 della componente \gloss{driver} per comunicare con il sistema lato server
-mediante un protocollo di comunicazione appositamente creato.
+mediante un protocollo di comunicazione appositamente creato.\\
 
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=0.2\textwidth,keepaspectratio]{RP/RP-ClientServer.png}
-    \caption{Diagramma architettura generale}
+    \caption{Diagramma architettura concettuale}
   \end{center}
 \end{figure}
 
-% TODO:
-% \begin{figure}
-%   \centering
+Questo ha portato alla suddivisione del progetto in tre macro-componenti:
+\begin{itemize}
+\item cli;
+\item driver;
+\item actorsystem.
+\end{itemize}
 
-%   \caption{Architettura generale - vista package}
-%   \label{fig:architetturaGeneralePackage}
+% \begin{figure}[H]
+%   \begin{center}
+%     \includegraphics[width=0.2\textwidth,keepaspectratio]{RP/RP-ClientServer.png}
+%     \caption{Diagramma componenti principali}
+%   \end{center}
 % \end{figure}
-% TODO: sta roba è da cancellare ve?
-L'intero sistema è rappresentabile mediante una variante del design pattern
-\gloss{MVC}, le tre componenti principali si prestano naturalmente
-all'assegnazione delle tre parti che formano il design pattern, con la
-differenza rispetto ad un approccio più classico, che l'aggiornamento della
-parte \gloss{view} avviene sempre e comunque passando per la parte controller,
-ciò è dovuto alla natura client-server del prodotto, che richiede un protocollo
-di comunicazione ben preciso tra le due parti. Il sistema formato dai package
-dedicati agli attori \gloss{akka} e dal server \gloss{TCP} per la comunicazione
-con l'esterno sono assimilabili alla parte \gloss{model}, rappresenta la
-\gloss{business logic} di \textbf{Actorbase}. La \gloss{CLI} è assimilabile alla
-parte \gloss{view}, unico punto di interazione con l'utente, si occupa di
-processare i comandi in input e restituire l'output opportunamente formattato,
-la componente \gloss{driver} fa da ponte di comunicazione tra \gloss{CLI} e
-server, occupandosi della ``traduzione'' dei comandi input secondo il protocollo
-di comunicazione scelto, rappresenta la parte \gloss{controller}.
 
 \section{Componenti}
 
 \subsection{actorbase}
 \label{sec:actorbase}
-
-% TODO:
-% \begin{figure}
-%   \centering
-
-%   \caption{Componente Actorbase}
-%   \label{fig:componenteActorbase}
-% \end{figure}
 
 \subsubsection{Descrizione}
 
@@ -463,7 +452,7 @@ Classe che rappresenta un'istanza del \gloss{driver}.
 \subparagraph{Utilizzo}
 
 La componente \hyperref[actorbase::cli::models::CommandReceiver]{actorbase::cli::models::CommandReceiver}
-ha un riferimento a questa classe tramite il quale le vengono passati i comandi, dopo aver 
+ha un riferimento a questa classe tramite il quale le vengono passati i comandi, dopo aver
 effettuato il \gloss{parsing}. Questa classe si occupa di mandare il comando alla componente
 \hyperref[actorbase::driver::client::CommandRunner]{actorbase::driver::client::CommandRunner} per farne
 proseguire l'esecuzione.
@@ -1533,7 +1522,7 @@ gestire gli utenti del database.
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=0.8\textwidth, keepaspectratio]{img/diagrammiAttivita/visioneGenerale.jpeg}
-    \caption{Diagrammi attività - Visione generale}
+    \caption{Diagrammi attività\ -\ Visione generale}
   \end{center}
 \end{figure}
 
@@ -1550,7 +1539,7 @@ visualizzato un messaggio di errore.
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=0.3\textwidth, keepaspectratio]{img/diagrammiAttivita/creazioneCollezione.jpeg}
-    \caption{Diagrammi attività - Creazione collezione}
+    \caption{Diagrammi attività\ -\ Creazione collezione}
   \end{center}
 \end{figure}
 
@@ -1566,7 +1555,7 @@ errore.
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=0.3\textwidth, keepaspectratio]{img/diagrammiAttivita/cancCollezione.jpeg}
-    \caption{Diagrammi attività - Cancellazione collezione}
+    \caption{Diagrammi attività\ -\ Cancellazione collezione}
   \end{center}
 \end{figure}
 
@@ -1582,7 +1571,7 @@ visualizzato un messaggio di errore.
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=0.3\textwidth, keepaspectratio]{img/diagrammiAttivita/visCollezione.jpeg}
-    \caption{Diagrammi attività - Visualizzazione collezioni}
+    \caption{Diagrammi attività\ -\ Visualizzazione collezioni}
   \end{center}
 \end{figure}
 
@@ -1632,7 +1621,7 @@ verrà visualizzato un messaggio di errore.
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=0.3\textwidth, keepaspectratio]{img/diagrammiAttivita/rimozioneItem.jpeg}
-    \caption{Diagrammi attività - Rimozione item}
+    \caption{Diagrammi attività\ -\ Rimozione item}
   \end{center}
 \end{figure}
 
@@ -1649,7 +1638,7 @@ visualizzato un messaggio di errore.
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=0.3\textwidth, keepaspectratio]{img/diagrammiAttivita/aggCollaboratore.jpeg}
-    \caption{Diagrammi attività - Aggiunta collaboratore}
+    \caption{Diagrammi attività\ -\ Aggiunta collaboratore}
   \end{center}
 \end{figure}
 
@@ -1666,7 +1655,7 @@ visualizzato un messaggio di errore.
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=0.3\textwidth, keepaspectratio]{img/diagrammiAttivita/rimozioneCollaboratore.jpeg}
-    \caption{Diagrammi attività - Rimozione collaboratore}
+    \caption{Diagrammi attività\ -\ Rimozione collaboratore}
   \end{center}
 \end{figure}
 
@@ -1846,8 +1835,15 @@ dell'architettura \gloss{MVC} scelta per la componente \gloss{CLI}.
 \subsubsection{Iterator Pattern}
 
 \begin{itemize}
-\item \textbf{Scopo:}
-\item \textbf{Utilizzo:}
+\item \textbf{Scopo:} Fornisce un sistema di navigazione attraverso gli elementi di una generica struttura dati contenitrice,
+  senza esporre i dettagli dell'implementazione e della struttura interna del contenitore.
+\item \textbf{Utilizzo:} Viene utilizzato nella componente \gloss{driver}, più specificamente nel \gloss{package} \verb=actorbaseobject=
+  per permettere l'iterazione degli oggetti restituiti dalla componente \verb=actorsystem=.\\
+  Le classi che implementano l'interfaccia \verb=cursor= sono:
+  \begin{itemize}
+  \item \verb=CollectionCursor=
+  \item \verb=ItemCursor=
+  \end{itemize}
 \end{itemize}
 
 \subsubsection{Observer Pattern}
@@ -1855,8 +1851,13 @@ dell'architettura \gloss{MVC} scelta per la componente \gloss{CLI}.
 \label{sec:ObserverPattern}
 
 \begin{itemize}
-\item \textbf{Scopo:}
-\item \textbf{Utilizzo:}
+\item \textbf{Scopo:} Viene utilizzato per tenere sotto controllo lo stato di diversi oggetti, ed è parte dell'implementazione
+  del \gloss{Design Pattern} \gloss{MVC} con logica \gloss{push model}, il funzionamento si basa su meccanismi di callback.
+\item \textbf{Utilizzo:} E' stato utilizzato nella componente \gloss{CLI} del progetto in modo da ottenere una \gloss{view}
+  auto-aggiornante sull'output prodotto dai comandi inviati alla componente \gloss{driver}.\\
+  Più in dettaglio, la classe \verb=CommandInvoker= realizza l'interfaccia \verb=Observable= aggiungendo l'oggetto di tipo
+  \verb=ResultView= alla propria lista di \gloss{observers}, all'esecuzione di ogni comando, notifica \verb=resultview=
+  con l'output prodotto.
 \end{itemize}
 
 \subsubsection{Strategy}
@@ -1903,28 +1904,28 @@ dell'architettura \gloss{MVC} scelta per la componente \gloss{CLI}.
 
   \item \textbf{actorsystem:}
     \begin{itemize}
-    \item All'interno del package \verb=clientactor=, la classe utilizzata per la
+    \item All'interno del \gloss{package} \verb=clientactor=, la classe utilizzata per la
       gestione dei messaggi in ingresso \verb=RESPInput= è possibile selezionare
       mediante \verb=DeserializationContext=, una delle strategie di deserializzazione
       tra:
       \begin{itemize}
       \item \verb=RESPDeserialization=
       \end{itemize}
-    \item All'interno del package \verb=clientactor=, la classe utilizzata per la
+    \item All'interno del \gloss{package} \verb=clientactor=, la classe utilizzata per la
       gestione dei messaggi in uscita \verb=Response= è possibile selezionare
       mediante \verb=SerializationContext=, una delle strategie di serializzazione
       tra:
       \begin{itemize}
       \item \verb=RESPSerialization=
       \end{itemize}
-    \item All'interno del package \verb=warehouseman=, la classe utilizzata per
+    \item All'interno del \gloss{package} \verb=warehouseman=, la classe utilizzata per
       la gestione del salvataggio in persistenza dei dati \verb=Save= è
       possibile selezionare mediante \verb=SerializationContext=, una delle
       strategie di serializzazione tra:
       \begin{itemize}
       \item \verb=PickleSerialization=
       \end{itemize}
-    \item All'interno del package \verb=warehouseman=, all'interno della
+    \item All'interno del \gloss{package} \verb=warehouseman=, all'interno della
       strategia di serializzazione è possibile selezionare mediante
       \verb=Encryption=, una delle strategie di criptazione tra:
       \begin{itemize}
@@ -1939,6 +1940,21 @@ dell'architettura \gloss{MVC} scelta per la componente \gloss{CLI}.
 
 \section{Stime di fattibilità e di bisogno di risorse}
 
+Durante la progettazione dell'architettura, oltre alle tecnologie e librerie
+consigliate dal proponente, ne sono state riercate e testate altre in modo da
+poter usufruire di funzionalità già esistenti.\\ Dopo un iniziale orientamento
+verso il \gloss{framework} \gloss{Spring}, più precisamente nella sua
+derivazione \gloss{SpringShell}, in modo da poter generare una \gloss{CLI}
+personalizzata, abbiamo deciso di rimanere su un'implementazione più leggera in
+liguaggio \gloss{Scala} in quanto la scarsa personalizzazione offerta e il
+grosso carico di dipendenze che necessitava \gloss{SpringShell} per il suo
+utilizzo è stato ritenuto eccessivamente gravoso sulla realizzazione della
+componente in questione.\\ E' stato tuttavia deciso di utilizzare il
+\gloss{framework} \gloss{pickling} per effettuare serializzazione della
+persistenza su disco; offre una buona documentazione e numerosi esempi di
+utilizzo, rende inoltre possibile la definizione di protocolli di
+serializzazione personalizzati.
+
 \section{Tracciamento}
 
 \subsection{Tracciamento componenti\ -\ requisiti}
@@ -1946,6 +1962,7 @@ dell'architettura \gloss{MVC} scelta per la componente \gloss{CLI}.
 \subsection{Tracciamento requisiti\ -\ componenti}
 
 \appendix
+\label{sec:appendice}
 \section{Descrizione Design Pattern}
 \listoftables
 \listoffigures
