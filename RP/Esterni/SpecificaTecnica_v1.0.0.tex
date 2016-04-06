@@ -414,6 +414,10 @@ degli attori di tipo \gloss{Storekeeper}.
 \item actorbase::model::system::actors::Actor.
 \end{itemize}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                        DRIVER PARTE                              %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \subsection{actorbase::driver}
 \label{sec:actorbase::driver}
 
@@ -447,8 +451,8 @@ che con la componente \gloss{server} del sistema.
 \subsubsection{Interazioni con altre componenti}
 
 \begin{itemize}
-\item \hyperref[actorbase::cli::models]{actorbase::cli::models};
-\item \hyperref[actorbase::actorsystem::clientactor]{actorbase::actorsystem::clientactor}.
+\item \hyperref[sec:actorbase::cli::models]{actorbase::cli::models};
+\item \hyperref[sec:actorbase::actorsystem::clientactor]{actorbase::actorsystem::clientactor}.
 \end{itemize}
 
 \subsubsection{Classi}
@@ -462,335 +466,166 @@ Classe che rappresenta un'istanza del \gloss{driver}.
 
 \subparagraph{Utilizzo}
 
-La componente \hyperref[actorbase::cli::models::CommandReceiver]{actorbase::cli::models::CommandReceiver}
-ha un riferimento a questa classe tramite il quale le vengono passati i comandi, dopo aver 
-effettuato il \gloss{parsing}. Questa classe si occupa di mandare il comando alla componente
-\hyperref[actorbase::driver::client::CommandRunner]{actorbase::driver::client::CommandRunner} per farne
-proseguire l'esecuzione.
+La componente \hyperref[sec:actorbase::cli::models::CommandReceiver]{actorbase::cli::models::CommandReceiver}
+ha un riferimento a questa classe tramite il quale le vengono passati
+i comandi che sono stati già sottoposti al \gloss{parsing}. Questa
+classe si occupa di mandare il comando alla componente
+\hyperref[sec:actorbase::driver::client::CommandRunner]{actorbase::driver::client::CommandRunner},
+che rappresenta una classe \gloss{façade}, per farne proseguire l'esecuzione.\\
+Il risultato delle operazioni viene restituito a \hyperref[sec:actorbase::cli::models::CommandReceiver]{actorbase::cli::models::CommandReceiver}
+tramite oggetti di tipo \hyperref[sec:actorbase::driver::actorbasedata::ActorbaseObject]{actorbase::driver::actorbasedata::ActorbaseObject}.
 
 \subparagraph{Interazioni con altre classi}
 
 \begin{itemize}
-\item \hyperref[actorbase::cli::models::CommandReceiver]{actorbase::cli::models::CommandReceiver};
-\item \hyperref[actorbase::driver::client::CommandRunner]{actorbase::driver::client::CommandRunner}.
+\item \hyperref[sec:actorbase::cli::models::CommandReceiver]{actorbase::cli::models::CommandReceiver};
+\item \hyperref[sec:actorbase::driver::client::CommandRunner]{actorbase::driver::client::CommandRunner};
+\item \hyperref[sec:actorbase::driver::actorbasedata::ActorbaseObject]{actorbase::driver::actorbasedata::ActorbaseObject}.
 \end{itemize}
 
-\paragraph{actorbase::controller::driver::client::Connection}
+\paragraph{actorbase::driver::client::CommandRunner}
+\label{sec:actorbase::driver::client::CommandRunner}
 
 \subparagraph{Descrizione}
 
-Classe per la connessione tra il \gloss{driver} e il \gloss{server}
-
-\subparagraph{Interazioni con altre classi}
-\begin{itemize}
-\item actorbase::controller::driver::client::ActorbaseClient;
-\item actorbase::model::system::server::TCPServer.
-\end{itemize}
-
-\subsection{actorbase::controller::driver::controls}
-
-\subsubsection{Descrizione}
-
-Componente del \gloss{controller} per l'esecuzione del comando e l'interazione
-con il \gloss{server}.
-
-\subsubsection{Interazioni con altre componenti}
-
-\begin{itemize}
-\item actorbase::model::system::server.
-\end{itemize}
-
-\subsubsection{Classi}
-
-\paragraph{actorbase::controller::driver::controls::Control}
-
-\subparagraph{Descrizione}
-
-Interfaccia generica che rappresenta un comando.
+Classe \gloss{façade} che si occupa di mettere in comunicazione il
+\gloss{driver} con il \gloss{server}.
 
 \subparagraph{Utilizzo}
 
-Viene utilizzata per offrire un'interfaccia comune a tutti i comandi.
+Questa classe riceve dalla componente \hyperref[sec:actorbase::driver::client::ActorbaseClient]{actorbase::driver::client::ActorbaseClient}
+il comando da eseguire e le restituisce il risultato nascondendole
+tutte le operazioni eseguite.
 
 \subparagraph{Interazioni con altre classi}
 
 \begin{itemize}
-\item actorbase::controller::driver::client::ActorbaseClient;
-\item actorbase::model::system::server::TCPServer.
+\item \hyperref[sec:actorbase::driver::client::ActorbaseClient]{actorbase::driver::client::ActorbaseClient};
+\item \hyperref[sec:actorbase::driver::client::Connection]{actorbase::driver::client::Connection}.
 \end{itemize}
 
-\paragraph{actorbase::controller::driver::controls::FindControl}
+\paragraph{actorbase::driver::client::Connection}
+\label{sec:actorbase::driver::client::Connection}
 
 \subparagraph{Descrizione}
 
-Classe per il comando di ricerca.
+Classe per la connessione tra il \gloss{driver} e il \gloss{server}.
 
 \subparagraph{Utilizzo}
 
-Viene utilizzata per mandare al \gloss{server} il comando di ricerca con i
-parametri immessi dall'utente.
+Questa classe si incarica della connessione e comunicazione con il \gloss{server}. Una volta
+connesso alla componente \hyperref[sec:actorbase::actorsystem::tcpserver::TCPServer]{actorbase::actorsystem::tcpserver::TCPServer}
+le verrà assegnato un oggetto di tipo \hyperref[sec:actorbase::actorbase::actorsystem::clientactor::ClientActor]{actorbase::actorsystem::clientactor::ClientActor}.\\
+Questa classe inoltre chiamerà le componenti necessarie per la serializzazione e deserializzazione
+delle stringhe ricevute dal \gloss{server} o da \hyperref[sec:actorbase::driver::client::CommandRunner]{actorbase::driver::client::CommandRunner},
+ossia \hyperref[sec:actorbase::driver::client::SerializationContext]{actorbase::driver::client::SerializationContext}
+e \hyperref[sec:actorbase::driver::client::Deserializationtext]{actorbase::driver::client::DeserializationContext}.\\
+Nel caso la stringa da passare al \gloss{server} necessiti di essere \gloss{criptata} questa classe
+chiamerà la componente \hyperref[sec:actorbase::driver::client::EncryptionContext]{actorbase::driver::client::EncryptionContext}.
+
+\subparagraph{Interazioni con altre classi}
+\begin{itemize}
+\item \hyperref[sec:actorbase::driver::client::EncryptionContext]{actorbase::driver::client::EncryptionContext};
+\item \hyperref[sec:actorbase::driver::client::SerializationContext]{actorbase::driver::client::SerializationContext};
+\item \hyperref[sec:actorbase::driver::client::Deserializationtext]{actorbase::driver::client::DeserializationContext};
+\item \hyperref[sec:actorbase::driver::client::CommandRunner]{actorbase::driver::client::CommandRunner};
+\item \hyperref[sec:actorbase::actorsystem::tcpserver::TCPServer]{actorbase::actorsystem::tcpserver::TCPServer};
+\item \hyperref[sec:actorbase::actorbase::actorsystem::clientactor::ClientActor]{actorbase::actorsystem::clientactor::ClientActor}.
+\end{itemize}
+
+\paragraph{actorbase::driver::client::EncryptionContext}
+\label{sec:actorbase::driver::client::EncryptionContext}
+
+\subparagraph{Descrizione}
+
+Classe che offre metodi per scegliere il metodo di \gloss{criptazione} da effettuare.
+
+\subparagraph{Utilizzo}
+
+Questa classe offre dei metodi per scegliere quale metodo di \gloss{criptazione}
+derivate da \hyperref[sec:actorbase::driver::client::Encryption]{actorbase::driver::client::Encryption}
+deve venire applicato.
+
+\subparagraph{Interazioni con altre classi}
+\begin{itemize}
+\item \hyperref[sec:actorbase::driver::client::Connection]{actorbase::driver::client::Connection};
+\item \hyperref[sec:actorbase::driver::client::Encryption]{actorbase::driver::client::Encryption}.
+\end{itemize}
+
+\paragraph{actorbase::driver::client::Encryption}
+\label{sec:actorbase::driver::client::Encryption}
+
+\subparagraph{Descrizione}
+
+Interfaccia che offre una strategia generale per la \gloss{criptazione} di
+stringhe.
+
+\subparagraph{Utilizzo}
+
+Viene utilizzata come parte del \gloss{design pattern} \gloss{strategy}. Offre
+un'interfaccia per la \gloss{criptazione} di stringhe che verrà poi
+implementata dalle classi che la implementeranno.
+
+\subparagraph{Interazioni con altre classi}
+
+\begin{itemize}
+\item \hyperref[sec:actorbase::driver::client::EncryptionContext]{actorbase::driver::client::EncryptionContext}
+\end{itemize}
+
+\paragraph{actorbase::driver::client::Encryption}
+\label{sec:actorbase::driver::client::Encryption}
+
+\subparagraph{Descrizione}
+
+Interfaccia che offre una strategia generale per la \gloss{criptazione} di
+stringhe.
+
+\subparagraph{Utilizzo}
+
+Viene utilizzata come parte del \gloss{design pattern} \gloss{strategy}. Offre
+un'interfaccia per la \gloss{criptazione} di stringhe che verrà poi
+implementata dalle classi che la implementeranno.
+
+\subparagraph{Interazioni con altre classi}
+
+\begin{itemize}
+\item \hyperref[sec:actorbase::driver::client::EncryptionContext]{actorbase::driver::client::EncryptionContext}.
+\end{itemize}
+
+\paragraph{actorbase::driver::client::SHA1Encryption}
+\label{sec:actorbase::driver::client::SHA1Encryption}
+
+\subparagraph{Descrizione}
+
+Classe che implementa l'interfaccia di \gloss{criptazione} usando il metodo
+\gloss{SHA1}.
+
+\subparagraph{Utilizzo}
+
+Classe che \gloss{cripta} una stringa usando il metodo \gloss{SHA1}.
 
 \subparagraph{Classi ereditate}
 
 \begin{itemize}
-\item actorbase::controller::driver::controls::Control.
+\item \hyperref[sec:actorbase::driver::client::Encryption]{actorbase::driver::client::Encryption}.
 \end{itemize}
 
-\paragraph{actorbase::controller::driver::controls::LogoutControl}
+\paragraph{actorbase::driver::client::BlowfishEncryption}
+\label{sec:actorbase::driver::client::BlowfishEncryption}
 
 \subparagraph{Descrizione}
 
-Classe per il comando di logout.
+Classe che implementa l'interfaccia di \gloss{criptazione} usando il metodo
+\gloss{Blowfish}.
 
 \subparagraph{Utilizzo}
 
-Viene utilizzata per mandare al \gloss{server} il comando di logout.
+Classe che \gloss{cripta} una stringa usando il metodo \gloss{Blowfish}.
 
 \subparagraph{Classi ereditate}
 
 \begin{itemize}
-\item actorbase::controller::driver::controls::Control.
-\end{itemize}
-
-\paragraph{actorbase::controller::driver::controls::ResetPasswordControl}
-
-\subparagraph{Descrizione}
-
-Classe per il comando di reset della password.
-
-\subparagraph{Utilizzo}
-
-Viene utilizzata per mandare al \gloss{server} il comando di reset della
-password dell'utente specificato in input.
-
-\subparagraph{Classi ereditate}
-
-\begin{itemize}
-\item actorbase::controller::driver::controls::Control.
-\end{itemize}
-
-\paragraph{actorbase::controller::driver::controls::ListControl}
-
-\subparagraph{Descrizione}
-
-Classe per il comando di visualizzazione dell'elenco dei nomi di tutte le
-collezioni presenti nel \gloss{database}.
-
-\subparagraph{Utilizzo}
-
-Viene utilizzata per mandare al \gloss{server} il comando di visualizzazione
-dell'elenco dei nomi di tutte le collezioni presenti nel \gloss{database}.
-
-\subparagraph{Classi ereditate}
-
-\begin{itemize}
-\item actorbase::controller::driver::controls::Control.
-\end{itemize}
-
-\paragraph{actorbase::controller::driver::controls::AddContributorControl}
-
-\subparagraph{Descrizione}
-
-Classe per il comando di aggiunta collaboratore a una collezione.
-
-\subparagraph{Utilizzo}
-
-Viene utilizzata per mandare al \gloss{server} il comando di aggiunta di un
-collaboratore a una collezione con il nome della \gloss{collezione} e lo
-username specificati in input.
-
-\subparagraph{Classi ereditate}
-
-\begin{itemize}
-\item actorbase::controller::driver::controls::Control.
-\end{itemize}
-
-\paragraph{actorbase::controller::driver::controls::LoginControl}
-
-\subparagraph{Descrizione}
-
-Classe per il comando di login.
-
-\subparagraph{Utilizzo}
-
-Viene utilizzata per mandare al \gloss{server} il comando di login con le
-credenziali immesse dall'utente.
-
-\subparagraph{Classi ereditate}
-
-\begin{itemize}
-\item actorbase::controller::driver::controls::Control.
-\end{itemize}
-
-\paragraph{actorbase::controller::driver::controls::DeleteControl}
-
-\subparagraph{Descrizione}
-
-Classe per il comando di rimozione una \gloss{collezione}.
-
-\subparagraph{Utilizzo}
-
-Viene utilizzata per mandare al \gloss{server} il comando di rimozione di una
-collezione con i parametri specificati in input.
-
-\subparagraph{Classi ereditate}
-
-\begin{itemize}
-\item actorbase::controller::driver::controls::Control.
-\end{itemize}
-
-\paragraph{actorbase::controller::driver::controls::RemoveContributorControl}
-
-\subparagraph{Descrizione}
-
-Classe per il comando di rimozione di un collaboratore da una collezione.
-
-\subparagraph{Utilizzo}
-
-Viene utilizzata per mandare al \gloss{server} il comando di rimozione di un
-collaboratore da una collezione con con il nome della \gloss{collezione} e lo
-username specificati in input.
-
-\subparagraph{Classi ereditate}
-
-\begin{itemize}
-\item actorbase::controller::driver::controls::Control.
-\end{itemize}
-
-\paragraph{actorbase::controller::driver::controls::RenameControl}
-
-\subparagraph{Descrizione}
-
-Classe per il comando rinominazione di un item.
-
-\subparagraph{Utilizzo}
-
-Viene utilizzata per mandare al \gloss{server} il comando di rinominazione di
-un \gloss{item} con i parametri specificati in input.
-
-\subparagraph{Classi ereditate}
-
-\begin{itemize}
-\item actorbase::controller::driver::controls::Control.
-\end{itemize}
-
-\paragraph{actorbase::controller::driver::controls::AddUserControl}
-
-\subparagraph{Descrizione}
-
-Classe per il comando di aggiunta di un utente.
-
-\subparagraph{Utilizzo}
-
-Viene utilizzata per mandare al \gloss{server} il comando di aggiunta di un
-utente con i parametri specificati in input.
-
-\subparagraph{Classi ereditate}
-
-\begin{itemize}
-\item actorbase::controller::driver::controls::Control.
-\end{itemize}
-
-\paragraph{actorbase::controller::driver::controls::RemoveControl}
-
-\subparagraph{Descrizione}
-
-Classe per il comando di rimozione di un \gloss{item}.
-
-\subparagraph{Utilizzo}
-
-Viene utilizzata per mandare al \gloss{server} il comando di rimozione di un
-\gloss{item} con i parametri immessi dall'utente.
-
-\subparagraph{Classi ereditate}
-
-\begin{itemize}
-\item actorbase::controller::driver::controls::Control.
-\end{itemize}
-
-\paragraph{actorbase::controller::driver::controls::RemoveUserControl}
-
-\subparagraph{Descrizione}
-
-Classe per il comando di rimozione di un utente.
-
-\subparagraph{Utilizzo}
-
-Viene utilizzata per mandare al \gloss{server} il comando di rimozione di un
-utente con i parametri immessi dall'utente.
-
-\subparagraph{Classi ereditate}
-
-\begin{itemize}
-\item actorbase::controller::driver::controls::Control.
-\end{itemize}
-
-\paragraph{actorbase::controller::driver::controls::ImportControl}
-
-\subparagraph{Descrizione}
-
-Classe per il comando di importazione da un file \gloss{JSON}.
-
-\subparagraph{Utilizzo}
-
-Viene utilizzata per mandare al \gloss{server} il comando di importazione da
-un file \gloss{JSON} con i parametri immessi dall'utente.
-
-\subparagraph{Classi ereditate}
-
-\begin{itemize}
-\item actorbase::controller::driver::controls::Control.
-\end{itemize}
-
-\paragraph{actorbase::controller::driver::controls::InsertControl}
-
-\subparagraph{Descrizione}
-
-Classe per il comando di inserimento di un \gloss{item} in una \gloss{collezione}.
-
-\subparagraph{Utilizzo}
-
-Viene utilizzata per mandare al \gloss{server} il comando di inserimento di un
-\gloss{item} in una \gloss{collezione} con i parametri immessi dall'utente.
-
-\subparagraph{Classi ereditate}
-
-\begin{itemize}
-\item actorbase::controller::driver::controls::Control.
-\end{itemize}
-
-\paragraph{actorbase::controller::driver::controls::CreateControl}
-
-\subparagraph{Descrizione}
-
-Classe per il comando di creazione di una nuova \gloss{collezione}.
-
-\subparagraph{Utilizzo}
-
-Viene utilizzata per mandare al \gloss{server} il comando di creazione di una
-nuova \gloss{collezione} con i parametri immessi dall'utente.
-
-\subparagraph{Classi ereditate}
-
-\begin{itemize}
-\item actorbase::controller::driver::controls::Control.
-\end{itemize}
-
-\paragraph{actorbase::controller::driver::controls::ExportControl}
-
-\subparagraph{Descrizione}
-
-Classe per il comando di esportazione in file \gloss{JSON}.
-
-\subparagraph{Utilizzo}
-
-Viene utilizzata per mandare al \gloss{server} il comando di esportazione in
-file \gloss{JSON} con i parametri immessi dall'utente.
-
-\subparagraph{Classi ereditate}
-
-\begin{itemize}
-\item actorbase::controller::driver::controls::Control.
+\item \hyperref[sec:actorbase::driver::client::Encryption]{actorbase::driver::client::Encryption}.
 \end{itemize}
 
 \subsection{actorbase::controller::driver::data}
@@ -955,27 +790,9 @@ Viene utilizzata per la lettura dei comandi inseriti dall'utente.
 
 \begin{itemize}
 \item \hyperref[sec:actorbase::cli::views::PromptProvider]{actorbase::cli::views::PromptProvider};
-\item \hyperref[sec:actorbase::cli::views::Banner]{actorbase::cli::views::Banner};
+\item \hyperref[sec:actorbase::cli::views::ActorbaseBanner]{actorbase::cli::views::ActorbaseBanner};
 \item \hyperref[sec:actorbase::cli::views::ResultView]{actorbase::cli::views::ResultView};
 \item \hyperref[sec:actorbase::cli::controllers::GrammarParser]{actorbase::cli::controllers::GrammarParser}.
-\end{itemize}
-
-\paragraph{actorbase::cli::views::Banner}
-\label{sec:actorbase::cli::views::Banner}
-
-\subparagraph{Descrizione}
-
-Interfaccia per la creazione di un \gloss{banner} da mostrare all'avvio della
-\gloss{cli}.
-
-\subparagraph{Utilizzo}
-
-Offre un'interfaccia per la creazione di un \gloss{banner} generico.
-
-\subparagraph{Interazioni con altre classi}
-
-\begin{itemize}
-\item \hyperref[sec:actorbase::cli::views::CommandLoop]{actorbase::cli::views::CommandLoop}.
 \end{itemize}
 
 \paragraph{actorbase::cli::views::ActorbaseBanner}
@@ -983,18 +800,18 @@ Offre un'interfaccia per la creazione di un \gloss{banner} generico.
 
 \subparagraph{Descrizione}
 
-Classe che implementa l'interfaccia \hyperref[sec:actorbase::cli::views::Banner]{actorbase::cli::views::Banner} per la
-creazione del \gloss{banner} da mostrare all'avvio della \gloss{CLI}.
+Classe per la creazione del \gloss{banner} da mostrare all'avvio della
+\gloss{CLI}.
 
 \subparagraph{Utilizzo}
 
 Viene utilizzata per la creazione di un \gloss{banner} di presentazione
 all'avvio della \gloss{CLI}.
 
-\subparagraph{Classi ereditate}
+\subparagraph{Interazioni con altre classi}
 
 \begin{itemize}
-\item \hyperref[sec:actorbase::cli::views::Banner]{actorbase::cli::views::Banner}.
+\item \hyperref[sec:actorbase::cli::views::CommandLoop]{actorbase::cli::views::CommandLoop}.
 \end{itemize}
 
 \paragraph{actorbase::cli::views::PromptProvider}
@@ -1051,7 +868,7 @@ risposta ricevuta dal \gloss{driver}.
 \subparagraph{Interazioni con altre classi}
 
 \begin{itemize}
-\item \hyperref[sec:actorbase::cli::models::Command]{actorbase::cli::models::Command}.
+\item \hyperref[sec:actorbase::cli::models::Observable]{actorbase::cli::models::Observable}.
 \end{itemize}
 
 \paragraph{actorbase::cli::views::ResultView}
@@ -1135,6 +952,26 @@ utilizzare il \gloss{command pattern}.
 
 \subsubsection{Classi}
 
+\paragraph{actorbase::cli::models::Observable}
+\label{sec:actorbase::cli::models::Observable}
+
+\subparagraph{Descrizione}
+
+Questa classe rappresenta l'oggetto osservato nell'ambito del \gloss{design
+pattern} \gloss{observer}.
+
+\subparagraph{Utilizzo}
+
+Viene utilizzata per notificare la classe \hyperref[sec:actorbase::cli::views::Observer]{actorbase::cli::views::Observer}
+quando avviene una modifica alproprio stato, ossia quando il \gloss{driver}
+ha ritornato un risultato.
+
+\subparagraph{Interazioni con altre classi}
+
+\begin{itemize}
+\item \hyperref[sec:actorbase::cli::views::Observer]{actorbase::cli::views::Observer}.
+\end{itemize}
+
 \paragraph{actorbase::cli::models::CommandInvoker}
 \label{sec:actorbase::cli::models::CommandInvoker}
 
@@ -1148,6 +985,12 @@ si occupa di eseguire il comando ricevuto dalla componente \gloss{controller}.
 Viene utilizzata per eseguire il comando ricevuto da
 \hyperref[sec:actorbase::cli::controllers::GrammarParser]{actorbase::cli::controllers::GrammarParser} chiamando il metodo opportuno che
 implementa l'interfaccia \hyperref[sec:actorbase::cli::models::Command]{actorbase::cli::models::Command}.
+
+\subparagraph{Classi ereditate}
+
+\begin{itemize}
+\item \hyperref[sec:actorbase::cli::models::Observable]{actorbase::cli::models::Observable}.
+\end{itemize}
 
 \subparagraph{Interazioni con altre classi}
 
