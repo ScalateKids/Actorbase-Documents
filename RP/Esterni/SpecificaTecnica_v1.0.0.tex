@@ -414,61 +414,65 @@ degli attori di tipo \gloss{Storekeeper}.
 \item actorbase::model::system::actors::Actor.
 \end{itemize}
 
-\subsection{actorbase::controller}
+\subsection{actorbase::driver}
+\label{sec:actorbase::driver}
 
 \subsubsection{Descrizione}
 
-\gloss{Package} per la componente gloss{Controller} dell'architettura
+\gloss{Package} per la componente \gloss{driver} dell'architettura
 \gloss{MVC}.
-
-\subsubsection{Package contenuti}
-
-\begin{itemize}
-\item driver.
-\end{itemize}
-
-\subsection{actorbase::controller::driver}
-
-\subsubsection{Descrizione}
-
-\gloss{Package} per la componente \gloss{driver} del prodotto.
-
-\subsubsection{Package contenuti}
-
-\begin{itemize}
-\item client;
-\item controls;
-\item data.
-\end{itemize}
-
-\subsection{actorbase::controller::driver::client}
-
-\subsubsection{Descrizione}
-
-\gloss{Package} per la componente client del \gloss{driver} del
-\gloss{controller}.
 
 \subsubsection{Interazioni con altre componenti}
 
 \begin{itemize}
-\item actorbase::model::system::server;
-\item actorbase::view::cli.%TODO giusto?
+\item \hyperref[sec:actorbase::cli]{actorbase::cli};
+\item \hyperref[sec:actorbase::actorbasesystem]{actorbase::actorbasesystem}.
+\end{itemize}
+
+\subsubsection{Package contenuti}
+
+\begin{itemize}
+\item \hyperref[sec:actorbase::driver::client]{actorbase::driver::client};
+\item \hyperref[sec:actorbase::driver::serializer]{actorbase::driver::serializer};
+\item \hyperref[sec:actorbase::driver::actorbasedata]{actorbase::driver::actorbasedata}.
+\end{itemize}
+
+\subsection{actorbase::driver::client}
+
+\subsubsection{Descrizione}
+
+\gloss{Package} che si occupa di comunicare sia con la componente \gloss{cli}
+che con la componente \gloss{server} del sistema.
+
+\subsubsection{Interazioni con altre componenti}
+
+\begin{itemize}
+\item \hyperref[actorbase::cli::models]{actorbase::cli::models};
+\item \hyperref[actorbase::actorsystem::clientactor]{actorbase::actorsystem::clientactor}.
 \end{itemize}
 
 \subsubsection{Classi}
 
-\paragraph{actorbase::controller::driver::client::ActorbaseClient}
+\paragraph{actorbase::driver::client::ActorbaseClient}
+\label{actorbase::driver::client::ActorbaseClient}
 
 \subparagraph{Descrizione}
 
 Classe che rappresenta un'istanza del \gloss{driver}.
 
+\subparagraph{Utilizzo}
+
+La componente \hyperref[actorbase::cli::models::CommandReceiver]{actorbase::cli::models::CommandReceiver}
+ha un riferimento a questa classe tramite il quale le vengono passati i comandi, dopo aver 
+effettuato il \gloss{parsing}. Questa classe si occupa di mandare il comando alla componente
+\hyperref[actorbase::driver::client::CommandRunner]{actorbase::driver::client::CommandRunner} per farne
+proseguire l'esecuzione.
+
 \subparagraph{Interazioni con altre classi}
 
 \begin{itemize}
-\item actorbase::cli::models::Command;
-\item actorbase::controller::driver::client::Connection;
-\item actorbase::controller::driver::controls::Control.
+\item \hyperref[actorbase::cli::models::CommandReceiver]{actorbase::cli::models::CommandReceiver};
+\item \hyperref[actorbase::driver::client::CommandRunner]{actorbase::driver::client::CommandRunner}.
 \end{itemize}
 
 \paragraph{actorbase::controller::driver::client::Connection}
@@ -903,6 +907,12 @@ Classe che offre al \gloss{driver} un cursore per lo scorrimento di una lista di
 \gloss{Package} per la parte di \gloss{client} rappresentata dalla \gloss{cli}.
 Questa componente viene rappresentata usando il \gloss{design pattern}
 \gloss{MVC} in versione \gloss{push model}.
+
+\subsubsection{Interazioni con altre componenti}
+
+\begin{itemize}
+\item \hyperref[sec:actorbase::driver]{actorbase::driver}.
+\end{itemize}
 
 \subsubsection{Package contenuti}
 
