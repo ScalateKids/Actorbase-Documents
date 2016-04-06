@@ -303,12 +303,18 @@ di costrutti \gloss{funzionali}, coerentemente con l'utilizzo delle librerie
 \textit{\gloss{Akka}}.
 
 \subparagraph{Componenti software}
-%TODO mettiamo i colori?
 Le componenti software all'interno del documento \textit{Specifica Tecnica} dovranno essere nominate elencando prima del nome della classe tutti i namespace in cui essa è contenuta separati da una coppia di duepunti.\\
 Qui possiamo vedere un esempio:
 \begin{center}
   \verb=actorbase::cli::views::CommandLoop=
 \end{center}
+Inoltre per facilitare la comprensione della lettura dei diagrammi dei package e
+ delle classi si è scelto di:
+\begin{itemize}
+\item usare una colorazione diversa per package di livelli diversi;
+\item usare il colore verde per indicare classi o package esterni al sistema.
+\end{itemize}
+
 
 \subparagraph{Tracciamento componenti}
 Il software ScalateTrack (\ref{sec:scalatetrack}) si occupa anche del tracciamento dei componenti. Nello specifico ogni requisito può essere tracciato con uno o più componenti, in questo modo il gruppo potrà controllare e garantire che ogni requisito venga soddisfatto.\\ ScalateTrack inoltre generà automaticamente le tabelle dei tracciamenti requisiti-componenti e componenti-requisiti.  
