@@ -258,18 +258,33 @@ La componente principale rappresentata dal package globale \textbf{actorbase}.
 
 Rappresentano le tre macro-componenti del sistema.
 
-\subsection{actorbase::model}
-\label{sec:actorbase::model}
+\subsection{actorbase::actorsystem}
+\label{sec:actorbase::actorsystem}
 
 \subsubsection{Descrizione}
 
-\gloss{Package} per la componente \gloss{Model} dell'architettura \gloss{MVC},
-rappresenta anche la componente system del prodotto.
+\gloss{Package} che raggruppa tutte le componenti del sistema che
+rappresentano il \gloss{server}.
 
 \subsubsection{Package contenuti}
 
 \begin{itemize}
-\item system.
+\item \hyperref[sec::actorbase::actorsystem::actorclient]{sec::actorbase::actorsystem::actorclient};
+\item \hyperref[sec::actorbase::actorsystem::actorclient]{sec::actorbase::actorsystem::tcpserver};
+\item \hyperref[sec::actorbase::actorsystem::actorclient]{sec::actorbase::actorsystem::storefinder};
+\item \hyperref[sec::actorbase::actorsystem::actorclient]{sec::actorbase::actorsystem::storekeeper};
+\item \hyperref[sec::actorbase::actorsystem::actorclient]{sec::actorbase::actorsystem::warehouseman};
+\item \hyperref[sec::actorbase::actorsystem::actorclient]{sec::actorbase::actorsystem::ninja};
+\item \hyperref[sec::actorbase::actorsystem::actorclient]{sec::actorbase::actorsystem::manager};
+\item \hyperref[sec::actorbase::actorsystem::actorclient]{sec::actorbase::actorsystem::userkeeper};
+\item \hyperref[sec::actorbase::actorsystem::actorclient]{sec::actorbase::actorsystem::serialization}.
+\end{itemize}
+
+\subsubsection{Interazioni con altre componenti}
+
+\begin{itemize}
+\item \hyperref[sec::actorbase::driver]{sec::actorbase::driver};
+\item Akka
 \end{itemize}
 
 \subsection{actorbase::model::system}
