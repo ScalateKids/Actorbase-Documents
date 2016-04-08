@@ -837,6 +837,181 @@ risposte ottenute dal \gloss{server} che comprendano messaggi di errore.
 \item \hyperref[sec:actorbase::driver::actorbasedata::RESPSimpleString]{actorbase::driver::actorbasedata::RESPSimpleString}.
 \end{itemize}
 
+
+\subsection{actorbase::driver::exceptions}
+\label{sec:actorbase::driver::eceptions}
+
+\subsubsection{Descrizione}
+
+\gloss{Package} che contiene le possibili eccezioni che si possono verificare nel \gloss{driver}
+
+\subsubsection{Interazione con altre conponenti}
+\begin{itemize}
+\item \hyperref[sec:actorbase::driver::client]{actorbase::driver::client};
+\end{itemize}
+
+\subsubsection{Classi}
+
+\paragraph{actorbase::driver::exceptions::WrongCredentialExc}
+
+\subparagraph{Descrizione}
+
+Classe che rappresenta l'eccezione del tentativo di accesso con username o password sbagliati.
+
+\subparagraph{Utilizzo}
+
+Questa classe viene utilizzata dal \gloss{driver} per gestire errori nelle credenziali di accesso.
+
+\subparagraph{Interazioni con altre classi}
+
+\begin{itemize}
+\item \hyperref[sec:actorbase::driver::client::ActorbaseClient]{actorbase::driver::client::ActorbaseClient}.
+\end{itemize}
+
+\paragraph{actorbase::driver::exceptions::WrongPasswordExc}
+
+\subparagraph{Descrizione}
+
+Classe che rappresenta l'eccezione dell'inserimento sbagliato della vecchia password.
+
+\subparagraph{Utilizzo}
+
+Questa classe viene utilizzata dal \gloss{driver} per gestire il caso in cui alla modifica della propria password, quando dovrei inserire la vecchia password questa non corrisponda. 
+
+\subparagraph{Interazioni con altre classi}
+
+\begin{itemize}
+\item \hyperref[sec:actorbase::driver::client::ActorbaseClient]{actorbase::driver::client::ActorbaseClient}.
+\end{itemize}
+
+\paragraph{actorbase::driver::exceptions::WrongNewPasswordExc}
+
+\subparagraph{Descrizione}
+
+Classe che rappresenta l'eccezione dell'inserimento sbagliato della nuova password.
+
+\subparagraph{Utilizzo}
+
+Questa classe viene utilizzata dal \gloss{driver} per gestire il caso in cui alla modifica della propria password, quando dovrei inserire la nuova password questa non soddisfi i requisiti richiesti.
+
+\subparagraph{Interazioni con altre classi}
+
+\begin{itemize}
+\item \hyperref[sec:actorbase::driver::client::ActorbaseClient]{actorbase::driver::client::ActorbaseClient}.
+\end{itemize}
+
+\paragraph{actorbase::driver::exceptions::CollectionAlreadyExistsExc}
+
+\subparagraph{Descrizione}
+
+Classe che rappresenta l'eccezione del conflitto di nomi tra una collezione esistente e una nuova.
+
+\subparagraph{Utilizzo}
+
+Questa classe viene utilizzata dal \gloss{driver} per gestire il caso in cui alla creazione di una nuova collezione, il nome della nuova colezione corrisponda al nome di una collezione già esistente.
+
+\subparagraph{Interazioni con altre classi}
+
+\begin{itemize}
+\item \hyperref[sec:actorbase::driver::client::ActorbaseClient]{actorbase::driver::client::ActorbaseClient}.
+\end{itemize}
+
+\paragraph{actorbase::driver::exceptions::UndefinedCollectionExc}
+
+\subparagraph{Descrizione}
+
+Classe che rappresenta l'eccezione di mancato inserimento del nome di una nuova collezione.
+
+\subparagraph{Utilizzo}
+
+Questa classe viene utilizzata dal \gloss{driver} per gestire il caso in cui alla creazione di una nuova collezione, venga omesso il nome di quest'ultima.
+
+\subparagraph{Interazioni con altre classi}
+
+\begin{itemize}
+\item \hyperref[sec:actorbase::driver::client::ActorbaseClient]{actorbase::driver::client::ActorbaseClient}.
+\end{itemize}
+
+\paragraph{actorbase::driver::exceptions::UndefinedUsernameExc}
+
+\subparagraph{Descrizione}
+
+Classe che rappresenta l'eccezione di mancato inserimento dell'username utente.
+
+\subparagraph{Utilizzo}
+
+Questa classe viene utilizzata dal \gloss{driver} per gestire il caso in cui alla registrazione di un nuovo utente, venga omesso l'username.
+
+\subparagraph{Interazioni con altre classi}
+
+\begin{itemize}
+	\item \hyperref[sec:actorbase::driver::client::ActorbaseClient]{actorbase::driver::client::ActorbaseClient}.
+\end{itemize}
+
+\paragraph{actorbase::driver::exceptions::UsernameAlreadyExistsExc}
+
+\subparagraph{Descrizione}
+
+Classe che rappresenta l'eccezione del conflitto di username tra un utente già esistente e uno nuovo.
+
+\subparagraph{Utilizzo}
+
+Questa classe viene utilizzata dal \gloss{driver} per gestire il caso in cui alla registrazione di un nuovo utente, l'username di quest'ultimo corrisponda all'username di un utente già esistente.
+
+\subparagraph{Interazioni con altre classi}
+
+\begin{itemize}
+	\item \hyperref[sec:actorbase::driver::client::ActorbaseClient]{actorbase::driver::client::ActorbaseClient}.
+\end{itemize}
+
+\paragraph{actorbase::driver::exceptions::DuplicateKeyExc}
+
+\subparagraph{Descrizione}
+
+Classe che rappresenta l'eccezione del conflitto tra una chiave già esistente e una nuova chiave.
+
+\subparagraph{Utilizzo}
+
+Questa classe viene utilizzata dal \gloss{driver} per gestire il caso in cui all'inserimento di una nuova chiave, questa corrisponda ad una chiave già esistente nella stessa collezione.
+
+\subparagraph{Interazioni con altre classi}
+
+\begin{itemize}
+	\item \hyperref[sec:actorbase::driver::client::ActorbaseClient]{actorbase::driver::client::ActorbaseClient}.
+\end{itemize}
+
+\paragraph{actorbase::driver::exceptions::UndefinedFileExc}
+
+\subparagraph{Descrizione}
+
+Classe che rappresenta l'eccezione di inserimento di un path sbagliato di un file o del mancato inserimento del path.
+
+\subparagraph{Utilizzo}
+
+Questa classe viene utilizzata dal \gloss{driver} per gestire il caso in cui all'inserimento di un nuovo item o di una serie di item da file, si sbagli il path del file o si ometta di inserirlo.
+
+\subparagraph{Interazioni con altre classi}
+
+\begin{itemize}
+	\item \hyperref[sec:actorbase::driver::client::ActorbaseClient]{actorbase::driver::client::ActorbaseClient}.
+\end{itemize}
+
+\paragraph{actorbase::driver::exceptions::MalformedFileExc}
+
+\subparagraph{Descrizione}
+
+Classe che rappresenta l'eccezione di inserimento di un path di un file non conforme.
+
+\subparagraph{Utilizzo}
+
+Questa classe viene utilizzata dal \gloss{driver} per gestire il caso in cui all'inserimento di un nuovo item o di una serie di item da file, si inserisca il path di un file in un formato sbagliato o il cui testo non ripetta le regole di formattazione.
+
+\subparagraph{Interazioni con altre classi}
+
+\begin{itemize}
+	\item \hyperref[sec:actorbase::driver::client::ActorbaseClient]{actorbase::driver::client::ActorbaseClient}.
+\end{itemize}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                           CLI PARTE                              %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
