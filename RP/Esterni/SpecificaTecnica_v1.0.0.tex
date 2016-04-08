@@ -87,7 +87,7 @@
 
 Il seguente documento ha lo scopo di descrivere la progettazione ad alto livello
 che il gruppo \textit{ScalateKids} ha scelto per il
-progetto\textbf{ActorBase}.\\  Sarà descritta l'\gloss{architettura} generale
+progetto \textbf{ActorBase}.\\  Sarà descritta l'\gloss{architettura} generale
 del progetto, in particolare  la scelta dei \gloss{design pattern} e delle
 componentiche andranno a comporre il software.
 
@@ -178,13 +178,13 @@ e i due termini verranno quindi usati come sinonimi.\\
 \subsection{Architettura generale}
 
 Macroscopicamente il sistema si suddivide in due componenti principali,
-assimilabili ad un paradigma Client-Server, il sistema ad attori dove
-risiedono la struttura della base di dati ed un server TCP pronto a ricevere
-comandi dall'esterno rappresentano la componente server, la Command Line
-Interface (CLI) rappresenta la componente client mediante la quale è possibile
-inviare comandi al sistema e ricevere l'output prodotto da essi, essa farà uso
-della componente \gloss{driver} per comunicare con il sistema lato server
-mediante un protocollo di comunicazione appositamente creato.\\
+assimilabili ad un paradigma Client-Server, il sistema ad attori dove risiedono
+la struttura della base di dati ed un server TCP (Transmission Control Protocol)
+pronto a ricevere comandi dall'esterno rappresentano la componente server, la
+Command Line Interface (CLI) rappresenta la componente client mediante la quale
+è possibile inviare comandi al sistema e ricevere l'output prodotto da essi,
+essa farà uso della componente \gloss{driver} per comunicare con il sistema lato
+server mediante il protocollo di comunicazione testuale \hyperref[sec:RESP]{RESP}.\\
 
 \begin{figure}[H]
   \begin{center}
@@ -193,19 +193,51 @@ mediante un protocollo di comunicazione appositamente creato.\\
   \end{center}
 \end{figure}
 
-Questo ha portato alla suddivisione del progetto in tre macro-componenti:
-\begin{itemize}
-\item cli;
-\item driver;
-\item actorsystem.
-\end{itemize}
+Questo ha portato alla suddivisione del progetto in tre macro-componenti, rispettivamente
+\textbf{cli}, \textbf{driver} e \textbf{actorsystem}; contenute all'interno del package
+generale \textbf{actorbase}.
 
-% \begin{figure}[H]
-%   \begin{center}
-%     \includegraphics[width=0.2\textwidth,keepaspectratio]{RP/RP-ClientServer.png}
-%     \caption{Diagramma componenti principali}
-%   \end{center}
-% \end{figure}
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.9\textwidth,keepaspectratio]{RP/Architettura-AltoLivello.png}
+    \caption{Diagramma componenti principali}
+  \end{center}
+\end{figure}
+
+\subsection{Protocollo di comunicazione Client-Server}
+\label{sec:RESP}
+
+\textbf{Actorbase} è stato concepito come sistema da utilizzare in ambiente
+affidabile, e non dovrebbe essere esposto direttamente alla rete internet, ma
+utilizzato all'interno di sottoreti protette dall'esterno, per questo è stato
+deciso di riutilizzare un protocollo di comunicazione
+piuttosto semplice, leggero e facilmente comprensibile.\\
+Il protocollo \gloss{\textbf{RESP}} (REdis Serialization Protocol) implementato
+dal \gloss{database} \gloss{REDIS} si presta esattamente allo scopo, utilizza
+5 tipi di dato differenziati dal primo \gloss{byte} che li compone, e delimitati
+da una sequenza di terminazione formata da \gloss{CR} (Carriage Return) e \gloss{LF}
+(Line Feed) che rappresenta il carattere ``a capo'':
+\begin{itemize}
+\item \textbf{Simple Strings} rappresentano stringhe dedicate alle risposte
+  semplici (\gloss{ack} dei comandi ricevuti), non possono contenere caratteri
+  di terminazione al loro interno; il primo byte è ``+'';
+\item \textbf{Errors} rappresentano stringhe di errore, formate da:
+  \begin{center}
+    \verb=-TIPOERRORE MESSAGGIOERRORE\r\n=
+  \end{center}
+  verranno utilizzate per generare le eccezioni lato client; il primo byte è ``-'';
+\item \textbf{Integers} rappresentano numeri interi, il primo byte è ``:'';
+\item \textbf{Bulk Strings} rappresentano stringhe dedicate al \gloss{payload}, formate da:
+  \begin{center}
+    \verb=\$LUNGHEZZAPAYLOAD\r\nPAYLOAD\r\n=
+  \end{center}
+  il primo byte è ``\$'' e può contenere caratteri di ``a capo'';
+\item \textbf{Arrays} rappresentano \gloss{array} di comandi e \textbf{Bulk String}, formati da:
+  \begin{center}
+    \verb=*LUNGHEZZASTRINGA\r\nRESPSTRING\r\n=
+  \end{center}
+ il primo byte è ``*'', possono contenere qualsiasi altro tipo di stringa \gloss{RESP}, inclusi altri \gloss{array}.
+\end{itemize}
 
 \section{Componenti}
 
