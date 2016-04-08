@@ -1869,6 +1869,7 @@ serializzazione personalizzati.
 
 \subsection{Tracciamento requisiti\ -\ componenti}
 
+\newpage
 \appendix
 \label{sec:appendice}
 
@@ -1882,9 +1883,49 @@ serializzazione personalizzati.
 
 \subsubsection{Singleton}
 
+\begin{itemize}
+
+\item \textbf{Scopo:} Assicurare che una classe abbia un'unica istanza ed avere
+un punto di accesso globale ad essa;
+
+\item \textbf{Motivazione:} Per alcune classi è fondamentale assicurare che non
+abbiano più di un'istanza. Per questo motivo la classe tipicamente ha un
+costruttore privato e un metodo per poter accedere all'istanza della classe
+pubblico;
+
+\item \textbf{Applicabilità:} Questo \gloss{design pattern} può essere
+applicato nei seguenti casi:
+   \begin{itemize}
+   \item Quando è essenziale che ci sia solo una istanza di una classe e tale
+   istanza deve essere resa accessibile attraverso un unico punto di accesso;
+   \item Quando l'unica istanza della classe deve essere estesa in maniera
+   tale da non dover avere \gloss{client} con codici diversi.
+   \end{itemize}
+
+\end{itemize}
+
 \subsection{Design Pattern Strutturali}
 
-\subsubsection{Facade}
+\subsubsection{Façade}
+
+\begin{itemize}
+
+\item \textbf{Scopo:} Semplificare l'interfaccia visibile all'utente di un sistema complesso.
+Per fare ciò viene creata un'unica interfaccia che racchiude più classi, nascondendole all'esterno;
+
+\item \textbf{Motivazione:} Raggruppare più sottosistemi in un sistema unico aiuta a ridurne la complessità.
+L'utilizzo di una classe façade riduce le dipendenze tra i vari sottosistemi;
+
+\item \textbf{Applicabilità:} Questo \gloss{design pattern} può essere
+applicato nei seguenti casi:
+  \begin{itemize}
+  \item Quando c'è la necessità di avere una singola interfaccia semplice che raggruppi più sottosistemi;
+  \item Quando c'è un alto livello di accoppiamento tra sottosistemi e client. La
+  classe façade diminuisce queste dipendenze offrendo un'interfaccia singola;
+  \item Quando si vogliono stratificare i sottosistemi con una struttura a livelli.
+  \end{itemize}
+
+\end{itemize}
 
 \subsection{Design Pattern Comportamentali}
 
@@ -1896,6 +1937,8 @@ serializzazione personalizzati.
 
 \subsubsection{Strategy}
 
+\newpage
 \listoftables
+\newpage
 \listoffigures
 \end{document}
