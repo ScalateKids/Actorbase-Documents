@@ -40,11 +40,11 @@
 \setcounter{page}{1}
 \begin{flushleft}
   \vspace{0cm}
-         {\large\bfseries Diario delle modifiche \par}
+  {\large\bfseries Diario delle modifiche \par}
 \end{flushleft}
 \vspace{0cm}
 \begin{center}
-  \begin{tabular}{| l | l | l | l | p{5cm} |}
+  \begin{longtable}{| l | l | l | l | p{5cm} |}
     \hline
     Versione & Autore & Ruolo & Data & Descrizione \\ %TODO bisogna incrementare a 2.0
     \hline
@@ -98,7 +98,7 @@
     \hline
     0.0.1 & Andrea Giacomo Baldan & Amministratore & 2015-12-16 & Creazione scheletro del documento\\
     \hline
-  \end{tabular}
+  \end{longtable}
 \end{center}
 \tableofcontents
 \newpage
@@ -203,14 +203,16 @@ punto.
 \paragraph{ScalateTrack}
 \label{sec:scalatetrack}
 
-Per facilitare la gestione dei casi d'uso e il tracciamento dei requisiti
-va utilizzata un'applicazione web sviluppata per lo scopo appositamente dal
+Per facilitare la gestione dei casi d'uso e il tracciamento dei requisiti va
+utilizzata un'applicazione web sviluppata per lo scopo appositamente dal
 gruppo.\\Essa si interfaccia con un database relazionale residente sul server
-privato del gruppo (vedi~\ref{sec:server}) e permette una visualizzazione chiara dei
-requisiti e dei casi d'uso. Una volta completata la procedura d'inserimento dei
-dati, previa verifica, è possibile esportare i requisiti in formato
-\LaTeX\xspace ed eseguirne il tracciamento automatico rispetto alle
-fonti e viceversa.
+privato del gruppo (vedi~\ref{sec:server}) e permette una visualizzazione chiara
+dei requisiti, dei casi d'uso e delle componenti. Una volta completata la
+procedura d'inserimento dei dati, previa verifica, è possibile esportare i
+requisiti in formato \LaTeX\xspace ed eseguirne il tracciamento automatico
+rispetto alle fonti e viceversa. Allo stesso modo è possibile esportare le
+componenti ed eseguirne il tracciamento automatico rispetto ai requisiti
+che soddisfano e viceversa.
 
 \begin{figure}[H]
   \begin{subfigure}[H]{0.47\textwidth}
@@ -268,7 +270,10 @@ Di seguito sono elencati i possibili valori che ogni termine tra parentesi angol
   \item \textbf{T} indica un requisito tecnologico;
   \item \textbf{V} indica un requisito di vincolo.
   \end{itemize}
-\item \textbf{Id}: è un numero crescente che identifica univocamente il requisito. Se un requisito è stato derivato da un altro, il suo id sarà preceduto dall'id del requisito da cui dipende e separato da esso con un punto.
+\item \textbf{Id}: è un numero crescente che identifica univocamente il
+  requisito. Se un requisito è stato derivato da un altro, il suo id sarà
+  preceduto dall'id del requisito da cui dipende e separato da esso con un
+  punto.
 \end{itemize}
 
 \subsubsection{Progettazione architetturale}
@@ -293,23 +298,26 @@ Vengono definite:
 Dalla specifica dei Requisiti delle Componenti deriveranno i test da attuare in
 attività di verifica, come specificato in~\ref{sec:NormeDiVerifica};
 
-%\paragraph{Stile di progettazione}
+% \paragraph{Stile di progettazione}
 
 \subparagraph{Design Pattern}
+
 L'\gloss{attività} di \textit{Progettazione} dovrà fare utilizzo di
 \gloss{design pattern} globalmente affermati e dovrà giustificarne la
-scelta.\\Dovranno inoltre essere rispettati al massimo i paradigmi di \gloss{OOP} (programmazione orientata agli oggetti) del linguaggio \gloss{Scala}, con eventuale utilizzo
-di costrutti \gloss{funzionali}, coerentemente con l'utilizzo delle librerie
-\textit{\gloss{Akka}}.
+scelta.\\Dovranno inoltre essere rispettati al massimo i paradigmi di
+\gloss{OOP} (programmazione orientata agli oggetti) del linguaggio
+\gloss{Scala}, con eventuale utilizzo di costrutti \gloss{funzionali},
+coerentemente con l'utilizzo delle librerie \textit{\gloss{Akka}}.
 
 \subparagraph{Componenti software}
-Le componenti software all'interno del documento \textit{Specifica Tecnica} dovranno essere nominate elencando prima del nome della classe tutti i namespace in cui essa è contenuta separati da una coppia di duepunti.\\
-Qui possiamo vedere un esempio:
-\begin{center}
-  \verb=actorbase::cli::views::CommandLoop=
-\end{center}
-Inoltre per facilitare la comprensione della lettura dei diagrammi dei package e
- delle classi si è scelto di:
+
+Le componenti software all'interno del documento \textit{Specifica Tecnica}
+dovranno essere nominate elencando prima del nome della classe tutti i namespace
+in cui essa è contenuta separati da una coppia di duepunti.\\ Qui possiamo
+vedere un esempio:
+\begin{center} \verb=actorbase::cli::views::CommandLoop=
+\end{center} Inoltre per facilitare la comprensione della lettura dei diagrammi
+dei package e delle classi si è scelto di:
 \begin{itemize}
 \item usare una colorazione diversa per package di livelli diversi;
 \item usare il colore verde per indicare classi o package esterni al sistema.
@@ -317,11 +325,31 @@ Inoltre per facilitare la comprensione della lettura dei diagrammi dei package e
 
 
 \subparagraph{Tracciamento componenti}
-Il software ScalateTrack (\ref{sec:scalatetrack}) si occupa anche del tracciamento dei componenti. Nello specifico ogni requisito può essere tracciato con uno o più componenti, in questo modo il gruppo potrà controllare e garantire che ogni requisito venga soddisfatto.\\ ScalateTrack inoltre genererà automaticamente le tabelle dei tracciamenti requisiti-componenti e componenti-requisiti.  
+
+Il software ScalateTrack (\ref{sec:scalatetrack}) si occupa anche del
+tracciamento dei componenti. Nello specifico ogni requisito può essere tracciato
+con uno o più componenti, in questo modo il gruppo potrà controllare e garantire
+che ogni requisito venga soddisfatto.\\ ScalateTrack inoltre genererà
+automaticamente le tabelle dei tracciamenti requisiti-componenti e
+componenti-requisiti.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.2\textwidth]{AggiuntaComponente.png}
+  \caption{Creazione nuovo componente}
+\end{figure}
+
+\subparagraph{Test di Integrazione}
+
+I \textit{Progettisti} devono definire dei test necessari alla verifica del
+corretto funzionamento delle componenti.
 
 \subparagraph{Diagrammi UML}
 \label{sec:diagrammiUmlSpecTec}
-Nella specifica tecnica dovranno essere presentati diversi tipi di diagrammi, in particolare i \gloss{progettisti} avranno il compito di realizzare i seguenti rispettando le regole imposte dallo standard \gloss{UML} 2.0: %TODO interfacce lollipop?
+Nella specifica tecnica dovranno essere presentati diversi tipi di diagrammi, in
+particolare i \gloss{progettisti} avranno il compito di realizzare i seguenti
+rispettando le regole imposte dallo standard \gloss{UML}
+2.0: %TODO interfacce lollipop?
 \begin{itemize}
 \item \gloss{diagrammi dei package};
 \item \gloss{diagrammi delle classi};
@@ -330,14 +358,14 @@ Nella specifica tecnica dovranno essere presentati diversi tipi di diagrammi, in
 \end{itemize}
 
 \paragraph{Definizione di prodotto}
-I progettisti oltre a redigere la \textit{Specifica Tecnica} avranno il compito di 
+I progettisti oltre a redigere la \textit{Specifica Tecnica} avranno il compito di
 produrre anche il documento \textit{Definizione di Prodotto} in cui verrà descritta
-la progettazione di dettaglio del sistema andando a analizzare più in profondità 
+la progettazione di dettaglio del sistema andando a analizzare più in profondità
 l'architettura.
 
 \subparagraph{Definizione delle classi}
-All'interno della \textit{Definizione di prodotto} dovrà essere descritta ogni 
-classe presente all'interno del sistema. Per ognuna di queste classi la descrizione 
+All'interno della \textit{Definizione di prodotto} dovrà essere descritta ogni
+classe presente all'interno del sistema. Per ognuna di queste classi la descrizione
 dovrà essere comprensiva di:
 \begin{itemize}
 \item Elenco dei metodi;
@@ -347,12 +375,16 @@ dovrà essere comprensiva di:
 \end{itemize}
 
 \subparagraph{Tracciamento classi}
-In questo documento dovrà essere presente il tracciamento dei requisiti abbinato 
-alle classi che lo soddisfano.\\Come per la \textit{Specifica Tecnica} anche in questo caso verrà utilizzato il software ScalateTrack (\ref{sec:scalatetrack}) il quale renderà automatico l'esportazione in formato \LaTeX\xspace delle tabelle di 
-tracciamento classi-requisiti e requisiti-classi.
+
+In questo documento dovrà essere presente il tracciamento dei requisiti abbinato
+alle classi che lo soddisfano.\\Come per la \textit{Specifica Tecnica} anche in
+questo caso verrà utilizzato il software ScalateTrack (\ref{sec:scalatetrack})
+il quale renderà automatico l'esportazione in formato \LaTeX\xspace delle
+tabelle di tracciamento classi-requisiti e requisiti-classi.
 
 \subparagraph{Diagrammi UML}
-Dovranno essere aggiornati i seguenti diagrammi rispettando gli stessi standard 
+
+Dovranno essere aggiornati i seguenti diagrammi rispettando gli stessi standard
 stabiliti per produrre la \textit{Specifica Tecnica} (\ref{sec:diagrammiUmlSpecTec}):
 \begin{itemize}
 \item \gloss{diagrammi delle classi};
