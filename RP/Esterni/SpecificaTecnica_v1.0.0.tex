@@ -258,6 +258,10 @@ La componente principale rappresentata dal package globale \textbf{actorbase}.
 
 Rappresentano le tre macro-componenti del sistema.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                      ACTORSYSTEM PARTE                           %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \subsection{actorbase::actorsystem}
 \label{sec:actorbase::actorsystem}
 
@@ -269,38 +273,117 @@ rappresentano il \gloss{server}.
 \subsubsection{Package contenuti}
 
 \begin{itemize}
-\item \hyperref[sec::actorbase::actorsystem::actorclient]{sec::actorbase::actorsystem::actorclient};
-\item \hyperref[sec::actorbase::actorsystem::actorclient]{sec::actorbase::actorsystem::tcpserver};
-\item \hyperref[sec::actorbase::actorsystem::actorclient]{sec::actorbase::actorsystem::storefinder};
-\item \hyperref[sec::actorbase::actorsystem::actorclient]{sec::actorbase::actorsystem::storekeeper};
-\item \hyperref[sec::actorbase::actorsystem::actorclient]{sec::actorbase::actorsystem::warehouseman};
-\item \hyperref[sec::actorbase::actorsystem::actorclient]{sec::actorbase::actorsystem::ninja};
-\item \hyperref[sec::actorbase::actorsystem::actorclient]{sec::actorbase::actorsystem::manager};
-\item \hyperref[sec::actorbase::actorsystem::actorclient]{sec::actorbase::actorsystem::userkeeper};
-\item \hyperref[sec::actorbase::actorsystem::actorclient]{sec::actorbase::actorsystem::serialization}.
+\item \hyperref[sec:actorbase::actorsystem::actorclient]{actorbase::actorsystem::actorclient};
+\item \hyperref[sec:actorbase::actorsystem::actorclient]{actorbase::actorsystem::tcpserver};
+\item \hyperref[sec:actorbase::actorsystem::actorclient]{actorbase::actorsystem::storefinder};
+\item \hyperref[sec:actorbase::actorsystem::actorclient]{actorbase::actorsystem::storekeeper};
+\item \hyperref[sec:actorbase::actorsystem::actorclient]{actorbase::actorsystem::warehouseman};
+\item \hyperref[sec:actorbase::actorsystem::actorclient]{actorbase::actorsystem::ninja};
+\item \hyperref[sec:actorbase::actorsystem::actorclient]{actorbase::actorsystem::manager};
+\item \hyperref[sec:actorbase::actorsystem::actorclient]{actorbase::actorsystem::userkeeper};
+\item \hyperref[sec:actorbase::actorsystem::actorclient]{actorbase::actorsystem::serialization}.
 \end{itemize}
 
 \subsubsection{Interazioni con altre componenti}
 
 \begin{itemize}
-\item \hyperref[sec::actorbase::driver]{sec::actorbase::driver};
-\item Akka
+\item \hyperref[sec:actorbase::driver]{actorbase::driver};
+\item Akka.
 \end{itemize}
 
-\subsection{actorbase::model::system}
-\label{sec:actorbase::model::system}
+\subsection{actorbase::actorsystem::clientactor}
+\label{sec:actorbase::actorsystem::clientactor}
 
 \subsubsection{Descrizione}
 
-\gloss{Package} per la componente system del prodotto.
+\gloss{Package} per l'attore con cui si interfaccerà il \gloss{driver}.
 
 \subsubsection{Package contenuti}
 
 \begin{itemize}
-\item actorbase::model::system::server;
-\item actors.
+\item \hyperref[sec:actorbase::actorsystem::clientactor::messages]{actorbase::actorsystem::clientactor::messages}.
 \end{itemize}
 
+\subsubsection{Classi}
+
+\paragraph{actorbase::actorsystem::clientactor::ClientActor}
+\label{sec:actorbase::actorsystem::clientactor::ClientActor}
+
+\subparagraph{Descrizione}
+
+Classe che rappresenta l'attore con cui si interfaccia il \gloss{driver} dopo
+la connessione.
+
+\subparagraph{Utilizzo}
+
+Questo attore riceve le richieste da \hyperref[sec:actorbase::driver::client::Connection]{actorbase::driver::client::Connection}
+e si occupa di inviare messaggi a \hyperref[sec:actorbase::actorsystem::main::Main].
+
+\subparagraph{Interazioni con altre classi}
+
+\begin{itemize}
+\item \hyperref[sec:actorbase::actorsystem::serialization::SerializationContext]{actorbase::actorsystem::serialization::SerializationContext};
+\item \hyperref[sec:actorbase::actorsystem::serialization::DeserializationContext]{actorbase::actorsystem::serialization::DeserializationContext};
+\item akka::actor::Actor;
+\item akka::actor::ActorRef.
+\end{itemize}
+
+\subsection{actorbase::actorsystem::clientactor::messages}
+\label{sec:actorbase::actorsystem::clientactor::messages}
+
+\subsubsection{Descrizione}
+
+\gloss{Package} che contiene tutti i messaggi che possono essere ricevuti da
+\hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{actorbase::actorsystem::clientactor::ClientActor}.
+
+\subsubsection{Classi}
+
+\paragraph{actorbase::actorsystem::messages::LoginResponse}
+\label{sec:actorbase::actorsystem::messages::LoginResponse}
+
+\subparagraph{Descrizione}
+
+Messaggio che contiene la password di un utente che ha richiesto il login.
+
+\subparagraph{Utilizzo}
+
+In seguito alla ricezione di questo messaggio l'attore di tipo
+\hyperref[sec:actorbase::actorsystem::actorclient::ActorClient]{actorbase::actorsystem::actorclient::ActorClient}
+controlla che la password ricevuta sia uguale a quella immessa
+dall'utente e, in caso affermativo, cambia il proprio stato.
+
+\paragraph{actorbase::actorsystem::messages::PeerClosed}
+\label{sec:actorbase::actorsystem::messages::PeerClosed}
+
+\subparagraph{Descrizione}
+
+Messaggio che indica la volontà di chiudere la connessione con il \gloss{driver}.
+
+\subparagraph{Utilizzo}
+
+In seguito alla ricezione diq uesto messaggio l'attore di tipo
+\hyperref[sec:actorbase::actorsystem::actorclient::ActorClient]{actorbase::actorsystem::actorclient::ActorClient}
+chiude la connessione con il \gloss{driver} e termina.
+
+\paragraph{actorbase::actorsystem::messages::RESPInput}
+\label{sec:actorbase::actorsystem::messages::RESPInput}
+
+\subparagraph{Descrizione}
+
+Messaggio che rappresenta l'input ricevuto dal \gloss{driver}.
+
+\subparagraph{Utilizzo}
+
+In seguito alla ricezione di questo messaggio l'attore di tipo
+\hyperref[sec:actorbase::actorsystem::actorclient::ActorClient]{actorbase::actorsystem::actorclient::ActorClient}
+deserializza il messaggio sfruttando la componente
+\hyperref[sec:actorbase::actorsystem::serialization::DeserializationContext]{actorbase::actorsystem::serialization::DeserializationContext}.
+Dopo aver fatto ciò crea il messaggio corrispondente al tipo di richiesta che gli era arrivato
+e lo manda all'attore \hyperref[sec:actorbase::actorsystem::main::Main]{actorbase::actorsystem::main::Main}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%               DA QUI A DRIVER DA RIFARE/RIVEDERE              %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{actorbase::model::system::actors}
 
 \subsubsection{Descrizione}
@@ -470,7 +553,7 @@ degli attori di tipo \gloss{Storekeeper}.
 
 \begin{itemize}
 \item \hyperref[sec:actorbase::cli]{actorbase::cli};
-\item \hyperref[sec:actorbase::actorbasesystem]{actorbase::actorbasesystem}.
+\item \hyperref[sec:actorbase::actorsystem]{actorbase::actorsystem}.
 \end{itemize}
 
 \subsubsection{Package contenuti}
@@ -2289,7 +2372,7 @@ serializzazione personalizzati.
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=0.3\textwidth, keepaspectratio]{img/designPattern/Singleton.png}
-    \caption{Esempio di applicazione del \gloss{design pattern} singleton}
+    \caption{Esempio di applicazione del design pattern singleton}
   \end{center}
 \end{figure}
 
@@ -2321,7 +2404,7 @@ applicato nei seguenti casi:
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=0.7\textwidth, keepaspectratio]{img/designPattern/Facade.png}
-    \caption{Esempio di applicazione del \gloss{design pattern} façade}
+    \caption{Esempio di applicazione del design pattern façade}
   \end{center}
 \end{figure}
 
