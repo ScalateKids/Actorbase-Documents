@@ -1848,6 +1848,188 @@ errore.
   \end{center}
 \end{figure}
 
+\section{Diagrammi di Sequenza}
+
+In questa sezione, vengono illustrati i diagrammi di sequenza che descrivono 
+le interazioni tra le varie componenti del sistema e in particolare lo scambio 
+di messaggi che avviene tra gli attori nella componente server di actorbase.\\
+Sono stati creati dai \textit{Progettisti} diversi diagrammi con diversi livelli 
+di astrazione.\\
+Per semplificare i diagrammi, evitare ripetitività e migliorare la leggibilità di 
+questi, nella maggior parte dei seguenti l'input sarà dato dalla componente \gloss{Driver}. In un utilizzo reale sarà un utente che utilizza il \gloss{Driver} o la 
+\gloss{CLI} che darà l'input iniziale.
+
+\subsection{Interazioni generali tra componenti}
+Questo diagramma rappresenta l'interazione generale tra le tre componenti che 
+compongono il sistema actorbase.\\
+L'utente è connesso alla \gloss{CLI} e inserisce un comando. A questo punto la componente \gloss{CLI} (se non è instanziato un \gloss{Driver} lo crea per poi utilizzarlo) utilizza il \gloss{Driver} per richiamare il metodo relativo al comando inserito dall'utente.\\Il \gloss{Driver} provvederà a tradurre il comando coi relativi parametri immessi dall'utente in una stringa RESP e la invierà al server attraverso un \gloss{socket tcp}.\\ %TODO linkare RESP
+Il server provvederà a fare le elaborazioni richieste attraverso l'uso degli attori 
+e quando queste saranno finite risponderà al \gloss{Driver} mandando via \gloss{socket tcp} una string RESP che a sua volta provvederà a trasformarla in un 
+\hyperref[sec:driver::actorbasedata::actorbaseobject]{actorbase object} e lo restituirà al suo utilizzatore.\\ %TODO linkare RESP
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.9\textwidth, keepaspectratio]{img/diagrammiSequenza/ScambioMessaggiGenerico.png}
+    \caption{Diagramma di sequenza - Interazioni generali tra componenti}
+  \end{center}
+\end{figure}
+
+\subsection{Inserimento di un Item}
+
+Questo diagramma rappresenta l'interazione tra le componenti nel caso di una richiesta di inserimento di un \gloss{item}.\\
+La componente \hyperref[sec:actorbase::driver::client::Connection]{actorbase::driver::client::Connection} 
+manda tramite \gloss{socket tcp} al \hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{actorbase::actorsystem::clientactor::ClientActor} 
+una string RESP contenente il comando di inserimento \gloss{item} con 
+i parametri.\\ %TODO linkare RESP
+Da questo componente parte il messaggio di Insert(key, value) ad un \hyperref[sec:actorbase::actorsystem::clientactor::MainActor]{actorbase::actorsystem::clientactor::MainActor} scelto in base ad una 
+politica di \gloss{routing}. Il MainActor manderà un messaggio allo \hyperref[sec:actorbase::actorsystem::clientactor::StoreFinder]{actorbase::actorsystem::clientactor::StoreFinder} relativo il quale manderà un messaggio allo \hyperref[sec:actorbase::actorsystem::clientactor::StoreKeeper]{actorbase::actorsystem::clientactor::StoreKeeper} che dovrà salvarsi l'informazione 
+sulla propria mappa.\\
+A questo punto lo StoreKeeper manderà un messaggio al ClientActor con la risposta 
+(positiva o negativa che sia) il quale risponderà sempre tramite \gloss{socket tcp} al \gloss{Driver} con una stringa RESP.
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.9\textwidth, keepaspectratio]{img/diagrammiSequenza/esempioInsert.png}
+    \caption{Diagramma di sequenza - Inserimento di un item}
+  \end{center}
+\end{figure}
+
+\subsection{Inserimento di un Item con StoreKeeper pieno}
+
+Questo diagramma rappresenta l'interazione tra le componenti nel caso di una richiesta di inserimento di un \gloss{item} in uno StoreKeeper con una mappa piena.\\
+La componente \hyperref[sec:actorbase::driver::client::Connection]{actorbase::driver::client::Connection} 
+manda tramite \gloss{socket tcp} al \hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{actorbase::actorsystem::clientactor::ClientActor} 
+una string RESP contenente il comando di inserimento \gloss{item} con 
+i parametri.\\ %TODO linkare RESP
+Da questo componente parte il messaggio di Insert(key, value) ad un \hyperref[sec:actorbase::actorsystem::clientactor::MainActor]{actorbase::actorsystem::clientactor::MainActor} scelto in base ad una 
+politica di \gloss{routing}. Il MainActor manderà un messaggio allo \hyperref[sec:actorbase::actorsystem::clientactor::StoreFinder]{actorbase::actorsystem::clientactor::StoreFinder} relativo il quale manderà un messaggio allo \hyperref[sec:actorbase::actorsystem::clientactor::StoreKeeper]{actorbase::actorsystem::clientactor::StoreKeeper} che essendo pieno manda un 
+messaggio DuplicateRequestSK contenente metà della propria mappa e una ActorRef del proprio parent ad un \hyperref[sec:actorbase::actorsystem::clientactor::Manager]{actorbase::actorsystem::clientactor::Manager}. Il Manager inoltra il messaggio DuplicateRequestSK al parent dello StoreKeeper precedentemente coinvolto. Questo StoreFinder infine creerà un nuovo Storekeeper con il pezzo di mappa ricevuto. \\
+A questo punto il nuovo StoreKeeper manderà un messaggio al ClientActor con 
+la risposta (positiva o negativa che sia) il quale risponderà sempre tramite 
+\gloss{socket tcp} al \gloss{Driver} con una stringa RESP.
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.9\textwidth, keepaspectratio]{img/diagrammiSequenza/esempioInsert.png}
+    \caption{Diagramma di sequenza - Inserimento di un item}
+  \end{center}
+\end{figure}
+
+\subsection{Autenticazione}
+
+Questo diagramma rappresenta l'interazione tra le componenti nel caso di una richiesta di autenticazione di un utente.\\
+La componente \hyperref[sec:actorbase::driver::client::Connection]{actorbase::driver::client::Connection} 
+manda tramite \gloss{socket tcp} al \hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{actorbase::actorsystem::clientactor::ClientActor} 
+una string RESP contenente il comando di inserimento \gloss{item} con 
+i parametri.\\ %TODO linkare RESP
+Da questo componente parte il messaggio di GetItemFrom(UsersCollection, Username) ad un \hyperref[sec:actorbase::actorsystem::clientactor::MainActor]{actorbase::actorsystem::clientactor::MainActor} scelto in base ad una 
+politica di \gloss{routing}. Il MainActor manderà un messaggio allo \hyperref[sec:actorbase::actorsystem::clientactor::StoreFinder]{actorbase::actorsystem::clientactor::StoreFinder} relativo il quale manderà un messaggio getPassword(username) allo \hyperref[sec:actorbase::actorsystem::clientactor::UserKeeper]{actorbase::actorsystem::clientactor::UserKeeper}. Quest'ultimo risponderà al ClientActor con un messaggio loginResponse contenente la password relativa allo username richiesto.\\
+Il ClientActor eseguirà un confronto tra la password immessa dall'utente e la password ritornata dallo UserKeeper. In caso positivo cambierà il proprio stato 
+e risponderà al \gloss{Driver} con un messaggio che indica un esito positivo. In caso negativo resterà nello stato attuale e manderà un messaggio al \gloss{Driver} che indica un esito negativo.
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.9\textwidth, keepaspectratio]{img/diagrammiSequenza/esempioAuth.png}
+    \caption{Diagramma di sequenza - Autenticazione}
+  \end{center}
+\end{figure}
+
+\subsection{Salvataggio su filesystem}
+
+Questo diagramma rappresenta l'interazione tra le componenti nel caso venga 
+effettuato un salvataggio dei dati su filesystem.\\
+La componente \hyperref[sec:actorbase::driver::client::Connection]{actorbase::driver::client::Connection} 
+manda tramite \gloss{socket tcp} al \hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{actorbase::actorsystem::clientactor::ClientActor} 
+una string RESP contenente il comando di inserimento \gloss{item} con 
+i parametri.\\ %TODO linkare RESP
+Da questo componente parte il messaggio di Insert(key, value) ad un \hyperref[sec:actorbase::actorsystem::clientactor::MainActor]{actorbase::actorsystem::clientactor::MainActor} scelto in base ad una 
+politica di \gloss{routing}. Il MainActor manderà un messaggio allo \hyperref[sec:actorbase::actorsystem::clientactor::StoreFinder]{actorbase::actorsystem::clientactor::StoreFinder} relativo il quale manderà un messaggio allo \hyperref[sec:actorbase::actorsystem::clientactor::StoreKeeper]{actorbase::actorsystem::clientactor::StoreKeeper} che dovrà salvarsi l'informazione 
+sulla propria mappa.\\
+A questo punto lo StoreKeeper manderà un messaggio al Warehouseman di tipo Save e 
+successivamente manderà un messaggio al ClientActor con la risposta 
+(positiva o negativa che sia) il quale risponderà sempre tramite \gloss{socket tcp} al \gloss{Driver} con una stringa RESP.
+Nel frattempo l'attore di tipo Warehouseman eseguirà un salvataggio su disco dei propri dati previa serializzazione.\\
+Si noti che la frequenza con cui gli attori di tipo Warehousename eseguiranno 
+l'aggiornamento delle proprie strutture dati e il salvataggio sarà specificata 
+tramite un parametro di configurazione del sistema.\\
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.9\textwidth, keepaspectratio]{img/diagrammiSequenza/esempioSave.png}
+    \caption{Diagramma di sequenza - Inserimento di un item}
+  \end{center}
+\end{figure}
+
+\subsection{Aggiornamento di un attore ninja}
+
+Questo diagramma rappresenta l'interazione tra le componenti nel caso venga 
+effettuato un aggiornamento dei dati su un attore Ninja.\\
+La componente \hyperref[sec:actorbase::driver::client::Connection]{actorbase::driver::client::Connection} 
+manda tramite \gloss{socket tcp} al \hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{actorbase::actorsystem::clientactor::ClientActor} 
+una string RESP contenente il comando di inserimento \gloss{item} con 
+i parametri.\\ %TODO linkare RESP
+Da questo componente parte il messaggio di Insert(key, value) ad un \hyperref[sec:actorbase::actorsystem::clientactor::MainActor]{actorbase::actorsystem::clientactor::MainActor} scelto in base ad una 
+politica di \gloss{routing}. Il MainActor manderà un messaggio allo \hyperref[sec:actorbase::actorsystem::clientactor::StoreFinder]{actorbase::actorsystem::clientactor::StoreFinder} relativo il quale manderà un messaggio allo \hyperref[sec:actorbase::actorsystem::clientactor::StoreKeeper]{actorbase::actorsystem::clientactor::StoreKeeper} che dovrà salvarsi l'informazione 
+sulla propria mappa.\\
+A questo punto lo StoreKeeper manderà un messaggio al Ninja di tipo Update contenente la struttura dati aggiornata e successivamente manderà un 
+messaggio al ClientActor con la risposta (positiva o negativa che sia) 
+il quale risponderà sempre tramite \gloss{socket tcp} al \gloss{Driver} con 
+una stringa RESP.
+Nel frattempo l'attore di tipo Ninja eseguirà un aggiornamento della propria struttura dati.\\
+Si noti che la frequenza di aggiornamento degli attori di tipo ninja sarà 
+specificata tramite un parametro di configurazione del sistema.
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.9\textwidth, keepaspectratio]{img/diagrammiSequenza/esempioNinja.png}
+    \caption{Diagramma di sequenza - Aggiornamento di un attore ninja}
+  \end{center}
+\end{figure}
+
+\subsection{Aggiunta collaboratore (in sola lettura)}
+
+Questo diagramma rappresenta l'interazione tra le componenti nel caso di una richiesta di autenticazione di un utente.\\
+La componente \hyperref[sec:actorbase::driver::client::Connection]{actorbase::driver::client::Connection} 
+manda tramite \gloss{socket tcp} al \hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{actorbase::actorsystem::clientactor::ClientActor} 
+una string RESP contenente il comando di aggiunta collaboratore \gloss{item} con 
+i parametri.\\ %TODO linkare RESP
+Da questo componente parte il messaggio di addCollaborator(collection, permission, username) ad un \hyperref[sec:actorbase::actorsystem::clientactor::MainActor]{actorbase::actorsystem::clientactor::MainActor} scelto in base ad una 
+politica di \gloss{routing}. Il MainActor manderà un messaggio allo 
+\hyperref[sec:actorbase::actorsystem::clientactor::StoreFinder]{actorbase::actorsystem::clientactor::StoreFinder} 
+relativo il quale manderà un messaggio addReadCollection(collection) allo 
+\hyperref[sec:actorbase::actorsystem::clientactor::UserKeeper]{actorbase::actorsystem::clientactor::UserKeeper}. 
+Quest'ultimo dovrà aggiungere alla mappa delle collezioni di cui l'utente 
+relativo ha accesso in sola lettura la collezione inviatagli. 
+Poi manderà al ClientActor un messaggio UpdateReadCollections(collection) 
+contenente la collezione da aggiungere.\\
+Il ClientActor effettuerà l'aggiornamento e risponderà al \gloss{Driver} 
+con un messaggio che indica un esito positivo. In caso negativo resterà nello 
+stato attuale e manderà un messaggio al \gloss{Driver} che indica un esito 
+negativo.\\
+Nel caso di aggiunta di un collaboratore con permessi di lettura e scrittura 
+l'interazione tra gli attori è la stessa con differenza di qualche messaggio 
+specifico.\\
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.9\textwidth, keepaspectratio]{img/diagrammiSequenza/esempioAuth.png}
+    \caption{Diagramma di sequenza - Autenticazione}
+  \end{center}
+\end{figure}
+
+\subsection{Connessione al server tramite Driver}
+
+Questo diagramma rappresenta l'interazione tra le componenti nel caso di una richiesta di connessione al server di un utente tramite uso del \gloss{Driver}.\\Si noti che tramite utilizzo della \gloss{CLI} il diagramma sarebbe lo stesso con l'aggiunta della componente \gloss{CLI}.\\
+L'utente crea un oggetto di tipo \hyperref[sec:actorbase::driver::client::ActorbaseClient]{actorbase::driver::client::ActorbaseClient}
+il quale crea a sua volta un oggetto di tipo \hyperref[sec:actorbase::driver::client::Connection]{actorbase::driver::client::Connection}.
+\hyperref[sec:actorbase::driver::client::Connection]{actorbase::driver::client::Connection}
+instaura una connessione \gloss{tcp} con la componente 
+\hyperref[sec:actorbase::actorsystem::tcpserver::TCPServer]{actorbase::actorsystem::tcpserver::TCPServer} la quale crea un attore di tipo 
+\hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{actorbase::actorsystem::clientactor::ClientActor} 
+per gestire l'interazione tra \gloss{Driver} e server. A creazione avvenuta risponde al \gloss{Driver} il quale a cascata informa l'utente dell'avvenuta 
+connessione.\\
+Dal diagramma possiamo vedere che le richieste successivamente inserite 
+dall'utente verranno gestite dal proprio ClientActor.\\
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.9\textwidth, keepaspectratio]{img/diagrammiSequenza/esempioConnessione.png}
+    \caption{Diagramma di sequenza - Connessione al server}
+  \end{center}
+\end{figure}
+
 \section{Design Pattern}
 
 I \gloss{Design Pattern} rappresentano soluzioni progettuali generali ad un
@@ -1890,7 +2072,6 @@ utilizzati nel progetto \textbf{Actorbase}.
   esegue il comando richiesto e notifica la \gloss{View} utilizzando un \gloss{Observer Pattern}
   (vedi~\hyperref[sec:ObserverPattern]{Observer Pattern}) secondo la variante \gloss{Push model}.
 \end{itemize}
-% TODO: diagrammi sequenziali?
 
 \subsection{Design Pattern Creazionali}
 
