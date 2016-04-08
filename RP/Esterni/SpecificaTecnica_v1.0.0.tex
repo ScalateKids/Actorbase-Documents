@@ -434,6 +434,7 @@ degli attori di tipo \gloss{Storekeeper}.
 \end{itemize}
 
 \subsection{actorbase::driver::client}
+\label{sec:actorbase::driver::client}
 
 \subsubsection{Descrizione}
 
@@ -450,7 +451,7 @@ che con la componente \gloss{server} del sistema.
 \subsubsection{Classi}
 
 \paragraph{actorbase::driver::client::ActorbaseClient}
-\label{actorbase::driver::client::ActorbaseClient}
+\label{sec:actorbase::driver::client::ActorbaseClient}
 
 \subparagraph{Descrizione}
 
@@ -511,13 +512,10 @@ le verrà assegnato un oggetto di tipo \hyperref[sec:actorbase::actorbase::actor
 Questa classe inoltre chiamerà le componenti necessarie per la serializzazione e deserializzazione
 delle stringhe ricevute dal \gloss{server} o da \hyperref[sec:actorbase::driver::client::CommandRunner]{actorbase::driver::client::CommandRunner},
 ossia \hyperref[sec:actorbase::driver::client::SerializationContext]{actorbase::driver::client::SerializationContext}
-e \hyperref[sec:actorbase::driver::client::Deserializationtext]{actorbase::driver::client::DeserializationContext}.\\
-Nel caso la stringa da passare al \gloss{server} necessiti di essere \gloss{criptata} questa classe
-chiamerà la componente \hyperref[sec:actorbase::driver::client::EncryptionContext]{actorbase::driver::client::EncryptionContext}.
+e \hyperref[sec:actorbase::driver::client::Deserializationtext]{actorbase::driver::client::DeserializationContext}.
 
 \subparagraph{Interazioni con altre classi}
 \begin{itemize}
-\item \hyperref[sec:actorbase::driver::client::EncryptionContext]{actorbase::driver::client::EncryptionContext};
 \item \hyperref[sec:actorbase::driver::client::SerializationContext]{actorbase::driver::client::SerializationContext};
 \item \hyperref[sec:actorbase::driver::client::Deserializationtext]{actorbase::driver::client::DeserializationContext};
 \item \hyperref[sec:actorbase::driver::client::CommandRunner]{actorbase::driver::client::CommandRunner};
@@ -525,201 +523,190 @@ chiamerà la componente \hyperref[sec:actorbase::driver::client::EncryptionConte
 \item \hyperref[sec:actorbase::actorbase::actorsystem::clientactor::ClientActor]{actorbase::actorsystem::clientactor::ClientActor}.
 \end{itemize}
 
-\paragraph{actorbase::driver::client::EncryptionContext}
-\label{sec:actorbase::driver::client::EncryptionContext}
-
-\subparagraph{Descrizione}
-
-Classe che offre metodi per scegliere il metodo di \gloss{criptazione} da effettuare.
-
-\subparagraph{Utilizzo}
-
-Questa classe offre dei metodi per scegliere quale metodo di \gloss{criptazione}
-derivate da \hyperref[sec:actorbase::driver::client::Encryption]{actorbase::driver::client::Encryption}
-deve venire applicato.
-
-\subparagraph{Interazioni con altre classi}
-\begin{itemize}
-\item \hyperref[sec:actorbase::driver::client::Connection]{actorbase::driver::client::Connection};
-\item \hyperref[sec:actorbase::driver::client::Encryption]{actorbase::driver::client::Encryption}.
-\end{itemize}
-
-\paragraph{actorbase::driver::client::Encryption}
-\label{sec:actorbase::driver::client::Encryption}
-
-\subparagraph{Descrizione}
-
-Interfaccia che offre una strategia generale per la \gloss{criptazione} di
-stringhe.
-
-\subparagraph{Utilizzo}
-
-Viene utilizzata come parte del \gloss{design pattern} \gloss{strategy}. Offre
-un'interfaccia per la \gloss{criptazione} di stringhe che verrà poi
-implementata dalle classi che la implementeranno.
-
-\subparagraph{Interazioni con altre classi}
-
-\begin{itemize}
-\item \hyperref[sec:actorbase::driver::client::EncryptionContext]{actorbase::driver::client::EncryptionContext}
-\end{itemize}
-
-\paragraph{actorbase::driver::client::Encryption}
-\label{sec:actorbase::driver::client::Encryption}
-
-\subparagraph{Descrizione}
-
-Interfaccia che offre una strategia generale per la \gloss{criptazione} di
-stringhe.
-
-\subparagraph{Utilizzo}
-
-Viene utilizzata come parte del \gloss{design pattern} \gloss{strategy}. Offre
-un'interfaccia per la \gloss{criptazione} di stringhe che verrà poi
-implementata dalle classi che la implementeranno.
-
-\subparagraph{Interazioni con altre classi}
-
-\begin{itemize}
-\item \hyperref[sec:actorbase::driver::client::EncryptionContext]{actorbase::driver::client::EncryptionContext}.
-\end{itemize}
-
-\paragraph{actorbase::driver::client::SHA1Encryption}
-\label{sec:actorbase::driver::client::SHA1Encryption}
-
-\subparagraph{Descrizione}
-
-Classe che implementa l'interfaccia di \gloss{criptazione} usando il metodo
-\gloss{SHA1}.
-
-\subparagraph{Utilizzo}
-
-Classe che \gloss{cripta} una stringa usando il metodo \gloss{SHA1}.
-
-\subparagraph{Classi ereditate}
-
-\begin{itemize}
-\item \hyperref[sec:actorbase::driver::client::Encryption]{actorbase::driver::client::Encryption}.
-\end{itemize}
-
-\paragraph{actorbase::driver::client::BlowfishEncryption}
-\label{sec:actorbase::driver::client::BlowfishEncryption}
-
-\subparagraph{Descrizione}
-
-Classe che implementa l'interfaccia di \gloss{criptazione} usando il metodo
-\gloss{Blowfish}.
-
-\subparagraph{Utilizzo}
-
-Classe che \gloss{cripta} una stringa usando il metodo \gloss{Blowfish}.
-
-\subparagraph{Classi ereditate}
-
-\begin{itemize}
-\item \hyperref[sec:actorbase::driver::client::Encryption]{actorbase::driver::client::Encryption}.
-\end{itemize}
-
-\subsection{actorbase::controller::driver::data}
+\subsection{actorbase::driver::actorbasedata}
+\label{sec:actorbase::driver::actorbasedata}
 
 \subsubsection{Descrizione}
 
-\gloss{Package} per effettuare il parsing dei risultati ritornati dal
-\gloss{server}.
+\gloss{Package} che offre le strutture dati necessarie per la comunicazione
+con il \gloss{server}, con la \gloss{cli} o eventuali programmi esterni.
 
 \subsubsection{Interazioni con altre componenti}
 \begin{itemize}
-\item actorbase::cli::models::;
-\item actorbase::controller::driver::client;
-\item actorbase::controller::driver::controls.
+\item \hyperref[sec:actorbase::cli::models]{actorbase::cli::models};
+\item \hyperref[sec:actorbase::driver::client]{actorbase::driver::client};
+\item \hyperref[sec:actorbase::driver::serializer]{actorbase::driver::serializer}.
 \end{itemize}
 
 \subsubsection{Classi}
 
-\paragraph{actorbase::controller::driver::data::DataStructure}
+\paragraph{actorbase::driver::actorbasedata::ActorbaseObject}
+\label{sec:actorbase::driver::actorbasedata::ActorbaseObject}
 
 \subparagraph{Descrizione}
 
-Interfaccia che consente al \gloss{driver} di effettuare il parsing dei file
-\gloss{JSON}.
+Interfaccia che rappresenta una struttura dati generica per ritornare i dati
+ricevuti dal \gloss{server} alla \gloss{cli} o a un programma esterno.
+
+\subparagraph{Utilizzo}
+
+Questa interfaccia viene utilizzata dalle classi che la implementano per
+rappresentare un insieme di \gloss{collezioni} o \gloss{item}.
 
 \subparagraph{Interazioni con altre classi}
 
 \begin{itemize}
-\item actorbase::cli::models::Command;
-\item actorbase::controller::driver::client::Connection;
-\item actorbase::controller::driver::controls::Control.
+\item \hyperref[sec:actorbase::driver::client::ActorbaseClient]{actorbase::driver::client::ActorbaseClient}.
 \end{itemize}
 
-\paragraph{actorbase::controller::driver::data::Collection}
+\paragraph{actorbase::driver::actorbasedata::ActorbaseItem}
+\label{sec:actorbase::driver::actorbasedata::ActorbaseItem}
 
 \subparagraph{Descrizione}
 
-Classe che consente al \gloss{driver} di effettuare il parsing dei file
-\gloss{JSON} differenziandone le \gloss{collezioni}.
+Classe che implementa \hyperref[sec:actorbase::driver::actorbasedata::ActorbaseObject]{actorbase::driver::actorbasedata::ActorbaseObject}
+in modo da rappresentare un singolo \gloss{item}.
+
+\subparagraph{Utilizzo}
+
+Questa classe viene utilizzata per la rappresentazione di un singolo
+\gloss{item} che verrà restituito alla \gloss{cli} o a un programma esterno.
 
 \subparagraph{Classi ereditate}
 
 \begin{itemize}
-\item actorbase::controller::driver::data::DataStructure.
+\item \hyperref[sec:actorbase::driver::actorbasedata::ActorbaseObject]{actorbase::driver::actorbasedata::ActorbaseObject}.
+\end{itemize}
+
+\paragraph{actorbase::driver::actorbasedata::ActorbaseCollection}
+\label{sec:actorbase::driver::actorbasedata::ActorbaseCollection}
+
+\subparagraph{Descrizione}
+
+Classe che implementa \hyperref[sec:actorbase::driver::actorbasedata::ActorbaseObject]{actorbase::driver::actorbasedata::ActorbaseObject}
+in modo da rappresentare una singola \gloss{collezione}.
+
+\subparagraph{Utilizzo}
+
+Questa classe viene utilizzata per la rappresentazione di una singola
+\gloss{collezione} vista come insieme di oggetti di tipo
+\hyperref[sec:actorbase::driver::actorbasedata::ActorbaseItem]{actorbase::driver::actorbasedata::ActorbaseItem}
+che verrà restituito alla \gloss{cli} o a un programma esterno.
+Essa offrirà anche un \gloss{cursore} di tipo
+\hyperref[sec:actorbase::driver::actorbasedata::ItemCursor]{actorbase::driver::actorbasedata::ItemCursor}
+per scorrere gli \gloss{item} al suo interno.
+
+\subparagraph{Classi ereditate}
+
+\begin{itemize}
+\item \hyperref[sec:actorbase::driver::actorbasedata::ActorbaseObject]{actorbase::driver::actorbasedata::ActorbaseObject}.
 \end{itemize}
 
 \subparagraph{Interazioni con altre classi}
 
 \begin{itemize}
-\item actorbase::controller::driver::data::Item.
-\item actorbase::controller::driver::data::CollectionCursor.
+\item \hyperref[sec:actorbase::driver::actorbasedata::ActorbaseItem]{actorbase::driver::actorbasedata::ActorbaseItem};
+\item \hyperref[sec:actorbase::driver::actorbasedata::ItemCursor]{actorbase::driver::actorbasedata::ItemCursor}.
 \end{itemize}
 
-\paragraph{actorbase::controller::driver::data::Item}
+\paragraph{actorbase::driver::actorbasedata::ActorbaseCollectionSeq}
+\label{sec:actorbase::driver::actorbasedata::ActorbaseCollectionSeq}
 
 \subparagraph{Descrizione}
 
-Classe che consente al \gloss{driver} di effettuare il parsing dei file
-\gloss{JSON} differenziandone gli \gloss{item}.
+Classe che implementa \hyperref[sec:actorbase::driver::actorbasedata::ActorbaseObject]{actorbase::driver::actorbasedata::ActorbaseObject}
+in modo da rappresentare un insieme di \gloss{collezioni}.
+
+\subparagraph{Utilizzo}
+
+Questa classe viene utilizzata per la rappresentazione di un insieme di
+\gloss{collezioni} viste come insieme di oggetti di tipo
+\hyperref[sec:actorbase::driver::actorbasedata::ActorbaseCollection]{actorbase::driver::actorbasedata::ActorbaseCollection}
+che verrà restituito alla \gloss{cli} o a un programma esterno.
+Essa offrirà anche un \gloss{cursore} di tipo
+\hyperref[sec:actorbase::driver::actorbasedata::CollectionCursor]{actorbase::driver::actorbasedata::CollectionCursor}
+per scorrere le \gloss{collezioni} al suo interno.
 
 \subparagraph{Classi ereditate}
 
 \begin{itemize}
-\item actorbase::controller::driver::data::DataStructure.
+\item \hyperref[sec:actorbase::driver::actorbasedata::ActorbaseObject]{actorbase::driver::actorbasedata::ActorbaseObject}.
 \end{itemize}
 
 \subparagraph{Interazioni con altre classi}
 
 \begin{itemize}
-\item actorbase::controller::driver::data::ItemCursor.
+\item \hyperref[sec:actorbase::driver::actorbasedata::ActorbaseCollection]{actorbase::driver::actorbasedata::ActorbaseCollection};
+\item \hyperref[sec:actorbase::driver::actorbasedata::CollectionCursor]{actorbase::driver::actorbasedata::CollectionCursor}.
 \end{itemize}
 
-\paragraph{actorbase::controller::driver::data::Cursor}
+\paragraph{actorbase::driver::actorbasedata::Cursor}
+\label{sec:actorbase::driver::actorbasedata::Cursor}
 
 \subparagraph{Descrizione}
 
-Interfaccia che offre un cursore per lo scorrimento di una lista.
+Interfaccia che offre un cursore per lo scorrimento di una struttura dati
+secondo il \gloss{design pattern} \gloss{iterator}.
 
-\paragraph{actorbase::controller::driver::data::ItemCursor}
+\subparagraph{Utilizzo}
+
+Questa interfaccia contiene i metodi necessari allo scorrimento di una
+struttura dati.
+
+\paragraph{actorbase::driver::actorbasedata::ItemCursor}
+\label{sec:actorbase::driver::actorbasedata::ItemCursor}
 
 \subparagraph{Descrizione}
 
-Classe che offre al \gloss{driver} un cursore per lo scorrimento di una lista
-di \gloss{item}.
+Classe che offre al \gloss{driver} un cursore per lo scorrimento di una struttura dati
+che rappresenta una singola \gloss{collezione} implementando l'interfaccia
+\hyperref[sec:actorbase::driver::actorbasedata::Cursor]{actorbase::driver::actorbasedata::Cursor}.
+
+\subparagraph{Utilizzo}
+
+Questa classe viene utilizzata dalla classe
+\hyperref[sec:actorbase::driver::actorbasedata::ActorbaseCollection]{actorbase::driver::actorbasedata::ActorbaseCollection}
+per scorrere gli \gloss{item} interni alla \gloss{collezione}
+rappresentata.
 
 \subparagraph{Classi ereditate}
 
 \begin{itemize}
-\item actorbase::controller::driver::data::Cursor.
+\item \hyperref[sec:actorbase::driver::actorbasedata::Cursor]{actorbase::driver::actorbasedata::Cursor}.
 \end{itemize}
 
-\paragraph{actorbase::controller::driver::data::CollectionCursor}
+\subparagraph{Interazioni con altre classi}
+
+\begin{itemize}
+\item \hyperref[sec:actorbase::driver::actorbasedata::ActorbaseCollection]{actorbase::driver::actorbasedata::ActorbaseCollection}.
+\end{itemize}
+
+\paragraph{actorbase::driver::actorbasedata::CollectionCursor}
+\label{sec:actorbase::driver::actorbasedata::CollectionCursor}
 
 \subparagraph{Descrizione}
 
-Classe che offre al \gloss{driver} un cursore per lo scorrimento di una lista di
-\gloss{collezioni}.
+Classe che offre al \gloss{driver} un cursore per lo scorrimento di una struttura dati
+che rappresenta un'insieme di \gloss{collezioni} implementando l'interfaccia
+\hyperref[sec:actorbase::driver::actorbasedata::Cursor]{actorbase::driver::actorbasedata::Cursor}.
+
+\subparagraph{Utilizzo}
+
+Questa classe viene utilizzata dalla classe
+\hyperref[sec:actorbase::driver::actorbasedata::ActorbaseCollection]{actorbase::driver::actorbasedata::ActorbaseCollection}
+per scorrere le \gloss{collezioni} interni all'insieme di \gloss{collezioni}
+rappresentato.
 
 \subparagraph{Classi ereditate}
 
 \begin{itemize}
-\item actorbase::controller::driver::data::Cursor.
+\item \hyperref[sec:actorbase::driver::actorbasedata::Cursor]{actorbase::driver::actorbasedata::Cursor}.
+\end{itemize}
+
+\subparagraph{Interazioni con altre classi}
+
+\begin{itemize}
+\item \hyperref[sec:actorbase::driver::actorbasedata::ActorbaseCollection]{actorbase::driver::actorbasedata::ActorbaseCollectionSeq}.
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
