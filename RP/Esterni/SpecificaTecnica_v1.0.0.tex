@@ -87,7 +87,7 @@
 
 Il seguente documento ha lo scopo di descrivere la progettazione ad alto livello
 che il gruppo \textit{ScalateKids} ha scelto per il
-progetto\textbf{ActorBase}.\\  Sarà descritta l'\gloss{architettura} generale
+progetto \textbf{ActorBase}.\\  Sarà descritta l'\gloss{architettura} generale
 del progetto, in particolare  la scelta dei \gloss{design pattern} e delle
 componentiche andranno a comporre il software.
 
@@ -178,13 +178,13 @@ e i due termini verranno quindi usati come sinonimi.\\
 \subsection{Architettura generale}
 
 Macroscopicamente il sistema si suddivide in due componenti principali,
-assimilabili ad un paradigma Client-Server, il sistema ad attori dove
-risiedono la struttura della base di dati ed un server TCP pronto a ricevere
-comandi dall'esterno rappresentano la componente server, la Command Line
-Interface (CLI) rappresenta la componente client mediante la quale è possibile
-inviare comandi al sistema e ricevere l'output prodotto da essi, essa farà uso
-della componente \gloss{driver} per comunicare con il sistema lato server
-mediante un protocollo di comunicazione appositamente creato.\\
+assimilabili ad un paradigma Client-Server, il sistema ad attori dove risiedono
+la struttura della base di dati ed un server TCP (Transmission Control Protocol)
+pronto a ricevere comandi dall'esterno rappresentano la componente server, la
+Command Line Interface (CLI) rappresenta la componente client mediante la quale
+è possibile inviare comandi al sistema e ricevere l'output prodotto da essi,
+essa farà uso della componente \gloss{driver} per comunicare con il sistema lato
+server mediante il protocollo di comunicazione testuale \hyperref[sec:RESP]{RESP}.\\
 
 \begin{figure}[H]
   \begin{center}
@@ -193,19 +193,51 @@ mediante un protocollo di comunicazione appositamente creato.\\
   \end{center}
 \end{figure}
 
-Questo ha portato alla suddivisione del progetto in tre macro-componenti:
-\begin{itemize}
-\item cli;
-\item driver;
-\item actorsystem.
-\end{itemize}
+Questo ha portato alla suddivisione del progetto in tre macro-componenti, rispettivamente
+\textbf{cli}, \textbf{driver} e \textbf{actorsystem}; contenute all'interno del package
+generale \textbf{actorbase}.
 
-% \begin{figure}[H]
-%   \begin{center}
-%     \includegraphics[width=0.2\textwidth,keepaspectratio]{RP/RP-ClientServer.png}
-%     \caption{Diagramma componenti principali}
-%   \end{center}
-% \end{figure}
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.9\textwidth,keepaspectratio]{RP/Architettura-AltoLivello.png}
+    \caption{Diagramma componenti principali}
+  \end{center}
+\end{figure}
+
+\subsection{Protocollo di comunicazione Client-Server}
+\label{sec:RESP}
+
+\textbf{Actorbase} è stato concepito come sistema da utilizzare in ambiente
+affidabile, e non dovrebbe essere esposto direttamente alla rete internet, ma
+utilizzato all'interno di sottoreti protette dall'esterno, per questo è stato
+deciso di riutilizzare un protocollo di comunicazione
+piuttosto semplice, leggero e facilmente comprensibile.\\
+Il protocollo \gloss{\textbf{RESP}} (REdis Serialization Protocol) implementato
+dal \gloss{database} \gloss{REDIS} si presta esattamente allo scopo, utilizza
+5 tipi di dato differenziati dal primo \gloss{byte} che li compone, e delimitati
+da una sequenza di terminazione formata da \gloss{CR} (Carriage Return) e \gloss{LF}
+(Line Feed) che rappresenta il carattere ``a capo'':
+\begin{itemize}
+\item \textbf{Simple Strings} rappresentano stringhe dedicate alle risposte
+  semplici (\gloss{ack} dei comandi ricevuti), non possono contenere caratteri
+  di terminazione al loro interno; il primo byte è ``+'';
+\item \textbf{Errors} rappresentano stringhe di errore, formate da:
+  \begin{center}
+    \verb=-TIPOERRORE MESSAGGIOERRORE\r\n=
+  \end{center}
+  verranno utilizzate per generare le eccezioni lato client; il primo byte è ``-'';
+\item \textbf{Integers} rappresentano numeri interi, il primo byte è ``:'';
+\item \textbf{Bulk Strings} rappresentano stringhe dedicate al \gloss{payload}, formate da:
+  \begin{center}
+    \verb=\$LUNGHEZZAPAYLOAD\r\nPAYLOAD\r\n=
+  \end{center}
+  il primo byte è ``\$'' e può contenere caratteri di ``a capo'';
+\item \textbf{Arrays} rappresentano \gloss{array} di comandi e \textbf{Bulk String}, formati da:
+  \begin{center}
+    \verb=*LUNGHEZZASTRINGA\r\nRESPSTRING\r\n=
+  \end{center}
+ il primo byte è ``*'', possono contenere qualsiasi altro tipo di stringa \gloss{RESP}, inclusi altri \gloss{array}.
+\end{itemize}
 
 \section{Componenti}
 
@@ -2044,6 +2076,7 @@ serializzazione personalizzati.
 
 \subsection{Tracciamento requisiti\ -\ componenti}
 
+\newpage
 \appendix
 \label{sec:appendice}
 
@@ -2057,9 +2090,63 @@ serializzazione personalizzati.
 
 \subsubsection{Singleton}
 
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.3\textwidth, keepaspectratio]{img/designPattern/Singleton.png}
+    \caption{Esempio di applicazione del \gloss{design pattern} singleton}
+  \end{center}
+\end{figure}
+
+\begin{itemize}
+
+\item \textbf{Scopo:} Assicurare che una classe abbia un'unica istanza ed avere
+un punto di accesso globale ad essa;
+
+\item \textbf{Motivazione:} Per alcune classi è fondamentale assicurare che non
+abbiano più di un'istanza. Per questo motivo la classe tipicamente ha un
+costruttore privato e un metodo per poter accedere all'istanza della classe
+pubblico;
+
+\item \textbf{Applicabilità:} Questo \gloss{design pattern} può essere
+applicato nei seguenti casi:
+   \begin{itemize}
+   \item Quando è essenziale che ci sia solo una istanza di una classe e tale
+   istanza deve essere resa accessibile attraverso un unico punto di accesso;
+   \item Quando l'unica istanza della classe deve essere estesa in maniera
+   tale da non dover avere \gloss{client} con codici diversi.
+   \end{itemize}
+
+\end{itemize}
+
 \subsection{Design Pattern Strutturali}
 
-\subsubsection{Facade}
+\subsubsection{Façade}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.7\textwidth, keepaspectratio]{img/designPattern/Facade.png}
+    \caption{Esempio di applicazione del \gloss{design pattern} façade}
+  \end{center}
+\end{figure}
+
+\begin{itemize}
+
+\item \textbf{Scopo:} Semplificare l'interfaccia visibile all'utente di un sistema complesso.
+Per fare ciò viene creata un'unica interfaccia che racchiude più classi, nascondendole all'esterno;
+
+\item \textbf{Motivazione:} Raggruppare più sottosistemi in un sistema unico aiuta a ridurne la complessità.
+L'utilizzo di una classe façade riduce le dipendenze tra i vari sottosistemi;
+
+\item \textbf{Applicabilità:} Questo \gloss{design pattern} può essere
+applicato nei seguenti casi:
+  \begin{itemize}
+  \item Quando c'è la necessità di avere una singola interfaccia semplice che raggruppi più sottosistemi;
+  \item Quando c'è un alto livello di accoppiamento tra sottosistemi e client. La
+  classe façade diminuisce queste dipendenze offrendo un'interfaccia singola;
+  \item Quando si vogliono stratificare i sottosistemi con una struttura a livelli.
+  \end{itemize}
+
+\end{itemize}
 
 \subsection{Design Pattern Comportamentali}
 
@@ -2071,6 +2158,8 @@ serializzazione personalizzati.
 
 \subsubsection{Strategy}
 
+\newpage
 \listoftables
+\newpage
 \listoffigures
 \end{document}
