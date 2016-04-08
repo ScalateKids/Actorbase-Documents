@@ -79,6 +79,7 @@
     \hline
   \end{tabular}
 \end{center}
+\newpage
 \tableofcontents
 \newpage
 \pagenumbering{arabic}
@@ -709,7 +710,87 @@ rappresentato.
 \subparagraph{Interazioni con altre classi}
 
 \begin{itemize}
-\item \hyperref[sec:actorbase::driver::actorbasedata::ActorbaseCollection]{actorbase::driver::actorbasedata::ActorbaseCollectionSeq}.
+\item \hyperref[sec:actorbase::driver::actorbasedata::ActorbaseCollectionSeq]{actorbase::driver::actorbasedata::ActorbaseCollectionSeq}.
+\end{itemize}
+
+\paragraph{actorbase::driver::actorbasedata::RESPArrayString}
+\label{sec:actorbase::driver::actorbasedata::RESPArrayString}
+
+\subparagraph{Descrizione}
+
+Questa classe rappresenta un \gloss{array} di
+\hyperref[sec:actorbase::driver::actorbasedata::RESPSimpleString]{actorbase::driver::actorbasedata::RESPSimpleString}.
+
+\subparagraph{Utilizzo}
+
+Questa classe viene utilizzata da \hyperref[sec:actorbase::driver::serializer::RESPDeserialize]{actorbase::driver::serializer::RESPDeserialize}
+per \gloss{deserializzare} la risposta ricevuta dal \gloss{server}.
+
+\subparagraph{Interazioni con altre classi}
+
+\begin{itemize}
+\item \hyperref[sec:actorbase::driver::actorbasedata::RESPSimpleString]{actorbase::driver::actorbasedata::RESPSimpleString};
+\item \hyperref[sec:actorbase::driver::serializer::RESPDeserialize]{actorbase::driver::serializer::RESPDeserialize}.
+\end{itemize}
+
+\paragraph{actorbase::driver::actorbasedata::RESPSimpleString}
+\label{sec:actorbase::driver::actorbasedata::RESPSimpleString}
+
+\subparagraph{Descrizione}
+
+Questa classe rappresenta una stringa senza l'indicazione di quanto sia lunga
+la stringa. Essa termina quando si trova un carattere \gloss{CR (Carriage Return)}
+e \gloss{LF (Line Feed)}.
+
+\subparagraph{Utilizzo}
+
+Questa classe viene utilizzata per \gloss{deserializzare} principalmente le
+risposte ottenute dal \gloss{server} che non comprendano \gloss{item} o
+\gloss{collezioni}.
+
+\subparagraph{Interazioni con altre classi}
+
+\begin{itemize}
+\item \hyperref[sec:actorbase::driver::actorbasedata::RESPArrayString]{actorbase::driver::actorbasedata::RESPArrayString}.
+\end{itemize}
+
+\paragraph{actorbase::driver::actorbasedata::RESPBulkString}
+\label{sec:actorbase::driver::actorbasedata::RESPBulkString}
+
+\subparagraph{Descrizione}
+
+Questa classe rappresenta una stringa con l'indicazione di quanto sia lunga la
+stringa. Può contenere qualsiasi carattere.
+
+\subparagraph{Utilizzo}
+
+Questa classe viene utilizzata per \gloss{deserializzare} principalmente le
+risposte ottenute dal \gloss{server} che comprendano \gloss{item} o
+\gloss{collezioni}.
+
+\subparagraph{Classi ereditate}
+
+\begin{itemize}
+\item \hyperref[sec:actorbase::driver::actorbasedata::RESPSimpleString]{actorbase::driver::actorbasedata::RESPSimpleString}.
+\end{itemize}
+
+\paragraph{actorbase::driver::actorbasedata::RESPErrorString}
+\label{sec:actorbase::driver::actorbasedata::RESPErrorString}
+
+\subparagraph{Descrizione}
+
+Questa classe rappresenta una stringa di tipo \hyperref[sec:actorbase::driver::actorbasedata::RESPSimpleString]{actorbase::driver::actorbasedata::RESPSimpleString}
+con i primi caratteri che indicano il tipo di errore.
+
+\subparagraph{Utilizzo}
+
+Questa classe viene utilizzata per \gloss{deserializzare} principalmente le
+risposte ottenute dal \gloss{server} che comprendano messaggi di errore.
+
+\subparagraph{Classi ereditate}
+
+\begin{itemize}
+\item \hyperref[sec:actorbase::driver::actorbasedata::RESPSimpleString]{actorbase::driver::actorbasedata::RESPSimpleString}.
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
