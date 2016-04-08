@@ -1743,7 +1743,8 @@ L'attore intende effettuare login al database da un programma \gloss{Scala} este
 \textbf{Scenario principale:}
 \begin{itemize}
 \item UC2.2.5.1 Inserimento nome \gloss{collezione};
-\item UC2.2.5.2 Inserimento username \gloss{collaboratore}.
+\item UC2.2.5.2 Inserimento username \gloss{collaboratore};
+\item UC2.2.5.3 Inserimento tipo permessi.
 \end{itemize}
 \textbf{Postcondizione:} L'attore designato per la collaborazione è stato aggiunto tra i \gloss{collaboratori} della \gloss{collezione} scelta.
 
@@ -1770,6 +1771,18 @@ L'attore intende effettuare login al database da un programma \gloss{Scala} este
 \item L'attore può inserire lo username del collaboratore;
 \end{itemize}
 \textbf{Postcondizioni:} Lo username è stato inserito correttamente.
+
+\subsubsection{UC2.2.5.3: Inserimento tipo permessi}
+
+\textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
+\textbf{Attore secondario:} Actorbase\\
+\textbf{Scopo e descrizione:} L’attore intende aggiungere un collaboratore ad una \gloss{collezione} presente nel \gloss{database}.\\
+\textbf{Precondizione:} Il server è in ascolto e l’attore ha inserito il comando per aggiungere un collaboratore ad una \gloss{collezione}, il nome di quest'ultima e lo username del collaboratore designato.\\
+\textbf{Scenario principale:}
+\begin{itemize}
+\item L'attore può inserire il tipo di permessi per la collaborazione;
+\end{itemize}
+\textbf{Postcondizioni:} Il tipo di permessi è stato inserito correttamente.
 
 \subsection{UC2.2.6: Rimozione di un collaboratore da collezione}
 
