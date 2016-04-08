@@ -1855,34 +1855,6 @@ dall'utente verranno gestite dal proprio ClientActor.\\
   \end{center}
 \end{figure}
 
-
-La componente \hyperref[sec:actorbase::driver::client::Connection]{actorbase::driver::client::Connection} 
-manda tramite \gloss{socket tcp} al \hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{actorbase::actorsystem::clientactor::ClientActor} 
-una string RESP contenente il comando di aggiunta collaboratore \gloss{item} con 
-i parametri.\\ %TODO linkare RESP
-Da questo componente parte il messaggio di addCollaborator(collection, permission, username) ad un \hyperref[sec:actorbase::actorsystem::clientactor::MainActor]{actorbase::actorsystem::clientactor::MainActor} scelto in base ad una 
-politica di \gloss{routing}. Il MainActor manderà un messaggio allo 
-\hyperref[sec:actorbase::actorsystem::clientactor::StoreFinder]{actorbase::actorsystem::clientactor::StoreFinder} 
-relativo il quale manderà un messaggio addReadCollection(collection) allo 
-\hyperref[sec:actorbase::actorsystem::clientactor::UserKeeper]{actorbase::actorsystem::clientactor::UserKeeper}. 
-Quest'ultimo dovrà aggiungere alla mappa delle collezioni di cui l'utente 
-relativo ha accesso in sola lettura la collezione inviatagli. 
-Poi manderà al ClientActor un messaggio UpdateReadCollections(collection) 
-contenente la collezione da aggiungere.\\
-Il ClientActor effettuerà l'aggiornamento e risponderà al \gloss{Driver} 
-con un messaggio che indica un esito positivo. In caso negativo resterà nello 
-stato attuale e manderà un messaggio al \gloss{Driver} che indica un esito 
-negativo.\\
-Nel caso di aggiunta di un collaboratore con permessi di lettura e scrittura 
-l'interazione tra gli attori è la stessa con differenza di qualche messaggio 
-specifico.\\
-\begin{figure}[H]
-  \begin{center}
-    \includegraphics[width=0.9\textwidth, keepaspectratio]{img/diagrammiSequenza/esempioAuth.png}
-    \caption{Diagramma di sequenza - Autenticazione}
-  \end{center}
-\end{figure}
-
 \section{Design Pattern}
 
 I \gloss{Design Pattern} rappresentano soluzioni progettuali generali ad un
