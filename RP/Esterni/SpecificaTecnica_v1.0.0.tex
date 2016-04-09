@@ -281,15 +281,16 @@ rappresentano il \gloss{server}.
 \subsubsection{Package contenuti}
 
 \begin{itemize}
-\item \hyperref[sec:actorbase::actorsystem::actorclient]{actorbase::actorsystem::clientactor};
-\item \hyperref[sec:actorbase::actorsystem::actorclient]{actorbase::actorsystem::tcpserver};
-\item \hyperref[sec:actorbase::actorsystem::actorclient]{actorbase::actorsystem::storefinder};
-\item \hyperref[sec:actorbase::actorsystem::actorclient]{actorbase::actorsystem::storekeeper};
-\item \hyperref[sec:actorbase::actorsystem::actorclient]{actorbase::actorsystem::warehouseman};
-\item \hyperref[sec:actorbase::actorsystem::actorclient]{actorbase::actorsystem::ninja};
-\item \hyperref[sec:actorbase::actorsystem::actorclient]{actorbase::actorsystem::manager};
-\item \hyperref[sec:actorbase::actorsystem::actorclient]{actorbase::actorsystem::userkeeper};
-\item \hyperref[sec:actorbase::actorsystem::actorclient]{actorbase::actorsystem::serialization}.
+\item \hyperref[sec:actorbase::actorsystem::clientactor]{actorbase::actorsystem::clientactor};
+\item \hyperref[sec:actorbase::actorsystem::tcpserver]{actorbase::actorsystem::tcpserver};
+\item \hyperref[sec:actorbase::actorsystem::storefinder]{actorbase::actorsystem::storefinder};
+\item \hyperref[sec:actorbase::actorsystem::storekeeper]{actorbase::actorsystem::storekeeper};
+\item \hyperref[sec:actorbase::actorsystem::warehouseman]{actorbase::actorsystem::warehouseman};
+\item \hyperref[sec:actorbase::actorsystem::ninja]{actorbase::actorsystem::ninja};
+\item \hyperref[sec:actorbase::actorsystem::manager]{actorbase::actorsystem::manager};
+\item \hyperref[sec:actorbase::actorsystem::userkeeper]{actorbase::actorsystem::userkeeper};
+\item \hyperref[sec:actorbase::actorsystem::main]{actorbase::actorsystem::main};
+\item \hyperref[sec:actorbase::actorsystem::serialization]{actorbase::actorsystem::serialization}.
 \end{itemize}
 
 \subsubsection{Interazioni con altre componenti}
@@ -521,6 +522,200 @@ riceve questo messaggio associa al \gloss{client} un attore di tipo
 
 \subsection{actorbase::actorsystem::serialization}
 \label{sec:actorbase::actorsystem::serialization}
+
+\subsubsection{Descrizione}
+
+\gloss{Package} che si occupa di \gloss{serializzare} e \gloss{deserializzare}
+i messaggi mandati o ricevuti dal \gloss{driver}.
+
+\subsubsection{Interazioni con altre componenti}
+
+\begin{itemize}
+
+\item \hyperref[sec:actorbase::actorsystem::warehouseman]{actorbase::actorsystem::warehouseman};
+\item \hyperref[sec:actorbase::actorsystem::clientactor]{actorbase::actorsystem::clientactor}.
+
+\end{itemize}
+
+\subsubsection{Classi}
+
+\paragraph{actorbase::actorsystem::serialization::SerializationContext}
+\label{sec:actorbase::actorsystem::serialization::SerializationContext}
+
+\subparagraph{Descrizione}
+
+Classe che offre dei metodi per la scelta su quale tipo di \gloss{serializzazione}
+effettuare.
+
+\subparagraph{Utilizzo}
+
+Questa classe viene utilizzata da \hyperref[sec:actorbase::actorsystem::warehouseman::Warehouseman]{actorbase::actorsystem::warehouseman::Warehouseman}
+e \hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{actorbase::actorsystem::clientactor::ClientActor}
+per \gloss{serializzare} i dati scegliendo una tra le strategie indicate
+dalle classi che estendono \hyperref[sec:actorbase::actorsystem::serialization::SerializationStrategy]{actorbase::actorsystem::serialization::SerializationStrategy}.
+
+\subparagraph{Interazioni con altre classi}
+
+\begin{itemize}
+
+\item \hyperref[sec:actorbase::actorsystem::warehouseman::Warehouseman]{actorbase::actorsystem::warehouseman::Warehouseman};
+\item \hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{actorbase::actorsystem::clientactor::ClientActor};
+\item \hyperref[sec:actorbase::actorsystem::serialization::SerializationStrategy]{actorbase::actorsystem::serialization::SerializationStrategy}.
+
+\end{itemize}
+
+\paragraph{actorbase::actorsystem::serialization::SerializationStrategy}
+\label{sec:actorbase::actorsystem::serialization::SerializationStrategy}
+
+\subparagraph{Descrizione}
+
+Interfaccia che offre una strategia generale per \gloss{serializzare} i dati.
+
+\subparagraph{Utilizzo}
+
+Questa interfaccia viene utilizzata per l'applicazione del \gloss{design pattern}
+\gloss{strategy}. Offre un metodo generalizzato per la
+\gloss{serializzazione} di dati che verrà poi implementato dalle classi che
+implementeranno questa interfaccia.
+
+\subparagraph{Interazioni con altre classi}
+
+\begin{itemize}
+
+\item \hyperref[sec:actorbase::actorsystem::serialization::SerializationContext]{actorbase::actorsystem::serialization::SerializationContext}.
+
+\end{itemize}
+
+\paragraph{actorbase::actorsystem::serialization::RESPSerialization}
+\label{sec:actorbase::actorsystem::serialization::RESPSerialization}
+
+\subparagraph{Descrizione}
+
+Classe che si occupa di serializzare i dati in stringhe di formato \gloss{RESP}.
+
+\subparagraph{Utilizzo}
+
+Questa classe viene utilizzata per l'implementazione di una strategia di
+serializzazione in formato \gloss{RESP}. Viene utilizzata principalmente per
+dati che dovranno essere mandati al \gloss{driver}.
+
+\subparagraph{Classi ereditate}
+
+\begin{itemize}
+
+\item \hyperref[sec:actorbase::actorsystem::serialization::SerializationStrategy]{actorbase::actorsystem::serialization::SerializationStrategy}.
+
+\end{itemize}
+
+\paragraph{actorbase::actorsystem::serialization::PickleSerialization}
+\label{sec:actorbase::actorsystem::serialization::PickleSerialization}
+
+\subparagraph{Descrizione}
+
+Classe che si occupa di serializzare i dati in formato \gloss{Pickle}.
+
+\subparagraph{Utilizzo}
+
+Questa classe viene utilizzata per l'implementazione di una strategia di
+serializzazione in formato \gloss{Pickle}. Viene utilizzata principalmente per
+dati che dovranno essere salvati su disco.
+
+\subparagraph{Classi ereditate}
+
+\begin{itemize}
+
+\item \hyperref[sec:actorbase::actorsystem::serialization::SerializationStrategy]{actorbase::actorsystem::serialization::SerializationStrategy}.
+
+\end{itemize}
+
+\paragraph{actorbase::actorbase::actorsystem::serialization::DeserializationContext}
+\label{sec:actorbase::actorbase::actorsystem::serialization::DeserializationContext}
+
+\subparagraph{Descrizione}
+
+Classe che offre dei metodi per la scelta su quale tipo di \gloss{deserializzazione}
+effettuare.
+
+\subparagraph{Utilizzo}
+
+Questa classe viene utilizzata da \hyperref[sec:actorbase::actorsystem::warehouseman::Warehouseman]{actorbase::actorsystem::warehouseman::Warehouseman}
+e \hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{actorbase::actorsystem::clientactor::ClientActor}
+per \gloss{deserializzare} i dati scegliendo una tra le strategie indicate
+dalle classi che estendono \hyperref[sec:actorbase::actorsystem::serialization::DeserializationStrategy]{actorbase::actorsystem::serialization::DeserializationStrategy}.
+
+\subparagraph{Interazioni con altre classi}
+
+\begin{itemize}
+
+\item \hyperref[sec:actorbase::actorsystem::warehouseman::Warehouseman]{actorbase::actorsystem::warehouseman::Warehouseman};
+\item \hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{actorbase::actorsystem::clientactor::ClientActor};
+\item \hyperref[sec:actorbase::actorsystem::serialization::DeserializationStrategy]{actorbase::actorsystem::serialization::DeserializationStrategy}.
+
+\end{itemize}
+
+\paragraph{actorbase::actorsystem::serialization::DeserializationStrategy}
+\label{sec:actorbase::actorsystem::serialization::DeserializationStrategy}
+
+\subparagraph{Descrizione}
+
+Interfaccia che offre una strategia generale per \gloss{deserializzare} i dati.
+
+\subparagraph{Utilizzo}
+
+Questa interfaccia viene utilizzata per l'applicazione del \gloss{design pattern}
+\gloss{strategy}. Offre un metodo generalizzato per la
+\gloss{deserializzazione} di dati che verrà poi implementato dalle classi che
+implementeranno questa interfaccia.
+
+\subparagraph{Interazioni con altre classi}
+
+\begin{itemize}
+
+\item \hyperref[sec:actorbase::actorsystem::serialization::DeserializationContext]{actorbase::actorsystem::serialization::DeserializationContext}.
+
+\end{itemize}
+
+\paragraph{actorbase::actorsystem::serialization::RESPDeserialization}
+\label{sec:actorbase::actorsystem::serialization::RESPDeserialization}
+
+\subparagraph{Descrizione}
+
+Classe che si occupa di deserializzare i dati da stringhe in formato \gloss{RESP}.
+
+\subparagraph{Utilizzo}
+
+Questa classe viene utilizzata per l'implementazione di una strategia di
+\gloss{deserializzazione} dal formato \gloss{RESP}. Viene utilizzato
+principalmente per i dati ricevuti dal \gloss{driver}.
+
+\subparagraph{Classi ereditate}
+
+\begin{itemize}
+
+\item \hyperref[sec:actorbase::actorsystem::serialization::DeserializationStrategy]{actorbase::actorsystem::serialization::DeserializationStrategy}.
+
+\end{itemize}
+
+\paragraph{actorbase::actorsystem::serialization::PickleDeserialization}
+\label{sec:actorbase::actorsystem::serialization::PickleDeserialization}
+
+\subparagraph{Descrizione}
+
+Classe che si occupa di \gloss{deserializzare} i dati dal formato \gloss{Pickle}.
+
+\subparagraph{Utilizzo}
+
+Questa classe viene utilizzata per l'implementazione di una strategia di
+\gloss{deserializzazione} dal formato \gloss{Pickle}. Viene utilizzato
+principalmente per la lettura di dati da disco.
+
+\subparagraph{Classi ereditate}
+
+\begin{itemize}
+
+\item \hyperref[sec:actorbase::actorsystem::serialization::DeserializationStrategy]{actorbase::actorsystem::serialization::DeserializationStrategy}.
+
+\end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %               DA QUI A DRIVER DA RIFARE/RIVEDERE              %
