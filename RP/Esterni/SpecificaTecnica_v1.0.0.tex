@@ -328,12 +328,19 @@ la connessione.
 Questo attore riceve le richieste da \hyperref[sec:actorbase::driver::client::Connection]{actorbase::driver::client::Connection}
 e si occupa di inviare messaggi a \hyperref[sec:actorbase::actorsystem::main::Main]{actorbase::actorsystem::main::Main}.
 
+\subparagraph{Classi ereditate}
+
+\begin{itemize}
+
+\item akka::actor::Actor.
+
+\end{itemize}
+
 \subparagraph{Interazioni con altre classi}
 
 \begin{itemize}
 \item \hyperref[sec:actorbase::actorsystem::serialization::SerializationContext]{actorbase::actorsystem::serialization::SerializationContext};
 \item \hyperref[sec:actorbase::actorsystem::serialization::DeserializationContext]{actorbase::actorsystem::serialization::DeserializationContext};
-\item akka::actor::Actor;
 \item akka::actor::ActorRef.
 \end{itemize}
 
@@ -466,10 +473,12 @@ e si occupa di associare al \gloss{client} un attore di tipo
 \hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{actorbase::actorsystem::clientactor::ClientActor}
 per continuare le comunicazioni.
 
-\subparagraph{Interazioni con altre classi}
+\subparagraph{Classi ereditate}
 
 \begin{itemize}
+
 \item akka::actor::Actor.
+
 \end{itemize}
 
 \subsection{actorbase::actorsystem::tcpserver::messages}
@@ -549,10 +558,10 @@ effettuare.
 
 \subparagraph{Utilizzo}
 
-Questa classe viene utilizzata da \hyperref[sec:actorbase::actorsystem::warehouseman::Warehouseman]{actorbase::actorsystem::warehouseman::Warehouseman}
-e \hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{actorbase::actorsystem::clientactor::ClientActor}
+Questa classe viene utilizzata da \hyperref[sec:actorbase::actorsystem::warehouseman::Warehouseman]{actorbase::\allowbreak{}actorsystem::\allowbreak{}warehouseman::\allowbreak{}Warehouseman}
+e \hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{actorbase::\allowbreak{}actorsystem::\allowbreak{}clientactor::\allowbreak{}ClientActor}
 per \gloss{serializzare} i dati scegliendo una tra le strategie indicate
-dalle classi che estendono \hyperref[sec:actorbase::actorsystem::serialization::SerializationStrategy]{actorbase::actorsystem::serialization::SerializationStrategy}.
+dalle classi che estendono \hyperref[sec:actorbase::actorsystem::serialization::SerializationStrategy]{actorbase::\allowbreak{}actorsystem::\allowbreak{}serialization::\allowbreak{}SerializationStrategy}.
 
 \subparagraph{Interazioni con altre classi}
 
@@ -573,7 +582,7 @@ Interfaccia che offre una strategia generale per \gloss{serializzare} i dati.
 
 \subparagraph{Utilizzo}
 
-Questa interfaccia viene utilizzata per l'applicazione del \gloss{design pattern}
+Questa interfaccia viene utilizzata per l'applicazione del \gloss{designpattern}
 \gloss{strategy}. Offre un metodo generalizzato per la
 \gloss{serializzazione} di dati che verrà poi implementato dalle classi che
 implementeranno questa interfaccia.
@@ -628,8 +637,8 @@ dati che dovranno essere salvati su disco.
 
 \end{itemize}
 
-\paragraph{actorbase::actorbase::actorsystem::serialization::DeserializationContext}
-\label{sec:actorbase::actorbase::actorsystem::serialization::DeserializationContext}
+\paragraph{actorbase::actorsystem::serialization::DeserializationContext}
+\label{sec:actorbase::actorsystem::serialization::DeserializationContext}
 
 \subparagraph{Descrizione}
 
@@ -639,9 +648,9 @@ effettuare.
 \subparagraph{Utilizzo}
 
 Questa classe viene utilizzata da \hyperref[sec:actorbase::actorsystem::warehouseman::Warehouseman]{actorbase::actorsystem::warehouseman::Warehouseman}
-e \hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{actorbase::actorsystem::clientactor::ClientActor}
+e \hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{actorbase::\allowbreak{}actorsystem::\allowbreak{}clientactor::\allowbreak{}ClientActor}
 per \gloss{deserializzare} i dati scegliendo una tra le strategie indicate
-dalle classi che estendono \hyperref[sec:actorbase::actorsystem::serialization::DeserializationStrategy]{actorbase::actorsystem::serialization::DeserializationStrategy}.
+dalle classi che estendono \hyperref[sec:actorbase::actorsystem::serialization::DeserializationStrategy]{actorbase::\allowbreak{}actorsystem::\allowbreak{}serialization::\allowbreak{}DeserializationStrategy}.
 
 \subparagraph{Interazioni con altre classi}
 
@@ -717,24 +726,26 @@ principalmente per la lettura di dati da disco.
 
 \end{itemize}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%               DA QUI A DRIVER DA RIFARE/RIVEDERE              %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{actorbase::model::system::actors}
+\subsection{actorbase::actorsystem::warehouseman}
+\label{sec:actorbase::actorsystem::warehouseman}
 
 \subsubsection{Descrizione}
 
-\gloss{Package} contenente gli \gloss{attori} che agiranno sul \gloss{database}.
+\gloss{Package} che rappresenta l'attore che si occuperà della
+\gloss{persistenza} su disco dei dati.
 
-\subsubsection{Interazioni con altre componenti}
+\subsubsection{Package contenuti}
 
 \begin{itemize}
-\item actorbase::model::system::server.
+
+\item \hyperref[sec:actorbase::actorsystem::warehouseman::messages]{actorbase::actorsystem::warehouseman::messages}.
+
 \end{itemize}
 
 \subsubsection{Classi}
 
-\paragraph{actorbase::model::system::actors::Warehouseman}
+\paragraph{actorbase::actorsystem::warehouseman::Warehouseman}
+\label{sec:actorbase::actorsystem::warehouseman::Warehouseman}
 
 \subparagraph{Descrizione}
 
@@ -742,53 +753,63 @@ Classe che rappresenta un \gloss{attore} di tipo \gloss{Warehouseman}.
 
 \subparagraph{Utilizzo}
 
-Viene utilizzata per effettuare il salvataggio su filesystem del
-\gloss{database}.
+Questa classe viene utilizzata per effettuare il salvataggio su filesystem del
+\gloss{database} e per caricare i dati da filesystem.
 
 \subparagraph{Classi ereditate}
 
 \begin{itemize}
-\item actorbase::model::system::actors::Actor.
+
+\item akka::actor::Actor.
+
 \end{itemize}
 
 \subparagraph{Interazioni con altre classi}
 
 \begin{itemize}
-\item actorbase::model::system::actors::Persistence.
+\item \hyperref[sec:actorbase::actorsystem::serialization::SerializationContext]{actorbase::actorsystem::serialization::SerializationContext};
+\item \hyperref[sec:actorbase::actorsystem::serialization::DeserializationContext]{actorbase::actorsystem::serialization::DeserializationContext};
+\item akka::actor::ActorRef.
 \end{itemize}
 
-\paragraph{actorbase::model::system::actors::Persistence}
+\subsection{actorbase::actorsystem::warehouseman::messages}
+\label{sec:actorbase::actorsystem::warehouseman::messages}
+
+\subsubsection{Descrizione}
+
+\gloss{Package} che racchiude tutti i messaggi che gli attori di tipo
+\gloss{Warehouseman} possono ricevere.
+
+\paragraph{actorbase::actorsystem::warehouseman::messages::Init}
+\label{sec:actorbase::actorsystem::warehouseman::messages::Init}
 
 \subparagraph{Descrizione}
 
-Interfaccia che consente il salvataggio su filesystem.
+Messaggio che porta alla lettura dei dati da disco.
 
 \subparagraph{Utilizzo}
 
-Viene utilizzata per offrire un'interfaccia per il salvataggio su filesystem.
+Quando \hyperref[sec:actorbase::actorsystem::warehouseman::Warehouseman]{actorbase::actorsystem::warehouseman::Warehouseman}
+riceve questo messaggio inizializza uno \hyperref[sec:actorbase::actorsystem::storekeeper::StoreKeeper]{actorbase::actorsystem::storekeeper::StoreKeeper}
+con i dati letti da disco.
 
-\subparagraph{Interazioni con altre classi}
-
-\begin{itemize}
-\item actorbase::model::system::actors::Warehouseman.
-\end{itemize}
-
-\paragraph{actorbase::model::system::actors::BSONPersistence}
+\paragraph{actorbase::actorsystem::warehouseman::messages::Save}
+\label{sec:actorbase::actorsystem::warehouseman::messages::Save}
 
 \subparagraph{Descrizione}
 
-Classe che consente di salvare su filesystem in formato \gloss{BSON}.
+Messaggio che porta al salvataggio dei dati su disco.
 
 \subparagraph{Utilizzo}
 
-Viene utilizzata per effettuare il salvataggio su filesystem in formato
-\gloss{BSON} del \gloss{database}.
+Quando \hyperref[sec:actorbase::actorsystem::warehouseman::Warehouseman]{actorbase::actorsystem::warehouseman::Warehouseman}
+riceve questo messaggio salverà i dati su disco sfruttando
+\hyperref[sec:actorbase::actorsystem::serialization::SerializationContext]{actorbase::actorsystem::serialization::SerializationContext}.
 
-\subparagraph{Classi ereditate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%               DA QUI A DRIVER DA RIFARE/RIVEDERE              %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{itemize}
-\item actorbase::model::system::actors::Persistence.
-\end{itemize}
 
 \paragraph{actorbase::model::system::actors::Storefinder}
 
