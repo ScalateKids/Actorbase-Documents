@@ -875,6 +875,77 @@ serializzazione in formato \gloss{RESP}.
 
 \end{itemize}
 
+\paragraph{actorbase::driver::serializer::DeserializationContext}
+\label{sec:actorbase::driver::serializer::DeserializationContext}
+
+\subparagraph{Descrizione}
+
+Classe che offre dei metodi per la scelta su quale tipo di \gloss{deserializzazione}
+effettuare.
+
+\subparagraph{Utilizzo}
+
+Questa classe viene utilizzata da \hyperref[sec:actorbase::driver::client::Connection]{actorbase::driver::client::Connection}
+per \gloss{deserializzare} i dati scegliendo una tra le strategie indicate
+dalle classi che estendono \hyperref[sec:actorbase::driver::serializer::DeserializationStrategy]{actorbase::driver::serializer::DeserializationStrategy}.
+
+\subparagraph{Interazioni con altre classi}
+
+\begin{itemize}
+
+\item \hyperref[sec:actorbase::driver::serializer::DeserializationStrategy]{actorbase::driver::serializer::DeserializationStrategy}.
+
+\end{itemize}
+
+\paragraph{actorbase::driver::serializer::DeserializationStrategy}
+\label{sec:actorbase::driver::serializer::DeserializationStrategy}
+
+\subparagraph{Descrizione}
+
+Interfaccia che offre una strategia generale per \gloss{deserializzare} i dati.
+
+\subparagraph{Utilizzo}
+
+Questa interfaccia viene utilizzata per l'applicazione del \gloss{design pattern}
+\gloss{strategy}. Offre un metodo generalizzato per la
+\gloss{deserializzazione} di dati che verrà poi implementato dalle classi che
+implementeranno questa interfaccia.
+
+\subparagraph{Interazioni con altre classi}
+
+\begin{itemize}
+
+\item \hyperref[sec:actorbase::driver::serializer::DeserializationContext]{actorbase::driver::serializer::DeserializationContext}.
+
+\end{itemize}
+
+\paragraph{actorbase::driver::serializer::RESPDeserialize}
+
+\subparagraph{Descrizione}
+
+Classe che si occupa di deserializzare i dati da stringhe in formato \gloss{RESP}.
+
+\subparagraph{Utilizzo}
+
+Questa classe viene utilizzata per l'implementazione di una strategia di
+\gloss{deserializzazione} dal formato \gloss{RESP}.
+
+\subparagraph{Classi ereditate}
+
+\begin{itemize}
+
+\item \hyperref[sec:actorbase::driver::serializer::DeserializationStrategy]{actorbase::driver::serializer::DeserializationStrategy}.
+
+\end{itemize}
+
+\subparagraph{Interazioni con altre classi}
+
+\begin{itemize}
+
+\item \hyperref[sec:actorbase::driver::actorbasedata::RESPArrayString]{actorbase::driver::actorbasedata::RESPArrayString}.
+
+\end{itemize}
+
 \subsection{actorbase::driver::actorbasedata}
 \label{sec:actorbase::driver::actorbasedata}
 
