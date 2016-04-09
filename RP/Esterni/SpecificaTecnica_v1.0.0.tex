@@ -428,7 +428,7 @@ al \gloss{driver}.
 Quando \hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{actorbase::actorsystem::clientactor::ClientActor}
 riceve questo messaggio il contenuto di quest'ultimo viene serializzato tramite
 \hyperref[sec:actorbase::actorsystem::serialization::DeserializationContext]{actorbase::actorsystem::serialization::DeserializationContext}
-e mandato a \hyperref[sec:actorbase::driver::client::Connection]{actorbase::driver::client::Connection}.
+e mandato a \hyperref[sec:actorbase::driver::client::Connection]{actorbase::driver::\allowbreak{}client::\allowbreak{}Connection}.
 
 \subsection{actorbase::actorsystem::tcpactor}
 \label{sec:actorbase::actorsystem::tcpactor}
@@ -776,12 +776,12 @@ Classe per la connessione tra il \gloss{driver} e il \gloss{server}.
 \subparagraph{Utilizzo}
 
 Questa classe si incarica della connessione e comunicazione con il \gloss{server}. Una volta
-connesso alla componente \hyperref[sec:actorbase::actorsystem::tcpserver::TCPServer]{actorbase::actorsystem::tcpserver::TCPServer}
-le verrà assegnato un oggetto di tipo \hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{actorbase::actorsystem::clientactor::ClientActor}.\\
+connesso alla componente \hyperref[sec:actorbase::actorsystem::tcpserver::TCPServer]{actorbase::actorsystem::\allowbreak{}tcpserver::\allowbreak{}TCPServer}
+le verrà assegnato un oggetto di tipo \hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{actorbase::\allowbreak{}actorsystem::\allowbreak{}clientactor::\allowbreak{}ClientActor}.\\
 Questa classe inoltre chiamerà le componenti necessarie per la serializzazione e deserializzazione
-delle stringhe ricevute dal \gloss{server} o da \hyperref[sec:actorbase::driver::client::CommandRunner]{actorbase::driver::client::CommandRunner},
-ossia \hyperref[sec:actorbase::driver::serializer::SerializationContext]{actorbase::driver::serializer::SerializationContext}
-e \hyperref[sec:actorbase::driver::serializer::Deserializationtext]{actorbase::driver::serializer::DeserializationContext}.
+delle stringhe ricevute dal \gloss{server} o da \hyperref[sec:actorbase::driver::client::CommandRunner]{actorbase::\allowbreak{}driver::\allowbreak{}client::\allowbreak{}CommandRunner},
+ossia \hyperref[sec:actorbase::driver::serializer::SerializationContext]{actorbase::\allowbreak{}driver::\allowbreak{}serializer::\allowbreak{}SerializationContext}
+e \hyperref[sec:actorbase::driver::serializer::Deserializationtext]{actorbase::\allowbreak{}driver::\allowbreak{}serializer::\allowbreak{}DeserializationContext}.
 
 \subparagraph{Interazioni con altre classi}
 \begin{itemize}
@@ -829,18 +829,51 @@ dalle classi che estendono \hyperref[sec:actorbase::driver::serializer::Serializ
 
 \begin{itemize}
 
-\item \hyperref[sec:actorbase::driver::client::connection]{actorbase::driver::client::Connection};
+\item \hyperref[sec:actorbase::driver::client::Connection]{actorbase::driver::client::Connection};
 \item \hyperref[sec:actorbase::driver::serializer::SerializationStrategy]{actorbase::driver::serializer::SerializationStrategy}.
 
 \end{itemize}
 
+\paragraph{actorbase::driver::serializer::SerializationStrategy}
+\label{sec:actorbase::driver::serializer::SerializationStrategy}
 
+\subparagraph{Descrizione}
 
+Interfaccia che offre una strategia generale per \gloss{serializzare} i dati.
 
+\subparagraph{Utilizzo}
 
+Questa interfaccia viene utilizzata per l'applicazione del \gloss{design pattern}
+\gloss{strategy}. Offre un metodo generalizzato per la
+\gloss{serializzazione} di dati che verrà poi implementato dalle classi che
+implementeranno questa interfaccia.
 
+\subparagraph{Interazioni con altre classi}
 
+\begin{itemize}
 
+\item \hyperref[sec:actorbase::driver::serializer::SerializationContext]{actorbase::driver::serializer::SerializationContext}.
+
+\end{itemize}
+
+\paragraph{actorbase::driver::serializer::RESPSerialize}
+
+\subparagraph{Descrizione}
+
+Classe che si occupa di serializzare i dati in stringhe di formato \gloss{RESP}.
+
+\subparagraph{Utilizzo}
+
+Questa classe viene utilizzata per l'implementazione di una strategia di
+serializzazione in formato \gloss{RESP}.
+
+\subparagraph{Classi ereditate}
+
+\begin{itemize}
+
+\item \hyperref[sec:actorbase::driver::serializer::SerializationStrategy]{actorbase::driver::serializer::SerializationStrategy}.
+
+\end{itemize}
 
 \subsection{actorbase::driver::actorbasedata}
 \label{sec:actorbase::driver::actorbasedata}
