@@ -277,7 +277,7 @@ rappresentano il \gloss{server}.
 \subsubsection{Package contenuti}
 
 \begin{itemize}
-\item \hyperref[sec:actorbase::actorsystem::actorclient]{actorbase::actorsystem::actorclient};
+\item \hyperref[sec:actorbase::actorsystem::actorclient]{actorbase::actorsystem::clientactor};
 \item \hyperref[sec:actorbase::actorsystem::actorclient]{actorbase::actorsystem::tcpserver};
 \item \hyperref[sec:actorbase::actorsystem::actorclient]{actorbase::actorsystem::storefinder};
 \item \hyperref[sec:actorbase::actorsystem::actorclient]{actorbase::actorsystem::storekeeper};
@@ -321,7 +321,7 @@ la connessione.
 \subparagraph{Utilizzo}
 
 Questo attore riceve le richieste da \hyperref[sec:actorbase::driver::client::Connection]{actorbase::driver::client::Connection}
-e si occupa di inviare messaggi a \hyperref[sec:actorbase::actorsystem::main::Main].
+e si occupa di inviare messaggi a \hyperref[sec:actorbase::actorsystem::main::Main]{actorbase::actorsystem::main::Main}.
 
 \subparagraph{Interazioni con altre classi}
 
@@ -342,8 +342,8 @@ e si occupa di inviare messaggi a \hyperref[sec:actorbase::actorsystem::main::Ma
 
 \subsubsection{Classi}
 
-\paragraph{actorbase::actorsystem::messages::LoginResponse}
-\label{sec:actorbase::actorsystem::messages::LoginResponse}
+\paragraph{actorbase::actorsystem::clientactor::messages::LoginResponse}
+\label{sec:actorbase::actorsystem::clientactor::messages::LoginResponse}
 
 \subparagraph{Descrizione}
 
@@ -352,12 +352,12 @@ Messaggio che contiene la password di un utente che ha richiesto il login.
 \subparagraph{Utilizzo}
 
 In seguito alla ricezione di questo messaggio l'attore di tipo
-\hyperref[sec:actorbase::actorsystem::actorclient::ActorClient]{actorbase::actorsystem::actorclient::ActorClient}
+\hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{actorbase::actorsystem::clientactor::ClientActor}
 controlla che la password ricevuta sia uguale a quella immessa
 dall'utente e, in caso affermativo, cambia il proprio stato.
 
-\paragraph{actorbase::actorsystem::messages::PeerClosed}
-\label{sec:actorbase::actorsystem::messages::PeerClosed}
+\paragraph{actorbase::actorsystem::clientactor::messages::PeerClosed}
+\label{sec:actorbase::actorsystem::clientactor::messages::PeerClosed}
 
 \subparagraph{Descrizione}
 
@@ -369,8 +369,8 @@ In seguito alla ricezione di questo messaggio l'attore di tipo
 \hyperref[sec:actorbase::actorsystem::actorclient::ActorClient]{actorbase::actorsystem::actorclient::ActorClient}
 chiude la connessione con il \gloss{driver} e termina.
 
-\paragraph{actorbase::actorsystem::messages::RESPInput}
-\label{sec:actorbase::actorsystem::messages::RESPInput}
+\paragraph{actorbase::actorsystem::clientactor::messages::RESPInput}
+\label{sec:actorbase::actorsystem::clientactor::messages::RESPInput}
 
 \subparagraph{Descrizione}
 
@@ -379,11 +379,144 @@ Messaggio che rappresenta l'input ricevuto dal \gloss{driver}.
 \subparagraph{Utilizzo}
 
 In seguito alla ricezione di questo messaggio l'attore di tipo
-\hyperref[sec:actorbase::actorsystem::actorclient::ActorClient]{actorbase::actorsystem::actorclient::ActorClient}
+\hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{actorbase::actorsystem::clientactor::ClientActor}
 deserializza il messaggio sfruttando la componente
 \hyperref[sec:actorbase::actorsystem::serialization::DeserializationContext]{actorbase::actorsystem::serialization::DeserializationContext}.
 Dopo aver fatto ciò crea il messaggio corrispondente al tipo di richiesta che gli era arrivato
 e lo manda all'attore \hyperref[sec:actorbase::actorsystem::main::Main]{actorbase::actorsystem::main::Main}.
+
+\paragraph{actorbase::actorsystem::clientactor::messages::UpdateReadCollections}
+\label{sec:actorbase::actorsystem::clientactor::messages::UpdateReadCollections}
+
+\subparagraph{Descrizione}
+
+Messaggio che indica la necessità di aggiornare l'insieme delle
+\gloss{collezioni} cui l'utente ha permessi di sola lettura.
+
+\subparagraph{Utilizzo}
+
+Quando \hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{actorbase::actorsystem::clientactor::ClientActor}
+riceve questo messaggio aggiorna la sua lista di \gloss{collezioni}
+cui l'utente ha permessi di sola lettura aggiungendo la
+\gloss{collezione} presente nel messaggio.
+
+\paragraph{actorbase::actorsystem::clientactor::messages::UpdateCollections}
+\label{sec:actorbase::actorsystem::clientactor::messages::UpdateCollections}
+
+\subparagraph{Descrizione}
+
+Messaggio che indica la necessità di aggiornare l'insieme delle
+\gloss{collezioni} cui l'utente ha permessi di lettura e scrittura.
+
+\subparagraph{Utilizzo}
+
+Quando \hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{actorbase::actorsystem::clientactor::ClientActor}
+riceve questo messaggio aggiorna la sua lista di \gloss{collezioni}
+cui l'utente ha permessi di lettura e scrittura aggiungendo
+la \gloss{collezione} presente nel messaggio.
+
+\paragraph{actorbase::actorsystem::clientactor::messages::Response}
+\label{sec:actorbase::actorsystem::clientactor::messages::Response}
+
+\subparagraph{Descrizione}
+
+Messaggio che rappresenta la risposta da parte del \gloss{server} da inoltrare
+al \gloss{driver}.
+
+\subparagraph{Utilizzo}
+
+Quando \hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{actorbase::actorsystem::clientactor::ClientActor}
+riceve questo messaggio il contenuto di quest'ultimo viene serializzato tramite
+\hyperref[sec:actorbase::actorsystem::serialization::DeserializationContext]{actorbase::actorsystem::serialization::DeserializationContext}
+e mandato a \hyperref[sec:actorbase::driver::client::Connection]{actorbase::driver::client::Connection}.
+
+\subsection{actorbase::actorsystem::tcpactor}
+\label{sec:actorbase::actorsystem::tcpactor}
+
+\subsubsection{Descrizione}
+
+\gloss{Package} per l'attore con cui si interfaccerà il \gloss{driver} per la connessione iniziale.
+
+\subsubsection{Package contenuti}
+
+\begin{itemize}
+\item \hyperref[sec:actorbase::actorsystem::tcpserver::messages]{actorbase::actorsystem::tcpserver::messages}.
+\end{itemize}
+
+\subsubsection{Classi}
+
+\paragraph{actorbase::actorsystem::tcpserver::TCPServer}
+\label{sec:actorbase::actorsystem::tcpserver::TCPServer}
+
+\subparagraph{Descrizione}
+
+Classe che rappresenta l'attore con cui si interfaccia il \gloss{driver} per
+istanziare la connessione.
+
+\subparagraph{Utilizzo}
+
+Questo attore riceve la richiesta di connessione da
+\hyperref[sec:actorbase::driver::client::Connection]{actorbase::driver::client::Connection}
+e si occupa di associare al \gloss{client} un attore di tipo
+\hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{actorbase::actorsystem::clientactor::ClientActor}
+per continuare le comunicazioni.
+
+\subparagraph{Interazioni con altre classi}
+
+\begin{itemize}
+\item akka::actor::Actor.
+\end{itemize}
+
+\subsection{actorbase::actorsystem::tcpserver::messages}
+\label{sec:actorbase::actorsystem::tcpserver::messages}
+
+\subsubsection{Descrizione}
+
+\gloss{Package} che contiene tutti i messaggi che possono essere ricevuti da
+\hyperref[sec:actorbase::actorsystem::tcpserver::TCPServer]{actorbase::actorsystem::tcpserver::TCPServer}.
+
+\subsubsection{Classi}
+
+\paragraph{actorbase::actorsystem::tcpserver::messages::Bound}
+\label{sec:actorbase::actorsystem::tcpserver::messages::Bound}
+
+\subparagraph{Descrizione}
+
+Messaggio che rappresenta la necessità di mettere il \gloss{server} in ascolto.
+
+\subparagraph{Utilizzo}
+
+Quando \hyperref[sec:actorbase::actorsystem::tcpserver::TCPServer]{actorbase::actorsystem::tcpserver::TCPServer}
+riceve questo messaggio si mette in ascolto su una porta del \gloss{server}.
+
+\paragraph{actorbase::actorsystem::tcpserver::messages::CommandFailed}
+\label{sec:actorbase::actorsystem::tcpserver::messages::CommandFailed}
+
+\subparagraph{Descrizione}
+
+Messaggio che rappresenta un errore nella comunicazione \gloss{TCP}.
+
+\subparagraph{Utilizzo}
+
+Quando \hyperref[sec:actorbase::actorsystem::tcpserver::TCPServer]{actorbase::actorsystem::tcpserver::TCPServer}
+riceve questo messaggio manderà una notifica a
+\hyperref[sec:actorbase::driver::client::Connection]{actorbase::driver::client::Connection}.
+
+\paragraph{actorbase::actorsystem::tcpserver::messages::Connected}
+\label{sec:actorbase::actorsystem::tcpserver::messages::Connected}
+
+\subparagraph{Descrizione}
+
+Messaggio che rappresenta una connessione \gloss{TCP} riuscita.
+
+\subparagraph{Utilizzo}
+
+Quando \hyperref[sec:actorbase::actorsystem::tcpserver::TCPServer]{actorbase::actorsystem::tcpserver::TCPServer}
+riceve questo messaggio associa al \gloss{client} un attore di tipo
+\hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{actorbase::actorsystem::clientactor::ClientActor}.
+
+\subsection{actorbase::actorsystem::serialization}
+\label{sec:actorbase::actorsystem::serialization}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %               DA QUI A DRIVER DA RIFARE/RIVEDERE              %
@@ -565,7 +698,8 @@ degli attori di tipo \gloss{Storekeeper}.
 \begin{itemize}
 \item \hyperref[sec:actorbase::driver::client]{actorbase::driver::client};
 \item \hyperref[sec:actorbase::driver::serializer]{actorbase::driver::serializer};
-\item \hyperref[sec:actorbase::driver::actorbasedata]{actorbase::driver::actorbasedata}.
+\item \hyperref[sec:actorbase::driver::actorbasedata]{actorbase::driver::actorbasedata};
+\item \hyperref[sec:actorbase::driver::exceptions]{actorbase::driver::exceptions}.
 \end{itemize}
 
 \subsection{actorbase::driver::client}
@@ -657,6 +791,39 @@ e \hyperref[sec:actorbase::driver::client::Deserializationtext]{actorbase::drive
 \item \hyperref[sec:actorbase::actorsystem::tcpserver::TCPServer]{actorbase::actorsystem::tcpserver::TCPServer};
 \item \hyperref[sec:actorbase::actorbase::actorsystem::clientactor::ClientActor]{actorbase::actorsystem::clientactor::ClientActor}.
 \end{itemize}
+
+\subsection
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 \subsection{actorbase::driver::actorbasedata}
 \label{sec:actorbase::driver::actorbasedata}
@@ -926,13 +1093,13 @@ risposte ottenute dal \gloss{server} che comprendano messaggi di errore.
 
 
 \subsection{actorbase::driver::exceptions}
-\label{sec:actorbase::driver::eceptions}
+\label{sec:actorbase::driver::exceptions}
 
 \subsubsection{Descrizione}
 
 \gloss{Package} che contiene le possibili eccezioni che si possono verificare nel \gloss{driver}
 
-\subsubsection{Interazione con altre conponenti}
+\subsubsection{Interazione con altre componenti}
 \begin{itemize}
 \item \hyperref[sec:actorbase::driver::client]{actorbase::driver::client};
 \end{itemize}
