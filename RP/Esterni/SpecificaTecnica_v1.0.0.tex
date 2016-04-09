@@ -806,8 +806,182 @@ Quando \hyperref[sec:actorbase::actorsystem::warehouseman::Warehouseman]{actorba
 riceve questo messaggio salverà i dati su disco sfruttando
 \hyperref[sec:actorbase::actorsystem::serialization::SerializationContext]{actorbase::actorsystem::serialization::SerializationContext}.
 
+\subsection{actorbase::actorsystem::main}
+\label{sec:actorbase::actorsystem::main}
+
+\subsubsection{Descrizione}
+
+\gloss{Package} che rappresenta l'attore che si occuperà di gestire le
+richieste al \gloss{server}.
+
+\subsubsection{Package contenuti}
+
+\begin{itemize}
+
+\item \hyperref[sec:actorbase::actorsystem::main::messages]{actorbase::actorsystem::main::messages}.
+
+\end{itemize}
+
+\subsubsection{Classi}
+
+\paragraph{actorbase::actorsystem::main::Main}
+\label{sec:actorbase::actorsystem::main::Main}
+
+\subparagraph{Descrizione}
+
+Classe che rappresenta un \gloss{attore} di tipo \gloss{Main}.
+
+\subparagraph{Utilizzo}
+
+Questa classe viene utilizzata per gestire le richieste ricevute al
+\gloss{server}.
+
+\subparagraph{Classi ereditate}
+
+\begin{itemize}
+
+\item akka::actor::Actor.
+
+\end{itemize}
+
+\subparagraph{Interazioni con altre classi}
+
+\begin{itemize}
+\item akka::actor::ActorRef.
+\end{itemize}
+
+\subsection{actorbase::actorsystem::main::messages}
+\label{sec:actorbase::actorsystem::main::messages}
+
+\subsubsection{Descrizione}
+
+\gloss{Package} che racchiude tutti i messaggi che gli attori di tipo
+\gloss{Warehouseman} possono ricevere.
+
+\subsubsection{Package importati}
+
+\begin{itemize}
+\item \hyperref[sec:actorbase::actorsystem::storefinder::messages]{actorbase::actorsystem::storefinder::messages}
+\end{itemize}
+
+\paragraph{actorbase::actorsystem::main::messages::CreateCollection}
+\label{sec:actorbase::actorsystem::main::messages::CreateCollection}
+
+\subparagraph{Descrizione}
+
+Messaggio che porta alla creazione di una \gloss{collezione}.
+
+\subparagraph{Utilizzo}
+
+Quando \hyperref[sec:actorbase::actorsystem::main::Main]{actorbase::actorsystem::main::Main}
+riceve questo messaggio inizializza uno \hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{actorbase::actorsystem::\allowbreak{}storefinder::\allowbreak{}Storefinder}.
+
+\paragraph{actorbase::actorsystem::main::messages::GetCollection}
+\label{sec:actorbase::actorsystem::main::messages::GetCollection}
+
+\subparagraph{Descrizione}
+
+Messaggio che indica una richiesta di una \gloss{collezione}.
+
+\subparagraph{Utilizzo}
+
+Quando \hyperref[sec:actorbase::actorsystem::main::Main]{actorbase::actorsystem::main::Main}
+riceve questo messaggio cercherà l'attore di tipo
+\hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{actorbase::actorsystem::\allowbreak{}storefinder::\allowbreak{}Storefinder}
+corrispondente alla \gloss{collezione} cercata.
+
+\paragraph{actorbase::actorsystem::main::messages::RemoveCollection}
+\label{sec:actorbase::actorsystem::main::messages::RemoveCollection}
+
+\subparagraph{Descrizione}
+
+Messaggio che indica una richiesta di rimozione di una \gloss{collezione}.
+
+\subparagraph{Utilizzo}
+
+Quando \hyperref[sec:actorbase::actorsystem::main::Main]{actorbase::actorsystem::main::Main}
+riceve questo messaggio cercherà l'attore di tipo
+\hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{actorbase::actorsystem::\allowbreak{}storefinder::\allowbreak{}Storefinder}
+corrispondente alla \gloss{collezione} cercata e ne avvierà
+la procedura di rimozione dal \gloss{database}.
+
+\paragraph{actorbase::actorsystem::main::messages::GetItemFrom}
+\label{sec:actorbase::actorsystem::main::messages::GetItemFrom}
+
+\subparagraph{Descrizione}
+
+Messaggio che indica una richiesta di ricerca di un \gloss{item} da una o più \gloss{collezione}.
+
+\subparagraph{Utilizzo}
+
+Quando \hyperref[sec:actorbase::actorsystem::main::Main]{actorbase::actorsystem::main::Main}
+riceve questo messaggio cercherà gli attori di tipo
+\hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{actorbase::actorsystem::\allowbreak{}storefinder::\allowbreak{}Storefinder}
+corrispondenti alle \gloss{collezioni} su cui effettuare la ricerca
+e inoltrerà a loro la richiesta dell'\gloss{item} con la chiave da cercare.
+
+\paragraph{actorbase::actorsystem::main::messages::AddContributor}
+\label{sec:actorbase::actorsystem::main::messages::AddContributor}
+
+\subparagraph{Descrizione}
+
+Messaggio che indica una richiesta di aggiunta di un collaboratore ad una
+\gloss{collezione}.
+
+\subparagraph{Utilizzo}
+
+Quando \hyperref[sec:actorbase::actorsystem::main::Main]{actorbase::actorsystem::main::Main}
+riceve questo messaggio cercherà gli attori di tipo
+\hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{actorbase::actorsystem::\allowbreak{}storefinder::\allowbreak{}Storefinder}
+che mappano gli attori di tipo \hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{actorbase::actorsystem::\allowbreak{}userkeeper::\allowbreak{}Userkeeper}.
+e inoltrerà loro la richiesta di aggiunta del collaboratore.
+
+\paragraph{actorbase::actorsystem::main::messages::DuplicateRequestSF}
+\label{sec:actorbase::actorsystem::main::messages::DuplicateRequestSF}
+
+\subparagraph{Descrizione}
+
+Messaggio che indica una richiesta di sdoppiamento di uno \gloss{Storefinder}.
+
+\subparagraph{Utilizzo}
+
+Quando \hyperref[sec:actorbase::actorsystem::main::Main]{actorbase::actorsystem::main::Main}
+riceve questo messaggio provvederà a sdoppiare l'attore di tipo
+\hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{actorbase::actorsystem::\allowbreak{}storefinder::\allowbreak{}Storefinder}.
+
+\paragraph{actorbase::actorsystem::main::messages::RemoveContributor}
+\label{sec:actorbase::actorsystem::main::messages::RemoveContributor}
+
+\subparagraph{Descrizione}
+
+Messaggio che indica una richiesta di rimozione di un collaboratore ad una
+\gloss{collezione}.
+
+\subparagraph{Utilizzo}
+
+Quando \hyperref[sec:actorbase::actorsystem::main::Main]{actorbase::actorsystem::main::Main}
+riceve questo messaggio cercherà gli attori di tipo
+\hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{actorbase::actorsystem::\allowbreak{}storefinder::\allowbreak{}Storefinder}
+che mappano gli attori di tipo \hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{actorbase::actorsystem::\allowbreak{}userkeeper::\allowbreak{}Userkeeper}
+e inoltrerà loro la richiesta di rimozione del collaboratore.
+
+\paragraph{actorbase::actorsystem::main::messages::InitUserkeeper}
+\label{sec:actorbase::actorsystem::main::messages::InitUserkeeper}
+
+\subparagraph{Descrizione}
+
+Messaggio che indica una richiesta di creazione di uno \gloss{Userkeeper}.
+
+\subparagraph{Utilizzo}
+
+Quando \hyperref[sec:actorbase::actorsystem::main::Main]{actorbase::actorsystem::main::Main}
+riceve questo messaggio provvederà a inoltrare agli attori di tipo
+\hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{actorbase::actorsystem::\allowbreak{}storefinder::\allowbreak{}Storefinder}
+che mappano gli attori di tipo \hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{actorbase::actorsystem::\allowbreak{}userkeeper::\allowbreak{}Userkeeper}
+la creazione di un attore di questo tipo.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%               DA QUI A DRIVER DA RIFARE/RIVEDERE              %
+%                  DA QUI A DRIVER DA CANCELLARE                %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
