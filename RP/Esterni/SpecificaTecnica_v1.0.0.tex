@@ -116,9 +116,11 @@ componentiche andranno a comporre il software.
     A:}\\   \url{http://www.math.unipd.it/~tullio/IS-1/2015/}
 \item\textbf{Documentazione di \gloss{Akka} su \gloss{Scala}:}
   \url{http://doc.akka.io/docs/akka/2.4.2/scala.html}
-\item\textbf{Scala Pickling - Fast, Customizable, Boilerplate-Free Serialization for Scala:}
+\item\textbf{SBT\ -\ Scala build tool:}
+  \url{http://www.scala-sbt.org/index.html}
+\item\textbf{Scala Pickling\ -\ Fast, Customizable, Boilerplate-Free Serialization for Scala:}
   \url{http://lampwww.epfl.ch/~hmiller/pickling}
-\item\textbf{RESP - Redis Protocol Specification:}
+\item\textbf{RESP\ -\ Redis Protocol Specification:}
   \url{http://redis.io/topics/protocol}
 \end{itemize}
 
@@ -165,6 +167,19 @@ motivi:
 \item\textbf{Implementazione di DSL:} Scala si presta alla creazione di \gloss{DSL}
   in maniera nativa, sia di tipo esterno che di tipo interno, senza necessariamente
   utilizzare librerie esterne o appoggiarsi a framework appositi.
+\end{itemize}
+
+\subsection{sbt}
+
+Sbt è un ambiente di \gloss{build} simile alla controparte Java \gloss{Maven} o
+\gloss{Ant}. Fornito di \gloss{console} e strumenti di compilazione ed
+esecuzione per progetti Scala, è stato scelto per i seguenti vantaggi:
+\begin{itemize}
+\item Semplice configurazione mediante file;
+\item \gloss{REPL} Scala integrata;
+\item Facilmente integrabile all'interno di \gloss{IDE} e editor;
+\item Gestione semplificata delle dipendenze;
+\item Gestione semplificata del processo di \gloss{build}.
 \end{itemize}
 
 \section{Descrizione architettura}
