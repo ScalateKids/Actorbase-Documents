@@ -777,16 +777,16 @@ Classe per la connessione tra il \gloss{driver} e il \gloss{server}.
 
 Questa classe si incarica della connessione e comunicazione con il \gloss{server}. Una volta
 connesso alla componente \hyperref[sec:actorbase::actorsystem::tcpserver::TCPServer]{actorbase::actorsystem::tcpserver::TCPServer}
-le verrà assegnato un oggetto di tipo \hyperref[sec:actorbase::actorbase::actorsystem::clientactor::ClientActor]{actorbase::actorsystem::clientactor::ClientActor}.\\
+le verrà assegnato un oggetto di tipo \hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{actorbase::actorsystem::clientactor::ClientActor}.\\
 Questa classe inoltre chiamerà le componenti necessarie per la serializzazione e deserializzazione
 delle stringhe ricevute dal \gloss{server} o da \hyperref[sec:actorbase::driver::client::CommandRunner]{actorbase::driver::client::CommandRunner},
-ossia \hyperref[sec:actorbase::driver::client::SerializationContext]{actorbase::driver::client::SerializationContext}
-e \hyperref[sec:actorbase::driver::client::Deserializationtext]{actorbase::driver::client::DeserializationContext}.
+ossia \hyperref[sec:actorbase::driver::serializer::SerializationContext]{actorbase::driver::serializer::SerializationContext}
+e \hyperref[sec:actorbase::driver::serializer::Deserializationtext]{actorbase::driver::serializer::DeserializationContext}.
 
 \subparagraph{Interazioni con altre classi}
 \begin{itemize}
-\item \hyperref[sec:actorbase::driver::client::SerializationContext]{actorbase::driver::client::SerializationContext};
-\item \hyperref[sec:actorbase::driver::client::Deserializationtext]{actorbase::driver::client::DeserializationContext};
+\item \hyperref[sec:actorbase::driver::serializer::SerializationContext]{actorbase::driver::serializer::SerializationContext};
+\item \hyperref[sec:actorbase::driver::serializer::Deserializationtext]{actorbase::driver::serializer::DeserializationContext};
 \item \hyperref[sec:actorbase::driver::client::CommandRunner]{actorbase::driver::client::CommandRunner};
 \item \hyperref[sec:actorbase::actorsystem::tcpserver::TCPServer]{actorbase::actorsystem::tcpserver::TCPServer};
 \item \hyperref[sec:actorbase::actorbase::actorsystem::clientactor::ClientActor]{actorbase::actorsystem::clientactor::ClientActor}.
@@ -809,19 +809,30 @@ i messaggi mandati o ricevuti dal \gloss{server}.
 
 \end{itemize}
 
+\subsubsection{Classi}
 
+\paragraph{actorbase::driver::serializer::SerializationContext}
+\label{sec:actorbase::driver::serializer::SerializationContext}
 
+\subparagraph{Descrizione}
 
+Classe che offre dei metodi per la scelta su quale tipo di \gloss{serializzazione}
+effettuare.
 
+\subparagraph{Utilizzo}
 
+Questa classe viene utilizzata da \hyperref[sec:actorbase::driver::client::Connection]{actorbase::driver::client::Connection}
+per \gloss{serializzare} i dati scegliendo una tra le strategie indicate
+dalle classi che estendono \hyperref[sec:actorbase::driver::serializer::SerializationStrategy]{actorbase::driver::serializer::SerializationStrategy}.
 
+\subparagraph{Interazioni con altre classi}
 
+\begin{itemize}
 
+\item \hyperref[sec:actorbase::driver::client::connection]{actorbase::driver::client::Connection};
+\item \hyperref[sec:actorbase::driver::serializer::SerializationStrategy]{actorbase::driver::serializer::SerializationStrategy}.
 
-
-
-
-
+\end{itemize}
 
 
 
