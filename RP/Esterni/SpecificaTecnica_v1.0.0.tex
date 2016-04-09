@@ -116,6 +116,10 @@ componentiche andranno a comporre il software.
     A:}\\   \url{http://www.math.unipd.it/~tullio/IS-1/2015/}
 \item\textbf{Documentazione di \gloss{Akka} su \gloss{Scala}:}
   \url{http://doc.akka.io/docs/akka/2.4.2/scala.html}
+\item\textbf{Scala Pickling - Fast, Customizable, Boilerplate-Free Serialization for Scala:}
+  \url{http://lampwww.epfl.ch/~hmiller/pickling}
+\item\textbf{RESP - Redis Protocol Specification:}
+  \url{http://redis.io/topics/protocol}
 \end{itemize}
 
 \newpage
@@ -2565,11 +2569,11 @@ serializzazione personalizzati.
 		\item View: rappresentazione grafica sotto forma delle varie tipologie di output utilizzate per rappresentare i dati dell'applicazione;
 		\item Controller: parte che accetta gli input e li converte in comandi per il model o la view;
 	\end{itemize}
-	 \item \textbf{Motivazione:} Molte applicazioni hanno la necessità di recuperare dati e di mostrarli in maniera opportuna agli utenti. Poiché si tratta di una comunicazione tra i dati dei dati e la interfaccia utente, bisogna trovare il metodo per far comunicare le due parti senza accorparle assieme, cosa che comporterebbe codice pesante e scarsa manutenibilità, in quanto in genere la parte grafica si evolve più in fretta della parte di model e, viceversa, bisogna rendere l'interfaccia che si offre all'utente quanto più separata possibile dall'implementazione effettiva della gestione dei dati. La soluzione che è stata trovata è costituita dal \gloss{design pattern} Model-View-Controller (MVC) che separa le tre componenti come già illustrato; 
-	 \item \textbf{Applicabilità:} Il pattern MVC è adatto ad essere utilizzato nei seguenti casi: 
-	 \begin{itemize} 
+	 \item \textbf{Motivazione:} Molte applicazioni hanno la necessità di recuperare dati e di mostrarli in maniera opportuna agli utenti. Poiché si tratta di una comunicazione tra i dati dei dati e la interfaccia utente, bisogna trovare il metodo per far comunicare le due parti senza accorparle assieme, cosa che comporterebbe codice pesante e scarsa manutenibilità, in quanto in genere la parte grafica si evolve più in fretta della parte di model e, viceversa, bisogna rendere l'interfaccia che si offre all'utente quanto più separata possibile dall'implementazione effettiva della gestione dei dati. La soluzione che è stata trovata è costituita dal \gloss{design pattern} Model-View-Controller (MVC) che separa le tre componenti come già illustrato;
+	 \item \textbf{Applicabilità:} Il pattern MVC è adatto ad essere utilizzato nei seguenti casi:
+	 \begin{itemize}
 	 	\item se c'è la necessità che un insieme di oggetti debba essere considerato come un oggetto singolo;
-	 	\item se c'è la necessità di disaccoppiare il model e la view, creando un sistema di notifiche tra le due componenti; 
+	 	\item se c'è la necessità di disaccoppiare il model e la view, creando un sistema di notifiche tra le due componenti;
 	 	\item Se c'è la necessità di avere più view per il medesimo model.
 \end{itemize}
 \end{itemize}
@@ -2645,7 +2649,7 @@ applicato nei seguenti casi:
 	\end{center}
 \end{figure}
 \begin{itemize}
-	\item \textbf{Scopo:} Incapsulare una richiesta in un oggetto, cosicché il \gloss{client} sia indipendente dalle richieste, poiché le richieste hanno al loro interno tutti i dati necessari per essere risolte. 
+	\item \textbf{Scopo:} Incapsulare una richiesta in un oggetto, cosicché il \gloss{client} sia indipendente dalle richieste, poiché le richieste hanno al loro interno tutti i dati necessari per essere risolte.
 \item \textbf{Motivazione:} C'è la necessità di gestire richieste di cui non si conoscono i particolari poiché i Toolkit associano ai propri elementi, richieste da eseguire.
  Una classe astratta, Command, definisce l’interfaccia per eseguire la richiesta che è un semplice oggetto, per cui è possibile rendere variabile la reazione del \gloss{client} senza conoscere i dettagli dell'operazione stessa.
 \item \textbf{Applicabilità:} Il Command pattern si presta bene alla parametrizzazione di oggetti sull’azione da eseguire (Callback function) soprattutto nello specificare, accodare ed eseguire richieste molteplici volte. Vi è inoltre il Supporto alle operazioni di "Undo" e "Redo". Vi è inoltre il supporto a transazione in quanto è possibile incapsulare un'azione in una operazione atomica.
