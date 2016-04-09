@@ -2368,6 +2368,12 @@ serializzazione personalizzati.
 \subsection{Design Pattern Architetturali}
 
 \subsubsection{MVC}
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=0.7\textwidth, keepaspectratio]{img/designPattern/mvc.jpg}
+		\caption{Esempio di applicazione del design pattern MVC}
+	\end{center}
+\end{figure}
 \begin{itemize}
 	\item \textbf{Scopo:} Disaccoppiare le tre seguenti componenti:
 	\begin{itemize}
@@ -2448,6 +2454,12 @@ applicato nei seguenti casi:
 \subsection{Design Pattern Comportamentali}
 
 \subsubsection{Command}
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=0.7\textwidth, keepaspectratio]{img/designPattern/CommandPattern.png}
+		\caption{Esempio di applicazione del design pattern command}
+	\end{center}
+\end{figure}
 \begin{itemize}
 	\item \textbf{Scopo:} Incapsulare una richiesta in un oggetto, cosicché il \gloss{client} sia indipendente dalle richieste, poiché le richieste hanno al loro interno tutti i dati necessari per essere risolte. 
 \item \textbf{Motivazione:} C'è la necessità di gestire richieste di cui non si conoscono i particolari poiché i Toolkit associano ai propri elementi, richieste da eseguire.
@@ -2455,12 +2467,24 @@ applicato nei seguenti casi:
 \item \textbf{Applicabilità:} Il Command pattern si presta bene alla parametrizzazione di oggetti sull’azione da eseguire (Callback function) soprattutto nello specificare, accodare ed eseguire richieste molteplici volte. Vi è inoltre il Supporto alle operazioni di "Undo" e "Redo". Vi è inoltre il supporto a transazione in quanto è possibile incapsulare un'azione in una operazione atomica.
 \end{itemize}
 \subsubsection{Iterator}
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=0.7\textwidth, keepaspectratio]{img/designPattern/IteratorPattern.png}
+		\caption{Esempio di applicazione del design pattern iterator}
+	\end{center}
+\end{figure}
 \begin{itemize}
 	\item \textbf{Scopo:} In un aggregato delegare la responsabilità dell'accesso da una classe separata dal contenitore stesso senza darne l'effettiva implementazione: si usa quindi l'iteratore, che fornisce metodi per navigare in maniera sequenziale attraverso il contenitore.
 	\item \textbf{Motivazione:} Permette l'accesso ai dati nella medesima maniera dall'esterno e evita di appesantire il contenitore che altrimenti andrebbe arricchito di operazioni, rendendo il codice più complesso e difficilmente manutenibile. Inoltre permette di slegare il contenitore dalla maniera in cui si accede ad esso. Attraverso un iteratore si può inoltre ad esempio tenere traccia dell'elemento corrente, del precedente e del successivo.
 	\item \textbf{Applicabilità:} Fornire l'accesso ad un aggregato senza fornire dettagli implementativi quali la struttura interna e la sua implementazione. Poiché rende  il contenitore indipendente dalla maniera in cui si percorre, esso è dunque aperto a diverse implementazioni per percorrerlo: è sufficente reimplementare l'iteratore, senza toccare il contenitore. Permette inoltre la presenza di più iteratori su uno stesso aggregato.
 \end{itemize}
 \subsubsection{Observer}
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=0.7\textwidth, keepaspectratio]{img/designPattern/Observer.png}
+		\caption{Esempio di applicazione del design pattern observer}
+	\end{center}
+\end{figure}
 \begin{itemize}
 \item \textbf{Scopo:} Definisce una dipendenza “1..n” fra oggetti, riflettendo la modifica di un oggetto su quelli che ad esso dipendono.
 \item \textbf{Motivazione:} Mantenere la consistenza fra oggetti, oltre che al modello e alle viste ad esso collegate.
@@ -2474,6 +2498,12 @@ applicato nei seguenti casi:
 È utile anche per notificare oggetti senza fare assunzioni su quali siano questi oggetti ed evita l’accoppiamento “forte”.
 \end{itemize}
 \subsubsection{Strategy}
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=0.7\textwidth, keepaspectratio]{img/designPattern/StrategyPattern.png}
+		\caption{Esempio di applicazione del design pattern strategy}
+	\end{center}
+\end{figure}
 \begin{itemize}
 \item \textbf{Scopo:} Isolare un algoritmo all'interno di un oggetto, allo scopo di definire un gruppo di algoritmi, rendendoli
 interscambiabili e indipendenti dal \gloss{client} che li utilizza. A questo proposito è necessario che la famiglia di algoritmi che implementa una stessa funzionalità esporti la medesima interfaccia in ogni caso, in questo modo il \gloss{client} che applica l'algoritmo non deve fare nessuna assunzioni sulla strategia applicata.
