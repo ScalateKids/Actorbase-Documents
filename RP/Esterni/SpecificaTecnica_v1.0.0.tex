@@ -116,6 +116,10 @@ componentiche andranno a comporre il software.
     A:}\\   \url{http://www.math.unipd.it/~tullio/IS-1/2015/}
 \item\textbf{Documentazione di \gloss{Akka} su \gloss{Scala}:}
   \url{http://doc.akka.io/docs/akka/2.4.2/scala.html}
+\item\textbf{Scala Pickling - Fast, Customizable, Boilerplate-Free Serialization for Scala:}
+  \url{http://lampwww.epfl.ch/~hmiller/pickling}
+\item\textbf{RESP - Redis Protocol Specification:}
+  \url{http://redis.io/topics/protocol}
 \end{itemize}
 
 \newpage
@@ -277,15 +281,16 @@ rappresentano il \gloss{server}.
 \subsubsection{Package contenuti}
 
 \begin{itemize}
-\item \hyperref[sec:actorbase::actorsystem::actorclient]{actorbase::actorsystem::actorclient};
-\item \hyperref[sec:actorbase::actorsystem::actorclient]{actorbase::actorsystem::tcpserver};
-\item \hyperref[sec:actorbase::actorsystem::actorclient]{actorbase::actorsystem::storefinder};
-\item \hyperref[sec:actorbase::actorsystem::actorclient]{actorbase::actorsystem::storekeeper};
-\item \hyperref[sec:actorbase::actorsystem::actorclient]{actorbase::actorsystem::warehouseman};
-\item \hyperref[sec:actorbase::actorsystem::actorclient]{actorbase::actorsystem::ninja};
-\item \hyperref[sec:actorbase::actorsystem::actorclient]{actorbase::actorsystem::manager};
-\item \hyperref[sec:actorbase::actorsystem::actorclient]{actorbase::actorsystem::userkeeper};
-\item \hyperref[sec:actorbase::actorsystem::actorclient]{actorbase::actorsystem::serialization}.
+\item \hyperref[sec:actorbase::actorsystem::clientactor]{actorbase::actorsystem::clientactor};
+\item \hyperref[sec:actorbase::actorsystem::tcpserver]{actorbase::actorsystem::tcpserver};
+\item \hyperref[sec:actorbase::actorsystem::storefinder]{actorbase::actorsystem::storefinder};
+\item \hyperref[sec:actorbase::actorsystem::storekeeper]{actorbase::actorsystem::storekeeper};
+\item \hyperref[sec:actorbase::actorsystem::warehouseman]{actorbase::actorsystem::warehouseman};
+\item \hyperref[sec:actorbase::actorsystem::ninja]{actorbase::actorsystem::ninja};
+\item \hyperref[sec:actorbase::actorsystem::manager]{actorbase::actorsystem::manager};
+\item \hyperref[sec:actorbase::actorsystem::userkeeper]{actorbase::actorsystem::userkeeper};
+\item \hyperref[sec:actorbase::actorsystem::main]{actorbase::actorsystem::main};
+\item \hyperref[sec:actorbase::actorsystem::serialization]{actorbase::actorsystem::serialization}.
 \end{itemize}
 
 \subsubsection{Interazioni con altre componenti}
@@ -321,14 +326,21 @@ la connessione.
 \subparagraph{Utilizzo}
 
 Questo attore riceve le richieste da \hyperref[sec:actorbase::driver::client::Connection]{actorbase::driver::client::Connection}
-e si occupa di inviare messaggi a \hyperref[sec:actorbase::actorsystem::main::Main].
+e si occupa di inviare messaggi a \hyperref[sec:actorbase::actorsystem::main::Main]{actorbase::actorsystem::main::Main}.
+
+\subparagraph{Classi ereditate}
+
+\begin{itemize}
+
+\item akka::actor::Actor.
+
+\end{itemize}
 
 \subparagraph{Interazioni con altre classi}
 
 \begin{itemize}
 \item \hyperref[sec:actorbase::actorsystem::serialization::SerializationContext]{actorbase::actorsystem::serialization::SerializationContext};
 \item \hyperref[sec:actorbase::actorsystem::serialization::DeserializationContext]{actorbase::actorsystem::serialization::DeserializationContext};
-\item akka::actor::Actor;
 \item akka::actor::ActorRef.
 \end{itemize}
 
@@ -342,8 +354,8 @@ e si occupa di inviare messaggi a \hyperref[sec:actorbase::actorsystem::main::Ma
 
 \subsubsection{Classi}
 
-\paragraph{actorbase::actorsystem::messages::LoginResponse}
-\label{sec:actorbase::actorsystem::messages::LoginResponse}
+\paragraph{actorbase::actorsystem::clientactor::messages::LoginResponse}
+\label{sec:actorbase::actorsystem::clientactor::messages::LoginResponse}
 
 \subparagraph{Descrizione}
 
@@ -352,12 +364,12 @@ Messaggio che contiene la password di un utente che ha richiesto il login.
 \subparagraph{Utilizzo}
 
 In seguito alla ricezione di questo messaggio l'attore di tipo
-\hyperref[sec:actorbase::actorsystem::actorclient::ActorClient]{actorbase::actorsystem::actorclient::ActorClient}
+\hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{actorbase::actorsystem::clientactor::ClientActor}
 controlla che la password ricevuta sia uguale a quella immessa
 dall'utente e, in caso affermativo, cambia il proprio stato.
 
-\paragraph{actorbase::actorsystem::messages::PeerClosed}
-\label{sec:actorbase::actorsystem::messages::PeerClosed}
+\paragraph{actorbase::actorsystem::clientactor::messages::PeerClosed}
+\label{sec:actorbase::actorsystem::clientactor::messages::PeerClosed}
 
 \subparagraph{Descrizione}
 
@@ -365,12 +377,12 @@ Messaggio che indica la volontà di chiudere la connessione con il \gloss{driver
 
 \subparagraph{Utilizzo}
 
-In seguito alla ricezione diq uesto messaggio l'attore di tipo
+In seguito alla ricezione di questo messaggio l'attore di tipo
 \hyperref[sec:actorbase::actorsystem::actorclient::ActorClient]{actorbase::actorsystem::actorclient::ActorClient}
 chiude la connessione con il \gloss{driver} e termina.
 
-\paragraph{actorbase::actorsystem::messages::RESPInput}
-\label{sec:actorbase::actorsystem::messages::RESPInput}
+\paragraph{actorbase::actorsystem::clientactor::messages::RESPInput}
+\label{sec:actorbase::actorsystem::clientactor::messages::RESPInput}
 
 \subparagraph{Descrizione}
 
@@ -379,30 +391,361 @@ Messaggio che rappresenta l'input ricevuto dal \gloss{driver}.
 \subparagraph{Utilizzo}
 
 In seguito alla ricezione di questo messaggio l'attore di tipo
-\hyperref[sec:actorbase::actorsystem::actorclient::ActorClient]{actorbase::actorsystem::actorclient::ActorClient}
+\hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{actorbase::actorsystem::clientactor::ClientActor}
 deserializza il messaggio sfruttando la componente
 \hyperref[sec:actorbase::actorsystem::serialization::DeserializationContext]{actorbase::actorsystem::serialization::DeserializationContext}.
 Dopo aver fatto ciò crea il messaggio corrispondente al tipo di richiesta che gli era arrivato
 e lo manda all'attore \hyperref[sec:actorbase::actorsystem::main::Main]{actorbase::actorsystem::main::Main}.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%               DA QUI A DRIVER DA RIFARE/RIVEDERE              %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{actorbase::model::system::actors}
+\paragraph{actorbase::actorsystem::clientactor::messages::UpdateReadCollections}
+\label{sec:actorbase::actorsystem::clientactor::messages::UpdateReadCollections}
+
+\subparagraph{Descrizione}
+
+Messaggio che indica la necessità di aggiornare l'insieme delle
+\gloss{collezioni} cui l'utente ha permessi di sola lettura.
+
+\subparagraph{Utilizzo}
+
+Quando \hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{actorbase::actorsystem::clientactor::ClientActor}
+riceve questo messaggio aggiorna la sua lista di \gloss{collezioni}
+cui l'utente ha permessi di sola lettura aggiungendo la
+\gloss{collezione} presente nel messaggio.
+
+\paragraph{actorbase::actorsystem::clientactor::messages::UpdateCollections}
+\label{sec:actorbase::actorsystem::clientactor::messages::UpdateCollections}
+
+\subparagraph{Descrizione}
+
+Messaggio che indica la necessità di aggiornare l'insieme delle
+\gloss{collezioni} cui l'utente ha permessi di lettura e scrittura.
+
+\subparagraph{Utilizzo}
+
+Quando \hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{actorbase::actorsystem::clientactor::ClientActor}
+riceve questo messaggio aggiorna la sua lista di \gloss{collezioni}
+cui l'utente ha permessi di lettura e scrittura aggiungendo
+la \gloss{collezione} presente nel messaggio.
+
+\paragraph{actorbase::actorsystem::clientactor::messages::Response}
+\label{sec:actorbase::actorsystem::clientactor::messages::Response}
+
+\subparagraph{Descrizione}
+
+Messaggio che rappresenta la risposta da parte del \gloss{server} da inoltrare
+al \gloss{driver}.
+
+\subparagraph{Utilizzo}
+
+Quando \hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{actorbase::actorsystem::clientactor::ClientActor}
+riceve questo messaggio il contenuto di quest'ultimo viene serializzato tramite
+\hyperref[sec:actorbase::actorsystem::serialization::DeserializationContext]{actorbase::actorsystem::serialization::DeserializationContext}
+e mandato a \hyperref[sec:actorbase::driver::client::Connection]{actorbase::driver::\allowbreak{}client::\allowbreak{}Connection}.
+
+\subsection{actorbase::actorsystem::tcpactor}
+\label{sec:actorbase::actorsystem::tcpactor}
 
 \subsubsection{Descrizione}
 
-\gloss{Package} contenente gli \gloss{attori} che agiranno sul \gloss{database}.
+\gloss{Package} per l'attore con cui si interfaccerà il \gloss{driver} per la connessione iniziale.
 
-\subsubsection{Interazioni con altre componenti}
+\subsubsection{Package contenuti}
 
 \begin{itemize}
-\item actorbase::model::system::server.
+\item \hyperref[sec:actorbase::actorsystem::tcpserver::messages]{actorbase::actorsystem::tcpserver::messages}.
 \end{itemize}
 
 \subsubsection{Classi}
 
-\paragraph{actorbase::model::system::actors::Warehouseman}
+\paragraph{actorbase::actorsystem::tcpserver::TCPServer}
+\label{sec:actorbase::actorsystem::tcpserver::TCPServer}
+
+\subparagraph{Descrizione}
+
+Classe che rappresenta l'attore con cui si interfaccia il \gloss{driver} per
+istanziare la connessione.
+
+\subparagraph{Utilizzo}
+
+Questo attore riceve la richiesta di connessione da
+\hyperref[sec:actorbase::driver::client::Connection]{actorbase::driver::client::Connection}
+e si occupa di associare al \gloss{client} un attore di tipo
+\hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{actorbase::actorsystem::clientactor::ClientActor}
+per continuare le comunicazioni.
+
+\subparagraph{Classi ereditate}
+
+\begin{itemize}
+
+\item akka::actor::Actor.
+
+\end{itemize}
+
+\subsection{actorbase::actorsystem::tcpserver::messages}
+\label{sec:actorbase::actorsystem::tcpserver::messages}
+
+\subsubsection{Descrizione}
+
+\gloss{Package} che contiene tutti i messaggi che possono essere ricevuti da
+\hyperref[sec:actorbase::actorsystem::tcpserver::TCPServer]{actorbase::actorsystem::tcpserver::TCPServer}.
+
+\subsubsection{Classi}
+
+\paragraph{actorbase::actorsystem::tcpserver::messages::Bound}
+\label{sec:actorbase::actorsystem::tcpserver::messages::Bound}
+
+\subparagraph{Descrizione}
+
+Messaggio che rappresenta la necessità di mettere il \gloss{server} in ascolto.
+
+\subparagraph{Utilizzo}
+
+Quando \hyperref[sec:actorbase::actorsystem::tcpserver::TCPServer]{actorbase::actorsystem::tcpserver::TCPServer}
+riceve questo messaggio si mette in ascolto su una porta del \gloss{server}.
+
+\paragraph{actorbase::actorsystem::tcpserver::messages::CommandFailed}
+\label{sec:actorbase::actorsystem::tcpserver::messages::CommandFailed}
+
+\subparagraph{Descrizione}
+
+Messaggio che rappresenta un errore nella comunicazione \gloss{TCP}.
+
+\subparagraph{Utilizzo}
+
+Quando \hyperref[sec:actorbase::actorsystem::tcpserver::TCPServer]{actorbase::actorsystem::tcpserver::TCPServer}
+riceve questo messaggio manderà una notifica a
+\hyperref[sec:actorbase::driver::client::Connection]{actorbase::driver::client::Connection}.
+
+\paragraph{actorbase::actorsystem::tcpserver::messages::Connected}
+\label{sec:actorbase::actorsystem::tcpserver::messages::Connected}
+
+\subparagraph{Descrizione}
+
+Messaggio che rappresenta una connessione \gloss{TCP} riuscita.
+
+\subparagraph{Utilizzo}
+
+Quando \hyperref[sec:actorbase::actorsystem::tcpserver::TCPServer]{actorbase::actorsystem::tcpserver::TCPServer}
+riceve questo messaggio associa al \gloss{client} un attore di tipo
+\hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{actorbase::actorsystem::clientactor::ClientActor}.
+
+\subsection{actorbase::actorsystem::serialization}
+\label{sec:actorbase::actorsystem::serialization}
+
+\subsubsection{Descrizione}
+
+\gloss{Package} che si occupa di \gloss{serializzare} e \gloss{deserializzare}
+i messaggi mandati o ricevuti dal \gloss{driver}.
+
+\subsubsection{Interazioni con altre componenti}
+
+\begin{itemize}
+
+\item \hyperref[sec:actorbase::actorsystem::warehouseman]{actorbase::actorsystem::warehouseman};
+\item \hyperref[sec:actorbase::actorsystem::clientactor]{actorbase::actorsystem::clientactor}.
+
+\end{itemize}
+
+\subsubsection{Classi}
+
+\paragraph{actorbase::actorsystem::serialization::SerializationContext}
+\label{sec:actorbase::actorsystem::serialization::SerializationContext}
+
+\subparagraph{Descrizione}
+
+Classe che offre dei metodi per la scelta su quale tipo di \gloss{serializzazione}
+effettuare.
+
+\subparagraph{Utilizzo}
+
+Questa classe viene utilizzata da \hyperref[sec:actorbase::actorsystem::warehouseman::Warehouseman]{actorbase::\allowbreak{}actorsystem::\allowbreak{}warehouseman::\allowbreak{}Warehouseman}
+e \hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{actorbase::\allowbreak{}actorsystem::\allowbreak{}clientactor::\allowbreak{}ClientActor}
+per \gloss{serializzare} i dati scegliendo una tra le strategie indicate
+dalle classi che estendono \hyperref[sec:actorbase::actorsystem::serialization::SerializationStrategy]{actorbase::\allowbreak{}actorsystem::\allowbreak{}serialization::\allowbreak{}SerializationStrategy}.
+
+\subparagraph{Interazioni con altre classi}
+
+\begin{itemize}
+
+\item \hyperref[sec:actorbase::actorsystem::warehouseman::Warehouseman]{actorbase::actorsystem::warehouseman::Warehouseman};
+\item \hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{actorbase::actorsystem::clientactor::ClientActor};
+\item \hyperref[sec:actorbase::actorsystem::serialization::SerializationStrategy]{actorbase::actorsystem::serialization::SerializationStrategy}.
+
+\end{itemize}
+
+\paragraph{actorbase::actorsystem::serialization::SerializationStrategy}
+\label{sec:actorbase::actorsystem::serialization::SerializationStrategy}
+
+\subparagraph{Descrizione}
+
+Interfaccia che offre una strategia generale per \gloss{serializzare} i dati.
+
+\subparagraph{Utilizzo}
+
+Questa interfaccia viene utilizzata per l'applicazione del \gloss{designpattern}
+\gloss{strategy}. Offre un metodo generalizzato per la
+\gloss{serializzazione} di dati che verrà poi implementato dalle classi che
+implementeranno questa interfaccia.
+
+\subparagraph{Interazioni con altre classi}
+
+\begin{itemize}
+
+\item \hyperref[sec:actorbase::actorsystem::serialization::SerializationContext]{actorbase::actorsystem::serialization::SerializationContext}.
+
+\end{itemize}
+
+\paragraph{actorbase::actorsystem::serialization::RESPSerialization}
+\label{sec:actorbase::actorsystem::serialization::RESPSerialization}
+
+\subparagraph{Descrizione}
+
+Classe che si occupa di serializzare i dati in stringhe di formato \gloss{RESP}.
+
+\subparagraph{Utilizzo}
+
+Questa classe viene utilizzata per l'implementazione di una strategia di
+serializzazione in formato \gloss{RESP}. Viene utilizzata principalmente per
+dati che dovranno essere mandati al \gloss{driver}.
+
+\subparagraph{Classi ereditate}
+
+\begin{itemize}
+
+\item \hyperref[sec:actorbase::actorsystem::serialization::SerializationStrategy]{actorbase::actorsystem::serialization::SerializationStrategy}.
+
+\end{itemize}
+
+\paragraph{actorbase::actorsystem::serialization::PickleSerialization}
+\label{sec:actorbase::actorsystem::serialization::PickleSerialization}
+
+\subparagraph{Descrizione}
+
+Classe che si occupa di serializzare i dati in formato \gloss{Pickle}.
+
+\subparagraph{Utilizzo}
+
+Questa classe viene utilizzata per l'implementazione di una strategia di
+serializzazione in formato \gloss{Pickle}. Viene utilizzata principalmente per
+dati che dovranno essere salvati su disco.
+
+\subparagraph{Classi ereditate}
+
+\begin{itemize}
+
+\item \hyperref[sec:actorbase::actorsystem::serialization::SerializationStrategy]{actorbase::actorsystem::serialization::SerializationStrategy}.
+
+\end{itemize}
+
+\paragraph{actorbase::actorsystem::serialization::DeserializationContext}
+\label{sec:actorbase::actorsystem::serialization::DeserializationContext}
+
+\subparagraph{Descrizione}
+
+Classe che offre dei metodi per la scelta su quale tipo di \gloss{deserializzazione}
+effettuare.
+
+\subparagraph{Utilizzo}
+
+Questa classe viene utilizzata da \hyperref[sec:actorbase::actorsystem::warehouseman::Warehouseman]{actorbase::actorsystem::warehouseman::Warehouseman}
+e \hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{actorbase::\allowbreak{}actorsystem::\allowbreak{}clientactor::\allowbreak{}ClientActor}
+per \gloss{deserializzare} i dati scegliendo una tra le strategie indicate
+dalle classi che estendono \hyperref[sec:actorbase::actorsystem::serialization::DeserializationStrategy]{actorbase::\allowbreak{}actorsystem::\allowbreak{}serialization::\allowbreak{}DeserializationStrategy}.
+
+\subparagraph{Interazioni con altre classi}
+
+\begin{itemize}
+
+\item \hyperref[sec:actorbase::actorsystem::warehouseman::Warehouseman]{actorbase::actorsystem::warehouseman::Warehouseman};
+\item \hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{actorbase::actorsystem::clientactor::ClientActor};
+\item \hyperref[sec:actorbase::actorsystem::serialization::DeserializationStrategy]{actorbase::actorsystem::serialization::DeserializationStrategy}.
+
+\end{itemize}
+
+\paragraph{actorbase::actorsystem::serialization::DeserializationStrategy}
+\label{sec:actorbase::actorsystem::serialization::DeserializationStrategy}
+
+\subparagraph{Descrizione}
+
+Interfaccia che offre una strategia generale per \gloss{deserializzare} i dati.
+
+\subparagraph{Utilizzo}
+
+Questa interfaccia viene utilizzata per l'applicazione del \gloss{design pattern}
+\gloss{strategy}. Offre un metodo generalizzato per la
+\gloss{deserializzazione} di dati che verrà poi implementato dalle classi che
+implementeranno questa interfaccia.
+
+\subparagraph{Interazioni con altre classi}
+
+\begin{itemize}
+
+\item \hyperref[sec:actorbase::actorsystem::serialization::DeserializationContext]{actorbase::actorsystem::serialization::DeserializationContext}.
+
+\end{itemize}
+
+\paragraph{actorbase::actorsystem::serialization::RESPDeserialization}
+\label{sec:actorbase::actorsystem::serialization::RESPDeserialization}
+
+\subparagraph{Descrizione}
+
+Classe che si occupa di deserializzare i dati da stringhe in formato \gloss{RESP}.
+
+\subparagraph{Utilizzo}
+
+Questa classe viene utilizzata per l'implementazione di una strategia di
+\gloss{deserializzazione} dal formato \gloss{RESP}. Viene utilizzato
+principalmente per i dati ricevuti dal \gloss{driver}.
+
+\subparagraph{Classi ereditate}
+
+\begin{itemize}
+
+\item \hyperref[sec:actorbase::actorsystem::serialization::DeserializationStrategy]{actorbase::actorsystem::serialization::DeserializationStrategy}.
+
+\end{itemize}
+
+\paragraph{actorbase::actorsystem::serialization::PickleDeserialization}
+\label{sec:actorbase::actorsystem::serialization::PickleDeserialization}
+
+\subparagraph{Descrizione}
+
+Classe che si occupa di \gloss{deserializzare} i dati dal formato \gloss{Pickle}.
+
+\subparagraph{Utilizzo}
+
+Questa classe viene utilizzata per l'implementazione di una strategia di
+\gloss{deserializzazione} dal formato \gloss{Pickle}. Viene utilizzato
+principalmente per la lettura di dati da disco.
+
+\subparagraph{Classi ereditate}
+
+\begin{itemize}
+
+\item \hyperref[sec:actorbase::actorsystem::serialization::DeserializationStrategy]{actorbase::actorsystem::serialization::DeserializationStrategy}.
+
+\end{itemize}
+
+\subsection{actorbase::actorsystem::warehouseman}
+\label{sec:actorbase::actorsystem::warehouseman}
+
+\subsubsection{Descrizione}
+
+\gloss{Package} che rappresenta l'attore che si occuperà della
+\gloss{persistenza} su disco dei dati.
+
+\subsubsection{Package contenuti}
+
+\begin{itemize}
+
+\item \hyperref[sec:actorbase::actorsystem::warehouseman::messages]{actorbase::actorsystem::warehouseman::messages}.
+
+\end{itemize}
+
+\subsubsection{Classi}
+
+\paragraph{actorbase::actorsystem::warehouseman::Warehouseman}
+\label{sec:actorbase::actorsystem::warehouseman::Warehouseman}
 
 \subparagraph{Descrizione}
 
@@ -410,53 +753,237 @@ Classe che rappresenta un \gloss{attore} di tipo \gloss{Warehouseman}.
 
 \subparagraph{Utilizzo}
 
-Viene utilizzata per effettuare il salvataggio su filesystem del
-\gloss{database}.
+Questa classe viene utilizzata per effettuare il salvataggio su filesystem del
+\gloss{database} e per caricare i dati da filesystem.
 
 \subparagraph{Classi ereditate}
 
 \begin{itemize}
-\item actorbase::model::system::actors::Actor.
+
+\item akka::actor::Actor.
+
 \end{itemize}
 
 \subparagraph{Interazioni con altre classi}
 
 \begin{itemize}
-\item actorbase::model::system::actors::Persistence.
+\item \hyperref[sec:actorbase::actorsystem::serialization::SerializationContext]{actorbase::actorsystem::serialization::SerializationContext};
+\item \hyperref[sec:actorbase::actorsystem::serialization::DeserializationContext]{actorbase::actorsystem::serialization::DeserializationContext};
+\item akka::actor::ActorRef.
 \end{itemize}
 
-\paragraph{actorbase::model::system::actors::Persistence}
+\subsection{actorbase::actorsystem::warehouseman::messages}
+\label{sec:actorbase::actorsystem::warehouseman::messages}
+
+\subsubsection{Descrizione}
+
+\gloss{Package} che racchiude tutti i messaggi che gli attori di tipo
+\gloss{Warehouseman} possono ricevere.
+
+\paragraph{actorbase::actorsystem::warehouseman::messages::Init}
+\label{sec:actorbase::actorsystem::warehouseman::messages::Init}
 
 \subparagraph{Descrizione}
 
-Interfaccia che consente il salvataggio su filesystem.
+Messaggio che porta alla lettura dei dati da disco.
 
 \subparagraph{Utilizzo}
 
-Viene utilizzata per offrire un'interfaccia per il salvataggio su filesystem.
+Quando \hyperref[sec:actorbase::actorsystem::warehouseman::Warehouseman]{actorbase::actorsystem::warehouseman::Warehouseman}
+riceve questo messaggio inizializza uno \hyperref[sec:actorbase::actorsystem::storekeeper::StoreKeeper]{actorbase::actorsystem::storekeeper::StoreKeeper}
+con i dati letti da disco.
 
-\subparagraph{Interazioni con altre classi}
+\paragraph{actorbase::actorsystem::warehouseman::messages::Save}
+\label{sec:actorbase::actorsystem::warehouseman::messages::Save}
+
+\subparagraph{Descrizione}
+
+Messaggio che porta al salvataggio dei dati su disco.
+
+\subparagraph{Utilizzo}
+
+Quando \hyperref[sec:actorbase::actorsystem::warehouseman::Warehouseman]{actorbase::actorsystem::warehouseman::Warehouseman}
+riceve questo messaggio salverà i dati su disco sfruttando
+\hyperref[sec:actorbase::actorsystem::serialization::SerializationContext]{actorbase::actorsystem::serialization::SerializationContext}.
+
+\subsection{actorbase::actorsystem::main}
+\label{sec:actorbase::actorsystem::main}
+
+\subsubsection{Descrizione}
+
+\gloss{Package} che rappresenta l'attore che si occuperà di gestire le
+richieste al \gloss{server}.
+
+\subsubsection{Package contenuti}
 
 \begin{itemize}
-\item actorbase::model::system::actors::Warehouseman.
+
+\item \hyperref[sec:actorbase::actorsystem::main::messages]{actorbase::actorsystem::main::messages}.
+
 \end{itemize}
 
-\paragraph{actorbase::model::system::actors::BSONPersistence}
+\subsubsection{Classi}
+
+\paragraph{actorbase::actorsystem::main::Main}
+\label{sec:actorbase::actorsystem::main::Main}
 
 \subparagraph{Descrizione}
 
-Classe che consente di salvare su filesystem in formato \gloss{BSON}.
+Classe che rappresenta un \gloss{attore} di tipo \gloss{Main}.
 
 \subparagraph{Utilizzo}
 
-Viene utilizzata per effettuare il salvataggio su filesystem in formato
-\gloss{BSON} del \gloss{database}.
+Questa classe viene utilizzata per gestire le richieste ricevute al
+\gloss{server}.
 
 \subparagraph{Classi ereditate}
 
 \begin{itemize}
-\item actorbase::model::system::actors::Persistence.
+
+\item akka::actor::Actor.
+
 \end{itemize}
+
+\subparagraph{Interazioni con altre classi}
+
+\begin{itemize}
+\item akka::actor::ActorRef.
+\end{itemize}
+
+\subsection{actorbase::actorsystem::main::messages}
+\label{sec:actorbase::actorsystem::main::messages}
+
+\subsubsection{Descrizione}
+
+\gloss{Package} che racchiude tutti i messaggi che gli attori di tipo
+\gloss{Warehouseman} possono ricevere.
+
+\subsubsection{Package importati}
+
+\begin{itemize}
+\item \hyperref[sec:actorbase::actorsystem::storefinder::messages]{actorbase::actorsystem::storefinder::messages}
+\end{itemize}
+
+\paragraph{actorbase::actorsystem::main::messages::CreateCollection}
+\label{sec:actorbase::actorsystem::main::messages::CreateCollection}
+
+\subparagraph{Descrizione}
+
+Messaggio che porta alla creazione di una \gloss{collezione}.
+
+\subparagraph{Utilizzo}
+
+Quando \hyperref[sec:actorbase::actorsystem::main::Main]{actorbase::actorsystem::main::Main}
+riceve questo messaggio inizializza uno \hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{actorbase::actorsystem::\allowbreak{}storefinder::\allowbreak{}Storefinder}.
+
+\paragraph{actorbase::actorsystem::main::messages::GetCollection}
+\label{sec:actorbase::actorsystem::main::messages::GetCollection}
+
+\subparagraph{Descrizione}
+
+Messaggio che indica una richiesta di una \gloss{collezione}.
+
+\subparagraph{Utilizzo}
+
+Quando \hyperref[sec:actorbase::actorsystem::main::Main]{actorbase::actorsystem::main::Main}
+riceve questo messaggio cercherà l'attore di tipo
+\hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{actorbase::actorsystem::\allowbreak{}storefinder::\allowbreak{}Storefinder}
+corrispondente alla \gloss{collezione} cercata.
+
+\paragraph{actorbase::actorsystem::main::messages::RemoveCollection}
+\label{sec:actorbase::actorsystem::main::messages::RemoveCollection}
+
+\subparagraph{Descrizione}
+
+Messaggio che indica una richiesta di rimozione di una \gloss{collezione}.
+
+\subparagraph{Utilizzo}
+
+Quando \hyperref[sec:actorbase::actorsystem::main::Main]{actorbase::actorsystem::main::Main}
+riceve questo messaggio cercherà l'attore di tipo
+\hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{actorbase::actorsystem::\allowbreak{}storefinder::\allowbreak{}Storefinder}
+corrispondente alla \gloss{collezione} cercata e ne avvierà
+la procedura di rimozione dal \gloss{database}.
+
+\paragraph{actorbase::actorsystem::main::messages::GetItemFrom}
+\label{sec:actorbase::actorsystem::main::messages::GetItemFrom}
+
+\subparagraph{Descrizione}
+
+Messaggio che indica una richiesta di ricerca di un \gloss{item} da una o più \gloss{collezione}.
+
+\subparagraph{Utilizzo}
+
+Quando \hyperref[sec:actorbase::actorsystem::main::Main]{actorbase::actorsystem::main::Main}
+riceve questo messaggio cercherà gli attori di tipo
+\hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{actorbase::actorsystem::\allowbreak{}storefinder::\allowbreak{}Storefinder}
+corrispondenti alle \gloss{collezioni} su cui effettuare la ricerca
+e inoltrerà a loro la richiesta dell'\gloss{item} con la chiave da cercare.
+
+\paragraph{actorbase::actorsystem::main::messages::AddContributor}
+\label{sec:actorbase::actorsystem::main::messages::AddContributor}
+
+\subparagraph{Descrizione}
+
+Messaggio che indica una richiesta di aggiunta di un collaboratore ad una
+\gloss{collezione}.
+
+\subparagraph{Utilizzo}
+
+Quando \hyperref[sec:actorbase::actorsystem::main::Main]{actorbase::actorsystem::main::Main}
+riceve questo messaggio cercherà gli attori di tipo
+\hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{actorbase::actorsystem::\allowbreak{}storefinder::\allowbreak{}Storefinder}
+che mappano gli attori di tipo \hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{actorbase::actorsystem::\allowbreak{}userkeeper::\allowbreak{}Userkeeper}.
+e inoltrerà loro la richiesta di aggiunta del collaboratore.
+
+\paragraph{actorbase::actorsystem::main::messages::DuplicateRequestSF}
+\label{sec:actorbase::actorsystem::main::messages::DuplicateRequestSF}
+
+\subparagraph{Descrizione}
+
+Messaggio che indica una richiesta di sdoppiamento di uno \gloss{Storefinder}.
+
+\subparagraph{Utilizzo}
+
+Quando \hyperref[sec:actorbase::actorsystem::main::Main]{actorbase::actorsystem::main::Main}
+riceve questo messaggio provvederà a sdoppiare l'attore di tipo
+\hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{actorbase::actorsystem::\allowbreak{}storefinder::\allowbreak{}Storefinder}.
+
+\paragraph{actorbase::actorsystem::main::messages::RemoveContributor}
+\label{sec:actorbase::actorsystem::main::messages::RemoveContributor}
+
+\subparagraph{Descrizione}
+
+Messaggio che indica una richiesta di rimozione di un collaboratore ad una
+\gloss{collezione}.
+
+\subparagraph{Utilizzo}
+
+Quando \hyperref[sec:actorbase::actorsystem::main::Main]{actorbase::actorsystem::main::Main}
+riceve questo messaggio cercherà gli attori di tipo
+\hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{actorbase::actorsystem::\allowbreak{}storefinder::\allowbreak{}Storefinder}
+che mappano gli attori di tipo \hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{actorbase::actorsystem::\allowbreak{}userkeeper::\allowbreak{}Userkeeper}
+e inoltrerà loro la richiesta di rimozione del collaboratore.
+
+\paragraph{actorbase::actorsystem::main::messages::InitUserkeeper}
+\label{sec:actorbase::actorsystem::main::messages::InitUserkeeper}
+
+\subparagraph{Descrizione}
+
+Messaggio che indica una richiesta di creazione di uno \gloss{Userkeeper}.
+
+\subparagraph{Utilizzo}
+
+Quando \hyperref[sec:actorbase::actorsystem::main::Main]{actorbase::actorsystem::main::Main}
+riceve questo messaggio provvederà a inoltrare agli attori di tipo
+\hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{actorbase::actorsystem::\allowbreak{}storefinder::\allowbreak{}Storefinder}
+che mappano gli attori di tipo \hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{actorbase::actorsystem::\allowbreak{}userkeeper::\allowbreak{}Userkeeper}
+la creazione di un attore di questo tipo.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                  DA QUI A DRIVER DA CANCELLARE                %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 \paragraph{actorbase::model::system::actors::Storefinder}
 
@@ -565,7 +1092,8 @@ degli attori di tipo \gloss{Storekeeper}.
 \begin{itemize}
 \item \hyperref[sec:actorbase::driver::client]{actorbase::driver::client};
 \item \hyperref[sec:actorbase::driver::serializer]{actorbase::driver::serializer};
-\item \hyperref[sec:actorbase::driver::actorbasedata]{actorbase::driver::actorbasedata}.
+\item \hyperref[sec:actorbase::driver::actorbasedata]{actorbase::driver::actorbasedata};
+\item \hyperref[sec:actorbase::driver::exceptions]{actorbase::driver::exceptions}.
 \end{itemize}
 
 \subsection{actorbase::driver::client}
@@ -642,20 +1170,174 @@ Classe per la connessione tra il \gloss{driver} e il \gloss{server}.
 \subparagraph{Utilizzo}
 
 Questa classe si incarica della connessione e comunicazione con il \gloss{server}. Una volta
-connesso alla componente \hyperref[sec:actorbase::actorsystem::tcpserver::TCPServer]{actorbase::actorsystem::tcpserver::TCPServer}
-le verrà assegnato un oggetto di tipo \hyperref[sec:actorbase::actorbase::actorsystem::clientactor::ClientActor]{actorbase::actorsystem::clientactor::ClientActor}.\\
+connesso alla componente \hyperref[sec:actorbase::actorsystem::tcpserver::TCPServer]{actorbase::actorsystem::\allowbreak{}tcpserver::\allowbreak{}TCPServer}
+le verrà assegnato un oggetto di tipo \hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{actorbase::\allowbreak{}actorsystem::\allowbreak{}clientactor::\allowbreak{}ClientActor}.\\
 Questa classe inoltre chiamerà le componenti necessarie per la serializzazione e deserializzazione
-delle stringhe ricevute dal \gloss{server} o da \hyperref[sec:actorbase::driver::client::CommandRunner]{actorbase::driver::client::CommandRunner},
-ossia \hyperref[sec:actorbase::driver::client::SerializationContext]{actorbase::driver::client::SerializationContext}
-e \hyperref[sec:actorbase::driver::client::Deserializationtext]{actorbase::driver::client::DeserializationContext}.
+delle stringhe ricevute dal \gloss{server} o da \hyperref[sec:actorbase::driver::client::CommandRunner]{actorbase::\allowbreak{}driver::\allowbreak{}client::\allowbreak{}CommandRunner},
+ossia \hyperref[sec:actorbase::driver::serializer::SerializationContext]{actorbase::\allowbreak{}driver::\allowbreak{}serializer::\allowbreak{}SerializationContext}
+e \hyperref[sec:actorbase::driver::serializer::Deserializationtext]{actorbase::\allowbreak{}driver::\allowbreak{}serializer::\allowbreak{}DeserializationContext}.
 
 \subparagraph{Interazioni con altre classi}
 \begin{itemize}
-\item \hyperref[sec:actorbase::driver::client::SerializationContext]{actorbase::driver::client::SerializationContext};
-\item \hyperref[sec:actorbase::driver::client::Deserializationtext]{actorbase::driver::client::DeserializationContext};
+\item \hyperref[sec:actorbase::driver::serializer::SerializationContext]{actorbase::driver::serializer::SerializationContext};
+\item \hyperref[sec:actorbase::driver::serializer::Deserializationtext]{actorbase::driver::serializer::DeserializationContext};
 \item \hyperref[sec:actorbase::driver::client::CommandRunner]{actorbase::driver::client::CommandRunner};
 \item \hyperref[sec:actorbase::actorsystem::tcpserver::TCPServer]{actorbase::actorsystem::tcpserver::TCPServer};
 \item \hyperref[sec:actorbase::actorbase::actorsystem::clientactor::ClientActor]{actorbase::actorsystem::clientactor::ClientActor}.
+\end{itemize}
+
+\subsection{actorbase::driver::serializer}
+\label{sec:actorbase::driver::serializer}
+
+\subsubsection{Descrizione}
+
+\gloss{Package} che si occupa di \gloss{serializzare} e \gloss{deserializzare}
+i messaggi mandati o ricevuti dal \gloss{server}.
+
+\subsubsection{Interazioni con altre componenti}
+
+\begin{itemize}
+
+\item \hyperref[sec:actorbase::driver::client]{actorbase::driver::client};
+\item \hyperref[sec:actorbase::driver::actorbasedata]{actorbase::driver::actorbasedata}.
+
+\end{itemize}
+
+\subsubsection{Classi}
+
+\paragraph{actorbase::driver::serializer::SerializationContext}
+\label{sec:actorbase::driver::serializer::SerializationContext}
+
+\subparagraph{Descrizione}
+
+Classe che offre dei metodi per la scelta su quale tipo di \gloss{serializzazione}
+effettuare.
+
+\subparagraph{Utilizzo}
+
+Questa classe viene utilizzata da \hyperref[sec:actorbase::driver::client::Connection]{actorbase::driver::client::Connection}
+per \gloss{serializzare} i dati scegliendo una tra le strategie indicate
+dalle classi che estendono \hyperref[sec:actorbase::driver::serializer::SerializationStrategy]{actorbase::driver::serializer::SerializationStrategy}.
+
+\subparagraph{Interazioni con altre classi}
+
+\begin{itemize}
+
+\item \hyperref[sec:actorbase::driver::client::Connection]{actorbase::driver::client::Connection};
+\item \hyperref[sec:actorbase::driver::serializer::SerializationStrategy]{actorbase::driver::serializer::SerializationStrategy}.
+
+\end{itemize}
+
+\paragraph{actorbase::driver::serializer::SerializationStrategy}
+\label{sec:actorbase::driver::serializer::SerializationStrategy}
+
+\subparagraph{Descrizione}
+
+Interfaccia che offre una strategia generale per \gloss{serializzare} i dati.
+
+\subparagraph{Utilizzo}
+
+Questa interfaccia viene utilizzata per l'applicazione del \gloss{design pattern}
+\gloss{strategy}. Offre un metodo generalizzato per la
+\gloss{serializzazione} di dati che verrà poi implementato dalle classi che
+implementeranno questa interfaccia.
+
+\subparagraph{Interazioni con altre classi}
+
+\begin{itemize}
+
+\item \hyperref[sec:actorbase::driver::serializer::SerializationContext]{actorbase::driver::serializer::SerializationContext}.
+
+\end{itemize}
+
+\paragraph{actorbase::driver::serializer::RESPSerialize}
+
+\subparagraph{Descrizione}
+
+Classe che si occupa di serializzare i dati in stringhe di formato \gloss{RESP}.
+
+\subparagraph{Utilizzo}
+
+Questa classe viene utilizzata per l'implementazione di una strategia di
+serializzazione in formato \gloss{RESP}.
+
+\subparagraph{Classi ereditate}
+
+\begin{itemize}
+
+\item \hyperref[sec:actorbase::driver::serializer::SerializationStrategy]{actorbase::driver::serializer::SerializationStrategy}.
+
+\end{itemize}
+
+\paragraph{actorbase::driver::serializer::DeserializationContext}
+\label{sec:actorbase::driver::serializer::DeserializationContext}
+
+\subparagraph{Descrizione}
+
+Classe che offre dei metodi per la scelta su quale tipo di \gloss{deserializzazione}
+effettuare.
+
+\subparagraph{Utilizzo}
+
+Questa classe viene utilizzata da \hyperref[sec:actorbase::driver::client::Connection]{actorbase::driver::client::Connection}
+per \gloss{deserializzare} i dati scegliendo una tra le strategie indicate
+dalle classi che estendono \hyperref[sec:actorbase::driver::serializer::DeserializationStrategy]{actorbase::driver::serializer::DeserializationStrategy}.
+
+\subparagraph{Interazioni con altre classi}
+
+\begin{itemize}
+
+\item \hyperref[sec:actorbase::driver::serializer::DeserializationStrategy]{actorbase::driver::serializer::DeserializationStrategy}.
+
+\end{itemize}
+
+\paragraph{actorbase::driver::serializer::DeserializationStrategy}
+\label{sec:actorbase::driver::serializer::DeserializationStrategy}
+
+\subparagraph{Descrizione}
+
+Interfaccia che offre una strategia generale per \gloss{deserializzare} i dati.
+
+\subparagraph{Utilizzo}
+
+Questa interfaccia viene utilizzata per l'applicazione del \gloss{design pattern}
+\gloss{strategy}. Offre un metodo generalizzato per la
+\gloss{deserializzazione} di dati che verrà poi implementato dalle classi che
+implementeranno questa interfaccia.
+
+\subparagraph{Interazioni con altre classi}
+
+\begin{itemize}
+
+\item \hyperref[sec:actorbase::driver::serializer::DeserializationContext]{actorbase::driver::serializer::DeserializationContext}.
+
+\end{itemize}
+
+\paragraph{actorbase::driver::serializer::RESPDeserialize}
+
+\subparagraph{Descrizione}
+
+Classe che si occupa di deserializzare i dati da stringhe in formato \gloss{RESP}.
+
+\subparagraph{Utilizzo}
+
+Questa classe viene utilizzata per l'implementazione di una strategia di
+\gloss{deserializzazione} dal formato \gloss{RESP}.
+
+\subparagraph{Classi ereditate}
+
+\begin{itemize}
+
+\item \hyperref[sec:actorbase::driver::serializer::DeserializationStrategy]{actorbase::driver::serializer::DeserializationStrategy}.
+
+\end{itemize}
+
+\subparagraph{Interazioni con altre classi}
+
+\begin{itemize}
+
+\item \hyperref[sec:actorbase::driver::actorbasedata::RESPArrayString]{actorbase::driver::actorbasedata::RESPArrayString}.
+
 \end{itemize}
 
 \subsection{actorbase::driver::actorbasedata}
@@ -926,13 +1608,13 @@ risposte ottenute dal \gloss{server} che comprendano messaggi di errore.
 
 
 \subsection{actorbase::driver::exceptions}
-\label{sec:actorbase::driver::eceptions}
+\label{sec:actorbase::driver::exceptions}
 
 \subsubsection{Descrizione}
 
 \gloss{Package} che contiene le possibili eccezioni che si possono verificare nel \gloss{driver}
 
-\subsubsection{Interazione con altre conponenti}
+\subsubsection{Interazione con altre componenti}
 \begin{itemize}
 \item \hyperref[sec:actorbase::driver::client]{actorbase::driver::client};
 \end{itemize}
@@ -2368,18 +3050,24 @@ serializzazione personalizzati.
 \subsection{Design Pattern Architetturali}
 
 \subsubsection{MVC}
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=0.7\textwidth, keepaspectratio]{img/designPattern/mvc.jpg}
+		\caption{Esempio di applicazione del design pattern MVC}
+	\end{center}
+\end{figure}
 \begin{itemize}
-	\item Scopo: Disaccoppiare le tre seguenti componenti:
+	\item \textbf{Scopo:} Disaccoppiare le tre seguenti componenti:
 	\begin{itemize}
 		\item Model: parte che si occupa direttamente di dati, logica e regole dell'applicazione;
 		\item View: rappresentazione grafica sotto forma delle varie tipologie di output utilizzate per rappresentare i dati dell'applicazione;
 		\item Controller: parte che accetta gli input e li converte in comandi per il model o la view;
 	\end{itemize}
-	 \item Motivazione: molte applicazioni hanno la necessità di recuperare dati e di mostrarli in maniera opportuna agli utenti. Poiché si tratta di una comunicazione tra i dati dei dati e la interfaccia utente, bisogna trovare il metodo per far comunicare le due parti senza accorparle assieme, cosa che comporterebbe codice pesante e scarsa manutenibilità, in quanto in genere la parte grafica si evolve più in fretta della parte di model e, viceversa, bisogna rendere l'interfaccia che si offre all'utente quanto più separata possibile dall'implementazione effettiva della gestione dei dati. La soluzione che è stata trovata è costituita dal pattern Model-View-Controller (MVC) che separa le tre componenti come già illustrato; 
-	 \item Applicabilità: Il pattern MVC è adatto ad essere utilizzato nei seguenti casi: 
-	 \begin{itemize} 
+	 \item \textbf{Motivazione:} Molte applicazioni hanno la necessità di recuperare dati e di mostrarli in maniera opportuna agli utenti. Poiché si tratta di una comunicazione tra i dati dei dati e la interfaccia utente, bisogna trovare il metodo per far comunicare le due parti senza accorparle assieme, cosa che comporterebbe codice pesante e scarsa manutenibilità, in quanto in genere la parte grafica si evolve più in fretta della parte di model e, viceversa, bisogna rendere l'interfaccia che si offre all'utente quanto più separata possibile dall'implementazione effettiva della gestione dei dati. La soluzione che è stata trovata è costituita dal \gloss{design pattern} Model-View-Controller (MVC) che separa le tre componenti come già illustrato;
+	 \item \textbf{Applicabilità:} Il pattern MVC è adatto ad essere utilizzato nei seguenti casi:
+	 \begin{itemize}
 	 	\item se c'è la necessità che un insieme di oggetti debba essere considerato come un oggetto singolo;
-	 	\item se c'è la necessità di disaccoppiare il model e la view, creando un sistema di notifiche tra le due componenti; 
+	 	\item se c'è la necessità di disaccoppiare il model e la view, creando un sistema di notifiche tra le due componenti;
 	 	\item Se c'è la necessità di avere più view per il medesimo model.
 \end{itemize}
 \end{itemize}
@@ -2448,37 +3136,61 @@ applicato nei seguenti casi:
 \subsection{Design Pattern Comportamentali}
 
 \subsubsection{Command}
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=0.7\textwidth, keepaspectratio]{img/designPattern/CommandPattern.png}
+		\caption{Esempio di applicazione del design pattern command}
+	\end{center}
+\end{figure}
 \begin{itemize}
-	\item Scopo: Incapsulare una richiesta in un oggetto, cosicché il client sia indipendente dalle richieste, poiché le richieste hanno al loro interno tutti i dati necessari per essere risolte. 
-\item Motivazione: C'è la necessità di gestire richieste di cui non si conoscono i particolari poiché i Toolkit associano ai propri elementi, richieste da eseguire.
- Una classe astratta, Command, definisce l’interfaccia per eseguire la richiesta che è un semplice oggetto, per cui è possibile rendere variabile la reazione del client senza conoscere i dettagli dell'operazione stessa.
-\item Applicabilità: il Command pattern si presta bene alla parametrizzazione di oggetti sull’azione da eseguire (Callback function) soprattutto nello specificare, accodare ed eseguire richieste molteplici volte. Vi è inoltre il Supporto alle operazioni di "Undo" e "Redo". Vi è inoltre il supporto a transazione in quanto è possibile incapsulare un'azione in una operazione atomica.
+	\item \textbf{Scopo:} Incapsulare una richiesta in un oggetto, cosicché il \gloss{client} sia indipendente dalle richieste, poiché le richieste hanno al loro interno tutti i dati necessari per essere risolte.
+\item \textbf{Motivazione:} C'è la necessità di gestire richieste di cui non si conoscono i particolari poiché i Toolkit associano ai propri elementi, richieste da eseguire.
+ Una classe astratta, Command, definisce l’interfaccia per eseguire la richiesta che è un semplice oggetto, per cui è possibile rendere variabile la reazione del \gloss{client} senza conoscere i dettagli dell'operazione stessa.
+\item \textbf{Applicabilità:} Il Command pattern si presta bene alla parametrizzazione di oggetti sull’azione da eseguire (Callback function) soprattutto nello specificare, accodare ed eseguire richieste molteplici volte. Vi è inoltre il Supporto alle operazioni di "Undo" e "Redo". Vi è inoltre il supporto a transazione in quanto è possibile incapsulare un'azione in una operazione atomica.
 \end{itemize}
 \subsubsection{Iterator}
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=0.7\textwidth, keepaspectratio]{img/designPattern/IteratorPattern.png}
+		\caption{Esempio di applicazione del design pattern iterator}
+	\end{center}
+\end{figure}
 \begin{itemize}
-	\item Scopo:in un aggregato delegare la responsabilità dell'accesso da una classe separata dal contenitore stesso senza darne l'effettiva implementazione: si usa quindi l'iteratore, che fornisce metodi per navigare in maniera sequenziale attraverso il contenitore.
-	\item Motivazione: permette l'accesso ai dati nella medesima maniera dall'esterno e evita di appesantire il contenitore che altrimenti andrebbe arricchito di operazioni, rendendo il codice più complesso e difficilmente manutenibile. Inoltre permette di slegare il contenitore dalla maniera in cui si accede ad esso. Attraverso un iteratore si può inoltre ad esempio tenere traccia dell'elemento corrente, del precedente e del successivo.
-	\item Applicabilità: fornire l'accesso ad un aggregato senza fornire dettagli implementativi quali la struttura interna e la sua implementazione. Poiché rende  il contenitore indipendente dalla maniera in cui si percorre, esso è dunque aperto a diverse implementazioni per percorrerlo: è sufficente reimplementare l'iteratore, senza toccare il contenitore. Permette inoltre la presenza di più iteratori su uno stesso aggregato.
+	\item \textbf{Scopo:} In un aggregato delegare la responsabilità dell'accesso da una classe separata dal contenitore stesso senza darne l'effettiva implementazione: si usa quindi l'iteratore, che fornisce metodi per navigare in maniera sequenziale attraverso il contenitore.
+	\item \textbf{Motivazione:} Permette l'accesso ai dati nella medesima maniera dall'esterno e evita di appesantire il contenitore che altrimenti andrebbe arricchito di operazioni, rendendo il codice più complesso e difficilmente manutenibile. Inoltre permette di slegare il contenitore dalla maniera in cui si accede ad esso. Attraverso un iteratore si può inoltre ad esempio tenere traccia dell'elemento corrente, del precedente e del successivo.
+	\item \textbf{Applicabilità:} Fornire l'accesso ad un aggregato senza fornire dettagli implementativi quali la struttura interna e la sua implementazione. Poiché rende  il contenitore indipendente dalla maniera in cui si percorre, esso è dunque aperto a diverse implementazioni per percorrerlo: è sufficente reimplementare l'iteratore, senza toccare il contenitore. Permette inoltre la presenza di più iteratori su uno stesso aggregato.
 \end{itemize}
 \subsubsection{Observer}
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=0.7\textwidth, keepaspectratio]{img/designPattern/Observer.png}
+		\caption{Esempio di applicazione del design pattern observer}
+	\end{center}
+\end{figure}
 \begin{itemize}
-\item Scopo: definisce una dipendenza “1..n” fra oggetti, riflettendo la modifica di un oggetto su quelli che ad esso dipendono.
-\item Motivazione: mantenere la consistenza fra oggetti, oltre che al modello e alle viste ad esso collegate.
+\item \textbf{Scopo:} Definisce una dipendenza “1..n” fra oggetti, riflettendo la modifica di un oggetto su quelli che ad esso dipendono.
+\item \textbf{Motivazione:} Mantenere la consistenza fra oggetti, oltre che al modello e alle viste ad esso collegate.
  Observer pattern definisce come implementare la relazione di dipendenza: infatti il modello prevede due  attori principali che sono:
  \begin{itemize}
  	\item Subject, che effettua le notifiche e contiene le interfacce per registrare e rimuovere gli observer;
  	\item Observer, che si aggiorna in base alle notifiche che riceve dal subject.
  \end{itemize}
-\item Applicabilità: è utile nei casi in cui si debba associare più “viste” differenti ad una astrazione. Il pattern comporta inoltre un aumento del grado di riuso dei singoli tipi;
+\item \textbf{Applicabilità:} È utile nei casi in cui si debba associare più “viste” differenti ad una astrazione. Il pattern comporta inoltre un aumento del grado di riuso dei singoli tipi;
 È indicato inoltre quando il cambiamento di un oggetto richiede il cambiamento di altri oggetti, oppure non si conosce quanti oggetti devono cambiare.
 È utile anche per notificare oggetti senza fare assunzioni su quali siano questi oggetti ed evita l’accoppiamento “forte”.
 \end{itemize}
 \subsubsection{Strategy}
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=0.7\textwidth, keepaspectratio]{img/designPattern/StrategyPattern.png}
+		\caption{Esempio di applicazione del design pattern strategy}
+	\end{center}
+\end{figure}
 \begin{itemize}
-\item Scopo: isolare un algoritmo all'interno di un oggetto, allo scopo di definire un gruppo di algoritmi, rendendoli
-interscambiabili e indipendenti dal client che li utilizza. A questo proposito è necessario che la famiglia di algoritmi che implementa una stessa funzionalità esporti la medesima interfaccia in ogni caso, in questo modo il client che applica l'algoritmo non deve fare nessuna assunzioni sulla strategia applicata.
-\item Motivazione: Esistono differenti algoritmi (strategie) che non possono essere inserite direttamente nel client. Infatti i client, senza l'utilizzo di questo pattern rischiano di divenire troppo complessi: differenti strategie sono appropriate in casi differenti e dover scrivere codice ogni volta è troppo gravoso. Inoltre, se non si utilizza questo design pattern, è difficile aggiungere nuovi algoritmi e modificare gli esistenti.
-\item Applicabilità:Questo pattern si usa quando delle classi differiscono solo per il loro comportamento e si necessita di diverse varianti dello stesso algoritmo oppure quando una classe implementa diverse strategie attraverso molti statement condizionali, che si possono eliminare con questo design pattern. Inoltre l'iterator pattern si basa proprio su questo pattern.
+\item \textbf{Scopo:} Isolare un algoritmo all'interno di un oggetto, allo scopo di definire un gruppo di algoritmi, rendendoli
+interscambiabili e indipendenti dal \gloss{client} che li utilizza. A questo proposito è necessario che la famiglia di algoritmi che implementa una stessa funzionalità esporti la medesima interfaccia in ogni caso, in questo modo il \gloss{client} che applica l'algoritmo non deve fare nessuna assunzioni sulla strategia applicata.
+\item \textbf{Motivazione:} Esistono differenti algoritmi (strategie) che non possono essere inserite direttamente nel client. Infatti i \gloss{client}, senza l'utilizzo di questo pattern rischiano di divenire troppo complessi: differenti strategie sono appropriate in casi differenti e dover scrivere codice ogni volta è troppo gravoso. Inoltre, se non si utilizza questo \gloss{design pattern}, è difficile aggiungere nuovi algoritmi e modificare gli esistenti.
+\item \textbf{Applicabilità:} questo \gloss{design pattern} si usa quando delle classi differiscono solo per il loro comportamento e si necessita di diverse varianti dello stesso algoritmo oppure quando una classe implementa diverse strategie attraverso molti statement condizionali, che si possono eliminare con questo \gloss{design pattern}. Inoltre l'iterator pattern si basa proprio su questo pattern.
 \end{itemize}
 \newpage
 \listoftables
