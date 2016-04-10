@@ -1013,6 +1013,86 @@ riceve questo messaggio provvederà a inoltrare agli attori di tipo
 che mappano gli attori di tipo \hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{actorbase::actorsystem::\allowbreak{}userkeeper::\allowbreak{}Userkeeper}
 la creazione di un attore di questo tipo.
 
+\paragraph{actorbase::actorsystem::storefinder::messages::Init}
+\label{sec:actorbase::actorsystem::storefinder::messages::Init}
+
+\subparagraph{Descrizione}
+
+Messaggio importato dal package \hyperref[sec:actorbase::actorsystem::storefinder::messages]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storefinder::\allowbreak{}messages}
+che, se ricevuto dall'attore di tipo \gloss{Main},
+indica la necessità di inizializzare degli \gloss{Storefinder}.
+
+\subparagraph{Utilizzo}
+
+Quando \hyperref[sec:actorbase::actorsystem::main::Main]{actorbase::\allowbreak{}actorsystem::\allowbreak{}main::\allowbreak{}Main}
+riceve questo messaggio provvederà a inizializzare gli attori di tipo
+\hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storefinder::\allowbreak{}Storefinder}
+presenti nella cartella indicata dal messaggio.
+
+\paragraph{actorbase::actorsystem::storefinder::messages::DuplicateRequest}
+\label{sec:actorbase::actorsystem::storefinder::messages::DuplicateRequest}
+
+\subparagraph{Descrizione}
+
+Messaggio importato dal package \hyperref[sec:actorbase::actorsystem::storefinder::messages]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storefinder::\allowbreak{}messages}
+che, se ricevuto dall'attore di tipo \gloss{Main},
+indica la necessità di dividere a metà uno \gloss{Storefinder}.
+
+\subparagraph{Utilizzo}
+
+Quando \hyperref[sec:actorbase::actorsystem::main::Main]{actorbase::\allowbreak{}actorsystem::\allowbreak{}main::\allowbreak{}Main}
+riceve questo messaggio provvederà a dividere a metà l'attore di tipo
+\hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storefinder::\allowbreak{}Storefinder}
+che dovrà essere diviso.
+
+\paragraph{actorbase::actorsystem::storefinder::messages::GetItem}
+\label{sec:actorbase::actorsystem::storefinder::messages::GetItem}
+
+\subparagraph{Descrizione}
+
+Messaggio importato dal package \hyperref[sec:actorbase::actorsystem::storefinder::messages]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storefinder::\allowbreak{}messages}
+che indica la richiesta di un \gloss{item}.
+
+\subparagraph{Utilizzo}
+
+Quando \hyperref[sec:actorbase::actorsystem::main::Main]{actorbase::\allowbreak{}actorsystem::\allowbreak{}main::\allowbreak{}Main}
+riceve questo messaggio provvederà a inoltrare la richiesta all'attore di tipo
+\hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storefinder::\allowbreak{}Storefinder}
+che contiene l'\gloss{item} cercato.
+
+\paragraph{actorbase::actorsystem::storefinder::messages::RemoveItem}
+\label{sec:actorbase::actorsystem::storefinder::messages::RemoveItem}
+
+\subparagraph{Descrizione}
+
+Messaggio che indica la richiesta di rimozione di un \gloss{item}.
+
+\subparagraph{Utilizzo}
+
+Quando \hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storefinder::\allowbreak{}Storefinder}
+riceve questo messaggio provvederà a inoltrare la richiesta all'attore di tipo
+\hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storekeeper::\allowbreak{}Storekeeper}
+contenente l'attore di tipo
+\hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storekeeper::\allowbreak{}Storekeeper}
+contenente l'\gloss{item} da rimuovere.
+
+\paragraph{actorbase::actorsystem::storefinder::messages::Insert}
+\label{sec:actorbase::actorsystem::storefinder::messages::Insert}
+
+\subparagraph{Descrizione}
+
+Messaggio importato dal package \hyperref[sec:actorbase::actorsystem::storefinder::messages]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storefinder::\allowbreak{}messages}
+che indica la richiesta di inserimento di un \gloss{item}.
+
+\subparagraph{Utilizzo}
+
+Quando \hyperref[sec:actorbase::actorsystem::main::Main]{actorbase::\allowbreak{}actorsystem::\allowbreak{}main::\allowbreak{}Main}
+riceve questo messaggio provvederà a inoltrare la richiesta all'attore di tipo
+\hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storefinder::\allowbreak{}Storefinder}
+contenente l'attore di tipo
+\hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storekeeper::\allowbreak{}Storekeeper}
+destinato a ricevere l'\gloss{item} da inserire.
+
 \subsection{actorbase::actorsystem::userkeeper}
 \label{sec:actorbase::actorsystem::userkeeper}
 
@@ -1060,7 +1140,8 @@ Questa classe viene utilizzata per salvare gli utenti nel \gloss{database}.
 
 \subsubsection{Descrizione}
 
-\gloss{Package} che contiene tutti i messaggi che possono essere ricevuti da \hyperref[sec:actorbase::actorsystem::userkeeper::Userkeeper]{actorbase::actorsystem::userkeeper::Userkeeper}.
+\gloss{Package} che contiene tutti i messaggi che possono essere ricevuti da
+\hyperref[sec:actorbase::actorsystem::userkeeper::Userkeeper]{actorbase::actorsystem::userkeeper::Userkeeper}.
 
 \subsubsection{Classi}
 
@@ -1213,7 +1294,6 @@ Classe che rappresenta un attore di tipo \gloss{Storefinder}.
 
 \subsubsection{Classi}
 
-
 \paragraph{actorbase::actorsystem::storefinder::Storefinder}
 \label{sec:actorbase::actorsystem::storefinder::Storefinder}
 
@@ -1237,7 +1317,27 @@ Questa classe viene utilizzata per tener traccia degli attori di tipo
 \subparagraph{Interazioni con altre classi}
 
 \begin{itemize}
-\item akka::actor::ActorRef.
+\item akka::actor::ActorRef;
+\item \hyperref[actorbase::actorsystem::storefinder::SKRange]{actorbase::actorsystem::storefinder::SKRange}.
+\end{itemize}
+
+\paragraph{actorbase::actorsystem::storefinder::SKRange}
+\label{sec:actorbase::actorsystem::storefinder::SKRange}
+
+\subparagraph{Descrizione}
+
+Classe che rappresenta i range di indici contenuti in ogni attore di tipo
+\gloss{Storekeeper}.
+
+\subparagraph{Utilizzo}
+
+Questa classe viene utilizzata per tener traccia del contenuto degli attori di tipo
+\hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{actorbase::actorsystem::storekeeper::Storekeeper}.
+
+\subparagraph{Interazioni con altre classi}
+
+\begin{itemize}
+\item \hyperref[actorbase::actorsystem::storefinder::Storefinder]{actorbase::actorsystem::storefinder::Storefinder}.
 \end{itemize}
 
 \subsection{actorbase::actorsystem::storefinder::messages}
@@ -1321,6 +1421,127 @@ Quando \hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{actorbase
 riceve questo messaggio provvederà a inoltrare la richiesta all'attore di tipo
 \hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storekeeper::\allowbreak{}Storekeeper}
 destinato a ricevere l'\gloss{item} da inserire.
+
+\subsection{actorbase::actorsystem::storekeeper}
+\label{sec:actorbase::actorsystem::storekeeper}
+
+\subsubsection{Descrizione}
+
+\gloss{Package} che rappresenta l'attore di tipo \gloss{Storekeeper}.
+
+\subsubsection{Package contenuti}
+
+\begin{itemize}
+
+\item \hyperref[sec:actorbase::actorsystem::storekeeper::messages]{actorbase::actorsystem::storekeeper::messages}.
+
+\end{itemize}
+
+\subsubsection{Classi}
+
+\paragraph{actorbase::actorsystem::storekeeper::Storekeeper}
+\label{sec:actorbase::actorsystem::storekeeper::Storekeeper}
+
+\subparagraph{Descrizione}
+
+Classe che rappresenta un \gloss{attore} di tipo \gloss{Storekeeper}.
+
+\subparagraph{Utilizzo}
+
+Questa classe viene utilizzata per salvare nel \gloss{database} gli item.
+
+\subparagraph{Classi ereditate}
+
+\begin{itemize}
+
+\item akka::actor::Actor.
+
+\end{itemize}
+
+\subparagraph{Interazioni con altre classi}
+
+\begin{itemize}
+\item akka::actor::ActorRef.
+\end{itemize}
+
+\subsection{actorbase::actorsystem::storekeeper::messages}
+\label{sec:actorbase::actorsystem::storekeeper::messages}
+
+\subsubsection{Descrizione}
+
+\gloss{Package} che contiene tutti i messaggi che possono essere
+ricevuti dall'attore di tipo
+\hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storekeeper::\allowbreak{}Storekeeper}.
+
+\subsubsection{Classi}
+
+\paragraph{actorbase::actorsystem::storekeeper::messages::Init}
+\label{sec:actorbase::actorsystem::storekeeper::messages::Init}
+
+\subparagraph{Descrizione}
+
+Messaggio che richiede l'inizializzazione dello \gloss{Storekeeper}.
+
+\subparagraph{Utilizzo}
+
+Quando \hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{actorbase::actorsystem::storekeeper::Storekeeper}
+riceve questo messaggio manda un messaggio all'attore di tipo
+\hyperref[sec:actorbase::actorsystem::warehouseman::Warehouseman]{actorbase::\allowbreak{}actorsystem::\allowbreak{}warehouseman::\allowbreak{}Warehouseman}
+per la deserializzazione dei dati da leggere da disco.
+
+\paragraph{actorbase::actorsystem::storekeeper::messages::GetItem}
+\label{sec:actorbase::actorsystem::storekeeper::messages::GetItem}
+
+\subparagraph{Descrizione}
+
+Messaggio che richiede un \gloss{item} contenuto dall'attore
+\gloss{Storekeeper} che lo riceve.
+
+\subparagraph{Utilizzo}
+
+Quando \hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{actorbase::actorsystem::storekeeper::Storekeeper}
+riceve questo messaggio risponde mandando l'\gloss{item} cercato all'attore di tipo
+\hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{actorbase::actorsystem::clientactor::ClientActor}
+che aveva effettuato la richiesta.
+
+\paragraph{actorbase::actorsystem::storekeeper::messages::GetAllItem}
+\label{sec:actorbase::actorsystem::storekeeper::messages::GetAllItem}
+
+\subparagraph{Descrizione}
+
+Messaggio che richiede gli \gloss{item} contenuti dall'attore
+\gloss{Storekeeper} che lo riceve.
+
+\subparagraph{Utilizzo}
+
+Quando \hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{actorbase::actorsystem::storekeeper::Storekeeper}
+riceve questo messaggio risponde mandando gli \gloss{item} all'attore di tipo
+\hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{actorbase::actorsystem::clientactor::ClientActor}
+che aveva effettuato la richiesta.
+
+\paragraph{actorbase::actorsystem::storekeeper::messages::Insert}
+\label{sec:actorbase::actorsystem::storekeeper::messages::Insert}
+
+\subparagraph{Descrizione}
+
+Messaggio che richiede l'inserimento di un \gloss{item}.
+
+\subparagraph{Utilizzo}
+
+Quando \hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{actorbase::actorsystem::storekeeper::Storekeeper}
+riceve questo messaggio inserisce l'\gloss{item}.
+
+\paragraph{actorbase::actorsystem::storekeeper::messages::RemoveItem}
+\label{sec:actorbase::actorsystem::storekeeper::messages::RemoveItem}
+
+\subparagraph{Descrizione}
+
+Messaggio che richiede la rimozione di un \gloss{item}.
+
+\subparagraph{Utilizzo}
+
+Quando \hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{actorbase::actorsystem::storekeeper::Storekeeper}
+riceve questo messaggio rimuove l'\gloss{item}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                        DRIVER PARTE                              %
