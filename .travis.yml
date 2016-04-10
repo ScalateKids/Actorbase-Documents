@@ -5,7 +5,7 @@ notifications:
         recipients:
             - munaro.michael@gmail.com
         on_success:
-                never
+                always
         on_failure:
                 always
 
