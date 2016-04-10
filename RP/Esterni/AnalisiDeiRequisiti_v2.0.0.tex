@@ -194,7 +194,7 @@ nel documento \href{run:../Interni/NormeDiProgetto\_v2.0.0.pdf}{Norme di
 
 \subsection{Identificazione attori}
 
-L'analisi del capitolato e le riunioni con il \textit{Proponente} hanno fatto emergere alcune considerazioni sull'obiettivo che \textbf{Actorbase} si pone di raggiungere.\\Trattandosi di un'applicazione distribuita il prodotto finale sarà costituitovda due \gloss{macro} componenti: un lato server e un lato client fornito di interfaccia comandi testuale per poter dialogare con la base di dati.\\ Suddivisione attori:\\
+L'analisi del capitolato e le riunioni con il \textit{Proponente} hanno fatto emergere alcune considerazioni sull'obiettivo che \textbf{Actorbase} si pone di raggiungere.\\Trattandosi di un'applicazione distribuita il prodotto finale sarà costituito da due \gloss{macro} componenti: un lato server e un lato client fornito di interfaccia comandi testuale per poter dialogare con la base di dati.\\ Suddivisione attori:\\
 \textbf{Primari}
 \begin{itemize}
 \item\textbf{Utente non autenticato:}\\
@@ -211,7 +211,7 @@ L'analisi del capitolato e le riunioni con il \textit{Proponente} hanno fatto em
 \textbf{Secondari}
 \begin{itemize}
 \item\textbf{Actorbase:}\\
-  Nel caso di utilizzo del sistema da un programma esterno in linguaggio Scala, il sistema \textbf{Actorbase} rappresenta effettivamente l'attore necessario agli attori primari per raggiugere
+  Nel caso di utilizzo del sistema da un programma esterno in linguaggio Scala, il sistema \textbf{Actorbase} rappresenta effettivamente l'attore necessario agli attori primari per raggiungere
   lo scopo prefissato, ovvero l'inserimento dei comandi da inviare al sistema stesso mediante utilizzo del \gloss{driver}.
 \end{itemize}
 
@@ -454,7 +454,7 @@ L'attore ha appena avviato la \gloss{CLI}, risulta essere non autenticato e può
 \item aggiunta \gloss{collaboratore} a \gloss{collezione} esistente;
 \item rimozione \gloss{collaboratore} a \gloss{collezione} esistente.
 \end{itemize}
-\textbf{Precodizione:} Il server è in acolto, l'attore intende effettuare operazioni su \gloss{collezioni}.\\
+\textbf{Precodizione:} Il server è in ascolto, l'attore intende effettuare operazioni su \gloss{collezioni}.\\
 \textbf{Scenario principale:}
 \begin{itemize}
 \item UC1.3.1\ -\ Creazione \gloss{collezione};
@@ -467,7 +467,7 @@ L'attore ha appena avviato la \gloss{CLI}, risulta essere non autenticato e può
 \end{itemize}
 \textbf{Estensioni:}
 \begin{itemize}
-\item Condizione: in UC1.3.1 o UC1.3.4 l'attore inserisce il nome di una \gloss{collezione} già censita all'iterno del sistema:
+\item Condizione: in UC1.3.1 o UC1.3.4 l'attore inserisce il nome di una \gloss{collezione} già censita all'interno del sistema:
   \begin{itemize}
   \item UC1.3.10\ -\ Visualizzazione errore \gloss{collezione} già esistente.
   \end{itemize}
@@ -610,7 +610,7 @@ L'attore ha appena avviato la \gloss{CLI}, risulta essere non autenticato e può
 \subsubsection{UC1.3.5.2: Inserimento username collaboratore}
 
 \textbf{Attore primario:} Utente autenticato, utente amministratore\\
-\textbf{Scopo e descrizione:} L'attore intende aggiungere un \gloss{collaboratore} ad una \gloss{collezione} di sua proprietà; deve inserire lo username del \gloss{collaboratore} da aggiugere.\\
+\textbf{Scopo e descrizione:} L'attore intende aggiungere un \gloss{collaboratore} ad una \gloss{collezione} di sua proprietà; deve inserire lo username del \gloss{collaboratore} da aggiungere.\\
 \textbf{Precondizione:} Il server è in ascolto, l'attore ha inserito il comando per l'aggiunta di un \gloss{collaboratore} ad una \gloss{collezione} e ha inserito il nome della \gloss{collezione}.\\
 \textbf{Scenario principale:}
 \begin{itemize}
@@ -661,7 +661,7 @@ L'attore ha appena avviato la \gloss{CLI}, risulta essere non autenticato e può
 \subsubsection{UC1.3.6.2: Inserimento username collaboratore}
 
 \textbf{Attore primario:} Utente autenticato, utente amministratore\\
-\textbf{Scopo e descrizione:} L'attore intende aggiungere un \gloss{collaboratore} ad una \gloss{collezione} di sua proprietà; deve inserire lo username del \gloss{collaboratore} da aggiugere.\\
+\textbf{Scopo e descrizione:} L'attore intende aggiungere un \gloss{collaboratore} ad una \gloss{collezione} di sua proprietà; deve inserire lo username del \gloss{collaboratore} da aggiungere.\\
 \textbf{Precondizione:} Il server è in ascolto, l'attore ha inserito il comando per la rimozione di un \gloss{collaboratore} da una \gloss{collezione} e ha inserito il nome della \gloss{collezione}.\\
 \textbf{Scenario principale:}
 \begin{itemize}
@@ -703,7 +703,7 @@ Il server è in ascolto l'attore ha inserito un comando tra:
 \item UC1.3.5\ -\ Aggiunta \gloss{collaboratore} a \gloss{collezione}
 \item UC1.3.6\ -\ Rimozione \gloss{collaboratore} da \gloss{collezione}
 \end{itemize}
-e i parametri per la sua esecuzione, tra cui il nome della \gloss{collezione}, il quale risulta essere inesistene all'interno del sistema.\\
+e i parametri per la sua esecuzione, tra cui il nome della \gloss{collezione}, il quale risulta essere inesistente all'interno del sistema.\\
 \textbf{Scenario principale:}
 \begin{itemize}
 \item Viene visualizzato un messaggio di errore esplicativo.
@@ -968,7 +968,7 @@ inserimento e cancellazione.\\
 \textbf{Attore primario:} Utente autenticato, utente amministratore\\
 \textbf{Scopo e descrizione:} L'attore, con l'intenzione di inserire \gloss{item} in modalità manuale o per esportazione da file, ha inserito un \gloss{item} con \gloss{flag} di sovrascrittura
 non attivo e una chiave di ricerca già presente all'interno della \gloss{collezione} designata all'inserimento.\\
-\textbf{Precondizione:} Il server è in ascolto, l'attore, con l'intezione di inserire un item con \gloss{flag} di sovrascrittura non attivo, ha inserito una chiave di ricerca già presente
+\textbf{Precondizione:} Il server è in ascolto, l'attore, con l'intenzione di inserire un item con \gloss{flag} di sovrascrittura non attivo, ha inserito una chiave di ricerca già presente
 all'interno della \gloss{collezione} designata all'inserimento.\\
 \textbf{Scenario principale:}
 \begin{itemize}
@@ -981,7 +981,7 @@ all'interno della \gloss{collezione} designata all'inserimento.\\
 \textbf{Attore primario:} Utente autenticato, utente amministratore\\
 \textbf{Scopo e descrizione:} L'attore, con l'intenzione di cancellare un \gloss{item} da una \gloss{collezione}, ha inserito il nome di una \gloss{collezione} inesistente
 all'interno del sistema.\\
-\textbf{Precondizione:} Il server è in ascolto, l'attore, con l'intezione di cancellare un \gloss{item} da una \gloss{collezione}, ha inserito il nome di una \gloss{collezione} inesistente
+\textbf{Precondizione:} Il server è in ascolto, l'attore, con l'intenzione di cancellare un \gloss{item} da una \gloss{collezione}, ha inserito il nome di una \gloss{collezione} inesistente
 all'interno del sistema.\\
 \textbf{Scenario principale:}
 \begin{itemize}
@@ -1392,7 +1392,7 @@ vincoli imposti. I vincoli imposti dal sistema sono:
 vincoli imposti. I vincoli imposti sulla conferma password dal sistema sono:
 \begin{itemize}
 \item Lunghezza password minima di 8 caratteri;
-\item La password da confermare deve corripondere alla password inserita in UC1.6.2.
+\item La password da confermare deve corrispondere alla password inserita in UC1.6.2.
 \end{itemize}
 \textbf{Scenario principale:}
 \begin{itemize}
@@ -1618,7 +1618,7 @@ L'attore intende effettuare login al database da un programma \gloss{Scala} este
   \begin{itemize}
   \item UC2.2.10 Lancio eccezione username inesistente.
   \end{itemize}
-\item Condizione: in UC2.2.7 l'attore inseriesce una lista di collezioni vuota:
+\item Condizione: in UC2.2.7 l'attore inserisce una lista di collezioni vuota:
   \begin{itemize}
   \item UC2.2.11 Esportazione di tutto il database su file.
   \end{itemize}
@@ -1857,7 +1857,7 @@ L'attore intende effettuare login al database da un programma \gloss{Scala} este
 \textbf{Attore secondario:} Actorbase\\
 \textbf{Scopo e descrizione:} L'attore intende creare una nuova collezione o modificare il nome di una già esistente.\\
 \textbf{Precondizione:} Il server è in ascolto, l'attore ha inserito il comando di creazione di una collezione o di modifica nome collezione e ha inserito il nome della collezione.\\
-\textbf{Scenaio principale:}
+\textbf{Scenario principale:}
 \begin{itemize}
 \item Viene lanciata una eccezione collezione già esistente.
 \end{itemize}
@@ -1876,7 +1876,7 @@ L'attore intende effettuare login al database da un programma \gloss{Scala} este
 \end{itemize}
 ma durante l'inserimento dei parametri inserisce un nome collezione non censito all'interno del sistema.\\
 \textbf{Precondizione:} Il server è in ascolto, l'attore ha inserito uno dei comandi sopra elencati e ha inserito il nome della collezione .\\
-\textbf{Scenaio principale:}
+\textbf{Scenario principale:}
 \begin{itemize}
 \item Viene lanciata una eccezione collezione inesistente.
 \end{itemize}
@@ -1888,7 +1888,7 @@ ma durante l'inserimento dei parametri inserisce un nome collezione non censito 
 \textbf{Attore secondario:} Actorbase\\
 \textbf{Scopo e descrizione:} L'attore intende aggiungere un collaboratore a una collezione.\\
 \textbf{Precondizione:} Il server è in ascolto, l'attore ha inserito il comando di aggiunta collaboratore, ha inserito il nome della collezione e l'username del collaboratore designato.\\
-\textbf{Scenaio principale:}
+\textbf{Scenario principale:}
 \begin{itemize}
 \item Viene lanciata una eccezione username inesistente
 \end{itemize}
@@ -1938,7 +1938,7 @@ inserimento e cancellazione.\\
   \begin{itemize}
   \item UC2.3.7 Inserimento con creazione nuova \gloss{collezione}.
   \end{itemize}
-\item Condizione: in UC2.3.1.2 l'attore iscerisce un path relativo ad un file non esistente:
+\item Condizione: in UC2.3.1.2 l'attore inserisce un path relativo ad un file non esistente:
   \begin{itemize}
   \item UC2.3.3 Lancio eccezione file inesistente.
   \end{itemize}
@@ -1982,7 +1982,7 @@ inserimento e cancellazione.\\
   \begin{itemize}
   \item UC2.3.7 Inserimento con creazione nuova collezione.
   \end{itemize}
-\item Condizione: in UC2.3.1.2 l'attore iscerisce un path relativo ad un file non esistente:
+\item Condizione: in UC2.3.1.2 l'attore inserisce un path relativo ad un file non esistente:
   \begin{itemize}
   \item UC2.3.3 Lancio eccezione file inesistente.
   \end{itemize}
@@ -2616,7 +2616,7 @@ OBF1.1.10.7.2.1 & \multiLineCell{Funzionale\\Obbligatorio} & Il sistema ad attor
 \hline
 OBF1.1.10.7.3 & \multiLineCell{Funzionale\\Obbligatorio} & Il sistema ad attori dovrà permettere di effettuare un reset della password di un utente mediante interazioni tra \gloss{Clientactor}, \gloss{Main}, \gloss{Storefinder}, \gloss{Userkeeper} & \multiLineCell{UC1.8.3\\UC2.7.3\\}\\
 \hline
-OBF1.1.10.7.3.1 & \multiLineCell{Funzionale\\Obbligatorio} & Il sistema ad attori dovrà inviare un messaggio d'errore verso l'esterno nel caso in cui lo \gloss{username} dell'utentea cui resettare la password, mediante interazioni tra \gloss{Clientactor}, \gloss{Main}, \gloss{Storefinder} & \multiLineCell{UC1.8.5\\UC2.7.5\\}\\
+OBF1.1.10.7.3.1 & \multiLineCell{Funzionale\\Obbligatorio} & Il sistema ad attori dovrà inviare un messaggio d'errore verso l'esterno nel caso in cui lo \gloss{username} dell'utente cui resettare la password, mediante interazioni tra \gloss{Clientactor}, \gloss{Main}, \gloss{Storefinder} & \multiLineCell{UC1.8.5\\UC2.7.5\\}\\
 \hline
 OBF1.1.2 & \multiLineCell{Funzionale\\Obbligatorio} & All'interno del singolo \gloss{nodo} dovrà essere implementato l'attore \gloss{Clientactor} per gestire il ciclo di vita di una connessione dall'esterno & \multiLineCell{INTERNO\\UC1\\}\\
 \hline
