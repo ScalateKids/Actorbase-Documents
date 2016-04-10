@@ -440,7 +440,9 @@ Nella tabella di seguito sono riportati i valori degli indici di Gulpease per og
 \newpage
 \section{Pianificazione dei test}
 Di seguito sono descritti i test di sistema. In futuro questa sezione verrà aggiornata con i test di integrazione e di unità.
+
 \subsection{Test di sistema}
+
 I test di sistema permettono di verificare il comportamento del sistema rispetto ai requisiti descritti nell'\href{run:./AnalisiDeiRequisiti\_v2.0.0.pdf}{Analisi dei requisiti v2.0.0}.\\
 La tabella seguente descrive i test dei requisiti ritenuti meritevoli di verifica. \\
 La colonna "Stato" nella tabella è lasciata vuota in quanto i test saranno effettuati successivamente.
@@ -603,7 +605,252 @@ La colonna "Stato" nella tabella è lasciata vuota in quanto i test saranno effe
 I test di validazione servono all'accertamento che il prodotto realizzato sia conforme
 alle attese.\\
 Per ogni test vengono descritti i passi che un utente deve eseguire per testare i
-requisiti ad esso associati.
+requisiti ad esso associati.\\
+Si noti che i seguenti test eccetto \hyperref[sec:TV1]{TV1}, \hyperref[sec:TV3]{TV3} e \hyperref[sec:TV4]{TV4} rappresentano le operazioni possibili 
+sul database, per questo motivo tutti questi test saranno effettuabili sia 
+tramite l'utilizzo della \gloss{CLI} sia tramite l'utilizzo del \gloss{Driver}.\\
+Nei test di validazione in cui è previsto l'inserimento di parametri per 
+l'esecuzione di una operazione sul database si è scelto di non descrivere 
+dettagliatamente tutti i parametri da inserire poichè questa descrizione è 
+già stata redatta nell'\href{run:../Esterni/AnalisiDeiRequisiti\_v2.0.0.pdf}{Analisi dei Requisiti 2.0.0}.\\
+
+\subsubsection{Test TV1}
+\label{sec:TV1}
+
+L'utente intende aggiungere un nodo al \gloss{cluster}.\\
+L'utente deve:
+\begin{itemize}
+\item Avviare il server actorbase;
+\item Adattare il file di configurazione per potersi connettere al \gloss{cluster};
+\item Avviare actorbase sul nuovo nodo;
+\item Verificare tramite console l'avvenuta connessione al \gloss{cluster}.
+\end{itemize}
+
+\subsubsection{Test TV2}
+
+L'utente intende autenticarsi presso il sistema.\\
+L'utente deve:
+\begin{itemize}
+\item Inserire il comando per effettuare l'autenticazione;
+\item Inserire i parametri per effettuare l'autenticazione;
+\item Verificare che l'autenticazione ha avuto successo controllando la 
+risposta ricevuta dal server o eseguendo un comando 
+disponibile solo ad utenti autenticati.
+\end{itemize}
+
+\subsubsection{Test TV3}
+\label{sec:TV3}
+
+L'utente vuole richiedere aiuto generale.\\
+L'utente deve:
+\begin{itemize}
+\item Inserire il comando di aiuto generale attraverso l'uso della \gloss{CLI};
+\item Verificare che l'output della richiesta di aiuto è stato stampato in 
+output sulla \gloss{CLI}.
+\end{itemize}
+
+\subsubsection{Test TV4}
+\label{sec:TV4}
+
+L'utente vuole richiedere aiuto specifico di un comando.\\
+L'utente deve:
+\begin{itemize}
+\item Inserire il comando di aiuto attraverso l'uso della \gloss{CLI};
+\item Inserire il nome del comando di cui vuole ricevere informazioni;
+\item Verificare che l'output della richiesta di aiuto è stato stampato in 
+output sulla \gloss{CLI}.
+\end{itemize}
+
+\subsubsection{Test TV5}
+
+L'utente vuole creare una \gloss{collezione}.\\
+L'utente deve:
+\begin{itemize}
+\item Inserire il comando per la creazione \gloss{collezione};
+\item Inserire il nome della \gloss{collezione} da creare;
+\item Verificare l'avvenuta creazione della \gloss{collezione} controllando la 
+risposta ricevuta dal server o usando il comando di visualizzazione 
+lista delle collezioni.
+\end{itemize}
+
+\subsubsection{Test TV6}
+
+L'utente vuole visualizzare la lista delle \gloss{collezioni}.\\
+L'utente deve:
+\begin{itemize}
+\item Inserire il comando per la visualizzazione lista delle \gloss{collezioni};
+\item Verificare l'avvenuta esecuzione del comando controllando la risposta ricevuta dal server.
+\end{itemize}
+
+\subsubsection{Test TV7}
+
+L'utente vuole modificare nome ad una propria \gloss{collezione}.\\
+L'utente deve:
+\begin{itemize}
+\item Inserire il comando per la modifica nome \gloss{collezione};
+\item Inserire i parametri per cambiare il nome della \gloss{collezione};
+\item Verificare l'avvenuta esecuzione del comando controllando la risposta ricevuta dal server o usando il comando di visualizzazione lista delle collezioni.
+\end{itemize}
+
+\subsubsection{Test TV8}
+
+L'utente vuole cancellare una \gloss{collezione}.\\
+L'utente deve:
+\begin{itemize}
+\item Inserire il comando per la cancellazione \gloss{collezione};
+\item Inserire i parametri per cancellare la \gloss{collezione};
+\item Verificare l'avvenuta esecuzione del comando controllando la risposta ricevuta dal server o usando il comando di visualizzazione lista delle collezioni.
+\end{itemize}
+
+\subsubsection{Test TV9}
+
+L'utente vuole aggiungere un collaboratore ad una \gloss{collezione}.\\
+L'utente deve:
+\begin{itemize}
+\item Inserire il comando per 'aggiunta collaboratore a \gloss{collezione};
+\item Inserire i parametri per aggiungere il collaboratore alla  \gloss{collezione};
+\item Verificare l'avvenuta esecuzione del comando controllando la risposta ricevuta dal server.
+\end{itemize}
+
+
+\subsubsection{Test TV10}
+
+L'utente vuole rimuovere un collaboratore da una \gloss{collezione}.\\
+L'utente deve:
+\begin{itemize}
+\item Inserire il comando per la rimozione di un collaboratore da un \gloss{collezione};
+\item Inserire i parametri per rimuovere un collaboratore da una \gloss{collezione};
+\item Verificare l'avvenuta esecuzione del comando controllando la risposta ricevuta dal server.
+\end{itemize}
+
+\subsubsection{Test TV11}
+
+L'utente vuole esportare una o più \gloss{collezioni} su file.\\
+L'utente deve:
+\begin{itemize}
+\item Inserire il comando per l'esportazione di \gloss{collezioni} su file;
+\item Inserire i parametri per esportare \gloss{collezioni} su file;
+\item Verificare l'avvenuta esecuzione del comando controllando la risposta ricevuta dal server o controllando il file salvato su disco.
+\end{itemize}
+
+\subsubsection{Test TV12}
+
+L'utente vuole inserire un \gloss{item}.\\
+L'utente deve:
+\begin{itemize}
+\item Inserire il comando per l'inserimento di \gloss{item};
+\item Inserire i parametri per inserire l'\gloss{item};
+\item Verificare l'avvenuta esecuzione del comando controllando la risposta ricevuta dal server o usando il comando di ricerca sulla \gloss{collezione} giusta con la chiave appena usata.
+\end{itemize}
+
+\subsubsection{Test TV13}
+
+L'utente vuole inserire un \gloss{item} importando da file.\\
+L'utente deve:
+\begin{itemize}
+\item Inserire il comando per l'importazione di \gloss{item} da file;
+\item Inserire i parametri per inserire gli \gloss{item} tramite importazione;
+\item Verificare l'avvenuta esecuzione del comando controllando la risposta ricevuta dal server o usando il comando di ricerca sugli \gloss{item} appena inseriti.
+\end{itemize}
+
+\subsubsection{Test TV14}
+
+L'utente vuole cancellare un \gloss{item}.\\
+L'utente deve:
+\begin{itemize}
+\item Inserire il comando per la cancellazione di \gloss{item};
+\item Inserire i parametri per cancellare l'\gloss{item};
+\item Verificare l'avvenuta esecuzione del comando controllando la risposta ricevuta dal server o usando il comando di ricerca sulla \gloss{collezione} giusta con la chiave appena usata per effettuare la cancellazione.
+\end{itemize}
+
+\subsubsection{Test TV15}
+
+L'utente vuole effettuare una ricerca di \gloss{item} su una o più \gloss{collezioni}.\\
+L'utente deve:
+\begin{itemize}
+\item Inserire il comando per la ricerca di \gloss{item};
+\item Inserire i parametri per la ricerca di un \gloss{item} su una o più \gloss{collezioni};
+\item Verificare l'avvenuta esecuzione del comando controllando la risposta ricevuta dal server.
+\end{itemize}
+
+\subsubsection{Test TV16}
+
+L'utente vuole visualizzare tutti gli \gloss{item} contenuti in una \gloss{collezione}.\\
+L'utente deve:
+\begin{itemize}
+\item Inserire il comando per la ricerca di \gloss{item};
+\item Inserire i parametri per la ricerca di tutti gli \gloss{item} contenuti in una \gloss{collezione};
+\item Verificare l'avvenuta esecuzione del comando controllando la risposta ricevuta dal server.
+\end{itemize}
+
+\subsubsection{Test TV17}
+
+L'utente vuole effettuare una ricerca di un \gloss{item} sull'intero database (secondo i suoi permessi come specificato nel documento \href{run:../Esterni/AnalisiDeiRequisiti\_v2.0.0.pdf}{Analisi dei Requisiti 2.0.0}).\\
+L'utente deve:
+\begin{itemize}
+\item Inserire il comando per la ricerca di \gloss{item};
+\item Inserire i parametri per la ricerca di un \gloss{item} sull'intero database;
+\item Verificare l'avvenuta esecuzione del comando controllando la risposta ricevuta dal server.
+\end{itemize}
+
+\subsubsection{Test TV18}
+
+L'utente vuole visualizzare l'intero database (secondo i suoi permessi come specificato nel documento \href{run:../Esterni/AnalisiDeiRequisiti\_v2.0.0.pdf}{Analisi dei Requisiti 2.0.0}).\\
+L'utente deve:
+\begin{itemize}
+\item Inserire il comando per la ricerca di \gloss{item};
+\item Inserire i parametri per la ricerca per l'intero database;
+\item Verificare l'avvenuta esecuzione del comando controllando la risposta ricevuta dal server.
+\end{itemize}
+
+\subsubsection{Test TV19}
+
+L'utente vuole effettuare modificare la propria password.\\
+L'utente deve:
+\begin{itemize}
+\item Inserire il comando per la modifica password;
+\item Inserire i parametri per la modifica password;
+\item Verificare l'avvenuta esecuzione del comando controllando la risposta ricevuta dal server o effettuando una deautenticazione seguita da una autenticazione con la nuova password.
+\end{itemize}
+
+\subsubsection{Test TV20}
+
+L'utente vuole effettuare deautenticazione dal server.\\
+L'utente deve:
+\begin{itemize}
+\item Inserire il comando per effettuare il logout;
+\item Verificare l'avvenuta esecuzione del comando controllando la risposta ricevuta dal server o eseguendo un comando disponibile solo ad utenti autenticati (che dovrà non essere disponibile).
+\end{itemize}
+
+\subsubsection{Test TV21}
+
+L'utente amministratore vuole aggiungere un utente al sistema.\\
+L'utente deve:
+\begin{itemize}
+\item Inserire il comando per aggiungere un utente al sistema;
+\item Inserire i parametri per l'aggiunta utente;
+\item Verificare l'avvenuta esecuzione del comando controllando la risposta ricevuta dal server.
+\end{itemize}
+
+\subsubsection{Test TV22}
+
+L'utente amministratore vuole rimuovere un utente dal sistema.\\
+L'utente deve:
+\begin{itemize}
+\item Inserire il comando per la rimozione utente;
+\item Inserire i parametri per la rimozione utente;
+\item Verificare l'avvenuta esecuzione del comando controllando la risposta ricevuta dal server.
+\end{itemize}
+
+\subsubsection{Test TV23}
+
+L'utente amministratore vuole effettuare un reset della password di un utente.\\
+L'utente deve:
+\begin{itemize}
+\item Inserire il comando per effettuare il reset password;
+\item Inserire i parametri per il reset password;
+\item Verificare l'avvenuta esecuzione del comando controllando la risposta ricevuta dal server.
+\end{itemize}
 
 \listoffigures
 \end{document}
