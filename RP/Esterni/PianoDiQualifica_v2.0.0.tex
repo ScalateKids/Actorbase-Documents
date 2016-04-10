@@ -439,6 +439,7 @@ Nella tabella di seguito sono riportati i valori degli indici di Gulpease per og
 \end{center}
 \newpage
 \section{Pianificazione dei test}
+
 Di seguito sono descritti i test di sistema. In futuro questa sezione verrà aggiornata con i test di integrazione e di unità.
 
 \subsection{Test di sistema}
@@ -599,6 +600,121 @@ La colonna "Stato" nella tabella è lasciata vuota in quanto i test saranno effe
 \end{center}
 
 \subsection{Test di integrazione}
+
+I test di integrazione permettono di verificare la corretta integrazione ed il
+corretto flusso dei dati all'interno del sistema, sia relazioni tra
+\gloss{package} sia il funzionamento
+di ogni singolo \gloss{package} di ogni componente.\\
+L'approccio utilizzato è di tipo \gloss{bottom-up}, in questo modo è possibile
+integrare prima le parti con minore dipendenza funzionale e, nel caso di
+inserimento di parti diffettose, è possibile retrocedere ad uno stato testato e
+sicuro in maniera semplice. Il diagramma seguente non rispetta il formalismo
+\gloss{UML} 2.0 ed è utilizzato per semplificare l'illustrazione della strategia
+di integrazione:
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1.0\textwidth, keepaspectratio]{RP/AlberoIntegrazione.png}
+    \caption{Diagramma informale della stategia di integrazione}
+  \end{center}
+\end{figure}
+
+\subsubsection{Descrizione dei test di integrazione}
+
+La colonna "Stato" nella tabella è lasciata vuota in quanto i test saranno effettuati successivamente.
+
+\begin{longtable}[H]{| l | p{10cm} | l | l |}
+  \hline
+  Test & Descrizione & Componente & Stato\\
+  \hline
+  TI.actorbase & Test di integrazione finale per le componenti cli, driver e actorsystem & actorbase &\\
+  \hline
+  TI.cli & Test di integrazione finale per models, views e controllers & cli &\\
+  \hline
+  TI.models & Verifica della corretta esecuzione dei comandi mediante integrazione con componente driver & models &\\
+  \hline
+  TI.controllers & Verifica del parsing dei comandi e della corretta integrazione con models e views & controllers &\\
+  \hline
+  TI.views & Verifica del corretto funzionamento delle procedure di input e output & views &\\
+  \hline
+  TI.driver & Test di integrazione finale per client, actorbasedata e serializer & driver &\\
+  \hline
+  TI.client & Verifica della comunicazione tra client e server e corretto funzionamento dei comandi & client &\\
+  \hline
+  TI.serializer & Test di controllo sulla corretta esecuzione delle procedure di serializzazione e deserializzazione secondo il protocollo \gloss{RESP} & serializer &\\
+  \hline
+  TI.actorbasedata & Verifica della corretta integrazione con le componenti client e serializer & actorbasedata &\\
+  \hline
+  TI.actorsystem & Test di integrazione finale per tcpserver, storefinder, storekeeper, ninja, manager, userkeeper, main, clientactor, serialization, warehouseman & actorsystem &\\
+  \hline
+  TI.serialization & Verifica delle corrette procedure di serializzazione e deserializzazione secondo i protocolli specificati & serialization &\\
+  \hline
+  TI.tcpserver & Test di verifica del corretto funzionamento del server tcp & tcpserver &\\
+  \hline
+  TI.clientactor & Test di verifica del parsing dei comandi riecvuti dall'esterno e della corretta esecuzione dei messaggi & clientactor &\\
+  \hline
+  TI.main & Verifica della corretta esecuzioni dei messaggi dedicati & main &\\
+  \hline
+  TI.storefinder & Verifica della corretta esecuzioni dei messaggi dedicati & storefinder &\\
+  \hline
+  TI.storekeeper & Verifica della corretta esecuzioni dei messaggi dedicati & storekeeper &\\
+  \hline
+  TI.userkeeper & Verifica della corretta esecuzioni dei messaggi dedicati & userkeeper &\\
+  \hline
+  TI.manager & Verifica della corretta esecuzioni dei messaggi dedicati & manager &\\
+  \hline
+  TI.ninja & Verifica della corretta esecuzioni dei messaggi dedicati & ninja &\\
+  \hline
+  TI.warehouseman & Verifica della corretta esecuzioni dei messaggi dedicati & warehouseman &\\
+  \hline
+\end{longtable}
+
+\subsubsection{Tracciamento componenti-test di integrazione}
+
+\begin{longtable}[H]{| p{10cm} | l |}
+  \hline
+  Componente & Test\\
+  \hline
+  actorbase & TI.actorbase\\
+  \hline
+  actorbase::cli & TI.cli\\
+  \hline
+  actorbase::cli::models & TI.models\\
+  \hline
+  actorbase::cli::controllers & TI.controllers\\
+  \hline
+  actorbase::cli::views & TI.views\\
+  \hline
+  actorbase::driver & TI.driver\\
+  \hline
+  actorbase::driver::client & TI.client\\
+  \hline
+  actorbase::driver::serializer & TI.serializer\\
+  \hline
+  actorbase::driver::actorbasedata & TI.actorbasedata\\
+  \hline
+  actorbase::actorsystem & TI.actorsystem\\
+  \hline
+  actorbase::actorsystem::serialization & TI.serialization\\
+  \hline
+  actorbase::actorsystem::tcpserver & TI.tcpserver\\
+  \hline
+  actorbase::actorsystem::clientactor & TI.clientactor\\
+  \hline
+  actorbase::actorsystem::main & TI.main\\
+  \hline
+  actorbase::actorsystem::storefinder & TI.storefinder\\
+  \hline
+  actorbase::actorsystem::storekeeper & TI.storekeeper\\
+  \hline
+  actorbase::actorsystem::userkeeper & TI.userkeeper\\
+  \hline
+  actorbase::actorsystem::manager & TI.manager\\
+  \hline
+  actorbase::actorsystem::ninja & TI.ninja\\
+  \hline
+  actorbase::actorsystem::warehouseman & TI.warehouseman\\
+  \hline
+\end{longtable}
 
 \subsection{Test di validazione}
 
