@@ -5,9 +5,9 @@ notifications:
         recipients:
             - munaro.michael@gmail.com
         on_success:
-                always
+                never
         on_failure:
-                always
+                change
 
 branches:
     only:
