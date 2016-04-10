@@ -880,7 +880,27 @@ Questa classe viene utilizzata per gestire le richieste ricevute al
 \subparagraph{Interazioni con altre classi}
 
 \begin{itemize}
-\item akka::actor::ActorRef.
+\item akka::actor::ActorRef;
+\item \hyperref[actorbase::actorsystem::main::SFRange]{actorbase::actorsystem::main::SFRange}.
+\end{itemize}
+
+\paragraph{actorbase::actorsystem::storefinder::SFRange}
+\label{sec:actorbase::actorsystem::storefinder::SFRange}
+
+\subparagraph{Descrizione}
+
+Classe che rappresenta i range di indici contenuti in ogni attore di tipo
+\gloss{Storekeeper}.
+
+\subparagraph{Utilizzo}
+
+Questa classe viene utilizzata per tener traccia del contenuto degli attori di tipo
+\hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{actorbase::actorsystem::storefinder::Storefinder}.
+
+\subparagraph{Interazioni con altre classi}
+
+\begin{itemize}
+\item \hyperref[actorbase::actorsystem::main::Main]{actorbase::actorsystem::main::Main}.
 \end{itemize}
 
 \subsection{actorbase::actorsystem::main::messages}
@@ -1036,14 +1056,12 @@ presenti nella cartella indicata dal messaggio.
 
 Messaggio importato dal package \hyperref[sec:actorbase::actorsystem::storefinder::messages]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storefinder::\allowbreak{}messages}
 che, se ricevuto dall'attore di tipo \gloss{Main},
-indica la necessità di dividere a metà uno \gloss{Storefinder}.
+indica l'avvenuta divisione di uno \gloss{Storefinder}.
 
 \subparagraph{Utilizzo}
 
 Quando \hyperref[sec:actorbase::actorsystem::main::Main]{actorbase::\allowbreak{}actorsystem::\allowbreak{}main::\allowbreak{}Main}
-riceve questo messaggio provvederà a dividere a metà l'attore di tipo
-\hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storefinder::\allowbreak{}Storefinder}
-che dovrà essere diviso.
+riceve questo messaggio provvederà ad aggiornare i suoi indici.
 
 \paragraph{actorbase::actorsystem::storefinder::messages::GetItem}
 \label{sec:actorbase::actorsystem::storefinder::messages::GetItem}
@@ -1371,14 +1389,12 @@ presenti nella cartella indicata dal messaggio.
 \subparagraph{Descrizione}
 
 Messaggio che, se ricevuto dall'attore di tipo \gloss{Storefinder},
-indica la necessità di dividere a metà uno \gloss{Storekeeper}.
+indica l'avvenuta divisione di uno \gloss{Storekeeper}.
 
 \subparagraph{Utilizzo}
 
 Quando \hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storefinder::\allowbreak{}Storefinder}
-riceve questo messaggio provvederà a dividere a metà l'attore di tipo
-\hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storekeeper::\allowbreak{}Storekeeper}
-che dovrà essere diviso.
+riceve questo messaggio provvederà ad aggiornare i suoi indici.
 
 \paragraph{actorbase::actorsystem::storefinder::messages::GetItem}
 \label{sec:actorbase::actorsystem::storefinder::messages::GetItem}
@@ -1542,6 +1558,172 @@ Messaggio che richiede la rimozione di un \gloss{item}.
 
 Quando \hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{actorbase::actorsystem::storekeeper::Storekeeper}
 riceve questo messaggio rimuove l'\gloss{item}.
+
+\subsection{actorbase::actorsystem::ninja}
+\label{sec:actorbase::actorsystem::ninja}
+
+\subsubsection{Descrizione}
+
+\gloss{Package} che rappresenta l'attore di tipo \gloss{Ninja}.
+
+\subsubsection{Package contenuti}
+
+\begin{itemize}
+
+\item \hyperref[sec:actorbase::actorsystem::ninja::messages]{actorbase::actorsystem::ninja::messages}.
+
+\end{itemize}
+
+\subsubsection{Classi}
+
+\paragraph{actorbase::actorsystem::ninja::Ninja}
+\label{sec:actorbase::actorsystem::ninja::Ninja}
+
+\subparagraph{Descrizione}
+
+Classe che rappresenta un \gloss{attore} di tipo \gloss{Ninja}.
+
+\subparagraph{Utilizzo}
+
+Questa classe viene utilizzata per avere un \gloss{backup} per gli attori di tipo
+\hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{actorbase::actorsystem::storekeeper::Storekeeper}.
+
+\subparagraph{Classi ereditate}
+
+\begin{itemize}
+
+\item akka::actor::Actor.
+
+\end{itemize}
+
+\subparagraph{Interazioni con altre classi}
+
+\begin{itemize}
+\item akka::actor::ActorRef.
+\end{itemize}
+
+\subsection{actorbase::actorsystem::ninja::messages}
+\label{sec:actorbase::actorsystem::ninja::messages}
+
+\subparagraph{Descrizione}
+
+\gloss{Package} che contiene tutti i messaggi che possono essere ricevuti
+dall'attore di tipo
+\hyperref[sec:actorbase::actorsystem::ninja::Ninja]{actorbase::actorsystem::ninja::Ninja}
+
+\paragraph{actorbase::actorsystem::ninja::messages::Update}
+\label{sec:actorbase::actorsystem::ninja::messages::Update}
+
+\subparagraph{Descrizione}
+
+Messaggio che richiede l'update dell'attore che lo riceve.
+
+\subparagraph{Utilizzo}
+
+Quando \hyperref[sec:actorbase::actorsystem::ninja::Ninja]{actorbase::actorsystem::ninja::Ninja}
+riceve questo messaggio aggiorna gli \gloss{item} che contiene.
+
+\paragraph{actorbase::actorsystem::ninja::messages::BecomeSK}
+\label{sec:actorbase::actorsystem::ninja::messages::BecomeSK}
+
+\subparagraph{Descrizione}
+
+Messaggio che richiede che l'attore di tipo \gloss{Ninja} diventi di tipo
+\gloss{Storekeeper}.
+
+\subparagraph{Utilizzo}
+
+Quando \hyperref[sec:actorbase::actorsystem::ninja::Ninja]{actorbase::actorsystem::ninja::Ninja}
+riceve questo messaggio cambia il proprio contesto importando tutti i messaggi
+di \hyperref[sec:actorbase::actorsystem::storekeeper::messages]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storekeeper::\allowbreak{}messages}
+e comportandosi come se fosse un \hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storekeeper::\allowbreak{}Storekeeper}.
+
+\subsection{actorbase::actorsystem::manager}
+\label{sec:actorbase::actorsystem::manager}
+
+\subsubsection{Descrizione}
+
+\gloss{Package} che rappresenta l'attore di tipo \gloss{Manager}.
+
+\subsubsection{Package contenuti}
+
+\begin{itemize}
+
+\item \hyperref[sec:actorbase::actorsystem::manager::messages]{actorbase::actorsystem::manager::messages}.
+
+\end{itemize}
+
+\subsubsection{Classi}
+
+\paragraph{actorbase::actorsystem::manager::Manager}
+\label{sec:actorbase::actorsystem::manager::Manager}
+
+\subparagraph{Descrizione}
+
+Classe che rappresenta un \gloss{attore} di tipo \gloss{Manager}.
+
+\subparagraph{Utilizzo}
+
+Questa classe viene utilizzata per gestire le richieste di divisione di attori di tipo
+\hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{sec:actorbase::\allowbreak{}actorsystem::\allowbreak{}storekeeper::\allowbreak{}Storekeeper}
+e \hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{sec:actorbase::\allowbreak{}actorsystem::\allowbreak{}storefinder::\allowbreak{}Storefinder}.
+
+\subparagraph{Classi ereditate}
+
+\begin{itemize}
+
+\item akka::actor::Actor.
+
+\end{itemize}
+
+\subparagraph{Interazioni con altre classi}
+
+\begin{itemize}
+\item akka::actor::ActorRef.
+\end{itemize}
+
+\subsection{actorbase::actorsystem::manager::messages}
+\label{sec:actorbase::actorsystem::manager::messages}
+
+\subparagraph{Descrizione}
+
+\gloss{Package} che contiene tutti i messaggi che possono essere ricevuti
+dall'attore di tipo
+\hyperref[sec:actorbase::actorsystem::manager::Manager]{actorbase::actorsystem::manager::Manager}
+
+\paragraph{actorbase::actorsystem::manager::messages::DuplicationRequestSK}
+\label{sec:actorbase::actorsystem::manager::messages::DuplicationRequestSK}
+
+\subparagraph{Descrizione}
+
+Messaggio che richiede la divisione a metà dell'attore di tipo
+\gloss{Storekeeper}.
+
+\subparagraph{Utilizzo}
+
+Quando \hyperref[sec:actorbase::actorsystem::manager::Manager]{actorbase::\allowbreak{}actorsystem::\allowbreak{}manager::\allowbreak{}Manager}
+riceve questo messaggio provvederà a dividere a metà l'attore di tipo
+\hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storekeeper::\allowbreak{}Storekeeper}
+che dovrà essere diviso.Manderà inoltre un messaggio all'attore di tipo
+\hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storefinder::\allowbreak{}Storefinder}
+per aggiornare i suoi riferimenti.
+
+\paragraph{actorbase::actorsystem::manager::messages::DuplicationRequestSF}
+\label{sec:actorbase::actorsystem::manager::messages::DuplicationRequestSF}
+
+\subparagraph{Descrizione}
+
+Messaggio che richiede la divisione a metà dell'attore di tipo
+\gloss{Storefinder}.
+
+\subparagraph{Utilizzo}
+
+Quando \hyperref[sec:actorbase::actorsystem::manager::Manager]{actorbase::\allowbreak{}actorsystem::\allowbreak{}manager::\allowbreak{}Manager}
+riceve questo messaggio provvederà a dividere a metà l'attore di tipo
+\hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storefinder::\allowbreak{}Storefinder}
+che dovrà essere diviso. Manderà inoltre un messaggio all'attore di tipo
+\hyperref[sec:actorbase::actorsystem::main::Main]{actorbase::\allowbreak{}actorsystem::\allowbreak{}main::\allowbreak{}Main}
+per aggiornare i suoi riferimenti.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                        DRIVER PARTE                              %
