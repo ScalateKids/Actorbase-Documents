@@ -1044,6 +1044,24 @@ Questa classe viene utilizzata per salvare gli utenti nel \gloss{database}.
 
 \gloss{Package} che contiene tutti i messaggi che possono essere ricevuti da \hyperref[sec:actorbase::actorsystem::userkeeper::Userkeeper]{actorbase::actorsystem::userkeeper::Userkeeper}.
 
+\subsubsection{Classi}
+
+\paragraph{actorbase::actorsystem::userkeeper::messages::GetCollections}
+\label{sec:actorbase::actorsystem::userkeeper::messages::GetCollections}
+
+\subparagraph{Descrizione}
+
+Messaggio che indica la richiesta della lista di \gloss{collezioni} di cui
+l'utente ha  permessi in lettura e scrittura.
+
+\subparagraph{Utilizzo}
+
+Quando \hyperref[sec:actorbase::actorsystem::userkeeper::Userkeeper]{actorbase::\allowbreak{}actorsystem::\allowbreak{}userkeeper::\allowbreak{}Userkeeper}
+riceve questo messaggio provvederà a restituire all'attore di tipo
+\hyperref[sec:actorbase::actorsystem::main::Main]{actorbase::\allowbreak{}actorsystem::\allowbreak{}main::\allowbreak{}Main}
+la lista di \gloss{collezioni} di cui l'utente ha permessi in lettura
+e scrittura.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                  DA QUI A DRIVER DA CANCELLARE                %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
