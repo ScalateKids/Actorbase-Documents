@@ -49,6 +49,12 @@
     \hline
     Versione & Autore & Ruolo & Data & Descrizione \\
     \hline
+    1.2.0 & Davide Trevisan & Verificatore & 2016-04-02 & Verifica sezioni test di validazione e di integrazione\\
+    \hline
+    1.1.1 & Alberto De Agostini & Progettista & 2016-04-01 & Stesura sezioni test di validazione e di integrazione\\
+    \hline
+    1.1.0 & Marco Boseggia & Verificatore & 2016-02-26 & Verifica sezioni 2.8.1 e sottosezioni\\
+    \hline
     1.0.2 & Francesco Agostini & Analista & 2016-02-24 & Stesura sezione 2.8.1 e sottosezioni\\
     \hline
     1.0.1 & Francesco Agostini & Analista & 2016-02-19 & Ristesura sezione 2.2 in seguito alle correzioni del docente\\
@@ -443,49 +449,149 @@ La colonna "Stato" nella tabella è lasciata vuota in quanto i test saranno effe
     \hline
     Test & Descrizione & Stato & Requisito\\
     \hline
-    TS.OBF1 & Viene verificato che il sistema fornisca un Domain Specific Language funzionante &  & OBF1\\
+    TS.OBF1 & Viene verificato che il sistema dovrà fornire la possibilità di distribuire il carico all'interno di un cluster scalabile & & OBF1\\
     \hline
-    TS.OBF2 & Viene verificato che il meccanismo di autenticazione sia funzionante & & OBF2\\
+    TS.OBF1.1 & Viene verificato che il \gloss{cluster} dovrà fornire la possibilità di connettersi ai singoli \gloss{nodi} del \gloss{cluster} & & OBF1.1\\
     \hline
-    TS.OBF3 & Viene verificato che il meccanismo di persistenza dei dati sia funzionante & & OBF3\\
+    TS.OBF1.1.1 & Viene verificato che il singolo \gloss{nodo} dovrà fornire un server per ricevere comandi dall'esterno e inviare risposte & & OBF1.1.1\\
     \hline
-    TS.OBF4 & Viene verificato che il sistema fornisca la possibilità di eseguire operazioni sulle collezioni correttamente & & OBF4\\
+    TS.OBF1.1.10.1 & Viene verificato che il sistema ad attori dovrà permettere di autenticarsi dall'esterno mediante interazioni tra \gloss{Clientactor}, \gloss{Mainactor}, \gloss{Storefinder} e \gloss{Userkeeper} & & OBF1.1.10.1\\
     \hline
-    TS.OBF5 & Viene verificato che il sistema fornisca la possibilità di eseguire operazioni sugli item correttamente & & OBF5\\
+    TS.OBF1.1.10.2.1 & Viene verificato che il sistema ad attori dovrà permettere di creare \gloss{collezioni} mediante l'interazione tra \gloss{Clientactor}, \gloss{Mainactor}, \gloss{Storefinder}, \gloss{Storekeeper} e \gloss{Userkeeper} & & OBF1.1.10.2.1\\
     \hline
-    TS.OBF6 & Viene verificato che il sistema fornisca un meccanismo di ricerca funzionante & & OBF6\\
+    TS.OBF1.1.10.2.2 & Viene verificato che il sistema ad attori dovrà permettere di visualizzare una lista delle \gloss{collezioni} mediante l'interazione con \gloss{Clientactor} & & OBF1.1.10.2.2\\
     \hline
-    TS.OBF7 & Viene verificato che il sistema fornisca un meccanismo di gestione del proprio \gloss{account} & & OBF7\\
+    TS.OBF1.1.10.2.3 & Viene verificato che il sistema ad attori dovrà permettere di modificare il nome delle \gloss{collezioni} mediante l'interazione tra \gloss{Clientactor}, \gloss{Mainactor}, \gloss{Storefinder} e \gloss{Userkeeper} & & OBF1.1.10.2.3\\
     \hline
-    TS.OBF8 & Viene verificato che il sistema fornisca un meccanismo di logout funzionante & & OBF8\\
+    TS.OBF1.1.10.2.4 & Viene verificato che il sistema ad attori dovrà permettere di cancellare \gloss{collezioni} mediante l'interazione tra \gloss{Clientactor}, \gloss{Mainactor}, \gloss{Storefinder}, \gloss{Storekeeper}, \gloss{Userkeeper} e \gloss{Ninja} & & OBF1.1.10.2.4\\
     \hline
-    TS.DEF9 & Viene verificato che il sistema fornisca agli amministratori delle operazioni sugli account di altri utenti & & DEF9\\
+    TS.OBF1.1.10.2.5 & Viene verificato che il sistema ad attori dovrà permettere di aggiungere collaboratori a \gloss{collezioni} & & OBF1.1.10.2.5\\
     \hline
-    TS.OBF10 & Viene verificato che il sistema fornisca un meccanismo di connessione ad istanze esterne funzionante & & OBF10\\
+    TS.OBF1.1.10.2.6 & Viene verificato che il sistema ad attori dovrà permettere di rimuovere collaboratori da \gloss{collezioni} mediante l'interazione tra \gloss{Clientactor}, \gloss{Mainactor}, \gloss{Storefinder}, \gloss{Storekeeper}, \gloss{Userkeeper} e \gloss{Ninja} & & OBF1.1.10.2.6\\
     \hline
-    TS.OBF11 & Viene verificato che il sistema visualizzi correttamente un messaggio di errore & & OBF11\\
+    TS.OBF1.1.10.2.7 & Viene verificato che il sistema ad attori dovrà permettere di esportare \gloss{collezioni} mediante l'interazione tra \gloss{Clientactor}, \gloss{Mainactor}, \gloss{Storefinder}, \gloss{Storekeeper}, \gloss{Userkeeper} e \gloss{Ninja} & & OBF1.1.10.2.7\\
     \hline
-    TS.DEF12 & Viene verificato che il sistema fornisca un driver Scala per interfacciarsi con \textit{Actorbase} & & DEF12\\
+    TS.OBF1.1.10.3.1 & Viene verificato che il sistema ad attori dovrà permettere di inserire \gloss{item} mediante l'interazione tra \gloss{Clientactor}, \gloss{Mainactor}, \gloss{Storefinder}, \gloss{Storekeeper}, \gloss{Ninja} e \gloss{Manager} & & OBF1.1.10.3.1\\
     \hline
-    TS.OBV13 & Viene verificato che il sistema funzioni in ambienti Ubuntu 14.04 o superiori & & OBV13\\
+    TS.OBF1.1.10.3.2 & Viene verificato che il sistema ad attori dovrà permettere di creare una \gloss{collezione} nel caso di inserimento \gloss{item} a \gloss{collezione} inesistente mediante interazioni tra \gloss{Clientactor}, \gloss{Mainactor} e \gloss{Userkeeper} & & OBF1.1.10.3.2\\
     \hline
-    TS.DEV15 & Viene verificato che il sistema funzioni in ambienti Windows 10 o superiori & & DEV15\\
+    TS.OBF1.1.10.3.3 & Viene verificato che il sistema ad attori dovrà inviare un messaggio d'errore verso l'esterno nel caso in cui la chiave dell'\gloss{item} da inserire senza sovrascrittura sia già presente, mediante interazioni tra \gloss{Clientactor}, \gloss{Mainactor}, \gloss{Storefinder} e \gloss{Storekeeper} & & OBF1.1.10.3.3\\
     \hline
-    TS.DEV16 & Viene verificato che il sistema funzioni in ambienti OSX el capitan o superiori & & DEV16\\
+    TS.OBF1.1.10.3.4 & Viene verificato che il sistema ad attori dovrà permettere di cancellare \gloss{item} da \gloss{collezioni} mediante interazioni tra \gloss{Clientactor}, \gloss{Main}, \gloss{Storefinder}, \gloss{Storekeeper} e \gloss{Ninja} & & OBF1.1.10.3.4\\
     \hline
-    TS.OBF19 & Viene verificato che il sistema fornisca un'implementazione dell'\gloss{attore} di tipo \gloss{storekeeper} & & OBF19\\
+    TS.OBF1.1.10.3.5 & Viene verificato che il sistema ad attori dovrà inviare un messaggio d'errore verso l'esterno nel caso in cui il nome della \gloss{collezione} a cui inserire nuovi \gloss{item} sia inesistente, mediante interazioni tra \gloss{Clientactor} ed esterno & & OBF1.1.10.3.5\\
     \hline
-    TS.OBF20 & Viene verificato che il sistema fornisca un'implementazione dell'\gloss{attore} di tipo storefinder & & OBF20\\
+    TS.OBF1.1.10.4 & Viene verificato che il sistema ad attori dovrà permettere di ricercare \gloss{item} tra \gloss{collezioni} mediante interazioni tra \gloss{Clientactor}, \gloss{Main}, \gloss{Storefinder} e \gloss{Storekeeper} & & OBF1.1.10.4\\
     \hline
-    TS.OBF21 & Viene verificato che il sistema fornisca un'implementazione dell'\gloss{attore} di tipo \gloss{warehousemen} & & OBF21\\
+    TS.OBF1.1.10.5 & Viene verificato che il sistema ad attori dovrà permettere di modificare la password utente di uno \gloss{username} mediante interazioni tra \gloss{Clientactor}, \gloss{Main}, \gloss{Storefinder}, \gloss{Userkeeper} & & OBF1.1.10.5\\
     \hline
-    TS.OPF22 & Viene verificato che il sistema fornisca un'implementazione dell'\gloss{attore} di tipo \gloss{ninja} & & OPF22\\
+    TS.OBF1.1.10.6 & Viene verificato che il sistema ad attori dovrà permettere la disconnessione di client esterni mediante interazioni con \gloss{Clientactor} & & OBF1.1.10.6\\
     \hline
-    TS.OPF23 & Viene verificato che il sistema fornisca un'implementazione dell'\gloss{attore} di tipo \gloss{manager} & & OPF23\\
+    TS.OBF1.1.10.7.1 & Viene verificato che il sistema ad attori dovrà permettere di aggiungere nuovi utenti all'interno del \gloss{database} mediante interazioni tra \gloss{Clientactor},\gloss{Main}, \gloss{Storefinder} e \gloss{Userkeeper} & & OBF1.1.10.7.1\\
     \hline
-    TS.OBF24 & Viene verificato che il sistema fornisca un'implementazione dell'\gloss{attore} di tipo main & & OBF24\\
+    TS.OBF1.1.10.7.2 & Viene verificato che il sistema ad attori dovrà permettere la rimozione di un utente dal \gloss{database} mediante interazioni tra \gloss{Clientactor}, \gloss{Main}, \gloss{Storefinder} & & OBF1.1.10.7.2\\
     \hline
-    TS.OBF26 & Viene verificato che il sistema distingua gli account non autenticati, autenticati e amministratori & & OBF26\\
+    TS.OBF1.1.10.7.3 & Viene verificato che il sistema ad attori dovrà permettere di effettuare un reset della password di un utente mediante interazioni tra \gloss{Clientactor}, \gloss{Main}, \gloss{Storefinder}, \gloss{Userkeeper} & & OBF1.1.10.7.3\\
+    \hline
+    TS.OBF2 & Viene verificato che il sistema dovrà fornire una \gloss{console} per inviare comandi al server (CLI) & & OBF2\\
+    \hline
+    TS.OBF2.1 & Viene verificato che il sistema dovrà fornire un Domain Specific Language per comunicare con il \gloss{database} & & OBF2.1\\
+    \hline
+    TS.OBF2.1.1 & Viene verificato che il DSL dovrà fornire un comando per effettuare l'autenticazione utilizzabile mediante CLI & & OBF2.1.1\\
+    \hline
+    TS.OBF2.1.2.1 & Viene verificato che il DSL dovrà fornire un comando per la creazione di una nuova \gloss{collezione} utilizzabile mediante CLI & & OBF2.1.2.1\\
+    \hline
+    TS.OBF2.1.2.2 & Viene verificato che il DSL dovrà fornire un comando per elencare i nomi delle \gloss{collezioni} presenti all’interno del \gloss{database} utilizzabile mediante CLI & & OBF2.1.2.2\\
+    \hline
+    TS.OBF2.1.2.3 & Viene verificato che il DSL dovrà fornire un comando per cancellare una o più \gloss{collezioni} utilizzabile mediante CLI & & OBF2.1.2.3\\
+    \hline
+    TS.OBF2.1.2.4 & Viene verificato che il DSL dovrà fornire un comando per modificare il nome delle {collezioni} utilizzabile mediante CLI & & OBF2.1.2.4\\
+    \hline
+    TS.OBF2.1.2.5 & Viene verificato che il DSL dovrà fornire un comando per aggiungere \gloss{collaboratori} ad una \gloss{collezione} del sistema utilizzabile mediante CLI & & OBF2.1.2.5\\
+    \hline
+    TS.OBF2.1.2.6 & Viene verificato che il DSL dovrà fornire un comando per rimuovere un \gloss{collaboratore} da una \gloss{collezione} del sistema utilizzabile mediante CLI & & OBF2.1.2.6\\
+    \hline
+    TS.OBF2.1.2.7 & Viene verificato che il DSL dovrà fornire un comando per l'esportazione di \gloss{collezioni} su file \gloss{JSON} utilizzabile mediante CLI & & OBF2.1.2.7\\
+    \hline
+    TS.OBF2.1.3.1 & Viene verificato che il DSL dovrà fornire un comando per inserire un nuovo \gloss{item} utilizzabile mediante CLI & & OBF2.1.3.1\\
+    \hline
+    TS.OBF2.1.3.1.1 & Viene verificato che il DSL dovrà fornire un comando per inserire un \gloss{item} specificandone gli attributi da CLI & & OBF2.1.3.1.1\\
+    \hline
+    TS.DEF2.1.3.1.2 & Viene verificato che il DSL dovrà fornire un comando per inserire nuovi \gloss{item} da file \gloss{JSON} utilizzabile mediante CLI & & DEF2.1.3.1.2\\
+    \hline
+    TS.DEF2.1.4 & Viene verificato che il DSL dovrà fornire un comando per richiedere aiuto generale sul sistema utilizzabile mediante CLI & & DEF2.1.4\\
+    \hline
+    TS.DEF2.1.5 & Viene verificato che il DSL dovrà fornire un comando per richiedere aiuto sull'utilizzo di uno specifico comando del sistema utilizzabile mediante CLI  & & DEF2.1.5\\
+    \hline
+    TS.OBF2.1.6 & Viene verificato che il DSL dovrà fornire un comando per permettere di effettuare una ricerca su una o più \gloss{collezioni} all'interno del sistema; utilizzabile mediante CLI & & OBF2.1.6\\
+    \hline
+    TS.OBF2.1.7 & Viene verificato che il DSL dovrà fornire un comando per la modifica della propria password utilizzabile mediante CLI & & OBF2.1.7\\
+    \hline
+    TS.OBF2.1.8 & Viene verificato che il DSL dovrà fornire un comando per effettuare il logout dal sistema utilizzabile mediante CLI & & OBF2.1.8\\
+    \hline
+    TS.OBF2.1.9.1 & Viene verificato che il DSL dovrà fornire un comando per l'aggiunta di un nuovo utente all'interno del sistema utilizzabile mediante CLI & & OBF2.1.9.1\\
+    \hline
+    TS.OBF2.1.9.2 & Viene verificato che il DSL dovrà fornire un comando per la rimozione di un utente dal sistema & & OBF2.1.9.2\\
+    \hline
+    TS.OBF2.1.9.3 & Viene verificato che il DSL dovrà fornire un comando per effettuare il reset della password di un utente alla password standard & & OBF2.1.9.3\\
+    \hline
+    TS.DEF3 & Viene verificato che dovrà essere fornito un \gloss{driver} \gloss{Scala} per interfacciarsi con il \gloss{database} & & DEF3\\
+    \hline
+    TS.DEF3.1 & Viene verificato che il \gloss{driver} dovrà permettere di effettuare l'autenticazione all'interno del sistema. & & DEF3.1\\
+    \hline
+    TS.DEF3.2.1 & Viene verificato che il \gloss{driver} dovrà permettere un la creazione di una nuova \gloss{collezione} & & DEF3.2.1\\
+    \hline
+    TS.DEF3.2.2 & Viene verificato che il \gloss{driver} dovrà permettere di elencare i nomi delle \gloss{collezioni} presenti all’interno del \gloss{database} & & DEF3.2.2\\
+    \hline
+    TS.DEF3.2.3 & Viene verificato che il \gloss{driver} dovrà permettere di cancellare una o più \gloss{collezioni}  & & DEF3.2.3\\
+    \hline
+    TS.DEF3.2.4 & Viene verificato che il \gloss{driver} dovrà permettere di modificare il nome delle {collezioni} & & DEF3.2.4\\
+    \hline
+    TS.DEF3.2.5 & Viene verificato che il \gloss{driver} dovrà permettere di aggiungere \gloss{collaboratori} ad una \gloss{collezione} del sistema & & DEF3.2.5\\
+    \hline
+    TS.DEF3.2.6 & Viene verificato che il \gloss{driver} dovrà permettere di rimuovere un \gloss{collaboratore} da una \gloss{collezione} del sistema & & DEF3.2.6\\
+    \hline
+    TS.DEF3.2.7 & Viene verificato che il \gloss{driver} dovrà permettere di esportare \gloss{collezioni} su file \gloss{JSON} & & DEF3.2.7\\
+    \hline
+    TS.DEF3.3.1 & Viene verificato che il \gloss{driver} dovrà permettere di inserire un nuovo \gloss{item} & & DEF3.3.1\\
+    \hline
+    TS.DEF3.3.1.1 & Viene verificato che il \gloss{driver} dovrà permettere di inserire un nuovo \gloss{item} specificandone gli attributi & & DEF3.3.1.1\\
+    \hline
+    TS.DEF3.3.1.2 & Viene verificato che il \gloss{driver} dovrà permettere di inserire nuovi \gloss{item} da file \gloss{JSON} & & DEF3.3.1.2\\
+    \hline
+    TS.DEF3.3.2 & Viene verificato che il \gloss{driver} dovrà permettere di cancellare uno o più \gloss{item} dal sistema & & DEF3.3.2\\
+    \hline
+    TS.DEF3.4 & Viene verificato che il \gloss{driver} dovrà permettere di effettuare ricerche su una o più \gloss{collezioni} all'interno del sistema & & DEF3.4\\
+    \hline
+    TS.DEF3.5 & Viene verificato che il \gloss{driver} dovrà permettere di effettuare il logout dal sistema & & DEF3.5\\
+    \hline
+    TS.DEF3.6.1 & Viene verificato che il \gloss{driver} dovrà permettere a utenti amministratori di aggiungere un nuovo utente al sistema & & DEF3.6.1\\
+    \hline
+    TS.DEF3.6.2 & Viene verificato che il \gloss{driver} dovrà permettere a utenti amministratori di rimuovere un utente dal sistema & & DEF3.6.2\\
+    \hline
+    TS.DEF3.6.3 & Viene verificato che il \gloss{driver} dovrà permettere a utenti amministratori di effettuare il reset della password ad un utente all'interno del sistema & & DEF3.6.3\\
+    \hline
+    TS.DEF3.7 & Viene verificato che il \gloss{driver} dovrà permettere di modificare la propria password & & DEF3.7\\
+    \hline
+    TS.DEF3.8 & Viene verificato che il \gloss{Driver} dovrà strutturare i dati in output in maniera navigabile & & DEF3.8\\
+    \hline
+    TS.OBV4 & Viene verificato che il sistema dovrà funzionare in ambienti Ubuntu 14.04 o superiore & & OBV4\\
+    \hline
+    TS.OBV5 & Viene verificato che il sistema dovrà funzionare su \gloss{JVM} versione 8 & & OBV5\\
+    \hline
+    TS.OBV6 & Viene verificato che il sistema dovrà utilizzare la libreria Akka versione 2.4.2 & & OBV6\\
+    \hline
+    TS.OBV7 & Viene verificato che il sistema dovrà essere implementato utilizzando il linguaggio Scala versione 2.11 & & OBV7\\
+    \hline
+    TS.DEV8 & Viene verificato che il sistema dovrà funzionare in ambienti Windows 10 o superiori & & DEV8\\
+    \hline
+    TS.DEV9 & Viene verificato che il sistema dovrà funzionare su sistemi OSX El Capitan o superiori & & DEV9\\
+    \hline
+    TS.OBQ10 & Viene verificato che dovrà essere fornito un manuale utente redatto in lingua inglese & & OBQ10\\
+    \hline
+    TS.OBQ11 & Viene verificato che dovranno essere rispettate tutte le norme e le metriche sulla stesura del codice come riportato nelle \textit{Norme di Progetto} & & OBQ11\\
+    \hline
+    TS.OBQ12 & Viene verificato che dovrà essere prodotta documentazione in Scaladoc del prodotto & & OBQ12\\
     \hline
   \end{longtable}
 \end{center}

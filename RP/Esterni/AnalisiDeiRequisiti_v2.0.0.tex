@@ -2644,7 +2644,7 @@ OBF1.1.3.4 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{
 \hline
 OBF1.1.3.5 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{Main} dovrà gestire la ricezione del messaggio AddContributor & \multiLineCell{CAPITOLATO\\INTERNO\\UC1.3.5\\UC2.2.5\\}\\
 \hline
-OBF1.1.3.6 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{Main} dovrà gestire la ricezione del messaggio DuplicateRequestSF & \multiLineCell{CAPITOLATO\\INTERNO\\UC1.4.1\\UC2.3.1\\}\\
+%OBF1.1.3.6 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{Main} dovrà gestire la ricezione del messaggio DuplicateRequestSF & \multiLineCell{CAPITOLATO\\INTERNO\\UC1.4.1\\UC2.3.1\\}\\
 \hline
 OBF1.1.3.7 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{Main} dovrà gestire la ricezione del messaggio RemoveContributor & \multiLineCell{CAPITOLATO\\INTERNO\\UC1.3.6\\UC2.2.6\\}\\
 \hline
@@ -3028,8 +3028,11 @@ OBQ11 & \multiLineCell{Qualitativo\\Obbligatorio} & Dovranno essere rispettate t
 OBQ12 & \multiLineCell{Qualitativo\\Obbligatorio} & Dovrà essere prodotta documentazione in Scaladoc del prodotto & \multiLineCell{INTERNO\\}\\
 \hline
 \end{longtable}
+\newpage
 
-\section{Tracciamento Requisiti-Fonti}
+\section{Tracciamento}
+
+\subsection{Tracciamento Requisiti-Fonti}
 \begin{longtable}[H]{|p{5.5cm}|p{5.5cm}|}
 \hline
 \textbf{Requisito} & \textbf{Fonti}\\
@@ -3074,8 +3077,8 @@ OBF1.1.3.4 & \multiLineCell[t]{CAPITOLATO\\INTERNO\\UC1.5\\UC2.4\\}\\
 \hline
 OBF1.1.3.5 & \multiLineCell[t]{CAPITOLATO\\INTERNO\\UC1.3.5\\UC2.2.5\\}\\
 \hline
-OBF1.1.3.6 & \multiLineCell[t]{CAPITOLATO\\INTERNO\\UC1.4.1\\UC2.3.1\\}\\
-\hline
+%OBF1.1.3.6 & \multiLineCell[t]{CAPITOLATO\\INTERNO\\UC1.4.1\\UC2.3.1\\}\\
+%\hline
 OBF1.1.3.7 & \multiLineCell[t]{CAPITOLATO\\INTERNO\\UC1.3.6\\UC2.2.6\\}\\
 \hline
 OBF1.1.3.8 & \multiLineCell[t]{INTERNO\\}\\
@@ -3521,15 +3524,16 @@ OBQ11 & \multiLineCell[t]{INTERNO\\}\\
 OBQ12 & \multiLineCell[t]{INTERNO\\}\\
 \hline
 \end{longtable}
+\newpage
 
-\section{Tracciamento Fonti-Requisiti}
+\subsection{Tracciamento Fonti-Requisiti}
 \begin{longtable}[H]{|p{5.5cm}|p{5.5cm}|}
 \hline
 \textbf{Fonte} & \textbf{Requisiti}\\
 \hline
-CAPITOLATO & \multiLineCell[t]{DEF1.1.7 DEF1.1.8\\DEF1.1.8.1 DEF2.1.3.1.2\\DEF3 OBF1\\OBF1.1 OBF1.1.1\\OBF1.1.10 OBF1.1.3.1\\OBF1.1.3.2 OBF1.1.3.3\\OBF1.1.3.4 OBF1.1.3.5\\OBF1.1.3.6 OBF1.1.3.7\\OBF1.1.3.9 OBF1.1.4\\OBF1.1.4.1 OBF1.1.4.3\\OBF1.1.4.4 OBF1.1.4.5\\OBF1.1.5 OBF1.1.5.1\\OBF1.1.5.2 OBF1.1.5.4\\OBF1.1.5.5 OBF1.1.6\\OBF1.1.8.2 OBF2\\OBF2.1 OBF2.1.2.2\\OBF2.1.3 OBF2.1.3.1\\OBF2.1.3.1.1 OBQ10\\OBV5 OBV6\\OBV7}\\
+CAPITOLATO & \multiLineCell[t]{DEF1.1.7 DEF1.1.8\\DEF1.1.8.1 DEF2.1.3.1.2\\DEF3 OBF1\\OBF1.1 OBF1.1.1\\OBF1.1.10 OBF1.1.3.1\\OBF1.1.3.2 OBF1.1.3.3\\OBF1.1.3.4 OBF1.1.3.5\\ OBF1.1.3.7\\OBF1.1.3.9 OBF1.1.4\\OBF1.1.4.1 OBF1.1.4.3\\OBF1.1.4.4 OBF1.1.4.5\\OBF1.1.5 OBF1.1.5.1\\OBF1.1.5.2 OBF1.1.5.4\\OBF1.1.5.5 OBF1.1.6\\OBF1.1.8.2 OBF2\\OBF2.1 OBF2.1.2.2\\OBF2.1.3 OBF2.1.3.1\\OBF2.1.3.1.1 OBQ10\\OBV5 OBV6\\OBV7}\\
 \hline
-INTERNO & \multiLineCell[t]{DEF1.1.7.1 DEF1.1.7.2\\DEF1.1.8.1 DEF2.1.2.7\\DEF2.1.3.1.2 DEF3.8\\DEF3.8.1 DEF3.8.2\\DEF3.8.3 DEV8\\DEV9 OBF1\\OBF1.1 OBF1.1.1\\OBF1.1.1.1 OBF1.1.1.1.1\\OBF1.1.1.1.2 OBF1.1.1.1.3\\OBF1.1.10 OBF1.1.2\\OBF1.1.2.1 OBF1.1.2.2\\OBF1.1.2.3 OBF1.1.2.4\\OBF1.1.2.5 OBF1.1.2.6\\OBF1.1.3 OBF1.1.3.1\\OBF1.1.3.2 OBF1.1.3.3\\OBF1.1.3.4 OBF1.1.3.5\\OBF1.1.3.6 OBF1.1.3.7\\OBF1.1.3.8 OBF1.1.3.9\\OBF1.1.4.1 OBF1.1.4.2\\OBF1.1.4.3 OBF1.1.4.4\\OBF1.1.4.5 OBF1.1.5.1\\OBF1.1.5.2 OBF1.1.5.3\\OBF1.1.5.4 OBF1.1.5.5\\OBF1.1.6.1 OBF1.1.6.2\\OBF1.1.8.2 OBF1.1.9\\OBF1.1.9.1 OBF1.1.9.2\\OBF1.1.9.3 OBF1.1.9.4\\OBF1.1.9.5 OBF1.1.9.6\\OBF1.1.9.7 OBF1.1.9.8\\OBF1.1.9.9 OBF2.1.2.2\\OBF2.1.2.3 OBF2.1.3\\OBF2.1.3.1 OBF2.1.3.1.1\\OBQ11 OBQ12\\OBV4 OBV5\\OBV6 OBV7\\}\\
+INTERNO & \multiLineCell[t]{DEF1.1.7.1 DEF1.1.7.2\\DEF1.1.8.1 DEF2.1.2.7\\DEF2.1.3.1.2 DEF3.8\\DEF3.8.1 DEF3.8.2\\DEF3.8.3 DEV8\\DEV9 OBF1\\OBF1.1 OBF1.1.1\\OBF1.1.1.1 OBF1.1.1.1.1\\OBF1.1.1.1.2 OBF1.1.1.1.3\\OBF1.1.10 OBF1.1.2\\OBF1.1.2.1 OBF1.1.2.2\\OBF1.1.2.3 OBF1.1.2.4\\OBF1.1.2.5 OBF1.1.2.6\\OBF1.1.3 OBF1.1.3.1\\OBF1.1.3.2 OBF1.1.3.3\\OBF1.1.3.4 OBF1.1.3.5\\OBF1.1.3.7\\OBF1.1.3.8 OBF1.1.3.9\\OBF1.1.4.1 OBF1.1.4.2\\OBF1.1.4.3 OBF1.1.4.4\\OBF1.1.4.5 OBF1.1.5.1\\OBF1.1.5.2 OBF1.1.5.3\\OBF1.1.5.4 OBF1.1.5.5\\OBF1.1.6.1 OBF1.1.6.2\\OBF1.1.8.2 OBF1.1.9\\OBF1.1.9.1 OBF1.1.9.2\\OBF1.1.9.3 OBF1.1.9.4\\OBF1.1.9.5 OBF1.1.9.6\\OBF1.1.9.7 OBF1.1.9.8\\OBF1.1.9.9 OBF2.1.2.2\\OBF2.1.2.3 OBF2.1.3\\OBF2.1.3.1 OBF2.1.3.1.1\\OBQ11 OBQ12\\OBV4 OBV5\\OBV6 OBV7\\}\\
 \hline
 UC1 & \multiLineCell[t]{DEF1.1.7 DEF1.1.8\\OBF1.1 OBF1.1.1\\OBF1.1.1.1 OBF1.1.10\\OBF1.1.2 OBF1.1.3\\OBF1.1.4 OBF1.1.5\\OBF1.1.6 OBF1.1.9\\OBF2 OBF2.1\\}\\
 \hline
@@ -3597,7 +3601,7 @@ UC1.3.9 & \multiLineCell[t]{OBF1.1.10.2.5.4 OBF2.1.2.14\\}\\
 \hline
 UC1.4 & \multiLineCell[t]{OBF1.1.10.3 OBF1.1.10.4\\OBF2.1.3}\\
 \hline
-UC1.4.1 & \multiLineCell[t]{DEF1.1.8.1 OBF1.1.10.3.1\\OBF1.1.3.6 OBF1.1.4.2\\OBF1.1.4.5 OBF1.1.5.4\\OBF1.1.8.2 OBF2.1.3.1\\}\\
+UC1.4.1 & \multiLineCell[t]{DEF1.1.8.1 OBF1.1.10.3.1\\OBF1.1.4.2\\OBF1.1.4.5 OBF1.1.5.4\\OBF1.1.8.2 OBF2.1.3.1\\}\\
 \hline
 UC1.4.1.1 & \multiLineCell[t]{OBF1.1.10.3.1 OBF2.1.3.1.1\\}\\
 \hline
@@ -3731,7 +3735,7 @@ UC2.2.9 & \multiLineCell[t]{DEF3.2.3.2 DEF3.2.4.3\\DEF3.2.5.3 DEF3.2.6.3\\OBF1.1
 \hline
 UC2.3 & \multiLineCell[t]{DEF3.3 OBF1.1.10.3\\}\\
 \hline
-UC2.3.1 & \multiLineCell[t]{DEF1.1.8.1 DEF3.3.1\\OBF1.1.10.3.1 OBF1.1.3.6\\OBF1.1.4.2 OBF1.1.4.5\\OBF1.1.5.4 OBF1.1.8.2\\}\\
+UC2.3.1 & \multiLineCell[t]{DEF1.1.8.1 DEF3.3.1\\OBF1.1.10.3.1\\OBF1.1.4.2 OBF1.1.4.5\\OBF1.1.5.4 OBF1.1.8.2\\}\\
 \hline
 UC2.3.1.1 & \multiLineCell[t]{DEF3.3.1.1 OBF1.1.10.3.1\\}\\
 \hline
