@@ -349,7 +349,7 @@ rappresentano il \gloss{server}.
 
 \subsubsection{Descrizione}
 
-\gloss{Package} per l'attore con cui si interfaccerà il \gloss{driver}.
+\gloss{Package} per l'\gloss{attore} con cui si interfaccerà il \gloss{driver}.
 
 \subsubsection{Package contenuti}
 
@@ -364,12 +364,12 @@ rappresentano il \gloss{server}.
 
 \subparagraph{Descrizione}
 
-Classe che rappresenta l'attore con cui si interfaccia il \gloss{driver} dopo
+Classe che rappresenta l'\gloss{attore} con cui si interfaccia il \gloss{driver} dopo
 la connessione.
 
 \subparagraph{Utilizzo}
 
-Questo attore riceve le richieste da \hyperref[sec:actorbase::driver::client::Connection]{actorbase::driver::client::Connection}
+Questo \gloss{attore} riceve le richieste da \hyperref[sec:actorbase::driver::client::Connection]{actorbase::driver::client::Connection}
 e si occupa di inviare messaggi a \hyperref[sec:actorbase::actorsystem::main::Main]{actorbase::actorsystem::main::Main}.
 
 \subparagraph{Classi ereditate}
@@ -407,11 +407,11 @@ Messaggio che contiene la password di un utente che ha richiesto il login.
 
 \subparagraph{Utilizzo}
 
-In seguito alla ricezione di questo messaggio l'attore di tipo
+In seguito alla ricezione di questo messaggio l'\gloss{attore} di tipo
 \hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{actorbase::\allowbreak{}actorsystem::\allowbreak{}clientactor::\allowbreak{}ClientActor}
 controlla che la password ricevuta sia uguale a quella immessa
 dall'utente e, in caso affermativo, cambia il proprio stato e salva
-il riferimento dell'attore di tipo
+il riferimento dell'\gloss{attore} di tipo
 \hyperref[sec:actorbase::actorsystem::userkeeper::Userkeeper]{actorbase::\allowbreak{}actorsystem::\allowbreak{}userkeeper::\allowbreak{}Userkeeper}
 che aveva inviato questo messaggio.
 
@@ -424,7 +424,7 @@ Messaggio che indica la volontà di chiudere la connessione con il \gloss{driver
 
 \subparagraph{Utilizzo}
 
-In seguito alla ricezione di questo messaggio l'attore di tipo
+In seguito alla ricezione di questo messaggio l'\gloss{attore} di tipo
 \hyperref[sec:actorbase::actorsystem::actorclient::ActorClient]{actorbase::actorsystem::actorclient::ActorClient}
 chiude la connessione con il \gloss{driver} e termina.
 
@@ -437,12 +437,12 @@ Messaggio che rappresenta l'input ricevuto dal \gloss{driver}.
 
 \subparagraph{Utilizzo}
 
-In seguito alla ricezione di questo messaggio l'attore di tipo
+In seguito alla ricezione di questo messaggio l'\gloss{attore} di tipo
 \hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{actorbase::actorsystem::clientactor::ClientActor}
 deserializza il messaggio sfruttando la componente
 \hyperref[sec:actorbase::actorsystem::serialization::DeserializationContext]{actorbase::actorsystem::serialization::DeserializationContext}.
 Dopo aver fatto ciò crea il messaggio corrispondente al tipo di richiesta che gli era arrivato
-e lo manda all'attore \hyperref[sec:actorbase::actorsystem::main::Main]{actorbase::actorsystem::main::Main}.
+e lo manda all'\gloss{attore} \hyperref[sec:actorbase::actorsystem::main::Main]{actorbase::actorsystem::main::Main}.
 
 \paragraph{actorbase::actorsystem::clientactor::messages::UpdateReadCollections}
 \label{sec:actorbase::actorsystem::clientactor::messages::UpdateReadCollections}
@@ -501,7 +501,7 @@ e mandato a \hyperref[sec:actorbase::driver::client::Connection]{actorbase::driv
 
 \subsubsection{Descrizione}
 
-\gloss{Package} per l'attore con cui si interfaccerà il \gloss{driver} per la connessione iniziale.
+\gloss{Package} per l'\gloss{attore} con cui si interfaccerà il \gloss{driver} per la connessione iniziale.
 
 \subsubsection{Package contenuti}
 
@@ -516,14 +516,14 @@ e mandato a \hyperref[sec:actorbase::driver::client::Connection]{actorbase::driv
 
 \subparagraph{Descrizione}
 
-Classe che rappresenta l'attore con cui si interfaccia il \gloss{driver} per
+Classe che rappresenta l'\gloss{attore} con cui si interfaccia il \gloss{driver} per
 istanziare la connessione.
 
 \subparagraph{Utilizzo}
 
-Questo attore riceve la richiesta di connessione da
+Questo \gloss{attore} riceve la richiesta di connessione da
 \hyperref[sec:actorbase::driver::client::Connection]{actorbase::driver::client::Connection}
-e si occupa di associare al \gloss{client} un attore di tipo
+e si occupa di associare al \gloss{client} un \gloss{attore} di tipo
 \hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{actorbase::actorsystem::clientactor::ClientActor}
 per continuare le comunicazioni.
 
@@ -580,7 +580,7 @@ Messaggio che rappresenta una connessione \gloss{TCP} riuscita.
 \subparagraph{Utilizzo}
 
 Quando \hyperref[sec:actorbase::actorsystem::tcpserver::TCPServer]{actorbase::actorsystem::tcpserver::TCPServer}
-riceve questo messaggio associa al \gloss{client} un attore di tipo
+riceve questo messaggio associa al \gloss{client} un \gloss{attore} di tipo
 \hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{actorbase::actorsystem::clientactor::ClientActor}.
 
 \subsection{actorbase::actorsystem::serialization}
@@ -799,7 +799,7 @@ principalmente per la lettura di dati da disco.
 
 \subsubsection{Descrizione}
 
-\gloss{Package} che rappresenta l'attore che si occuperà della
+\gloss{Package} che rappresenta l'\gloss{attore} che si occuperà della
 \gloss{persistenza} su disco dei dati.
 
 \subsubsection{Package contenuti}
@@ -886,7 +886,7 @@ riceve questo messaggio salverà i dati su disco sfruttando
 
 \subsubsection{Descrizione}
 
-\gloss{Package} che rappresenta l'attore che si occuperà di gestire le
+\gloss{Package} che rappresenta l'\gloss{attore} che si occuperà di gestire le
 richieste al \gloss{server}.
 
 \subsubsection{Package contenuti}
@@ -931,7 +931,7 @@ Questa classe viene utilizzata per gestire le richieste ricevute al
 
 \subparagraph{Descrizione}
 
-Classe che rappresenta i range di indici contenuti in ogni attore di tipo
+Classe che rappresenta i range di indici contenuti in ogni \gloss{attore} di tipo
 \gloss{Storekeeper}.
 
 \subparagraph{Utilizzo}
@@ -981,7 +981,7 @@ Messaggio che indica una richiesta di una \gloss{collezione}.
 \subparagraph{Utilizzo}
 
 Quando \hyperref[sec:actorbase::actorsystem::main::Main]{actorbase::actorsystem::main::Main}
-riceve questo messaggio cercherà l'attore di tipo
+riceve questo messaggio cercherà l'\gloss{attore} di tipo
 \hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{actorbase::actorsystem::\allowbreak{}storefinder::\allowbreak{}Storefinder}
 corrispondente alla \gloss{collezione} cercata.
 
@@ -995,7 +995,7 @@ Messaggio che indica una richiesta di rimozione di una \gloss{collezione}.
 \subparagraph{Utilizzo}
 
 Quando \hyperref[sec:actorbase::actorsystem::main::Main]{actorbase::actorsystem::main::Main}
-riceve questo messaggio cercherà l'attore di tipo
+riceve questo messaggio cercherà l'\gloss{attore} di tipo
 \hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{actorbase::actorsystem::\allowbreak{}storefinder::\allowbreak{}Storefinder}
 corrispondente alla \gloss{collezione} cercata e ne avvierà
 la procedura di rimozione dal \gloss{database}.
@@ -1041,7 +1041,7 @@ Messaggio che indica una richiesta di sdoppiamento di uno \gloss{Storefinder}.
 \subparagraph{Utilizzo}
 
 Quando \hyperref[sec:actorbase::actorsystem::main::Main]{actorbase::actorsystem::main::Main}
-riceve questo messaggio provvederà a sdoppiare l'attore di tipo
+riceve questo messaggio provvederà a sdoppiare l'\gloss{attore} di tipo
 \hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{actorbase::actorsystem::\allowbreak{}storefinder::\allowbreak{}Storefinder}.
 
 \paragraph{actorbase::actorsystem::main::messages::RemoveContributor}
@@ -1073,7 +1073,7 @@ Quando \hyperref[sec:actorbase::actorsystem::main::Main]{actorbase::actorsystem:
 riceve questo messaggio provvederà a inoltrare agli attori di tipo
 \hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{actorbase::actorsystem::\allowbreak{}storefinder::\allowbreak{}Storefinder}
 che mappano gli attori di tipo \hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{actorbase::actorsystem::\allowbreak{}userkeeper::\allowbreak{}Userkeeper}
-la creazione di un attore di questo tipo.
+la creazione di un \gloss{attore} di questo tipo.
 
 \paragraph{actorbase::actorsystem::storefinder::messages::Init}
 \label{sec:actorbase::actorsystem::storefinder::messages::Init}
@@ -1081,7 +1081,7 @@ la creazione di un attore di questo tipo.
 \subparagraph{Descrizione}
 
 Messaggio importato dal package \hyperref[sec:actorbase::actorsystem::storefinder::messages]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storefinder::\allowbreak{}messages}
-che, se ricevuto dall'attore di tipo \gloss{Main},
+che, se ricevuto dall'\gloss{attore} di tipo \gloss{Main},
 indica la necessità di inizializzare degli \gloss{Storefinder}.
 
 \subparagraph{Utilizzo}
@@ -1097,7 +1097,7 @@ presenti nella cartella indicata dal messaggio.
 \subparagraph{Descrizione}
 
 Messaggio importato dal package \hyperref[sec:actorbase::actorsystem::storefinder::messages]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storefinder::\allowbreak{}messages}
-che, se ricevuto dall'attore di tipo \gloss{Main},
+che, se ricevuto dall'\gloss{attore} di tipo \gloss{Main},
 indica l'avvenuta divisione di uno \gloss{Storefinder}.
 
 \subparagraph{Utilizzo}
@@ -1116,7 +1116,7 @@ che indica la richiesta di un \gloss{item}.
 \subparagraph{Utilizzo}
 
 Quando \hyperref[sec:actorbase::actorsystem::main::Main]{actorbase::\allowbreak{}actorsystem::\allowbreak{}main::\allowbreak{}Main}
-riceve questo messaggio provvederà a inoltrare la richiesta all'attore di tipo
+riceve questo messaggio provvederà a inoltrare la richiesta all'\gloss{attore} di tipo
 \hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storefinder::\allowbreak{}Storefinder}
 che contiene l'\gloss{item} cercato.
 
@@ -1130,9 +1130,9 @@ Messaggio che indica la richiesta di rimozione di un \gloss{item}.
 \subparagraph{Utilizzo}
 
 Quando \hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storefinder::\allowbreak{}Storefinder}
-riceve questo messaggio provvederà a inoltrare la richiesta all'attore di tipo
+riceve questo messaggio provvederà a inoltrare la richiesta all'\gloss{attore} di tipo
 \hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storekeeper::\allowbreak{}Storekeeper}
-contenente l'attore di tipo
+contenente l'\gloss{attore} di tipo
 \hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storekeeper::\allowbreak{}Storekeeper}
 contenente l'\gloss{item} da rimuovere.
 
@@ -1147,9 +1147,9 @@ che indica la richiesta di inserimento di un \gloss{item}.
 \subparagraph{Utilizzo}
 
 Quando \hyperref[sec:actorbase::actorsystem::main::Main]{actorbase::\allowbreak{}actorsystem::\allowbreak{}main::\allowbreak{}Main}
-riceve questo messaggio provvederà a inoltrare la richiesta all'attore di tipo
+riceve questo messaggio provvederà a inoltrare la richiesta all'\gloss{attore} di tipo
 \hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storefinder::\allowbreak{}Storefinder}
-contenente l'attore di tipo
+contenente l'\gloss{attore} di tipo
 \hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storekeeper::\allowbreak{}Storekeeper}
 destinato a ricevere l'\gloss{item} da inserire.
 
@@ -1165,7 +1165,7 @@ destinato a ricevere l'\gloss{item} da inserire.
 
 \subsubsection{Descrizione}
 
-Classe che rappresenta un attore di tipo \gloss{Userkeeper}.
+Classe che rappresenta un \gloss{attore} di tipo \gloss{Userkeeper}.
 
 \subsubsection{Package contenuti}
 
@@ -1223,7 +1223,7 @@ l'utente ha  permessi in lettura e scrittura.
 \subparagraph{Utilizzo}
 
 Quando \hyperref[sec:actorbase::actorsystem::userkeeper::Userkeeper]{actorbase::\allowbreak{}actorsystem::\allowbreak{}userkeeper::\allowbreak{}Userkeeper}
-riceve questo messaggio provvederà a restituire all'attore di tipo
+riceve questo messaggio provvederà a restituire all'\gloss{attore} di tipo
 \hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{actorbase::\allowbreak{}actorsystem::\allowbreak{}clientactor::\allowbreak{}ClientActor}
 la lista di \gloss{collezioni} di cui l'utente ha permessi in lettura
 e scrittura.
@@ -1239,7 +1239,7 @@ l'utente ha  permessi in lettura.
 \subparagraph{Utilizzo}
 
 Quando \hyperref[sec:actorbase::actorsystem::userkeeper::Userkeeper]{actorbase::\allowbreak{}actorsystem::\allowbreak{}userkeeper::\allowbreak{}Userkeeper}
-riceve questo messaggio provvederà a restituire all'attore di tipo
+riceve questo messaggio provvederà a restituire all'\gloss{attore} di tipo
 \hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{actorbase::\allowbreak{}actorsystem::\allowbreak{}clientactor::\allowbreak{}ClientActor}
 la lista di \gloss{collezioni} di cui l'utente ha permessi in lettura.
 
@@ -1265,7 +1265,7 @@ Messaggio che indica la richiesta della password.
 \subparagraph{Utilizzo}
 
 Quando \hyperref[sec:actorbase::actorsystem::userkeeper::Userkeeper]{actorbase::\allowbreak{}actorsystem::\allowbreak{}userkeeper::\allowbreak{}Userkeeper}
-riceve questo messaggio provvederà a inviare la password all'attore di tipo
+riceve questo messaggio provvederà a inviare la password all'\gloss{attore} di tipo
 \hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{actorbase::\allowbreak{}actorsystem::\allowbreak{}clientactor::\allowbreak{}ClientActor}.
 
 \paragraph{actorbase::actorsystem::userkeeper::messages::RemoveCollection}
@@ -1340,7 +1340,7 @@ Messaggio che indica la richiesta di collegamento con un \gloss{ClientActor}.
 \subparagraph{Utilizzo}
 
 Quando \hyperref[sec:actorbase::actorsystem::userkeeper::Userkeeper]{actorbase::\allowbreak{}actorsystem::\allowbreak{}userkeeper::\allowbreak{}Userkeeper}
-riceve questo messaggio provvederà a salvarsi il riferimento dell'attore di tipo
+riceve questo messaggio provvederà a salvarsi il riferimento dell'\gloss{attore} di tipo
 \hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{actorbase::\allowbreak{}actorsystem::\allowbreak{}clientactor::\allowbreak{}ClientActor}
 che ha inviato questo messaggio.
 
@@ -1356,7 +1356,7 @@ che ha inviato questo messaggio.
 
 \subsubsection{Descrizione}
 
-Classe che rappresenta un attore di tipo \gloss{Storefinder}.
+Classe che rappresenta un \gloss{attore} di tipo \gloss{Storefinder}.
 
 \subsubsection{Package contenuti}
 
@@ -1400,7 +1400,7 @@ Questa classe viene utilizzata per tener traccia degli attori di tipo
 
 \subparagraph{Descrizione}
 
-Classe che rappresenta i range di indici contenuti in ogni attore di tipo
+Classe che rappresenta i range di indici contenuti in ogni \gloss{attore} di tipo
 \gloss{Storekeeper}.
 
 \subparagraph{Utilizzo}
@@ -1429,7 +1429,7 @@ Questa classe viene utilizzata per tener traccia del contenuto degli attori di t
 
 \subparagraph{Descrizione}
 
-Messaggio che, se ricevuto dall'attore di tipo \gloss{Storefinder},
+Messaggio che, se ricevuto dall'\gloss{attore} di tipo \gloss{Storefinder},
 indica la necessità di inizializzare degli \gloss{Storekeeper}.
 
 \subparagraph{Utilizzo}
@@ -1444,7 +1444,7 @@ presenti nella cartella indicata dal messaggio.
 
 \subparagraph{Descrizione}
 
-Messaggio che, se ricevuto dall'attore di tipo \gloss{Storefinder},
+Messaggio che, se ricevuto dall'\gloss{attore} di tipo \gloss{Storefinder},
 indica l'avvenuta divisione di uno \gloss{Storekeeper}.
 
 \subparagraph{Utilizzo}
@@ -1462,7 +1462,7 @@ Messaggio che indica la richiesta di un \gloss{item}.
 \subparagraph{Utilizzo}
 
 Quando \hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storefinder::\allowbreak{}Storefinder}
-riceve questo messaggio provvederà a inoltrare la richiesta all'attore di tipo
+riceve questo messaggio provvederà a inoltrare la richiesta all'\gloss{attore} di tipo
 \hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storekeeper::\allowbreak{}Storekeeper}
 che contiene l'\gloss{item} cercato.
 
@@ -1476,7 +1476,7 @@ Messaggio che indica la richiesta di rimozione di un \gloss{item}.
 \subparagraph{Utilizzo}
 
 Quando \hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storefinder::\allowbreak{}Storefinder}
-riceve questo messaggio provvederà a inoltrare la richiesta all'attore di tipo
+riceve questo messaggio provvederà a inoltrare la richiesta all'\gloss{attore} di tipo
 \hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storekeeper::\allowbreak{}Storekeeper}
 che contiene l'\gloss{item} da rimuovere.
 
@@ -1490,7 +1490,7 @@ Messaggio che indica la richiesta di inserimento di un \gloss{item}.
 \subparagraph{Utilizzo}
 
 Quando \hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storefinder::\allowbreak{}Storefinder}
-riceve questo messaggio provvederà a inoltrare la richiesta all'attore di tipo
+riceve questo messaggio provvederà a inoltrare la richiesta all'\gloss{attore} di tipo
 \hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storekeeper::\allowbreak{}Storekeeper}
 destinato a ricevere l'\gloss{item} da inserire.
 
@@ -1506,7 +1506,7 @@ destinato a ricevere l'\gloss{item} da inserire.
 
 \subsubsection{Descrizione}
 
-\gloss{Package} che rappresenta l'attore di tipo \gloss{Storekeeper}.
+\gloss{Package} che rappresenta l'\gloss{attore} di tipo \gloss{Storekeeper}.
 
 \subsubsection{Package contenuti}
 
@@ -1549,7 +1549,7 @@ Questa classe viene utilizzata per salvare nel \gloss{database} gli item.
 \subsubsection{Descrizione}
 
 \gloss{Package} che contiene tutti i messaggi che possono essere
-ricevuti dall'attore di tipo
+ricevuti dall'\gloss{attore} di tipo
 \hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storekeeper::\allowbreak{}Storekeeper}.
 
 \subsubsection{Classi}
@@ -1564,7 +1564,7 @@ Messaggio che richiede l'inizializzazione dello \gloss{Storekeeper}.
 \subparagraph{Utilizzo}
 
 Quando \hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{actorbase::actorsystem::storekeeper::Storekeeper}
-riceve questo messaggio manda un messaggio all'attore di tipo
+riceve questo messaggio manda un messaggio all'\gloss{attore} di tipo
 \hyperref[sec:actorbase::actorsystem::warehouseman::Warehouseman]{actorbase::\allowbreak{}actorsystem::\allowbreak{}warehouseman::\allowbreak{}Warehouseman}
 per la deserializzazione dei dati da leggere da disco.
 
@@ -1573,13 +1573,13 @@ per la deserializzazione dei dati da leggere da disco.
 
 \subparagraph{Descrizione}
 
-Messaggio che richiede un \gloss{item} contenuto dall'attore
+Messaggio che richiede un \gloss{item} contenuto dall'\gloss{attore}
 \gloss{Storekeeper} che lo riceve.
 
 \subparagraph{Utilizzo}
 
 Quando \hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{actorbase::actorsystem::storekeeper::Storekeeper}
-riceve questo messaggio risponde mandando l'\gloss{item} cercato all'attore di tipo
+riceve questo messaggio risponde mandando l'\gloss{item} cercato all'\gloss{attore} di tipo
 \hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{actorbase::actorsystem::clientactor::ClientActor}
 che aveva effettuato la richiesta.
 
@@ -1588,13 +1588,13 @@ che aveva effettuato la richiesta.
 
 \subparagraph{Descrizione}
 
-Messaggio che richiede gli \gloss{item} contenuti dall'attore
+Messaggio che richiede gli \gloss{item} contenuti dall'\gloss{attore}
 \gloss{Storekeeper} che lo riceve.
 
 \subparagraph{Utilizzo}
 
 Quando \hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{actorbase::actorsystem::storekeeper::Storekeeper}
-riceve questo messaggio risponde mandando gli \gloss{item} all'attore di tipo
+riceve questo messaggio risponde mandando gli \gloss{item} all'\gloss{attore} di tipo
 \hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{actorbase::actorsystem::clientactor::ClientActor}
 che aveva effettuato la richiesta.
 
@@ -1634,7 +1634,7 @@ riceve questo messaggio rimuove l'\gloss{item}.
 
 \subsubsection{Descrizione}
 
-\gloss{Package} che rappresenta l'attore di tipo \gloss{Ninja}.
+\gloss{Package} che rappresenta l'\gloss{attore} di tipo \gloss{Ninja}.
 
 \subsubsection{Package contenuti}
 
@@ -1678,7 +1678,7 @@ Questa classe viene utilizzata per avere un \gloss{backup} per gli attori di tip
 \subparagraph{Descrizione}
 
 \gloss{Package} che contiene tutti i messaggi che possono essere ricevuti
-dall'attore di tipo
+dall'\gloss{attore} di tipo
 \hyperref[sec:actorbase::actorsystem::ninja::Ninja]{actorbase::actorsystem::ninja::Ninja}
 
 \paragraph{actorbase::actorsystem::ninja::messages::Update}
@@ -1686,7 +1686,7 @@ dall'attore di tipo
 
 \subparagraph{Descrizione}
 
-Messaggio che richiede l'update dell'attore che lo riceve.
+Messaggio che richiede l'update dell'\gloss{attore} che lo riceve.
 
 \subparagraph{Utilizzo}
 
@@ -1698,7 +1698,7 @@ riceve questo messaggio aggiorna gli \gloss{item} che contiene.
 
 \subparagraph{Descrizione}
 
-Messaggio che richiede che l'attore di tipo \gloss{Ninja} diventi di tipo
+Messaggio che richiede che l'\gloss{attore} di tipo \gloss{Ninja} diventi di tipo
 \gloss{Storekeeper}.
 
 \subparagraph{Utilizzo}
@@ -1720,7 +1720,7 @@ e comportandosi come se fosse un \hyperref[sec:actorbase::actorsystem::storekeep
 
 \subsubsection{Descrizione}
 
-\gloss{Package} che rappresenta l'attore di tipo \gloss{Manager}.
+\gloss{Package} che rappresenta l'\gloss{attore} di tipo \gloss{Manager}.
 
 \subsubsection{Package contenuti}
 
@@ -1765,7 +1765,7 @@ e \hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{sec:actorbase:
 \subparagraph{Descrizione}
 
 \gloss{Package} che contiene tutti i messaggi che possono essere ricevuti
-dall'attore di tipo
+dall'\gloss{attore} di tipo
 \hyperref[sec:actorbase::actorsystem::manager::Manager]{actorbase::actorsystem::manager::Manager}
 
 \paragraph{actorbase::actorsystem::manager::messages::DuplicationRequestSK}
@@ -1773,15 +1773,15 @@ dall'attore di tipo
 
 \subparagraph{Descrizione}
 
-Messaggio che richiede la divisione a metà dell'attore di tipo
+Messaggio che richiede la divisione a metà dell'\gloss{attore} di tipo
 \gloss{Storekeeper}.
 
 \subparagraph{Utilizzo}
 
 Quando \hyperref[sec:actorbase::actorsystem::manager::Manager]{actorbase::\allowbreak{}actorsystem::\allowbreak{}manager::\allowbreak{}Manager}
-riceve questo messaggio provvederà a dividere a metà l'attore di tipo
+riceve questo messaggio provvederà a dividere a metà l'\gloss{attore} di tipo
 \hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storekeeper::\allowbreak{}Storekeeper}
-che dovrà essere diviso.Manderà inoltre un messaggio all'attore di tipo
+che dovrà essere diviso.Manderà inoltre un messaggio all'\gloss{attore} di tipo
 \hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storefinder::\allowbreak{}Storefinder}
 per aggiornare i suoi riferimenti.
 
@@ -1790,15 +1790,15 @@ per aggiornare i suoi riferimenti.
 
 \subparagraph{Descrizione}
 
-Messaggio che richiede la divisione a metà dell'attore di tipo
+Messaggio che richiede la divisione a metà dell'\gloss{attore} di tipo
 \gloss{Storefinder}.
 
 \subparagraph{Utilizzo}
 
 Quando \hyperref[sec:actorbase::actorsystem::manager::Manager]{actorbase::\allowbreak{}actorsystem::\allowbreak{}manager::\allowbreak{}Manager}
-riceve questo messaggio provvederà a dividere a metà l'attore di tipo
+riceve questo messaggio provvederà a dividere a metà l'\gloss{attore} di tipo
 \hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storefinder::\allowbreak{}Storefinder}
-che dovrà essere diviso. Manderà inoltre un messaggio all'attore di tipo
+che dovrà essere diviso. Manderà inoltre un messaggio all'\gloss{attore} di tipo
 \hyperref[sec:actorbase::actorsystem::main::Main]{actorbase::\allowbreak{}actorsystem::\allowbreak{}main::\allowbreak{}Main}
 per aggiornare i suoi riferimenti.
 
@@ -3545,7 +3545,7 @@ sulla propria mappa.\\
 A questo punto lo StoreKeeper manderà un messaggio al Warehouseman di tipo Save e
 successivamente manderà un messaggio al ClientActor con la risposta
 (positiva o negativa che sia) il quale risponderà sempre tramite \gloss{socket tcp} al \gloss{Driver} con una stringa RESP.
-Nel frattempo l'attore di tipo Warehouseman eseguirà un salvataggio su disco dei propri dati previa serializzazione.\\
+Nel frattempo l'\gloss{attore} di tipo Warehouseman eseguirà un salvataggio su disco dei propri dati previa serializzazione.\\
 Si noti che la frequenza con cui gli attori di tipo Warehousename eseguiranno
 l'aggiornamento delle proprie strutture dati e il salvataggio sarà specificata
 tramite un parametro di configurazione del sistema.\\
@@ -3559,7 +3559,7 @@ tramite un parametro di configurazione del sistema.\\
 \subsection{Aggiornamento di un attore ninja}
 
 Questo diagramma rappresenta l'interazione tra le componenti nel caso venga
-effettuato un aggiornamento dei dati su un attore Ninja.\\
+effettuato un aggiornamento dei dati su un \gloss{attore} Ninja.\\
 La componente \hyperref[sec:actorbase::driver::client::Connection]{actorbase::driver::client::Connection}
 manda tramite \gloss{socket tcp} al \hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{actorbase::actorsystem::clientactor::ClientActor}
 una stringa \hyperref[sec:RESP]{RESP} contenente il comando di inserimento \gloss{item} con
@@ -3571,7 +3571,7 @@ A questo punto lo StoreKeeper manderà un messaggio al Ninja di tipo Update cont
 messaggio al ClientActor con la risposta (positiva o negativa che sia)
 il quale risponderà sempre tramite \gloss{socket tcp} al \gloss{Driver} con
 una stringa RESP.
-Nel frattempo l'attore di tipo Ninja eseguirà un aggiornamento della propria struttura dati.\\
+Nel frattempo l'\gloss{attore} di tipo Ninja eseguirà un aggiornamento della propria struttura dati.\\
 Si noti che la frequenza di aggiornamento degli attori di tipo ninja sarà
 specificata tramite un parametro di configurazione del sistema.
 \begin{figure}[H]
@@ -3618,7 +3618,7 @@ L'utente crea un oggetto di tipo \hyperref[sec:actorbase::driver::client::Actorb
 il quale crea a sua volta un oggetto di tipo \hyperref[sec:actorbase::driver::client::Connection]{actorbase::driver::client::Connection}.
 \hyperref[sec:actorbase::driver::client::Connection]{actorbase::driver::client::Connection}
 instaura una connessione \gloss{tcp} con la componente
-\hyperref[sec:actorbase::actorsystem::tcpserver::TCPServer]{actorbase::actorsystem::tcpserver::TCPServer} la quale crea un attore di tipo
+\hyperref[sec:actorbase::actorsystem::tcpserver::TCPServer]{actorbase::actorsystem::tcpserver::TCPServer} la quale crea un \gloss{attore} di tipo
 \hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{actorbase::actorsystem::clientactor::ClientActor}
 per gestire l'interazione tra \gloss{Driver} e server. A creazione avvenuta risponde al \gloss{Driver} il quale a cascata informa l'utente dell'avvenuta
 connessione.\\
