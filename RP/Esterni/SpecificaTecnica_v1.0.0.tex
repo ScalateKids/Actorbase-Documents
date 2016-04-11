@@ -3662,7 +3662,7 @@ utilizzati nel progetto \textbf{Actorbase}.
 \subsubsection{MVC}
 
 \begin{itemize}
-\item \textbf{Scopo:} E' stato scelto l'utilizzo del pattern \gloss{Model}
+\item \textbf{Scopo:} È stato scelto l'utilizzo del pattern \gloss{Model}
   \gloss{View} \gloss{Controller} (\gloss{MVC}) per l'alto grado di separazione
   tra la parte logica dell'applicazione e parte grafica che offre;
 \item \textbf{Utilizzo:} Viene utilizzato per delineare l'architettura generale
@@ -3689,7 +3689,7 @@ utilizzati nel progetto \textbf{Actorbase}.
 \begin{itemize}
 \item \textbf{Scopo:} Viene utilizzato per le classi di cui è preferibile avere un'unica istanza
   durante l'esecuzione dell'applicazione;
-\item \textbf{Utilizzo:} E' stato utilizzato una sola volta per la classe di connessione all'interno
+\item \textbf{Utilizzo:} È stato utilizzato una sola volta per la classe di connessione all'interno
   della componente \gloss{driver}, in modo da offrire un unico punto di accesso al server.
 \end{itemize}
 
@@ -3764,7 +3764,7 @@ dell'architettura \gloss{MVC} scelta per la componente \gloss{CLI}.
 \begin{itemize}
 \item \textbf{Scopo:} Viene utilizzato per tenere sotto controllo lo stato di diversi oggetti, ed è parte dell'implementazione
   del \gloss{Design Pattern} \gloss{MVC} con logica \gloss{push model}, il funzionamento si basa su meccanismi di callback.
-\item \textbf{Utilizzo:} E' stato utilizzato nella componente \gloss{CLI} del progetto in modo da ottenere una \gloss{view}
+\item \textbf{Utilizzo:} È stato utilizzato nella componente \gloss{CLI} del progetto in modo da ottenere una \gloss{view}
   auto-aggiornante sull'output prodotto dai comandi inviati alla componente \gloss{driver}.\\
   Più in dettaglio, la classe \verb=CommandInvoker= realizza l'interfaccia \verb=Observable= aggiungendo l'oggetto di tipo
   \verb=ResultView= alla propria lista di \gloss{observers}, all'esecuzione di ogni comando, notifica \verb=resultview=
@@ -3854,7 +3854,7 @@ personalizzata, abbiamo deciso di rimanere su un'implementazione più leggera in
 linguaggio \gloss{Scala} in quanto la scarsa personalizzazione offerta e il
 grosso carico di dipendenze che necessitava \gloss{SpringShell} per il suo
 utilizzo è stato ritenuto eccessivamente gravoso sulla realizzazione della
-componente in questione.\\ E' stato tuttavia deciso di utilizzare il
+componente in questione.\\ È stato tuttavia deciso di utilizzare il
 \gloss{framework} \gloss{pickling} per effettuare serializzazione della
 persistenza su disco; offre una buona documentazione e numerosi esempi di
 utilizzo, rende inoltre possibile la definizione di protocolli di
