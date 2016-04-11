@@ -2019,13 +2019,14 @@ con il \gloss{server}, con la \gloss{cli} o eventuali programmi esterni.
 
 \subparagraph{Descrizione}
 
-Interfaccia che rappresenta una struttura dati generica per ritornare i dati
+Interfaccia che rappresenta un oggetto per ritornare i dati
 ricevuti dal \gloss{server} alla \gloss{cli} o a un programma esterno.
 
 \subparagraph{Utilizzo}
 
 Questa interfaccia viene utilizzata dalle classi che la implementano per
-rappresentare un insieme di \gloss{collezioni} o \gloss{item}.
+rappresentare i dati che verranno ritornati alla \gloss{cli} o al programma
+esterno.
 
 \subparagraph{Interazioni con altre classi}
 
@@ -2052,12 +2053,37 @@ Questa classe viene utilizzata per la rappresentazione di un singolo
 \item \hyperref[sec:actorbase::driver::actorbasedata::ActorbaseObject]{actorbase::driver::actorbasedata::ActorbaseObject}.
 \end{itemize}
 
+\paragraph{actorbase::driver::actorbasedata::ActorbaseObjectSeq}
+\label{sec:actorbase::driver::actorbasedata::ActorbaseObjectSeq}
+
+\subparagraph{Descrizione}
+
+Interfaccia che rappresenta una struttura dati generica per ritornare i dati
+ricevuti dal \gloss{server} alla \gloss{cli} o a un programma esterno.
+
+\subparagraph{Utilizzo}
+
+Questa interfaccia viene utilizzata dalle classi che la implementano per
+rappresentare un insieme di \gloss{collezioni} o \gloss{item}.
+
+\subparagraph{Interazioni con altre classi}
+
+\begin{itemize}
+\item \hyperref[sec:actorbase::driver::client::ActorbaseClient]{actorbase::driver::client::ActorbaseClient}.
+\end{itemize}
+
+\subparagraph{Classi ereditate}
+
+\begin{itemize}
+\item \hyperref[sec:actorbase::driver::actorbasedata::ActorbaseObject]{actorbase::driver::actorbasedata::ActorbaseObject}.
+\end{itemize}
+
 \paragraph{actorbase::driver::actorbasedata::ActorbaseCollection}
 \label{sec:actorbase::driver::actorbasedata::ActorbaseCollection}
 
 \subparagraph{Descrizione}
 
-Classe che implementa \hyperref[sec:actorbase::driver::actorbasedata::ActorbaseObject]{actorbase::driver::actorbasedata::ActorbaseObject}
+Classe che implementa \hyperref[sec:actorbase::driver::actorbasedata::ActorbaseObjectSeq]{actorbase::driver::actorbasedata::ActorbaseObjectSeq}
 in modo da rappresentare una singola \gloss{collezione}.
 
 \subparagraph{Utilizzo}
@@ -2073,7 +2099,7 @@ per scorrere gli \gloss{item} al suo interno.
 \subparagraph{Classi ereditate}
 
 \begin{itemize}
-\item \hyperref[sec:actorbase::driver::actorbasedata::ActorbaseObject]{actorbase::driver::actorbasedata::ActorbaseObject}.
+\item \hyperref[sec:actorbase::driver::actorbasedata::ActorbaseObjectSeq]{actorbase::driver::actorbasedata::ActorbaseObjectSeq}.
 \end{itemize}
 
 \subparagraph{Interazioni con altre classi}
@@ -2088,7 +2114,7 @@ per scorrere gli \gloss{item} al suo interno.
 
 \subparagraph{Descrizione}
 
-Classe che implementa \hyperref[sec:actorbase::driver::actorbasedata::ActorbaseObject]{actorbase::driver::actorbasedata::ActorbaseObject}
+Classe che implementa \hyperref[sec:actorbase::driver::actorbasedata::ActorbaseObjectSeq]{actorbase::driver::actorbasedata::\allowbreak{}ActorbaseObjectSeq}
 in modo da rappresentare un insieme di \gloss{collezioni}.
 
 \subparagraph{Utilizzo}
@@ -2104,7 +2130,7 @@ per scorrere le \gloss{collezioni} al suo interno.
 \subparagraph{Classi ereditate}
 
 \begin{itemize}
-\item \hyperref[sec:actorbase::driver::actorbasedata::ActorbaseObject]{actorbase::driver::actorbasedata::ActorbaseObject}.
+\item \hyperref[sec:actorbase::driver::actorbasedata::ActorbaseObjectSeq]{actorbase::driver::actorbasedata::ActorbaseObjectSeq}.
 \end{itemize}
 
 \subparagraph{Interazioni con altre classi}
