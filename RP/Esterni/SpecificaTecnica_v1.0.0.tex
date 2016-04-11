@@ -140,7 +140,7 @@ componenti che andranno a comporre il software.
   \url{http://www.scala-sbt.org/index.html}
 \item\textbf{Scala Pickling\ -\ Fast, Customizable, Boilerplate-Free Serialization for Scala:}
   \url{http://lampwww.epfl.ch/~hmiller/pickling}
-\item\textbf{RESP\ -\ Redis Protocol Specification:}
+\item\textbf{RESP\ -\ Redis Protocol Specification:} Protocollo di comunicazione testuale \gloss{TCP} (Transmission Control Protocol)
   \url{http://redis.io/topics/protocol}
 \end{itemize}
 
@@ -149,7 +149,7 @@ componenti che andranno a comporre il software.
 \section{Tecnologie utilizzate}
 
 In questa sezione saranno descritte le tecnologie scelte per lo sviluppo del
-progetto \textbf{ActorBase} e le motivazioni che ci hanno spinto a sceglierle.
+progetto \textbf{Actorbase} e le motivazioni che ci hanno spinto a sceglierle.
 
 \subsection{Akka}
 
@@ -206,7 +206,7 @@ Tuttavia presenta alcuni svantaggi:
 
 \subsection{sbt}
 
-Sbt è un ambiente di \gloss{build} simile alla controparte Java \gloss{Maven} o
+Sbt (Simple Build Tool) è un ambiente di \gloss{build} simile alla controparte Java \gloss{Maven} o
 \gloss{Ant}. Fornito di \gloss{console} e strumenti di compilazione ed
 esecuzione per progetti Scala, è stato scelto per i seguenti vantaggi:
 \begin{itemize}
@@ -236,29 +236,18 @@ e i due termini verranno quindi usati come sinonimi.\\
 \subsection{Architettura generale}
 
 Macroscopicamente il sistema si suddivide in due componenti principali,
-assimilabili ad un paradigma Client-Server, il sistema ad attori dove risiedono
+assimilabili ad un paradigma \gloss{Client}-\gloss{Server}, il sistema ad attori dove risiedono
 la struttura della base di dati ed un server TCP (Transmission Control Protocol)
 pronto a ricevere comandi dall'esterno rappresentano la componente server, la
-Command Line Interface (CLI) rappresenta la componente client mediante la quale
-è possibile inviare comandi al sistema e ricevere l'output prodotto da essi,
-essa farà uso della componente \gloss{driver} per comunicare con il sistema lato
+Command Line Interface (\gloss{CLI}) rappresenta la componente \gloss{client} mediante la quale
+è possibile inviare comandi al sistema e ricevere l'output prodotto da essi.
+Essa farà uso della componente \gloss{driver} per comunicare con il sistema lato
 server mediante il protocollo di comunicazione testuale \hyperref[sec:RESP]{RESP}.\\
 
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=0.2\textwidth,keepaspectratio]{RP/RP-ClientServer.png}
     \caption{Diagramma architettura concettuale}
-  \end{center}
-\end{figure}
-
-Questo ha portato alla suddivisione del progetto in tre macro-componenti, rispettivamente
-\textbf{cli}, \textbf{driver} e \textbf{actorsystem}; contenute all'interno del package
-generale \textbf{actorbase}.
-
-\begin{figure}[H]
-  \begin{center}
-    \includegraphics[width=0.9\textwidth,keepaspectratio]{RP/Architettura-AltoLivello.png}
-    \caption{Diagramma componenti principali}
   \end{center}
 \end{figure}
 
@@ -283,7 +272,7 @@ da una sequenza di terminazione formata da \gloss{CR} (Carriage Return) e \gloss
   \begin{center}
     \verb=-TIPOERRORE MESSAGGIOERRORE\r\n=
   \end{center}
-  verranno utilizzate per generare le eccezioni lato client; il primo byte è ``-'';
+  verranno utilizzate per generare le eccezioni lato \gloss{client}; il primo byte è ``-'';
 \item \textbf{Integers} rappresentano numeri interi, il primo byte è ``:'';
 \item \textbf{Bulk Strings} rappresentano stringhe dedicate al \gloss{payload}, formate da:
   \begin{center}
@@ -299,8 +288,19 @@ da una sequenza di terminazione formata da \gloss{CR} (Carriage Return) e \gloss
 
 \section{Componenti}
 
+L'architettura principale del progetto è stata suddivisa in tre macro-componenti, rispettivamente
+\textbf{cli}, \textbf{driver} e \textbf{actorsystem}; contenute all'interno del package
+generale \textbf{actorbase}.
+
 \subsection{actorbase}
 \label{sec:actorbase}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.9\textwidth,keepaspectratio]{RP/Architettura-AltoLivello.png}
+    \caption{Diagramma componenti principali}
+  \end{center}
+\end{figure}
 
 \subsubsection{Descrizione}
 
@@ -1426,7 +1426,7 @@ Classe che rappresenta i range di indici contenuti in ogni \gloss{attore} di tip
 \subparagraph{Utilizzo}
 
 Questa classe viene utilizzata per tener traccia del contenuto degli attori di tipo
-\hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{actorbase::actorsystem::storekeeper::Storekeeper}.
+\hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storekeeper::\allowbreak{}Storekeeper}.
 
 \subparagraph{Interazioni con altre classi}
 
@@ -1786,7 +1786,7 @@ e \hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{sec:actorbase:
 
 \gloss{Package} che contiene tutti i messaggi che possono essere ricevuti
 dall'\gloss{attore} di tipo
-\hyperref[sec:actorbase::actorsystem::manager::Manager]{actorbase::actorsystem::manager::Manager}
+\hyperref[sec:actorbase::actorsystem::manager::Manager]{actorbase::\allowbreak{}actorsystem::\allowbreak{}manager::\allowbreak{}Manager}
 
 \paragraph{actorbase::actorsystem::manager::messages::DuplicationRequestSK}
 \label{sec:actorbase::actorsystem::manager::messages::DuplicationRequestSK}
@@ -3239,19 +3239,19 @@ visualizzare se richiesto dall'utente.
 \section{Diagrammi di Attività}
 
 In questa sezione, vengono illustrati i diagrammi di attività che descrivono
-l'interazione dell'utente con Actorbase tramite l'utilizzo della \gloss{CLI}
+l'interazione dell'utente con \textbf{Actorbase} tramite l'utilizzo della \gloss{CLI}
 ad esso associata.  É stato disegnato un diagramma ad alto livello in cui sono
-rappresentate le operazioni possibili sul database. Esse vengono poi
+rappresentate le operazioni possibili sul \gloss{database}. Esse vengono poi
 illustrate tramite dei sotto-diagrammi per poterne comprendere meglio il
 funzionamento e facilitarne la lettura.
 
 \subsection{Visione generale}
 
 L'utente, dopo aver aperto la \gloss{CLI}, ha la possibilità di autenticarsi
-al database oppure chiedere dell'aiuto. Una volta autenticato, esso può
-operare su collezioni e/o item, interrogare il database, modificare la propria
+al \gloss{database} oppure chiedere dell'aiuto. Una volta autenticato, esso può
+operare su collezioni e/o item, interrogare il \gloss{database}, modificare la propria
 password, effettuare il logout oppure, se si tratta di un amministratore,
-gestire gli utenti del database.
+gestire gli utenti del \gloss{database}.
 
 \begin{figure}[H]
   \begin{center}
@@ -3264,7 +3264,7 @@ gestire gli utenti del database.
 \subsubsection{Creazione collezione}
 
 Questo tipo di operazione permette di inserire una collezione all'interno del
-database. Come si vede dal grafico che segue, l'utente dovrà inserire il
+\gloss{database}. Come si vede dal grafico che segue, l'utente dovrà inserire il
 comando per la creazione della collezione, il nome della collezione stessa e i
 suoi parametri. Una volta premuto il tasto invio, l'operazione andrà a buon
 termine se l'utente ha scritto correttamente il comando altrimenti verrà
@@ -3279,7 +3279,7 @@ visualizzato un messaggio di errore.
 
 \subsubsection{Cancellazione collezione}
 
-Questo tipo di operazione permette di cancellare una collezione dal database.
+Questo tipo di operazione permette di cancellare una collezione dal \gloss{database}.
 Come si vede dal grafico che segue, l'utente dovrà inserire il comando per la
 cancellazione di una collezione e il nome della collezione stessa. Una volta
 premuto il tasto invio, l'operazione andrà a buon termine se l'utente ha
@@ -3296,7 +3296,7 @@ errore.
 \subsubsection{Visualizza collezioni}
 
 Questo tipo di operazione permette di visualizzare le collezioni presenti
-all'interno dal database. Come si vede dal grafico che segue, l'utente dovrà
+all'interno dal \gloss{database}. Come si vede dal grafico che segue, l'utente dovrà
 inserire il comando per la visualizzazione delle collezioni. Una volta premuto
 il tasto invio, l'operazione andrà a buon termine (ricevendo la lista delle
 collezioni) se l'utente ha scritto correttamente il comando altrimenti verrà
@@ -3312,7 +3312,7 @@ visualizzato un messaggio di errore.
 \subsubsection{Modifica nome collezione}
 
 Questo tipo di operazione permette di modificare il nome di una collezione
-presente nel database. Come si vede dal grafico che segue, l'utente dovrà
+presente nel \gloss{database}. Come si vede dal grafico che segue, l'utente dovrà
 inserire il comando per la rinominazione della collezione, il nome della
 collezione stessa e il nuovo nome per essa. Una volta premuto il tasto invio,
 l'operazione andrà a buon termine se l'utente ha scritto correttamente il
@@ -3328,7 +3328,7 @@ comando altrimenti verrà visualizzato un messaggio di errore.
 \subsubsection{Inserimento item}
 
 Questo tipo di operazione permette di inserire un item all'interno di una
-collezione del database. Come si vede dal grafico che segue, l'utente dovrà
+collezione del \gloss{database}. Come si vede dal grafico che segue, l'utente dovrà
 inserire il comando per l'inserimento item, il valore e parametri dell'item
 stesso e il nome della collezione dove inserire l'item. Una volta premuto il
 tasto invio, l'operazione andrà a buon termine (ricevendo la lista delle
@@ -3345,7 +3345,7 @@ visualizzato un messaggio di errore.
 \subsubsection{Rimozione item}
 
 Questo tipo di operazione permette di rimuovere un item dall'interno di una
-\gloss{collezione} del database. Come si vede dal grafico che segue, l'utente
+\gloss{collezione} del \gloss{database}. Come si vede dal grafico che segue, l'utente
 dovrà inserire il comando per l'eliminazione di un item, il nome della
 collezione da dove rimuovere l'item e il nome dell'item stesso. Una volta
 premuto il tasto invio, l'operazione andrà a buon termine (ricevendo la lista
@@ -3362,7 +3362,7 @@ verrà visualizzato un messaggio di errore.
 \subsubsection{Aggiunta collaboratore}
 
 Questo tipo di operazione permette di aggiungere un \gloss{collaboratore} ad
-una collezione presente nel database. Come si vede dal grafico che segue,
+una collezione presente nel \gloss{database}. Come si vede dal grafico che segue,
 l'utente dovrà inserire il comando per l'aggiunta di un collaboratore ad una
 collezione, lo username del collaboratore e il nome della collezione alla
 quale aggiungerlo. Una volta premuto il tasto invio, l'operazione andrà a buon
@@ -3379,7 +3379,7 @@ visualizzato un messaggio di errore.
 \subsubsection{Rimozione collaboratore}
 
 Questo tipo di operazione permette di rimuovere un collaboratore da una
-collezione presente nel database. Come si vede dal grafico che segue, l'utente
+collezione presente nel \gloss{database}. Come si vede dal grafico che segue, l'utente
 dovrà inserire il comando per la rimozione di un collaboratore da una
 collezione, lo username del collaboratore e il nome della collezione dalla
 quale rimuoverlo. Una volta premuto il tasto invio, l'operazione andrà a buon
@@ -3395,7 +3395,7 @@ visualizzato un messaggio di errore.
 
 \subsubsection{Import}
 
-Questo tipo di operazione permette di importare nel database collezioni o item
+Questo tipo di operazione permette di importare nel \gloss{database} collezioni o item
 tramite file \gloss{JSON}. Come si vede dal grafico che segue, l'utente dovrà
 inserire il comando per l'importazione e il path che porta al file desiderato.
 Una volta premuto il tasto invio, l'operazione andrà a buon termine se
@@ -3411,9 +3411,9 @@ messaggio di errore.
 
 \subsection{Interrogazione del database}
 
-Questo tipo di operazione permette di interrogare il database tramite delle
+Questo tipo di operazione permette di interrogare il \gloss{database} tramite delle
 query. Come si vede dal grafico che segue, l'utente dovrà inserire il comando
-per l'interrogazione del database e i parametri per la ricerca. Una volta
+per l'interrogazione del \gloss{database} e i parametri per la ricerca. Una volta
 premuto il tasto invio, l'operazione andrà a buon termine se l'utente ha
 scritto correttamente il comando, ricevendo il risultato della query,
 altrimenti verrà visualizzato un messaggio di errore.
@@ -3421,7 +3421,7 @@ altrimenti verrà visualizzato un messaggio di errore.
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=0.3\textwidth, keepaspectratio]{img/diagrammiAttivita/query.jpeg}
-    \caption{Diagrammi attività - Interrogazione del database}
+    \caption{Diagrammi attività - Interrogazione del \gloss{database}}
   \end{center}
 \end{figure}
 
@@ -3444,10 +3444,10 @@ visualizzato un messaggio di errore.
 \subsection{Gestione utenti}
 
 La gestione utenti, possibile solo ad un utente amministratore, prevede la
-possibilità di aggiungere o rimuovere un utente dal database e la possibilità
+possibilità di aggiungere o rimuovere un utente dal \gloss{database} e la possibilità
 di resettare la password di un utente. Per aggiungere o rimuovere un utente,
 l'amministratore dovrà inserire il rispettivo comando, lo username dell'utente
-da aggiungere/rimuovere dal database e una conferma. Per resettare la password
+da aggiungere/rimuovere dal \gloss{database} e una conferma. Per resettare la password
 di un utente, l'amministratore dovrà scrivere il comando per il reset della
 password, lo username dell'utente interessato e una conferma. Una volta
 premuto il tasto invio, le operazione andranno a buon termine se l'utente ha
@@ -3504,7 +3504,7 @@ i parametri.\\
 Da questo componente parte il messaggio di Insert(key, value) ad un \hyperref[sec:actorbase::actorsystem::clientactor::MainActor]{actorbase::actorsystem::clientactor::MainActor} scelto in base ad una
 politica di \gloss{routing}. Il MainActor manderà un messaggio allo \hyperref[sec:actorbase::actorsystem::clientactor::StoreFinder]{actorbase::actorsystem::clientactor::StoreFinder} relativo il quale manderà un messaggio allo \hyperref[sec:actorbase::actorsystem::clientactor::StoreKeeper]{actorbase::actorsystem::clientactor::StoreKeeper} che dovrà salvarsi l'informazione
 sulla propria mappa.\\
-A questo punto lo StoreKeeper manderà un messaggio al ClientActor con la risposta
+A questo punto lo Storekeeper manderà un messaggio al \gloss{ClientActor} con la risposta
 (positiva o negativa che sia) il quale risponderà sempre tramite \gloss{socket tcp} al \gloss{Driver} con una stringa RESP.
 \begin{figure}[H]
   \begin{center}
@@ -3513,17 +3513,17 @@ A questo punto lo StoreKeeper manderà un messaggio al ClientActor con la rispos
   \end{center}
 \end{figure}
 
-\subsection{Inserimento di un Item con StoreKeeper pieno}
+\subsection{Inserimento di un Item con Storekeeper pieno}
 
-Questo diagramma rappresenta l'interazione tra le componenti nel caso di una richiesta di inserimento di un \gloss{item} in uno StoreKeeper con una mappa piena.\\
+Questo diagramma rappresenta l'interazione tra le componenti nel caso di una richiesta di inserimento di un \gloss{item} in uno Storekeeper con una mappa piena.\\
 La componente \hyperref[sec:actorbase::driver::client::Connection]{actorbase::driver::client::Connection}
 manda tramite \gloss{socket tcp} al \hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{actorbase::actorsystem::clientactor::ClientActor}
 una stringa \hyperref[sec:RESP]{RESP} contenente il comando di inserimento \gloss{item} con
 i parametri.\\
 Da questo componente parte il messaggio di Insert(key, value) ad un \hyperref[sec:actorbase::actorsystem::clientactor::MainActor]{actorbase::actorsystem::clientactor::MainActor} scelto in base ad una
 politica di \gloss{routing}. Il MainActor manderà un messaggio allo \hyperref[sec:actorbase::actorsystem::clientactor::StoreFinder]{actorbase::actorsystem::clientactor::StoreFinder} relativo il quale manderà un messaggio allo \hyperref[sec:actorbase::actorsystem::clientactor::StoreKeeper]{actorbase::actorsystem::clientactor::StoreKeeper} che essendo pieno manda un
-messaggio DuplicateRequestSK contenente metà della propria mappa e una ActorRef del proprio parent ad un \hyperref[sec:actorbase::actorsystem::clientactor::Manager]{actorbase::actorsystem::clientactor::Manager}. Il Manager inoltra il messaggio DuplicateRequestSK al parent dello StoreKeeper precedentemente coinvolto. Questo StoreFinder infine creerà un nuovo Storekeeper con il pezzo di mappa ricevuto. \\
-A questo punto il nuovo StoreKeeper manderà un messaggio al ClientActor con
+messaggio DuplicateRequestSK contenente metà della propria mappa e una ActorRef del proprio parent ad un \hyperref[sec:actorbase::actorsystem::clientactor::Manager]{actorbase::actorsystem::clientactor::Manager}. Il Manager inoltra il messaggio DuplicateRequestSK al parent dello Storekeeper precedentemente coinvolto. Questo Storefinder infine creerà un nuovo Storekeeper con il pezzo di mappa ricevuto. \\
+A questo punto il nuovo Storekeeper manderà un messaggio al \gloss{ClientActor} con
 la risposta (positiva o negativa che sia) il quale risponderà sempre tramite
 \gloss{socket tcp} al \gloss{Driver} con una stringa RESP.
 \begin{figure}[H]
@@ -3541,8 +3541,8 @@ manda tramite \gloss{socket tcp} al \hyperref[sec:actorbase::actorsystem::client
 una stringa \hyperref[sec:RESP]{RESP} contenente il comando di inserimento \gloss{item} con
 i parametri.\\
 Da questo componente parte il messaggio di GetItemFrom(UsersCollection, Username) ad un \hyperref[sec:actorbase::actorsystem::clientactor::MainActor]{actorbase::actorsystem::clientactor::MainActor} scelto in base ad una
-politica di \gloss{routing}. Il MainActor manderà un messaggio allo \hyperref[sec:actorbase::actorsystem::clientactor::StoreFinder]{actorbase::actorsystem::clientactor::StoreFinder} relativo il quale manderà un messaggio getPassword(username) allo \hyperref[sec:actorbase::actorsystem::clientactor::UserKeeper]{actorbase::actorsystem::clientactor::UserKeeper}. Quest'ultimo risponderà al ClientActor con un messaggio loginResponse contenente la password relativa allo username richiesto.\\
-Il ClientActor eseguirà un confronto tra la password immessa dall'utente e la password ritornata dallo UserKeeper. In caso positivo cambierà il proprio stato
+politica di \gloss{routing}. Il MainActor manderà un messaggio allo \hyperref[sec:actorbase::actorsystem::clientactor::StoreFinder]{actorbase::actorsystem::clientactor::StoreFinder} relativo il quale manderà un messaggio getPassword(username) allo \hyperref[sec:actorbase::actorsystem::clientactor::UserKeeper]{actorbase::actorsystem::clientactor::UserKeeper}. Quest'ultimo risponderà al \gloss{ClientActor} con un messaggio loginResponse contenente la password relativa allo username richiesto.\\
+Il \gloss{ClientActor} eseguirà un confronto tra la password immessa dall'utente e la password ritornata dallo Userkeeper. In caso positivo cambierà il proprio stato
 e risponderà al \gloss{Driver} con un messaggio che indica un esito positivo. In caso negativo resterà nello stato attuale e manderà un messaggio al \gloss{Driver} che indica un esito negativo.
 \begin{figure}[H]
   \begin{center}
@@ -3562,8 +3562,8 @@ i parametri.\\
 Da questo componente parte il messaggio di Insert(key, value) ad un \hyperref[sec:actorbase::actorsystem::clientactor::MainActor]{actorbase::actorsystem::clientactor::MainActor} scelto in base ad una
 politica di \gloss{routing}. Il MainActor manderà un messaggio allo \hyperref[sec:actorbase::actorsystem::clientactor::StoreFinder]{actorbase::actorsystem::clientactor::StoreFinder} relativo il quale manderà un messaggio allo \hyperref[sec:actorbase::actorsystem::clientactor::StoreKeeper]{actorbase::actorsystem::clientactor::StoreKeeper} che dovrà salvarsi l'informazione
 sulla propria mappa.\\
-A questo punto lo StoreKeeper manderà un messaggio al Warehouseman di tipo Save e
-successivamente manderà un messaggio al ClientActor con la risposta
+A questo punto lo Storekeeper manderà un messaggio al Warehouseman di tipo Save e
+successivamente manderà un messaggio al \gloss{ClientActor} con la risposta
 (positiva o negativa che sia) il quale risponderà sempre tramite \gloss{socket tcp} al \gloss{Driver} con una stringa RESP.
 Nel frattempo l'\gloss{attore} di tipo Warehouseman eseguirà un salvataggio su disco dei propri dati previa serializzazione.\\
 Si noti che la frequenza con cui gli attori di tipo Warehousename eseguiranno
@@ -3587,8 +3587,8 @@ i parametri.\\
 Da questo componente parte il messaggio di Insert(key, value) ad un \hyperref[sec:actorbase::actorsystem::clientactor::MainActor]{actorbase::actorsystem::clientactor::MainActor} scelto in base ad una
 politica di \gloss{routing}. Il MainActor manderà un messaggio allo \hyperref[sec:actorbase::actorsystem::clientactor::StoreFinder]{actorbase::actorsystem::clientactor::StoreFinder} relativo il quale manderà un messaggio allo \hyperref[sec:actorbase::actorsystem::clientactor::StoreKeeper]{actorbase::actorsystem::clientactor::StoreKeeper} che dovrà salvarsi l'informazione
 sulla propria mappa.\\
-A questo punto lo StoreKeeper manderà un messaggio al Ninja di tipo Update contenente la struttura dati aggiornata e successivamente manderà un
-messaggio al ClientActor con la risposta (positiva o negativa che sia)
+A questo punto lo Storekeeper manderà un messaggio al Ninja di tipo Update contenente la struttura dati aggiornata e successivamente manderà un
+messaggio al \gloss{ClientActor} con la risposta (positiva o negativa che sia)
 il quale risponderà sempre tramite \gloss{socket tcp} al \gloss{Driver} con
 una stringa RESP.
 Nel frattempo l'\gloss{attore} di tipo Ninja eseguirà un aggiornamento della propria struttura dati.\\
@@ -3615,9 +3615,9 @@ relativo il quale manderà un messaggio addReadCollection(collection) allo
 \hyperref[sec:actorbase::actorsystem::clientactor::UserKeeper]{actorbase::actorsystem::clientactor::UserKeeper}.
 Quest'ultimo dovrà aggiungere alla mappa delle collezioni di cui l'utente
 relativo ha accesso in sola lettura la collezione inviatagli.
-Poi manderà al ClientActor un messaggio UpdateReadCollections(collection)
+Poi manderà al \gloss{ClientActor} un messaggio UpdateReadCollections(collection)
 contenente la collezione da aggiungere.\\
-Il ClientActor effettuerà l'aggiornamento e risponderà al \gloss{Driver}
+Il \gloss{ClientActor} effettuerà l'aggiornamento e risponderà al \gloss{Driver}
 con un messaggio che indica un esito positivo. In caso negativo resterà nello
 stato attuale e manderà un messaggio al \gloss{Driver} che indica un esito
 negativo.\\
@@ -3643,7 +3643,7 @@ instaura una connessione \gloss{tcp} con la componente
 per gestire l'interazione tra \gloss{Driver} e server. A creazione avvenuta risponde al \gloss{Driver} il quale a cascata informa l'utente dell'avvenuta
 connessione.\\
 Dal diagramma possiamo vedere che le richieste successivamente inserite
-dall'utente verranno gestite dal proprio ClientActor.\\
+dall'utente verranno gestite dal proprio \gloss{ClientActor}.\\
 
 \begin{figure}[H]
   \begin{center}
@@ -3682,7 +3682,7 @@ utilizzati nel progetto \textbf{Actorbase}.
 \subsubsection{MVC}
 
 \begin{itemize}
-\item \textbf{Scopo:} E' stato scelto l'utilizzo del pattern \gloss{Model}
+\item \textbf{Scopo:} È stato scelto l'utilizzo del pattern \gloss{Model}
   \gloss{View} \gloss{Controller} (\gloss{MVC}) per l'alto grado di separazione
   tra la parte logica dell'applicazione e parte grafica che offre;
 \item \textbf{Utilizzo:} Viene utilizzato per delineare l'architettura generale
@@ -3709,7 +3709,7 @@ utilizzati nel progetto \textbf{Actorbase}.
 \begin{itemize}
 \item \textbf{Scopo:} Viene utilizzato per le classi di cui è preferibile avere un'unica istanza
   durante l'esecuzione dell'applicazione;
-\item \textbf{Utilizzo:} E' stato utilizzato una sola volta per la classe di connessione all'interno
+\item \textbf{Utilizzo:} È stato utilizzato una sola volta per la classe di connessione all'interno
   della componente \gloss{driver}, in modo da offrire un unico punto di accesso al server.
 \end{itemize}
 
@@ -3784,7 +3784,7 @@ dell'architettura \gloss{MVC} scelta per la componente \gloss{CLI}.
 \begin{itemize}
 \item \textbf{Scopo:} Viene utilizzato per tenere sotto controllo lo stato di diversi oggetti, ed è parte dell'implementazione
   del \gloss{Design Pattern} \gloss{MVC} con logica \gloss{push model}, il funzionamento si basa su meccanismi di callback.
-\item \textbf{Utilizzo:} E' stato utilizzato nella componente \gloss{CLI} del progetto in modo da ottenere una \gloss{view}
+\item \textbf{Utilizzo:} È stato utilizzato nella componente \gloss{CLI} del progetto in modo da ottenere una \gloss{view}
   auto-aggiornante sull'output prodotto dai comandi inviati alla componente \gloss{driver}.\\
   Più in dettaglio, la classe \verb=CommandInvoker= realizza l'interfaccia \verb=Observable= aggiungendo l'oggetto di tipo
   \verb=ResultView= alla propria lista di \gloss{observers}, all'esecuzione di ogni comando, notifica \verb=resultview=
@@ -3874,7 +3874,7 @@ personalizzata, abbiamo deciso di rimanere su un'implementazione più leggera in
 linguaggio \gloss{Scala} in quanto la scarsa personalizzazione offerta e il
 grosso carico di dipendenze che necessitava \gloss{SpringShell} per il suo
 utilizzo è stato ritenuto eccessivamente gravoso sulla realizzazione della
-componente in questione.\\ E' stato tuttavia deciso di utilizzare il
+componente in questione.\\ È stato tuttavia deciso di utilizzare il
 \gloss{framework} \gloss{pickling} per effettuare serializzazione della
 persistenza su disco; offre una buona documentazione e numerosi esempi di
 utilizzo, rende inoltre possibile la definizione di protocolli di
