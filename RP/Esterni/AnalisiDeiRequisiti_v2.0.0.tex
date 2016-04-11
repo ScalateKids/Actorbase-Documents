@@ -614,7 +614,7 @@ L'attore ha appena avviato la \gloss{CLI}, risulta essere non autenticato e può
 
 \textbf{Attore primario:} Utente autenticato, utente amministratore\\
 \textbf{Scopo e descrizione:} L'attore intende aggiungere un \gloss{collaboratore} ad una \gloss{collezione} di sua proprietà; deve inserire il nome della \gloss{collezione} in questione.\\
-\textbf{Precondizione:} Il server è in ascolto e l'attore ha inserito il comando per l'aggiunta di un \gloss{collaboratore} ad una \gloss{collezione}.
+\textbf{Precondizione:} Il server è in ascolto e l'attore ha inserito il comando per l'aggiunta di un \gloss{collaboratore} ad una \gloss{collezione}.\\
 \textbf{Scenario principale:}
 \begin{itemize}
 \item L'attore inserisce il nome della \gloss{collezione}.
@@ -665,7 +665,7 @@ L'attore ha appena avviato la \gloss{CLI}, risulta essere non autenticato e può
 
 \textbf{Attore primario:} Utente autenticato, utente amministratore\\
 \textbf{Scopo e descrizione:} L'attore intende aggiungere un \gloss{collaboratore} ad una \gloss{collezione} di sua proprietà; deve inserire il nome della \gloss{collezione} in questione.\\
-\textbf{Precondizione:} Il server è in ascolto e l'attore ha inserito il comando per la rimozione di un \gloss{collaboratore} da una \gloss{collezione}.
+\textbf{Precondizione:} Il server è in ascolto e l'attore ha inserito il comando per la rimozione di un \gloss{collaboratore} da una \gloss{collezione}.\\
 \textbf{Scenario principale:}
 \begin{itemize}
 \item L'attore inserisce il nome della \gloss{collezione}.
@@ -1110,7 +1110,7 @@ In caso di inserimento di nome \gloss{collezione} inesistente, o in caso di risu
 
 \textbf{Attori primari:} Utente autenticato, utente amministratore\\
 \textbf{Scopo e descrizione:} L'attore intende modificare la propria password, deve inserire la nuova password.\\
-\textbf{Precondizione:} Il server è in ascolto, l'attore ha inserito il comando per la modifica password e ha inserito la vecchia password.
+\textbf{Precondizione:} Il server è in ascolto, l'attore ha inserito il comando per la modifica password e ha inserito la vecchia password.\\
 \textbf{Scenario principale:}
 \begin{itemize}
 \item L'attore inserisce la nuova password.
@@ -1121,7 +1121,7 @@ In caso di inserimento di nome \gloss{collezione} inesistente, o in caso di risu
 
 \textbf{Attori primari:} Utente autenticato, utente amministratore\\
 \textbf{Scopo e descrizione:} L'attore intende modificare la propria password, deve confermare la modifica reinserendo la nuova password.\\
-\textbf{Precondizione:} Il server è in ascolto, l'attore ha inserito il comando per la modifica password, ha inserito la vecchia password e ha inserito la nuova password.
+\textbf{Precondizione:} Il server è in ascolto, l'attore ha inserito il comando per la modifica password, ha inserito la vecchia password e ha inserito la nuova password.\\
 \textbf{Scenario principale:}
 \begin{itemize}
 \item L'attore inserisce la password di conferma.
@@ -1337,9 +1337,8 @@ verrà modificata al valore prescelto ``actorbase''.\\
 
 \textbf{Attore primario:} Utente amministratore\\
 \textbf{Scopo e descrizione:} L'attore intende aggiungere un nuovo utente al sistema, deve inserire lo username del nuovo utente e confermarne l'aggiunta al sistema.
-Lo username inserito risulta essere già censito all'interno del sistema.
-\textbf{Precondizione:} Il server è in ascolto e l'attore intende aggiungere un nuovo utente al sistema. Lo username del nuovo utente da inserire risulta essere già
-censito all'interno del sistema.
+Lo username inserito risulta essere già censito all'interno del sistema.\\
+\textbf{Precondizione:} Il server è in ascolto e l'attore intende aggiungere un nuovo utente al sistema. Lo username del nuovo utente da inserire risulta essere già censito all'interno del sistema.\\
 \textbf{Scenario principale:}
 \begin{itemize}
 \item Viene visualizzato un messaggio di errore esplicativo.
@@ -1351,9 +1350,9 @@ censito all'interno del sistema.
 \textbf{Attore primario:} Utente amministratore\\
 \textbf{Scopo e descrizione:} L'attore intende rimuovere un utente dal sistema o, in alternativa, effettuare un reset della password di un utente. Deve inserire lo username dell'utente designato
 alla rimozione dal sistema o al reset della password e confermare l'operazione.
-Lo username inserito risulta essere inesistente all'interno del sistema.
+Lo username inserito risulta essere inesistente all'interno del sistema.\\
 \textbf{Precondizione:} Il server è in ascolto e l'attore intende rimuovere un utente dal sistema, o in alternativa, effettuare un reset della password di un utente.
-Lo username dell' utente su cui effettuare l'operazione risulta essere inesistente all'interno del sistema.
+Lo username dell' utente su cui effettuare l'operazione risulta essere inesistente all'interno del sistema.\\
 \textbf{Scenario principale:}
 \begin{itemize}
 \item Viene visualizzato un messaggio di errore esplicativo.
@@ -1752,7 +1751,7 @@ L'attore intende effettuare login al database da un programma \gloss{Scala} este
 \end{figure}
 \textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
 \textbf{Attore secondario:} Actorbase\\
-\textbf{Scopo e descrizione:} L'attore intende aggiungere un \gloss{collaboratore} ad una \gloss{collezione} di sua proprietà. Deve inserire il nome della \gloss{collezione} e lo username dell'utente da aggiungere.\\
+\textbf{Scopo e descrizione:} L'attore intende aggiungere un \gloss{collaboratore} ad una \gloss{collezione} di sua proprietà. Deve inserire il nome della \gloss{collezione}, lo username dell'utente da aggiungere e il livello di permessi da assegnarli, scelti tra \textit{read} e \textit{read-write}.\\
 \textbf{Precondizione:} Il server è in ascolto e l'attore intende aggiungere un \gloss{collaboratore} ad una \gloss{collezione} di sua proprietà.\\
 \textbf{Scenario principale:}
 \begin{itemize}
@@ -1901,7 +1900,7 @@ ma durante l'inserimento dei parametri inserisce un nome collezione non censito 
 \textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
 \textbf{Attore secondario:} Actorbase\\
 \textbf{Scopo e descrizione:} L'attore intende aggiungere un collaboratore a una collezione.\\
-\textbf{Precondizione:} Il server è in ascolto, l'attore ha inserito il comando di aggiunta collaboratore, ha inserito il nome della collezione e l'username del collaboratore designato.\\
+\textbf{Precondizione:} Il server è in ascolto, l'attore ha inserito il comando di aggiunta collaboratore, ha inserito il nome della collezione, lo username dell'utente da aggiungere e il livello di permessi da assegnarli, scelti tra \textit{read} e \textit{read-write}.\\
 \textbf{Scenario principale:}
 \begin{itemize}
 \item Viene lanciata una eccezione username inesistente
@@ -2306,7 +2305,7 @@ In caso di inserimento di nome \gloss{collezione} inesistente, o in caso di risu
 \textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
 \textbf{Attore secondario:} Actorbase\\
 \textbf{Scopo e descrizione:} L'attore intende modificare la propria password, deve inserire la nuova password.\\
-\textbf{Precondizione:} Il server è in ascolto, l'attore ha inserito il comando per la modifica password e ha inserito la vecchia password.
+\textbf{Precondizione:} Il server è in ascolto, l'attore ha inserito il comando per la modifica password e ha inserito la vecchia password.\\
 \textbf{Scenario principale:}
 \begin{itemize}
 \item L'attore può inserire la nuova password.
@@ -2662,33 +2661,33 @@ OBF1.1.3.5 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{
 \hline
 OBF1.1.3.7 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{Main} dovrà gestire la ricezione del messaggio RemoveContributor & \multiLineCell{CAPITOLATO\\INTERNO\\UC1.3.6\\UC2.2.6\\}\\
 \hline
-OBF1.1.3.8 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{Main} dovrà gestire la ricezione del messaggio InitUserKeeper & \multiLineCell{INTERNO\\}\\
+OBF1.1.3.8 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{Main} dovrà gestire la ricezione del messaggio InitUserkeeper & \multiLineCell{INTERNO\\}\\
 \hline
-OBF1.1.3.9 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{Main} dovrà gestire la ricezione di tutti i messaggi dell'attore di tipo \gloss{StoreFinder} & \multiLineCell{CAPITOLATO\\INTERNO\\}\\
+OBF1.1.3.9 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{Main} dovrà gestire la ricezione di tutti i messaggi dell'attore di tipo \gloss{Storefinder} & \multiLineCell{CAPITOLATO\\INTERNO\\}\\
 \hline
 OBF1.1.4 & \multiLineCell{Funzionale\\Obbligatorio} & All'interno del singolo nodo dovrà essere implementato l'attore \gloss{Storefinder} per la gestione delle \gloss{collezioni} del \gloss{database} & \multiLineCell{CAPITOLATO\\UC1\\}\\
 \hline
-OBF1.1.4.1 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{StoreFinder} dovrà gestire la ricezione del messaggio Init & \multiLineCell{CAPITOLATO\\INTERNO\\}\\
+OBF1.1.4.1 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{Storefinder} dovrà gestire la ricezione del messaggio Init & \multiLineCell{CAPITOLATO\\INTERNO\\}\\
 \hline
-OBF1.1.4.2 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{StoreFinder} dovrà gestire la ricezione del messaggio DuplicateRequestSK & \multiLineCell{INTERNO\\UC1.4.1\\UC2.3.1\\}\\
+OBF1.1.4.2 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{Storefinder} dovrà gestire la ricezione del messaggio DuplicateRequestSK & \multiLineCell{INTERNO\\UC1.4.1\\UC2.3.1\\}\\
 \hline
-OBF1.1.4.3 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{StoreFinder} dovrà gestire la ricezione del messaggio GetItem & \multiLineCell{CAPITOLATO\\INTERNO\\UC1.5\\UC2.4\\}\\
+OBF1.1.4.3 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{Storefinder} dovrà gestire la ricezione del messaggio GetItem & \multiLineCell{CAPITOLATO\\INTERNO\\UC1.5\\UC2.4\\}\\
 \hline
-OBF1.1.4.4 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{StoreFinder} dovrà gestire la ricezione del messaggio RemoveItem & \multiLineCell{CAPITOLATO\\INTERNO\\UC1.4.2\\UC2.3.2\\}\\
+OBF1.1.4.4 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{Storefinder} dovrà gestire la ricezione del messaggio RemoveItem & \multiLineCell{CAPITOLATO\\INTERNO\\UC1.4.2\\UC2.3.2\\}\\
 \hline
-OBF1.1.4.5 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{StoreFinder} dovrà gestire la ricezione del messaggio Insert & \multiLineCell{CAPITOLATO\\INTERNO\\UC1.3.5\\UC1.4.1\\UC2.2.5\\UC2.3.1\\}\\
+OBF1.1.4.5 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{Storefinder} dovrà gestire la ricezione del messaggio Insert & \multiLineCell{CAPITOLATO\\INTERNO\\UC1.3.5\\UC1.4.1\\UC2.2.5\\UC2.3.1\\}\\
 \hline
 OBF1.1.5 & \multiLineCell{Funzionale\\Obbligatorio} & All'interno del singolo \gloss{nodo} dovrà essere implementato l'attore \gloss{Storekeeper} per gestire il contenuto delle \gloss{collezioni} & \multiLineCell{CAPITOLATO\\UC1\\}\\
 \hline
-OBF1.1.5.1 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{StoreKeeper} dovrà gestire la ricezione del messaggio Init & \multiLineCell{CAPITOLATO\\INTERNO\\}\\
+OBF1.1.5.1 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{Storekeeper} dovrà gestire la ricezione del messaggio Init & \multiLineCell{CAPITOLATO\\INTERNO\\}\\
 \hline
-OBF1.1.5.2 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{StoreKeeper} dovrà gestire la ricezione del messaggio GetItem & \multiLineCell{CAPITOLATO\\INTERNO\\UC1.14\\UC1.5\\UC2.12\\UC2.13\\UC2.4\\}\\
+OBF1.1.5.2 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{Storekeeper} dovrà gestire la ricezione del messaggio GetItem & \multiLineCell{CAPITOLATO\\INTERNO\\UC1.14\\UC1.5\\UC2.12\\UC2.13\\UC2.4\\}\\
 \hline
-OBF1.1.5.3 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{StoreKeeper} dovrà gestire la ricezione del messaggio GetAllItems & \multiLineCell{INTERNO\\UC1.13\\UC1.15\\UC1.5\\UC2.12\\UC2.13\\UC2.4\\}\\
+OBF1.1.5.3 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{Storekeeper} dovrà gestire la ricezione del messaggio GetAllItems & \multiLineCell{INTERNO\\UC1.13\\UC1.15\\UC1.5\\UC2.12\\UC2.13\\UC2.4\\}\\
 \hline
-OBF1.1.5.4 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{StoreKeeper} dovrà gestire la ricezione del messaggio Insert & \multiLineCell{CAPITOLATO\\INTERNO\\UC1.3.5\\UC1.4.1\\UC1.4.1.2\\UC2.2.5\\UC2.3.1\\UC2.3.1.2\\}\\
+OBF1.1.5.4 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{Storekeeper} dovrà gestire la ricezione del messaggio Insert & \multiLineCell{CAPITOLATO\\INTERNO\\UC1.3.5\\UC1.4.1\\UC1.4.1.2\\UC2.2.5\\UC2.3.1\\UC2.3.1.2\\}\\
 \hline
-OBF1.1.5.5 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{StoreKeeper} dovrà gestire la ricezione del messaggio RemoveItem & \multiLineCell{CAPITOLATO\\INTERNO\\UC1.4.2\\UC2.3.2\\}\\
+OBF1.1.5.5 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{Storekeeper} dovrà gestire la ricezione del messaggio RemoveItem & \multiLineCell{CAPITOLATO\\INTERNO\\UC1.4.2\\UC2.3.2\\}\\
 \hline
 OBF1.1.6 & \multiLineCell{Funzionale\\Obbligatorio} & All'interno del singolo \gloss{nodo} dovrà essere implementato l'attore \gloss{Warehouseman} per gestire la persistenza dei dati su disco & \multiLineCell{CAPITOLATO\\UC1\\}\\
 \hline
@@ -2700,7 +2699,7 @@ DEF1.1.7 & \multiLineCell{Funzionale\\Desiderabile} & All'interno del singolo \g
 \hline
 DEF1.1.7.1 & \multiLineCell{Funzionale\\Desiderabile} & L'attore di tipo \gloss{Ninja} dovrà gestire la ricezione del messaggio Update & \multiLineCell{INTERNO\\}\\
 \hline
-DEF1.1.7.2 & \multiLineCell{Funzionale\\Desiderabile} & L'attore di tipo \gloss{Ninja} dovrà poter cambiare il proprio contesto ricevendo il messaggio BecomeSK e importare tutti i messaggi dello StoreKeeper & \multiLineCell{INTERNO\\}\\
+DEF1.1.7.2 & \multiLineCell{Funzionale\\Desiderabile} & L'attore di tipo \gloss{Ninja} dovrà poter cambiare il proprio contesto ricevendo il messaggio BecomeSK e importare tutti i messaggi dello Storekeeper & \multiLineCell{INTERNO\\}\\
 \hline
 DEF1.1.8 & \multiLineCell{Funzionale\\Desiderabile} & All'interno del singolo \gloss{nodo} dovrà essere implementato l'attore \gloss{Manager} per la gestione del carico degli attori di tipo \gloss{Storekeeper} e \gloss{Storefinder} & \multiLineCell{CAPITOLATO\\UC1\\}\\
 \hline
@@ -2710,23 +2709,23 @@ OBF1.1.8.2 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{
 \hline
 OBF1.1.9 & \multiLineCell{Funzionale\\Obbligatorio} & All'interno del singolo \gloss{nodo} dovrà essere implementato l'attore \gloss{Userkeeper} per gestire gli utenti e i loro permessi sulle \gloss{collezioni} & \multiLineCell{INTERNO\\UC1\\UC1.3.5\\UC1.8\\}\\
 \hline
-OBF1.1.9.1 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{UserKeeper} dovrà gestire la ricezione del messaggio GetCollections & \multiLineCell{INTERNO\\UC1.3.5\\UC1.3.6\\UC2.2.5\\UC2.2.6\\}\\
+OBF1.1.9.1 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{Userkeeper} dovrà gestire la ricezione del messaggio GetCollections & \multiLineCell{INTERNO\\UC1.3.5\\UC1.3.6\\UC2.2.5\\UC2.2.6\\}\\
 \hline
-OBF1.1.9.2 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{UserKeeper} dovrà gestire la ricezione del messaggio GetReadCollections & \multiLineCell{INTERNO\\UC1.3.5\\UC1.3.6\\UC2.2.5\\UC2.2.6\\}\\
+OBF1.1.9.2 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{Userkeeper} dovrà gestire la ricezione del messaggio GetReadCollections & \multiLineCell{INTERNO\\UC1.3.5\\UC1.3.6\\UC2.2.5\\UC2.2.6\\}\\
 \hline
-OBF1.1.9.3 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{UserKeeper} dovrà gestire la ricezione del messaggio BindClient & \multiLineCell{INTERNO\\UC1.1\\UC2.1\\}\\
+OBF1.1.9.3 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{Userkeeper} dovrà gestire la ricezione del messaggio BindClient & \multiLineCell{INTERNO\\UC1.1\\UC2.1\\}\\
 \hline
-OBF1.1.9.4 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{UserKeeper} dovrà gestire la ricezione del messaggio GetPassword & \multiLineCell{INTERNO\\UC1.1\\UC2.1\\}\\
+OBF1.1.9.4 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{Userkeeper} dovrà gestire la ricezione del messaggio GetPassword & \multiLineCell{INTERNO\\UC1.1\\UC2.1\\}\\
 \hline
-OBF1.1.9.5 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{UserKeeper} dovrà gestire la ricezione del messaggio RemoveCollection & \multiLineCell{INTERNO\\UC1.3.6\\UC2.2.6\\}\\
+OBF1.1.9.5 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{Userkeeper} dovrà gestire la ricezione del messaggio RemoveCollection & \multiLineCell{INTERNO\\UC1.3.6\\UC2.2.6\\}\\
 \hline
-OBF1.1.9.6 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{UserKeeper} dovrà gestire la ricezione del messaggio AddCollection & \multiLineCell{INTERNO\\UC1.3.5\\UC2.2.5\\}\\
+OBF1.1.9.6 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{Userkeeper} dovrà gestire la ricezione del messaggio AddCollection & \multiLineCell{INTERNO\\UC1.3.5\\UC2.2.5\\}\\
 \hline
-OBF1.1.9.7 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{UserKeeper} dovrà gestire la ricezione del messaggio RemoveReadCollection & \multiLineCell{INTERNO\\UC1.3.6\\UC2.2.6\\}\\
+OBF1.1.9.7 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{Userkeeper} dovrà gestire la ricezione del messaggio RemoveReadCollection & \multiLineCell{INTERNO\\UC1.3.6\\UC2.2.6\\}\\
 \hline
-OBF1.1.9.8 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{UserKeeper} dovrà gestire la ricezione del messaggio AddReadCollection & \multiLineCell{INTERNO\\UC1.3.5\\UC2.2.5\\}\\
+OBF1.1.9.8 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{Userkeeper} dovrà gestire la ricezione del messaggio AddReadCollection & \multiLineCell{INTERNO\\UC1.3.5\\UC2.2.5\\}\\
 \hline
-OBF1.1.9.9 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{UserKeeper} dovrà gestire la ricezione del messaggio ChangePassword & \multiLineCell{INTERNO\\UC1.8.3\\UC2.7.3\\}\\
+OBF1.1.9.9 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{Userkeeper} dovrà gestire la ricezione del messaggio ChangePassword & \multiLineCell{INTERNO\\UC1.8.3\\UC2.7.3\\}\\
 \hline
 
 OBF2 & \multiLineCell{Funzionale\\Obbligatorio} & Il sistema dovrà fornire una \gloss{console} per inviare comandi al server (CLI) & \multiLineCell{CAPITOLATO\\UC1\\}\\
