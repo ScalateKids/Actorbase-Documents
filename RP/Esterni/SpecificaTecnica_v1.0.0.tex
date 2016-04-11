@@ -54,9 +54,9 @@
     \hline
     1.0.0 & Marco Boseggia & Responsabile & 2016-04-08 & Approvazione documento\\
     \hline
-    0.8.0 & Andrea Giacomo Baldan & Verificatore & 2016-04-03 & Verifica appendice\\ 
+    0.8.0 & Andrea Giacomo Baldan & Verificatore & 2016-04-03 & Verifica appendice\\
     \hline
-    0.7.1 & Giacomo Vanin & Progettista & 2016-04-03 & Stesura appendice documento\\ 
+    0.7.1 & Giacomo Vanin & Progettista & 2016-04-03 & Stesura appendice documento\\
     \hline
     0.7.0 & Alberto De Agostini & Verificatore & 2016-04-02 & Verifica tracciamenti (sezione 9)\\
     \hline
@@ -237,12 +237,12 @@ e i due termini verranno quindi usati come sinonimi.\\
 
 Macroscopicamente il sistema si suddivide in due componenti principali,
 assimilabili ad un paradigma \gloss{Client}-\gloss{Server}, il sistema ad attori dove risiedono
-la struttura della base di dati ed un server TCP (Transmission Control Protocol)
-pronto a ricevere comandi dall'esterno rappresentano la componente server, la
+la struttura della base di dati ed un \gloss{server} TCP (Transmission Control Protocol)
+pronto a ricevere comandi dall'esterno rappresentano la componente \gloss{server}, la
 Command Line Interface (\gloss{CLI}) rappresenta la componente \gloss{client} mediante la quale
 è possibile inviare comandi al sistema e ricevere l'output prodotto da essi.
 Essa farà uso della componente \gloss{driver} per comunicare con il sistema lato
-server mediante il protocollo di comunicazione testuale \hyperref[sec:RESP]{RESP}.\\
+\gloss{server} mediante il protocollo di comunicazione testuale \hyperref[sec:RESP]{RESP}.\\
 
 \begin{figure}[H]
   \begin{center}
@@ -686,7 +686,7 @@ Classe che si occupa di serializzare i dati in stringhe di formato \gloss{RESP}.
 \subparagraph{Utilizzo}
 
 Questa classe viene utilizzata per l'implementazione di una strategia di
-serializzazione in formato \gloss{RESP}. Viene utilizzata principalmente per
+\gloss{serializzazione} in formato \gloss{RESP}. Viene utilizzata principalmente per
 dati che dovranno essere mandati al \gloss{driver}.
 
 \subparagraph{Classi ereditate}
@@ -707,7 +707,7 @@ Classe che si occupa di serializzare i dati in formato \gloss{Pickle}.
 \subparagraph{Utilizzo}
 
 Questa classe viene utilizzata per l'implementazione di una strategia di
-serializzazione in formato \gloss{Pickle}. Viene utilizzata principalmente per
+\gloss{serializzazione} in formato \gloss{Pickle}. Viene utilizzata principalmente per
 dati che dovranno essere salvati su disco.
 
 \subparagraph{Classi ereditate}
@@ -1586,7 +1586,7 @@ Messaggio che richiede l'inizializzazione dello \gloss{Storekeeper}.
 Quando \hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{actorbase::actorsystem::storekeeper::Storekeeper}
 riceve questo messaggio manda un messaggio all'\gloss{attore} di tipo
 \hyperref[sec:actorbase::actorsystem::warehouseman::Warehouseman]{actorbase::\allowbreak{}actorsystem::\allowbreak{}warehouseman::\allowbreak{}Warehouseman}
-per la deserializzazione dei dati da leggere da disco.
+per la \gloss{deserializzazione} dei dati da leggere da disco.
 
 \paragraph{actorbase::actorsystem::storekeeper::messages::GetItem}
 \label{sec:actorbase::actorsystem::storekeeper::messages::GetItem}
@@ -1940,7 +1940,7 @@ Classe per la connessione tra il \gloss{driver} e il \gloss{server}.
 Questa classe si incarica della connessione e comunicazione con il \gloss{server}. Una volta
 connesso alla componente \hyperref[sec:actorbase::actorsystem::tcpserver::TCPServer]{actorbase::actorsystem::\allowbreak{}tcpserver::\allowbreak{}TCPServer}
 le verrà assegnato un oggetto di tipo \hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{actorbase::\allowbreak{}actorsystem::\allowbreak{}clientactor::\allowbreak{}ClientActor}.\\
-Questa classe inoltre chiamerà le componenti necessarie per la serializzazione e deserializzazione
+Questa classe inoltre chiamerà le componenti necessarie per la \gloss{serializzazione} e \gloss{deserializzazione}
 delle stringhe ricevute dal \gloss{server} o da \hyperref[sec:actorbase::driver::client::CommandRunner]{actorbase::\allowbreak{}driver::\allowbreak{}client::\allowbreak{}CommandRunner},
 ossia \hyperref[sec:actorbase::driver::serializer::SerializationContext]{actorbase::\allowbreak{}driver::\allowbreak{}serializer::\allowbreak{}SerializationContext}
 e \hyperref[sec:actorbase::driver::serializer::Deserializationtext]{actorbase::\allowbreak{}driver::\allowbreak{}serializer::\allowbreak{}DeserializationContext}.
@@ -2034,7 +2034,7 @@ Classe che si occupa di serializzare i dati in stringhe di formato \gloss{RESP}.
 \subparagraph{Utilizzo}
 
 Questa classe viene utilizzata per l'implementazione di una strategia di
-serializzazione in formato \gloss{RESP}.
+\gloss{serializzazione} in formato \gloss{RESP}.
 
 \subparagraph{Classi ereditate}
 
@@ -3565,7 +3565,7 @@ sulla propria mappa.\\
 A questo punto lo Storekeeper manderà un messaggio al Warehouseman di tipo Save e
 successivamente manderà un messaggio al \gloss{ClientActor} con la risposta
 (positiva o negativa che sia) il quale risponderà sempre tramite \gloss{socket tcp} al \gloss{Driver} con una stringa RESP.
-Nel frattempo l'\gloss{attore} di tipo Warehouseman eseguirà un salvataggio su disco dei propri dati previa serializzazione.\\
+Nel frattempo l'\gloss{attore} di tipo Warehouseman eseguirà un salvataggio su disco dei propri dati previa \gloss{serializzazione}.\\
 Si noti che la frequenza con cui gli attori di tipo Warehousename eseguiranno
 l'aggiornamento delle proprie strutture dati e il salvataggio sarà specificata
 tramite un parametro di configurazione del sistema.\\
@@ -3710,7 +3710,7 @@ utilizzati nel progetto \textbf{Actorbase}.
 \item \textbf{Scopo:} Viene utilizzato per le classi di cui è preferibile avere un'unica istanza
   durante l'esecuzione dell'applicazione;
 \item \textbf{Utilizzo:} È stato utilizzato una sola volta per la classe di connessione all'interno
-  della componente \gloss{driver}, in modo da offrire un unico punto di accesso al server.
+  della componente \gloss{driver}, in modo da offrire un unico punto di accesso al \gloss{server}.
 \end{itemize}
 
 \subsection{Design Pattern Strutturali}
@@ -3721,9 +3721,9 @@ utilizzati nel progetto \textbf{Actorbase}.
 \item \textbf{Scopo:} Il pattern \gloss{Facade} viene usato per fornire
   un'interfaccia unica e semplificata a più classi;
 \item \textbf{Utilizzo:} Viene utilizzato all'interno della componente
-  \gloss{driver} per l'esecuzione e l'invio al server dei comandi mediante
+  \gloss{driver} per l'esecuzione e l'invio al \gloss{server} dei comandi mediante
   la classe CommandRunner, la quale mediante l'istanza \gloss{Singleton} di
-  Connection invia e riceve i comandi al server.
+  Connection invia e riceve i comandi al \gloss{server}.
 \end{itemize}
 
 \subsection{Design Pattern Comportamentali}
@@ -3797,8 +3797,8 @@ dell'architettura \gloss{MVC} scelta per la componente \gloss{CLI}.
 \item \textbf{Scopo:} Viene usato per isolare più algoritmi all'interno di oggetti e
   ne permette la modifica dinamica.
 \item \textbf{Utilizzo:} Nella componente \verb=actorsystem= è stato utilizzato
-  per offrire più possibilità di serializzazione e deserializzazione sia in
-  ambito di persistenza su disco che in ambito comunicazioni tra server ed
+  per offrire più possibilità di \gloss{serializzazione} e \gloss{deserializzazione} sia in
+  ambito di persistenza su disco che in ambito comunicazioni tra \gloss{server} ed
   esterno.\\ Nella componente \gloss{driver} viene offerta una singola
   strategia, dedicata esclusivamente alla comunicazione con la componente
   \verb=actorsystem=, con la scelta di mantenere il \gloss{Design Pattern} in
@@ -3809,7 +3809,7 @@ dell'architettura \gloss{MVC} scelta per la componente \gloss{CLI}.
     \begin{itemize}
     \item Dopo che la classe \verb=Connection= riceve i parametri da inviare è
       possibile selezionare mediante \verb=SerializationContext=, una delle
-      strategie di serializzazione tra:
+      strategie di \gloss{serializzazione} tra:
       \begin{itemize}
       \item \verb=RESPSerialize=
       \end{itemize}
@@ -3817,7 +3817,7 @@ dell'architettura \gloss{MVC} scelta per la componente \gloss{CLI}.
     \begin{itemize}
     \item In ricezione dei dati all'interno della classe \verb=Connection=, utilizzando
       \verb=DeserializationContext= è possibile selezionare una delle
-      strategie di deserializzazione tra:
+      strategie di \gloss{deserializzazione} tra:
       \begin{itemize}
       \item \verb=RESPDeserialize=
       \end{itemize}
@@ -3827,7 +3827,7 @@ dell'architettura \gloss{MVC} scelta per la componente \gloss{CLI}.
     \begin{itemize}
     \item All'interno del \gloss{package} \verb=clientactor=, la classe utilizzata per la
       gestione dei messaggi in ingresso \verb=RESPInput= è possibile selezionare
-      mediante \verb=DeserializationContext=, una delle strategie di deserializzazione
+      mediante \verb=DeserializationContext=, una delle strategie di \gloss{deserializzazione}
       tra:
       \begin{itemize}
       \item \verb=RESPDeserialization=
@@ -3835,7 +3835,7 @@ dell'architettura \gloss{MVC} scelta per la componente \gloss{CLI}.
       \end{itemize}
     \item All'interno del \gloss{package} \verb=clientactor=, la classe utilizzata per la
       gestione dei messaggi in uscita \verb=Response= è possibile selezionare
-      mediante \verb=SerializationContext=, una delle strategie di serializzazione
+      mediante \verb=SerializationContext=, una delle strategie di \gloss{serializzazione}
       tra:
       \begin{itemize}
       \item \verb=RESPSerialization=
@@ -3844,7 +3844,7 @@ dell'architettura \gloss{MVC} scelta per la componente \gloss{CLI}.
     \item All'interno del \gloss{package} \verb=warehouseman=, la classe utilizzata per
       la gestione del salvataggio in persistenza dei dati \verb=Save= è
       possibile selezionare mediante \verb=SerializationContext=, una delle
-      strategie di serializzazione tra:
+      strategie di \gloss{serializzazione} tra:
       \begin{itemize}
       \item \verb=PickleSerialization=
       \item \verb=RESPSerialization=
@@ -3852,7 +3852,7 @@ dell'architettura \gloss{MVC} scelta per la componente \gloss{CLI}.
     \item All'interno del \gloss{package} \verb=warehouseman=, la classe utilizzata per
       la gestione della lettura da persistenza dei dati \verb=Init= è
       possibile selezionare mediante \verb=DeserializationContext=, una delle
-      strategie di serializzazione tra:
+      strategie di \gloss{serializzazione} tra:
       \begin{itemize}
       \item \verb=PickleDeserialization=
       \item \verb=RESPDeserialization=
@@ -3875,10 +3875,10 @@ linguaggio \gloss{Scala} in quanto la scarsa personalizzazione offerta e il
 grosso carico di dipendenze che necessitava \gloss{SpringShell} per il suo
 utilizzo è stato ritenuto eccessivamente gravoso sulla realizzazione della
 componente in questione.\\ È stato tuttavia deciso di utilizzare il
-\gloss{framework} \gloss{pickling} per effettuare serializzazione della
+\gloss{framework} \gloss{pickling} per effettuare \gloss{serializzazione} della
 persistenza su disco; offre una buona documentazione e numerosi esempi di
 utilizzo, rende inoltre possibile la definizione di protocolli di
-serializzazione personalizzati.
+\gloss{serializzazione} personalizzati.
 
 \section{Tracciamento}
 
