@@ -522,6 +522,8 @@ La colonna "Stato" nella tabella è lasciata vuota in quanto i test saranno effe
     \hline
     TS.DEF2.1.3.1.2 & Viene verificato che il DSL dovrà fornire un comando per inserire nuovi \gloss{item} da file \gloss{JSON} utilizzabile mediante CLI & & DEF2.1.3.1.2\\
     \hline
+    TS.OBF2.1.3.6 & Viene verificato che il DSL dovrà fornire un comando per cancellare un \gloss{item} specificandone gli attributi da CLI & & OBF2.1.3.6\\
+    \hline
     TS.DEF2.1.4 & Viene verificato che il DSL dovrà fornire un comando per richiedere aiuto generale sul sistema utilizzabile mediante CLI & & DEF2.1.4\\
     \hline
     TS.DEF2.1.5 & Viene verificato che il DSL dovrà fornire un comando per richiedere aiuto sull'utilizzo di uno specifico comando del sistema utilizzabile mediante CLI  & & DEF2.1.5\\
@@ -757,7 +759,7 @@ disponibile solo ad utenti autenticati (TV2.3).
 \subsubsection{Test TV3}
 \label{sec:TV3}
 
-L'utente vuole richiedere aiuto generale.\\
+L'utente intende richiedere aiuto generale.\\
 L'utente deve:
 \begin{itemize}
 \item Inserire il comando di aiuto generale attraverso l'uso della \gloss{CLI} (TV3.1);
@@ -768,7 +770,7 @@ output sulla \gloss{CLI} (TV3.2).
 \subsubsection{Test TV4}
 \label{sec:TV4}
 
-L'utente vuole richiedere aiuto specifico di un comando.\\
+L'utente intende richiedere aiuto specifico di un comando.\\
 L'utente deve:
 \begin{itemize}
 \item Inserire il comando di aiuto attraverso l'uso della \gloss{CLI} (TV4.1);
@@ -779,7 +781,7 @@ output sulla \gloss{CLI} (TV4.3).
 
 \subsubsection{Test TV5}
 
-L'utente vuole creare una \gloss{collezione}.\\
+L'utente intende creare una \gloss{collezione}.\\
 L'utente deve:
 \begin{itemize}
 \item Inserire il comando per la creazione \gloss{collezione} (TV5.1);
@@ -791,7 +793,7 @@ lista delle collezioni (TV5.3).
 
 \subsubsection{Test TV6}
 
-L'utente vuole visualizzare la lista delle \gloss{collezioni}.\\
+L'utente intende visualizzare la lista delle \gloss{collezioni}.\\
 L'utente deve:
 \begin{itemize}
 \item Inserire il comando per la visualizzazione lista delle \gloss{collezioni} (TV6.1);
@@ -800,7 +802,7 @@ L'utente deve:
 
 \subsubsection{Test TV7}
 
-L'utente vuole modificare nome ad una propria \gloss{collezione}.\\
+L'utente intende modificare nome ad una propria \gloss{collezione}.\\
 L'utente deve:
 \begin{itemize}
 \item Inserire il comando per la modifica nome \gloss{collezione} (TV7.1);
@@ -810,7 +812,7 @@ L'utente deve:
 
 \subsubsection{Test TV8}
 
-L'utente vuole cancellare una \gloss{collezione}.\\
+L'utente intende cancellare una \gloss{collezione}.\\
 L'utente deve:
 \begin{itemize}
 \item Inserire il comando per la cancellazione \gloss{collezione} (TV8.1);
@@ -820,18 +822,24 @@ L'utente deve:
 
 \subsubsection{Test TV9}
 
-L'utente vuole aggiungere un collaboratore ad una \gloss{collezione}.\\
+L'utente intende aggiungere un collaboratore ad una \gloss{collezione}.\\
 L'utente deve:
 \begin{itemize}
+<<<<<<< HEAD
+\item Inserire il comando per l'aggiunta collaboratore a \gloss{collezione};
+\item Inserire i parametri per aggiungere il collaboratore alla  \gloss{collezione};
+\item Verificare l'avvenuta esecuzione del comando controllando la risposta ricevuta dal server.
+=======
 \item Inserire il comando per 'aggiunta collaboratore a \gloss{collezione} (TV9.1);
 \item Inserire i parametri per aggiungere il collaboratore alla  \gloss{collezione} (TV9.2);
 \item Verificare l'avvenuta esecuzione del comando controllando la risposta ricevuta dal server (TV9.3).
+>>>>>>> 609a323e306c5c93b7134373d3c2b0cfbfed99c2
 \end{itemize}
 
 
 \subsubsection{Test TV10}
 
-L'utente vuole rimuovere un collaboratore da una \gloss{collezione}.\\
+L'utente intende rimuovere un collaboratore da una \gloss{collezione}.\\
 L'utente deve:
 \begin{itemize}
 \item Inserire il comando per la rimozione di un collaboratore da un \gloss{collezione} (TV10.1);
@@ -841,7 +849,7 @@ L'utente deve:
 
 \subsubsection{Test TV11}
 
-L'utente vuole esportare una o più \gloss{collezioni} su file.\\
+L'utente intende esportare una o più \gloss{collezioni} su file.\\
 L'utente deve:
 \begin{itemize}
 \item Inserire il comando per l'esportazione di \gloss{collezioni} su file (TV11.1);
@@ -851,7 +859,8 @@ L'utente deve:
 
 \subsubsection{Test TV12}
 
-L'utente vuole inserire un \gloss{item}.\\
+L'utente intende inserire un \gloss{item}. Se la \gloss{collezione} su cui si 
+vuole inserire l'\gloss{item} non è presente nel sistema essa verrà creata.\\
 L'utente deve:
 \begin{itemize}
 \item Inserire il comando per l'inserimento di \gloss{item} (TV12.1);
@@ -861,7 +870,7 @@ L'utente deve:
 
 \subsubsection{Test TV13}
 
-L'utente vuole inserire un \gloss{item} importando da file.\\
+L'utente intende inserire un \gloss{item} importando da file.\\
 L'utente deve:
 \begin{itemize}
 \item Inserire il comando per l'importazione di \gloss{item} da file (TV13.1);
@@ -871,7 +880,7 @@ L'utente deve:
 
 \subsubsection{Test TV14}
 
-L'utente vuole cancellare un \gloss{item}.\\
+L'utente intende cancellare un \gloss{item}.\\
 L'utente deve:
 \begin{itemize}
 \item Inserire il comando per la cancellazione di \gloss{item} (TV14.1);
@@ -881,7 +890,7 @@ L'utente deve:
 
 \subsubsection{Test TV15}
 
-L'utente vuole effettuare una ricerca di \gloss{item} su una o più \gloss{collezioni}.\\
+L'utente intende effettuare una ricerca di \gloss{item} su una o più \gloss{collezioni}.\\
 L'utente deve:
 \begin{itemize}
 \item Inserire il comando per la ricerca di \gloss{item} (TV15.1);
@@ -891,7 +900,7 @@ L'utente deve:
 
 \subsubsection{Test TV16}
 
-L'utente vuole visualizzare tutti gli \gloss{item} contenuti in una \gloss{collezione}.\\
+L'utente intende visualizzare tutti gli \gloss{item} contenuti in una \gloss{collezione}.\\
 L'utente deve:
 \begin{itemize}
 \item Inserire il comando per la ricerca di \gloss{item} (TV16.1);
@@ -901,7 +910,7 @@ L'utente deve:
 
 \subsubsection{Test TV17}
 
-L'utente vuole effettuare una ricerca di un \gloss{item} sull'intero database (secondo i suoi permessi come specificato nel documento \href{run:../Esterni/AnalisiDeiRequisiti\_v2.0.0.pdf}{Analisi dei Requisiti 2.0.0}).\\
+L'utente intende effettuare una ricerca di un \gloss{item} sull'intero database (secondo i suoi permessi come specificato nel documento \href{run:../Esterni/AnalisiDeiRequisiti\_v2.0.0.pdf}{Analisi dei Requisiti 2.0.0}).\\
 L'utente deve:
 \begin{itemize}
 \item Inserire il comando per la ricerca di \gloss{item} (TV17.1);
@@ -911,7 +920,7 @@ L'utente deve:
 
 \subsubsection{Test TV18}
 
-L'utente vuole visualizzare l'intero database (secondo i suoi permessi come specificato nel documento \href{run:../Esterni/AnalisiDeiRequisiti\_v2.0.0.pdf}{Analisi dei Requisiti 2.0.0}).\\
+L'utente intende visualizzare l'intero database (secondo i suoi permessi come specificato nel documento \href{run:../Esterni/AnalisiDeiRequisiti\_v2.0.0.pdf}{Analisi dei Requisiti 2.0.0}).\\
 L'utente deve:
 \begin{itemize}
 \item Inserire il comando per la ricerca di \gloss{item} (TV18.1);
@@ -921,7 +930,7 @@ L'utente deve:
 
 \subsubsection{Test TV19}
 
-L'utente vuole effettuare modificare la propria password.\\
+L'utente intende effettuare modificare la propria password.\\
 L'utente deve:
 \begin{itemize}
 \item Inserire il comando per la modifica password (TV19.1);
@@ -931,7 +940,7 @@ L'utente deve:
 
 \subsubsection{Test TV20}
 
-L'utente vuole effettuare deautenticazione dal server.\\
+L'utente intende effettuare deautenticazione dal server.\\
 L'utente deve:
 \begin{itemize}
 \item Inserire il comando per effettuare il logout (TV20.1);
@@ -940,7 +949,7 @@ L'utente deve:
 
 \subsubsection{Test TV21}
 
-L'utente amministratore vuole aggiungere un utente al sistema.\\
+L'utente amministratore intende aggiungere un utente al sistema.\\
 L'utente deve:
 \begin{itemize}
 \item Inserire il comando per aggiungere un utente al sistema (TV21.1);
@@ -950,7 +959,7 @@ L'utente deve:
 
 \subsubsection{Test TV22}
 
-L'utente amministratore vuole rimuovere un utente dal sistema.\\
+L'utente amministratore intende rimuovere un utente dal sistema.\\
 L'utente deve:
 \begin{itemize}
 \item Inserire il comando per la rimozione utente (TV22.1);
@@ -960,7 +969,7 @@ L'utente deve:
 
 \subsubsection{Test TV23}
 
-L'utente amministratore vuole effettuare un reset della password di un utente.\\
+L'utente amministratore intende effettuare un reset della password di un utente.\\
 L'utente deve:
 \begin{itemize}
 \item Inserire il comando per effettuare il reset password (TV23.1);
