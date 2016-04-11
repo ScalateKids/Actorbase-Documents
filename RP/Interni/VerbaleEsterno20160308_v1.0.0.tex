@@ -86,9 +86,9 @@
 In questo capitolo sono elencate le domande fatte dal gruppo \textit{ScalateKids} in grassetto e le risposte del proponente \textit{Riccardo Cardin} in corsivo.
 \subsection{Nella progettazione abbiamo incontrato dei problemi nell'identificare un design pattern architetturale adatto al nostro progetto. }
 \begin{quote}
-  \textit{Dovete individuare le componenti delle vostre applicazioni perchè su ognuna di quelle dovrete andare ad individuare un pattern architetturale che al suo interno avrà più pattern architetturali.
+  \textit{Dovete individuare le componenti delle vostre applicazioni perché su ognuna di quelle dovrete andare ad individuare un pattern architetturale che al suo interno avrà più pattern architetturali.
   L'\gloss{actor model} è già di per se un modello di comunicazione, già questo potrebbe essere visto come un qualcosa di simile a un pattern architetturale. Sicuramente un pattern architetturale dovrà essere 
-  individuato sulla console perchè si tratta di un'interfaccia utente che si presta, quindi, all'MVC.\\}
+  individuato sulla console perché si tratta di un'interfaccia utente che si presta, quindi, all'MVC.\\}
 \end{quote}
 \subsection{Per realizzare il DSL ci consiglia la creazione di una custom REPL Scala?}
 \begin{quote}
@@ -106,7 +106,7 @@ In questo capitolo sono elencate le domande fatte dal gruppo \textit{ScalateKids
 \subsection{Nel caso di estensione aggiungendo nodi dovrà essere previsto un meccanismo di \gloss{load balancing}?}
 \begin{quote}
   \textit{Ci sono degli attori appositi (\gloss{Manager}) che verificano il carico su ogni \gloss{Storekeeper} e suddividono il carico in maniera da evitare che uno \gloss{Storekeeper} sia troppo carico. 
-  Gli algoritmi di \gloss{load balancing} non sono semplici. Voi dovrete costruire un'architettura che sia il più estendibile possibile, vi consiglio di dare un algoritmo semplice di \gloss{load balancing} in maniera che in futuro questo possa essere esteso facilmente. Per quanto riguarda il \gloss{load balancing} tra più nodi il discorso si complica poichè dovreste fare in modo che un \gloss{manager} mandi richieste di ricezione di dati se i propri \gloss{Storekeeper} sono liberi.\\}
+  Gli algoritmi di \gloss{load balancing} non sono semplici. Voi dovrete costruire un'architettura che sia il più estendibile possibile, vi consiglio di dare un algoritmo semplice di \gloss{load balancing} in maniera che in futuro questo possa essere esteso facilmente. Per quanto riguarda il \gloss{load balancing} tra più nodi il discorso si complica poiché dovreste fare in modo che un \gloss{manager} mandi richieste di ricezione di dati se i propri \gloss{Storekeeper} sono liberi.\\}
 \end{quote}
 \subsection{Quanti attori main dovranno esserci nel sistema?}
 \begin{quote}
@@ -114,7 +114,7 @@ In questo capitolo sono elencate le domande fatte dal gruppo \textit{ScalateKids
 \end{quote}
 \subsection{Avrebbe senso avere un main per ogni client?}
 \begin{quote}
-  \textit{In questo caso rischiate di avere un numero di main molto alto se il database viene usato da molti client. Un modo per avere un attore per ogni client potrebbe essere l'avere un main unico che crei un attore per ogni utente attivo. Il main unico creerà sempre un collo di bottiglia ma l'effetto sarà smorzato poichè deve fare solo l'operazione di creazione del nuovo attore per il client. Un'altra soluzione potrebbe essere quella di avere un numero di main configurabile e associare ogni client a uno di questi main secondo una politica ad esempio di \gloss{round-robin}.\\}
+  \textit{In questo caso rischiate di avere un numero di main molto alto se il database viene usato da molti client. Un modo per avere un attore per ogni client potrebbe essere l'avere un main unico che crei un attore per ogni utente attivo. Il main unico creerà sempre un collo di bottiglia ma l'effetto sarà smorzato poiché deve fare solo l'operazione di creazione del nuovo attore per il client. Un'altra soluzione potrebbe essere quella di avere un numero di main configurabile e associare ogni client a uno di questi main secondo una politica ad esempio di \gloss{round-robin}.\\}
 \end{quote}
 \subsection{Quante coppie chiave-valore ci consiglia di avere per ogni \gloss{Storekeeper}?}
 \begin{quote}
@@ -130,7 +130,7 @@ In questo capitolo sono elencate le domande fatte dal gruppo \textit{ScalateKids
 \end{quote}
 \subsection{La persistenza su disco in che formato va fatta?}
 \begin{quote}
-  \textit{Su questo vi lascio libertà di scelta, basta che sia configurabile estendone la classe in modo che in futuro sia possibile effettuare una scelta.\\}
+  \textit{Su questo vi lascio libertà di scelta, basta che sia configurabile estendendone la classe in modo che in futuro sia possibile effettuare una scelta.\\}
 \end{quote}
 \subsection{Il \gloss{DSL} a che linguaggio già esistente dovrebbe somigliare?}
 \begin{quote}
