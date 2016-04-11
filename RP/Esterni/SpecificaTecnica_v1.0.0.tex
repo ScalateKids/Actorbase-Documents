@@ -120,7 +120,7 @@ componenti che andranno a comporre il software.
   \url{http://www.scala-sbt.org/index.html}
 \item\textbf{Scala Pickling\ -\ Fast, Customizable, Boilerplate-Free Serialization for Scala:}
   \url{http://lampwww.epfl.ch/~hmiller/pickling}
-\item\textbf{RESP\ -\ Redis Protocol Specification:}
+\item\textbf{RESP\ -\ Redis Protocol Specification:} Protocollo di comunicazione testuale \gloss{TCP} (Transmission Control Protocol)
   \url{http://redis.io/topics/protocol}
 \end{itemize}
 
@@ -129,7 +129,7 @@ componenti che andranno a comporre il software.
 \section{Tecnologie utilizzate}
 
 In questa sezione saranno descritte le tecnologie scelte per lo sviluppo del
-progetto \textbf{ActorBase} e le motivazioni che ci hanno spinto a sceglierle.
+progetto \textbf{Actorbase} e le motivazioni che ci hanno spinto a sceglierle.
 
 \subsection{Akka}
 
@@ -186,7 +186,7 @@ Tuttavia presenta alcuni svantaggi:
 
 \subsection{sbt}
 
-Sbt è un ambiente di \gloss{build} simile alla controparte Java \gloss{Maven} o
+Sbt (Simple Build Tool) è un ambiente di \gloss{build} simile alla controparte Java \gloss{Maven} o
 \gloss{Ant}. Fornito di \gloss{console} e strumenti di compilazione ed
 esecuzione per progetti Scala, è stato scelto per i seguenti vantaggi:
 \begin{itemize}
@@ -216,10 +216,10 @@ e i due termini verranno quindi usati come sinonimi.\\
 \subsection{Architettura generale}
 
 Macroscopicamente il sistema si suddivide in due componenti principali,
-assimilabili ad un paradigma Client-Server, il sistema ad attori dove risiedono
+assimilabili ad un paradigma \gloss{Client}-Server, il sistema ad attori dove risiedono
 la struttura della base di dati ed un server TCP (Transmission Control Protocol)
 pronto a ricevere comandi dall'esterno rappresentano la componente server, la
-Command Line Interface (CLI) rappresenta la componente client mediante la quale
+Command Line Interface (\gloss{CLI}) rappresenta la componente \gloss{client} mediante la quale
 è possibile inviare comandi al sistema e ricevere l'output prodotto da essi,
 essa farà uso della componente \gloss{driver} per comunicare con il sistema lato
 server mediante il protocollo di comunicazione testuale \hyperref[sec:RESP]{RESP}.\\
@@ -263,7 +263,7 @@ da una sequenza di terminazione formata da \gloss{CR} (Carriage Return) e \gloss
   \begin{center}
     \verb=-TIPOERRORE MESSAGGIOERRORE\r\n=
   \end{center}
-  verranno utilizzate per generare le eccezioni lato client; il primo byte è ``-'';
+  verranno utilizzate per generare le eccezioni lato \gloss{client}; il primo byte è ``-'';
 \item \textbf{Integers} rappresentano numeri interi, il primo byte è ``:'';
 \item \textbf{Bulk Strings} rappresentano stringhe dedicate al \gloss{payload}, formate da:
   \begin{center}
@@ -3484,7 +3484,7 @@ i parametri.\\
 Da questo componente parte il messaggio di Insert(key, value) ad un \hyperref[sec:actorbase::actorsystem::clientactor::MainActor]{actorbase::actorsystem::clientactor::MainActor} scelto in base ad una
 politica di \gloss{routing}. Il MainActor manderà un messaggio allo \hyperref[sec:actorbase::actorsystem::clientactor::StoreFinder]{actorbase::actorsystem::clientactor::StoreFinder} relativo il quale manderà un messaggio allo \hyperref[sec:actorbase::actorsystem::clientactor::StoreKeeper]{actorbase::actorsystem::clientactor::StoreKeeper} che dovrà salvarsi l'informazione
 sulla propria mappa.\\
-A questo punto lo StoreKeeper manderà un messaggio al ClientActor con la risposta
+A questo punto lo StoreKeeper manderà un messaggio al \gloss{ClientActor} con la risposta
 (positiva o negativa che sia) il quale risponderà sempre tramite \gloss{socket tcp} al \gloss{Driver} con una stringa RESP.
 \begin{figure}[H]
   \begin{center}
@@ -3503,7 +3503,7 @@ i parametri.\\
 Da questo componente parte il messaggio di Insert(key, value) ad un \hyperref[sec:actorbase::actorsystem::clientactor::MainActor]{actorbase::actorsystem::clientactor::MainActor} scelto in base ad una
 politica di \gloss{routing}. Il MainActor manderà un messaggio allo \hyperref[sec:actorbase::actorsystem::clientactor::StoreFinder]{actorbase::actorsystem::clientactor::StoreFinder} relativo il quale manderà un messaggio allo \hyperref[sec:actorbase::actorsystem::clientactor::StoreKeeper]{actorbase::actorsystem::clientactor::StoreKeeper} che essendo pieno manda un
 messaggio DuplicateRequestSK contenente metà della propria mappa e una ActorRef del proprio parent ad un \hyperref[sec:actorbase::actorsystem::clientactor::Manager]{actorbase::actorsystem::clientactor::Manager}. Il Manager inoltra il messaggio DuplicateRequestSK al parent dello StoreKeeper precedentemente coinvolto. Questo StoreFinder infine creerà un nuovo Storekeeper con il pezzo di mappa ricevuto. \\
-A questo punto il nuovo StoreKeeper manderà un messaggio al ClientActor con
+A questo punto il nuovo StoreKeeper manderà un messaggio al \gloss{ClientActor} con
 la risposta (positiva o negativa che sia) il quale risponderà sempre tramite
 \gloss{socket tcp} al \gloss{Driver} con una stringa RESP.
 \begin{figure}[H]
@@ -3521,8 +3521,8 @@ manda tramite \gloss{socket tcp} al \hyperref[sec:actorbase::actorsystem::client
 una stringa \hyperref[sec:RESP]{RESP} contenente il comando di inserimento \gloss{item} con
 i parametri.\\
 Da questo componente parte il messaggio di GetItemFrom(UsersCollection, Username) ad un \hyperref[sec:actorbase::actorsystem::clientactor::MainActor]{actorbase::actorsystem::clientactor::MainActor} scelto in base ad una
-politica di \gloss{routing}. Il MainActor manderà un messaggio allo \hyperref[sec:actorbase::actorsystem::clientactor::StoreFinder]{actorbase::actorsystem::clientactor::StoreFinder} relativo il quale manderà un messaggio getPassword(username) allo \hyperref[sec:actorbase::actorsystem::clientactor::UserKeeper]{actorbase::actorsystem::clientactor::UserKeeper}. Quest'ultimo risponderà al ClientActor con un messaggio loginResponse contenente la password relativa allo username richiesto.\\
-Il ClientActor eseguirà un confronto tra la password immessa dall'utente e la password ritornata dallo UserKeeper. In caso positivo cambierà il proprio stato
+politica di \gloss{routing}. Il MainActor manderà un messaggio allo \hyperref[sec:actorbase::actorsystem::clientactor::StoreFinder]{actorbase::actorsystem::clientactor::StoreFinder} relativo il quale manderà un messaggio getPassword(username) allo \hyperref[sec:actorbase::actorsystem::clientactor::UserKeeper]{actorbase::actorsystem::clientactor::UserKeeper}. Quest'ultimo risponderà al \gloss{ClientActor} con un messaggio loginResponse contenente la password relativa allo username richiesto.\\
+Il \gloss{ClientActor} eseguirà un confronto tra la password immessa dall'utente e la password ritornata dallo UserKeeper. In caso positivo cambierà il proprio stato
 e risponderà al \gloss{Driver} con un messaggio che indica un esito positivo. In caso negativo resterà nello stato attuale e manderà un messaggio al \gloss{Driver} che indica un esito negativo.
 \begin{figure}[H]
   \begin{center}
@@ -3543,7 +3543,7 @@ Da questo componente parte il messaggio di Insert(key, value) ad un \hyperref[se
 politica di \gloss{routing}. Il MainActor manderà un messaggio allo \hyperref[sec:actorbase::actorsystem::clientactor::StoreFinder]{actorbase::actorsystem::clientactor::StoreFinder} relativo il quale manderà un messaggio allo \hyperref[sec:actorbase::actorsystem::clientactor::StoreKeeper]{actorbase::actorsystem::clientactor::StoreKeeper} che dovrà salvarsi l'informazione
 sulla propria mappa.\\
 A questo punto lo StoreKeeper manderà un messaggio al Warehouseman di tipo Save e
-successivamente manderà un messaggio al ClientActor con la risposta
+successivamente manderà un messaggio al \gloss{ClientActor} con la risposta
 (positiva o negativa che sia) il quale risponderà sempre tramite \gloss{socket tcp} al \gloss{Driver} con una stringa RESP.
 Nel frattempo l'\gloss{attore} di tipo Warehouseman eseguirà un salvataggio su disco dei propri dati previa serializzazione.\\
 Si noti che la frequenza con cui gli attori di tipo Warehousename eseguiranno
@@ -3568,7 +3568,7 @@ Da questo componente parte il messaggio di Insert(key, value) ad un \hyperref[se
 politica di \gloss{routing}. Il MainActor manderà un messaggio allo \hyperref[sec:actorbase::actorsystem::clientactor::StoreFinder]{actorbase::actorsystem::clientactor::StoreFinder} relativo il quale manderà un messaggio allo \hyperref[sec:actorbase::actorsystem::clientactor::StoreKeeper]{actorbase::actorsystem::clientactor::StoreKeeper} che dovrà salvarsi l'informazione
 sulla propria mappa.\\
 A questo punto lo StoreKeeper manderà un messaggio al Ninja di tipo Update contenente la struttura dati aggiornata e successivamente manderà un
-messaggio al ClientActor con la risposta (positiva o negativa che sia)
+messaggio al \gloss{ClientActor} con la risposta (positiva o negativa che sia)
 il quale risponderà sempre tramite \gloss{socket tcp} al \gloss{Driver} con
 una stringa RESP.
 Nel frattempo l'\gloss{attore} di tipo Ninja eseguirà un aggiornamento della propria struttura dati.\\
@@ -3595,9 +3595,9 @@ relativo il quale manderà un messaggio addReadCollection(collection) allo
 \hyperref[sec:actorbase::actorsystem::clientactor::UserKeeper]{actorbase::actorsystem::clientactor::UserKeeper}.
 Quest'ultimo dovrà aggiungere alla mappa delle collezioni di cui l'utente
 relativo ha accesso in sola lettura la collezione inviatagli.
-Poi manderà al ClientActor un messaggio UpdateReadCollections(collection)
+Poi manderà al \gloss{ClientActor} un messaggio UpdateReadCollections(collection)
 contenente la collezione da aggiungere.\\
-Il ClientActor effettuerà l'aggiornamento e risponderà al \gloss{Driver}
+Il \gloss{ClientActor} effettuerà l'aggiornamento e risponderà al \gloss{Driver}
 con un messaggio che indica un esito positivo. In caso negativo resterà nello
 stato attuale e manderà un messaggio al \gloss{Driver} che indica un esito
 negativo.\\
@@ -3623,7 +3623,7 @@ instaura una connessione \gloss{tcp} con la componente
 per gestire l'interazione tra \gloss{Driver} e server. A creazione avvenuta risponde al \gloss{Driver} il quale a cascata informa l'utente dell'avvenuta
 connessione.\\
 Dal diagramma possiamo vedere che le richieste successivamente inserite
-dall'utente verranno gestite dal proprio ClientActor.\\
+dall'utente verranno gestite dal proprio \gloss{ClientActor}.\\
 
 \begin{figure}[H]
   \begin{center}
