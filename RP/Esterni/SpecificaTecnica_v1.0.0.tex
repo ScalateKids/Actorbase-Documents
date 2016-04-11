@@ -247,23 +247,23 @@ da una sequenza di terminazione formata da \gloss{CR} (Carriage Return) e \gloss
 \begin{itemize}
 \item \textbf{Simple Strings} rappresentano stringhe dedicate alle risposte
   semplici (\gloss{ack} dei comandi ricevuti), non possono contenere caratteri
-  di terminazione al loro interno; il primo byte è ``+'';
+  di terminazione al loro interno; il primo \gloss{byte} è ``+'';
 \item \textbf{Errors} rappresentano stringhe di errore, formate da:
   \begin{center}
     \verb=-TIPOERRORE MESSAGGIOERRORE\r\n=
   \end{center}
-  verranno utilizzate per generare le eccezioni lato \gloss{client}; il primo byte è ``-'';
-\item \textbf{Integers} rappresentano numeri interi, il primo byte è ``:'';
+  verranno utilizzate per generare le eccezioni lato \gloss{client}; il primo \gloss{byte} è ``-'';
+\item \textbf{Integers} rappresentano numeri interi, il primo \gloss{byte} è ``:'';
 \item \textbf{Bulk Strings} rappresentano stringhe dedicate al \gloss{payload}, formate da:
   \begin{center}
     \verb=\$LUNGHEZZAPAYLOAD\r\nPAYLOAD\r\n=
   \end{center}
-  il primo byte è ``\$'' e può contenere caratteri di ``a capo'';
+  il primo \gloss{byte} è ``\$'' e può contenere caratteri di ``a capo'';
 \item \textbf{Arrays} rappresentano \gloss{array} di comandi e \textbf{Bulk String}, formati da:
   \begin{center}
     \verb=*LUNGHEZZASTRINGA\r\nRESPSTRING\r\n=
   \end{center}
- il primo byte è ``*'', possono contenere qualsiasi altro tipo di stringa \gloss{RESP}, inclusi altri \gloss{array}.
+ il primo \gloss{byte} è ``*'', possono contenere qualsiasi altro tipo di stringa \gloss{RESP}, inclusi altri \gloss{array}.
 \end{itemize}
 
 \section{Componenti}
