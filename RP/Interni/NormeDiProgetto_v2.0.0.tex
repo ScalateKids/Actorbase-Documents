@@ -179,7 +179,7 @@ I requisiti software dovranno essere:
 \end{itemize}
 Essi saranno composti da una parte testuale che descrive il requisito ed un
 modello semiformale per esprimerli, nel nostro caso il linguaggio \gloss{UML}
-\textit{versione 2.0}. Ogni diagramma inserito nei documenti dovrà essere
+\textit{versione 1.0}. Ogni diagramma inserito nei documenti dovrà essere
 etichettato secondo la seguente regola:
 \begin{center}
   \verb=<Tipo><Id>=
@@ -351,7 +351,7 @@ corretto funzionamento delle componenti.
 Nella specifica tecnica dovranno essere presentati diversi tipi di diagrammi, in
 particolare i \textit{progettisti} avranno il compito di realizzare i seguenti
 rispettando le regole imposte dallo standard \gloss{UML}
-2.0: %TODO interfacce lollipop?
+1.0:
 \begin{itemize}
 \item \gloss{diagrammi dei package};
 \item \gloss{diagrammi delle classi};
@@ -617,13 +617,19 @@ Tutti i \gloss{file} contenenti \gloss{codice} dovranno essere redatti in lingua
 \subparagraph{Nomenclatura}
 
 I nomi di variabili, metodi e funzioni seguiranno la convenzione
-\textit{\gloss{lowerCamelCase}}, i nomi di classi invece seguiranno la convenzione
-\textit{\gloss{UpperCamelCase}}.
+\textit{\gloss{lowerCamelCase}}, i nomi di classi invece seguiranno la
+convenzione \textit{\gloss{UpperCamelCase}}.
+
 \subparagraph{Ricorsione}
-La ricorsione va evitata il più possibile. Per ogni funzione ricorsiva sarà
-necessario fornire una prova di terminazione e il costo in memoria. L'utilizzo
-deve giustificare la spesa in termini di memoria rispetto al risparmio in
-termini di istruzioni.
+
+Il paradigma funzionale incentiva all'uso di ricorsione piuttosto che cicli
+iterativi, è ammesso dunque l'utilizzo di ricorsione purchè si tratti
+specificamente di ricorsione in coda, questo perchè in \gloss{Scala} tal
+costrutto è ottimizzato in modo da non rimpeire lo \gloss{stack} assegnato alla
+funzione chiamante. La ricorsione non in coda va invece evitata il più
+possibile. Per ogni funzione ricorsiva sarà necessario fornire una prova di
+terminazione. L'utilizzo deve giustificare la spesa in termini di memoria
+rispetto al risparmio in termini di istruzioni.
 
 \subparagraph{Documentazione}
 
@@ -717,6 +723,14 @@ lista redatta in prima istanza di verifica.
 
 \paragraph{Test di unità}
 
+Sono test destinati al collaudo della più piccola porzione di codice che abbia senso
+testare, compito dei \textit{progettisti} è la stesura e il tracciamento dei test di
+unità con i requisiti e viceversa secondo le regole di nomenclatura seguenti:
+
+\begin{center}
+  \verb=TU.NomeTest=
+\end{center}
+
 \subparagraph{Analisi statica}
 \label{sec:AnalisiStatica}
 
@@ -752,18 +766,33 @@ Gli strumenti da utilizzare per le \gloss{attività} di analisi statica saranno:
 
 \paragraph{Test di integrazione}
 
+Compito dei \textit{progettisti} è la stesura e il tracciamento dei test di
+integrazione con le componenti secondo le regole di nomenclatura seguenti:
+
+\begin{center}
+  \verb=TI.NomeTest=
+\end{center}
+
 \paragraph{Test di sistema}
 
-% TODO: Verifica
-% TODO: Validazione
-% TODO: Walkthrough e Inspection
+I test di sistema permettono di verificare il comportamento del sistema rispetto
+ai requisiti. Compito dei \textit{progettisti} è la stesura e il tracciamento dei test di
+sistema con i requisiti e viceversa secondo le regole di nomenclatura seguenti:
+
+\begin{center}
+  \verb=TS.NomeTest=
+\end{center}
+
+\paragraph{Test di validazione}
+
+Compito dei \textit{progettisti} è la stesura e il tracciamento dei test di validazione
+con i requisiti, secondo le seguenti regole di nomenclatura:
+
+\begin{center}
+  \verb=TV.NomeTest=
+\end{center}
 
 \section{Processi Organizzativi}
-
-% TODO: Gestione
-% TODO: Infrastruttura
-% TODO: Miglioramento
-% TODO: Addestramento
 
 \subsection{Ruoli di progetto}
 
@@ -1139,6 +1168,7 @@ Una volta avviata la macchina, da terminale lanciare il comando:
 Il comando provvederà al download delle librerie e degli \gloss{script}
 necessari alla corretta configurazione dell'ambiente di lavoro del gruppo.
 Al termine la macchina virtuale sarà pronta ad essere utilizzata per lo sviluppo.
+
 \paragraph{Versionamento virtual machine}
 
 Di volta in volta, lungo tutto l'arco del progetto, quando sarà necessario
