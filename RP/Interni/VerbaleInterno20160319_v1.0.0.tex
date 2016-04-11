@@ -27,9 +27,9 @@
       \else
       \textbf{Versione} & 1.0.0\\
       \fi
-      \textbf{Redazione} & \multiLineCell[t]{Marco Boseggia}\\
-      \textbf{Verifica} & \multiLineCell[t]{Andrea Giacomo Baldan}\\
-      \textbf{Approvazione} & \multiLineCell[t]{Giacomo Vanin}\\
+      \textbf{Redazione} & \multiLineCell[t]{Alberto De Agostini}\\
+      \textbf{Verifica} & \multiLineCell[t]{Michael Munaro}\\
+      \textbf{Approvazione} & \multiLineCell[t]{Marco Boseggia}\\
       \textbf{Uso} & Interno\\
       \textbf{Lista di Distribuzione} & \multiLineCell[t]{ScalateKids\\Prof. Tullio Vardanega\\Prof. Riccardo Cardin}\\
     \end{tabular}
@@ -51,13 +51,13 @@
     \hline
     Versione & Autore & Ruolo & Data & Descrizione \\
     \hline
-    1.0.0 & Giacomo Vanin & Responsabile & 2016-03-11 & Validazione documento\\
+    1.0.0 & Marco Boseggia & Responsabile & 2016-03-19 & Validazione documento\\
     \hline
-    0.1.1 & Andrea Giacomo Baldan & Verificatore & 2016-03-11 & Verifica documento\\
+    0.1.1 & Michael Munaro & Verificatore & 2016-03-19 & Verifica documento\\
     \hline
-    0.1.0 & Marco Boseggia & Progettista & 2016-03-11 & Prima stesura documento\\
+    0.1.0 & Alberto De Agostini & Progettista & 2016-03-19 & Prima stesura documento\\
     \hline
-    0.0.1 & Marco Boseggia & Progettista & 2016-03-11 & Creazione scheletro del documento\\
+    0.0.1 & Alberto De Agostini & Progettista & 2016-03-19 & Creazione scheletro del documento\\
     \hline
   \end{tabular}
 \end{center}
@@ -65,13 +65,13 @@
 \newpage
 \section{Informazioni sulla riunione}
 \begin{itemize}
-\item \textbf{Data}: 2016-03-11
-\item \textbf{Luogo}: Torre Archimede
-\item \textbf{Orario d'inizio}: 11:15
-\item \textbf{Durata}: 90'
+\item \textbf{Data}: 2016-03-19
+\item \textbf{Luogo}: Conferenza in remoto
+\item \textbf{Orario d'inizio}: 15:00
+\item \textbf{Durata}: 80'
 \item \textbf{Partecipanti interni}: \textit{ScalateKids}
   \begin{itemize}
-  \item Andrea Giacomo Baldan
+  \item Andrea Giacomo Baldan 
   \item Alberto De Agostini
   \item Marco Boseggia
   \item Michael Munaro
@@ -82,9 +82,10 @@
 \end{itemize}
 \section{Decisioni prese}
 \begin{itemize}
-  \item Il parser andrà messo nella CLI
-  \item E' da definire un protocollo di comunicazione client-server
-  \item E' stato scelto di implementare un Driver senza parser con metodi diretti (versione 2 nel documento draw.io)%TODO
+  \item Abbandonata l'idea di utilizzo del framework \gloss{Spring} per la realizzazione di un \gloss{DSL}, si è deciso di utilizzare \gloss{Scala}.
+  \item Per il protocollo di comunicazione client-server si è optato per l'utilizzo del protocollo \gloss{RESP}
+  \item Gestione del ciclo di vita della connessione da parte di un client esterno mediante \gloss{attore} dedicato (\textit{\gloss{Clientactor}}).
+  \item Rendere la distribuzione dei main tra i vari nodi configurabile.
 \end{itemize}
 
 \end{document}

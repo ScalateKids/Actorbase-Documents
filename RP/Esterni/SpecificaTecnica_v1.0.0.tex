@@ -1732,6 +1732,13 @@ per aggiornare i suoi riferimenti.
 \subsection{actorbase::driver}
 \label{sec:actorbase::driver}
 
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RP/Driver.png}
+    \caption{CLI:architettura MVC variante push model}
+  \end{center}
+\end{figure}
+
 \subsubsection{Descrizione}
 
 \gloss{Package} per la componente \gloss{driver} dell'architettura
@@ -1755,6 +1762,13 @@ per aggiornare i suoi riferimenti.
 
 \subsection{actorbase::driver::client}
 \label{sec:actorbase::driver::client}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.9\textwidth,keepaspectratio]{RP/Driver-Client.png}
+    \caption{CLI:architettura MVC variante push model}
+  \end{center}
+\end{figure}
 
 \subsubsection{Descrizione}
 
@@ -2019,13 +2033,14 @@ con il \gloss{server}, con la \gloss{cli} o eventuali programmi esterni.
 
 \subparagraph{Descrizione}
 
-Interfaccia che rappresenta una struttura dati generica per ritornare i dati
+Interfaccia che rappresenta un oggetto per ritornare i dati
 ricevuti dal \gloss{server} alla \gloss{cli} o a un programma esterno.
 
 \subparagraph{Utilizzo}
 
 Questa interfaccia viene utilizzata dalle classi che la implementano per
-rappresentare un insieme di \gloss{collezioni} o \gloss{item}.
+rappresentare i dati che verranno ritornati alla \gloss{cli} o al programma
+esterno.
 
 \subparagraph{Interazioni con altre classi}
 
@@ -2052,12 +2067,37 @@ Questa classe viene utilizzata per la rappresentazione di un singolo
 \item \hyperref[sec:actorbase::driver::actorbasedata::ActorbaseObject]{actorbase::driver::actorbasedata::ActorbaseObject}.
 \end{itemize}
 
+\paragraph{actorbase::driver::actorbasedata::ActorbaseObjectSeq}
+\label{sec:actorbase::driver::actorbasedata::ActorbaseObjectSeq}
+
+\subparagraph{Descrizione}
+
+Interfaccia che rappresenta una struttura dati generica per ritornare i dati
+ricevuti dal \gloss{server} alla \gloss{cli} o a un programma esterno.
+
+\subparagraph{Utilizzo}
+
+Questa interfaccia viene utilizzata dalle classi che la implementano per
+rappresentare un insieme di \gloss{collezioni} o \gloss{item}.
+
+\subparagraph{Interazioni con altre classi}
+
+\begin{itemize}
+\item \hyperref[sec:actorbase::driver::client::ActorbaseClient]{actorbase::driver::client::ActorbaseClient}.
+\end{itemize}
+
+\subparagraph{Classi ereditate}
+
+\begin{itemize}
+\item \hyperref[sec:actorbase::driver::actorbasedata::ActorbaseObject]{actorbase::driver::actorbasedata::ActorbaseObject}.
+\end{itemize}
+
 \paragraph{actorbase::driver::actorbasedata::ActorbaseCollection}
 \label{sec:actorbase::driver::actorbasedata::ActorbaseCollection}
 
 \subparagraph{Descrizione}
 
-Classe che implementa \hyperref[sec:actorbase::driver::actorbasedata::ActorbaseObject]{actorbase::driver::actorbasedata::ActorbaseObject}
+Classe che implementa \hyperref[sec:actorbase::driver::actorbasedata::ActorbaseObjectSeq]{actorbase::driver::actorbasedata::ActorbaseObjectSeq}
 in modo da rappresentare una singola \gloss{collezione}.
 
 \subparagraph{Utilizzo}
@@ -2073,7 +2113,7 @@ per scorrere gli \gloss{item} al suo interno.
 \subparagraph{Classi ereditate}
 
 \begin{itemize}
-\item \hyperref[sec:actorbase::driver::actorbasedata::ActorbaseObject]{actorbase::driver::actorbasedata::ActorbaseObject}.
+\item \hyperref[sec:actorbase::driver::actorbasedata::ActorbaseObjectSeq]{actorbase::driver::actorbasedata::ActorbaseObjectSeq}.
 \end{itemize}
 
 \subparagraph{Interazioni con altre classi}
@@ -2088,7 +2128,7 @@ per scorrere gli \gloss{item} al suo interno.
 
 \subparagraph{Descrizione}
 
-Classe che implementa \hyperref[sec:actorbase::driver::actorbasedata::ActorbaseObject]{actorbase::driver::actorbasedata::ActorbaseObject}
+Classe che implementa \hyperref[sec:actorbase::driver::actorbasedata::ActorbaseObjectSeq]{actorbase::driver::actorbasedata::\allowbreak{}ActorbaseObjectSeq}
 in modo da rappresentare un insieme di \gloss{collezioni}.
 
 \subparagraph{Utilizzo}
@@ -2104,7 +2144,7 @@ per scorrere le \gloss{collezioni} al suo interno.
 \subparagraph{Classi ereditate}
 
 \begin{itemize}
-\item \hyperref[sec:actorbase::driver::actorbasedata::ActorbaseObject]{actorbase::driver::actorbasedata::ActorbaseObject}.
+\item \hyperref[sec:actorbase::driver::actorbasedata::ActorbaseObjectSeq]{actorbase::driver::actorbasedata::ActorbaseObjectSeq}.
 \end{itemize}
 
 \subparagraph{Interazioni con altre classi}
@@ -2266,6 +2306,13 @@ risposte ottenute dal \gloss{server} che comprendano messaggi di errore.
 
 \subsection{actorbase::driver::exceptions}
 \label{sec:actorbase::driver::exceptions}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.7\textwidth,keepaspectratio]{RP/exceptions.png}
+    \caption{Driver:Package exceptions}
+  \end{center}
+\end{figure}
 
 \subsubsection{Descrizione}
 
@@ -2445,6 +2492,13 @@ Questa classe viene utilizzata dal \gloss{driver} per gestire il caso in cui all
 \subsection{actorbase::cli}
 \label{sec:actorbase::cli}
 
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RP/CLI.png}
+    \caption{CLI:architettura MVC variante push model}
+  \end{center}
+\end{figure}
+
 \subsubsection{Descrizione}
 
 \gloss{Package} per la parte di \gloss{client} rappresentata dalla \gloss{cli}.
@@ -2467,6 +2521,13 @@ Questa componente viene rappresentata usando il \gloss{design pattern}
 
 \subsection{actorbase::cli::views}
 \label{sec:actorbase::cli::views}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RP/CLI-view.png}
+    \caption{CLI:Views package, interazioni con Controllers e Models}
+  \end{center}
+\end{figure}
 
 \subsubsection{Descrizione}
 
@@ -3064,7 +3125,7 @@ visualizzare se richiesto dall'utente.
 \item \hyperref[sec:actorbase::driver::client::ActorbaseClient]{actorbase::driver::client::ActorbaseClient}.
 \end{itemize}
 
-\section{Diagrammi di attività}
+\section{Diagrammi di Attività}
 
 In questa sezione, vengono illustrati i diagrammi di attività che descrivono
 l'interazione dell'utente con Actorbase tramite l'utilizzo della \gloss{CLI}
@@ -3284,7 +3345,7 @@ errore.
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.6\textwidth, keepaspectratio]{img/diagrammiAttivita/gestioneUtenti.jpeg}
+    \includegraphics[width=0.9\textwidth, keepaspectratio]{img/diagrammiAttivita/gestioneUtenti.jpeg}
     \caption{Diagrammi attività - Gestione utenti}
   \end{center}
 \end{figure}
@@ -4276,7 +4337,7 @@ OBV7 & \multiLineCell[t]{actorbase\\}\\
 \subsubsection{MVC}
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[width=0.7\textwidth, keepaspectratio]{img/designPattern/mvc.jpg}
+		\includegraphics[width=0.9 \textwidth, keepaspectratio]{img/designPattern/mvc.jpg}
 		\caption{Esempio di applicazione del design pattern MVC}
 	\end{center}
 \end{figure}
