@@ -303,6 +303,13 @@ Rappresentano le tre macro-componenti del sistema.
 \subsection{actorbase::actorsystem}
 \label{sec:actorbase::actorsystem}
 
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.9\textwidth,keepaspectratio]{RP/Actorsystem.png}
+    \caption{Actorsystem, visione generale}
+  \end{center}
+\end{figure}
+
 \subsubsection{Descrizione}
 
 \gloss{Package} che raggruppa tutte le componenti del sistema che
@@ -332,6 +339,13 @@ rappresentano il \gloss{server}.
 
 \subsection{actorbase::actorsystem::clientactor}
 \label{sec:actorbase::actorsystem::clientactor}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RP/Clientactor.png}
+    \caption{Clientactor e interazioni con main e package serialization}
+  \end{center}
+\end{figure}
 
 \subsubsection{Descrizione}
 
@@ -478,6 +492,13 @@ e mandato a \hyperref[sec:actorbase::driver::client::Connection]{actorbase::driv
 \subsection{actorbase::actorsystem::tcpserver}
 \label{sec:actorbase::actorsystem::tcpserver}
 
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RP/tcpserver.png}
+    \caption{tcpserver, visione generale del package}
+  \end{center}
+\end{figure}
+
 \subsubsection{Descrizione}
 
 \gloss{Package} per l'attore con cui si interfaccerà il \gloss{driver} per la connessione iniziale.
@@ -564,6 +585,13 @@ riceve questo messaggio associa al \gloss{client} un attore di tipo
 
 \subsection{actorbase::actorsystem::serialization}
 \label{sec:actorbase::actorsystem::serialization}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RP/Serialization.png}
+    \caption{Serialization e interazioni con main e clientactor}
+  \end{center}
+\end{figure}
 
 \subsubsection{Descrizione}
 
@@ -762,6 +790,13 @@ principalmente per la lettura di dati da disco.
 \subsection{actorbase::actorsystem::warehouseman}
 \label{sec:actorbase::actorsystem::warehouseman}
 
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RP/Warehouseman.png}
+    \caption{Warehouseman e interazioni con main e serialization}
+  \end{center}
+\end{figure}
+
 \subsubsection{Descrizione}
 
 \gloss{Package} che rappresenta l'attore che si occuperà della
@@ -841,6 +876,13 @@ riceve questo messaggio salverà i dati su disco sfruttando
 
 \subsection{actorbase::actorsystem::main}
 \label{sec:actorbase::actorsystem::main}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.8\textwidth,keepaspectratio]{RP/Main.png}
+    \caption{Main e interazioni con storefinder}
+  \end{center}
+\end{figure}
 
 \subsubsection{Descrizione}
 
@@ -1114,6 +1156,13 @@ destinato a ricevere l'\gloss{item} da inserire.
 \subsection{actorbase::actorsystem::userkeeper}
 \label{sec:actorbase::actorsystem::userkeeper}
 
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.8\textwidth,keepaspectratio]{RP/Userkeeper.png}
+    \caption{Userkeeper, visione generale del package}
+  \end{center}
+\end{figure}
+
 \subsubsection{Descrizione}
 
 Classe che rappresenta un attore di tipo \gloss{Userkeeper}.
@@ -1298,6 +1347,13 @@ che ha inviato questo messaggio.
 \subsection{actorbase::actorsystem::storefinder}
 \label{sec:actorbase::actorsystem::storefinder}
 
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.8\textwidth,keepaspectratio]{RP/Storefinder.png}
+    \caption{Storefinder e interazioni con main}
+  \end{center}
+\end{figure}
+
 \subsubsection{Descrizione}
 
 Classe che rappresenta un attore di tipo \gloss{Storefinder}.
@@ -1441,6 +1497,13 @@ destinato a ricevere l'\gloss{item} da inserire.
 \subsection{actorbase::actorsystem::storekeeper}
 \label{sec:actorbase::actorsystem::storekeeper}
 
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.8\textwidth,keepaspectratio]{RP/Storekeeper.png}
+    \caption{Storekeeper e interazioni con ninja}
+  \end{center}
+\end{figure}
+
 \subsubsection{Descrizione}
 
 \gloss{Package} che rappresenta l'attore di tipo \gloss{Storekeeper}.
@@ -1562,6 +1625,13 @@ riceve questo messaggio rimuove l'\gloss{item}.
 \subsection{actorbase::actorsystem::ninja}
 \label{sec:actorbase::actorsystem::ninja}
 
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.8\textwidth,keepaspectratio]{RP/Ninja.png}
+    \caption{Ninja e interazioni con storekeeper}
+  \end{center}
+\end{figure}
+
 \subsubsection{Descrizione}
 
 \gloss{Package} che rappresenta l'attore di tipo \gloss{Ninja}.
@@ -1640,6 +1710,13 @@ e comportandosi come se fosse un \hyperref[sec:actorbase::actorsystem::storekeep
 
 \subsection{actorbase::actorsystem::manager}
 \label{sec:actorbase::actorsystem::manager}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.8\textwidth,keepaspectratio]{RP/manager.png}
+    \caption{Manager, visione generale del package}
+  \end{center}
+\end{figure}
 
 \subsubsection{Descrizione}
 
@@ -1766,7 +1843,7 @@ per aggiornare i suoi riferimenti.
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=0.9\textwidth,keepaspectratio]{RP/Driver-Client.png}
-    \caption{CLI:architettura MVC variante push model}
+    \caption{CLI, architettura MVC variante push model}
   \end{center}
 \end{figure}
 
@@ -1859,6 +1936,13 @@ e \hyperref[sec:actorbase::driver::serializer::Deserializationtext]{actorbase::\
 
 \subsection{actorbase::driver::serializer}
 \label{sec:actorbase::driver::serializer}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.9\textwidth,keepaspectratio]{RP/Driver-Serializer.png}
+    \caption{Driver, package serializer e interazioni con package client e package actorbasedata}
+  \end{center}
+\end{figure}
 
 \subsubsection{Descrizione}
 
@@ -2013,6 +2097,13 @@ Questa classe viene utilizzata per l'implementazione di una strategia di
 
 \subsection{actorbase::driver::actorbasedata}
 \label{sec:actorbase::driver::actorbasedata}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.9\textwidth,keepaspectratio]{RP/Driver-Actorbasedata.png}
+    \caption{Driver, package actorbasedata e interazioni con package serializer e package client}
+  \end{center}
+\end{figure}
 
 \subsubsection{Descrizione}
 
@@ -2495,7 +2586,7 @@ Questa classe viene utilizzata dal \gloss{driver} per gestire il caso in cui all
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=1.0\textwidth,keepaspectratio]{RP/CLI.png}
-    \caption{CLI:architettura MVC variante push model}
+    \caption{CLI, architettura MVC variante push model}
   \end{center}
 \end{figure}
 
@@ -2525,7 +2616,7 @@ Questa componente viene rappresentata usando il \gloss{design pattern}
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=1.0\textwidth,keepaspectratio]{RP/CLI-view.png}
-    \caption{CLI:Views package, interazioni con Controllers e Models}
+    \caption{CLI, views package, interazioni con Controllers e Models}
   \end{center}
 \end{figure}
 
