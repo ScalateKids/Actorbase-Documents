@@ -25,9 +25,9 @@
       \else
       \textbf{Versione} & 2.0.0\\
       \fi
-      \textbf{Redazione} & \multiLineCell[t]{Davide Trevisan\\Marco Boseggia\\Michael Munaro}\\
-      \textbf{Verifica} & \multiLineCell[t]{Alberto De Agostini\\Giacomo Vanin}\\
-      \textbf{Approvazione} & \multiLineCell[t]{Andrea Giacomo Baldan}\\
+      \textbf{Redazione} & \multiLineCell[t]{Alberto De Agostini\\Andrea Giacomo Baldan\\Francesco Agostini\\Michael Munaro}\\
+      \textbf{Verifica} & \multiLineCell[t]{Andrea Giacomo Baldan\\Michael Munaro\\Marco Boseggia}\\
+      \textbf{Approvazione} & \multiLineCell[t]{Giacomo Vanin}\\
       \textbf{Uso} & Esterno\\
       \textbf{Lista di Distribuzione} & \multiLineCell[t]{ScalateKids\\Prof. Tullio Vardanega\\Prof. Riccardo Cardin}\\
     \end{tabular}
@@ -45,11 +45,37 @@
 \end{flushleft}
 \vspace{0cm}
 \begin{center}
-  \begin{tabular}{| l | l | l | l | p{5cm} |}
+  \begin{longtable}{| l | l | l | l | p{5cm} |}
     \hline
     Versione & Autore & Ruolo & Data & Descrizione \\
     \hline
-    1.1.1 & Andrea Giacomo Baldan & Analista & 2016-03-04 & Modifica casi d'uso UC1, 1.1, 1.2, 1.3, 1.4 e sottocasi d'uso\\
+    2.0.0 & Giacomo Vanin & Responsabile & 2016-04-09 & Approvazione documento\\
+    \hline
+    1.6.0 & Marco Boseggia & Verificatore & 2016-04-05 & Verifica sezione tracciamento requisiti-test\\
+    \hline
+    1.5.1 & Alberto De Agostini & Analista & 2016-04-05 & Stesura sezione Tracciamento requisiti-test\\
+    \hline
+    1.5.0 & Andrea Giacomo Baldan & Verificatore & 2016-03-13 & Verifica sezioni tracciamento requisiti-fonti e tracciamento fonti-requisiti\\
+    \hline
+    1.4.1 & Francesco Agostini & Analista & 2016-03-11 & Stesura sezioni Tracciamento requisiti fonti e tracciamento fonti requisiti\\
+    \hline
+    1.4.0 & Marco Boseggia & Verificatore & 2016-03-10 & Verifica sezione requisiti\\
+    \hline
+    1.3.1 & Andrea Giacomo Baldan & Analista & 2016-03-09 & Stesura sezione requisiti\\
+    \hline
+    1.3.0 & Andrea Giacomo Baldan & Verificatore & 2016-03-05 & verifica sezione Casi d'uso\\
+    \hline
+    1.2.3 & Michael Munaro & Analista & 2016-03-04 & Modifica casi d'uso da UC2.4 a UC2.13 e sottocasi d'uso\\
+    \hline
+    1.2.2 & Alberto De Agostini & Analista & 2016-03-01 & Modifica casi d'uso UC2, 2.1, 2.2, 2.3 e sottocasi d'uso\\
+    \hline
+    1.2.1 & Francesco Agostini & Analista & 2016-02-28 & Modifica casi d'uso UC1.9, 1.10, 1.11, 1.12, 1.13, 1.14, 1.15 e sottocasi d'uso\\
+    \hline
+    1.2.0 & Michael Munaro & Verificatore & 2016-02-27 & Verifica sezione Casi d'uso\\
+    \hline
+    1.1.2 & Michael Munaro & Analista & 2016-02-26 & Modifica casi d'uso UC1.5, 1.6, 1.7, 1.8 e sottocasi d'uso\\
+    \hline
+    1.1.1 & Andrea Giacomo Baldan & Analista & 2016-02-25 & Modifica casi d'uso UC1, 1.1, 1.2, 1.3, 1.4 e sottocasi d'uso\\
     \hline
     1.1.0 & Marco Boseggia & Verificatore & 2016-02-23 & Verifica sezione 3.2\\
     \hline
@@ -83,7 +109,7 @@
     \hline
     0.0.1 & Andrea Giacomo Baldan & Amministratore & 2015-12-16 & Creazione scheletro del documento\\
     \hline
-  \end{tabular}
+  \end{longtable}
 \end{center}
 \tableofcontents
 \newpage
@@ -194,7 +220,7 @@ nel documento \href{run:../Interni/NormeDiProgetto\_v2.0.0.pdf}{Norme di
 
 \subsection{Identificazione attori}
 
-L'analisi del capitolato e le riunioni con il \textit{Proponente} hanno fatto emergere alcune considerazioni sull'obiettivo che \textbf{Actorbase} si pone di raggiungere.\\Trattandosi di un'applicazione distribuita il prodotto finale sarà costituitovda due \gloss{macro} componenti: un lato server e un lato client fornito di interfaccia comandi testuale per poter dialogare con la base di dati.\\ Suddivisione attori:\\
+L'analisi del capitolato e le riunioni con il \textit{Proponente} hanno fatto emergere alcune considerazioni sull'obiettivo che \textbf{Actorbase} si pone di raggiungere.\\Trattandosi di un'applicazione distribuita il prodotto finale sarà costituito da due \gloss{macro} componenti: un lato server e un lato client fornito di interfaccia comandi testuale per poter dialogare con la base di dati.\\ Suddivisione attori:\\
 \textbf{Primari}
 \begin{itemize}
 \item\textbf{Utente non autenticato:}\\
@@ -211,7 +237,7 @@ L'analisi del capitolato e le riunioni con il \textit{Proponente} hanno fatto em
 \textbf{Secondari}
 \begin{itemize}
 \item\textbf{Actorbase:}\\
-  Nel caso di utilizzo del sistema da un programma esterno in linguaggio Scala, il sistema \textbf{Actorbase} rappresenta effettivamente l'attore necessario agli attori primari per raggiugere
+  Nel caso di utilizzo del sistema da un programma esterno in linguaggio Scala, il sistema \textbf{Actorbase} rappresenta effettivamente l'attore necessario agli attori primari per raggiungere
   lo scopo prefissato, ovvero l'inserimento dei comandi da inviare al sistema stesso mediante utilizzo del \gloss{driver}.
 \end{itemize}
 
@@ -454,7 +480,7 @@ L'attore ha appena avviato la \gloss{CLI}, risulta essere non autenticato e può
 \item aggiunta \gloss{collaboratore} a \gloss{collezione} esistente;
 \item rimozione \gloss{collaboratore} a \gloss{collezione} esistente.
 \end{itemize}
-\textbf{Precodizione:} Il server è in acolto, l'attore intende effettuare operazioni su \gloss{collezioni}.\\
+\textbf{Precodizione:} Il server è in ascolto, l'attore intende effettuare operazioni su \gloss{collezioni}.\\
 \textbf{Scenario principale:}
 \begin{itemize}
 \item UC1.3.1\ -\ Creazione \gloss{collezione};
@@ -467,7 +493,7 @@ L'attore ha appena avviato la \gloss{CLI}, risulta essere non autenticato e può
 \end{itemize}
 \textbf{Estensioni:}
 \begin{itemize}
-\item Condizione: in UC1.3.1 o UC1.3.4 l'attore inserisce il nome di una \gloss{collezione} già censita all'iterno del sistema:
+\item Condizione: in UC1.3.1 o UC1.3.4 l'attore inserisce il nome di una \gloss{collezione} già censita all'interno del sistema:
   \begin{itemize}
   \item UC1.3.10\ -\ Visualizzazione errore \gloss{collezione} già esistente.
   \end{itemize}
@@ -600,7 +626,7 @@ L'attore ha appena avviato la \gloss{CLI}, risulta essere non autenticato e può
 
 \textbf{Attore primario:} Utente autenticato, utente amministratore\\
 \textbf{Scopo e descrizione:} L'attore intende aggiungere un \gloss{collaboratore} ad una \gloss{collezione} di sua proprietà; deve inserire il nome della \gloss{collezione} in questione.\\
-\textbf{Precondizione:} Il server è in ascolto e l'attore ha inserito il comando per l'aggiunta di un \gloss{collaboratore} ad una \gloss{collezione}.
+\textbf{Precondizione:} Il server è in ascolto e l'attore ha inserito il comando per l'aggiunta di un \gloss{collaboratore} ad una \gloss{collezione}.\\
 \textbf{Scenario principale:}
 \begin{itemize}
 \item L'attore inserisce il nome della \gloss{collezione}.
@@ -610,7 +636,7 @@ L'attore ha appena avviato la \gloss{CLI}, risulta essere non autenticato e può
 \subsubsection{UC1.3.5.2: Inserimento username collaboratore}
 
 \textbf{Attore primario:} Utente autenticato, utente amministratore\\
-\textbf{Scopo e descrizione:} L'attore intende aggiungere un \gloss{collaboratore} ad una \gloss{collezione} di sua proprietà; deve inserire lo username del \gloss{collaboratore} da aggiugere.\\
+\textbf{Scopo e descrizione:} L'attore intende aggiungere un \gloss{collaboratore} ad una \gloss{collezione} di sua proprietà; deve inserire lo username del \gloss{collaboratore} da aggiungere.\\
 \textbf{Precondizione:} Il server è in ascolto, l'attore ha inserito il comando per l'aggiunta di un \gloss{collaboratore} ad una \gloss{collezione} e ha inserito il nome della \gloss{collezione}.\\
 \textbf{Scenario principale:}
 \begin{itemize}
@@ -651,7 +677,7 @@ L'attore ha appena avviato la \gloss{CLI}, risulta essere non autenticato e può
 
 \textbf{Attore primario:} Utente autenticato, utente amministratore\\
 \textbf{Scopo e descrizione:} L'attore intende aggiungere un \gloss{collaboratore} ad una \gloss{collezione} di sua proprietà; deve inserire il nome della \gloss{collezione} in questione.\\
-\textbf{Precondizione:} Il server è in ascolto e l'attore ha inserito il comando per la rimozione di un \gloss{collaboratore} da una \gloss{collezione}.
+\textbf{Precondizione:} Il server è in ascolto e l'attore ha inserito il comando per la rimozione di un \gloss{collaboratore} da una \gloss{collezione}.\\
 \textbf{Scenario principale:}
 \begin{itemize}
 \item L'attore inserisce il nome della \gloss{collezione}.
@@ -661,7 +687,7 @@ L'attore ha appena avviato la \gloss{CLI}, risulta essere non autenticato e può
 \subsubsection{UC1.3.6.2: Inserimento username collaboratore}
 
 \textbf{Attore primario:} Utente autenticato, utente amministratore\\
-\textbf{Scopo e descrizione:} L'attore intende aggiungere un \gloss{collaboratore} ad una \gloss{collezione} di sua proprietà; deve inserire lo username del \gloss{collaboratore} da aggiugere.\\
+\textbf{Scopo e descrizione:} L'attore intende aggiungere un \gloss{collaboratore} ad una \gloss{collezione} di sua proprietà; deve inserire lo username del \gloss{collaboratore} da aggiungere.\\
 \textbf{Precondizione:} Il server è in ascolto, l'attore ha inserito il comando per la rimozione di un \gloss{collaboratore} da una \gloss{collezione} e ha inserito il nome della \gloss{collezione}.\\
 \textbf{Scenario principale:}
 \begin{itemize}
@@ -715,7 +741,7 @@ Il server è in ascolto l'attore ha inserito un comando tra:
 \item UC1.3.5\ -\ Aggiunta \gloss{collaboratore} a \gloss{collezione}
 \item UC1.3.6\ -\ Rimozione \gloss{collaboratore} da \gloss{collezione}
 \end{itemize}
-e i parametri per la sua esecuzione, tra cui il nome della \gloss{collezione}, il quale risulta essere inesistene all'interno del sistema.\\
+e i parametri per la sua esecuzione, tra cui il nome della \gloss{collezione}, il quale risulta essere inesistente all'interno del sistema.\\
 \textbf{Scenario principale:}
 \begin{itemize}
 \item Viene visualizzato un messaggio di errore esplicativo.
@@ -980,7 +1006,7 @@ inserimento e cancellazione.\\
 \textbf{Attore primario:} Utente autenticato, utente amministratore\\
 \textbf{Scopo e descrizione:} L'attore, con l'intenzione di inserire \gloss{item} in modalità manuale o per esportazione da file, ha inserito un \gloss{item} con \gloss{flag} di sovrascrittura
 non attivo e una chiave di ricerca già presente all'interno della \gloss{collezione} designata all'inserimento.\\
-\textbf{Precondizione:} Il server è in ascolto, l'attore, con l'intezione di inserire un item con \gloss{flag} di sovrascrittura non attivo, ha inserito una chiave di ricerca già presente
+\textbf{Precondizione:} Il server è in ascolto, l'attore, con l'intenzione di inserire un item con \gloss{flag} di sovrascrittura non attivo, ha inserito una chiave di ricerca già presente
 all'interno della \gloss{collezione} designata all'inserimento.\\
 \textbf{Scenario principale:}
 \begin{itemize}
@@ -993,7 +1019,7 @@ all'interno della \gloss{collezione} designata all'inserimento.\\
 \textbf{Attore primario:} Utente autenticato, utente amministratore\\
 \textbf{Scopo e descrizione:} L'attore, con l'intenzione di cancellare un \gloss{item} da una \gloss{collezione}, ha inserito il nome di una \gloss{collezione} inesistente
 all'interno del sistema.\\
-\textbf{Precondizione:} Il server è in ascolto, l'attore, con l'intezione di cancellare un \gloss{item} da una \gloss{collezione}, ha inserito il nome di una \gloss{collezione} inesistente
+\textbf{Precondizione:} Il server è in ascolto, l'attore, con l'intenzione di cancellare un \gloss{item} da una \gloss{collezione}, ha inserito il nome di una \gloss{collezione} inesistente
 all'interno del sistema.\\
 \textbf{Scenario principale:}
 \begin{itemize}
@@ -1108,7 +1134,7 @@ In caso di inserimento di nome \gloss{collezione} inesistente, o in caso di risu
 
 \textbf{Attori primari:} Utente autenticato, utente amministratore\\
 \textbf{Scopo e descrizione:} L'attore intende modificare la propria password, deve inserire la nuova password.\\
-\textbf{Precondizione:} Il server è in ascolto, l'attore ha inserito il comando per la modifica password e ha inserito la vecchia password.
+\textbf{Precondizione:} Il server è in ascolto, l'attore ha inserito il comando per la modifica password e ha inserito la vecchia password.\\
 \textbf{Scenario principale:}
 \begin{itemize}
 \item L'attore inserisce la nuova password.
@@ -1119,7 +1145,7 @@ In caso di inserimento di nome \gloss{collezione} inesistente, o in caso di risu
 
 \textbf{Attori primari:} Utente autenticato, utente amministratore\\
 \textbf{Scopo e descrizione:} L'attore intende modificare la propria password, deve confermare la modifica reinserendo la nuova password.\\
-\textbf{Precondizione:} Il server è in ascolto, l'attore ha inserito il comando per la modifica password, ha inserito la vecchia password e ha inserito la nuova password.
+\textbf{Precondizione:} Il server è in ascolto, l'attore ha inserito il comando per la modifica password, ha inserito la vecchia password e ha inserito la nuova password.\\
 \textbf{Scenario principale:}
 \begin{itemize}
 \item L'attore inserisce la password di conferma.
@@ -1335,9 +1361,8 @@ verrà modificata al valore prescelto ``actorbase''.\\
 
 \textbf{Attore primario:} Utente amministratore\\
 \textbf{Scopo e descrizione:} L'attore intende aggiungere un nuovo utente al sistema, deve inserire lo username del nuovo utente e confermarne l'aggiunta al sistema.
-Lo username inserito risulta essere già censito all'interno del sistema.
-\textbf{Precondizione:} Il server è in ascolto e l'attore intende aggiungere un nuovo utente al sistema. Lo username del nuovo utente da inserire risulta essere già
-censito all'interno del sistema.
+Lo username inserito risulta essere già censito all'interno del sistema.\\
+\textbf{Precondizione:} Il server è in ascolto e l'attore intende aggiungere un nuovo utente al sistema. Lo username del nuovo utente da inserire risulta essere già censito all'interno del sistema.\\
 \textbf{Scenario principale:}
 \begin{itemize}
 \item Viene visualizzato un messaggio di errore esplicativo.
@@ -1349,9 +1374,9 @@ censito all'interno del sistema.
 \textbf{Attore primario:} Utente amministratore\\
 \textbf{Scopo e descrizione:} L'attore intende rimuovere un utente dal sistema o, in alternativa, effettuare un reset della password di un utente. Deve inserire lo username dell'utente designato
 alla rimozione dal sistema o al reset della password e confermare l'operazione.
-Lo username inserito risulta essere inesistente all'interno del sistema.
+Lo username inserito risulta essere inesistente all'interno del sistema.\\
 \textbf{Precondizione:} Il server è in ascolto e l'attore intende rimuovere un utente dal sistema, o in alternativa, effettuare un reset della password di un utente.
-Lo username dell' utente su cui effettuare l'operazione risulta essere inesistente all'interno del sistema.
+Lo username dell' utente su cui effettuare l'operazione risulta essere inesistente all'interno del sistema.\\
 \textbf{Scenario principale:}
 \begin{itemize}
 \item Viene visualizzato un messaggio di errore esplicativo.
@@ -1404,7 +1429,7 @@ vincoli imposti. I vincoli imposti dal sistema sono:
 vincoli imposti. I vincoli imposti sulla conferma password dal sistema sono:
 \begin{itemize}
 \item Lunghezza password minima di 8 caratteri;
-\item La password da confermare deve corripondere alla password inserita in UC1.6.2.
+\item La password da confermare deve corrispondere alla password inserita in UC1.6.2.
 \end{itemize}
 \textbf{Scenario principale:}
 \begin{itemize}
@@ -1514,7 +1539,7 @@ vincoli imposti. I vincoli imposti sulla conferma password dal sistema sono:
   \end{itemize}
 \item Condizione: in UC2.4 l'attore non inserisce una chiave:
   \begin{itemize}
-  \item UC2.12\ -\ Visualizzazione della intera collezione
+  \item UC2.12\ -\ Visualizzazione della intera \gloss{collezione}
   \end{itemize}
 \item Condizione: in UC2.4 l'attore inserisce una lista di collezioni vuota e non inserisce una chiave:
   \begin{itemize}
@@ -1620,17 +1645,17 @@ L'attore intende effettuare login al database da un programma \gloss{Scala} este
   \end{itemize}
 \item Condizione: in UC2.2.5 l'attore inserisca il nome di una collezione non censita all'interno del sistema:
   \begin{itemize}
-  \item UC2.2.9 Lancio eccezione collezione inesistente.
+  \item UC2.2.9 Lancio eccezione \gloss{collezione} inesistente.
   \end{itemize}
-\item Condizione: in UC2.2.6 l'attore inserisca il nome di una collezione non censita all'interno del sistema:
+\item Condizione: in UC2.2.6 l'attore inserisca il nome di una \gloss{collezione} non censita all'interno del sistema:
   \begin{itemize}
-  \item UC2.2.9 Lancio eccezione collezione inesistente.
+  \item UC2.2.9 Lancio eccezione \gloss{collezione} inesistente.
   \end{itemize}
-\item Condizione: in UC2.2.5 l'attore inserisca il nome di una collezione non censita all'interno del sistema:
+\item Condizione: in UC2.2.5 l'attore inserisca il nome di una \gloss{collezione} non censita all'interno del sistema:
   \begin{itemize}
   \item UC2.2.10 Lancio eccezione username inesistente.
   \end{itemize}
-\item Condizione: in UC2.2.7 l'attore inseriesce una lista di collezioni vuota:
+\item Condizione: in UC2.2.7 l'attore inserisce una lista di collezioni vuota:
   \begin{itemize}
   \item UC2.2.11 Esportazione di tutto il database su file.
   \end{itemize}
@@ -1653,13 +1678,13 @@ L'attore intende effettuare login al database da un programma \gloss{Scala} este
 
 \textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
 \textbf{Attore secondario:} Actorbase\\
-\textbf{Scopo e descrizione:} L'attore richiede la creazione di una \gloss{collezione} all'interno del \gloss{database}, ha inserito il comando di creazione collezione e deve inserire il nome della collezione da aggiungere.\\
+\textbf{Scopo e descrizione:} L'attore richiede la creazione di una \gloss{collezione} all'interno del \gloss{database}, ha inserito il comando di creazione \gloss{collezione} e deve inserire il nome della \gloss{collezione} da aggiungere.\\
 \textbf{Precondizione:} Il server è pronto a ricevere comandi e l'attore ha inserito il comando di creazione \gloss{collezione}.\\
 \textbf{Scenario principale:}
 \begin{itemize}
 \item L'attore può inserire il nome della \gloss{collezione}.
 \end{itemize}
-\textbf{Postcondizioni:} Il nome della collezione è stato inserito correttamente.
+\textbf{Postcondizioni:} Il nome della \gloss{collezione} è stato inserito correttamente.
 
 \subsection{UC2.2.2: Visualizzazione della lista delle collezioni}
 
@@ -1671,14 +1696,14 @@ L'attore intende effettuare login al database da un programma \gloss{Scala} este
 \begin{itemize}
 \item L'attore può inserire il comando per la visualizzazione della lista delle collezioni.
 \end{itemize}
-\textbf{Postcondizioni:} Il \gloss{database} restituisce la lista delle \gloss{collezioni} esistenti secondo i \gloss{permessi} dell'attore, per ogni collezione viene visualizzato il nome della collezione stessa.
+\textbf{Postcondizioni:} Il \gloss{database} restituisce la lista delle \gloss{collezioni} esistenti secondo i \gloss{permessi} dell'attore, per ogni \gloss{collezione} viene visualizzato il nome della \gloss{collezione} stessa.
 
 \subsection{UC2.2.3: Modifica nome collezione}
 
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC2_2_3.png}
-    \caption{Caso d'uso 2.2.3: Modifica nome collezione}
+    \caption{Caso d'uso 2.2.3: Modifica nome \gloss{collezione}}
   \end{center}
 \end{figure}
 \textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
@@ -1696,11 +1721,11 @@ L'attore intende effettuare login al database da un programma \gloss{Scala} este
 
 \textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
 \textbf{Attore secondario:} Actorbase\\
-\textbf{Scopo e descrizione:} L'attore intende modificare il nome di una \gloss{collezione} presente nel \gloss{database}, deve inserire il nome della collezione da modificare.\\
-\textbf{Precondizione:} Il server è in ascolto e l'attore intende modificare il nome di una \gloss{collezione}, ha inserito il comando di modifica nome collezione.\\
+\textbf{Scopo e descrizione:} L'attore intende modificare il nome di una \gloss{collezione} presente nel \gloss{database}, deve inserire il nome della \gloss{collezione} da modificare.\\
+\textbf{Precondizione:} Il server è in ascolto e l'attore intende modificare il nome di una \gloss{collezione}, ha inserito il comando di modifica nome \gloss{collezione}.\\
 \textbf{Scenario principale:}
 \begin{itemize}
-\item L'attore può inserire il nome della collezione da modificare.
+\item L'attore può inserire il nome della \gloss{collezione} da modificare.
 \end{itemize}
 \textbf{Postcondizioni:} Il nome della \gloss{collezione} da modificare è stato inserito.
 
@@ -1708,11 +1733,11 @@ L'attore intende effettuare login al database da un programma \gloss{Scala} este
 
 \textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
 \textbf{Attore secondario:} Actorbase\\
-\textbf{Scopo e descrizione:} L'attore intende modificare il nome di un \gloss{collezione} presente nel \gloss{database}, deve inserire il nome della collezione da modificare.\\
-\textbf{Precondizione:} Il server è in ascolto e l'attore intende modificare il nome di una \gloss{collezione}, ha inserito il comando di modifica nome collezione e il nome della collezione da modificare.\\
+\textbf{Scopo e descrizione:} L'attore intende modificare il nome di un \gloss{collezione} presente nel \gloss{database}, deve inserire il nome della \gloss{collezione} da modificare.\\
+\textbf{Precondizione:} Il server è in ascolto e l'attore intende modificare il nome di una \gloss{collezione}, ha inserito il comando di modifica nome \gloss{collezione} e il nome della \gloss{collezione} da modificare.\\
 \textbf{Scenario principale:}
 \begin{itemize}
-\item L'attore può inserire il nuovo nome della collezione da modificare.
+\item L'attore può inserire il nuovo nome della \gloss{collezione} da modificare.
 \end{itemize}
 \textbf{Postcondizione:} Il nome della \gloss{collezione} è stato modificato.
 
@@ -1721,7 +1746,7 @@ L'attore intende effettuare login al database da un programma \gloss{Scala} este
 \textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
 \textbf{Attore secondario:} Actorbase\\
 \textbf{Scopo e descrizione:} L'attore intende cancellare una \gloss{collezione} presente nel \gloss{database}.\\
-\textbf{Precodizione:} Il server è in ascolto e l'attore intende cancellare una collezione.\\
+\textbf{Precodizione:} Il server è in ascolto e l'attore intende cancellare una \gloss{collezione}.\\
 \textbf{Scenario principale:}
 \begin{itemize}
 \item UC2.2.4.1 Inserimento nome \gloss{collezione};
@@ -1745,12 +1770,12 @@ L'attore intende effettuare login al database da un programma \gloss{Scala} este
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=0.7\textwidth,keepaspectratio]{UseCases/UC2_2_5.png}
-    \caption{Caso d'uso 2.2.5: Aggiunta collaboratore a una collezione}
+    \caption{Caso d'uso 2.2.5: Aggiunta collaboratore a una \gloss{collezione}}
   \end{center}
 \end{figure}
 \textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
 \textbf{Attore secondario:} Actorbase\\
-\textbf{Scopo e descrizione:} L'attore intende aggiungere un \gloss{collaboratore} ad una \gloss{collezione} di sua proprietà. Deve inserire il nome della \gloss{collezione} e lo username dell'utente da aggiungere.\\
+\textbf{Scopo e descrizione:} L'attore intende aggiungere un \gloss{collaboratore} ad una \gloss{collezione} di sua proprietà. Deve inserire il nome della \gloss{collezione}, lo username dell'utente da aggiungere e il livello di permessi da assegnarli, scelti tra \textit{read} e \textit{read-write}.\\
 \textbf{Precondizione:} Il server è in ascolto e l'attore intende aggiungere un \gloss{collaboratore} ad una \gloss{collezione} di sua proprietà.\\
 \textbf{Scenario principale:}
 \begin{itemize}
@@ -1843,24 +1868,24 @@ L'attore intende effettuare login al database da un programma \gloss{Scala} este
 
 \textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
 \textbf{Attore secondario:} Actorbase\\
-\textbf{Scopo e descrizione:} L'attore intende esportare su file il contenuto di una o più collezioni da un programma \gloss{Scala} esterno.\\
-\textbf{Precondizione:} Il server è in ascolto e l'attore intende esportare il contenuto di una o più collezioni su file.\\
+\textbf{Scopo e descrizione:} L'attore intende esportare su file il contenuto di una o più \gloss{collezioni} da un programma \gloss{Scala} esterno.\\
+\textbf{Precondizione:} Il server è in ascolto e l'attore intende esportare il contenuto di una o più \gloss{collezioni} su file.\\
 \textbf{Scenario principale:}
 \begin{itemize}
 \item UC2.2.7.1 Inserimento lista collezioni da esportare;
 \item UC2.2.7.2 Inserimento path.
 \end{itemize}
-\textbf{Postcondizione:} Il contenuto delle collezioni selezionate è stato esportato su file.
+\textbf{Postcondizione:} Il contenuto delle \gloss{collezioni} selezionate è stato esportato su file.
 
 \subsubsection{UC2.2.7.1: Inserimento lista collezioni}
 
 \textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
 \textbf{Attore secondario:} Actorbase\\
-\textbf{Scopo e descrizione:} L'attore intende esportare su file il contenuto di una o più collezioni da un programma \gloss{Scala} esterno.\\
-\textbf{Precondizione:} Il server è in ascolto e l'attore ha inserito il domando per l'esportazione di una o più collezioni su file.\\
+\textbf{Scopo e descrizione:} L'attore intende esportare su file il contenuto di una o più \gloss{collezioni} da un programma \gloss{Scala} esterno.\\
+\textbf{Precondizione:} Il server è in ascolto e l'attore ha inserito il domando per l'esportazione di una o più \gloss{collezioni} su file.\\
 \textbf{Scenario principale:}
 \begin{itemize}
-\item L'attore può inserire la lista collezioni da esportare.
+\item L'attore può inserire la lista \gloss{collezioni} da esportare.
 \end{itemize}
 \textbf{Postcondizione:} La lista delle collezioni da esportare è stato inserito correttamente.
 
@@ -1880,11 +1905,11 @@ L'attore intende effettuare login al database da un programma \gloss{Scala} este
 
 \textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
 \textbf{Attore secondario:} Actorbase\\
-\textbf{Scopo e descrizione:} L'attore intende creare una nuova collezione o modificare il nome di una già esistente.\\
-\textbf{Precondizione:} Il server è in ascolto, l'attore ha inserito il comando di creazione di una collezione o di modifica nome collezione e ha inserito il nome della collezione.\\
-\textbf{Scenaio principale:}
+\textbf{Scopo e descrizione:} L'attore intende creare una nuova \gloss{collezione} o modificare il nome di una già esistente.\\
+\textbf{Precondizione:} Il server è in ascolto, l'attore ha inserito il comando di creazione di una \gloss{collezione} o di modifica nome \gloss{collezione} e ha inserito il nome della \gloss{collezione}.\\
+\textbf{Scenario principale:}
 \begin{itemize}
-\item Viene lanciata una eccezione collezione già esistente.
+\item Viene lanciata una eccezione \gloss{collezione} già esistente.
 \end{itemize}
 \textbf{Postcondizione:} L'operazione che ha sollevato l'eccezione fallisce.
 
@@ -1894,16 +1919,16 @@ L'attore intende effettuare login al database da un programma \gloss{Scala} este
 \textbf{Attore secondario:} Actorbase\\
 \textbf{Scopo e descrizione:} L'attore intende effettuare una delle seguenti operazioni:
 \begin{itemize}
-\item Modifica nome collezione;
-\item Cancellazione collezione;
-\item Aggiunta collaboratore a collezione;
-\item Rimozione collaboratore da collezione.
+\item Modifica nome \gloss{collezione};
+\item Cancellazione \gloss{collezione};
+\item Aggiunta collaboratore a \gloss{collezione};
+\item Rimozione collaboratore da \gloss{collezione}.
 \end{itemize}
-ma durante l'inserimento dei parametri inserisce un nome collezione non censito all'interno del sistema.\\
-\textbf{Precondizione:} Il server è in ascolto, l'attore ha inserito uno dei comandi sopra elencati e ha inserito il nome della collezione .\\
-\textbf{Scenaio principale:}
+ma durante l'inserimento dei parametri inserisce un nome \gloss{collezione} non censito all'interno del sistema.\\
+\textbf{Precondizione:} Il server è in ascolto, l'attore ha inserito uno dei comandi sopra elencati e ha inserito il nome della \gloss{collezione} .\\
+\textbf{Scenario principale:}
 \begin{itemize}
-\item Viene lanciata una eccezione collezione inesistente.
+\item Viene lanciata una eccezione \gloss{collezione} inesistente.
 \end{itemize}
 \textbf{Postcondizione:} L'operazione che ha sollevato l'eccezione fallisce.
 
@@ -1911,9 +1936,9 @@ ma durante l'inserimento dei parametri inserisce un nome collezione non censito 
 
 \textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
 \textbf{Attore secondario:} Actorbase\\
-\textbf{Scopo e descrizione:} L'attore intende aggiungere un collaboratore a una collezione.\\
-\textbf{Precondizione:} Il server è in ascolto, l'attore ha inserito il comando di aggiunta collaboratore, ha inserito il nome della collezione e l'username del collaboratore designato.\\
-\textbf{Scenaio principale:}
+\textbf{Scopo e descrizione:} L'attore intende aggiungere un collaboratore a una \gloss{collezione}.\\
+\textbf{Precondizione:} Il server è in ascolto, l'attore ha inserito il comando di aggiunta collaboratore, ha inserito il nome della \gloss{collezione}, lo username dell'utente da aggiungere e il livello di permessi da assegnarli, scelti tra \textit{read} e \textit{read-write}.\\
+\textbf{Scenario principale:}
 \begin{itemize}
 \item Viene lanciata una eccezione username inesistente
 \end{itemize}
@@ -1924,7 +1949,7 @@ ma durante l'inserimento dei parametri inserisce un nome collezione non censito 
 \textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
 \textbf{Attore secondario:} Actorbase\\
 \textbf{Scopo e descrizione:} L'attore intende esportare su file il contenuto di tutto il database (secondo i suoi permessi) da un programma \gloss{Scala} esterno. (vedi~\ref{sec:permessi})\\
-\textbf{Precondizione:} Il server è in ascolto e l'attore ha inserito il comando di esportazione di una o più collezioni su file e ha inserito una lista di collezioni vuote.\\
+\textbf{Precondizione:} Il server è in ascolto e l'attore ha inserito il comando di esportazione di una o più \gloss{collezioni} su file e ha inserito una lista di \gloss{collezioni} vuote.\\
 \textbf{Postcondizione:} Il contenuto del database è stato esportato su file.
 
 \subsection{UC2.3: Operazioni sugli item}
@@ -1953,17 +1978,17 @@ inserimento e cancellazione.\\
 \begin{itemize}
 \item Condizione: in UC2.3.2 l'attore inserisce un nome di una la \gloss{collezione} su cui effettuare cancellazione e non è presente nel sistema:
   \begin{itemize}
-  \item UC2.3.5 Lancio eccezione collezione inesistente.
+  \item UC2.3.5 Lancio eccezione \gloss{collezione} inesistente.
   \end{itemize}
-\item Condizione: in UC2.3.1 l'attore inserisce la chiave dell'item da inserire ed è già presente nella collezione:
+\item Condizione: in UC2.3.1 l'attore inserisce la chiave dell'item da inserire ed è già presente nella \gloss{collezione}:
   \begin{itemize}
   \item UC2.3.4 Lancio eccezione chiave già esistente.
   \end{itemize}
-\item Condizione: in UC2.3.1 l'attore inserisce un nome collezione non presente nel sistema:
+\item Condizione: in UC2.3.1 l'attore inserisce un nome \gloss{collezione} non presente nel sistema:
   \begin{itemize}
   \item UC2.3.7 Inserimento con creazione nuova \gloss{collezione}.
   \end{itemize}
-\item Condizione: in UC2.3.1.2 l'attore iscerisce un path relativo ad un file non esistente:
+\item Condizione: in UC2.3.1.2 l'attore inserisce un path relativo ad un file non esistente:
   \begin{itemize}
   \item UC2.3.3 Lancio eccezione file inesistente.
   \end{itemize}
@@ -1991,23 +2016,23 @@ inserimento e cancellazione.\\
 \end{itemize}
 \textbf{Estensioni:}
 \begin{itemize}
-\item Condizione: in UC2.3.1.1  l'attore inserisce la chiave dell'item da inserire ed è già presente nella collezione:
+\item Condizione: in UC2.3.1.1  l'attore inserisce la chiave dell'item da inserire ed è già presente nella \gloss{collezione}:
   \begin{itemize}
   \item UC2.3.4 Lancio eccezione chiave già esistente.
   \end{itemize}
-\item Condizione: in UC2.3.1.1 l'attore inserisce un nome collezione non presente nel sistema:
+\item Condizione: in UC2.3.1.1 l'attore inserisce un nome \gloss{collezione} non presente nel sistema:
   \begin{itemize}
-  \item UC2.2.6 Creazione nuova collezione. %TODO no
+  \item UC2.2.6 Creazione nuova \gloss{collezione}. %TODO no
   \end{itemize}
-\item Condizione: in UC2.3.1.2  l'attore inserisce la chiave dell'item da inserire ed è già presente nella collezione:
+\item Condizione: in UC2.3.1.2  l'attore inserisce la chiave dell'item da inserire ed è già presente nella \gloss{collezione}:
   \begin{itemize}
   \item UC2.3.4 Lancio eccezione chiave già esistente.
   \end{itemize}
-\item Condizione: in UC2.3.1.2 l'attore inserisce un nome collezione non presente nel sistema:
+\item Condizione: in UC2.3.1.2 l'attore inserisce un nome \gloss{collezione} non presente nel sistema:
   \begin{itemize}
-  \item UC2.3.7 Inserimento con creazione nuova collezione.
+  \item UC2.3.7 Inserimento con creazione nuova \gloss{collezione}.
   \end{itemize}
-\item Condizione: in UC2.3.1.2 l'attore iscerisce un path relativo ad un file non esistente:
+\item Condizione: in UC2.3.1.2 l'attore inserisce un path relativo ad un file non esistente:
   \begin{itemize}
   \item UC2.3.3 Lancio eccezione file inesistente.
   \end{itemize}
@@ -2032,7 +2057,7 @@ inserimento e cancellazione.\\
 \textbf{Precondizione:} Il server è in ascolto e l'attore intende inserire un nuovo item in modalità manuale.\\
 \textbf{Scenario principale:}
 \begin{itemize}
-\item UC2.3.1.1.1 Inserimento nome collezione;
+\item UC2.3.1.1.1 Inserimento nome \gloss{collezione};
 \item UC2.3.1.1.2 Inserimento chiave;
 \item UC2.3.1.1.5 Inserimento tipo;
 \item UC2.3.1.1.3 Inserimento valore;
@@ -2044,20 +2069,20 @@ inserimento e cancellazione.\\
 
 \textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
 \textbf{Attore secondario:} Actorbase\\
-\textbf{Scopo e descrizione:} L'attore intende inserire manualmente un nuovo \gloss{item} all'interno di una \gloss{collezione} esistente. Deve inserire il nome della collezione.\\
+\textbf{Scopo e descrizione:} L'attore intende inserire manualmente un nuovo \gloss{item} all'interno di una \gloss{collezione} esistente. Deve inserire il nome della \gloss{collezione}.\\
 \textbf{Precondizione:} Il server è in ascolto e l'attore ha inserito il comando per l'inserimento item manuale.\\
 \textbf{Scenario principale:}
 \begin{itemize}
-\item L'attore può inserire il nome della collezione su cui effettuare l'inserimento.
+\item L'attore può inserire il nome della \gloss{collezione} su cui effettuare l'inserimento.
 \end{itemize}
-\textbf{Postcondizione:} Il nome della collezione è stato inserito correttamente.
+\textbf{Postcondizione:} Il nome della \gloss{collezione} è stato inserito correttamente.
 
 \subsubsection{UC2.3.1.1.2: Inserimento chiave}
 
 \textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
 \textbf{Attore secondario:} Actorbase\\
 \textbf{Scopo e descrizione:} L'attore intende inserire manualmente un nuovo \gloss{item} all'interno di una \gloss{collezione} esistente. Deve inserire la chiave dell'item.\\
-\textbf{Precondizione:} Il server è in ascolto, l'attore ha inserito il comando per l'inserimento item manuale e ha inserito il nome della collezione.\\
+\textbf{Precondizione:} Il server è in ascolto, l'attore ha inserito il comando per l'inserimento item manuale e ha inserito il nome della \gloss{collezione}.\\
 \textbf{Scenario principale:}
 \begin{itemize}
 \item L'attore può inserire la chiave associata all'item.
@@ -2069,7 +2094,7 @@ inserimento e cancellazione.\\
 \textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
 \textbf{Attore secondario:} Actorbase\\
 \textbf{Scopo e descrizione:} L'attore intende inserire manualmente un nuovo \gloss{item} all'interno di una \gloss{collezione} esistente. Deve inserire il valore associato alla chiave dell'item.\\
-\textbf{Precondizione:} Il server è in ascolto, l'attore ha inserito il comando per l'inserimento item manuale, il nome della collezione e la chiave da inserire.\\
+\textbf{Precondizione:} Il server è in ascolto, l'attore ha inserito il comando per l'inserimento item manuale, il nome della \gloss{collezione} e la chiave da inserire.\\
 \textbf{Scenario principale:}
 \begin{itemize}
 \item L'attore può inserire il valore associato alla chiave dell'item.
@@ -2081,7 +2106,7 @@ inserimento e cancellazione.\\
 \textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
 \textbf{Attore secondario:} Actorbase\\
 \textbf{Scopo e descrizione:} L'attore intende inserire manualmente un nuovo \gloss{item} all'interno di una \gloss{collezione} esistente. Deve inserire il \gloss{flag} di sovrascrittura item.\\
-\textbf{Precondizione:} Il server è in ascolto, l'attore ha inserito il comando per l'inserimento item manuale, il nome della collezione, la chiave e il valore dell'\gloss{item}.\\
+\textbf{Precondizione:} Il server è in ascolto, l'attore ha inserito il comando per l'inserimento item manuale, il nome della \gloss{collezione}, la chiave e il valore dell'\gloss{item}.\\
 \textbf{Scenario principale:}
 \begin{itemize}
 \item L'attore può inserire il \gloss{flag} di sovrascrittura item.
@@ -2133,7 +2158,7 @@ inserimento e cancellazione.\\
 \end{figure}
 \textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
 \textbf{Attore secondario:} Actorbase\\
-\textbf{Scopo e descrizione:} L'attore intende cancellare un item da una collezione.\\
+\textbf{Scopo e descrizione:} L'attore intende cancellare un item da una \gloss{collezione}.\\
 \textbf{Precondizioni:} Il server è in ascolto e l'attore intende cancellare un item.\\
 \textbf{Scenario principale:}
 \begin{itemize}
@@ -2146,20 +2171,20 @@ inserimento e cancellazione.\\
 
 \textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
 \textbf{Attore secondario:} Actorbase\\
-\textbf{Scopo e descrizione:} L'attore intende cancellare un \gloss{item} all'interno di una \gloss{collezione} esistente. Deve inserire il nome della collezione.\\
+\textbf{Scopo e descrizione:} L'attore intende cancellare un \gloss{item} all'interno di una \gloss{collezione} esistente. Deve inserire il nome della \gloss{collezione}.\\
 \textbf{Precondizione:} Il server è in ascolto e l'attore ha inserito il comando di cancellazione item.\\
 \textbf{Scenario principale:}
 \begin{itemize}
-\item L'attore può inserire il nome della collezione su cui effettuare la cancellazione.
+\item L'attore può inserire il nome della \gloss{collezione} su cui effettuare la cancellazione.
 \end{itemize}
-\textbf{Postcondizioni:} Il nome della collezione è stato inserito correttamente.
+\textbf{Postcondizioni:} Il nome della \gloss{collezione} è stato inserito correttamente.
 
 \subsection{UC2.3.2.2: Inserimento chiave item}
 
 \textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
 \textbf{Attore secondario:} Actorbase\\
 \textbf{Scopo e descrizione:} L'attore intende cancellare un \gloss{item} all'interno di una \gloss{collezione} esistente. Deve inserire la chiave dell'item.\\
-\textbf{Precondizione:} Il server è in ascolto, l'attore ha inserito il comando di cancellazione item e ha inserito il nome della collezione.\\
+\textbf{Precondizione:} Il server è in ascolto, l'attore ha inserito il comando di cancellazione item e ha inserito il nome della \gloss{collezione}.\\
 \textbf{Scenario principale:}
 \begin{itemize}
 \item L'attore può inserire la chiave dell'item da eliminare.
@@ -2184,24 +2209,24 @@ L'attore intende aggiungere item da file.\\
 \textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
 \textbf{Attore secondario:} Actorbase\\
 \textbf{Scopo e descrizione:}
-L'attore intende aggiungere item a una collezione.\\
+L'attore intende aggiungere item a una \gloss{collezione}.\\
 \textbf{Precondizioni:} Il server è in ascolto, l'attore ha inserito il comando di inserimento item e i parametri dell'item da inserire tra cui il flag di sovrascrittura inattivo.\\
 \textbf{Scenario principale:}
 \begin{itemize}
 \item Viene lanciata un'eccezione chiave già esistente.
 \end{itemize}
-\textbf{Postcondizioni:} L'aggiunta item fallisce, l'item non viene aggiunto alla collezione.
+\textbf{Postcondizioni:} L'aggiunta item fallisce, l'item non viene aggiunto alla \gloss{collezione}.
 
 \subsection{UC2.3.5: Lancio eccezione collezione inesistente}
 
 \textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
 \textbf{Attore secondario:} Actorbase\\
 \textbf{Scopo e descrizione:}
-L'attore intende cancellare un item da una collezione.\\
-\textbf{Precondizioni:} Il server è in ascolto, l'attore ha inserito il comando di cancellazione item e un nome collezione non già presente all'interno del sistema.\\
+L'attore intende cancellare un item da una \gloss{collezione}.\\
+\textbf{Precondizioni:} Il server è in ascolto, l'attore ha inserito il comando di cancellazione item e un nome \gloss{collezione} non già presente all'interno del sistema.\\
 \textbf{Scenario principale:}
 \begin{itemize}
-\item Viene lanciata un'eccezione collezione inesistente.
+\item Viene lanciata un'eccezione \gloss{collezione} inesistente.
 \end{itemize}
 \textbf{Postcondizioni:} La cancellazione item fallisce.
 
@@ -2251,7 +2276,7 @@ In caso di inserimento di nome \gloss{collezione} inesistente, o in caso di risu
 \textbf{Precondizione:} Il server è in ascolto, l'attore intende effettuare una ricerca di \gloss{item} all'interno del sistema.\\
 \textbf{Scenario principale:}
 \begin{itemize}
-\item UC2.4.1 Inserimento lista collezioni;
+\item UC2.4.1 Inserimento lista \gloss{collezioni};
 \item UC2.4.2 Inserimento chiave di ricerca.
 \end{itemize}
 \textbf{Postcondizioni:} Il sistema ha riportato la lista dei risultati di ricerca.
@@ -2260,20 +2285,20 @@ In caso di inserimento di nome \gloss{collezione} inesistente, o in caso di risu
 
 \textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
 \textbf{Attore secondario:} Actorbase\\
-\textbf{Scopo e descrizione:} L'attore intende effettuare una ricerca di \gloss{item} all'interno del sistema; deve inserire la lista delle collezioni su cui effettuare tale ricerca.\\
+\textbf{Scopo e descrizione:} L'attore intende effettuare una ricerca di \gloss{item} all'interno del sistema; deve inserire la lista delle \gloss{collezioni} su cui effettuare tale ricerca.\\
 \textbf{Precondizione:} Il server è in ascolto, l'attore ha inserito il comando ricerca.\\
 \textbf{Scenario principale:}
 \begin{itemize}
 \item L'attore può inserire la lista delle \gloss{collezioni}.
 \end{itemize}
-\textbf{Postcondizioni:} La lista di collezioni su cui effettuare la ricerca è stata inserita correttamente.
+\textbf{Postcondizioni:} La lista di \gloss{collezioni} su cui effettuare la ricerca è stata inserita correttamente.
 
 \subsubsection{UC2.4.2: Inserimento chiave di ricerca}
 
 \textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
 \textbf{Attore secondario:} Actorbase\\
 \textbf{Scopo e descrizione:} L'attore intende effettuare una ricerca di \gloss{item} all'interno del sistema; deve inserire la chiave di cui effettuare tale ricerca.\\
-\textbf{Precondizione:} Il server è in ascolto, l'attore ha inserito il comando ricerca e la lista di collezioni su cui effettuare la ricerca.\\
+\textbf{Precondizione:} Il server è in ascolto, l'attore ha inserito il comando ricerca e la lista di \gloss{collezioni} su cui effettuare la ricerca.\\
 \textbf{Scenario principale:}
 \begin{itemize}
 \item L'utente può inserire la chiave di ricerca
@@ -2317,7 +2342,7 @@ In caso di inserimento di nome \gloss{collezione} inesistente, o in caso di risu
 \textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
 \textbf{Attore secondario:} Actorbase\\
 \textbf{Scopo e descrizione:} L'attore intende modificare la propria password, deve inserire la nuova password.\\
-\textbf{Precondizione:} Il server è in ascolto, l'attore ha inserito il comando per la modifica password e ha inserito la vecchia password.
+\textbf{Precondizione:} Il server è in ascolto, l'attore ha inserito il comando per la modifica password e ha inserito la vecchia password.\\
 \textbf{Scenario principale:}
 \begin{itemize}
 \item L'attore può inserire la nuova password.
@@ -2516,7 +2541,7 @@ L'attore intende effettuare una modifica alla propria password, ha inserito il c
 \textbf{Attore secondario:} Actorbase\\
 \textbf{Scopo e descrizione:}
 L'attore intende effettuare una ricerca sull'intero database di item con una cerca chiave.\\
-\textbf{Precondizioni:} Il server è in ascolto, l'attore ha inserito il comando di ricerca, una lista di collezioni vuota e la chiave di ricerca.\\
+\textbf{Precondizioni:} Il server è in ascolto, l'attore ha inserito il comando di ricerca, una lista di \gloss{collezioni} vuota e la chiave di ricerca.\\
 \textbf{Scenario principale:}
 \begin{itemize}
 \item Vengono visualizzati tutti gli item relativi alla chiave inserita dell'intero database.
@@ -2641,7 +2666,7 @@ OBF1.1.10.7.2.1 & \multiLineCell{Funzionale\\Obbligatorio} & Il sistema ad attor
 \hline
 OBF1.1.10.7.3 & \multiLineCell{Funzionale\\Obbligatorio} & Il sistema ad attori dovrà permettere di effettuare un reset della password di un utente mediante interazioni tra \gloss{Clientactor}, \gloss{Main}, \gloss{Storefinder}, \gloss{Userkeeper} & \multiLineCell{UC1.8.3\\UC2.7.3\\}\\
 \hline
-OBF1.1.10.7.3.1 & \multiLineCell{Funzionale\\Obbligatorio} & Il sistema ad attori dovrà inviare un messaggio d'errore verso l'esterno nel caso in cui lo \gloss{username} dell'utentea cui resettare la password, mediante interazioni tra \gloss{Clientactor}, \gloss{Main}, \gloss{Storefinder} & \multiLineCell{UC1.8.5\\UC2.7.5\\}\\
+OBF1.1.10.7.3.1 & \multiLineCell{Funzionale\\Obbligatorio} & Il sistema ad attori dovrà inviare un messaggio d'errore verso l'esterno nel caso in cui lo \gloss{username} dell'utente cui resettare la password, mediante interazioni tra \gloss{Clientactor}, \gloss{Main}, \gloss{Storefinder} & \multiLineCell{UC1.8.5\\UC2.7.5\\}\\
 \hline
 OBF1.1.2 & \multiLineCell{Funzionale\\Obbligatorio} & All'interno del singolo \gloss{nodo} dovrà essere implementato l'attore \gloss{Clientactor} per gestire il ciclo di vita di una connessione dall'esterno & \multiLineCell{INTERNO\\UC1\\}\\
 \hline
@@ -2673,33 +2698,33 @@ OBF1.1.3.5 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{
 \hline
 OBF1.1.3.7 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{Main} dovrà gestire la ricezione del messaggio RemoveContributor & \multiLineCell{CAPITOLATO\\INTERNO\\UC1.3.6\\UC2.2.6\\}\\
 \hline
-OBF1.1.3.8 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{Main} dovrà gestire la ricezione del messaggio InitUserKeeper & \multiLineCell{INTERNO\\}\\
+OBF1.1.3.8 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{Main} dovrà gestire la ricezione del messaggio InitUserkeeper & \multiLineCell{INTERNO\\}\\
 \hline
-OBF1.1.3.9 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{Main} dovrà gestire la ricezione di tutti i messaggi dell'attore di tipo \gloss{StoreFinder} & \multiLineCell{CAPITOLATO\\INTERNO\\}\\
+OBF1.1.3.9 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{Main} dovrà gestire la ricezione di tutti i messaggi dell'attore di tipo \gloss{Storefinder} & \multiLineCell{CAPITOLATO\\INTERNO\\}\\
 \hline
 OBF1.1.4 & \multiLineCell{Funzionale\\Obbligatorio} & All'interno del singolo nodo dovrà essere implementato l'attore \gloss{Storefinder} per la gestione delle \gloss{collezioni} del \gloss{database} & \multiLineCell{CAPITOLATO\\UC1\\}\\
 \hline
-OBF1.1.4.1 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{StoreFinder} dovrà gestire la ricezione del messaggio Init & \multiLineCell{CAPITOLATO\\INTERNO\\}\\
+OBF1.1.4.1 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{Storefinder} dovrà gestire la ricezione del messaggio Init & \multiLineCell{CAPITOLATO\\INTERNO\\}\\
 \hline
-OBF1.1.4.2 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{StoreFinder} dovrà gestire la ricezione del messaggio DuplicateRequestSK & \multiLineCell{INTERNO\\UC1.4.1\\UC2.3.1\\}\\
+OBF1.1.4.2 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{Storefinder} dovrà gestire la ricezione del messaggio DuplicateRequestSK & \multiLineCell{INTERNO\\UC1.4.1\\UC2.3.1\\}\\
 \hline
-OBF1.1.4.3 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{StoreFinder} dovrà gestire la ricezione del messaggio GetItem & \multiLineCell{CAPITOLATO\\INTERNO\\UC1.5\\UC2.4\\}\\
+OBF1.1.4.3 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{Storefinder} dovrà gestire la ricezione del messaggio GetItem & \multiLineCell{CAPITOLATO\\INTERNO\\UC1.5\\UC2.4\\}\\
 \hline
-OBF1.1.4.4 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{StoreFinder} dovrà gestire la ricezione del messaggio RemoveItem & \multiLineCell{CAPITOLATO\\INTERNO\\UC1.4.2\\UC2.3.2\\}\\
+OBF1.1.4.4 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{Storefinder} dovrà gestire la ricezione del messaggio RemoveItem & \multiLineCell{CAPITOLATO\\INTERNO\\UC1.4.2\\UC2.3.2\\}\\
 \hline
-OBF1.1.4.5 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{StoreFinder} dovrà gestire la ricezione del messaggio Insert & \multiLineCell{CAPITOLATO\\INTERNO\\UC1.3.5\\UC1.4.1\\UC2.2.5\\UC2.3.1\\}\\
+OBF1.1.4.5 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{Storefinder} dovrà gestire la ricezione del messaggio Insert & \multiLineCell{CAPITOLATO\\INTERNO\\UC1.3.5\\UC1.4.1\\UC2.2.5\\UC2.3.1\\}\\
 \hline
 OBF1.1.5 & \multiLineCell{Funzionale\\Obbligatorio} & All'interno del singolo \gloss{nodo} dovrà essere implementato l'attore \gloss{Storekeeper} per gestire il contenuto delle \gloss{collezioni} & \multiLineCell{CAPITOLATO\\UC1\\}\\
 \hline
-OBF1.1.5.1 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{StoreKeeper} dovrà gestire la ricezione del messaggio Init & \multiLineCell{CAPITOLATO\\INTERNO\\}\\
+OBF1.1.5.1 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{Storekeeper} dovrà gestire la ricezione del messaggio Init & \multiLineCell{CAPITOLATO\\INTERNO\\}\\
 \hline
-OBF1.1.5.2 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{StoreKeeper} dovrà gestire la ricezione del messaggio GetItem & \multiLineCell{CAPITOLATO\\INTERNO\\UC1.14\\UC1.5\\UC2.12\\UC2.13\\UC2.4\\}\\
+OBF1.1.5.2 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{Storekeeper} dovrà gestire la ricezione del messaggio GetItem & \multiLineCell{CAPITOLATO\\INTERNO\\UC1.14\\UC1.5\\UC2.12\\UC2.13\\UC2.4\\}\\
 \hline
-OBF1.1.5.3 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{StoreKeeper} dovrà gestire la ricezione del messaggio GetAllItems & \multiLineCell{INTERNO\\UC1.13\\UC1.15\\UC1.5\\UC2.12\\UC2.13\\UC2.4\\}\\
+OBF1.1.5.3 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{Storekeeper} dovrà gestire la ricezione del messaggio GetAllItems & \multiLineCell{INTERNO\\UC1.13\\UC1.15\\UC1.5\\UC2.12\\UC2.13\\UC2.4\\}\\
 \hline
-OBF1.1.5.4 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{StoreKeeper} dovrà gestire la ricezione del messaggio Insert & \multiLineCell{CAPITOLATO\\INTERNO\\UC1.3.5\\UC1.4.1\\UC1.4.1.2\\UC2.2.5\\UC2.3.1\\UC2.3.1.2\\}\\
+OBF1.1.5.4 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{Storekeeper} dovrà gestire la ricezione del messaggio Insert & \multiLineCell{CAPITOLATO\\INTERNO\\UC1.3.5\\UC1.4.1\\UC1.4.1.2\\UC2.2.5\\UC2.3.1\\UC2.3.1.2\\}\\
 \hline
-OBF1.1.5.5 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{StoreKeeper} dovrà gestire la ricezione del messaggio RemoveItem & \multiLineCell{CAPITOLATO\\INTERNO\\UC1.4.2\\UC2.3.2\\}\\
+OBF1.1.5.5 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{Storekeeper} dovrà gestire la ricezione del messaggio RemoveItem & \multiLineCell{CAPITOLATO\\INTERNO\\UC1.4.2\\UC2.3.2\\}\\
 \hline
 OBF1.1.6 & \multiLineCell{Funzionale\\Obbligatorio} & All'interno del singolo \gloss{nodo} dovrà essere implementato l'attore \gloss{Warehouseman} per gestire la persistenza dei dati su disco & \multiLineCell{CAPITOLATO\\UC1\\}\\
 \hline
@@ -2711,7 +2736,7 @@ DEF1.1.7 & \multiLineCell{Funzionale\\Desiderabile} & All'interno del singolo \g
 \hline
 DEF1.1.7.1 & \multiLineCell{Funzionale\\Desiderabile} & L'attore di tipo \gloss{Ninja} dovrà gestire la ricezione del messaggio Update & \multiLineCell{INTERNO\\}\\
 \hline
-DEF1.1.7.2 & \multiLineCell{Funzionale\\Desiderabile} & L'attore di tipo \gloss{Ninja} dovrà poter cambiare il proprio contesto ricevendo il messaggio BecomeSK e importare tutti i messaggi dello StoreKeeper & \multiLineCell{INTERNO\\}\\
+DEF1.1.7.2 & \multiLineCell{Funzionale\\Desiderabile} & L'attore di tipo \gloss{Ninja} dovrà poter cambiare il proprio contesto ricevendo il messaggio BecomeSK e importare tutti i messaggi dello Storekeeper & \multiLineCell{INTERNO\\}\\
 \hline
 DEF1.1.8 & \multiLineCell{Funzionale\\Desiderabile} & All'interno del singolo \gloss{nodo} dovrà essere implementato l'attore \gloss{Manager} per la gestione del carico degli attori di tipo \gloss{Storekeeper} e \gloss{Storefinder} & \multiLineCell{CAPITOLATO\\UC1\\}\\
 \hline
@@ -2721,23 +2746,23 @@ OBF1.1.8.2 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{
 \hline
 OBF1.1.9 & \multiLineCell{Funzionale\\Obbligatorio} & All'interno del singolo \gloss{nodo} dovrà essere implementato l'attore \gloss{Userkeeper} per gestire gli utenti e i loro permessi sulle \gloss{collezioni} & \multiLineCell{INTERNO\\UC1\\UC1.3.5\\UC1.8\\}\\
 \hline
-OBF1.1.9.1 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{UserKeeper} dovrà gestire la ricezione del messaggio GetCollections & \multiLineCell{INTERNO\\UC1.3.5\\UC1.3.6\\UC2.2.5\\UC2.2.6\\}\\
+OBF1.1.9.1 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{Userkeeper} dovrà gestire la ricezione del messaggio GetCollections & \multiLineCell{INTERNO\\UC1.3.5\\UC1.3.6\\UC2.2.5\\UC2.2.6\\}\\
 \hline
-OBF1.1.9.2 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{UserKeeper} dovrà gestire la ricezione del messaggio GetReadCollections & \multiLineCell{INTERNO\\UC1.3.5\\UC1.3.6\\UC2.2.5\\UC2.2.6\\}\\
+OBF1.1.9.2 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{Userkeeper} dovrà gestire la ricezione del messaggio GetReadCollections & \multiLineCell{INTERNO\\UC1.3.5\\UC1.3.6\\UC2.2.5\\UC2.2.6\\}\\
 \hline
-OBF1.1.9.3 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{UserKeeper} dovrà gestire la ricezione del messaggio BindClient & \multiLineCell{INTERNO\\UC1.1\\UC2.1\\}\\
+OBF1.1.9.3 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{Userkeeper} dovrà gestire la ricezione del messaggio BindClient & \multiLineCell{INTERNO\\UC1.1\\UC2.1\\}\\
 \hline
-OBF1.1.9.4 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{UserKeeper} dovrà gestire la ricezione del messaggio GetPassword & \multiLineCell{INTERNO\\UC1.1\\UC2.1\\}\\
+OBF1.1.9.4 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{Userkeeper} dovrà gestire la ricezione del messaggio GetPassword & \multiLineCell{INTERNO\\UC1.1\\UC2.1\\}\\
 \hline
-OBF1.1.9.5 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{UserKeeper} dovrà gestire la ricezione del messaggio RemoveCollection & \multiLineCell{INTERNO\\UC1.3.6\\UC2.2.6\\}\\
+OBF1.1.9.5 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{Userkeeper} dovrà gestire la ricezione del messaggio RemoveCollection & \multiLineCell{INTERNO\\UC1.3.6\\UC2.2.6\\}\\
 \hline
-OBF1.1.9.6 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{UserKeeper} dovrà gestire la ricezione del messaggio AddCollection & \multiLineCell{INTERNO\\UC1.3.5\\UC2.2.5\\}\\
+OBF1.1.9.6 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{Userkeeper} dovrà gestire la ricezione del messaggio AddCollection & \multiLineCell{INTERNO\\UC1.3.5\\UC2.2.5\\}\\
 \hline
-OBF1.1.9.7 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{UserKeeper} dovrà gestire la ricezione del messaggio RemoveReadCollection & \multiLineCell{INTERNO\\UC1.3.6\\UC2.2.6\\}\\
+OBF1.1.9.7 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{Userkeeper} dovrà gestire la ricezione del messaggio RemoveReadCollection & \multiLineCell{INTERNO\\UC1.3.6\\UC2.2.6\\}\\
 \hline
-OBF1.1.9.8 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{UserKeeper} dovrà gestire la ricezione del messaggio AddReadCollection & \multiLineCell{INTERNO\\UC1.3.5\\UC2.2.5\\}\\
+OBF1.1.9.8 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{Userkeeper} dovrà gestire la ricezione del messaggio AddReadCollection & \multiLineCell{INTERNO\\UC1.3.5\\UC2.2.5\\}\\
 \hline
-OBF1.1.9.9 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{UserKeeper} dovrà gestire la ricezione del messaggio ChangePassword & \multiLineCell{INTERNO\\UC1.8.3\\UC2.7.3\\}\\
+OBF1.1.9.9 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{Userkeeper} dovrà gestire la ricezione del messaggio ChangePassword & \multiLineCell{INTERNO\\UC1.8.3\\UC2.7.3\\}\\
 \hline
 
 OBF2 & \multiLineCell{Funzionale\\Obbligatorio} & Il sistema dovrà fornire una \gloss{console} per inviare comandi al server (CLI) & \multiLineCell{CAPITOLATO\\UC1\\}\\
@@ -2756,7 +2781,7 @@ OBF2.1.2 & \multiLineCell{Funzionale\\Obbligatorio} & Il DSL dovrà fornire una 
 \hline
 OBF2.1.2.1 & \multiLineCell{Funzionale\\Obbligatorio} & Il DSL dovrà fornire un comando per la creazione di una nuova \gloss{collezione} utilizzabile mediante CLI & \multiLineCell{UC1.3.1\\}\\
 \hline
-OBF2.1.2.1.1 & \multiLineCell{Funzionale\\Obbligatorio} & Il comando di creazione nuova collezione dovrà permettere di inserire il nome della \gloss{collezione} da inserire & \multiLineCell{UC1.3.1.1\\}\\
+OBF2.1.2.1.1 & \multiLineCell{Funzionale\\Obbligatorio} & Il comando di creazione nuova \gloss{collezione} dovrà permettere di inserire il nome della \gloss{collezione} da inserire & \multiLineCell{UC1.3.1.1\\}\\
 \hline
 OBF2.1.2.2 & \multiLineCell{Funzionale\\Obbligatorio} & Il DSL dovrà fornire un comando per elencare i nomi delle \gloss{collezioni} presenti all’interno del \gloss{database} utilizzabile mediante CLI & \multiLineCell{CAPITOLATO\\INTERNO\\UC1.3.2\\VERBALE20160112\\}\\
 \hline
@@ -2776,7 +2801,7 @@ OBF2.1.2.5.1 & \multiLineCell{Funzionale\\Obbligatorio} & Il comando di aggiunta
 \hline
 OBF2.1.2.5.2 & \multiLineCell{Funzionale\\Obbligatorio} & Il comando di aggiunta \gloss{collaboratore} a \gloss{collezione} dovrà permettere l'inserimento dello username del \gloss{colalboratore} & \multiLineCell{UC1.3.5.2\\}\\
 \hline
-OBF2.1.2.5.3 & \multiLineCell{Funzionale\\Obbligatorio} & Il comando di aggiunta \gloss{collaboratore} a \gloss{collezione} dovrà permettere l'inserimento del tipo di permesso da applicare al collaboratore sulla collezione & \multiLineCell{UC1.3.5.3\\}\\
+OBF2.1.2.5.3 & \multiLineCell{Funzionale\\Obbligatorio} & Il comando di aggiunta \gloss{collaboratore} a \gloss{collezione} dovrà permettere l'inserimento del tipo di permesso da applicare al collaboratore sulla \gloss{collezione} & \multiLineCell{UC1.3.5.3\\}\\
 \hline
 OBF2.1.2.6 & \multiLineCell{Funzionale\\Obbligatorio} & Il DSL dovrà fornire un comando per rimuovere un \gloss{collaboratore} da una \gloss{collezione} del sistema utilizzabile mediante CLI & \multiLineCell{UC1.3.6\\}\\
 \hline
@@ -2829,6 +2854,12 @@ DEF2.1.3.3 & \multiLineCell{Funzionale\\Desiderabile} & La CLI dovrà visualizza
 OBF2.1.3.4 & \multiLineCell{Funzionale\\Obbligatorio} & La CLI dovrà visualizzare un messaggio di errore esplicativo in caso di inserimento di una chiave già esistente durante la procedura di inserimento nuovo \gloss{item} con \gloss{flag} di sovrascrittura attivo & \multiLineCell{UC1.4.4\\}\\
 \hline
 OBF2.1.3.5 & \multiLineCell{Funzionale\\Obbligatorio} & La CLI dovrà visualizzare un messaggio di errore esplicativo in caso di inserimento nome \gloss{collezione} non esistente all'interno del sistema durante la procedura di cancellazione \gloss{item} & \multiLineCell{UC1.4.5\\}\\
+\hline
+OBF2.1.3.6 & \multiLineCell{Funzionale\\Obbligatorio} & Il DSL dovrà fornire un comando per cancellare un \gloss{item} specificandone gli attributi da CLI & \multiLineCell{CAPITOLATO\\UC1.4.2\\}\\
+\hline
+OBF2.1.3.6.1 & \multiLineCell{Funzionale\\Obbligatorio} & Il comando di cancellazione \gloss{item} dovrà permettere di inserire il nome della \gloss{collezione} da cui rimuovere l'\gloss{item} & \multiLineCell{UC1.4.2.1\\}\\
+\hline
+OBF2.1.3.6.2 & \multiLineCell{Funzionale\\Obbligatorio} & Il comando di cancellazione \gloss{item} dovrà permettere di inserire la lista delle chiavi & \multiLineCell{UC1.4.2.2\\}\\
 \hline
 DEF2.1.4 & \multiLineCell{Funzionale\\Desiderabile} & Il DSL dovrà fornire un comando per richiedere aiuto generale sul sistema utilizzabile mediante CLI & \multiLineCell{UC1.2\\}\\
 \hline
@@ -3336,6 +3367,12 @@ OBF2.1.3.4 & \multiLineCell[t]{UC1.4.4\\}\\
 \hline
 OBF2.1.3.5 & \multiLineCell[t]{UC1.4.5\\}\\
 \hline
+OBF2.1.3.6 & \multiLineCell[t]{CAPITOLATO\\UC1.4.2\\}\\
+\hline
+OBF2.1.3.6.1 & \multiLineCell[t]{UC1.4.2.1\\}\\
+\hline
+OBF2.1.3.6.2 & \multiLineCell[t]{UC1.4.2.2\\}\\
+\hline
 DEF2.1.4 & \multiLineCell[t]{UC1.2\\}\\
 \hline
 DEF2.1.5 & \multiLineCell[t]{UC1.2.1\\}\\
@@ -3556,7 +3593,7 @@ OBQ12 & \multiLineCell[t]{INTERNO\\}\\
 \hline
 \textbf{Fonte} & \textbf{Requisiti}\\
 \hline
-CAPITOLATO & \multiLineCell[t]{DEF1.1.7 DEF1.1.8\\DEF1.1.8.1 DEF2.1.3.1.2\\DEF3 OBF1\\OBF1.1 OBF1.1.1\\OBF1.1.10 OBF1.1.3.1\\OBF1.1.3.2 OBF1.1.3.3\\OBF1.1.3.4 OBF1.1.3.5\\ OBF1.1.3.7\\OBF1.1.3.9 OBF1.1.4\\OBF1.1.4.1 OBF1.1.4.3\\OBF1.1.4.4 OBF1.1.4.5\\OBF1.1.5 OBF1.1.5.1\\OBF1.1.5.2 OBF1.1.5.4\\OBF1.1.5.5 OBF1.1.6\\OBF1.1.8.2 OBF2\\OBF2.1 OBF2.1.2.2\\OBF2.1.3 OBF2.1.3.1\\OBF2.1.3.1.1 OBQ10\\OBV5 OBV6\\OBV7}\\
+CAPITOLATO & \multiLineCell[t]{DEF1.1.7 DEF1.1.8\\DEF1.1.8.1 DEF2.1.3.1.2\\DEF3 OBF1\\OBF1.1 OBF1.1.1\\OBF1.1.10 OBF1.1.3.1\\OBF1.1.3.2 OBF1.1.3.3\\OBF1.1.3.4 OBF1.1.3.5\\ OBF1.1.3.7\\OBF1.1.3.9 OBF1.1.4\\OBF1.1.4.1 OBF1.1.4.3\\OBF1.1.4.4 OBF1.1.4.5\\OBF1.1.5 OBF1.1.5.1\\OBF1.1.5.2 OBF1.1.5.4\\OBF1.1.5.5 OBF1.1.6\\OBF1.1.8.2 OBF2\\OBF2.1 OBF2.1.2.2\\OBF2.1.3 OBF2.1.3.1\\OBF2.1.3.1.1 OBF2.1.3.6 OBQ10\\OBV5 OBV6\\OBV7}\\
 \hline
 INTERNO & \multiLineCell[t]{DEF1.1.7.1 DEF1.1.7.2\\DEF1.1.8.1 DEF2.1.2.7\\DEF2.1.3.1.2 DEF3.8\\DEF3.8.1 DEF3.8.2\\DEF3.8.3 DEV8\\DEV9 OBF1\\OBF1.1 OBF1.1.1\\OBF1.1.1.1 OBF1.1.1.1.1\\OBF1.1.1.1.2 OBF1.1.1.1.3\\OBF1.1.10 OBF1.1.2\\OBF1.1.2.1 OBF1.1.2.2\\OBF1.1.2.3 OBF1.1.2.4\\OBF1.1.2.5 OBF1.1.2.6\\OBF1.1.3 OBF1.1.3.1\\OBF1.1.3.2 OBF1.1.3.3\\OBF1.1.3.4 OBF1.1.3.5\\OBF1.1.3.7\\OBF1.1.3.8 OBF1.1.3.9\\OBF1.1.4.1 OBF1.1.4.2\\OBF1.1.4.3 OBF1.1.4.4\\OBF1.1.4.5 OBF1.1.5.1\\OBF1.1.5.2 OBF1.1.5.3\\OBF1.1.5.4 OBF1.1.5.5\\OBF1.1.6.1 OBF1.1.6.2\\OBF1.1.8.2 OBF1.1.9\\OBF1.1.9.1 OBF1.1.9.2\\OBF1.1.9.3 OBF1.1.9.4\\OBF1.1.9.5 OBF1.1.9.6\\OBF1.1.9.7 OBF1.1.9.8\\OBF1.1.9.9 OBF2.1.2.2\\OBF2.1.2.3 OBF2.1.3\\OBF2.1.3.1 OBF2.1.3.1.1\\OBQ11 OBQ12\\OBV4 OBV5\\OBV6 OBV7\\}\\
 \hline
@@ -3644,7 +3681,11 @@ UC1.4.1.2 & \multiLineCell[t]{DEF2.1.3.1.2 OBF1.1.10.3.1\\OBF1.1.5.4}\\
 \hline
 UC1.4.1.2.1 & \multiLineCell[t]{DEF2.1.3.1.2.1\\}\\
 \hline
-UC1.4.2 & \multiLineCell[t]{OBF1.1.10.3.4 OBF1.1.4.4\\OBF1.1.5.5}\\
+UC1.4.2 & \multiLineCell[t]{OBF1.1.10.3.4 OBF1.1.4.4\\OBF1.1.5.5\\OBF2.1.3.6}\\
+\hline
+UC1.4.2.1 & \multiLineCell[t]{OBF2.1.3.6.1\\}\\
+\hline
+UC1.4.2.2 & \multiLineCell[t]{OBF2.1.3.6.2\\}\\
 \hline
 UC1.4.3 & \multiLineCell[t]{DEF2.1.3.2\\}\\
 \hline
@@ -3829,6 +3870,518 @@ UC2.8 & \multiLineCell[t]{DEF3.1.3 DEF3.2.4.4\\OBF1.1.10.1.1\\}\\
 UC2.9 & \multiLineCell[t]{DEF3.7.3 OBF1.1.10.5.1\\}\\
 \hline
 VERBALE20160112 & \multiLineCell[t]{DEF2.1.2.7 DEF2.1.3.1.2\\DEF3 OBF2.1.1\\OBF2.1.2.2 OBF2.1.2.3\\OBF2.1.2.4}\\
+\hline
+\end{longtable}
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                 TRACCIAMENTO REQUISITI-TEST                    %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Tracciamento Requisiti-Test}
+
+I requisiti che non hanno test abbinati è stato previsto che
+saranno mappati successivamente dai test di unità.
+
+\begin{longtable}[H]{|l|p{4cm}|p{4cm}|}
+\hline
+\textbf{Requisito} & \textbf{Test di sistema} & \textbf{Test di validazione}\\
+\hline
+OBF1 & TS.OBF1 &  \\
+\hline
+OBF1.1 & TS.OBF1.1 & TV1 \\
+\hline
+OBF1.1.1 & TS.OBF1.1.1 & \\
+\hline
+OBF1.1.1.1 & & \\
+\hline
+OBF1.1.1.1.1 & & \\
+\hline
+OBF1.1.1.1.2 & & \\
+\hline
+OBF1.1.1.1.3 & & \\
+\hline
+OBF1.1.10 & & \\
+\hline
+OBF1.1.10.1 & TS.OBF1.1.10.1 & TV2 \\
+\hline
+OBF1.1.10.1.1 & & \\
+\hline
+OBF1.1.10.2 &  & \\
+\hline
+OBF1.1.10.2.1 & TS.OBF1.1.10.2.1 & TV5 \\
+\hline
+OBF1.1.10.2.1.1 & & \\
+\hline
+OBF1.1.10.2.2 & TS.OBF1.1.10.2.2 & TV6\\
+\hline
+OBF1.1.10.2.3 & TS.OBF1.1.10.2.3 & TV7\\
+\hline
+OBF1.1.10.2.3.1 & & \\
+\hline
+OBF1.1.10.2.3.2 & & \\
+\hline
+OBF1.1.10.2.4 & TS.OBF1.1.10.2.4 & TV8\\
+\hline
+OBF1.1.10.2.4.1 & & \\
+\hline
+OBF1.1.10.2.5 & TS.OBF1.1.10.2.5 & TV9\\
+\hline
+OBF1.1.10.2.5.1 & & \\
+\hline
+OBF1.1.10.2.5.2 & & \\
+\hline
+OBF1.1.10.2.5.3 & & \\
+\hline
+OBF1.1.10.2.5.4 & & \\
+\hline
+OBF1.1.10.2.6 & TS.OBF1.1.10.2.6 & TV10\\
+\hline
+OBF1.1.10.2.6.1 & & \\
+\hline
+OBF1.1.10.2.7 & TS.OBF1.1.10.2.7 & TV11\\
+\hline
+OBF1.1.10.3 & & \\
+\hline
+OBF1.1.10.3.1 & TS.OBF1.1.10.3.1 & TV12\\
+\hline
+OBF1.1.10.3.2 & TS.OBF1.1.10.3.2 & TV12\\
+\hline
+OBF1.1.10.3.3 & TS.OBF1.1.10.3.3 & \\
+\hline
+OBF1.1.10.3.4 & TS.OBF1.1.10.3.4 & TV14\\
+\hline
+OBF1.1.10.3.5 & TS.OBF1.1.10.3.5 & \\
+\hline
+OBF1.1.10.4 & TS.OBF1.1.10.4 & TV15 TV16 TV17 TV18\\
+\hline
+OBF1.1.10.5 & TS.OBF1.1.10.5 & TV19\\
+\hline
+OBF1.1.10.5.1 & & \\
+\hline
+OBF1.1.10.6 & TS.OBF1.1.10.6 & TV20\\
+\hline
+OBF1.1.10.7 & & \\
+\hline
+OBF1.1.10.7.1 & TS.OBF1.1.10.7.1 & TV21\\
+\hline
+OBF1.1.10.7.1.1 & & \\
+\hline
+OBF1.1.10.7.2 & TS.OBF1.1.10.7.2 & TV22\\
+\hline
+OBF1.1.10.7.2.1 & & \\
+\hline
+OBF1.1.10.7.3 & TS.OBF1.1.10.7.3 & TV23\\
+\hline
+OBF1.1.10.7.3.1 & & \\
+\hline
+OBF1.1.2 & & \\
+\hline
+OBF1.1.2.1 & & \\
+\hline
+OBF1.1.2.2 &  & \\
+\hline
+OBF1.1.2.3 &  & \\
+\hline
+OBF1.1.2.4 &  & \\
+\hline
+OBF1.1.2.5 &  & \\
+\hline
+OBF1.1.2.6 &  & \\
+\hline
+OBF1.1.3 &  & \\
+\hline
+OBF1.1.3.1 &  &\\
+\hline
+OBF1.1.3.2 &  &\\
+\hline
+OBF1.1.3.3 &  &\\
+\hline
+OBF1.1.3.4 &  &\\
+\hline
+OBF1.1.3.5 &  &\\
+%\hline
+%OBF1.1.3.6 & &\\
+\hline
+OBF1.1.3.7 &  &\\
+\hline
+OBF1.1.3.8 &  &\\
+\hline
+OBF1.1.3.9 &  &\\
+\hline
+OBF1.1.4 &  &\\
+\hline
+OBF1.1.4.1 &  &\\
+\hline
+OBF1.1.4.2 &  &\\
+\hline
+OBF1.1.4.3 &  &\\
+\hline
+OBF1.1.4.4 &  &\\
+\hline
+OBF1.1.4.5 &  &\\
+\hline
+OBF1.1.5 &  &\\
+\hline
+OBF1.1.5.1 &  &\\
+\hline
+OBF1.1.5.2 &  &\\
+\hline
+OBF1.1.5.3 &  &\\
+\hline
+OBF1.1.5.4 &  &\\
+\hline
+OBF1.1.5.5 &  &\\
+\hline
+OBF1.1.6 & &\\
+\hline
+OBF1.1.6.1 &  &\\
+\hline
+OBF1.1.6.2 &  &\\
+\hline
+DEF1.1.7 & &\\
+\hline
+DEF1.1.7.1 & &\\
+\hline
+DEF1.1.7.2 & &\\
+\hline
+DEF1.1.8 & &\\
+\hline
+DEF1.1.8.1 & &\\
+\hline
+OBF1.1.8.2 &  &\\
+\hline
+OBF1.1.9 &  &\\
+\hline
+OBF1.1.9.1 &  &\\
+\hline
+OBF1.1.9.2 &  &\\
+\hline
+OBF1.1.9.3 &  &\\
+\hline
+OBF1.1.9.4 &  &\\
+\hline
+OBF1.1.9.5 &  &\\
+\hline
+OBF1.1.9.6 &  &\\
+\hline
+OBF1.1.9.7 &  &\\
+\hline
+OBF1.1.9.8 &  &\\
+\hline
+OBF1.1.9.9 &  &\\
+\hline
+OBF2 & TS.OBF2 & \\
+\hline
+OBF2.1 & TS.OBF2.1 &\\
+\hline
+OBF2.1.1 & TS.OBF2.1.1 & TV2.1\\
+\hline
+OBF2.1.1.1 & & TV2.2\\
+\hline
+OBF2.1.1.2 & & TV2.2\\
+\hline
+OBF2.1.1.3 & & \\
+\hline
+OBF2.1.2 & & \\
+\hline
+OBF2.1.2.1 & TS.OBF2.1.2.1 & TV5.1\\
+\hline
+OBF2.1.2.1.1 & & TV5.1\\
+\hline
+OBF2.1.2.2 & & TV6.1\\
+\hline
+OBF2.1.2.3 & TS.OBF2.1.2.3 & TV8.1\\
+\hline
+OBF2.1.2.3.1 & & TV8.2\\
+\hline
+OBF2.1.2.4 & TS.OBF2.1.2.4 & TV7.1\\
+\hline
+OBF2.1.2.4.1 & & TV7.2\\
+\hline
+OBF2.1.2.4.2 & & TV7.2\\
+\hline
+OBF2.1.2.5 & TS.OBF2.1.2.5 & TV9.1\\
+\hline
+OBF2.1.2.5.1 & & TV9.2\\
+\hline
+OBF2.1.2.5.2 & & TV9.2\\
+\hline
+OBF2.1.2.5.3 & & TV9.2\\
+\hline
+OBF2.1.2.6 & TS.OBF2.1.2.6 & TV10.1\\
+\hline
+OBF2.1.2.6.1 & & TV10.2\\
+\hline
+OBF2.1.2.6.2 & & TV10.2\\
+\hline
+DEF2.1.2.7 & TS.OBF2.1.2.7 & TV11.1\\
+\hline
+DEF2.1.2.7.1 & & TV11.2\\
+\hline
+OBF2.1.2.8 &  &\\
+\hline
+OBF2.1.2.9 &  &\\
+\hline
+OBF2.1.2.10 &  &\\
+\hline
+OBF2.1.2.11 &  &\\
+\hline
+OBF2.1.2.12 &  &\\
+\hline
+OBF2.1.2.13 &  &\\
+\hline
+OBF2.1.2.14 &  &\\
+\hline
+OBF2.1.3 &  &\\
+\hline
+OBF2.1.3.1 & TS.OBF2.1.3.1 & TV12.1\\
+\hline
+OBF2.1.3.1.1 & TS.OBF2.1.3.1.1 & TV12.1\\
+\hline
+OBF2.1.3.1.1.1 & & TV12.2\\
+\hline
+OBF2.1.3.1.1.2 & & TV12.2\\
+\hline
+OBF2.1.3.1.1.3 & & TV12.2\\
+\hline
+OBF2.1.3.1.1.4 & & TV12.2\\
+\hline
+OBF2.1.3.1.1.5 & & TV12.2\\
+\hline
+DEF2.1.3.1.2 & TS.OBF2.1.3.1.2 & TV13.1\\
+\hline
+DEF2.1.3.1.2.1 & & TV13.2\\
+\hline
+DEF2.1.3.2 & &\\ %errore
+\hline
+DEF2.1.3.3 & &\\ %errore
+\hline
+OBF2.1.3.4 & &\\ %errore
+\hline
+OBF2.1.3.5 & &\\ %errore
+\hline
+OBF2.1.3.6 & TS.OBF2.1.3.6 & TV14.1\\
+\hline
+OBF2.1.3.6.1 & & TV14.2\\
+\hline
+OBF2.1.3.6.2 & & TV14.2\\
+\hline
+DEF2.1.4 & TS.DEF2.1.4 & TV3 TV3.1\\
+\hline
+DEF2.1.5 & TS.DEF2.1.5 & TV4 TV4.1\\
+\hline
+DEF2.1.5.1 & & TV4.2\\
+\hline
+OBF2.1.6 & TS.OBF2.1.6 & TV15.1 TV16.1 TV17.1 TV18.1\\
+\hline
+OBF2.1.6.1 & & TV15.2 TV16.2 TV17.2 TV18.2\\
+\hline
+OBF2.1.6.2 & & TV15.2 TV16.2 TV17.2 TV18.2\\
+\hline
+OBF2.1.7 & TS.OBF2.1.7 & TV19.1\\
+\hline
+OBF2.1.7.1 & & TV19.2\\
+\hline
+OBF2.1.7.2 & & TV19.2\\
+\hline
+OBF2.1.7.3 & & TV19.2\\
+\hline
+OBF2.1.7.4 & &\\ %errore
+\hline
+OBF2.1.7.5 & &\\ % errore
+\hline
+OBF2.1.7.6 & &\\ % errore
+\hline
+OBF2.1.8 & TS.OBF2.1.8 & TV20.1\\
+\hline
+OBF2.1.9 & &\\
+\hline
+OBF2.1.9.1 & TS.OBF2.1.9.1 & TV21.1\\
+\hline
+OBF2.1.9.1.1 & & TV21.2\\
+\hline
+OBF2.1.9.1.2 & & TV21.2\\
+\hline
+OBF2.1.9.2 & TS.OBF2.1.9.2 & TV22.1\\
+\hline
+OBF2.1.9.2.1 & & TV22.2\\
+\hline
+OBF2.1.9.2.2 & & TV22.2\\
+\hline
+OBF2.1.9.3 & TS.OBF2.1.9.3 & TV23.1\\
+\hline
+OBF2.1.9.3.1 & & TV23.2\\
+\hline
+OBF2.1.9.3.2 & & TV23.2\\
+\hline
+OBF2.1.9.4 & &\\ % errore
+\hline
+OBF2.1.9.5 & &\\ % errore
+\hline
+OBF2.1.9.6 & &\\ % errore
+\hline
+DEF3 & TS.DEF3 & \\
+\hline
+DEF3.1 & TS.DEF3.1 & TB2.1\\
+\hline
+DEF3.1.1 & & TV2.2\\
+\hline
+DEF3.1.2 & & TV2.2\\
+\hline
+DEF3.1.3 & &\\
+\hline
+DEF3.2 & &\\
+\hline
+DEF3.2.1 & TS.DEF3.2.1 & TV5.1 \\
+\hline
+DEF3.2.1.1 & & TV5.2\\
+\hline
+DEF3.2.1.2 & &\\
+\hline
+DEF3.2.2 & TS.DEF3.2.2 & TV6.1\\
+\hline
+DEF3.2.3 & TS.DEF3.2.3 & TV8.1\\
+\hline
+DEF3.2.3.1 & & TV8.2\\
+\hline
+DEF3.2.3.2 & & \\
+\hline
+DEF3.2.4 & TS.DEF3.2.4 & TV7.1\\
+\hline
+DEF3.2.4.1 & & TV7.2\\
+\hline
+DEF3.2.4.2 & & TV7.2\\
+\hline
+DEF3.2.4.3 & & \\
+\hline
+DEF3.2.4.4 & & \\
+\hline
+DEF3.2.5 & TS.DEF3.2.5 & TV9.1\\
+\hline
+DEF3.2.5.1 & & TV9.2\\
+\hline
+DEF3.2.5.2 & & TV9.2\\
+\hline
+DEF3.2.5.3 & & \\
+\hline
+DEF3.2.5.4 & & \\
+\hline
+DEF3.2.5.5 & & TV9.2\\
+\hline
+DEF3.2.6 & TS.DEF3.2.6 & TV10.1\\
+\hline
+DEF3.2.6.1 & & TV10.2\\
+\hline
+DEF3.2.6.2 & & TV10.2\\
+\hline
+DEF3.2.6.3 & & \\
+\hline
+DEF3.2.7 & TS.DEF3.2.7 & TV11.1\\
+\hline
+DEF3.2.7.1 & & TV11.2\\
+\hline
+DEF3.2.7.2 & & TV11.2\\
+\hline
+DEF3.3 & & \\
+\hline
+DEF3.3.1 & TS.DEF3.3.1 & TV12.1\\
+\hline
+DEF3.3.1.1 & TS.DEF3.3.1.1 & TV12.1\\
+\hline
+DEF3.3.1.1.1 & & TV12.2\\
+\hline
+DEF3.3.1.1.2 & & TV12.2\\
+\hline
+DEF3.3.1.1.3 & & TV12.2\\
+\hline
+DEF3.3.1.1.4 & & TV12.2\\
+\hline
+DEF3.3.1.2 & TS.DEF3.3.1.2 & TV13.1\\
+\hline
+DEF3.3.1.2.1 & & TV13.2\\
+\hline
+DEF3.3.1.2.2 & & \\
+\hline
+DEF3.3.1.2.3 & & \\
+\hline
+DEF3.3.1.4 & & \\
+\hline
+DEF3.3.2 & TS.DEF3.3.2 & TV14.1\\
+\hline
+DEF3.3.2.1 & & TV14.2\\
+\hline
+DEF3.3.2.2 & & TV14.2\\
+\hline
+DEF3.3.2.3 & & \\ %eccezione
+\hline
+DEF3.4 & TS.DEF3.4 & TV15.1 TV16.1 TV17.1 TV18.1\\
+\hline
+DEF3.4.1 & & TV15.2 TV16.2 TV17.2 TV18.2\\
+\hline
+DEF3.4.2 & & TV15.2 TV16.2 TV17.2 TV18.2\\
+\hline
+DEF3.5 & TS.DEF3.5 & \\
+\hline
+DEF3.6 & & \\
+\hline
+DEF3.6.1 & TS.DEF3.6.1 & TV21.1\\
+\hline
+DEF3.6.1.1 & & TV21.2\\
+\hline
+DEF3.6.2 & TS.DEF3.6.2 & TV22.1\\
+\hline
+DEF3.6.2.1 & & TV22.2\\
+\hline
+DEF3.6.3 & TS.DEF3.6.3 & TV23.1\\
+\hline
+DEF3.6.3.1 & & TV23.2\\
+\hline
+DEF3.6.4 & & \\ % eccezione
+\hline
+DEF3.6.5 & & \\ % eccezione
+\hline
+DEF3.6.6 & & \\ % eccezione
+\hline
+DEF3.7 & TS.DEF3.7 & TV19.1\\
+\hline
+DEF3.7.1 & & TV19.2\\
+\hline
+DEF3.7.2 & & TV19.2\\
+\hline
+DEF3.7.3 & & \\
+\hline
+DEF3.7.4 & & \\
+\hline
+DEF3.8 & TS.DEF3.8 & \\
+\hline
+DEF3.8.1 & & \\
+\hline
+DEF3.8.2 & & \\
+\hline
+DEF3.8.3 & & \\
+\hline
+OBV4 & TS.OBV4 & \\
+\hline
+OBV5 & TS.OB5 & \\
+\hline
+OBV6 & TS.OBV6 & \\
+\hline
+OBV7 & TS.OBV7 & \\
+\hline
+DEV8 & TS.DEV8 & \\
+\hline
+DEV9 & TS.DEV9 & \\
+\hline
+OBQ10 & TS.OBQ10 & \\
+\hline
+OBQ11 & TS.OBQ11 & \\
+\hline
+OBQ12 & TS.OBQ12 & \\
 \hline
 \end{longtable}
 
