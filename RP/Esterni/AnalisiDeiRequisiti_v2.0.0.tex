@@ -676,7 +676,8 @@ L'attore ha appena avviato la \gloss{CLI}, risulta essere non autenticato e può
 \textbf{Precondizione:} Il server è in ascolto e l'attore intende esportare il contenuto di una o più \gloss{collezioni} su file.
 \textbf{Scenario principale:}
 \begin{itemize}
-\item UC1.3.7.1\ -\ Inserimento lista di \gloss{collezioni} da esportare. %TODO bisogna emttere il sotto caso d'uso inserire lista \gloss{collezioni}?
+\item UC1.3.7.1\ -\ Inserimento lista di \gloss{collezioni} da esportare;
+\item UC1.3.7.2\ -\ Inserimento path.
 \end{itemize}
 \textbf{Postcondizione:} Il contenuto delle \gloss{collezioni} selezionate è stato esportato su file.
 
@@ -689,7 +690,18 @@ L'attore ha appena avviato la \gloss{CLI}, risulta essere non autenticato e può
 \begin{itemize}
 \item Inserimento lista di \gloss{collezioni} da esportare.
 \end{itemize}
-\textbf{Postcondizione:} Il contenuto delle \gloss{collezioni} selezionate è stato esportato su file.
+\textbf{Postcondizione:} La lista di \gloss{collezioni} da esportare è stata inserita con successo.
+
+\subsubsection{UC1.3.7.2: Inserimento path file}
+
+\textbf{Attore primario:} Utente autenticato, utente amministratore\\
+\textbf{Scopo e descrizione:} L'attore intende esportare su file il contenuto di una o più \gloss{collezioni}\\
+\textbf{Precondizione:} Il server è in ascolto e l'attore intende esportare il contenuto di una o più \gloss{collezioni} su file.
+\textbf{Scenario principale:}
+\begin{itemize}
+\item Inserimento del \gloss{path} del file su cui si vogliono esportare le \gloss{collezioni}.
+\end{itemize}
+\textbf{Postcondizione:} Il \gloss{path} del file su cui esportare le \gloss{collezioni} è stato inserito con successo.
 
 \subsection{UC1.3.8: Visualizzazione errore collezione inesistente}
 
@@ -1835,7 +1847,8 @@ L'attore intende effettuare login al database da un programma \gloss{Scala} este
 \textbf{Precondizione:} Il server è in ascolto e l'attore intende esportare il contenuto di una o più collezioni su file.\\
 \textbf{Scenario principale:}
 \begin{itemize}
-\item UC2.2.7.1 Inserimento lista collezioni da esportare.
+\item UC2.2.7.1 Inserimento lista collezioni da esportare;
+\item UC2.2.7.2 Inserimento path.
 \end{itemize}
 \textbf{Postcondizione:} Il contenuto delle collezioni selezionate è stato esportato su file.
 
@@ -1849,7 +1862,19 @@ L'attore intende effettuare login al database da un programma \gloss{Scala} este
 \begin{itemize}
 \item L'attore può inserire la lista collezioni da esportare.
 \end{itemize}
-\textbf{Postcondizione:} La lista delle collezioni da esportare è stato inserito correttamente
+\textbf{Postcondizione:} La lista delle collezioni da esportare è stato inserito correttamente.
+
+\subsubsection{UC2.2.7.2: Inserimento path}
+
+\textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
+\textbf{Attore secondario:} Actorbase\\
+\textbf{Scopo e descrizione:} L'attore intende esportare su file il contenuto di una o più collezioni da un programma \gloss{Scala} esterno.\\
+\textbf{Precondizione:} Il server è in ascolto e l'attore ha inserito il comando per l'esportazione di una o più collezioni su file.\\
+\textbf{Scenario principale:}
+\begin{itemize}
+\item L'attore può inserire il \gloss{path} del file su cui si vogliono esportare le \gloss{collezioni} selezionate.
+\end{itemize}
+\textbf{Postcondizione:} Il \gloss{path} del file su cui esportare le \gloss{collezioni} è stato inserito correttamente.
 
 \subsection{UC2.2.8: Lancio eccezione collezione già esistente}
 
