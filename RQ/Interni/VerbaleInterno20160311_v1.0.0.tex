@@ -1,0 +1,90 @@
+
+\documentclass{scalatekids-article}
+\def\changemargin#1#2{\list{}{\rightmargin#2\leftmargin#1}\item[]}
+\let\endchangemargin=\endlist
+\begin{document}
+\lfoot{Verbale esterno 2016-03-08 1.0.0}
+\newgeometry{top=3.5cm}
+\begin{titlepage}
+  \begin{center}
+    \begin{center}
+      \includegraphics[width=10cm]{sklogo.png}
+    \end{center}
+    \vspace{1cm}
+    \begin{Huge}
+      \begin{center}
+        \textbf{Verbale Interno 2016-03-11}
+      \end{center}
+    \end{Huge}
+    \vspace{11pt}
+    \bgroup
+    \def\arraystretch{1.3}
+    \begin{tabular}{r|l}
+      \multicolumn{2}{c}{\textbf{Informazioni sul documento}} \\
+      \hline
+      \setbox0=\hbox{0.0.1\unskip}\ifdim\wd0=0pt
+      \\
+      \else
+      \textbf{Versione} & 1.0.0\\
+      \fi
+      \textbf{Redazione} & \multiLineCell[t]{Marco Boseggia}\\
+      \textbf{Verifica} & \multiLineCell[t]{Andrea Giacomo Baldan}\\
+      \textbf{Approvazione} & \multiLineCell[t]{Giacomo Vanin}\\
+      \textbf{Uso} & Interno\\
+      \textbf{Lista di Distribuzione} & \multiLineCell[t]{ScalateKids\\Prof. Tullio Vardanega\\Prof. Riccardo Cardin}\\
+    \end{tabular}
+    \egroup
+    \vspace{22pt}
+  \end{center}
+\end{titlepage}
+\restoregeometry
+\clearpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+\begin{flushleft}
+  \vspace{0cm}
+         {\large\bfseries Diario delle modifiche \par}
+\end{flushleft}
+\vspace{0cm}
+\begin{center}
+  \begin{tabular}{| l | l | l | l | l |}
+    \hline
+    Versione & Autore & Ruolo & Data & Descrizione \\
+    \hline
+    1.0.0 & Giacomo Vanin & Responsabile & 2016-03-11 & Validazione documento\\
+    \hline
+    0.1.1 & Andrea Giacomo Baldan & Verificatore & 2016-03-11 & Verifica documento\\
+    \hline
+    0.1.0 & Marco Boseggia & Progettista & 2016-03-11 & Prima stesura documento\\
+    \hline
+    0.0.1 & Marco Boseggia & Progettista & 2016-03-11 & Creazione scheletro del documento\\
+    \hline
+  \end{tabular}
+\end{center}
+\tableofcontents
+\newpage
+\section{Informazioni sulla riunione}
+\begin{itemize}
+\item \textbf{Data}: 2016-03-11
+\item \textbf{Luogo}: Torre Archimede
+\item \textbf{Orario d'inizio}: 11:15
+\item \textbf{Durata}: 90'
+\item \textbf{Partecipanti interni}: \textit{ScalateKids}
+  \begin{itemize}
+  \item Andrea Giacomo Baldan
+  \item Alberto De Agostini
+  \item Marco Boseggia
+  \item Michael Munaro
+  \item Francesco Agostini
+  \item Giacomo Vanin
+  \item Davide Trevisan
+  \end{itemize}
+\end{itemize}
+\section{Decisioni prese}
+\begin{itemize}
+  \item Il parser andrà messo nella CLI
+  \item È da definire un protocollo di comunicazione client-server
+  \item È stato scelto di implementare un Driver senza parser con metodi diretti (versione 2 nel documento draw.io)%TODO
+\end{itemize}
+
+\end{document}

@@ -1,0 +1,150 @@
+\documentclass{scalatekids-article}
+\def\changemargin#1#2{\list{}{\rightmargin#2\leftmargin#1}\item[]}
+\let\endchangemargin=\endlist
+\begin{document}
+\lfoot{Verbale esterno 2016-03-08 1.0.0}
+\newgeometry{top=3.5cm}
+\begin{titlepage}
+  \begin{center}
+    \begin{center}
+      \includegraphics[width=10cm]{sklogo.png}
+    \end{center}
+    \vspace{1cm}
+    \begin{Huge}
+      \begin{center}
+        \textbf{Verbale Esterno 2016-03-08}
+      \end{center}
+    \end{Huge}
+    \vspace{11pt}
+    \bgroup
+    \def\arraystretch{1.3}
+    \begin{tabular}{r|l}
+      \multicolumn{2}{c}{\textbf{Informazioni sul documento}} \\
+      \hline
+      \setbox0=\hbox{0.0.1\unskip}\ifdim\wd0=0pt
+      \\
+      \else
+      \textbf{Versione} & 1.0.0\\
+      \fi
+      \textbf{Redazione} & \multiLineCell[t]{Marco Boseggia}\\
+      \textbf{Verifica} & \multiLineCell[t]{Andrea Giacomo Baldan}\\
+      \textbf{Approvazione} & \multiLineCell[t]{Giacomo Vanin}\\
+      \textbf{Uso} & Interno\\
+      \textbf{Lista di Distribuzione} & \multiLineCell[t]{ScalateKids\\Prof. Tullio Vardanega\\Prof. Riccardo Cardin}\\
+    \end{tabular}
+    \egroup
+    \vspace{22pt}
+  \end{center}
+\end{titlepage}
+\restoregeometry
+\clearpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+\begin{flushleft}
+  \vspace{0cm}
+         {\large\bfseries Diario delle modifiche \par}
+\end{flushleft}
+\vspace{0cm}
+\begin{center}
+  \begin{tabular}{| l | l | l | l | l |}
+    \hline
+    Versione & Autore & Ruolo & Data & Descrizione \\
+    \hline
+    1.0.0 & Giacomo Vanin & Responsabile & 2016-03-08 & Validazione documento\\
+    \hline
+    0.1.1 & Andrea Giacomo Baldan & Verificatore & 2016-03-08 & Verifica documento\\
+    \hline
+    0.1.0 & Marco Boseggia & Progettista & 2016-03-08 & Prima stesura documento\\
+    \hline
+    0.0.1 & Marco Boseggia & Progettista & 2016-03-08 & Creazione scheletro del documento\\
+    \hline
+  \end{tabular}
+\end{center}
+\tableofcontents
+\newpage
+\section{Informazioni sulla riunione}
+\begin{itemize}
+\item \textbf{Data}: 2016-03-08
+\item \textbf{Luogo}: Torre Archimede aula 1C150
+\item \textbf{Orario d'inizio}: 13:15
+\item \textbf{Durata}: 31'
+\item \textbf{Partecipanti interni}: \textit{ScalateKids}
+  \begin{itemize}
+  \item Andrea Giacomo Baldan 
+  \item Marco Boseggia
+  \item Michael Munaro
+  \item Francesco Agostini
+  \item Giacomo Vanin
+  \item Davide Trevisan
+  \end{itemize}
+\item \textbf{Partecipanti esterni}:
+  \begin{itemize}
+  \item Riccardo Cardin
+  \end{itemize}
+\end{itemize}
+\section{Domande e risposte}
+In questo capitolo sono elencate le domande fatte dal gruppo \textit{ScalateKids} in grassetto e le risposte del proponente \textit{Riccardo Cardin} in corsivo.
+\subsection{Nella progettazione abbiamo incontrato dei problemi nell'identificare un design pattern architetturale adatto al nostro progetto. }
+\begin{quote}
+  \textit{Dovete individuare le componenti delle vostre applicazioni perché su ognuna di quelle dovrete andare ad individuare un pattern architetturale che al suo interno avrà più pattern architetturali.
+  L'\gloss{actor model} è già di per se un modello di comunicazione, già questo potrebbe essere visto come un qualcosa di simile a un pattern architetturale. Sicuramente un pattern architetturale dovrà essere 
+  individuato sulla console perché si tratta di un'interfaccia utente che si presta, quindi, all'MVC.\\}
+\end{quote}
+\subsection{Per realizzare il DSL ci consiglia la creazione di una custom REPL Scala?}
+\begin{quote}
+  \textit{Vi consiglierei di ricercare qualche template per la creazione di interfacce via shell che magari utilizzino \gloss{JVM}.\\}
+\end{quote}
+\subsection{Deve esserci effettivamente un meccanismo esplicito per creare scalabilità?}
+\begin{quote}
+  \textit{Sicuramente dev'essere scalabile e girare su un cluster. Dovrà essere possibile installarlo configurandolo come un nodo su un altro database. Dovrete valutare se sfruttare le configurazioni che 
+  offre Akka o costruire un'infrastruttura apposita.\\}
+\end{quote}
+\subsection{Che tipo di connessione dovrà supportare il server (TCP, web socket, etc...)?}
+\begin{quote}
+  \textit{Lascio a voi la scelta della connessione tra un client e il server. All'interno del server, Akka userà il TCP.\\}
+\end{quote}
+\subsection{Nel caso di estensione aggiungendo nodi dovrà essere previsto un meccanismo di \gloss{load balancing}?}
+\begin{quote}
+  \textit{Ci sono degli attori appositi (\gloss{Manager}) che verificano il carico su ogni \gloss{Storekeeper} e suddividono il carico in maniera da evitare che uno \gloss{Storekeeper} sia troppo carico. 
+  Gli algoritmi di \gloss{load balancing} non sono semplici. Voi dovrete costruire un'architettura che sia il più estendibile possibile, vi consiglio di dare un algoritmo semplice di \gloss{load balancing} in maniera che in futuro questo possa essere esteso facilmente. Per quanto riguarda il \gloss{load balancing} tra più nodi il discorso si complica poiché dovreste fare in modo che un \gloss{manager} mandi richieste di ricezione di dati se i propri \gloss{Storekeeper} sono liberi.\\}
+\end{quote}
+\subsection{Quanti attori main dovranno esserci nel sistema?}
+\begin{quote}
+  \textit{Avendo un solo attore main c'è il rischio che diventi un collo di bottiglia per sistemi con parecchi nodi avendo un solo punto di accesso al database e molti client. Vi consiglio di averne un numero che scala insieme alla dimensione del vostro sistema.\\}
+\end{quote}
+\subsection{Avrebbe senso avere un main per ogni client?}
+\begin{quote}
+  \textit{In questo caso rischiate di avere un numero di main molto alto se il database viene usato da molti client. Un modo per avere un attore per ogni client potrebbe essere l'avere un main unico che crei un attore per ogni utente attivo. Il main unico creerà sempre un collo di bottiglia ma l'effetto sarà smorzato poiché deve fare solo l'operazione di creazione del nuovo attore per il client. Un'altra soluzione potrebbe essere quella di avere un numero di main configurabile e associare ogni client a uno di questi main secondo una politica ad esempio di \gloss{round-robin}.\\}
+\end{quote}
+\subsection{Quante coppie chiave-valore ci consiglia di avere per ogni \gloss{Storekeeper}?}
+\begin{quote}
+  \textit{Il numero di coppie chiave-valore deve essere configurabile. Ogni \gloss{Storefinder} deve avere degli indici per tenere traccia degli \gloss{Storekeeper}.\\}
+\end{quote}
+\subsection{Quanto spesso dovrebbero scrivere su disco i \gloss{Warehousemen}?}
+\begin{quote}
+  \textit{Questo dipende da quale caratteristica del \gloss{CAP theorem} volete sacrificare. Valutate anche la possibilità di lasciarla configurabile\\}
+\end{quote}
+\subsection{Cosa succede nel caso in cui cada un main? Deve essere previsto un meccanismo di \gloss{leader election}?}
+\begin{quote}
+  \textit{Nel caso in cui cada un main il sistema deve crearne uno nuovo. Vi consiglio di cercare di sfruttare qualche escamotage di \gloss{Akka} per risolvere questo problema.\\}
+\end{quote}
+\subsection{La persistenza su disco in che formato va fatta?}
+\begin{quote}
+  \textit{Su questo vi lascio libertà di scelta, basta che sia configurabile estendendone la classe in modo che in futuro sia possibile effettuare una scelta.\\}
+\end{quote}
+\subsection{Il \gloss{DSL} a che linguaggio già esistente dovrebbe somigliare?}
+\begin{quote}
+  \textit{Per quanto riguarda le \gloss{query} vi consiglio di seguire una sintassi simile a \gloss{SQL}.\\}
+\end{quote}
+\section{Decisioni prese}
+In seguito alla riunione sono state prese le seguenti decisioni:
+\begin{itemize}
+\item Per la realizzazione della \gloss{CLI} verranno cercati dei template o interfacce da implementare;
+\item Verrà implementato l'attore \gloss{Manager} con un algoritmo semplicistico. Questo verrà sviluppato in modo da consentirne facilmente l'estendibilità nel caso in cui si voglia usare un algoritmo più efficace;
+\item Il numero di attori \gloss{main} per \gloss{nodo} sarà configurabile;
+\item L'attore \gloss{main} da associare a un client verrà scelto secondo una politica di routing da definire;
+\item La persistenza su disco verrà implementata sfruttando il formato \gloss{BSON (Binary javaScript Object Notation)};
+\item La persistenza su disco verrà implementata in modo tale da consentirne l'estendibilità facilmente nel caso in cui si voglia usare un formato di salvataggio differente;
+\item L'idea di creare un \gloss{DSL (Domain Specific Language)} simile a \gloss{Javascript} è stata scartata.
+\end{itemize}
+\end{document}
