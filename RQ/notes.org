@@ -7,8 +7,16 @@ Nella presentazione della RQ bisogna dire:
 - cercare di vendere il prodotto, far capire cosa si è fatto e PERCHÈ lo si è fatto e perchè qualcuno dovrebbe usarlo.
 - si può presentare con strumenti diversi dalle slides... (es Demo)
 
+* Tullio su Manuali utente
+- 2 manuali utente, per sviluppatori e per utenti
+non devono mai essere messi assieme
+- per sviluppatori: è un documento tecnico, spiega come usare il prodotto e come evolverlo soprattutto
+- per utenti: serve per spiegare come usarlo ad un noob, non deve essere come i manuali cartacei della lavastoviglie, nessuno se li legge.
+
+Per entrambi i manuali sono documenti a se stanti, non possono fare riferimenti ad altri documenti come al glossario.
 
 
+********************************* OLD STUFF *********************************
 * Note Actorbase
 
 ** Idee random
