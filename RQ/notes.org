@@ -15,6 +15,18 @@ non devono mai essere messi assieme
 
 Per entrambi i manuali sono documenti a se stanti, non possono fare riferimenti ad altri documenti come al glossario.
 
+****************************************************************************
+***                         CORREZIONI DA FARE                           ***
+****************************************************************************
+
+
+AR:
+  - requisiti minimi
+  - dividere i diagrammi casi d'uso generali per tipi di attore (non credo faremo)
+  - sbagliata relazione tra uc1.4.1 e uc1.4.7
+  - ci sono requisiti che non mappano su alcun caso d’uso. 
+  - Requisiti di vincolo: inserire anche i requisiti minimi HW e SW.
+  
 
 ********************************* OLD STUFF *********************************
 * Note Actorbase
