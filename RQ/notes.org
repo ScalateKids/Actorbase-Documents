@@ -30,7 +30,7 @@ AR:
 PDP:
   - tabella oraria, mettere ore di "studio" ?
   - vedere cosa vuol dire "integrare con le norme" robe del capitolo 6
-  
+  - cambiare il parziale a fronte del consuntivo
 
 ********************************* OLD STUFF *********************************
 * Note Actorbase
