@@ -23,6 +23,8 @@ Per entrambi i manuali sono documenti a se stanti, non possono fare riferimenti 
 AR:
   - requisiti minimi
   - dividere i diagrammi casi d'uso generali per tipi di attore (non credo faremo)
+  - sbagliata relazione tra uc1.4.1 e uc1.4.7
+  
 
 ********************************* OLD STUFF *********************************
 * Note Actorbase
