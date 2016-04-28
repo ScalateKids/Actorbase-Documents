@@ -15,6 +15,13 @@ non devono mai essere messi assieme
 
 Per entrambi i manuali sono documenti a se stanti, non possono fare riferimenti ad altri documenti come al glossario.
 
+****************************************************************************
+***                         CORREZIONI DA FARE                           ***
+****************************************************************************
+
+
+AR:
+  - requisiti minimi
 
 ********************************* OLD STUFF *********************************
 * Note Actorbase
