@@ -22,6 +22,7 @@ Per entrambi i manuali sono documenti a se stanti, non possono fare riferimenti 
 
 AR:
   - requisiti minimi
+  - dividere i diagrammi casi d'uso generali per tipi di attore (non credo faremo)
 
 ********************************* OLD STUFF *********************************
 * Note Actorbase
