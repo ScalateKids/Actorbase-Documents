@@ -26,7 +26,11 @@ AR:
   - sbagliata relazione tra uc1.4.1 e uc1.4.7
   - ci sono requisiti che non mappano su alcun caso d’uso. 
   - Requisiti di vincolo: inserire anche i requisiti minimi HW e SW.
-  
+
+PDP:
+  - tabella oraria, mettere ore di "studio" ?
+  - vedere cosa vuol dire "integrare con le norme" robe del capitolo 6
+  - cambiare il parziale a fronte del consuntivo
 
 ********************************* OLD STUFF *********************************
 * Note Actorbase

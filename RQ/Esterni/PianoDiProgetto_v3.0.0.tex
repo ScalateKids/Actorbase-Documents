@@ -210,39 +210,6 @@ Per ogni possibile rischio previsto l'analisi ha fornito i seguenti parametri:
   previsione del rischio, e/o di mitigazione in caso di bisogno;
 \item\textbf{Riscontro}: Riscontri eventuali del rischio e contromisure effettuate per mitigare o annullare il problema.
 \end{itemize}
-\iffalse
-\begin{table}[H]
-  \centering
-  \scriptsize
-  \caption{Tabella Analisi dei Rischi}
-  \begin{tabular}{|m{1cm}|m{3cm}|m{3cm}|m{3cm}|m{3cm}|}
-    \hline
-    & \multicolumn{4}{|c|}{\textbf{Probabilità}}\\
-    \hline
-    \bf Impatto & \bf Bassa & \bf Media & \bf Alta & \textbf{Molto alta} \\
-    \hline
-    \bf Molto Forte & \cellcolor{red!50} & \cellcolor{red!50} & \cellcolor{red!50} &\cellcolor{red!50} \\
-    \hline
-    \bf Forte & \cellcolor{yellow!50}Guasti hardware & \cellcolor{yellow!50}Stime attività & \cellcolor{red!50}Analisi requisiti &\cellcolor{red!50}\\[8pt]
-    \hline
-    \bf Medio & \cellcolor{green!50} & \cellcolor{yellow!50} &\cellcolor{yellow!50}Tecnologia di impiego &\cellcolor{red!50}Inesperienza \\[8pt]
-    \hline
-    \bf Debole & \cellcolor{green!50}Dissensi tra componenti & \cellcolor{green!50} &\cellcolor{yellow!50}Ambiente di lavoro non omogeneo &\cellcolor{yellow!50}Impegni personali \\
-    \hline
-  \end{tabular} \\
-\end{table}
-\begin{table}[H]
-  \centering
-  \caption{Legenda colorazione rischi}
-  \begin{tabular}{|c|c|l|}
-    \hline \bf Colore & \bf Probabilità & \bf Legenda \\
-    \hline \cellcolor{red! 50} & p > 75\% & Rischio non accettabile - riduzione obbligatoria \\
-    \hline \cellcolor{yellow! 50} & 25\% < p < 75\% & Rischio accettabile. Considerare una riduzione. \\
-    \hline \cellcolor{green! 50} & p < 25\% & Accettabile. \\
-    \hline
-  \end{tabular}
-\end{table}
-\fi
 \textbf{Tabella delle probabilità}
 \begin{table}[H]
   \centering
@@ -252,13 +219,13 @@ Per ogni possibile rischio previsto l'analisi ha fornito i seguenti parametri:
     \hline
     \bf Impatto & \bf Bassa & \bf Media & \bf Alta & \textbf{Molto alta} \\
     \hline
-    \bf Molto Forte & \cellcolor{red!50} & \cellcolor{red!50} & \cellcolor{red!50} &\cellcolor{red!50} \\
+    \bf Molto Forte & \cellcolor{red!50} & \cellcolor{red!50} & \cellcolor{red!50} Specifica Tecnica &\cellcolor{red!50} \\
     \hline
-    \bf Forte & \cellcolor{yellow!50}Guasti hardware & \cellcolor{yellow!50}Stime attività & \cellcolor{red!50}Analisi requisiti &\cellcolor{red!50}\\[8pt]
+    \bf Forte & \cellcolor{yellow!50}Guasti hardware & \cellcolor{yellow!50}Stime attività & \cellcolor{red!50} Tecnologia di impiego &\cellcolor{red!50}\\[8pt]
     \hline
-    \bf Medio & \cellcolor{green!50} & \cellcolor{yellow!50} &\cellcolor{yellow!50}Tecnologia di impiego &\cellcolor{red!50}Inesperienza \\[8pt]
+    \bf Medio & \cellcolor{green!50} Ambiente di lavoro non omogeneo & \cellcolor{yellow!50} &\cellcolor{yellow!50} &\cellcolor{red!50}Inesperienza \\[8pt]
     \hline
-    \bf Debole & \cellcolor{green!50}Dissensi tra componenti & \cellcolor{green!50}Ambiente di lavoro non omogeneo &\cellcolor{yellow!50}Impegni personali &\cellcolor{yellow!50} \\
+    \bf Debole & \cellcolor{green!50}Dissensi tra componenti & \cellcolor{green!50} Analisi Requisiti &\cellcolor{yellow!50}Impegni personali &\cellcolor{yellow!50} \\
     \hline
   \end{tabular} \\
 \end{table}
@@ -314,7 +281,8 @@ i componenti del gruppo, tuttavia l'assenza di un grado di specializzazione tang
 degli strumenti in questione.\\
 \textbf{Contromisure di mitigazione}: Ciascun componente del gruppo avrà il compito di documentarsi costantemente e applicarsi
 nell'uso delle tecnologie del progetto.\\
-\textbf{Riscontro}: Le tecnologie di impiego finora non sono state oggetto di problemi. Questo può essere un risultato ottenuto dall'attuazione delle contromisure che il gruppo si era preposto (vedi sezione \ref{sub:tecnologie}).\\
+\textbf{Riscontro}: Le tecnologie di impiego sono risultate difficili da comprendere inizialmente causando qualche ritardo.
+Tuttavia dopo uno studio da parte dei membri del gruppo sulle tecnologie adottate esse non hanno più causato grandi ritardi.\\
 \paragraph{Ambiente di lavoro omogeneo}
 \textbf{Categoria}: Infrastruttura\\
 \textbf{Probabilità}: Alta\\
@@ -337,11 +305,11 @@ questo garantisce un buon grado di controllo, ma allo stesso tempo espone a magg
 Si è verificato in un paio di occasioni questo tipo di problema, fortunatamente guasti ad un computer personale di un membro del gruppo e non al server privato.\\Un computer di un membro del gruppo ha smesso di funzionare. Questo non ha causato grossi disagi poiché questa persona è ricorsa all'uso del laboratorio informatico in Paolotti per la durata del periodo in cui era sprovvisto del suo computer.
 \paragraph{Analisi dei requisiti}
 \textbf{Categoria}: Competenza tecnica\\
-\textbf{Probabilità}: Alta\\
-\textbf{Impatto}: Forte\\
+\textbf{Probabilità}: Medio\\
+\textbf{Impatto}: Debole\\
 \textbf{Descrizione}: La forte inesperienza del gruppo può portare ad una analisi dei requisiti superficiale o addirittura errata. Questo avrebbe un impatto molto negativo sul progetto.\\Una stesura di requisiti superficiale potrebbe inoltre portare ad una accettazione di requisiti opzionali maggiore di ciò che il gruppo riuscirà a produrre.\\
 \textbf{Contromisure di mitigazione:} Verranno effettuate molte \gloss{attività} di \gloss{Brainstorming} per avere i requisiti più precisi possibili. Per questo scopo verranno inoltre organizzati degli incontri con il \textit{Proponente}.\\
-\textbf{Riscontro}: L'inesperienza del gruppo ha portato a redigere un'analisi dei requisiti non precisa, per questo motivo sono state indette delle riunioni col proponente tempestivamente per poter correggere nel minor tempo possibile questo documento per poter riprendere poi la pianificazione fatta in precedenza.\\
+\textbf{Riscontro}: Dato che questo documento era già stato sottoposto a due revisioni prima dell'inizio di questo ultimo periodo esso non ha causato ritardi.\\
 \paragraph{Stime di attività}
 \textbf{Categoria}: Competenza tecnica\\
 \textbf{Probabilità}: Media\\
@@ -359,6 +327,14 @@ Le stime delle attività non sono state sempre molto precise, tuttavia attuando 
 \textbf{Descrizione}: Un dissenso tra componenti potrebbe portare a diversi problemi nella realizzazione del prodotto. Tuttavia questo rischio sembra poter avvenire con scarsa probabilità poiché il gruppo sembra unito e pronto a collaborare secondo regole prestabilite.\\
 \textbf{Contromisure di mitigazione:} I componenti del gruppo cercheranno di aderire quanto più possibile alle \href{run:../Interni/NormeDiProgetto\_v3.0.0.pdf}{Norme di Progetto v3.0.0.}. Esse sono state redatte cercando di evitare questo problema.\\
 \textbf{Riscontro}: Come il gruppo pensava non è mai insorto nessun problema di questo genere.\\
+
+\paragraph{Specifica tecnica}
+\textbf{Categoria}: Competenza tecnica\\
+\textbf{Probabilità}: Alta\\
+\textbf{Impatto}: Molto forte\\
+\textbf{Descrizione}: La forte inesperienza del gruppo può aver portato ad una progettazione architetturale superficiale o addirittura errata. Questo avrebbe un impatto molto negativo sul progetto.\\Una progettazione errata può portare ingenti ritardi al gruppo, causando la riprogettazione delle componenti errati.\\
+\textbf{Contromisure di mitigazione:} Verranno effettuate molte \gloss{attività} di \gloss{Brainstorming} per cercare di confermare l'architettura. Per questo scopo verranno inoltre organizzati degli incontri con il \textit{Proponente}.\\
+\textbf{Riscontro}: La progettazione di alcune parti del prodotto era, come previsto, molto approssimativa e non soddisfava il \textit{Proponente} questo ha causato dei ritardi in quanto si è dovuto ripensare all'architettura di alcune componenti.\\
 
 \section{Pianificazione}
 \subsection{Suddivisione attività}
@@ -1235,7 +1211,7 @@ in base a:
 \item{Ore di lavoro per ruolo.}
 \end{itemize}
 \newpage
-\section{Consuntivo Parziale}
+\section{Consuntivo di Periodo}
 In questa sezione vengono descritte le spese effettivamente sostenute e suddivise in base ai ruoli,
 inoltre nel dettaglio vengono rappresentate per ogni ruolo le ore realmente impiegate. Con questi
 dati è possibile stilare un bilancio, che viene calcolato in base alla differenza tra le ore preventivate
