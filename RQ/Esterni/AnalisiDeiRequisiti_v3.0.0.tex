@@ -193,7 +193,7 @@ un sistema fortemente \gloss{concorrente} e senza l'\gloss{overhead} generato
 dagli schemi \gloss{SQL}.
 
 \subsection{Vincoli}
-
+ % TODO mettere nuovi requisiti minimi...
 Per far funzionare \textbf{Actorbase} sarà necessario disporre di un computer con
 installata la \textit{\gloss{JVM} versione 8}. I sistemi operativi supportati sono:
 \begin{itemize}
@@ -313,7 +313,7 @@ in maniera autonoma.
   \end{itemize}
 \end{itemize}
 \textbf{Precondizione:} il server è in ascolto\\
-\textbf{Scenario principale utente non autenticato:}
+\textbf{Scenario principale:} le operazioni sono possibili da diversi tipi di attore come si può vedere dal diagramma Caso d'uso 1.
 \begin{itemize}
 \item UC1.1\ -\ Login;
 \item UC1.2\ -\ Richiesta aiuto.
@@ -322,20 +322,22 @@ in maniera autonoma.
   \item UC1.2.2\ -\ Aiuto comando.
   \end{itemize}
 \end{itemize}
-\textbf{Scenario principale utente autenticato o utente amministratore:}
+%\textbf{Scenario principale utente autenticato o utente amministratore:}
 \begin{itemize}
-\item UC1.2\ -\ Richiesta aiuto.
-  \begin{itemize}
-  \item UC1.2.1\ -\ Aiuto generale;
-  \item UC1.2.2\ -\ Aiuto comando.
-  \end{itemize}
 \item UC1.3\ -\ Operazioni sulle \gloss{collezioni};
 \item UC1.4\ -\ Operazioni sugli \gloss{item};
 \item UC1.5\ -\ Ricerca su una o più \gloss{collezioni};
+  \begin{itemize}
+    \item UC1.14\ -\ Ricerca sull'intero database.
+  \end{itemize}
 \item UC1.6\ -\ Modifica password;
-\item UC1.7\ -\ Logout.
+\item UC1.7\ -\ Logout;
+\item UC1.13\ -\ Visualizzazione di una o più \gloss{collezioni};
+\begin{itemize}
+    \item UC1.15\ -\ Visualizzazione dell'intero database.
+  \end{itemize}
 \end{itemize}
-\textbf{Scenario principale utente amministratore:}
+%\textbf{Scenario principale utente amministratore:}
 \begin{itemize}
 \item UC1.8\ -\ Gestione utenti.
 \end{itemize}
@@ -349,7 +351,7 @@ in maniera autonoma.
   \begin{itemize}
   \item UC1.10\ -\ Visualizzazione errore password attuale:
   \end{itemize}
-\item Condizione: in UC1.6 l'attore inserisce la password nuova che non rispetta i vincoli imposti dal sistema: %TODO scrivere questi vincoli da qualche parte
+\item Condizione: in UC1.6 l'attore inserisce la password nuova che non rispetta i vincoli imposti dal sistema: %TODO linkare req psw
   \begin{itemize}
   \item UC1.11\ -\ Visualizzazione errore nuova password
   \end{itemize}
@@ -357,18 +359,14 @@ in maniera autonoma.
   \begin{itemize}
   \item UC1.12\ -\ Visualizzazione errore conferma nuova password
   \end{itemize}
-\item Condizione: in UC1.5 l'attore non inserisce la chiave da ricercare:
-  \begin{itemize}
-  \item UC1.13\ -\ Ricerca dell'intera \gloss{collezione} senza chiave
-  \end{itemize}
-\item Condizione: in UC1.5 l'attore inserisce una lista \gloss{collezioni} vuota:
-  \begin{itemize}
-  \item UC1.14\ -\ Ricerca sull'intero database.
-  \end{itemize}
-\item Condizione: in UC1.5 l'attore inserisce una lista \gloss{collezioni} vuota e non inserisce la chiave da ricercare:
-  \begin{itemize}
-  \item UC1.15\ -\ Visualizzazione dell'intero database.
-  \end{itemize}
+%\item Condizione: in UC1.5 l'attore inserisce una lista di \gloss{collezioni} vuota:
+ % \begin{itemize}
+ % \item UC1.14\ -\ Ricerca sull'intero database.
+ % \end{itemize}
+%\item Condizione: in UC1.13 l'attore inserisce una lista di \gloss{collezioni} vuota:
+ % \begin{itemize}
+ % \item UC1.15\ -\ Visualizzazione dell'intero database.
+ % \end{itemize}
 \end{itemize}
 \textbf{Postcondizione:} Il sistema ha eseguito correttamente il comando inserito dall'attore.
 
@@ -436,7 +434,7 @@ L'attore ha appena avviato la \gloss{CLI}, risulta essere non autenticato e può
 \textbf{Precondizione:} Il server è in ascolto.\\
 \textbf{Scenario principale:}
 \begin{itemize}
-\item L'attore inserisce il comando di aiuto generale. %TODO va tolto
+\item L'attore inserisce il comando di aiuto generale.
 \end{itemize}
 \textbf{Postcondizioni:} Il sistema ha risposto visualizzando l'aiuto richiesto dall'attore in output.
 
@@ -458,7 +456,7 @@ L'attore ha appena avviato la \gloss{CLI}, risulta essere non autenticato e può
 \textbf{Precondizione:} Il server è in ascolto e l'attore ha inserito il comando di aiuto specifico.\\
 \textbf{Scenario principale:}
 \begin{itemize}
-\item L'attore inserisce il nome comando. %TODO va messo sto caso d'uso? sto sclerando e sono solo le 11.39
+\item L'attore inserisce il nome comando.
 \end{itemize}
 \textbf{Postcondizioni:} Il sistema ha risposto visualizzando l'aiuto richiesto dall'attore in output.
 
@@ -490,6 +488,9 @@ L'attore ha appena avviato la \gloss{CLI}, risulta essere non autenticato e può
 \item UC1.3.5\ -\ Aggiunta \gloss{collaboratore};
 \item UC1.3.6\ -\ Rimozione \gloss{collaboratore};
 \item UC1.3.7\ -\ Esportazione di una o più \gloss{collezioni} su file.
+  \begin{itemize}
+  \item UC1.3.11\ -\ Esportazione di tutto il database su file.
+  \end{itemize}
 \end{itemize}
 \textbf{Estensioni:}
 \begin{itemize}
@@ -505,10 +506,10 @@ L'attore ha appena avviato la \gloss{CLI}, risulta essere non autenticato e può
   \begin{itemize}
   \item UC1.3.9\ -\ Visualizzazione errore username non esistente.
   \end{itemize}
-\item Condizione: in UC1.3.7 l'attore inserisce una lista \gloss{collezioni} vuota:
-  \begin{itemize}
-  \item UC1.3.11\ -\ Esportazione di tutto il database su file.
-  \end{itemize}
+%\item Condizione: in UC1.3.7 l'attore inserisce una lista \gloss{collezioni} vuota:
+%  \begin{itemize}
+%  \item UC1.3.11\ -\ Esportazione di tutto il database su file.
+%  \end{itemize}
 \end{itemize}
 \textbf{Postcondizioni:} L'operazione richiesta è stata eseguita con successo.
 
@@ -778,17 +779,17 @@ L'attore ha inserito il comando per la modifica password, ha inserito i parametr
 \end{itemize}
 \textbf{Postcondizioni:} La modifica password fallisce, la password dell'attore resta quella di prima.
 
-\subsection{UC1.3.11: Visualizzazione errore collezione già esistente}
+\subsection{UC1.3.11: Esportazione di tutto il database}
 
 \textbf{Attori primari:} Utente autenticato, utente amministratore\\
 \textbf{Scopo e descrizione:}
-L'attore ha inserito il comando per la modifica password, ha inserito i parametri necessari (password attuale, nuova password e password di conferma) per modificare la propria password.\\
-\textbf{Precondizioni:} Il server è in ascolto, l'attore ha inserito il comando per la modifica password, ha inserito i parametri necessari (password attuale, nuova password e password di conferma) e intende modificare la propria password. Il sistema non riconosce la password di conferma inserita.\\
+L'attore intende esportare tutto il database su file.\\
+\textbf{Precondizioni:} Il server è in ascolto, l'attore ha inserito il comando per l'esportazione di una o più \gloss{collezioni} su file, ha inserito il path del file ed una lista di \gloss{collezioni} vuota.\\
 \textbf{Scenario principale:}
 \begin{itemize}
-\item Viene visualizzato un messaggio di errore esplicativo.
+\item Viene esportato l'intero database su file.
 \end{itemize}
-\textbf{Postcondizioni:} La modifica password fallisce, la password dell'attore resta quella di prima.
+\textbf{Postcondizioni:} Viene esportato l'intero database su file con successo.
 
 \subsection{UC1.4: Operazioni sugli item}
 
@@ -1440,35 +1441,47 @@ vincoli imposti. I vincoli imposti sulla conferma password dal sistema sono:
 \subsection{UC1.13: Visualizzazione dell'intera collezione}
 
 \textbf{Attori primari:} Utente autenticato, utente amministratore\\
-\textbf{Scopo e descrizione:} L'attore intende effettuare una ricerca su una lista di \gloss{collezioni} senza specificare chiavi di ricerca.\\
-\textbf{Precondizioni:} Il server è in ascolto, l'attore ha inserito una lista non vuota di \gloss{collezioni} e nessuna chiave di ricerca.\\
+\textbf{Scopo e descrizione:} L'attore intende visualizzare tutti gli \gloss{item} presenti in una o più \gloss{collezioni}.\\
+\textbf{Precondizioni:} Il server è in ascolto, l'attore vuole visualizzare tutti gli \gloss{item} presenti in una o più \gloss{collezioni}.\\
 \textbf{Scenario principale:}
 \begin{itemize}
-\item Vengono visualizzate le coppie chiave-valore dell'intera \gloss{collezione}.
+\item UC1.13.1 - Inserimento lista \gloss{collezioni}
+%\item Vengono visualizzate le coppie chiave-valore dell'intera \gloss{collezione}.
 \end{itemize}
-\textbf{Postcodizioni:} Viene visualizzata l'intera \gloss{collezione}.
+\textbf{Postcodizioni:} Vengono visualizzate le intere \gloss{collezioni}.
+
+\subsubsection{UC1.13.1: Inserimento lista \gloss{collezioni}}
+
+\textbf{Attori primari:} Utente autenticato, utente amministratore\\
+\textbf{Scopo e descrizione:} L'attore intende visualizzare tutti gli \gloss{item} presenti in una o più \gloss{collezioni}.\\
+\textbf{Precondizioni:} Il server è in ascolto, l'attore vuole visualizzare tutti gli \gloss{item} presenti in una o più \gloss{collezioni} e ha inserito il comando per la visualizzazione di una o più \gloss{collezioni}.\\
+\textbf{Scenario principale:}
+\begin{itemize}
+\item L'attore inserisce la lista di \gloss{collezioni} di cui vuole visualizzare gli \gloss{item}.
+\end{itemize}
+\textbf{Postcodizioni:} La lista di \gloss{collezioni} è stata inserita con successo.
 
 \subsection{UC1.14: Ricerca sull'intero database}
 
 \textbf{Attori primari:} Utente autenticato, utente amministratore\\
-\textbf{Scopo e descrizione:} L'attore intende effettuare una ricerca su una lista di \gloss{collezioni} vuota. Deve specificare una chiave di ricerca.\\
-\textbf{Precondizioni:} Il server è in ascolto, l'attore ha inserito una lista vuota di \gloss{collezioni} ed una chiave di ricerca.\\
+\textbf{Scopo e descrizione:} L'attore intende effettuare una ricerca sull'intero database. Deve specificare una chiave di ricerca.\\
+\textbf{Precondizioni:} Il server è in ascolto, l'attore ha inserito il comando di ricerca su una o più collezioni, ha inserito una lista di collezioni vuota ed una chiave di ricerca.\\
 \textbf{Scenario principale:}
 \begin{itemize}
-\item Vengono ricercate e visualizzate le coppie chiave-valore sull'intero \gloss{database}.
+\item UC1.14.1 - Vengono ricercate e visualizzate le coppie chiave-valore sull'intero database
 \end{itemize}
 \textbf{Postcodizioni:} La ricerca avviene sull'intero \gloss{database} con successo.
 
 \subsection{UC1.15: Visualizzazione dell'intero database}
 
 \textbf{Attori primari:} Utente autenticato, utente amministratore\\
-\textbf{Scopo e descrizione:} L'attore intende effettuare una ricerca su una lista di \gloss{collezioni} vuota senza specificare chiavi di ricerca.\\
-\textbf{Precondizioni:} Il server è in ascolto, l'attore ha inserito una lista vuota di \gloss{collezioni} e nessuna chiave di ricerca.\\
+\textbf{Scopo e descrizione:} L'attore intende visualizzare l'intero database.\\
+\textbf{Precondizioni:} Il server è in ascolto, l'attore ha inserito il comando di visualizzazione intera collezione e ha inserito una lista vuota di \gloss{collezioni} vuota.\\
 \textbf{Scenario principale:}
 \begin{itemize}
-\item Vengono ricercate e visualizzate le coppie chiave-valore sull'intero \gloss{database} comprensivo di tutte le \gloss{collezioni} secondo i permessi dell'attore (vedi~\ref{sec:permessi}).
+\item viene visualizzato l'intero \gloss{database} secondo i permessi dell'attore (vedi~\ref{sec:permessi}).
 \end{itemize}
-\textbf{Postcodizioni:} Viene visualizzato l'intero \gloss{database} comprensivo di tutte le \gloss{collezioni} con successo.
+\textbf{Postcodizioni:} Viene visualizzato l'intero \gloss{database}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % 	  QUI INIZIANO I CASI D'USO DEL DRIVER        %
@@ -1484,7 +1497,7 @@ vincoli imposti. I vincoli imposti sulla conferma password dal sistema sono:
 \textbf{Attori primari:} Programma esterno su \gloss{JVM}\\
 \textbf{Attore secondario:} Actorbase\\
 \textbf{Scopo e descrizione:} L'attore intende effettuare operazioni al database da un programma \gloss{Scala} esterno, le operazioni che può eseguire sono:
-\begin{itemize} % TODO togliere la gerarchia utenti
+\begin{itemize}
 \item Nel caso in cui l'attore abbia privilegi pari ad un \textbf{utente non autenticato} può:
   \begin{itemize}
   \item Effettuare il login
@@ -1503,21 +1516,28 @@ vincoli imposti. I vincoli imposti sulla conferma password dal sistema sono:
   \end{itemize}
 \end{itemize}
 \textbf{Precondizione:} il server è in ascolto\\
-\textbf{Scenario principale utente non autenticato:}
+\textbf{Scenario principale:} le operazioni sono possibili da diversi tipi di attore come si può vedere dal diagramma Caso d'uso 2.
 \begin{itemize}
 \item UC2.1\ -\ Login
 \end{itemize}
-\textbf{Scenario principale utente autenticato o utente amministratore:}
+%\textbf{Scenario principale utente autenticato o utente amministratore:}
 \begin{itemize}
 \item UC2.2\ -\ Operazioni sulle collezioni
 \item UC2.3\ -\ Operazioni sugli item
 \item UC2.4\ -\ Ricerca su una o più collezioni
+  \begin{itemize}
+  \item UC2.11\ -\ Ricerca sull'intero database
+  \end{itemize}
 \item UC2.5\ -\ Modifica password
 \item UC2.6\ -\ Logout
 \end{itemize}
-\textbf{Scenario principale utente amministratore:}
+%\textbf{Scenario principale utente amministratore:}
 \begin{itemize}
 \item UC2.7\ -\ Gestione utenti
+\item UC2.12\ -\ Visualizzazione di una o più collezioni
+  \begin{itemize}
+  \item UC2.13\ -\ Visualizzazione dell'intero database
+  \end{itemize}
 \end{itemize}
 \textbf{Estensioni:}
 \begin{itemize}
@@ -1533,18 +1553,14 @@ vincoli imposti. I vincoli imposti sulla conferma password dal sistema sono:
   \begin{itemize}
   \item UC2.10\ -\ Lancio eccezione nuova password
   \end{itemize}
-\item Condizione: in UC2.4 l'attore inserisce una lista di collezioni vuota:
-  \begin{itemize}
-  \item UC2.11\ -\ Ricerca sull'intero database
-  \end{itemize}
-\item Condizione: in UC2.4 l'attore non inserisce una chiave:
-  \begin{itemize}
-  \item UC2.12\ -\ Visualizzazione della intera \gloss{collezione}
-  \end{itemize}
-\item Condizione: in UC2.4 l'attore inserisce una lista di collezioni vuota e non inserisce una chiave:
-  \begin{itemize}
-  \item UC2.13\ -\ Visualizzazione dell'intero database
-  \end{itemize}
+%\item Condizione: in UC2.4 l'attore inserisce una lista di \gloss{collezioni} vuota:
+%  \begin{itemize}
+%  \item UC2.11\ -\ Ricerca sull'intero database
+%  \end{itemize}
+%\item Condizione: in UC2.12 l'attore inserisce una lista di \gloss{collezioni} vuota:
+%  \begin{itemize}
+%  \item UC2.13\ -\ Visualizzazione dell'intero database
+%  \end{itemize}
 \end{itemize}
 \textbf{Postcondizione:} Il sistema ha eseguito correttamente il comando inserito dall'utente.
 
@@ -1624,6 +1640,9 @@ L'attore intende effettuare login al database da un programma \gloss{Scala} este
 \item UC2.2.5 Aggiunta \gloss{collaboratore};
 \item UC2.2.6 Rimozione \gloss{collaboratore};
 \item UC2.2.7 Esportazione di una o più \gloss{collezioni} su file.
+  \begin{itemize}
+    \item UC2.2.11 Esportazione di tutto il database su file.
+  \end{itemize}
 \end{itemize}
 \textbf{Estensioni:}
 \begin{itemize}
@@ -1655,10 +1674,10 @@ L'attore intende effettuare login al database da un programma \gloss{Scala} este
   \begin{itemize}
   \item UC2.2.10 Lancio eccezione username inesistente.
   \end{itemize}
-\item Condizione: in UC2.2.7 l'attore inserisce una lista di collezioni vuota:
-  \begin{itemize}
-  \item UC2.2.11 Esportazione di tutto il database su file.
-  \end{itemize}
+%\item Condizione: in UC2.2.7 l'attore inserisce una lista di collezioni vuota:
+%  \begin{itemize}
+%  \item UC2.2.11 Esportazione di tutto il database su file.
+%  \end{itemize}
 \end{itemize}
 \textbf{Postcondizioni:} L'operazione richiesta è stata eseguita con successo.
 
@@ -2548,27 +2567,27 @@ L'attore intende effettuare una ricerca sull'intero database di item con una cer
 \end{itemize}
 \textbf{Postcondizioni:} Vengono ritornati tutti gli item relativi alla chiave inserita.
 
-\subsection{UC2.12: Visualizzazione dell'intera collezione}
+\subsection{UC2.12: Visualizzazione di una o più collezioni}
 
 \textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
 \textbf{Attore secondario:} Actorbase\\
-\textbf{Scopo e descrizione:} L'attore intende effettuare una ricerca su una lista di \gloss{collezioni} senza specificare chiavi di ricerca.\\
-\textbf{Precondizioni:} Il server è in ascolto, l'attore ha inserito il comando di ricerca, una lista non vuota di \gloss{collezioni} e nessuna chiave di ricerca.\\
+\textbf{Scopo e descrizione:} L'attore intende visualizzare una lista di \gloss{collezioni}.\\
+\textbf{Precondizioni:} Il server è in ascolto, l'attore intende visualizzare una lista di \gloss{collezioni}.\\
 \textbf{Scenario principale:}
 \begin{itemize}
-\item Vengono visualizzate le coppie chiave-valore dell'intera \gloss{collezione}.
+\item Vengono visualizzate le intere \gloss{collezioni} richieste.
 \end{itemize}
-\textbf{Postcodizioni:} Viene visualizzata l'intera \gloss{collezione}.
+\textbf{Postcodizioni:} Vengono visualizzate le intere \gloss{collezioni} richieste.
 
 \subsection{UC2.13: Visualizzazione dell'intero database}
 
 \textbf{Attore primario:} Programma esterno su \gloss{JVM}\\
 \textbf{Attore secondario:} Actorbase\\
 \textbf{Scopo e descrizione:} L'attore intende effettuare una visualizzazione  dell'intero database.\\
-\textbf{Precondizioni:} Il server è in ascolto, l'attore ha inserito il comando di ricerca, una lista vuota di \gloss{collezioni} e nessuna chiave di ricerca.\\
+\textbf{Precondizioni:} Il server è in ascolto, l'attore ha inserito il comando per la visualizzazione di una o più \gloss{collezioni} e ha inserito una lista vuota di \gloss{collezioni}.\\
 \textbf{Scenario principale:}
 \begin{itemize}
-\item Vengono visualizzate le coppie chiave-valore dell'intero database.
+\item Viene visualizzato l'intero database.
 \end{itemize}
 \textbf{Postcodizioni:} Viene visualizzato l'intero database.
 
