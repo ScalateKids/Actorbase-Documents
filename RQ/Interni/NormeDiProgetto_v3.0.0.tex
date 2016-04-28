@@ -689,117 +689,6 @@ un modo univoco di riconoscere i termini all'interno del glossario, è possibile
 automatizzare il controllo delle parole da glossario all'interno dei
 documenti (vedi sezione~\ref{sec:script}).
 
-\subsection{Assicurazione Qualità}
-
-\subsubsection{Norme di verifica documenti}
-
-\label{sec:VerificaDocumenti}
-
-Posto che tutti i componenti del gruppo dovranno effettuare delle \gloss{attività} di
-verifica, il redattore di ogni sezione dei documenti non potrà tassativamente
-effettuare verifica e approvazione delle parti redatte dallo stesso,
-coerentemente con le strategie scelte nel \textbf{PQ}.
-I \textit{Verificatori} dovranno attenersi alle seguenti regole per attuare \gloss{attività} di verifica:
-\begin{itemize}
-\item \textbf{Walkthrough:} per svolgere questa \gloss{attività} il \textit{Verificatore} deve passare in rassegna il documento da controllare, rileggere tutto attentamente e stendere una lista degli errori più comuni. Questa lista servirà per attuare solamente verifiche di tipo inspection in futuro;
-\item \textbf{Inspection:} questa \gloss{attività} va effettuata solamente quando si ha a disposizione una lista di controllo derivante dalle \gloss{attività} di walkthrough precedenti.\\
-  Il \textit{Verificatore} deve controllare secondo la lista di controllo le parti del documento scelto.
-\end{itemize}
-Per eseguire un'accurata verifica dei documenti è necessario seguire il seguente
-protocollo:
-\begin{itemize}
-\item\textbf{Controllo ortografico:} Utilizzando \textit{GNU Aspell} vengono evidenziati e corretti
-  gli errori grammaticali più evidenti. Inoltre, come spiegato in sezione~\ref{sec:script}, sono stati
-  creati alcuni strumenti ad hoc per automatizzare le \gloss{attività} di verifica.\\
-  Tuttavia il controllo dei periodi e di parole grammaticalmente corrette ma errate nel contesto richiedono
-  l'intervento di un \textit{Verificatore} umano. Ciò implica che ogni documento dovrà essere sottoposto ad un walkthrough;
-\item\textbf{Uniformità alle norme:} Essendo state redatte alcune regole sulla stesura dei documenti, è compito dei \textit{Verificatori}
-  accertarsi che i documenti siano conformi a tali norme, seguendo il metodo di walkthrough;
-\item\textbf{Verifica termini da glossario:} L'operazione è fortemente automatizzabile, compito del \textit{Verificatore} è utilizzare gli strumenti di supporto
-  forniti nell'ambiente di lavoro descritti nella sezione~\ref{sec:script}. Tuttavia l'\gloss{attività} di verifica finale dovrà essere effettuata secondo il metodo
-  walkthrough;
-\item\textbf{Indice Gulpease:} Su ogni documento redatto il \textit{Verificatore} deve calcolare l'indice di leggibilità utilizzando lo strumento fornito
-  con la macchina virtuale (vedi sezioni~\ref{sec:MacchinaVirtuale} e~\ref{sec:script});
-\item\textbf{Segnalazione degli errori riscontrati:} Il \textit{Verificatore} dovrà stendere una lista di controllo e inserirla sul \gloss{forum} del gruppo.
-\end{itemize}
-Successivamente, basandosi sui cambiamenti del diario delle modifiche, i
-\textit{Verificatori} potranno applicare il metodo di inspection seguendo la
-lista redatta in prima istanza di verifica.
-
-\subsubsection{Norme di verifica codice}
-\label{sec:NormeDiVerifica}
-
-\paragraph{Test di unità}
-
-Sono test destinati al collaudo della più piccola porzione di codice che abbia senso
-testare, compito dei \textit{progettisti} è la stesura e il tracciamento dei test di
-unità con i requisiti e viceversa secondo le regole di nomenclatura seguenti:
-
-\begin{center}
-  \verb=TU.NomeTest=
-\end{center}
-
-\subparagraph{Analisi statica}
-\label{sec:AnalisiStatica}
-
-Gli strumenti da utilizzare per le \gloss{attività} di analisi statica saranno:
-\begin{itemize}
-\item\textbf{ScalaStyle:} \gloss{plugin} per compilatori \gloss{Scala}, fornisce automaticamente controlli qualitativi esaustivi su \gloss{codice} durante la compilazione dei sorgenti;
-\item\textbf{loc:} \gloss{script} di controllo qualità, fornisce il rapporto tra righe di \gloss{codice} e righe di commento.
-\item\textbf{Complessità ciclomatica (McCabe's complexity):} Utilizzata per
-  misurare la complessità di funzioni, moduli, metodi o classi di un
-  programma;
-\item\textbf{Copertura del codice:} Misura la capacità di coprire mediante
-  esecuzione di test tutte le linee di codice di un programma; si
-  suddivide a sua volta in:
-  \begin{itemize}
-  \item\textbf{Copertura di funzione:} Ogni funzione all'interno del
-    programma è stata chiamata;
-  \item\textbf{Copertura di istruzione:} Ogni istruzione all'interno
-    del programma è stata eseguita;
-  \item\textbf{\gloss{Branch} coverage:} Misura la capacità di coprire
-    mediante esecuzione di test tutti i rami di un modulo;
-  \item\textbf{Condition coverage:} Ogni espressione booleana è stata
-    valutata sia in true che in false;
-  \end{itemize}
-\item\textbf{Numero di attributi per classe:} Numero pesato di attributi
-  contenuti in ogni classe di un programma;
-\item\textbf{Parametri per metodo:} Numero pesato di parametri utilizzabili
-  nella chiamata di metodi all'interno di una classe;
-\item\textbf{Livelli di annidamento:} Numero pesato che misura il grado di
-  profondità delle funzioni e dei costrutti all'interno di un programma.
-\end{itemize}
-
-\subparagraph{Analisi dinamica}
-
-\paragraph{Test di integrazione}
-
-Compito dei \textit{progettisti} è la stesura e il tracciamento dei test di
-integrazione con le componenti secondo le regole di nomenclatura seguenti:
-
-\begin{center}
-  \verb=TI.NomeTest=
-\end{center}
-
-\paragraph{Test di sistema}
-
-I test di sistema permettono di verificare il comportamento del sistema rispetto
-ai requisiti. Compito dei \textit{progettisti} è la stesura e il tracciamento dei test di
-sistema con i requisiti e viceversa secondo le regole di nomenclatura seguenti:
-
-\begin{center}
-  \verb=TS.NomeTest=
-\end{center}
-
-\paragraph{Test di validazione}
-
-Compito dei \textit{progettisti} è la stesura e il tracciamento dei test di validazione
-con i requisiti, secondo le seguenti regole di nomenclatura:
-
-\begin{center}
-  \verb=TV.NomeTest=
-\end{center}
-
 \section{Processi Organizzativi}
 
 \subsection{Ruoli di progetto}
@@ -1243,6 +1132,126 @@ necessita della \gloss{JVM} versione 8.
 La versione di riferimento di \gloss{Akka} è la \verb=2.4.1=, attualmente
 mantenuta e stabile, da utilizzare con versioni di \gloss{Scala} \verb=2.11= o
 \verb=2.12.0-M3= e Java 8+.
+
+\section{Assicurazione Qualità}
+
+\subsection{Norme di verifica per i processi}
+
+Per avere una misurazione oggettiva e quantitativa della qualità su ogni processo sono state stabilite delle metriche di valutazione descritte nel documento \href{run:../Esterni/PianoDiQualifica\_v3.0.0.pdf}{Piano di Qualifica v3.0.0}.\\Tali misurazioni saranno effettuate periodicamente ogni venti giorni e ad ogni misurazione dovrà essere aggiornata l'apposita appendice del documento \href{run:../Esterni/PianoDiQualifica\_v3.0.0.pdf}{Piano di Qualifica v3.0.0}.
+
+\subsection{Norme di verifica per i prodotti}
+
+Per avere una misurazione oggettiva e quantitativa della qualità su ogni prodotto sono state stabilite delle metriche di valutazione per documenti e software descritte nel documento \href{run:../Esterni/PianoDiQualifica\_v3.0.0.pdf}{Piano di Qualifica}. Queste misurazioni dovranno effettuate ogniqualvolta viene prodotto un file, sia esso un documento o un file di codice.\\
+
+\subsection{Norme di verifica documenti}
+
+\label{sec:VerificaDocumenti}
+
+Posto che tutti i componenti del gruppo dovranno effettuare delle \gloss{attività} di
+verifica, il redattore di ogni sezione dei documenti non potrà tassativamente
+effettuare verifica e approvazione delle parti redatte dallo stesso,
+coerentemente con le strategie scelte nel \textbf{PQ}.
+I \textit{Verificatori} dovranno attenersi alle seguenti regole per attuare \gloss{attività} di verifica:
+\begin{itemize}
+\item \textbf{Walkthrough:} per svolgere questa \gloss{attività} il \textit{Verificatore} deve passare in rassegna il documento da controllare, rileggere tutto attentamente e stendere una lista degli errori più comuni. Questa lista servirà per attuare solamente verifiche di tipo inspection in futuro;
+\item \textbf{Inspection:} questa \gloss{attività} va effettuata solamente quando si ha a disposizione una lista di controllo derivante dalle \gloss{attività} di walkthrough precedenti.\\
+  Il \textit{Verificatore} deve controllare secondo la lista di controllo le parti del documento scelto.
+\end{itemize}
+Per eseguire un'accurata verifica dei documenti è necessario seguire il seguente
+protocollo:
+\begin{itemize}
+\item\textbf{Controllo ortografico:} Utilizzando \textit{GNU Aspell} vengono evidenziati e corretti
+  gli errori grammaticali più evidenti. Inoltre, come spiegato in sezione~\ref{sec:script}, sono stati
+  creati alcuni strumenti ad hoc per automatizzare le \gloss{attività} di verifica.\\
+  Tuttavia il controllo dei periodi e di parole grammaticalmente corrette ma errate nel contesto richiedono
+  l'intervento di un \textit{Verificatore} umano. Ciò implica che ogni documento dovrà essere sottoposto ad un walkthrough;
+\item\textbf{Uniformità alle norme:} Essendo state redatte alcune regole sulla stesura dei documenti, è compito dei \textit{Verificatori}
+  accertarsi che i documenti siano conformi a tali norme, seguendo il metodo di walkthrough;
+\item\textbf{Verifica termini da glossario:} L'operazione è fortemente automatizzabile, compito del \textit{Verificatore} è utilizzare gli strumenti di supporto
+  forniti nell'ambiente di lavoro descritti nella sezione~\ref{sec:script}. Tuttavia l'\gloss{attività} di verifica finale dovrà essere effettuata secondo il metodo
+  walkthrough;
+\item\textbf{Indice Gulpease:} Su ogni documento redatto il \textit{Verificatore} deve calcolare l'indice di leggibilità utilizzando lo strumento fornito
+  con la macchina virtuale (vedi sezioni~\ref{sec:MacchinaVirtuale} e~\ref{sec:script});
+\item\textbf{Segnalazione degli errori riscontrati:} Il \textit{Verificatore} dovrà stendere una lista di controllo e inserirla sul \gloss{forum} del gruppo.
+\end{itemize}
+Successivamente, basandosi sui cambiamenti del diario delle modifiche, i
+\textit{Verificatori} potranno applicare il metodo di inspection seguendo la
+lista redatta in prima istanza di verifica.
+
+\subsection{Norme di verifica codice}
+\label{sec:NormeDiVerifica}
+
+\subsubsection{Test di unità}
+
+Sono test destinati al collaudo della più piccola porzione di codice che abbia senso
+testare, compito dei \textit{progettisti} è la stesura e il tracciamento dei test di
+unità con i requisiti e viceversa secondo le regole di nomenclatura seguenti:
+
+\begin{center}
+  \verb=TU.NomeTest=
+\end{center}
+
+\paragraph{Analisi statica}
+\label{sec:AnalisiStatica}
+
+Gli strumenti da utilizzare per le \gloss{attività} di analisi statica saranno:
+\begin{itemize}
+\item\textbf{ScalaStyle:} \gloss{plugin} per compilatori \gloss{Scala}, fornisce automaticamente controlli qualitativi esaustivi su \gloss{codice} durante la compilazione dei sorgenti;
+\item\textbf{loc:} \gloss{script} di controllo qualità, fornisce il rapporto tra righe di \gloss{codice} e righe di commento.
+\item\textbf{Complessità ciclomatica (McCabe's complexity):} Utilizzata per
+  misurare la complessità di funzioni, moduli, metodi o classi di un
+  programma;
+\item\textbf{Copertura del codice:} Misura la capacità di coprire mediante
+  esecuzione di test tutte le linee di codice di un programma; si
+  suddivide a sua volta in:
+  \begin{itemize}
+  \item\textbf{Copertura di funzione:} Ogni funzione all'interno del
+    programma è stata chiamata;
+  \item\textbf{Copertura di istruzione:} Ogni istruzione all'interno
+    del programma è stata eseguita;
+  \item\textbf{\gloss{Branch} coverage:} Misura la capacità di coprire
+    mediante esecuzione di test tutti i rami di un modulo;
+  \item\textbf{Condition coverage:} Ogni espressione booleana è stata
+    valutata sia in true che in false;
+  \end{itemize}
+\item\textbf{Numero di attributi per classe:} Numero pesato di attributi
+  contenuti in ogni classe di un programma;
+\item\textbf{Parametri per metodo:} Numero pesato di parametri utilizzabili
+  nella chiamata di metodi all'interno di una classe;
+\item\textbf{Livelli di annidamento:} Numero pesato che misura il grado di
+  profondità delle funzioni e dei costrutti all'interno di un programma.
+\end{itemize}
+
+\paragraph{Analisi dinamica}
+
+\subsubsection{Test di integrazione}
+
+Compito dei \textit{progettisti} è la stesura e il tracciamento dei test di
+integrazione con le componenti secondo le regole di nomenclatura seguenti:
+
+\begin{center}
+  \verb=TI.NomeTest=
+\end{center}
+
+\subsubsection{Test di sistema}
+
+I test di sistema permettono di verificare il comportamento del sistema rispetto
+ai requisiti. Compito dei \textit{progettisti} è la stesura e il tracciamento dei test di
+sistema con i requisiti e viceversa secondo le regole di nomenclatura seguenti:
+
+\begin{center}
+  \verb=TS.NomeTest=
+\end{center}
+
+\subsubsection{Test di validazione}
+
+Compito dei \textit{progettisti} è la stesura e il tracciamento dei test di validazione
+con i requisiti, secondo le seguenti regole di nomenclatura:
+
+\begin{center}
+  \verb=TV.NomeTest=
+\end{center}
+
 
 \newpage
 \appendix
