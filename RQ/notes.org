@@ -33,7 +33,6 @@ PDP:
   - cambiare il parziale a fronte del consuntivo
   
 PDQ:
-  - da migliorare le metriche di processo -> metriche sui test e sui requisiti
   - aggiungere metriche di prodotto come tempo di risposta
   - inventare tabella di BV e SV da mettere in appendice
 
