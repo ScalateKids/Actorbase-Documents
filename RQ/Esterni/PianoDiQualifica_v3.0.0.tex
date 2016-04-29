@@ -49,6 +49,14 @@
     \hline
     Versione & Autore & Ruolo & Data & Descrizione \\
     \hline
+    2.x.x & Alberto De Agostini & Analista & 2016-05-01 & Aggiunta sezione B.3.1 (BV e SV primo maggio) \\ %TODO modif qua
+    \hline
+    2.1.0 & Michael Munaro & Verificatore & 2016-04-29 & Verifica modifiche per correzioni RP suggerite \\
+    \hline
+    2.0.2 & Francesco Agostini & Analista & 2016-04-28 & Rimozione parti sezione due per spostamento in Norme di Progetto\\
+    \hline
+    2.0.1 & Davide Trevisan & Analista & 2016-04-26 & Incremento sezione metriche per i processi \\
+    \hline
     2.0.0 & Marco Boseggia & Responsabile & 2016-04-10 & Approvazione documento\\
     \hline
     1.3.0 & Michael Munaro & Verificatore & 2016-04-05 & Verifica incremento consuntivo\\
@@ -196,8 +204,10 @@ Per rendere quantificabile il processo di verifica verranno usate delle metriche
   \item \textbf{Ottimale}: contiene i valori che si deve cercare di ottenere, valori al di fuori di questo \gloss{range} dovranno essere verificati e, se necessario, discussi dal gruppo;
   \item \textbf{Accettazione}: valori per avere un'accettazione del prodotto.
 \end{itemize}
+
 \subsubsection{Metriche per i processi}
 \label{sec:metricheProcesso}
+
 Per garantire un monitoraggio e un controllo dei processi è stato scelto di utilizzare un indice sui costi e un indice temporale.
 \paragraph{Budget Variance (BV)}
 Questo indice indica se alla data corrente si è in linea con i costi preventivati.\\ Per calcolare questo indice basta moltiplicare le ore di lavoro pianificate per i rispettivi costi e sottrarle alla moltiplicazione tra le ore preventivate per i rispettivi costi.
@@ -205,7 +215,7 @@ Se \gloss{BV} è $\geq$ 0 significa che le spese sostenute sono minori rispetto 
 \textbf{Range accettabili:}
 \begin{itemize}
   \item \gloss{Range} ottimale: $\geq$ 0;
-  \item \gloss{Range} di accettazione: $\geq$ -600. %TODO percentuale di accettazione
+  \item \gloss{Range} di accettazione: $\geq$ -600. 
 \end{itemize}
 \paragraph{Schedule Variance (SV)}
 Questo indice indica se alla data corrente si è in anticipo o in ritardo rispetto alla pianificazione temporale.\\ Per calcolare questo indice basta sottrarre le ore effettive alle ore pianificate. Il risultato indica una quantità di ore lavoro.\\
@@ -214,6 +224,22 @@ Se \gloss{SV} è $\geq$ 0 significa che si è in anticipo rispetto a quanto pian
 \begin{itemize}
   \item \gloss{Range} ottimale: $\geq$ 0;
   \item \gloss{Range} di accettazione: $\geq$ -40.
+\end{itemize}
+
+\paragraph{Soddisfacimento requisiti obbligatori}
+Questo indice serve per valutare la percentuale di completezza di requisiti obbligatori soddisfatti.\\Questo indice si calcola dividendo i requisiti soddisfatti con quelli totali moltiplicando per cento.\\
+\textbf{Range accettabili:}
+\begin{itemize}
+  \item \gloss{range} ottimale: = 100;
+  \item \gloss{range} di accettazione: = 100.
+\end{itemize}
+
+\paragraph{Tempo risposta medio}
+Questo indice serve per valutare il tempo di risposta medio che ha Actorbase per soddisfare le richieste da un generico attore.\\
+\textbf{Range accettabili:}
+\begin{itemize}
+  \item \gloss{range} ottimale: ; %TODO da mettere questi range
+  \item \gloss{range} di accettazaione: .
 \end{itemize}
 
 \subsubsection{Metriche per i documenti}
@@ -254,28 +280,28 @@ Applicato su un file produrrà un valore in output che rappresenta la percentual
   \item \gloss{Range} ottimale: 30 - 40\%;
   \item \gloss{Range} di accettazione: 20 - 30\%.
 \end{itemize}
-\subsubsection{Copertura del codice}
+\paragraph{Copertura del codice}
 La copertura del \gloss{codice} indica il numero di istruzioni che vengono eseguite durante i test rispetto alla totalità delle istruzioni. Per avere una minor possibilità di presenza di errori nel \gloss{codice} si dovrà avere una percentuale il più alta possibile di istruzioni testate.\\Tuttavia metodi molto semplici che non necessitano testing andranno a influire negativamente in questo ambito.\\
 \textbf{Range accettabili:}
 \begin{itemize}
   \item \gloss{Range} ottimale: 60 - 100\%;
   \item \gloss{Range} di accettazione: 40 - 60\%.
 \end{itemize}
-\subsubsection{Numero di attributi per classe}
+\paragraph{Numero di attributi per classe}
 Un numero troppo elevato di attributi in una classe potrebbe indicare il non soddisfacimento del principio di \textit{\gloss{single responsability}}. Questo potrebbe significare la necessità di una divisione in più classi relazionate tra loro per dividere le diverse funzionalità o un possibile errore di progettazione.\\
 \textbf{Range accettabili:}
 \begin{itemize}
   \item \gloss{Range} ottimale: 3 - 6;
   \item \gloss{Range} di accettazione: 0 - 12.
 \end{itemize}
-\subsubsection{Numero di parametri per metodo}
+\paragraph{Numero di parametri per metodo}
 Un numero troppo elevato di parametri in un metodo potrebbe indicare il non soddisfacimento del principio di \textit{\gloss{single responsability}}. Questo potrebbe significare la necessità di una divisione in sotto metodi per dividere le diverse funzionalità o un possibile errore di progettazione.\\
 \textbf{Range accettabili:}
 \begin{itemize}
   \item Range ottimale: 0 - 4;
   \item Range di accettazione: 4 - 8.
 \end{itemize}
-\subsubsection{Complessità ciclomatica}
+\paragraph{Complessità ciclomatica}
 La complessità ciclomatica è usata per misurare la complessità di parti di \gloss{codice} come funzioni, metodi, classi o moduli.\\
 Questa è calcolata attraverso un grafo di controllo del flusso del programma.\\La complessità ciclomatica di una sezione di \gloss{codice} è il numero di cammini linearmente indipendenti attraverso il \gloss{codice} sorgente. Per esempio, se il \gloss{codice} sorgente non contiene punti decisionali come IF o cicli FOR, allora la complessità sarà 1, poiché esiste un solo cammino nel sorgente (e quindi nel grafo). Se il \gloss{codice} ha un singolo IF contenente una singola condizione, allora ci saranno due cammini possibili: il primo se l'IF viene valutato a TRUE e un secondo se l'IF viene valutato a FALSE.\\
 \textbf{Range accettabili:}
@@ -283,7 +309,7 @@ Questa è calcolata attraverso un grafo di controllo del flusso del programma.\\
   \item \gloss{Range} ottimale: 0 - 10;
   \item \gloss{Range} di accettazione: 10 - 15.
 \end{itemize}
-\subsubsection{Livelli di annidamento}
+\paragraph{Livelli di annidamento}
 Indica il numero di livelli di annidamento di funzioni e metodi. Un valore alto di questo indice implica un livello di complessità molto elevato, aumentando la probabilità di commettere errori.\\
 \textbf{Range accettabili:}
 \begin{itemize}
@@ -296,7 +322,6 @@ Indica il numero di livelli di annidamento di funzioni e metodi. Un valore alto 
 \subsection{Standard ISO/IEC 15504}
 \label{sec:ISO/IEC15504}
 Lo standard \gloss{ISO}/\gloss{IEC} 15504 definisce un metodo per controllare continuamente la qualità di ogni processo. Questo metodo sfrutta un modello denominato SPY (Software Process Assessment and Improvement) per la valutazione di processo.\\
-%TODO immagine SPY
 Questo standard fornisce i seguenti nove attributi di qualità di processo:
 \begin{itemize}
   \item{\textbf{Process performance:} il processo riesce a trasformare input identificabili in output identificabili.;}
@@ -426,7 +451,9 @@ Nella tabella di seguito sono riportati i valori degli indici di Gulpease per og
     \hline
   \end{tabular}
 \end{center}
+
 \subsection{Attività di Progettazione}
+
 \subsubsection{Documenti}
 Nella tabella di seguito sono riportati i valori degli indici di Gulpease per ogni documento prodotto durante l'\gloss{attività} di Progettazione. L'esito della verifica dipenderà dal valore di questo indice come descritto nella sezione \ref{par:metricheGulpease}.
 \begin{center}
@@ -443,6 +470,48 @@ Nella tabella di seguito sono riportati i valori degli indici di Gulpease per og
     \hline
   \end{tabular}
 \end{center}
+
+\subsection{Attività di Codifica}
+
+\subsubsection{Budget Variance e Schedule Variance}
+Viene di seguito riportata una tabella contenente i valori per le metriche descritte in sezione \ref{sec:metricheProcesso}.\\ Questa tabella rappresenta un consuntivo calcolato in data primo maggio. Il consuntivo di periodo sarà disponibile nel documento \href{run:./PianoDiProgetto\_v3.0.0.pdf}{Piano di Progetto v3.0.0.}
+\begin{center}
+  \normalsize
+  \begin{tabular}{| c | c | c |}
+    \hline
+    \textbf{Ruolo} & \textbf{Ore} & \textbf{Costo}\\
+    \hline
+    Responsabile & 0 & 0\\ %30 %TODO fare sta tabella
+    Analista & 0 & 0\\ %25
+    Amministratore & +2 & +40\\ %20
+    Progettista & 0 & 0\\ %22
+    Programmatore & 0 & 0\\ %15
+    Verificatore & +1 & +15\\ %15
+    \hline
+    \textbf{Totale} & -3 & -85\\
+    \hline
+  \end{tabular}
+\end{center}
+\subsubsection{Documenti}
+Nella tabella di seguito sono riportati i valori degli indici di Gulpease per ogni documento prodotto durante l'\gloss{attività} di codifica. L'esito della verifica dipenderà dal valore di questo indice come descritto nella sezione \ref{par:metricheGulpease}.
+\begin{center}
+  \begin{tabular}{| c | c | c |}
+    \hline
+    Documento & Valore indice & Esito\\
+    \hline
+    \textit{Definizione di Prodotto v1.0.0} & & Superato\\
+    \textit{Specifica Tecnica v2.0.0} &  & Superato\\
+    \textit{Norme di Progetto v3.0.0} &  & Superato\\
+    \textit{Piano di Progetto v3.0.0} &  & Superato\\
+    \textit{Piano di Qualifica v3.0.0} &  & Superato\\
+    \textit{Analisi dei Requisiti v3.0.0} &  & Superato\\
+    \textit{Glossario v3.0.0} &  & Superato\\ %TODO manuali utente?
+    \hline
+  \end{tabular}
+\end{center}
+%\subsubsection{Codice}
+%TODO aggiungere tutte le metriche per il softw
+
 \newpage
 
 \section{Pianificazione dei test}
