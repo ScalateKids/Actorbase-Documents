@@ -179,12 +179,12 @@ which parameters it needs.\\
 collection into the database.\\
 \textbf{How to:} 
 \begin{itemize}
-	\item Type createCollection ``<collection name>''
+	\item Type \texttt{createCollection <collection name>}
 	\item The CLI will display a message explaining how to use the command and what parameters it needs
 \end{itemize}
 \textbf{Possible errors:} the CLI will answer with self explanatory error messages 
 \begin{itemize}
-	\item If the collection you want to create is already inside the server the CLI will answer with a message
+	\item If the collection the user wants to create is already in the server the CLI will answer with a message
 \end{itemize}
 
 \paragraph{List collections}
@@ -193,7 +193,7 @@ collection into the database.\\
 the collections he has permission on.\\
 \textbf{How to:} 
 \begin{itemize}
-	\item Type listCollection
+	\item Type \texttt{listCollection}
 	\item The CLI will display a list of all the collections the user has 
 	permission on
 \end{itemize}
@@ -204,153 +204,151 @@ the collections he has permission on.\\
 collection of his own.\\
 \textbf{How to:} 
 \begin{itemize}
-	\item Type renameCollection ``<old collection name>'' to ``<new collection name>''
+	\item Type \texttt{enameCollection <old collection name> to <new collection name>}
 \end{itemize}
 \textbf{Possible errors:} the CLI will answer with self explanatory error messages 
 \begin{itemize}
-	\item If the old collection name you typed corrispond to no collection inside the actorbase server
+	\item If the old collection name you typed correspond with no collection inside the actorbase server
 	\item If the new collection name you typed is already taken by a collection inside the actorbase server 
 \end{itemize}
 
 \paragraph{Delete a collection}
 \label{sec:deletecollection}
-\textbf{Description:} this functionality allow the user to remove a collection and all of the items inside it from the database.\\
+\textbf{Description:} this functionality allow the user to remove a collection and all the items inside it from the database.\\
 \textbf{How to:} 
 \begin{itemize}
-	\item Type deleteCollection ``<collection name>''
+	\item Type \texttt{deleteCollection <collection name>}
 \end{itemize}
 
 \paragraph{Add a contributor to a collection}
 \label{sec:addcontributor}
-\textbf{Description:} this functionality allow the user to add a contributor 
-to a collection of his own. The contributor will have the permission to operate on the selected collection depending on the permission type the user inserted.\\
+\textbf{Description:} this feature allows the user to add a contributor 
+to a collection of his own. The contributor will have the permission to operate on the selected collection depending on the what permissions the user decide to give him.\\
 \textbf{How to:} 
 \begin{itemize}
-	\item Type addContributor <username> <permissions> to ``<collection name>''
+	\item Type \texttt{addContributor <username> <permissions> to <collection name>}
 \end{itemize}
 \textbf{Possible errors:} the CLI will answer with self explanatory error messages 
 \begin{itemize}
-	\item If the collection you want to add the contributor on does not exists on the server or it's not a collection you own
-	\item If the username you typed does not corrispond with a user registrated in actorbase
-	\item If the permissions you typed are not a possible permission
+	\item If the collection the user wants to add the contributor to does not exists on the server or it is not a collection the user own
+	\item If the username the user typed does not correspond with a user registered in actorbase
+	\item If the permissions the user typed are not possible permissions
 \end{itemize}
 
 \paragraph{Remove contributor from a collection}
 \label{sec:removecontributor}
-\textbf{Description:} this functionality allow the user to remove a contributor from a collection of his own.\\
+\textbf{Description:} this feature allows the user to remove a contributor from a collection of his own.\\
 \textbf{How to:} 
 \begin{itemize}
-	\item Type removeContributor <username> from ``<collection name>''
+	\item Type \texttt{removeContributor <username> from <collection name>}
 \end{itemize}
 \textbf{Possible errors:} the CLI will answer with self explanatory error messages 
 \begin{itemize}
-	\item If the collection you want to remove the contributor from does not exists on the server or it's not a collection you own
-	\item If the username you typed does not corrispond with a user registrated in actorbase
+	\item If the collection the user want to remove the contributor from does not exists on the server or it is not a collection the user own
+	\item If the username the user typed does not correspond with a user registered in actorbase
 \end{itemize}
 
 \paragraph{Export one or more collections to file}
 \label{sec:export}
-\textbf{Description:} this functionality allow the user to export to a file one or more collections you have access at.\\
-The filename you insert can have have a path prefix, if path is not present the file will be created at your local work directory.\\
-The collection list can contain zero or more collection name. If empty it will export ALL the collection the user have access (this can be slow).
+\textbf{Description:} this feature allows the user to export one or more collections it have access at.\\
+The filename the user insert can a path prefix; if the path is not present the file will be created at the user local work directory.\\
+The collection list can contain zero or more collections name. If empty it will export all the collection the user have access to (possibly resulting in an expensive operation).
 \textbf{How to:} 
 \begin{itemize}
-	\item Type export ``<collection name1>'', ``<collection name2>'', ... , to ``<filename>''
+	\item Type export \texttt{<collection name1>, <collection name2>, ... , to <filename>}
 \end{itemize}
 \textbf{Possible errors:} the CLI will answer with self explanatory error messages 
 \begin{itemize}
-	\item If at least one of the collection name you inserted does not exist on the server
-	\item If the filename you inserted contain a path that's not valid
+	\item If at least one of the collection name the user inserted does not exist on the server
+	\item If the filename the user inserted contains a path that is not valid
 \end{itemize}
 
 \paragraph{Insert item}
 \label{sec:insertitem}
-\textbf{Description:} this functionality allow the user to insert a item in a collection.\\
-The last parameter ( o ) can be omitted, if omitted the insert will be without overwrite, otherwise the insert will overwrite if another item is present with the same key in the collection.\\
-The <key> is a String representing the key of the item you want to insert.\\
-The <value> can be anything you want to insert and it represent the value of the item to be inserted.\\
-If the collection you want to insert the item into does not exist the server 
+\textbf{Description:} this feature allows the user to insert a item in a particular collection.\\
+The last parameter ( o ) can be omitted; if omitted the insert operation will not overwrite existing items with the same key and it will overwrite them otherwise \\
+The <key> is a String representing the key of the item the user wants to insert.\\
+The <value> can be anything the user wants to insert and it rapresent the value of the item itself.\\
+If the user wants to insert the item in a non existing collection the server 
 will automaticly create that collection.\\
 \textbf{How to:} 
 \begin{itemize}
-	\item Type insert ``<key>'' -> <value> to ``<collection name>'' o
+	\item Type \texttt{insert <key> -> <value> to <collection name> o}
 \end{itemize}
 \textbf{Possible errors:} the CLI will answer with self explanatory error messages 
 \begin{itemize}
-	\item If the collection you want to insert the item into does not exist or you don't have the permission to write on it
-	\item If the key of the item you want to insert is already used in the collection and you didn't chose to overwrite  
+	\item If the collection the user wants to insert the item into does not exist or user has not permission to write on it
+	\item If the user decide to insert an item with an already existing key in that collection and the overwrite option has not been chosen.  
 \end{itemize}
 
 \paragraph{Import from file}
 \label{sec:import}
-\textbf{Description:} this functionality allow the user to insert a list of collections and items from a file.\\
+\textbf{Description:} this feature allows the user to insert a list of collections and items from a file.\\
 The file has to be formatted as specified in \\%TODO mettere link to sezione giusta
 \textbf{How to:} 
 \begin{itemize}
-	\item Type import ``nomefile''
+	\item Type \texttt{import nomefile}
 \end{itemize}
 \textbf{Possible errors:} the CLI will answer with self explanatory error messages 
 \begin{itemize}
-	\item If the file is not JSON file.
+	\item If the file is not a JSON file.
 	\item If the file is not formatted as specified in %TODO link a sezione
-	\item If the file contains collection to be created that you cannot create (see \hyperref[sec:createcollection]{create collection})
-	\item If the file contains items to be inserted that you cannot insert (see \hyperref[sec:insertitem]{insert item}) 
+	\item If the file specified the creation of collection that the user can not create (see \hyperref[sec:createcollection]{create collection})
+	\item If the file specified the insertion of items that the user can not insert (see \hyperref[sec:insertitem]{insert item}) 
 \end{itemize}
 
 \paragraph{Remove item}
 \label{sec:removeitem}
-\textbf{Description:} this functionality allow the user to remove a item from a collection.\\
-Key represent the key of the item you want to remove from the collection
+\textbf{Description:} this feature allows the user to remove an item from a collection.\\
+<key> represents the key of the item the user wants to remove from the collection
 \textbf{How to:} 
 \begin{itemize}
-	\item Type remove ``<key>'' from ``<collection name>''
+	\item Type \texttt{remove <key> from <collection name>}
 \end{itemize}
 \textbf{Possible errors:} the CLI will answer with self explanatory error messages 
 \begin{itemize}
-	\item If the collection you typed does not exists in the server or you don't have permission to remove items from that collection
+	\item If the collection the user typed does not exists in the server or user do not have permission to remove items from it
 \end{itemize}
 
 \paragraph{Find item}
 \label{sec:find}
-\textbf{Description:} this functionality allow the user to search for items in the database. There are different types of search based on the parameters typed.\\
-To make the different types of find more easy to understand they will be 
-explained in differents sections below.
+\textbf{Description:} this feature allows the user to search for particular items in the database. There are different types of search based on the parameters typed.\\
 
-\subparagraph{Find item in one or more collections}
-\textbf{Description:} this functionality let the user search for an item between one or more collections in which he has the permission to read.\\
+\subparagraph{Search items in one or more collections}
+\textbf{Description:} this feature lets the user search for an item in one or more collection; the user must have the permission to read these collections.\\
 \textbf{How to:} 
 \begin{itemize}
-	\item Type find ``<key>'' from ``<collection name 1>'', ``<collection name 2>'', ... , ``<collection name N>''
+	\item Type \texttt{find <key> from <collection name 1>, <collection name 2>, ... , <collection name N>}
 \end{itemize}
 \textbf{Possible errors:} the CLI will answer with self explanatory error messages 
 \begin{itemize}
-	\item If at least one of the collection names does not exists on the server
+	\item If at least one of the collection does not exists on the server
 \end{itemize}
 
-\subparagraph{Find items in database}
-\textbf{Description:} this functionality let the user search for an item in the entire database.\\
+\subparagraph{Search items in the entire database}
+\textbf{Description:} this feature lets the user search for an item in the entire database.\\
 \textbf{How to:} 
 \begin{itemize}
-	\item Type find ``<key>''
+	\item Type \texttt{find <key>}
 \end{itemize}
 
-\subparagraph{Get all items of one or more collections}
-\textbf{Description:} this functionality let the user to ask for all the items contained in one or more collections.\\
+\subparagraph{Search for all the items of one or more collections}
+\textbf{Description:} this feature lets the user to retrieve all the items contained in one or more collections.\\
 \textbf{How to:} 
 \begin{itemize}
-	\item Type find from ``<collection name 1>'', ``<collection name 2>'', ... , ``<collection name N>''
+	\item Type \texttt{find from <collection name 1>, <collection name 2>, ... , <collection name N>}
 \end{itemize}
 \textbf{Possible errors:} the CLI will answer with self explanatory error messages 
 \begin{itemize}
-	\item If at least one of the collection names does not exists on the server
+	\item If at least one of the collection does not exists on the server
 \end{itemize}
 
 \subparagraph{Get all database items grouped by collection}
-\textbf{Description:} this functionality let the user to ask for all the items contained in the database grouped by collection.\\
-This operation can be expensive.\\
+\textbf{Description:} this feature lets the user to retrieve all the items contained in the entire database grouped by collection.\\
+This operation could be expensive.\\
 \textbf{How to:} 
 \begin{itemize}
-	\item Type find
+	\item Type \texttt{find}
 \end{itemize}
 
 % TODO finire comandi possibili da CLI (occhio a differenziare quelli dell'admin)
