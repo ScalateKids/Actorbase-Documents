@@ -543,7 +543,7 @@ Questo \gloss{attore} riceve la richiesta di connessione da
 \hyperref[sec:actorbase::driver::client::ActorbaseClient]{actorbase::driver::client::ActorbaseClient}
 e si occupa di associare al \gloss{client} un \gloss{attore} di tipo
 \hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{actorbase::actorsystem::clientactor::ClientActor}
-per continuare le comunicazioni. 
+per continuare le comunicazioni.
 
 \subparagraph{Classi ereditate}
 
@@ -1689,16 +1689,18 @@ metodi.
   \hline
 \end{tabular}
 
-\textbf{Parametri}
+\subparagraph{Parametri}
 
-\begin{itemize}
-\item send
-  \begin{itemize}
-  \item\textbf{Nome:} request
-  \item\textbf{Tipo:} \hyperref[actorbase::driver::client::api::Request]{Request}
-  \item\textbf{Descrizione:} Rappresenta una richiesta da inviare al server, comprensiva di \gloss{payload} dati
-  \end{itemize}
-\end{itemize}
+\begin{center}
+\textbf{send}
+\end{center}
+\begin{tabular}{| l | l | l |}
+  \hline
+  Nome & Tipo & Descrizione\\
+  \hline
+  request & \hyperref[actorbase::driver::client::api::Request]{Request} & Rappresenta una richiesta da inviare al server, comprensiva di \gloss{payload} dati\\
+  \hline
+\end{tabular}
 
 \subsubsection{Classi}
 
@@ -1825,7 +1827,7 @@ Viene estesa dalle classi che necessitano di comunicare con il server.
 
 \subparagraph{Attributi}
 
-\begin{tabular}{| l | l | l | l | l | l |}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
@@ -1998,7 +2000,7 @@ creata mediante il design pattern \gloss{Builder} nella classe
 
 \subparagraph{Attributi}
 
-\begin{tabular}{| l | l | l | l | l | l |}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
@@ -2036,7 +2038,7 @@ utilizzare nella comunicazione con il server.
 
 \subparagraph{Attributi}
 
-\begin{tabular}{| l | l | l | l | l | l |}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
@@ -2063,7 +2065,7 @@ Viene utilizzata come classe per l'incapsulamento dei codici di ritorno
 
 \subparagraph{Attributi}
 
-\begin{tabular}{| l | l | l | l | l | l |}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
@@ -2107,7 +2109,7 @@ nella comunicazione con il server.
 
 \subparagraph{Attributi}
 
-\begin{tabular}{| l | l | l | l | l | l |}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
@@ -2129,11 +2131,74 @@ nella comunicazione con il server.
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  createClientOptions & public & Array di HttpOption & Crea le opzioni di utilizzo del \gloss{client} \gloss{Http}\\
+  withMethod & public & \hyperref[sec:actorbase::driver::client::api::RequestMethod]{RequestMethod} & Imposta il metodo di richiesta \gloss{HTTP}\\
   \hline
-  send & public & Response & Invia la richiesta al server e riceve la risposta sincronamente\\
+  withUrl & public & \hyperref[sec:actorbase::driver::client::api::RequestMethod]{RequestMethod} & Imposta l'indirizzo dell'\gloss{API} esposta sul server\\
   \hline
-  shutdown & public &  & Chiude la connessione con il server\\
+  withParams & public & \hyperref[sec:actorbase::driver::client::api::RequestMethod]{RequestMethod} & Imposta i parametri da inviare allegati alla richiesta \gloss{HTTP}\\
+  \hline
+  withBody & public & \hyperref[sec:actorbase::driver::client::api::RequestMethod]{RequestMethod} & Imposta il \gloss{payload} da inviare allegato alla richiesta \gloss{HTTP}\\
+  \hline
+  addPath & public & \hyperref[sec:actorbase::driver::client::api::RequestMethod]{RequestMethod} & Aggiunge eventuali indirizzi aggiuntivi all'\gloss{url} della richiesta \gloss{HTTP}\\
+  \hline
+  toRequest & public & \hyperref[sec:actorbase::driver::client::api::Request]{Request} & Trasforma l'oggetto riferito da \gloss{this}, in un oggetto di tipo \hyperref[sec:actorbase::driver::client::api::Request]{Request}\\
+  \hline
+\end{tabular}
+
+\subparagraph{Parametri}
+
+\begin{center}
+\textbf{withMethod}
+\end{center}
+\begin{tabular}{| l | l | l |}
+  \hline
+  Nome & Tipo & Descrizione\\
+  \hline
+  method & \hyperref[actorbase::driver::client::api::RequestMethod]{RequestMethod} & Rappresenta il tipo di richiesta \gloss{HTTP} da inviare al server\\
+  \hline
+\end{tabular}
+
+\begin{center}
+\textbf{withUrl}
+\end{center}
+\begin{tabular}{| l | l | l |}
+  \hline
+  Nome & Tipo & Descrizione\\
+  \hline
+  url & String & Rappresenta il la \gloss{route} dell'\gloss{API} esposta sul server a cui inviare le richieste\\
+  \hline
+\end{tabular}
+
+\begin{center}
+\textbf{withParams}
+\end{center}
+\begin{tabular}{| l | l | l |}
+  \hline
+  Nome & Tipo & Descrizione\\
+  \hline
+  params & array di Tuple2[String, String] & Rappresenta i parametri da allegare alle richieste \gloss{HTTP}\\
+  \hline
+\end{tabular}
+
+\begin{center}
+\textbf{withBody}
+\end{center}
+\begin{tabular}{| l | l | l |}
+  \hline
+  Nome & Tipo & Descrizione\\
+  \hline
+  body & array di Byte & Rappresenta il \gloss{payload} da allegare alle richieste \gloss{HTTP}\\
+  \hline
+\end{tabular}
+
+\begin{center}
+\textbf{addPath}
+\end{center}
+\begin{tabular}{| l | l | l |}
+  \hline
+  Nome & Tipo & Descrizione\\
+  \hline
+  path & String & Rappresenta l'eventuale indirizzo parziale da aggiungere all'\gloss{url} da allegare alle richieste \gloss{HTTP}\\
   \hline
 \end{tabular}
 
@@ -2257,187 +2322,6 @@ per scorrere gli \gloss{item} al suo interno.
 \item \hyperref[sec:actorbase::driver::actorbasedata::ActorbaseItem]{actorbase::driver::actorbasedata::ActorbaseItem};
 \item \hyperref[sec:actorbase::driver::actorbasedata::ItemCursor]{actorbase::driver::actorbasedata::ItemCursor}.
 \end{itemize}
-
-\paragraph{actorbase::driver::actorbasedata::ActorbaseCollectionSeq}
-\label{sec:actorbase::driver::actorbasedata::ActorbaseCollectionSeq}
-
-\subparagraph{Descrizione}
-
-Classe che implementa \hyperref[sec:actorbase::driver::actorbasedata::ActorbaseObjectSeq]{actorbase::driver::actorbasedata::\allowbreak{}ActorbaseObjectSeq}
-in modo da rappresentare un insieme di \gloss{collezioni}.
-
-\subparagraph{Utilizzo}
-
-Questa classe viene utilizzata per la rappresentazione di un insieme di
-\gloss{collezioni} viste come insieme di oggetti di tipo
-\hyperref[sec:actorbase::driver::actorbasedata::ActorbaseCollection]{actorbase::driver::actorbasedata::ActorbaseCollection}
-che verrà restituito alla \gloss{cli} o a un programma esterno.
-Essa offrirà anche un \gloss{cursore} di tipo
-\hyperref[sec:actorbase::driver::actorbasedata::CollectionCursor]{actorbase::driver::actorbasedata::CollectionCursor}
-per scorrere le \gloss{collezioni} al suo interno.
-
-\subparagraph{Classi ereditate}
-
-\begin{itemize}
-\item \hyperref[sec:actorbase::driver::actorbasedata::ActorbaseObjectSeq]{actorbase::driver::actorbasedata::ActorbaseObjectSeq}.
-\end{itemize}
-
-\subparagraph{Interazioni con altre classi}
-
-\begin{itemize}
-\item \hyperref[sec:actorbase::driver::actorbasedata::ActorbaseCollection]{actorbase::driver::actorbasedata::ActorbaseCollection};
-\item \hyperref[sec:actorbase::driver::actorbasedata::CollectionCursor]{actorbase::driver::actorbasedata::CollectionCursor}.
-\end{itemize}
-
-\paragraph{actorbase::driver::actorbasedata::Cursor}
-\label{sec:actorbase::driver::actorbasedata::Cursor}
-
-\subparagraph{Descrizione}
-
-Interfaccia che offre un cursore per lo scorrimento di una struttura dati
-secondo il \gloss{design pattern} \gloss{iterator}.
-
-\subparagraph{Utilizzo}
-
-Questa interfaccia contiene i metodi necessari allo scorrimento di una
-struttura dati.
-
-\paragraph{actorbase::driver::actorbasedata::ItemCursor}
-\label{sec:actorbase::driver::actorbasedata::ItemCursor}
-
-\subparagraph{Descrizione}
-
-Classe che offre al \gloss{driver} un cursore per lo scorrimento di una struttura dati
-che rappresenta una singola \gloss{collezione} implementando l'interfaccia
-\hyperref[sec:actorbase::driver::actorbasedata::Cursor]{actorbase::driver::actorbasedata::Cursor}.
-
-\subparagraph{Utilizzo}
-
-Questa classe viene utilizzata dalla classe
-\hyperref[sec:actorbase::driver::actorbasedata::ActorbaseCollection]{actorbase::driver::actorbasedata::ActorbaseCollection}
-per scorrere gli \gloss{item} interni alla \gloss{collezione}
-rappresentata.
-
-\subparagraph{Classi ereditate}
-
-\begin{itemize}
-\item \hyperref[sec:actorbase::driver::actorbasedata::Cursor]{actorbase::driver::actorbasedata::Cursor}.
-\end{itemize}
-
-\subparagraph{Interazioni con altre classi}
-
-\begin{itemize}
-\item \hyperref[sec:actorbase::driver::actorbasedata::ActorbaseCollection]{actorbase::driver::actorbasedata::ActorbaseCollection}.
-\end{itemize}
-
-\paragraph{actorbase::driver::actorbasedata::CollectionCursor}
-\label{sec:actorbase::driver::actorbasedata::CollectionCursor}
-
-\subparagraph{Descrizione}
-
-Classe che offre al \gloss{driver} un cursore per lo scorrimento di una struttura dati
-che rappresenta un'insieme di \gloss{collezioni} implementando l'interfaccia
-\hyperref[sec:actorbase::driver::actorbasedata::Cursor]{actorbase::driver::actorbasedata::Cursor}.
-
-\subparagraph{Utilizzo}
-
-Questa classe viene utilizzata dalla classe
-\hyperref[sec:actorbase::driver::actorbasedata::ActorbaseCollection]{actorbase::driver::actorbasedata::ActorbaseCollection}
-per scorrere le \gloss{collezioni} interni all'insieme di \gloss{collezioni}
-rappresentato.
-
-\subparagraph{Classi ereditate}
-
-\begin{itemize}
-\item \hyperref[sec:actorbase::driver::actorbasedata::Cursor]{actorbase::driver::actorbasedata::Cursor}.
-\end{itemize}
-
-\subparagraph{Interazioni con altre classi}
-
-\begin{itemize}
-\item \hyperref[sec:actorbase::driver::actorbasedata::ActorbaseCollectionSeq]{actorbase::driver::actorbasedata::ActorbaseCollectionSeq}.
-\end{itemize}
-
-\paragraph{actorbase::driver::actorbasedata::RESPArrayString}
-\label{sec:actorbase::driver::actorbasedata::RESPArrayString}
-
-\subparagraph{Descrizione}
-
-Questa classe rappresenta un \gloss{array} di
-\hyperref[sec:actorbase::driver::actorbasedata::RESPSimpleString]{actorbase::driver::actorbasedata::RESPSimpleString}.
-
-\subparagraph{Utilizzo}
-
-Questa classe viene utilizzata da \hyperref[sec:actorbase::driver::serializer::RESPDeserialize]{actorbase::driver::serializer::RESPDeserialize}
-per \gloss{deserializzare} la risposta ricevuta dal \gloss{server}.
-
-\subparagraph{Interazioni con altre classi}
-
-\begin{itemize}
-\item \hyperref[sec:actorbase::driver::actorbasedata::RESPSimpleString]{actorbase::driver::actorbasedata::RESPSimpleString};
-\item \hyperref[sec:actorbase::driver::serializer::RESPDeserialize]{actorbase::driver::serializer::RESPDeserialize}.
-\end{itemize}
-
-\paragraph{actorbase::driver::actorbasedata::RESPSimpleString}
-\label{sec:actorbase::driver::actorbasedata::RESPSimpleString}
-
-\subparagraph{Descrizione}
-
-Questa classe rappresenta una stringa senza l'indicazione di quanto sia lunga
-la stringa. Essa termina quando si trova un carattere \gloss{CR (Carriage Return)}
-e \gloss{LF (Line Feed)}.
-
-\subparagraph{Utilizzo}
-
-Questa classe viene utilizzata per \gloss{deserializzare} principalmente le
-risposte ottenute dal \gloss{server} che non comprendano \gloss{item} o
-\gloss{collezioni}.
-
-\subparagraph{Interazioni con altre classi}
-
-\begin{itemize}
-\item \hyperref[sec:actorbase::driver::actorbasedata::RESPArrayString]{actorbase::driver::actorbasedata::RESPArrayString}.
-\end{itemize}
-
-\paragraph{actorbase::driver::actorbasedata::RESPBulkString}
-\label{sec:actorbase::driver::actorbasedata::RESPBulkString}
-
-\subparagraph{Descrizione}
-
-Questa classe rappresenta una stringa con l'indicazione di quanto sia lunga la
-stringa. Può contenere qualsiasi carattere.
-
-\subparagraph{Utilizzo}
-
-Questa classe viene utilizzata per \gloss{deserializzare} principalmente le
-risposte ottenute dal \gloss{server} che comprendano \gloss{item} o
-\gloss{collezioni}.
-
-\subparagraph{Classi ereditate}
-
-\begin{itemize}
-\item \hyperref[sec:actorbase::driver::actorbasedata::RESPSimpleString]{actorbase::driver::actorbasedata::RESPSimpleString}.
-\end{itemize}
-
-\paragraph{actorbase::driver::actorbasedata::RESPErrorString}
-\label{sec:actorbase::driver::actorbasedata::RESPErrorString}
-
-\subparagraph{Descrizione}
-
-Questa classe rappresenta una stringa di tipo \hyperref[sec:actorbase::driver::actorbasedata::RESPSimpleString]{actorbase::driver::actorbasedata::RESPSimpleString}
-con i primi caratteri che indicano il tipo di errore.
-
-\subparagraph{Utilizzo}
-
-Questa classe viene utilizzata per \gloss{deserializzare} principalmente le
-risposte ottenute dal \gloss{server} che comprendano messaggi di errore.
-
-\subparagraph{Classi ereditate}
-
-\begin{itemize}
-\item \hyperref[sec:actorbase::driver::actorbasedata::RESPSimpleString]{actorbase::driver::actorbasedata::RESPSimpleString}.
-\end{itemize}
-
 
 \subsection{actorbase::driver::exceptions}
 \label{sec:actorbase::driver::exceptions}
