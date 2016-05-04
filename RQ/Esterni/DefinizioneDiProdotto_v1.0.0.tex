@@ -2750,6 +2750,61 @@ comandi.
 \item \hyperref[sec:actorbase::cli::models]{actorbase::cli::models}.
 \end{itemize}
 
+\subsection{Interfacce}
+
+\paragraph{actorbase::cli::views::PromptProvider}
+\label{sec:actorbase::cli::views::PromptProvider}
+
+\subparagraph{Descrizione}
+
+Interfaccia per la creazione del \gloss{prompt} dei comandi.
+
+\subparagraph{Utilizzo}
+
+Offre un'interfaccia per la creazione di un \gloss{prompt} generico.
+
+\subparagraph{Realizzata da}
+
+\begin{itemize}
+	\item ActorbasePrompt
+\end{itemize}
+
+\subparagraph{Metodi}
+
+\begin{tabular}{l | l | l | l}
+	\hline
+	Nome & Accesso & Tipo di ritorno & Descrizione\\
+	\hline
+	getPrompt & public & String & \\
+\end{tabular}
+
+
+\subparagraph{Interazioni con altre classi}
+
+\begin{itemize}
+	\item \hyperref[sec:actorbase::cli::views::CommandLoop]{actorbase::cli::views::CommandLoop}.
+\end{itemize}
+
+\paragraph{actorbase::cli::views::Observer}
+\label{sec:actorbase::cli::views::Observer}
+
+\subparagraph{Descrizione}
+
+Interfaccia per l'implementazione del \gloss{design pattern} \gloss{Observer}
+che permette di aggiornare la \gloss{view} ad ogni risposta della componente
+\gloss{driver}.
+
+\subparagraph{Utilizzo}
+
+Offre un'interfaccia per permettere di aggiornare la \gloss{view} ad ogni
+risposta ricevuta dal \gloss{driver}.
+
+\subparagraph{Interazioni con altre classi}
+
+\begin{itemize}
+	\item \hyperref[sec:actorbase::cli::models::Observable]{actorbase::cli::models::Observable}.
+\end{itemize}
+
 \subsubsection{Classi}
 
 \paragraph{actorbase::cli::views::CommandLoop}
@@ -2791,23 +2846,6 @@ all'avvio della \gloss{CLI}.
 \item \hyperref[sec:actorbase::cli::views::CommandLoop]{actorbase::cli::views::CommandLoop}.
 \end{itemize}
 
-\paragraph{actorbase::cli::views::PromptProvider}
-\label{sec:actorbase::cli::views::PromptProvider}
-
-\subparagraph{Descrizione}
-
-Interfaccia per la creazione del \gloss{prompt} dei comandi.
-
-\subparagraph{Utilizzo}
-
-Offre un'interfaccia per la creazione di un \gloss{prompt} generico.
-
-\subparagraph{Interazioni con altre classi}
-
-\begin{itemize}
-\item \hyperref[sec:actorbase::cli::views::CommandLoop]{actorbase::cli::views::CommandLoop}.
-\end{itemize}
-
 \paragraph{actorbase::cli::views::ActorbasePrompt}
 \label{sec:actorbase::cli::views::ActorbasePrompt}
 
@@ -2828,25 +2866,6 @@ effettuata. %TODO: scrivere meglio
 \item \hyperref[sec:actorbase::cli::views::PromptProvider]{actorbase::cli::views::PromptProvider}.
 \end{itemize}
 
-\paragraph{actorbase::cli::views::Observer}
-\label{sec:actorbase::cli::views::Observer}
-
-\subparagraph{Descrizione}
-
-Interfaccia per l'implementazione del \gloss{design pattern} \gloss{Observer}
-che permette di aggiornare la \gloss{view} ad ogni risposta della componente
-\gloss{driver}.
-
-\subparagraph{Utilizzo}
-
-Offre un'interfaccia per permettere di aggiornare la \gloss{view} ad ogni
-risposta ricevuta dal \gloss{driver}.
-
-\subparagraph{Interazioni con altre classi}
-
-\begin{itemize}
-\item \hyperref[sec:actorbase::cli::models::Observable]{actorbase::cli::models::Observable}.
-\end{itemize}
 
 \paragraph{actorbase::cli::views::ResultView}
 \label{sec:actorbase::cli::views::ResultView}
