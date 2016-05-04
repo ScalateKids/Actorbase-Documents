@@ -1852,7 +1852,7 @@ per aggiornare i suoi riferimenti.
 
 \begin{itemize}
 \item \hyperref[sec:actorbase::driver::client]{actorbase::driver::client};
-\item \hyperref[sec:actorbase::driver::serializer]{actorbase::driver::api};
+\item \hyperref[sec:actorbase::driver::serializer]{actorbase::driver::client::api};
 \item \hyperref[sec:actorbase::driver::actorbasedata]{actorbase::driver::data};
 \item \hyperref[sec:actorbase::driver::exceptions]{actorbase::driver::exceptions}.
 \end{itemize}
@@ -1955,7 +1955,7 @@ hanno libertà di implementazione specifica dei metodi.
 
 \subparagraph{Metodi}
 
-\begin{tabular}{l | l | l | l}
+\begin{tabular}{| l | l | l | l |}
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
@@ -1977,7 +1977,7 @@ hanno libertà di implementazione specifica dei metodi.
   \end{itemize}
 \end{itemize}
 
-\paragraph{actorbase::driver::client::ActorbaseClient}
+\paragraph{ActorbaseClient}
 \label{sec:actorbase::driver::client::ActorbaseClient}
 
 \subparagraph{Descrizione}
@@ -1996,224 +1996,378 @@ risultato delle operazioni viene restituito a
 \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} tramite
 oggetti di tipo stringa.
 
-\subparagraph{Interazioni con altre classi}
+\subparagraph{Interfacce realizzate}
 
 \begin{itemize}
-\item \hyperref[sec:actorbase::cli::models::CommandReceiver]{actorbase::cli::models::CommandReceiver};
-\item \hyperref[sec:actorbase::driver::client::CommandRunner]{actorbase::driver::client::CommandRunner};
-\item \hyperref[sec:actorbase::driver::client::api::RequestBuilder]{actorbase::driver::client::api::RequestBuilder}.
+\item \hyperref[sec:actorbase::driver::client::Client]{actorbase::driver::client::Client}
 \end{itemize}
-% SONO QUI
-\paragraph{actorbase::driver::client::CommandRunner}
-\label{sec:actorbase::driver::client::CommandRunner}
+
+\subparagraph{Classi ereditate}
+
+\begin{itemize}
+\item \hyperref[sec:actorbase::driver::client::SSLClient]{actorbase::driver::client::SSLClient}
+\end{itemize}
+
+\subparagraph{Attributi}
+
+\begin{tabular}{| l{4cm} | l{4cm} | l{4cm} | l{4cm} | l{6cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  client & private & immutabile & Http & Oggetto istanziato utilizzando la libreria esterna \gloss{Scalaj} dedicato alla comunicazione \gloss{HTTP} con il server\\
+  \hline
+  options & private & immutabile & array di HttpOption & Array di opzioni da utilizzare con l'oggetto client, responsabile di settaggi quali livello di protezione della comunicazione e \gloss{timeout} richieste\\
+  \hline
+\end{tabular}
+
+\subparagraph{Metodi}
+
+\begin{tabular}{| l | l | l | l |}
+  \hline
+  Nome & Accesso & Tipo di ritorno & Descrizione\\
+  \hline
+  createClientOptions & public & Array di HttpOption & Crea le opzioni di utilizzo del \gloss{client} \gloss{Http}\\
+  \hline
+  send & public & Response & Invia la richiesta al server e riceve la risposta sincronamente\\
+  \hline
+  shutdown & public &  & Chiude la connessione con il server\\
+  \hline
+\end{tabular}
+
+% FINE ACTORBASECLIENT
+
+\paragraph{Connector (abstract)}
+\label{sec:actorbase::driver::client::Connector}
 
 \subparagraph{Descrizione}
 
-Classe \gloss{façade} che si occupa di mettere in comunicazione il
-\gloss{driver} con il \gloss{server}.
+Classe astratta che si occupa di istanziare un oggetto di tipo
+\hyperref[sec:actorbase::driver::client::ActorbaseClient]{ActorbaseClient} e uno
+di tipo
+\hyperref[sec:actorbase::driver::client::api::RequestBuilder]{RequestBuilder} in
+modo da fornire possibilità di comunicazione con il server alle classi che la
+estendono.
 
 \subparagraph{Utilizzo}
 
-Questa classe riceve dalla componente \hyperref[sec:actorbase::driver::client::ActorbaseClient]{actorbase::driver::client::ActorbaseClient}
-il comando da eseguire e le restituisce il risultato nascondendole
-tutte le operazioni eseguite.
+Viene estesa dalle classi che necessitano di comunicare con il server.
 
-\subparagraph{Interazioni con altre classi}
+\subparagraph{Attributi}
 
-\begin{itemize}
-\item \hyperref[sec:actorbase::driver::client::ActorbaseClient]{actorbase::driver::client::ActorbaseClient};
-\item \hyperref[sec:actorbase::driver::client::Connection]{actorbase::driver::client::Connection}.
-\end{itemize}
+\begin{tabular}{| l | l | l | l | l | l |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  client & public & immutabile & \hyperref[sec:actorbase::driver::ActorbaseClient]{ActorbaseClient} & Ha lo scopo di fornire comunicazione con il server, mediante protocollo \gloss{HTTP}\\
+  \hline
+  requestBuilder & public & immutabile & \hyperref[sec:actorbase::driver::api::RequestBuilder]{RequestBuilder} & E' utilizzato per costruire le richieste \gloss{REST} da iniviare al server mediante oggetto di tipo \hyperref[sec:actorbase::driver::client::api::Request]{Request}\\
+  \hline
+\end{tabular}
 
-\paragraph{actorbase::driver::client::Connection}
-\label{sec:actorbase::driver::client::Connection}
+% FINE CONNECTOR
 
-\subparagraph{Descrizione}
+% INIZIO PACKAGE ACTORBASE::DRIVER::CLIENT::API
 
-Classe per la connessione tra il \gloss{driver} e il \gloss{server}.
+\subsection{actorbase::driver::client::api}
+\label{sec:actorbase::driver::client::api}
 
-\subparagraph{Utilizzo}
-
-Questa classe si incarica della connessione e comunicazione con il \gloss{server}. Una volta
-connesso alla componente \hyperref[sec:actorbase::actorsystem::tcpserver::TCPServer]{actorbase::actorsystem::\allowbreak{}tcpserver::\allowbreak{}TCPServer}
-le verrà assegnato un oggetto di tipo \hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{actorbase::\allowbreak{}actorsystem::\allowbreak{}clientactor::\allowbreak{}ClientActor}.\\
-Questa classe inoltre chiamerà le componenti necessarie per la \gloss{serializzazione} e \gloss{deserializzazione}
-delle stringhe ricevute dal \gloss{server} o da \hyperref[sec:actorbase::driver::client::CommandRunner]{actorbase::\allowbreak{}driver::\allowbreak{}client::\allowbreak{}CommandRunner},
-ossia \hyperref[sec:actorbase::driver::serializer::SerializationContext]{actorbase::\allowbreak{}driver::\allowbreak{}serializer::\allowbreak{}SerializationContext}
-e \hyperref[sec:actorbase::driver::serializer::Deserializationtext]{actorbase::\allowbreak{}driver::\allowbreak{}serializer::\allowbreak{}DeserializationContext}.
-
-\subparagraph{Interazioni con altre classi}
-\begin{itemize}
-\item \hyperref[sec:actorbase::driver::serializer::SerializationContext]{actorbase::driver::serializer::SerializationContext};
-\item \hyperref[sec:actorbase::driver::serializer::Deserializationtext]{actorbase::driver::serializer::DeserializationContext};
-\item \hyperref[sec:actorbase::driver::client::CommandRunner]{actorbase::driver::client::CommandRunner};
-\item \hyperref[sec:actorbase::actorsystem::tcpserver::TCPServer]{actorbase::actorsystem::tcpserver::TCPServer};
-\item \hyperref[sec:actorbase::actorbase::actorsystem::clientactor::ClientActor]{actorbase::actorsystem::clientactor::ClientActor}.
-\end{itemize}
-
-\subsection{actorbase::driver::serializer}
-\label{sec:actorbase::driver::serializer}
-
-\begin{figure}[H]
-  \begin{center}
-    \includegraphics[width=0.9\textwidth,keepaspectratio]{RP/Driver-Serializer.png}
-    \caption{Driver, package serializer e interazioni con package client e package actorbasedata}
-  \end{center}
-\end{figure}
+% TODO: FIGURA API
 
 \subsubsection{Descrizione}
 
-\gloss{Package} che si occupa di \gloss{serializzare} e \gloss{deserializzare}
-i messaggi mandati o ricevuti dal \gloss{server}.
+\gloss{Package} che offre le strutture dati necessarie per la comunicazione con
+il \gloss{server}, con la \gloss{cli} o eventuali programmi esterni. Si occupa
+inoltre della gestione delle richieste \gloss{REST} da inviare utilizzando il
+protocollo \gloss{HTTP}.
 
 \subsubsection{Interazioni con altre componenti}
-
 \begin{itemize}
-
 \item \hyperref[sec:actorbase::driver::client]{actorbase::driver::client};
-\item \hyperref[sec:actorbase::driver::actorbasedata]{actorbase::driver::actorbasedata}.
-
 \end{itemize}
 
 \subsubsection{Classi}
 
-\paragraph{actorbase::driver::serializer::SerializationContext}
-\label{sec:actorbase::driver::serializer::SerializationContext}
+\paragraph{RequestMethod (abstract)}
+\label{sec:RequestMethod}
 
 \subparagraph{Descrizione}
 
-Classe che offre dei metodi per la scelta su quale tipo di \gloss{serializzazione}
-effettuare.
+Classe astratta che rappresenta una generica richiesta \gloss{HTTP},
+implementata utilizzando la specifica funzionalità \textit{case class} di Scala,
+in modo da poter usufruirne mediante costrutti e algoritmi di \gloss{pattern
+  matching}.
 
 \subparagraph{Utilizzo}
 
-Questa classe viene utilizzata da \hyperref[sec:actorbase::driver::client::Connection]{actorbase::driver::client::Connection}
-per \gloss{serializzare} i dati scegliendo una tra le strategie indicate
-dalle classi che estendono \hyperref[sec:actorbase::driver::serializer::SerializationStrategy]{actorbase::driver::serializer::SerializationStrategy}.
+Viene utilizzata come classe padre per l'implementazione delle richieste
+\gloss{HTTP} da utilizzare nella comunicazione con il server.
 
-\subparagraph{Interazioni con altre classi}
+\subparagraph{Ereditata da}
 
 \begin{itemize}
-
-\item \hyperref[sec:actorbase::driver::client::Connection]{actorbase::driver::client::Connection};
-\item \hyperref[sec:actorbase::driver::serializer::SerializationStrategy]{actorbase::driver::serializer::SerializationStrategy}.
-
+\item \hyperref[sec:actorbase::driver::client::api::GET]{actorbase::driver::client::api::GET}
+\item \hyperref[sec:actorbase::driver::client::api::POST]{actorbase::driver::client::api::POST}
+\item \hyperref[sec:actorbase::driver::client::api::PUT]{actorbase::driver::client::api::PUT}
+\item \hyperref[sec:actorbase::driver::client::api::DELETE]{actorbase::driver::client::api::DELETE}
 \end{itemize}
 
-\paragraph{actorbase::driver::serializer::SerializationStrategy}
-\label{sec:actorbase::driver::serializer::SerializationStrategy}
+% FINE REQUESTMETHOD
+
+\paragraph{GET (abstract)}
+\label{sec:GET}
 
 \subparagraph{Descrizione}
 
-Interfaccia che offre una strategia generale per \gloss{serializzare} i dati.
+Classe astratta che rappresenta una generica richiesta \gloss{HTTP} di tipo
+\gloss{GET}, implementata utilizzando la specifica funzionalità \textit{case
+  class} di Scala, in modo da poter usufruirne mediante costrutti e algoritmi di
+\gloss{pattern matching}.
 
 \subparagraph{Utilizzo}
 
-Questa interfaccia viene utilizzata per l'applicazione del \gloss{design pattern}
-\gloss{strategy}. Offre un metodo generalizzato per la
-\gloss{serializzazione} di dati che verrà poi implementato dalle classi che
-implementeranno questa interfaccia.
+Viene utilizzata come classe per l'implementazione delle richieste \gloss{HTTP}
+di tipo \gloss{GET} da utilizzare nella comunicazione con il server.
 
-\subparagraph{Interazioni con altre classi}
+\subparagraph{Eredita}
 
 \begin{itemize}
-
-\item \hyperref[sec:actorbase::driver::serializer::SerializationContext]{actorbase::driver::serializer::SerializationContext}.
-
+\item \hyperref[sec:actorbase::driver::client::api::RequestMethod]{actorbase::driver::client::api::RequestMethod}
 \end{itemize}
 
-\paragraph{actorbase::driver::serializer::RESPSerialize}
+% FINE GET
+
+\paragraph{POST (abstract)}
+\label{sec:POST}
 
 \subparagraph{Descrizione}
 
-Classe che si occupa di serializzare i dati in stringhe di formato \gloss{RESP}.
+Classe astratta che rappresenta una generica richiesta \gloss{HTTP} di tipo
+\gloss{POST}, implementata utilizzando la specifica funzionalità \textit{case
+  class} di Scala, in modo da poter usufruirne mediante costrutti e algoritmi di
+\gloss{pattern matching}.
 
 \subparagraph{Utilizzo}
 
-Questa classe viene utilizzata per l'implementazione di una strategia di
-\gloss{serializzazione} in formato \gloss{RESP}.
+Viene utilizzata come classe per l'implementazione delle richieste \gloss{HTTP}
+di tipo \gloss{POST} da utilizzare nella comunicazione con il server.
 
-\subparagraph{Classi ereditate}
+\subparagraph{Eredita}
 
 \begin{itemize}
-
-\item \hyperref[sec:actorbase::driver::serializer::SerializationStrategy]{actorbase::driver::serializer::SerializationStrategy}.
-
+\item \hyperref[sec:actorbase::driver::client::api::RequestMethod]{actorbase::driver::client::api::RequestMethod}
 \end{itemize}
 
-\paragraph{actorbase::driver::serializer::DeserializationContext}
-\label{sec:actorbase::driver::serializer::DeserializationContext}
+% FINE POST
+
+\paragraph{PUT (abstract)}
+\label{sec:PUT}
 
 \subparagraph{Descrizione}
 
-Classe che offre dei metodi per la scelta su quale tipo di \gloss{deserializzazione}
-effettuare.
+Classe astratta che rappresenta una generica richiesta \gloss{HTTP} di tipo
+\gloss{PUT}, implementata utilizzando la specifica funzionalità \textit{case
+  class} di Scala, in modo da poter usufruirne mediante costrutti e algoritmi di
+\gloss{pattern matching}.
 
 \subparagraph{Utilizzo}
 
-Questa classe viene utilizzata da \hyperref[sec:actorbase::driver::client::Connection]{actorbase::driver::client::Connection}
-per \gloss{deserializzare} i dati scegliendo una tra le strategie indicate
-dalle classi che estendono \hyperref[sec:actorbase::driver::serializer::DeserializationStrategy]{actorbase::driver::serializer::DeserializationStrategy}.
+Viene utilizzata come classe per l'implementazione delle richieste \gloss{HTTP}
+di tipo \gloss{PUT} da utilizzare nella comunicazione con il server.
 
-\subparagraph{Interazioni con altre classi}
+\subparagraph{Eredita}
 
 \begin{itemize}
-
-\item \hyperref[sec:actorbase::driver::serializer::DeserializationStrategy]{actorbase::driver::serializer::DeserializationStrategy}.
-
+\item \hyperref[sec:actorbase::driver::client::api::RequestMethod]{actorbase::driver::client::api::RequestMethod}
 \end{itemize}
 
-\paragraph{actorbase::driver::serializer::DeserializationStrategy}
-\label{sec:actorbase::driver::serializer::DeserializationStrategy}
+% FINE PUT
+
+\paragraph{DELETE (abstract)}
+\label{sec:DELETE}
 
 \subparagraph{Descrizione}
 
-Interfaccia che offre una strategia generale per \gloss{deserializzare} i dati.
+Classe astratta che rappresenta una generica richiesta \gloss{HTTP} di tipo
+\gloss{DELETE}, implementata utilizzando la specifica funzionalità \textit{case
+  class} di Scala, in modo da poter usufruirne mediante costrutti e algoritmi di
+\gloss{pattern matching}.
 
 \subparagraph{Utilizzo}
 
-Questa interfaccia viene utilizzata per l'applicazione del \gloss{design pattern}
-\gloss{strategy}. Offre un metodo generalizzato per la
-\gloss{deserializzazione} di dati che verrà poi implementato dalle classi che
-implementeranno questa interfaccia.
+Viene utilizzata come classe per l'implementazione delle richieste \gloss{HTTP}
+di tipo \gloss{DELETE} da utilizzare nella comunicazione con il server.
 
-\subparagraph{Interazioni con altre classi}
+\subparagraph{Eredita}
 
 \begin{itemize}
-
-\item \hyperref[sec:actorbase::driver::serializer::DeserializationContext]{actorbase::driver::serializer::DeserializationContext}.
-
+\item \hyperref[sec:actorbase::driver::client::api::RequestMethod]{actorbase::driver::client::api::RequestMethod}
 \end{itemize}
 
-\paragraph{actorbase::driver::serializer::RESPDeserialize}
+% FINE DELETE
+
+\paragraph{Request}
+\label{sec:Request}
 
 \subparagraph{Descrizione}
 
-Classe che si occupa di deserializzare i dati da stringhe in formato \gloss{RESP}.
+Classe che rappresenta una generica richiesta \gloss{HTTP}, implementata
+utilizzando la specifica funzionalità \textit{case class} di Scala, in modo da
+poter usufruirne mediante costrutti e algoritmi di \gloss{pattern matching},
+racchiude al suo interno i parametri di richiesta, quali il metodo, di tipo
+\hyperref[sec:actorbase::driver::client::api::RequestMethod]{RequestMethod},
+l'\gloss{URL} a cui inviare la richiesta, gli \gloss{header} \gloss{HTTP}
+associati, i parametri e il \gloss{payload}.
 
 \subparagraph{Utilizzo}
 
-Questa classe viene utilizzata per l'implementazione di una strategia di
-\gloss{deserializzazione} dal formato \gloss{RESP}.
+Viene utilizzata come classe per l'implementazione delle richieste \gloss{HTTP}
+di tipo \gloss{DELETE} da utilizzare nella comunicazione con il server. Viene
+creata mediante il design pattern \gloss{Builder} nella classe
+\hyperref[sec:actorbase::driver::client::api::RequestBuilder]{RequestBuilder}.
 
-\subparagraph{Classi ereditate}
+\subparagraph{Attributi}
 
-\begin{itemize}
+\begin{tabular}{| l | l | l | l | l | l |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  method & private & immutabile & \hyperref[sec:actorbase::driver::api::RequestMethod]{RequestMethod} & Indica il tipo di richiesta \gloss{HTTP}\\
+  \hline
+  url & private & immutabile & String & Rappresenta l'indirizzo dell'\gloss{API} esposta sul server a cui inviare la richiesta\\
+  \hline
+  headers & private & immutabile & Map[String, List[String]] & Rappresenta gli \gloss{header} \gloss{HTTP} da associare alla richiesta\\
+  \hline
+  params & private & immutabile &  Map[String, String] & Rappresenta i parametri da allegare alla richiesta \gloss{HTTP}\\
+  \hline
+  body & private & immutabile & Array di Byte & Rappresenta i dati di \gloss{payload} da iniviare sul server\\
+  \hline
+\end{tabular}
 
-\item \hyperref[sec:actorbase::driver::serializer::DeserializationStrategy]{actorbase::driver::serializer::DeserializationStrategy}.
+% FINE REQUEST
 
-\end{itemize}
+\paragraph{Response}
+\label{sec:Response}
 
-\subparagraph{Interazioni con altre classi}
+\subparagraph{Descrizione}
 
-\begin{itemize}
+Classe che rappresenta una generica risposta \gloss{HTTP}, implementata
+utilizzando la specifica funzionalità \textit{case class} di Scala, in modo da
+poter usufruirne mediante costrutti e algoritmi di \gloss{pattern matching},
+racchiude al suo interno i parametri di risposta, quali il codice di stato,
+rappresentato da una enum interna
+\hyperref[sec:actorbase::driver::client::api::Status]{Status} e il
+\gloss{payload} di risposta in formato stringa.
 
-\item \hyperref[sec:actorbase::driver::actorbasedata::RESPArrayString]{actorbase::driver::actorbasedata::RESPArrayString}.
+\subparagraph{Utilizzo}
 
-\end{itemize}
+Viene utilizzata come classe per l'incapsulamento delle risposte \gloss{HTTP} da
+utilizzare nella comunicazione con il server.
 
-\subsection{actorbase::driver::actorbasedata}
-\label{sec:actorbase::driver::actorbasedata}
+\subparagraph{Attributi}
+
+\begin{tabular}{| l | l | l | l | l | l |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  status & private & immutabile & Int & Indica il codice di risposta \gloss{HTTP}\\
+  \hline
+  body & private & immutabile & String & Rappresenta i dati di \gloss{payload} ricevuti dal server\\
+  \hline
+\end{tabular}
+
+% FINE RESPONSE
+
+\paragraph{Status}
+\label{sec:Status}
+
+\subparagraph{Descrizione}
+
+Enum interna a hyperref[sec:actorbase::driver::client::api::Response]{Response},
+rappresenta il codice di ritorno della richiesta \gloss{HTTP} inviata al server.
+
+\subparagraph{Utilizzo}
+
+Viene utilizzata come classe per l'incapsulamento dei codici di ritorno
+\gloss{HTTP} da utilizzare nella comunicazione con il server.
+
+\subparagraph{Attributi}
+
+\begin{tabular}{| l | l | l | l | l | l |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  OK & private & immutabile & Int & Indica il codice di risposta \gloss{HTTP} 200\\
+  \hline
+  Created & private & immutabile & Int & Indica il codice di risposta \gloss{HTTP} 201\\
+  \hline
+  Accepted & private & immutabile & Int & Indica il codice di risposta \gloss{HTTP} 202\\
+  \hline
+  BadRequest & private & immutabile & Int & Indica il codice di risposta \gloss{HTTP} 400\\
+  \hline
+  Unauthorized & private & immutabile & Int & Indica il codice di risposta \gloss{HTTP} 401\\
+  \hline
+  Forbidden & private & immutabile & Int & Indica il codice di risposta \gloss{HTTP} 403\\
+  \hline
+  NotFound & private & immutabile & Int & Indica il codice di risposta \gloss{HTTP} 404\\
+  \hline
+\end{tabular}
+
+% FINE STATUS
+
+\paragraph{RequestBuilder}
+\label{sec:RequestBuilder}
+
+\subparagraph{Descrizione}
+
+Rappresenta una classe builder per la creazione di richieste \gloss{HTTP},
+racchiude al suo interno i parametri di richiesta, quali il metodo, di tipo
+\hyperref[sec:actorbase::driver::client::api::RequestMethod]{RequestMethod},
+l'\gloss{URL} a cui inviare la richiesta, gli \gloss{header} \gloss{HTTP}
+associati, i parametri e il \gloss{payload} e i metodi \verb=with= per
+aggiungere attributi alla richiesta di tipo
+\hyperref[sec:actorbase::driver::client::api::Request]{Request} da generare.
+
+\subparagraph{Utilizzo}
+
+Viene utilizzata come classe buider per la costruzione delle richieste
+\gloss{HTTP} di tipo
+\hyperref[sec:actorbase::driver::client::api::Request]{Request} da utilizzare
+nella comunicazione con il server.
+
+\subparagraph{Attributi}
+
+\begin{tabular}{| l | l | l | l | l | l |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  method & private & immutabile & \hyperref[sec:actorbase::driver::api::RequestMethod]{RequestMethod} & Indica il tipo di richiesta \gloss{HTTP}\\
+  \hline
+  url & private & immutabile & String & Rappresenta l'indirizzo dell'\gloss{API} esposta sul server a cui inviare la richiesta\\
+  \hline
+  headers & private & immutabile & Map[String, List[String]] & Rappresenta gli \gloss{header} \gloss{HTTP} da associare alla richiesta\\
+  \hline
+  params & private & immutabile &  Map[String, String] & Rappresenta i parametri da allegare alla richiesta \gloss{HTTP}\\
+  \hline
+  body & private & immutabile & Array di Byte & Rappresenta i dati di \gloss{payload} da iniviare sul server\\
+  \hline
+\end{tabular}
+
+\subparagraph{Metodi}
+
+\begin{tabular}{| l | l | l | l |}
+  \hline
+  Nome & Accesso & Tipo di ritorno & Descrizione\\
+  \hline
+  createClientOptions & public & Array di HttpOption & Crea le opzioni di utilizzo del \gloss{client} \gloss{Http}\\
+  \hline
+  send & public & Response & Invia la richiesta al server e riceve la risposta sincronamente\\
+  \hline
+  shutdown & public &  & Chiude la connessione con il server\\
+  \hline
+\end{tabular}
+
+\subsection{actorbase::driver::client::api::data}
+\label{sec:actorbase::driver::client::api::data}
 
 \begin{figure}[H]
   \begin{center}
@@ -2224,14 +2378,14 @@ Questa classe viene utilizzata per l'implementazione di una strategia di
 
 \subsubsection{Descrizione}
 
-\gloss{Package} che offre le strutture dati necessarie per la comunicazione
-con il \gloss{server}, con la \gloss{cli} o eventuali programmi esterni.
+\gloss{Package} che offre le strutture dati necessarie per la comunicazione con
+il \gloss{server}, con la \gloss{cli} o eventuali programmi esterni. Si occupa
+inoltre della gestione delle richieste \gloss{REST} da inviare utilizzando il
+protocollo \gloss{HTTP}
 
 \subsubsection{Interazioni con altre componenti}
 \begin{itemize}
-\item \hyperref[sec:actorbase::cli::models]{actorbase::cli::models};
 \item \hyperref[sec:actorbase::driver::client]{actorbase::driver::client};
-\item \hyperref[sec:actorbase::driver::serializer]{actorbase::driver::serializer}.
 \end{itemize}
 
 \subsubsection{Classi}
