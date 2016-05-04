@@ -1677,7 +1677,7 @@ metodi.
 
 \subparagraph{Metodi}
 
-\begin{tabular}{l | l | l | l}
+\begin{tabular}{| l | l | l | l |}
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
@@ -1727,7 +1727,7 @@ hanno libertà di implementazione specifica dei metodi.
 
 \subparagraph{Metodi}
 
-\begin{tabular}{| l | l | l | l |}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2.5cm} | p{10cm} |}
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
@@ -1739,16 +1739,18 @@ hanno libertà di implementazione specifica dei metodi.
   \hline
 \end{tabular}
 
-\textbf{Parametri}
+\subparagraph{Parametri}
 
-\begin{itemize}
-\item send
-  \begin{itemize}
-  \item\textbf{Nome:} request
-  \item\textbf{Tipo:} \hyperref[actorbase::driver::client::api::Request]{Request}
-  \item\textbf{Descrizione:} Rappresenta una richiesta da inviare al server, comprensiva di \gloss{payload} dati
-  \end{itemize}
-\end{itemize}
+\begin{center}
+\textbf{send}
+\end{center}
+\begin{tabular}{| l | l | l |}
+  \hline
+  Nome & Tipo & Descrizione\\
+  \hline
+  request & \hyperref[actorbase::driver::client::api::Request]{Request} & Rappresenta una richiesta da inviare al server, comprensiva di \gloss{payload} dati\\
+  \hline
+\end{tabular}
 
 \paragraph{ActorbaseClient}
 \label{sec:actorbase::driver::client::ActorbaseClient}
@@ -1795,7 +1797,7 @@ oggetti di tipo stringa.
 
 \subparagraph{Metodi}
 
-\begin{tabular}{| l | l | l | l |}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2.5cm} | p{10cm} |}
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
@@ -1861,7 +1863,7 @@ protocollo \gloss{HTTP}.
 \subsubsection{Classi}
 
 \paragraph{RequestMethod (abstract)}
-\label{sec:RequestMethod}
+\label{sec:actorbase::driver::client::api::RequestMethod}
 
 \subparagraph{Descrizione}
 
@@ -1887,7 +1889,7 @@ Viene utilizzata come classe padre per l'implementazione delle richieste
 % FINE REQUESTMETHOD
 
 \paragraph{GET (abstract)}
-\label{sec:GET}
+\label{sec:actorbase::driver::client::api::GET}
 
 \subparagraph{Descrizione}
 
@@ -1910,7 +1912,7 @@ di tipo \gloss{GET} da utilizzare nella comunicazione con il server.
 % FINE GET
 
 \paragraph{POST (abstract)}
-\label{sec:POST}
+\label{sec:actorbase::driver::client::api::POST}
 
 \subparagraph{Descrizione}
 
@@ -1933,7 +1935,7 @@ di tipo \gloss{POST} da utilizzare nella comunicazione con il server.
 % FINE POST
 
 \paragraph{PUT (abstract)}
-\label{sec:PUT}
+\label{sec:actorbase::driver::client::api::PUT}
 
 \subparagraph{Descrizione}
 
@@ -1956,7 +1958,7 @@ di tipo \gloss{PUT} da utilizzare nella comunicazione con il server.
 % FINE PUT
 
 \paragraph{DELETE (abstract)}
-\label{sec:DELETE}
+\label{sec:actorbase::driver::client::api::DELETE}
 
 \subparagraph{Descrizione}
 
@@ -1979,7 +1981,7 @@ di tipo \gloss{DELETE} da utilizzare nella comunicazione con il server.
 % FINE DELETE
 
 \paragraph{Request}
-\label{sec:Request}
+\label{sec:actorbase::driver::client::api::Request}
 
 \subparagraph{Descrizione}
 
@@ -2019,7 +2021,7 @@ creata mediante il design pattern \gloss{Builder} nella classe
 % FINE REQUEST
 
 \paragraph{Response}
-\label{sec:Response}
+\label{sec:actorbase::driver::client::api::Response}
 
 \subparagraph{Descrizione}
 
@@ -2051,7 +2053,7 @@ utilizzare nella comunicazione con il server.
 % FINE RESPONSE
 
 \paragraph{Status}
-\label{sec:Status}
+\label{sec:actorbase::driver::client::api::Status}
 
 \subparagraph{Descrizione}
 
@@ -2088,7 +2090,7 @@ Viene utilizzata come classe per l'incapsulamento dei codici di ritorno
 % FINE STATUS
 
 \paragraph{RequestBuilder}
-\label{sec:RequestBuilder}
+\label{sec:actorbase::driver::client::api::RequestBuilder}
 
 \subparagraph{Descrizione}
 
@@ -2127,7 +2129,7 @@ nella comunicazione con il server.
 
 \subparagraph{Metodi}
 
-\begin{tabular}{| l | l | l | l |}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2.5cm} | p{10cm} |}
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
