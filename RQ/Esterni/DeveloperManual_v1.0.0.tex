@@ -1,0 +1,60 @@
+\documentclass{scalatekids-article}
+\usepackage[official]{eurosym}
+\begin{document}
+\lfoot{Developer Manual 1.0.0}
+\newgeometry{top=3.5cm}
+\begin{titlepage}
+  \begin{center}
+    \begin{center}
+      \includegraphics[width=10cm]{sklogo.png}
+    \end{center}
+    \vspace{1cm}
+    \begin{Huge}
+      \begin{center}
+        \textbf{Developer Manual}
+      \end{center}
+    \end{Huge}
+    \vspace{11pt}
+    \bgroup
+    \def\arraystretch{1.3}
+    \begin{tabular}{r|l}
+      \multicolumn{2}{c}{\textbf{Informazioni sul documento}} \\
+      \hline
+      \setbox0=\hbox{0.0.1\unskip}\ifdim\wd0=0pt
+      \\
+      \else
+      \textbf{Versione} & 1.0.0\\
+      \fi
+      \textbf{Editing} & \multiLineCell[t]{\\}\\
+      \textbf{Verification} & \multiLineCell[t]{\\}\\
+      \textbf{Approvation} & \multiLineCell[t]{}\\
+      \textbf{Use} & External\\
+      \textbf{Distribution List} & \multiLineCell[t]{ScalateKids\\Prof. Tullio Vardanega\\Prof. Riccardo Cardin}\\
+    \end{tabular}
+    \egroup
+    \vspace{22pt}
+  \end{center}
+\end{titlepage}
+\restoregeometry
+\clearpage
+\pagenumbering{Roman}
+\setcounter{page}{1}
+\begin{flushleft}
+  \vspace{0cm}
+         {\large\bfseries History log}
+\end{flushleft}
+\vspace{0cm}
+\begin{center}
+  \begin{tabular}{| l | l | l | l | p{5cm} |}
+    \hline
+    Version & Author & Role & Date & Description \\
+  \end{tabular}
+\end{center}
+\tableofcontents
+\newpage
+\pagenumbering{arabic}
+\section{Summary}
+\subsection{Document purpose}
+This document aim to describe the procedures and methods to use in order to take advantage of \gloss{Actorbase}.
+\prodPurpose
+\glossExpl
