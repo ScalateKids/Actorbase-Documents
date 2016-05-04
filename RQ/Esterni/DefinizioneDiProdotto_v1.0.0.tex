@@ -1636,8 +1636,8 @@ per aggiornare i suoi riferimenti.
 
 \subsubsection{Descrizione}
 
-\gloss{Package} per la componente \gloss{driver} dell'architettura
-\gloss{MVC}.
+\gloss{Package} per la componente \gloss{driver} da utilizzare in un programma
+\gloss{Scala}.
 
 \subsubsection{Interazioni con altre componenti}
 
@@ -1654,6 +1654,63 @@ per aggiornare i suoi riferimenti.
 \item \hyperref[sec:actorbase::driver::actorbasedata]{actorbase::driver::data};
 \item \hyperref[sec:actorbase::driver::exceptions]{actorbase::driver::exceptions}.
 \end{itemize}
+
+\subsubsection{Classi}
+
+\paragraph{ActorbaseDriver}
+\label{sec:actorbase::driver::ActorbaseDriver}
+
+\subparagraph{Descrizione}
+
+Classe principale della componente \gloss{driver}, rappresenta l'interfaccia
+contenente i metodi designati all'utilizzo finale in un programma \gloss{Scala}.
+
+\subparagraph{Utilizzo}
+
+Espone i metodi di connessione, interrogazione, ricerca e gestione dei dati
+remoti all'interno del \gloss{database}.
+
+\subparagraph{Eredita}
+
+\begin{itemize}
+\item \hyperref[sec:actorbase::driver::client::Connector]{actorbase::driver::client::Connector};
+\item \hyperref[sec:actorbase::driver::client::Connector]{actorbase::driver::data::Serializer}.
+\end{itemize}
+
+\subparagraph{Attributi}
+
+% TODO: Da completare
+
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+\end{tabular}
+
+\subparagraph{Metodi}
+
+% TODO: Da completare
+
+\begin{tabular}{| l | l | l | l |}
+  \hline
+  Nome & Accesso & Tipo di ritorno & Descrizione\\
+  \hline
+\end{tabular}
+
+\subparagraph{Parametri}
+
+% TODO: Da completare
+
+\begin{center}
+\textbf{send}
+\end{center}
+\begin{tabular}{| l | l | l |}
+  \hline
+  Nome & Tipo & Descrizione\\
+  \hline
+\end{tabular}
+
+% FINE ACTORBASEDRIVER
 
 \subsection{actorbase::driver::client}
 \label{sec:actorbase::driver::client}
@@ -1680,7 +1737,7 @@ che con la componente \gloss{server} del sistema.
 \subsubsection{Interfacce}
 
 \paragraph{Client}
-\label{sec:Client}
+\label{sec:actorbase::driver::client::Client}
 
 \subparagraph{Descrizione}
 
@@ -2247,112 +2304,212 @@ nella comunicazione con il server.
 
 \subsubsection{Descrizione}
 
-\gloss{Package} che offre le strutture dati necessarie per la comunicazione con
-il \gloss{server}, con la \gloss{cli} o eventuali programmi esterni. Si occupa
-inoltre della gestione delle richieste \gloss{REST} da inviare utilizzando il
-protocollo \gloss{HTTP}
+\gloss{Package} che offre le strutture dati utili alla gestione dei contenuti
+della base di dati in locale, permettendo di eseguire le comuni operazioni di
+\gloss{CRUD} e ricerche più accurate in maniera semplificata, riflettendo le
+eventuali modifiche locali sul server remoto che contiene i dati originali.
 
 \subsubsection{Interazioni con altre componenti}
 \begin{itemize}
-\item \hyperref[sec:actorbase::driver::client]{actorbase::driver::client};
+\item \hyperref[sec:actorbase::driver::client]{actorbase::driver::client}.
 \end{itemize}
 
 \subsubsection{Classi}
 
-\paragraph{actorbase::driver::actorbasedata::ActorbaseObject}
-\label{sec:actorbase::driver::actorbasedata::ActorbaseObject}
+\paragraph{Serializer (abstract)}
+\label{sec:actorbase::driver::client::data::Serializer}
 
 \subparagraph{Descrizione}
 
-Interfaccia che rappresenta un oggetto per ritornare i dati
-ricevuti dal \gloss{server} alla \gloss{cli} o a un programma esterno.
+Classe astratta atta a fornire metodi di serializzazione e deserializzazione nelle
+varianti \gloss{JSON} e \gloss{array} di \gloss{byte}.
 
 \subparagraph{Utilizzo}
 
-Questa interfaccia viene utilizzata dalle classi che la implementano per
-rappresentare i dati che verranno ritornati alla \gloss{cli} o al programma
-esterno.
+Viene utilizzata mediante estensione dalle classi che necessitano di operazioni di
+serializzazione e deserializzazione in formato \gloss{JSON} o \gloss{array} di byte
+o entrambi.
 
-\subparagraph{Interazioni con altre classi}
-
+\subparagraph{Ereditata da}
+% TODO controllare eventuali altre eredità
 \begin{itemize}
-\item \hyperref[sec:actorbase::driver::client::ActorbaseClient]{actorbase::driver::client::ActorbaseClient}.
+\item \hyperref{sec:actorbase::driver::ActorbaseDriver};
+\item \hyperref{sec:actorbase::driver::data::ActorbaseCollection}.
 \end{itemize}
 
-\paragraph{actorbase::driver::actorbasedata::ActorbaseItem}
-\label{sec:actorbase::driver::actorbasedata::ActorbaseItem}
+\subparagraph{Metodi}
+
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2.5cm} | p{10cm} |}
+  \hline
+  Nome & Accesso & Tipo di ritorno & Descrizione\\
+  \hline
+  serialize2ByteArray & public & \gloss{array} di \gloss{Byte} & Serializza l'oggetto parametro in formato \gloss{array} di \gloss{Byte}\\
+  \hline
+  serialize2JSON & public & String & Serializza l'oggetto parametro in formato \gloss{JSON}\\
+  \hline
+  deserializeFromByteArray & public & \gloss{Any} & Deserializza l'\gloss{array} di \gloss{Byte} parametro riportandolo al formato originale\\
+  \hline
+  deserializeFromJSON & public & \gloss{Any} & Deserializza la stringa \gloss{JSON} parametro riportandola al formato originale\\
+  \hline
+\end{tabular}
+
+\subparagraph{Parametri}
+
+\begin{center}
+\textbf{serialize2Bytearray}
+\end{center}
+\begin{tabular}{| l | l | l |}
+  \hline
+  Nome & Tipo & Descrizione\\
+  \hline
+  o & \gloss{Any} & L'oggetto generico da serializzare in formato \gloss{array} di \gloss{byte}\\
+  \hline
+\end{tabular}
+
+\begin{center}
+\textbf{serialize2JSON}
+\end{center}
+\begin{tabular}{| l | l | l |}
+  \hline
+  Nome & Tipo & Descrizione\\
+  \hline
+    o & \gloss{Any} & L'oggetto generico da serializzare in formato \gloss{JSON}\\
+  \hline
+\end{tabular}
+
+\begin{center}
+\textbf{deserializeFromByteArray}
+\end{center}
+\begin{tabular}{| l | l | l |}
+  \hline
+  Nome & Tipo & Descrizione\\
+  \hline
+  bytes & \gloss{array} di \gloss{Byte} & Rappresentazione di un' oggetto serializzato in formato \gloss{array} di \gloss{byte}\\
+  \hline
+\end{tabular}
+
+\begin{center}
+\textbf{deserializeFromJSON}
+\end{center}
+\begin{tabular}{| l | l | l |}
+  \hline
+  Nome & Tipo & Descrizione\\
+  \hline
+  json & String & Rappresentazione di un' oggetto serializzato in formato \gloss{JSON}\\
+  \hline
+\end{tabular}
+
+% FINE SERIALIZER
+
+\paragraph{actorbase::driver::data::ActorbaseObject}
+\label{sec:actorbase::driver::data::ActorbaseObject}
 
 \subparagraph{Descrizione}
 
-Classe che implementa \hyperref[sec:actorbase::driver::actorbasedata::ActorbaseObject]{actorbase::driver::actorbasedata::ActorbaseObject}
-in modo da rappresentare un singolo \gloss{item}.
+Interfaccia che rappresenta un oggetto generico contenente una coppia
+chiave-valore ricevuto dal \gloss{server}.
 
 \subparagraph{Utilizzo}
 
-Questa classe viene utilizzata per la rappresentazione di un singolo
-\gloss{item} che verrà restituito alla \gloss{cli} o a un programma esterno.
+Classe utilizzata per agevolare le ricerche specifiche all'interno delle
+\gloss{collezioni} del \gloss{database}.
 
-\subparagraph{Classi ereditate}
+\subparagraph{Attributi}
 
-\begin{itemize}
-\item \hyperref[sec:actorbase::driver::actorbasedata::ActorbaseObject]{actorbase::driver::actorbasedata::ActorbaseObject}.
-\end{itemize}
+\begin{tabular}{| p{2.5cm} | p{1.5cm} | p{2cm} | p{2.5cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  elems & private & immutabile & \gloss{Option[Tuple2[String, Any]]} & Generica coppia chiave-valore, rappresenta un oggetto del \gloss{database}\\
+  \hline
+\end{tabular}
 
-\paragraph{actorbase::driver::actorbasedata::ActorbaseObjectSeq}
-\label{sec:actorbase::driver::actorbasedata::ActorbaseObjectSeq}
+\subparagraph{Metodi}
+
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2.5cm} | p{10cm} |}
+  \hline
+  Nome & Accesso & Tipo di ritorno & Descrizione\\
+  \hline
+  ActorbaseObject & public & \gloss{Tuple2[String, Any]}  & Costruttore dell'oggetto ActorbaseObject\\
+  \hline
+  getKey & public & String & Ritorna l'attributo chiave di tipo String\\
+  \hline
+  getValue & public & \gloss{Any} & Ritorna l'attributo valore di tipo \gloss{Any}\\
+  \hline
+  toString & public & String & Ritorna l'oggetto di tipo ActorbaseObject in formato String\\
+  \hline
+\end{tabular}
+
+\subparagraph{Parametri}
+
+\begin{center}
+\textbf{ActorbaseObject}
+\end{center}
+\begin{tabular}{| l | l | l |}
+  \hline
+  Nome & Tipo & Descrizione\\
+  \hline
+  kv & \gloss{Tuple2[String, Any]} & Coppia chiave-valore, rappresenta un generico oggetto del \gloss{database}\\
+  \hline
+\end{tabular}
+
+% FINE ACTORBASEOBJECT
+
+\paragraph{actorbase::driver::data::ActorbaseCollection}
+\label{sec:actorbase::driver::data::ActorbaseCollection}
 
 \subparagraph{Descrizione}
 
-Interfaccia che rappresenta una struttura dati generica per ritornare i dati
-ricevuti dal \gloss{server} alla \gloss{cli} o a un programma esterno.
-
-\subparagraph{Utilizzo}
-
-Questa interfaccia viene utilizzata dalle classi che la implementano per
-rappresentare un insieme di \gloss{collezioni} o \gloss{item}.
-
-\subparagraph{Interazioni con altre classi}
-
-\begin{itemize}
-\item \hyperref[sec:actorbase::driver::client::ActorbaseClient]{actorbase::driver::client::ActorbaseClient}.
-\end{itemize}
-
-\subparagraph{Classi ereditate}
-
-\begin{itemize}
-\item \hyperref[sec:actorbase::driver::actorbasedata::ActorbaseObject]{actorbase::driver::actorbasedata::ActorbaseObject}.
-\end{itemize}
-
-\paragraph{actorbase::driver::actorbasedata::ActorbaseCollection}
-\label{sec:actorbase::driver::actorbasedata::ActorbaseCollection}
-
-\subparagraph{Descrizione}
-
-Classe che implementa \hyperref[sec:actorbase::driver::actorbasedata::ActorbaseObjectSeq]{actorbase::driver::actorbasedata::ActorbaseObjectSeq}
-in modo da rappresentare una singola \gloss{collezione}.
+Classe che rappresenta una singola \gloss{collezione} del \gloss{database}.
 
 \subparagraph{Utilizzo}
 
 Questa classe viene utilizzata per la rappresentazione di una singola
-\gloss{collezione} vista come insieme di oggetti di tipo
-\hyperref[sec:actorbase::driver::actorbasedata::ActorbaseItem]{actorbase::driver::actorbasedata::ActorbaseItem}
-che verrà restituito alla \gloss{cli} o a un programma esterno.
-Essa offrirà anche un \gloss{cursore} di tipo
-\hyperref[sec:actorbase::driver::actorbasedata::ItemCursor]{actorbase::driver::actorbasedata::ItemCursor}
-per scorrere gli \gloss{item} al suo interno.
+\gloss{collezione} vista come insieme di oggetti di tipo coppia chiave-valore.
+Il valore può essere qualsiasi tipo, inclusi oggetti arbitrari creati
+all'interno di un programma \gloss{Scala}. Offre metodi di utilità e
+navigabilità dei contenuti.
 
-\subparagraph{Classi ereditate}
+\subparagraph{Eredita}
 
 \begin{itemize}
-\item \hyperref[sec:actorbase::driver::actorbasedata::ActorbaseObjectSeq]{actorbase::driver::actorbasedata::ActorbaseObjectSeq}.
+\item \hyperref[sec:actorbase::driver::data::Serializer]{actorbase::driver::data::Serializer}.
 \end{itemize}
 
-\subparagraph{Interazioni con altre classi}
+\subparagraph{Attributi}
 
-\begin{itemize}
-\item \hyperref[sec:actorbase::driver::actorbasedata::ActorbaseItem]{actorbase::driver::actorbasedata::ActorbaseItem};
-\item \hyperref[sec:actorbase::driver::actorbasedata::ItemCursor]{actorbase::driver::actorbasedata::ItemCursor}.
-\end{itemize}
+\begin{tabular}{| p{2.5cm} | p{1.5cm} | p{2cm} | p{2.5cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  owner & private & immutabile & String & Creatore della \gloss{collezione}\\
+  \hline
+  collectionName & private & immutabile & String & Nome della \gloss{collezione}\\
+  \hline
+  data & private & immutabile & Map[String, Any] & Mappa contenente le coppie chiave-valore della \gloss{collezione}\\
+  \hline
+\end{tabular}
+
+\subparagraph{Metodi}
+
+% TODO: Da completare
+
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2.5cm} | p{10cm} |}
+  \hline
+\end{tabular}
+
+\subparagraph{Parametri}
+
+% TODO: Da completare
+
+\begin{center}
+\textbf{ActorbaseObject}
+\end{center}
+\begin{tabular}{| l | l | l |}
+  \hline
+\end{tabular}
+
+% TODO ACTORBASECOLLECTION
 
 \subsection{actorbase::driver::exceptions}
 \label{sec:actorbase::driver::exceptions}
@@ -2385,11 +2542,6 @@ Classe che rappresenta l'eccezione del tentativo di accesso con username o passw
 
 Questa classe viene utilizzata dal \gloss{driver} per gestire errori nelle credenziali di accesso.
 
-\subparagraph{Interazioni con altre classi}
-
-\begin{itemize}
-\item \hyperref[sec:actorbase::driver::client::ActorbaseClient]{actorbase::driver::client::ActorbaseClient}.
-\end{itemize}
 
 \paragraph{actorbase::driver::exceptions::WrongPasswordExc}
 
@@ -2401,12 +2553,6 @@ Classe che rappresenta l'eccezione dell'inserimento sbagliato della vecchia pass
 
 Questa classe viene utilizzata dal \gloss{driver} per gestire il caso in cui alla modifica della propria password, quando dovrei inserire la vecchia password questa non corrisponda.
 
-\subparagraph{Interazioni con altre classi}
-
-\begin{itemize}
-\item \hyperref[sec:actorbase::driver::client::ActorbaseClient]{actorbase::driver::client::ActorbaseClient}.
-\end{itemize}
-
 \paragraph{actorbase::driver::exceptions::WrongNewPasswordExc}
 
 \subparagraph{Descrizione}
@@ -2416,12 +2562,6 @@ Classe che rappresenta l'eccezione dell'inserimento sbagliato della nuova passwo
 \subparagraph{Utilizzo}
 
 Questa classe viene utilizzata dal \gloss{driver} per gestire il caso in cui alla modifica della propria password, quando dovrei inserire la nuova password questa non soddisfi i requisiti richiesti.
-
-\subparagraph{Interazioni con altre classi}
-
-\begin{itemize}
-\item \hyperref[sec:actorbase::driver::client::ActorbaseClient]{actorbase::driver::client::ActorbaseClient}.
-\end{itemize}
 
 \paragraph{actorbase::driver::exceptions::CollectionAlreadyExistsExc}
 
@@ -2433,12 +2573,6 @@ Classe che rappresenta l'eccezione del conflitto di nomi tra una collezione esis
 
 Questa classe viene utilizzata dal \gloss{driver} per gestire il caso in cui alla creazione di una nuova collezione, il nome della nuova collezione corrisponda al nome di una collezione già esistente.
 
-\subparagraph{Interazioni con altre classi}
-
-\begin{itemize}
-\item \hyperref[sec:actorbase::driver::client::ActorbaseClient]{actorbase::driver::client::ActorbaseClient}.
-\end{itemize}
-
 \paragraph{actorbase::driver::exceptions::UndefinedCollectionExc}
 
 \subparagraph{Descrizione}
@@ -2448,12 +2582,6 @@ Classe che rappresenta l'eccezione di mancato inserimento del nome di una nuova 
 \subparagraph{Utilizzo}
 
 Questa classe viene utilizzata dal \gloss{driver} per gestire il caso in cui alla creazione di una nuova collezione, venga omesso il nome di quest'ultima.
-
-\subparagraph{Interazioni con altre classi}
-
-\begin{itemize}
-\item \hyperref[sec:actorbase::driver::client::ActorbaseClient]{actorbase::driver::client::ActorbaseClient}.
-\end{itemize}
 
 \paragraph{actorbase::driver::exceptions::UndefinedUsernameExc}
 
@@ -2465,12 +2593,6 @@ Classe che rappresenta l'eccezione di mancato inserimento dell'username utente.
 
 Questa classe viene utilizzata dal \gloss{driver} per gestire il caso in cui alla registrazione di un nuovo utente, venga omesso l'username.
 
-\subparagraph{Interazioni con altre classi}
-
-\begin{itemize}
-\item \hyperref[sec:actorbase::driver::client::ActorbaseClient]{actorbase::driver::client::ActorbaseClient}.
-\end{itemize}
-
 \paragraph{actorbase::driver::exceptions::UsernameAlreadyExistsExc}
 
 \subparagraph{Descrizione}
@@ -2480,12 +2602,6 @@ Classe che rappresenta l'eccezione del conflitto di username tra un utente già 
 \subparagraph{Utilizzo}
 
 Questa classe viene utilizzata dal \gloss{driver} per gestire il caso in cui alla registrazione di un nuovo utente, l'username di quest'ultimo corrisponda all'username di un utente già esistente.
-
-\subparagraph{Interazioni con altre classi}
-
-\begin{itemize}
-\item \hyperref[sec:actorbase::driver::client::ActorbaseClient]{actorbase::driver::client::ActorbaseClient}.
-\end{itemize}
 
 \paragraph{actorbase::driver::exceptions::DuplicateKeyExc}
 
@@ -2497,12 +2613,6 @@ Classe che rappresenta l'eccezione del conflitto tra una chiave già esistente e
 
 Questa classe viene utilizzata dal \gloss{driver} per gestire il caso in cui all'inserimento di una nuova chiave, questa corrisponda ad una chiave già esistente nella stessa collezione.
 
-\subparagraph{Interazioni con altre classi}
-
-\begin{itemize}
-\item \hyperref[sec:actorbase::driver::client::ActorbaseClient]{actorbase::driver::client::ActorbaseClient}.
-\end{itemize}
-
 \paragraph{actorbase::driver::exceptions::UndefinedFileExc}
 
 \subparagraph{Descrizione}
@@ -2512,12 +2622,6 @@ Classe che rappresenta l'eccezione di inserimento di un path sbagliato di un fil
 \subparagraph{Utilizzo}
 
 Questa classe viene utilizzata dal \gloss{driver} per gestire il caso in cui all'inserimento di un nuovo item o di una serie di item da file, si sbagli il path del file o si ometta di inserirlo.
-
-\subparagraph{Interazioni con altre classi}
-
-\begin{itemize}
-\item \hyperref[sec:actorbase::driver::client::ActorbaseClient]{actorbase::driver::client::ActorbaseClient}.
-\end{itemize}
 
 \paragraph{actorbase::driver::exceptions::MalformedFileExc}
 
@@ -2529,11 +2633,6 @@ Classe che rappresenta l'eccezione di inserimento di un path di un file non conf
 
 Questa classe viene utilizzata dal \gloss{driver} per gestire il caso in cui all'inserimento di un nuovo item o di una serie di item da file, si inserisca il path di un file in un formato sbagliato o il cui testo non rispetta le regole di formattazione.
 
-\subparagraph{Interazioni con altre classi}
-
-\begin{itemize}
-\item \hyperref[sec:actorbase::driver::client::ActorbaseClient]{actorbase::driver::client::ActorbaseClient}.
-\end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % CLI PARTE                              %
