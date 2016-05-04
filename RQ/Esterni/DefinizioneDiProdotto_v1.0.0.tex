@@ -339,11 +339,10 @@ rappresentano il \gloss{server}.
 
 \begin{itemize}
 \item \hyperref[sec:actorbase::actorsystem::clientactor]{actorbase::actorsystem::clientactor};
-\item \hyperref[sec:actorbase::actorsystem::tcpserver]{actorbase::actorsystem::tcpserver};
+\item \hyperref[sec:actorbase::actorsystem::httpserver]{actorbase::actorsystem::httpserver};
 \item \hyperref[sec:actorbase::actorsystem::storefinder]{actorbase::actorsystem::storefinder};
 \item \hyperref[sec:actorbase::actorsystem::storekeeper]{actorbase::actorsystem::storekeeper};
 \item \hyperref[sec:actorbase::actorsystem::warehouseman]{actorbase::actorsystem::warehouseman};
-\item \hyperref[sec:actorbase::actorsystem::ninja]{actorbase::actorsystem::ninja};
 \item \hyperref[sec:actorbase::actorsystem::manager]{actorbase::actorsystem::manager};
 \item \hyperref[sec:actorbase::actorsystem::userkeeper]{actorbase::actorsystem::userkeeper};
 \item \hyperref[sec:actorbase::actorsystem::main]{actorbase::actorsystem::main};
@@ -357,7 +356,7 @@ rappresentano il \gloss{server}.
 \item Akka.
 \end{itemize}
 
-\subsection{actorbase::actorsystem::clientactor}
+\subsection{actorbase::actorsystem::clientactor} % TODO PACKAGE DA FARE
 \label{sec:actorbase::actorsystem::clientactor}
 
 \begin{figure}[H]
@@ -505,17 +504,16 @@ al \gloss{driver}.
 \subparagraph{Utilizzo}
 
 Quando \hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{actorbase::actorsystem::clientactor::ClientActor}
-riceve questo messaggio il contenuto di quest'ultimo viene serializzato tramite
-\hyperref[sec:actorbase::actorsystem::serialization::DeserializationContext]{actorbase::actorsystem::serialization::DeserializationContext}
-e mandato a \hyperref[sec:actorbase::driver::client::Connection]{actorbase::driver::\allowbreak{}client::\allowbreak{}Connection}.
+riceve questo messaggio il contenuto di quest'ultimo viene
+mandato a \hyperref[sec:actorbase::driver::client::ActorbaseClient]{actorbase::driver::\allowbreak{}client::\allowbreak{}ActorbaseClient}.
 
-\subsection{actorbase::actorsystem::tcpserver}
-\label{sec:actorbase::actorsystem::tcpserver}
+\subsection{actorbase::actorsystem::httpserver}
+\label{sec:actorbase::actorsystem::httpserver}
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.5\textwidth,keepaspectratio]{RP/tcpserver.png}
-    \caption{tcpserver, visione generale del package}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RP/tcpserver.png} % TODO IMMAGINE DA INSERIRE E DA CREARE PERCHE' E' BELLO COSì
+    \caption{httpserver, visione generale del package}
   \end{center}
 \end{figure}
 
@@ -526,13 +524,13 @@ e mandato a \hyperref[sec:actorbase::driver::client::Connection]{actorbase::driv
 \subsubsection{Package contenuti}
 
 \begin{itemize}
-\item \hyperref[sec:actorbase::actorsystem::tcpserver::messages]{actorbase::actorsystem::tcpserver::messages}.
+\item \hyperref[sec:actorbase::actorsystem::httpserver::messages]{actorbase::actorsystem::httpserver::messages}.
 \end{itemize}
 
 \subsubsection{Classi}
 
-\paragraph{actorbase::actorsystem::tcpserver::TCPServer}
-\label{sec:actorbase::actorsystem::tcpserver::TCPServer}
+\paragraph{actorbase::actorsystem::httpserver::HTTPServer}
+\label{sec:actorbase::actorsystem::httpserver::HTTPServer}
 
 \subparagraph{Descrizione}
 
@@ -542,10 +540,10 @@ istanziare la connessione.
 \subparagraph{Utilizzo}
 
 Questo \gloss{attore} riceve la richiesta di connessione da
-\hyperref[sec:actorbase::driver::client::Connection]{actorbase::driver::client::Connection}
+\hyperref[sec:actorbase::driver::client::ActorbaseClient]{actorbase::driver::client::ActorbaseClient}
 e si occupa di associare al \gloss{client} un \gloss{attore} di tipo
 \hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{actorbase::actorsystem::clientactor::ClientActor}
-per continuare le comunicazioni.
+per continuare le comunicazioni. 
 
 \subparagraph{Classi ereditate}
 
@@ -555,259 +553,9 @@ per continuare le comunicazioni.
 
 \end{itemize}
 
-\subsection{actorbase::actorsystem::tcpserver::messages}
-\label{sec:actorbase::actorsystem::tcpserver::messages}
+%TODO metodi?
 
-\subsubsection{Descrizione}
-
-\gloss{Package} che contiene tutti i messaggi che possono essere ricevuti da
-\hyperref[sec:actorbase::actorsystem::tcpserver::TCPServer]{actorbase::actorsystem::tcpserver::TCPServer}.
-
-\subsubsection{Classi}
-
-\paragraph{actorbase::actorsystem::tcpserver::messages::Bound}
-\label{sec:actorbase::actorsystem::tcpserver::messages::Bound}
-
-\subparagraph{Descrizione}
-
-Messaggio che rappresenta la necessità di mettere il \gloss{server} in ascolto.
-
-\subparagraph{Utilizzo}
-
-Quando \hyperref[sec:actorbase::actorsystem::tcpserver::TCPServer]{actorbase::actorsystem::tcpserver::TCPServer}
-riceve questo messaggio si mette in ascolto su una porta del \gloss{server}.
-
-\paragraph{actorbase::actorsystem::tcpserver::messages::CommandFailed}
-\label{sec:actorbase::actorsystem::tcpserver::messages::CommandFailed}
-
-\subparagraph{Descrizione}
-
-Messaggio che rappresenta un errore nella comunicazione \gloss{TCP}.
-
-\subparagraph{Utilizzo}
-
-Quando \hyperref[sec:actorbase::actorsystem::tcpserver::TCPServer]{actorbase::actorsystem::tcpserver::TCPServer}
-riceve questo messaggio manderà una notifica a
-\hyperref[sec:actorbase::driver::client::Connection]{actorbase::driver::client::Connection}.
-
-\paragraph{actorbase::actorsystem::tcpserver::messages::Connected}
-\label{sec:actorbase::actorsystem::tcpserver::messages::Connected}
-
-\subparagraph{Descrizione}
-
-Messaggio che rappresenta una connessione \gloss{TCP} riuscita.
-
-\subparagraph{Utilizzo}
-
-Quando \hyperref[sec:actorbase::actorsystem::tcpserver::TCPServer]{actorbase::actorsystem::tcpserver::TCPServer}
-riceve questo messaggio associa al \gloss{client} un \gloss{attore} di tipo
-\hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{actorbase::actorsystem::clientactor::ClientActor}.
-
-\subsection{actorbase::actorsystem::serialization}
-\label{sec:actorbase::actorsystem::serialization}
-
-\begin{figure}[H]
-  \begin{center}
-    \includegraphics[width=1.0\textwidth,keepaspectratio]{RP/Serialization.png}
-    \caption{Serialization e interazioni con main e clientactor}
-  \end{center}
-\end{figure}
-
-\subsubsection{Descrizione}
-
-\gloss{Package} che si occupa di \gloss{serializzare} e \gloss{deserializzare}
-i messaggi mandati o ricevuti dal \gloss{driver}.
-
-\subsubsection{Interazioni con altre componenti}
-
-\begin{itemize}
-
-\item \hyperref[sec:actorbase::actorsystem::warehouseman]{actorbase::actorsystem::warehouseman};
-\item \hyperref[sec:actorbase::actorsystem::clientactor]{actorbase::actorsystem::clientactor}.
-
-\end{itemize}
-
-\subsubsection{Classi}
-
-\paragraph{actorbase::actorsystem::serialization::SerializationContext}
-\label{sec:actorbase::actorsystem::serialization::SerializationContext}
-
-\subparagraph{Descrizione}
-
-Classe che offre dei metodi per la scelta su quale tipo di \gloss{serializzazione}
-effettuare.
-
-\subparagraph{Utilizzo}
-
-Questa classe viene utilizzata da \hyperref[sec:actorbase::actorsystem::warehouseman::Warehouseman]{actorbase::\allowbreak{}actorsystem::\allowbreak{}warehouseman::\allowbreak{}Warehouseman}
-e \hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{actorbase::\allowbreak{}actorsystem::\allowbreak{}clientactor::\allowbreak{}ClientActor}
-per \gloss{serializzare} i dati scegliendo una tra le strategie indicate
-dalle classi che estendono \hyperref[sec:actorbase::actorsystem::serialization::SerializationStrategy]{actorbase::\allowbreak{}actorsystem::\allowbreak{}serialization::\allowbreak{}SerializationStrategy}.
-
-\subparagraph{Interazioni con altre classi}
-
-\begin{itemize}
-
-\item \hyperref[sec:actorbase::actorsystem::warehouseman::Warehouseman]{actorbase::actorsystem::warehouseman::Warehouseman};
-\item \hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{actorbase::actorsystem::clientactor::ClientActor};
-\item \hyperref[sec:actorbase::actorsystem::serialization::SerializationStrategy]{actorbase::actorsystem::serialization::SerializationStrategy}.
-
-\end{itemize}
-
-\paragraph{actorbase::actorsystem::serialization::SerializationStrategy}
-\label{sec:actorbase::actorsystem::serialization::SerializationStrategy}
-
-\subparagraph{Descrizione}
-
-Interfaccia che offre una strategia generale per \gloss{serializzare} i dati.
-
-\subparagraph{Utilizzo}
-
-Questa interfaccia viene utilizzata per l'applicazione del \gloss{designpattern}
-\gloss{strategy}. Offre un metodo generalizzato per la
-\gloss{serializzazione} di dati che verrà poi implementato dalle classi che
-implementeranno questa interfaccia.
-
-\subparagraph{Interazioni con altre classi}
-
-\begin{itemize}
-
-\item \hyperref[sec:actorbase::actorsystem::serialization::SerializationContext]{actorbase::actorsystem::serialization::SerializationContext}.
-
-\end{itemize}
-
-\paragraph{actorbase::actorsystem::serialization::RESPSerialization}
-\label{sec:actorbase::actorsystem::serialization::RESPSerialization}
-
-\subparagraph{Descrizione}
-
-Classe che si occupa di serializzare i dati in stringhe di formato \gloss{RESP}.
-
-\subparagraph{Utilizzo}
-
-Questa classe viene utilizzata per l'implementazione di una strategia di
-\gloss{serializzazione} in formato \gloss{RESP}. Viene utilizzata principalmente per
-dati che dovranno essere mandati al \gloss{driver}.
-
-\subparagraph{Classi ereditate}
-
-\begin{itemize}
-
-\item \hyperref[sec:actorbase::actorsystem::serialization::SerializationStrategy]{actorbase::actorsystem::serialization::SerializationStrategy}.
-
-\end{itemize}
-
-\paragraph{actorbase::actorsystem::serialization::PickleSerialization}
-\label{sec:actorbase::actorsystem::serialization::PickleSerialization}
-
-\subparagraph{Descrizione}
-
-Classe che si occupa di serializzare i dati in formato \gloss{Pickle}.
-
-\subparagraph{Utilizzo}
-
-Questa classe viene utilizzata per l'implementazione di una strategia di
-\gloss{serializzazione} in formato \gloss{Pickle}. Viene utilizzata principalmente per
-dati che dovranno essere salvati su disco.
-
-\subparagraph{Classi ereditate}
-
-\begin{itemize}
-
-\item \hyperref[sec:actorbase::actorsystem::serialization::SerializationStrategy]{actorbase::actorsystem::serialization::SerializationStrategy}.
-
-\end{itemize}
-
-\paragraph{actorbase::actorsystem::serialization::DeserializationContext}
-\label{sec:actorbase::actorsystem::serialization::DeserializationContext}
-
-\subparagraph{Descrizione}
-
-Classe che offre dei metodi per la scelta su quale tipo di \gloss{deserializzazione}
-effettuare.
-
-\subparagraph{Utilizzo}
-
-Questa classe viene utilizzata da \hyperref[sec:actorbase::actorsystem::warehouseman::Warehouseman]{actorbase::actorsystem::warehouseman::Warehouseman}
-e \hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{actorbase::\allowbreak{}actorsystem::\allowbreak{}clientactor::\allowbreak{}ClientActor}
-per \gloss{deserializzare} i dati scegliendo una tra le strategie indicate
-dalle classi che estendono \hyperref[sec:actorbase::actorsystem::serialization::DeserializationStrategy]{actorbase::\allowbreak{}actorsystem::\allowbreak{}serialization::\allowbreak{}DeserializationStrategy}.
-
-\subparagraph{Interazioni con altre classi}
-
-\begin{itemize}
-
-\item \hyperref[sec:actorbase::actorsystem::warehouseman::Warehouseman]{actorbase::actorsystem::warehouseman::Warehouseman};
-\item \hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{actorbase::actorsystem::clientactor::ClientActor};
-\item \hyperref[sec:actorbase::actorsystem::serialization::DeserializationStrategy]{actorbase::actorsystem::serialization::DeserializationStrategy}.
-
-\end{itemize}
-
-\paragraph{actorbase::actorsystem::serialization::DeserializationStrategy}
-\label{sec:actorbase::actorsystem::serialization::DeserializationStrategy}
-
-\subparagraph{Descrizione}
-
-Interfaccia che offre una strategia generale per \gloss{deserializzare} i dati.
-
-\subparagraph{Utilizzo}
-
-Questa interfaccia viene utilizzata per l'applicazione del \gloss{design pattern}
-\gloss{strategy}. Offre un metodo generalizzato per la
-\gloss{deserializzazione} di dati che verrà poi implementato dalle classi che
-implementeranno questa interfaccia.
-
-\subparagraph{Interazioni con altre classi}
-
-\begin{itemize}
-
-\item \hyperref[sec:actorbase::actorsystem::serialization::DeserializationContext]{actorbase::actorsystem::serialization::DeserializationContext}.
-
-\end{itemize}
-
-\paragraph{actorbase::actorsystem::serialization::RESPDeserialization}
-\label{sec:actorbase::actorsystem::serialization::RESPDeserialization}
-
-\subparagraph{Descrizione}
-
-Classe che si occupa di deserializzare i dati da stringhe in formato \gloss{RESP}.
-
-\subparagraph{Utilizzo}
-
-Questa classe viene utilizzata per l'implementazione di una strategia di
-\gloss{deserializzazione} dal formato \gloss{RESP}. Viene utilizzato
-principalmente per i dati ricevuti dal \gloss{driver}.
-
-\subparagraph{Classi ereditate}
-
-\begin{itemize}
-
-\item \hyperref[sec:actorbase::actorsystem::serialization::DeserializationStrategy]{actorbase::actorsystem::serialization::DeserializationStrategy}.
-
-\end{itemize}
-
-\paragraph{actorbase::actorsystem::serialization::PickleDeserialization}
-\label{sec:actorbase::actorsystem::serialization::PickleDeserialization}
-
-\subparagraph{Descrizione}
-
-Classe che si occupa di \gloss{deserializzare} i dati dal formato \gloss{Pickle}.
-
-\subparagraph{Utilizzo}
-
-Questa classe viene utilizzata per l'implementazione di una strategia di
-\gloss{deserializzazione} dal formato \gloss{Pickle}. Viene utilizzato
-principalmente per la lettura di dati da disco.
-
-\subparagraph{Classi ereditate}
-
-\begin{itemize}
-
-\item \hyperref[sec:actorbase::actorsystem::serialization::DeserializationStrategy]{actorbase::actorsystem::serialization::DeserializationStrategy}.
-
-\end{itemize}
-
-\subsection{actorbase::actorsystem::warehouseman}
+\subsection{actorbase::actorsystem::warehouseman} %TODO DA FARE
 \label{sec:actorbase::actorsystem::warehouseman}
 
 \begin{figure}[H]
@@ -894,7 +642,7 @@ Quando \hyperref[sec:actorbase::actorsystem::warehouseman::Warehouseman]{actorba
 riceve questo messaggio salverà i dati su disco sfruttando
 \hyperref[sec:actorbase::actorsystem::serialization::SerializationContext]{actorbase::actorsystem::serialization::SerializationContext}.
 
-\subsection{actorbase::actorsystem::main}
+\subsection{actorbase::actorsystem::main} %TODO DA FARE
 \label{sec:actorbase::actorsystem::main}
 
 \begin{figure}[H]
@@ -1173,7 +921,7 @@ contenente l'\gloss{attore} di tipo
 \hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storekeeper::\allowbreak{}Storekeeper}
 destinato a ricevere l'\gloss{item} da inserire.
 
-\subsection{actorbase::actorsystem::userkeeper}
+\subsection{actorbase::actorsystem::userkeeper} %TODO DA FARE
 \label{sec:actorbase::actorsystem::userkeeper}
 
 \begin{figure}[H]
@@ -1214,12 +962,6 @@ Questa classe viene utilizzata per salvare gli utenti nel \gloss{database}.
 
 \item akka::actor::Actor.
 
-\end{itemize}
-
-\subparagraph{Interazioni con altre classi}
-
-\begin{itemize}
-\item akka::actor::ActorRef.
 \end{itemize}
 
 \subsection{actorbase::actorsystem::userkeeper::messages}
@@ -1364,7 +1106,7 @@ riceve questo messaggio provvederà a salvarsi il riferimento dell'\gloss{attore
 \hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{actorbase::\allowbreak{}actorsystem::\allowbreak{}clientactor::\allowbreak{}ClientActor}
 che ha inviato questo messaggio.
 
-\subsection{actorbase::actorsystem::storefinder}
+\subsection{actorbase::actorsystem::storefinder} %TODO DA FARE
 \label{sec:actorbase::actorsystem::storefinder}
 
 \begin{figure}[H]
@@ -1557,11 +1299,48 @@ Questa classe viene utilizzata per salvare nel \gloss{database} gli item.
 
 \end{itemize}
 
-\subparagraph{Interazioni con altre classi}
+\subparagraph{Attributi}
 
-\begin{itemize}
-\item akka::actor::ActorRef.
-\end{itemize}
+\begin{tabular}{| l | l | l | l | l |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  manager & private & mutabile & ActorRef & Riferimento all'attore di tipo \gloss{Manager} responsabile della sua gestione\\
+  \hline
+  data & private & mutabile & TreeMap[String, Any] & Rappresenta l'insieme di \gloss{item} contenuta nell'attore\\
+  \hline
+  range & private & mutabile & KeyRange & Rappresenta il range di chiavi contenuta nell'attore\\
+  \hline
+\end{tabular}
+
+\subparagraph{Metodi}
+
+\begin{tabular}{| l | l | l | l |}
+  \hline
+  Nome & Accesso & Tipo di ritorno & Descrizione\\
+  \hline
+  receive & public &  & Effettua operazioni diverse a seconda del tipo di messaggio ricevuto\\
+  \hline
+  insertOrUpdate & private & & Inserisce un item nella collezione\\
+  \hline
+\end{tabular}
+
+\subparagraph{Parametri}
+
+\begin{center}
+\textbf{insertOrUpdate}
+\end{center}
+\begin{tabular}{| l | l | l |}
+  \hline
+  Nome & Tipo & Descrizione\\
+  \hline
+  update & Boolean & Variabile che, se uguale a true, indica che l'inserimento da effettuare è con sovrascrittura\\
+  \hline
+  key & String & Variabile che indica la chiave dell'\gloss{item} da inserire\\
+  \hline
+  value & Any & Variabile che indica il valore dell'\gloss{item} da inserire\\
+  \hline
+\end{tabular}
 
 \subsection{actorbase::actorsystem::storekeeper::messages}
 \label{sec:actorbase::actorsystem::storekeeper::messages}
@@ -1574,7 +1353,7 @@ ricevuti dall'\gloss{attore} di tipo
 
 \subsubsection{Classi}
 
-\paragraph{actorbase::actorsystem::storekeeper::messages::Init}
+\paragraph{actorbase::actorsystem::storekeeper::messages::Init} %TODO DA FARE QUANDO SI SAPRA COME
 \label{sec:actorbase::actorsystem::storekeeper::messages::Init}
 
 \subparagraph{Descrizione}
@@ -1603,6 +1382,15 @@ riceve questo messaggio risponde mandando l'\gloss{item} cercato all'\gloss{atto
 \hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{actorbase::actorsystem::clientactor::ClientActor}
 che aveva effettuato la richiesta.
 
+\subparagraph{Attributi}
+\begin{tabular}{| l | l | l | l | l |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  key & public & mutabile & String & chiave che rappresenta l'\gloss{item} cercato\\
+  \hline
+\end{tabular}
+
 \paragraph{actorbase::actorsystem::storekeeper::messages::GetAllItem}
 \label{sec:actorbase::actorsystem::storekeeper::messages::GetAllItem}
 
@@ -1617,7 +1405,7 @@ Quando \hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{actorbase
 riceve questo messaggio risponde mandando gli \gloss{item} all'\gloss{attore} di tipo
 \hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{actorbase::actorsystem::clientactor::ClientActor}
 che aveva effettuato la richiesta.
-
+%TODO SONO QUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
 \paragraph{actorbase::actorsystem::storekeeper::messages::Insert}
 \label{sec:actorbase::actorsystem::storekeeper::messages::Insert}
 
@@ -1628,7 +1416,20 @@ Messaggio che richiede l'inserimento di un \gloss{item}.
 \subparagraph{Utilizzo}
 
 Quando \hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{actorbase::actorsystem::storekeeper::Storekeeper}
-riceve questo messaggio inserisce l'\gloss{item}.
+riceve questo messaggio inserisce l'\gloss{item} nel suo attributo data.
+
+\subparagraph{Attributi}
+\begin{tabular}{| l | l | l | l | l |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  key & public & mutabile & String & Chiave che rappresenta l'\gloss{item} da inserire\\
+  \hline
+  value & public & mutabile & Any & Valore dell'\gloss{item} da inserire\\
+  \hline
+  update & public & mutabile & Boolean & Indica se l'inserimento da effettuare sia con o senza sovrascrittura\\
+  \hline
+\end{tabular}
 
 \paragraph{actorbase::actorsystem::storekeeper::messages::RemoveItem}
 \label{sec:actorbase::actorsystem::storekeeper::messages::RemoveItem}
@@ -1642,67 +1443,17 @@ Messaggio che richiede la rimozione di un \gloss{item}.
 Quando \hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{actorbase::actorsystem::storekeeper::Storekeeper}
 riceve questo messaggio rimuove l'\gloss{item}.
 
-\subsection{actorbase::actorsystem::ninja}
-\label{sec:actorbase::actorsystem::ninja}
+\subparagraph{Attributi}
+\begin{tabular}{| l | l | l | l | l |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  key & public & mutabile & String & Chiave che rappresenta l'\gloss{item} da rimuovere\\
+  \hline
+\end{tabular}
 
-\begin{figure}[H]
-  \begin{center}
-    \includegraphics[width=0.8\textwidth,keepaspectratio]{RP/Ninja.png}
-    \caption{Ninja e interazioni con storekeeper}
-  \end{center}
-\end{figure}
-
-\subsubsection{Descrizione}
-
-\gloss{Package} che rappresenta l'\gloss{attore} di tipo \gloss{Ninja}.
-
-\subsubsection{Package contenuti}
-
-\begin{itemize}
-
-\item \hyperref[sec:actorbase::actorsystem::ninja::messages]{actorbase::actorsystem::ninja::messages}.
-
-\end{itemize}
-
-\subsubsection{Classi}
-
-\paragraph{actorbase::actorsystem::ninja::Ninja}
-\label{sec:actorbase::actorsystem::ninja::Ninja}
-
-\subparagraph{Descrizione}
-
-Classe che rappresenta un \gloss{attore} di tipo \gloss{Ninja}.
-
-\subparagraph{Utilizzo}
-
-Questa classe viene utilizzata per avere un \gloss{backup} per gli attori di tipo
-\hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{actorbase::actorsystem::storekeeper::Storekeeper}.
-
-\subparagraph{Classi ereditate}
-
-\begin{itemize}
-
-\item akka::actor::Actor.
-
-\end{itemize}
-
-\subparagraph{Interazioni con altre classi}
-
-\begin{itemize}
-\item akka::actor::ActorRef.
-\end{itemize}
-
-\subsection{actorbase::actorsystem::ninja::messages}
-\label{sec:actorbase::actorsystem::ninja::messages}
-
-\subparagraph{Descrizione}
-
-\gloss{Package} che contiene tutti i messaggi che possono essere ricevuti
-dall'\gloss{attore} di tipo
-\hyperref[sec:actorbase::actorsystem::ninja::Ninja]{actorbase::actorsystem::ninja::Ninja}
-
-\paragraph{actorbase::actorsystem::ninja::messages::Update}
-\label{sec:actorbase::actorsystem::ninja::messages::Update}
+\paragraph{actorbase::actorsystem::storekeeper::messages::Update}
+\label{sec:actorbase::actorsystem::storekeeper::messages::Update}
 
 \subparagraph{Descrizione}
 
@@ -1710,11 +1461,11 @@ Messaggio che richiede l'update dell'\gloss{attore} che lo riceve.
 
 \subparagraph{Utilizzo}
 
-Quando \hyperref[sec:actorbase::actorsystem::ninja::Ninja]{actorbase::actorsystem::ninja::Ninja}
+Quando \hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{actorbase::actorsystem::storekeeper::Storekeeper}
 riceve questo messaggio aggiorna gli \gloss{item} che contiene.
 
-\paragraph{actorbase::actorsystem::ninja::messages::BecomeSK}
-\label{sec:actorbase::actorsystem::ninja::messages::BecomeSK}
+\paragraph{actorbase::actorsystem::storekeeper::messages::BecomeSK}
+\label{sec:actorbase::actorsystem::storekeeper::messages::BecomeSK}
 
 \subparagraph{Descrizione}
 
@@ -1723,10 +1474,28 @@ Messaggio che richiede che l'\gloss{attore} di tipo \gloss{Ninja} diventi di tip
 
 \subparagraph{Utilizzo}
 
-Quando \hyperref[sec:actorbase::actorsystem::ninja::Ninja]{actorbase::actorsystem::ninja::Ninja}
-riceve questo messaggio cambia il proprio contesto importando tutti i messaggi
+Quando \hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{actorbase::actorsystem::storekeeper::Storekeeper}
+riceve questo messaggio ed è attualmente un attore di tipo \gloss{Ninja},
+esso cambia il proprio contesto e potrà ricevere tutti i messaggi
 di \hyperref[sec:actorbase::actorsystem::storekeeper::messages]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storekeeper::\allowbreak{}messages}
-e comportandosi come se fosse un \hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storekeeper::\allowbreak{}Storekeeper}.
+eccetto \hyperref[sec:actorbase::actorsystem::storekeeper::messages::BecomeNinja]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storekeeper::\allowbreak{}messages::\allowbreak{}BecomeNinja} e
+\hyperref[sec:actorbase::actorsystem::storekeeper::messages::Update]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storekeeper::\allowbreak{}messages::\allowbreak{}Update}.
+
+\paragraph{actorbase::actorsystem::storekeeper::messages::BecomeNinja}
+\label{sec:actorbase::actorsystem::storekeeper::messages::BecomeNinja}
+
+\subparagraph{Descrizione}
+
+Messaggio che richiede che l'\gloss{attore} di tipo \gloss{Storekeeper} diventi di tipo
+\gloss{Ninja}.
+
+\subparagraph{Utilizzo}
+
+Quando \hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{actorbase::actorsystem::storekeeper::Storekeeper}
+riceve questo messaggio cambia il proprio contesto diventando un attore di tipo \gloss{Ninja}. Questo comporta l'accesso ai messaggi
+\hyperref[sec:actorbase::actorsystem::storekeeper::messages::BecomeNinja]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storekeeper::\allowbreak{}messages::\allowbreak{}BecomeNinja},
+\hyperref[sec:actorbase::actorsystem::storekeeper::messages::Update]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storekeeper::\allowbreak{}messages::\allowbreak{}Update} e
+\hyperref[sec:actorbase::actorsystem::storekeeper::messages::Init]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storekeeper::\allowbreak{}messages::\allowbreak{}Init}.
 
 \subsection{actorbase::actorsystem::manager}
 \label{sec:actorbase::actorsystem::manager}
