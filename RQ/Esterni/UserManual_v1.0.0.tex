@@ -68,9 +68,9 @@ Actorbase is a database that comes with two different software modules capable o
 
 \subsection{References}
 
-\subsubsection{Regular} % TODO non so tradurre
+\subsubsection{Normative} % TODO check, translated with wordreference
 
-\subsubsection{Information} % TODO non so tradurre
+\subsubsection{Informational} % TODO check, translated with wordreference
 
 % TODO parte server: installazione, configurazione, accensione, spegnimento
 
@@ -83,15 +83,29 @@ Actorbase is a database that comes with two different software modules capable o
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Actorbase by Command Line Interface}
 
-\subsection{DSL}
+\subsection{DSL} %TODO vedete voi se aggiungerci qualcosa, best english in the document atm z.z
 
-%TODO scrivere qualcosa sul dsl
+The DSL, upon which the \textit{actorbase} CLI is based, has been developed
+trying to emulate a SQL language. By doing so we achieved an easily
+understandable language that's close to spoken English.
 
-%TODO spiegare anche che nei capitoli prossimi dove c'è scritto write login <username> si intende dire login e il tuo username
+%TODO scrivere in caso di errore cosa succede.. tipo errori di typo e connessione, best english in the document atm z.z
+\subsection{Error management}
 
-%TODO scrivere in caso di errore cosa succede.. tipo errori di typo e connessione
+There are two kinds of errors that are shared by every command which will be
+now explained:
+\begin{itemize}
+\item In case of an unrecognized command, or in case of a typographical error,
+	the CLI will show an unrecognized command error followed by a list of all
+	the commands available to the user;
+\item In case of a connection error, which can be caused by not receiving a
+	response from the server in a predetermined time, the CLI will show a
+	timeout connection error.
+\end{itemize}
+There are some errors that are specific to some commands, these will be explained
+in the section dedicated to the commands that cause them.
 
-%TODO scrievere anche i tipi di dato possibili da inserire? tipo le stringhe devono essere in " ", permission su addcontributor può essere vuoto, r o rw ecc
+%TODO scrivere anche i tipi di dato possibili da inserire? tipo le stringhe devono essere in " ", permission su addcontributor può essere vuoto, r o rw ecc
 
 %TODO scrivere i requisiti delle password di actorbase
 
@@ -99,7 +113,7 @@ Actorbase is a database that comes with two different software modules capable o
 \label{sec:configurationcli}
 The \textit{actorbase} CLI is designed specifically to operate 
 with the actorbase server software.\\
-To work properly an actorbase server instance must be runnning 
+To work properly an actorbase server instance must be running 
 (anywhere) and the user must configurate the access point on the configuration file.
 %TODO configurazione cli? da fare 
 
@@ -115,8 +129,7 @@ The features described are divided by the type of the user.
 
 \textbf{Description:} every user can exit from the actorbase CLI 
 using this procedure.\\
-\textbf{How to:} to exit from the actorbase CLI the user must simply type \texttt{exit} on the CLI and 
-press Enter.
+\textbf{How to:} type \texttt{exit} on the CLI
 
 \subsubsection{Unauthenticated user}
 \label{sec:unauthenticateduser}
@@ -374,14 +387,15 @@ This operation could be expensive.\\
 	\item Type \texttt{logout}
 \end{itemize}
 
-
 \subsubsection{Administrator user}
 \label{sec:administratoruser}
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%							DRIVER PART 						 %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Use throught Driver}
+\section{Use through Driver}
 
 \subsection{Introduction to Driver}
 
