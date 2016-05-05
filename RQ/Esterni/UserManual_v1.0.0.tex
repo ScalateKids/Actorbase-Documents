@@ -93,6 +93,8 @@ Actorbase is a database that comes with two different software modules capable o
 
 %TODO scrievere anche i tipi di dato possibili da inserire? tipo le stringhe devono essere in " ", permission su addcontributor può essere vuoto, r o rw ecc
 
+%TODO scrivere i requisiti delle password di actorbase
+
 \subsection{Configuration of the actorbase CLI}
 \label{sec:configurationcli}
 The \textit{actorbase} CLI is designed specifically to operate 
@@ -351,11 +353,26 @@ This operation could be expensive.\\
 	\item Type \texttt{find}
 \end{itemize}
 
-% TODO finire comandi possibili da CLI (occhio a differenziare quelli dell'admin)
+\paragraph{Change password}
+\label{sec:changepassword}
+\textbf{Description:} this feature allows the user to change his password.\\
+\textbf{How to:} 
+\begin{itemize}
+	\item Type \texttt{changePassword ``<old password>'' ``<new password>''}
+\end{itemize}
+\textbf{Possible errors:} the CLI will answer with self explanatory error messages 
+\begin{itemize}
+	\item If the old password typed was wrong
+	\item If the new password typed doesn't follow the rules %TODO linkare rules
+\end{itemize}
 
-
-
-
+\paragraph{Logout}
+\label{sec:removeitem}
+\textbf{Description:} this feature allows the user to logout from the server becoming an unauthenticated user.\\
+\textbf{How to:} 
+\begin{itemize}
+	\item Type \texttt{logout}
+\end{itemize}
 
 
 \subsubsection{Administrator user}
