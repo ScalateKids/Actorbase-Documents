@@ -128,8 +128,8 @@
   \subsection{Glossario}
   Tutti i termini di carattere tecnico o fraintendibile e gli acronimi sono
   raccolti nel file
-  \href{run:../Esterni/Glossario\_v1.0.0.pdf}{Glossario
-    v1.0.0}; ogni occorrenza di parole nel \textit{Glossario} è indicata da una
+  \href{run:../Esterni/Glossario\_v3.0.0.pdf}{Glossario
+    v3.0.0}; ogni occorrenza di parole nel \textit{Glossario} è indicata da una
   ``G'' in pedice.
 }
 % newline inside table

@@ -65,7 +65,11 @@
 
 \subsection{Scopo del documento}
 
-%TODO
+Il seguente documento ha lo scopo di definire nel dettaglio la stesura del
+prodotto \textbf{Actorbase} in tutte e tre le sue componenti, precedentemente
+identificate nella \textit{Specifica Tecnica} e approfondendone gli aspetti
+implementativi in modo da fornire una struttura dettagliata ai
+\textit{programmatori} per l'attività di codifica.
 
 \prodPurpose
 
@@ -80,167 +84,52 @@
 \item\textbf{Capitolato d'appalto C1:} \textit{Actorbase: a NoSQL DB based on the Actor model;}\\
   \url{http://www.math.unipd.it/~tullio/IS-1/2015/Progetto/C1.pdf}
 \item\textbf{Norme di Progetto:}
-  \href{run:../Interni/NormeDiProgetto\_v2.0.0.pdf}{Norme di Progetto v2.0.0.}
+  \href{run:../Interni/NormeDiProgetto\_v3.0.0.pdf}{Norme di Progetto v3.0.0.}
 \end{itemize}
 
 \subsubsection{Informativi}
 
 \begin{itemize}
-\item\textbf{Piano di Progetto:}
-  \href{run:./PianoDiProgetto\_v2.0.0.pdf}{Piano di Progetto v2.0.0}
-\item\textbf{Dispense fornite dall'insegnamento Ingegneria del Software mod.
-    A:}\\   \url{http://www.math.unipd.it/~tullio/IS-1/2015/}
+\item\textbf{Piano di Progetto:} \href{run:./PianoDiProgetto\_v3.0.0.pdf}{Piano di Progetto v3.0.0}
+\item\textbf{Dispense fornite dall'insegnamento Ingegneria del Software mod.A:}\\
+  \url{http://www.math.unipd.it/~tullio/IS-1/2015/}
 \item\textbf{Documentazione di \gloss{Akka} su \gloss{Scala}:}
   \url{http://doc.akka.io/docs/akka/2.4.2/scala.html}
 \item\textbf{SBT\ -\ Scala build tool:}
   \url{http://www.scala-sbt.org/index.html}
-\item\textbf{Scala Pickling\ -\ Fast, Customizable, Boilerplate-Free Serialization for Scala:}
-  \url{http://lampwww.epfl.ch/~hmiller/pickling}
-\item\textbf{RESP\ -\ Redis Protocol Specification:} Protocollo di comunicazione testuale \gloss{TCP} (Transmission Control Protocol)
-  \url{http://redis.io/topics/protocol}
+\item\textbf{Scala Pickling\ -\ Fast, Customizable, Boilerplate-Free Serialization for Scala:} Libreria di serializzazione e deserializzazione
+  multiformato, pieno supporto \gloss{JSON} (JavaScript Object Notation) e
+  serializzazione in binario \url{http://lampwww.epfl.ch/~hmiller/pickling}
+\item\textbf{Spray\ -\ an open-source toolkit for building REST/HTTP-based integration layers on top of Scala and Akka}:
+  Libreria per la gestione di richieste \gloss{HTTP}(HyperText Transfert Protocol) in modo asincrono, basata sul modello ad
+  attori offerto dalla libreria Akka. \url{http://spray.io/}
+\item\textbf{REST\ -\ Representational State Transfer:} Architettura software
+  per sistemmi di \gloss{ipertesto} distribuiti, rappresenta un sistema di
+  localizzazione e richiesta risorse \gloss{stateless}, poggia su \gloss{HTTP}
+  come protocollo di comunicazione \url{https://en.wikipedia.org/wiki/Representational_state_transfer}
 \end{itemize}
 
 \newpage
 
-\section{Tecnologie utilizzate}
+\section{Standard di progetto}
+% TODO: volendo-> link
+\subsection{Standard di progettazione architetturale}
+Gli standard di progettazione architetturale sono definiti nella
+\textit{Specifica Tecnica v2.0.0}.
 
-In questa sezione saranno descritte le tecnologie scelte per lo sviluppo del
-progetto \textbf{Actorbase} e le motivazioni che ci hanno spinto a sceglierle.
+\subsection{Standard di documentazione del codice}
+Gli standard per la scrittura della documentazione del codice sono definit nel
+documento \textit{Norme di Progetto v3.0.0}.
 
-\subsection{Akka}
+% TODO da completare ?
 
-La scelta della libreria \gloss{Akka} è stata dettata dal capitolato, tuttavia
-l'avremmo scelta comunque per i seguenti motivi:
-\begin{itemize}
-\item\textbf{Implementazione del \gloss{modello ad attori}:} \gloss{Akka}
-  rende semplice la creazione e l'utilizzo degli \gloss{attori}. Grazie a ciò è
-  possibile creare facilmente architetture ad eventi estremamente concorrenti e
-  viene naturale la distribuibilità del progetto e l'asincronia tra i processi;
-\item\textbf{Tolleranza agli errori:} \gloss{Akka} implementa un sistema di
-  gerarchia di supervisori. Questa gerarchia consente ai supervisori di un
-  \gloss{attore}, nel caso in cui quest'ultimo lanci un'eccezione, di mandarlo
-  in \gloss{crash} e farlo poi ripartire. In questo modo il sistema è resiliente
-  agli errori;
-\item\textbf{Persistenza:} Ogni messaggio ricevuto da ciascun \gloss{attore}
-  può essere salvato in maniera tale che al riavvio esso possa riprendere dallo
-  stato precedente al suo spegnimento.
-\end{itemize}
+\subsection{Standard di programmazione}
+Gli standard di programmazione sono definiti nel documento \textit{Norme di Progetto v3.0.0}
 
-\subsection{Scala}
-
-Il capitolato richiede l'utilizzo di un linguaggio di programmazione a scelta
-tra \gloss{Scala} e \gloss{Java}. Abbiamo scelto \gloss{Scala} per i seguenti
-motivi:
-
-\begin{itemize}
-\item\textbf{\gloss{Programmazione funzionale}:} Questa tecnica di
-  programmazione evita che ci siano degli effetti collaterali tra funzioni,
-  rendendole quindi \gloss{thread-safe};
-\item\textbf{Implementazione di Akka:} \gloss{Akka} risulta più
-  facilmente implementabile in \gloss{Scala} che in \gloss{Java}. Questo perché
-  la \gloss{programmazione funzionale} con i suoi paradigmi si integra meglio
-  con il \gloss{modello ad attori};
-\item\textbf{Implementazione di DSL:} Scala si presta alla creazione di \gloss{DSL}
-  in maniera nativa, sia di tipo esterno che di tipo interno, senza necessariamente
-  utilizzare librerie esterne o appoggiarsi a framework appositi;
-\item\textbf{Integrazione con librerie Java:} In Scala è possibile usufruire di molte
-  librerie sviluppate in ambiente Java in quanto utilizza lo stesso modello di compilazione
-  generando dei \gloss{file} in \gloss{bytecode}.
-\end{itemize}
-
-Tuttavia presenta alcuni svantaggi:
-
-\begin{itemize}
-\item\textbf{Curva di apprendimento:} Scala introduce paradigmi di programmazione funzionale
-  applicati al paradigma ad oggetti, inoltre ha una sintassi molto espressiva e questo può
-  rallentare significativamente il processo di apprendimento per i neofiti;
-\item\textbf{Librerie Java:} La possibilità di usufruire di molte librerie Java, pur essendo
-  considerato positivo, ha anche il lato negativo di doversi appoggiare a documentazioni specifiche
-  per linguaggio Java, e questo può portare a difficili comprensioni del comportamento della libreria
-  in Scala, specie nel caso in cui la compatibilità non sia al 100\%.
-\end{itemize}
-
-\subsection{sbt}
-
-Sbt (Simple Build Tool) è un ambiente di \gloss{build} simile alla controparte Java \gloss{Maven} o
-\gloss{Ant}. Fornito di \gloss{console} e strumenti di compilazione ed
-esecuzione per progetti Scala, è stato scelto per i seguenti vantaggi:
-\begin{itemize}
-\item Semplice configurazione mediante file;
-\item \gloss{REPL} Scala integrata;
-\item Facilmente integrabile all'interno di \gloss{IDE} e editor;
-\item Gestione semplificata delle dipendenze;
-\item Gestione semplificata del processo di \gloss{build}.
-\end{itemize}
-
-\section{Descrizione architettura}
-
-\subsection{Metodo e formalismo di specifica}
-
-L'esposizione dell'architettura segue la metodologia \gloss{top-down},
-descrivendo l'architettura iniziando dalle componenti generali e scendendo
-nel dettaglio. Seguirà quindi la descrizione dei \gloss{package} seguiti dalla descrizione
-in dettaglio delle classi e interfacce che vi appartengono, specificando
-per ognuna la funzione e le relazioni in ingresso ed uscita. Il formalismo
-cromatico utilizzato sarà conforme a quanto specificato in \textit{Norme Di Progetto}.\\
-Successivamente si illustreranno i \gloss{Design Pattern} e la loro applicazione
-all'interno delle componenti, con un approfondimento del loro funzionamento
-in \hyperref[sec:appendice]{appendice A}.\\
-Nel trattare le componenti, si chiarisce che sono da intendersi come \gloss{package}
-e i due termini verranno quindi usati come sinonimi.\\
-
-\subsection{Architettura generale}
-
-Macroscopicamente il sistema si suddivide in due componenti principali,
-assimilabili ad un paradigma \gloss{Client}-\gloss{Server}, il sistema ad attori dove risiedono
-la struttura della base di dati ed un \gloss{server} TCP (Transmission Control Protocol)
-pronto a ricevere comandi dall'esterno rappresentano la componente \gloss{server}, la
-Command Line Interface (\gloss{CLI}) rappresenta la componente \gloss{client} mediante la quale
-è possibile inviare comandi al sistema e ricevere l'output prodotto da essi.
-Essa farà uso della componente \gloss{driver} per comunicare con il sistema lato
-\gloss{server} mediante il protocollo di comunicazione testuale \hyperref[sec:RESP]{RESP}.\\
-
-\begin{figure}[H]
-  \begin{center}
-    \includegraphics[width=0.2\textwidth,keepaspectratio]{RP/RP-ClientServer.png}
-    \caption{Diagramma architettura concettuale}
-  \end{center}
-\end{figure}
-
-\subsection{Protocollo di comunicazione Client-Server}
-\label{sec:RESP}
-
-\textbf{Actorbase} è stato concepito come sistema da utilizzare in ambiente
-affidabile, e non dovrebbe essere esposto direttamente alla rete internet, ma
-utilizzato all'interno di sottoreti protette dall'esterno, per questo è stato
-deciso di riutilizzare un protocollo di comunicazione
-piuttosto semplice, leggero e facilmente comprensibile.\\
-Il protocollo \gloss{\textbf{RESP}} (REdis Serialization Protocol) implementato
-dal \gloss{database} \gloss{REDIS} si presta esattamente allo scopo, utilizza
-5 tipi di dato differenziati dal primo \gloss{byte} che li compone, e delimitati
-da una sequenza di terminazione formata da \gloss{CR} (Carriage Return) e \gloss{LF}
-(Line Feed) che rappresenta il carattere ``a capo'':
-\begin{itemize}
-\item \textbf{Simple Strings} rappresentano stringhe dedicate alle risposte
-  semplici (\gloss{ack} dei comandi ricevuti), non possono contenere caratteri
-  di terminazione al loro interno; il primo \gloss{byte} è ``+'';
-\item \textbf{Errors} rappresentano stringhe di errore, formate da:
-  \begin{center}
-    \verb=-TIPOERRORE MESSAGGIOERRORE\r\n=
-  \end{center}
-  verranno utilizzate per generare le eccezioni lato \gloss{client}; il primo \gloss{byte} è ``-'';
-\item \textbf{Integers} rappresentano numeri interi, il primo \gloss{byte} è ``:'';
-\item \textbf{Bulk Strings} rappresentano stringhe dedicate al \gloss{payload}, formate da:
-  \begin{center}
-    \verb=\$LUNGHEZZAPAYLOAD\r\nPAYLOAD\r\n=
-  \end{center}
-  il primo \gloss{byte} è ``\$'' e può contenere caratteri di ``a capo'';
-\item \textbf{Arrays} rappresentano \gloss{array} di comandi e \textbf{Bulk String}, formati da:
-  \begin{center}
-    \verb=*LUNGHEZZASTRINGA\r\nRESPSTRING\r\n=
-  \end{center}
-  il primo \gloss{byte} è ``*'', possono contenere qualsiasi altro tipo di stringa \gloss{RESP}, inclusi altri \gloss{array}.
-\end{itemize}
+\subsection{Strumenti di lavoro}
+Gli strumenti da adottare e le procedure da seguire per il corretto utilizzo
+durante la realizzazione del prodotto sono definiti nel documento \textit{Norme
+di Progetto v3.0.0}
 
 \section{Componenti}
 
@@ -1263,7 +1152,7 @@ che ha inviato questo messaggio.
 \end{tabular}
 
 
-\subsection{actorbase::actorsystem::storefinder} %TODO DA controllare e finire 
+\subsection{actorbase::actorsystem::storefinder} %TODO DA controllare e finire
 \label{sec:actorbase::actorsystem::storefinder}
 
 \begin{figure}[H]
@@ -3499,231 +3388,6 @@ visualizzare se richiesto dall'utente.
 \item \hyperref[sec:actorbase::driver::client::ActorbaseClient]{actorbase::driver::client::ActorbaseClient}.
 \end{itemize}
 
-\section{Diagrammi di Attività}
-
-In questa sezione, vengono illustrati i diagrammi di attività che descrivono
-l'interazione dell'utente con \textbf{Actorbase} tramite l'utilizzo della \gloss{CLI}
-ad esso associata.  É stato disegnato un diagramma ad alto livello in cui sono
-rappresentate le operazioni possibili sul \gloss{database}. Esse vengono poi
-illustrate tramite dei sotto-diagrammi per poterne comprendere meglio il
-funzionamento e facilitarne la lettura.
-
-\subsection{Visione generale}
-
-L'utente, dopo aver aperto la \gloss{CLI}, ha la possibilità di autenticarsi
-al \gloss{database} oppure chiedere dell'aiuto. Una volta autenticato, esso può
-operare su collezioni e/o item, interrogare il \gloss{database}, modificare la propria
-password, effettuare il logout oppure, se si tratta di un amministratore,
-gestire gli utenti del \gloss{database}.
-
-\begin{figure}[H]
-  \begin{center}
-    \includegraphics[width=0.8\textwidth, keepaspectratio]{img/diagrammiAttivita/visioneGenerale.jpeg}
-    \caption{Diagrammi attività\ -\ Visione generale}
-  \end{center}
-\end{figure}
-
-\subsection{Operazioni su collezioni e/o item}
-\subsubsection{Creazione collezione}
-
-Questo tipo di operazione permette di inserire una collezione all'interno del
-\gloss{database}. Come si vede dal grafico che segue, l'utente dovrà inserire il
-comando per la creazione della collezione, il nome della collezione stessa e i
-suoi parametri. Una volta premuto il tasto invio, l'operazione andrà a buon
-termine se l'utente ha scritto correttamente il comando altrimenti verrà
-visualizzato un messaggio di errore.
-
-\begin{figure}[H]
-  \begin{center}
-    \includegraphics[width=0.3\textwidth, keepaspectratio]{img/diagrammiAttivita/creazioneCollezione.jpeg}
-    \caption{Diagrammi attività\ -\ Creazione collezione}
-  \end{center}
-\end{figure}
-
-\subsubsection{Cancellazione collezione}
-
-Questo tipo di operazione permette di cancellare una collezione dal \gloss{database}.
-Come si vede dal grafico che segue, l'utente dovrà inserire il comando per la
-cancellazione di una collezione e il nome della collezione stessa. Una volta
-premuto il tasto invio, l'operazione andrà a buon termine se l'utente ha
-scritto correttamente il comando altrimenti verrà visualizzato un messaggio di
-errore.
-
-\begin{figure}[H]
-  \begin{center}
-    \includegraphics[width=0.3\textwidth, keepaspectratio]{img/diagrammiAttivita/cancCollezione.jpeg}
-    \caption{Diagrammi attività\ -\ Cancellazione collezione}
-  \end{center}
-\end{figure}
-
-\subsubsection{Visualizza collezioni}
-
-Questo tipo di operazione permette di visualizzare le collezioni presenti
-all'interno dal \gloss{database}. Come si vede dal grafico che segue, l'utente dovrà
-inserire il comando per la visualizzazione delle collezioni. Una volta premuto
-il tasto invio, l'operazione andrà a buon termine (ricevendo la lista delle
-collezioni) se l'utente ha scritto correttamente il comando altrimenti verrà
-visualizzato un messaggio di errore.
-
-\begin{figure}[H]
-  \begin{center}
-    \includegraphics[width=0.3\textwidth, keepaspectratio]{img/diagrammiAttivita/visCollezione.jpeg}
-    \caption{Diagrammi attività\ -\ Visualizzazione collezioni}
-  \end{center}
-\end{figure}
-
-\subsubsection{Modifica nome collezione}
-
-Questo tipo di operazione permette di modificare il nome di una collezione
-presente nel \gloss{database}. Come si vede dal grafico che segue, l'utente dovrà
-inserire il comando per la rinominazione della collezione, il nome della
-collezione stessa e il nuovo nome per essa. Una volta premuto il tasto invio,
-l'operazione andrà a buon termine se l'utente ha scritto correttamente il
-comando altrimenti verrà visualizzato un messaggio di errore.
-
-\begin{figure}[H]
-  \begin{center}
-    \includegraphics[width=0.3\textwidth, keepaspectratio]{img/diagrammiAttivita/modNomeCollezione.jpeg}
-    \caption{Diagrammi attività - Modifica nome collezione}
-  \end{center}
-\end{figure}
-
-\subsubsection{Inserimento item}
-
-Questo tipo di operazione permette di inserire un item all'interno di una
-collezione del \gloss{database}. Come si vede dal grafico che segue, l'utente dovrà
-inserire il comando per l'inserimento item, il valore e parametri dell'item
-stesso e il nome della collezione dove inserire l'item. Una volta premuto il
-tasto invio, l'operazione andrà a buon termine (ricevendo la lista delle
-collezioni) se l'utente ha scritto correttamente il comando altrimenti verrà
-visualizzato un messaggio di errore.
-
-\begin{figure}[H]
-  \begin{center}
-    \includegraphics[width=0.3\textwidth, keepaspectratio]{img/diagrammiAttivita/inserimentoItem.jpeg}
-    \caption{Diagrammi attività - Inserimento item}
-  \end{center}
-\end{figure}
-
-\subsubsection{Rimozione item}
-
-Questo tipo di operazione permette di rimuovere un item dall'interno di una
-\gloss{collezione} del \gloss{database}. Come si vede dal grafico che segue, l'utente
-dovrà inserire il comando per l'eliminazione di un item, il nome della
-collezione da dove rimuovere l'item e il nome dell'item stesso. Una volta
-premuto il tasto invio, l'operazione andrà a buon termine (ricevendo la lista
-delle collezioni) se l'utente ha scritto correttamente il comando altrimenti
-verrà visualizzato un messaggio di errore.
-
-\begin{figure}[H]
-  \begin{center}
-    \includegraphics[width=0.3\textwidth, keepaspectratio]{img/diagrammiAttivita/rimozioneItem.jpeg}
-    \caption{Diagrammi attività\ -\ Rimozione item}
-  \end{center}
-\end{figure}
-
-\subsubsection{Aggiunta collaboratore}
-
-Questo tipo di operazione permette di aggiungere un \gloss{collaboratore} ad
-una collezione presente nel \gloss{database}. Come si vede dal grafico che segue,
-l'utente dovrà inserire il comando per l'aggiunta di un collaboratore ad una
-collezione, lo username del collaboratore e il nome della collezione alla
-quale aggiungerlo. Una volta premuto il tasto invio, l'operazione andrà a buon
-termine se l'utente ha scritto correttamente il comando altrimenti verrà
-visualizzato un messaggio di errore.
-
-\begin{figure}[H]
-  \begin{center}
-    \includegraphics[width=0.3\textwidth, keepaspectratio]{img/diagrammiAttivita/aggCollaboratore.jpeg}
-    \caption{Diagrammi attività\ -\ Aggiunta collaboratore}
-  \end{center}
-\end{figure}
-
-\subsubsection{Rimozione collaboratore}
-
-Questo tipo di operazione permette di rimuovere un collaboratore da una
-collezione presente nel \gloss{database}. Come si vede dal grafico che segue, l'utente
-dovrà inserire il comando per la rimozione di un collaboratore da una
-collezione, lo username del collaboratore e il nome della collezione dalla
-quale rimuoverlo. Una volta premuto il tasto invio, l'operazione andrà a buon
-termine se l'utente ha scritto correttamente il comando altrimenti verrà
-visualizzato un messaggio di errore.
-
-\begin{figure}[H]
-  \begin{center}
-    \includegraphics[width=0.3\textwidth, keepaspectratio]{img/diagrammiAttivita/rimozioneCollaboratore.jpeg}
-    \caption{Diagrammi attività\ -\ Rimozione collaboratore}
-  \end{center}
-\end{figure}
-
-\subsubsection{Import}
-
-Questo tipo di operazione permette di importare nel \gloss{database} collezioni o item
-tramite file \gloss{JSON}. Come si vede dal grafico che segue, l'utente dovrà
-inserire il comando per l'importazione e il path che porta al file desiderato.
-Una volta premuto il tasto invio, l'operazione andrà a buon termine se
-l'utente ha scritto correttamente il comando altrimenti verrà visualizzato un
-messaggio di errore.
-
-\begin{figure}[H]
-  \begin{center}
-    \includegraphics[width=0.3\textwidth, keepaspectratio]{img/diagrammiAttivita/import.jpeg}
-    \caption{Diagrammi attività - Import}
-  \end{center}
-\end{figure}
-
-\subsection{Interrogazione del database}
-
-Questo tipo di operazione permette di interrogare il \gloss{database} tramite delle
-query. Come si vede dal grafico che segue, l'utente dovrà inserire il comando
-per l'interrogazione del \gloss{database} e i parametri per la ricerca. Una volta
-premuto il tasto invio, l'operazione andrà a buon termine se l'utente ha
-scritto correttamente il comando, ricevendo il risultato della query,
-altrimenti verrà visualizzato un messaggio di errore.
-
-\begin{figure}[H]
-  \begin{center}
-    \includegraphics[width=0.3\textwidth, keepaspectratio]{img/diagrammiAttivita/query.jpeg}
-    \caption{Diagrammi attività - Interrogazione del \gloss{database}}
-  \end{center}
-\end{figure}
-
-\subsection{Modifica password}
-
-Questo tipo di operazione permette di modificare la propria password. Come si
-vede dal grafico che segue, l'utente dovrà inserire il comando per la modifica
-della password, la vecchia password, la nuova password e confermare
-quest'ultima. Una volta premuto il tasto invio, l'operazione andrà a buon
-termine se l'utente ha scritto correttamente il comando altrimenti verrà
-visualizzato un messaggio di errore.
-
-\begin{figure}[H]
-  \begin{center}
-    \includegraphics[width=0.3\textwidth, keepaspectratio]{img/diagrammiAttivita/modificaPsw.jpeg}
-    \caption{Diagrammi attività - Modifica password}
-  \end{center}
-\end{figure}
-
-\subsection{Gestione utenti}
-
-La gestione utenti, possibile solo ad un utente amministratore, prevede la
-possibilità di aggiungere o rimuovere un utente dal \gloss{database} e la possibilità
-di resettare la password di un utente. Per aggiungere o rimuovere un utente,
-l'amministratore dovrà inserire il rispettivo comando, lo username dell'utente
-da aggiungere/rimuovere dal \gloss{database} e una conferma. Per resettare la password
-di un utente, l'amministratore dovrà scrivere il comando per il reset della
-password, lo username dell'utente interessato e una conferma. Una volta
-premuto il tasto invio, le operazione andranno a buon termine se l'utente ha
-scritto correttamente il comando altrimenti verrà visualizzato un messaggio di
-errore.
-
-\begin{figure}[H]
-  \begin{center}
-    \includegraphics[width=0.9\textwidth, keepaspectratio]{img/diagrammiAttivita/gestioneUtenti.jpeg}
-    \caption{Diagrammi attività - Gestione utenti}
-  \end{center}
-\end{figure}
-
 \section{Diagrammi di Sequenza}
 
 In questa sezione, vengono illustrati i diagrammi di sequenza che descrivono
@@ -3914,234 +3578,6 @@ dall'utente verranno gestite dal proprio \gloss{ClientActor}.\\
     \caption{Diagramma di sequenza - Connessione al server}
   \end{center}
 \end{figure}
-
-\section{Design Pattern}
-
-I \gloss{Design Pattern} rappresentano soluzioni progettuali generali ad un
-problema ricorrente. Si tratta di  modelli logici da applicare per la
-risoluzione di un problema ancor prima della definizione dell'algoritmo
-risolutivo vero e proprio, favoriscono il riutilizzo del codice e rendono
-l'architettura più manutenibile.\\
-I \gloss{Design Pattern} possono essere suddivisi in:
-
-\begin{itemize}
-\item \textbf{architetturali:} operano al livello più alto,
-  esprimono schemi di base per impostare l'organizzazione strutturale di un
-  sistema software;
-\item \textbf{creazionali:} nascondono i costruttori delle classi e mettono dei
-  metodi al loro posto creando un'interfaccia, in questo modo forniscono
-  un'astrazione del processo di instanziazione degli oggetti;
-\item \textbf{strutturali:} consentono di riutilizzare degli oggetti esistenti
-  fornendo agli utilizzatori un'interfaccia più adatta alle loro esigenze;
-\item \textbf{comportamentali:} definiscono soluzioni per le interazioni tra
-  oggetti.
-\end{itemize}
-
-Si rimanda all'Appendice A per un approfondimento dei \gloss{Design Pattern}
-utilizzati nel progetto \textbf{Actorbase}.
-
-\subsection{Design Pattern Architetturali}
-
-\subsubsection{MVC}
-
-\begin{itemize}
-\item \textbf{Scopo:} È stato scelto l'utilizzo del pattern \gloss{Model}
-  \gloss{View} \gloss{Controller} (\gloss{MVC}) per l'alto grado di separazione
-  tra la parte logica dell'applicazione e parte grafica che offre;
-\item \textbf{Utilizzo:} Viene utilizzato per delineare l'architettura generale
-  della componente \gloss{CLI} (Command Line Interface) del progetto. La parte
-  \gloss{View} funge da interfaccia con l'utente, si occupa di leggere l'input e
-  inviarlo al Controller, il quale si occupa di validare l'input
-  e inviare il comando estrapolato al \gloss{Model}.\\
-  Il \gloss{Model} mediante un \gloss{Command Pattern} (vedi~\hyperref[sec:CommandPattern]{Command Pattern})
-  esegue il comando richiesto e notifica la \gloss{View} utilizzando un \gloss{Observer Pattern}
-  (vedi~\hyperref[sec:ObserverPattern]{Observer Pattern}) secondo la variante \gloss{Push model}.
-\end{itemize}
-
-\subsection{Design Pattern Creazionali}
-
-\subsubsection{Singleton}
-
-\begin{figure}[H]
-  \begin{center}
-    \includegraphics[width=0.3\textwidth, keepaspectratio]{img/RP/Singleton-Connection.png}
-    \caption{Connection Singleton}
-  \end{center}
-\end{figure}
-
-\begin{itemize}
-\item \textbf{Scopo:} Viene utilizzato per le classi di cui è preferibile avere un'unica istanza
-  durante l'esecuzione dell'applicazione;
-\item \textbf{Utilizzo:} È stato utilizzato una sola volta per la classe di connessione all'interno
-  della componente \gloss{driver}, in modo da offrire un unico punto di accesso al \gloss{server}.
-\end{itemize}
-
-\subsection{Design Pattern Strutturali}
-
-\subsubsection{Facade}
-
-\begin{itemize}
-\item \textbf{Scopo:} Il pattern \gloss{Facade} viene usato per fornire
-  un'interfaccia unica e semplificata a più classi;
-\item \textbf{Utilizzo:} Viene utilizzato all'interno della componente
-  \gloss{driver} per l'esecuzione e l'invio al \gloss{server} dei comandi mediante
-  la classe CommandRunner, la quale mediante l'istanza \gloss{Singleton} di
-  Connection invia e riceve i comandi al \gloss{server}.
-\end{itemize}
-
-\subsection{Design Pattern Comportamentali}
-
-\subsubsection{Command Pattern}
-
-\label{sec:CommandPattern}
-
-\begin{itemize}
-\item \textbf{Scopo:} Viene utilizzato per separare l'implementazione di un'azione
-  (\gloss{Receiver}) dal richiamante dell'azione stessa (\gloss{Invoker}).
-\item \textbf{Utilizzo:} Viene utilizzato per la gestione dei comandi nella componente
-  \gloss{CLI}, e funge da \gloss{Model} dell'architettura \gloss{MVC} utilizzata.\\
-  Le classi che implementano i comandi realizzando l'interfaccia \verb=Command= sono:
-  \begin{itemize}
-  \item \verb=FindCommand=
-  \item \verb=ListCommand=
-  \item \verb=LoginCommand=
-  \item \verb=LogoutCommand=
-  \item \verb=HelpCommand=
-  \item \verb=InsertItemCommand=
-  \item \verb=RemoveItemCommand=
-  \item \verb=RenameCollectionCommand=
-  \item \verb=CreateCollectionCommand=
-  \item \verb=RemoveCollectionCommand=
-  \item \verb=ImportCommand=
-  \item \verb=ExportCommand=
-  \item \verb=AddContributorCommand=
-  \item \verb=RemoveContributorCommand=
-  \item \verb=ResetPasswordCommand=
-  \item \verb=AddUserCommand=
-  \item \verb=RemoveUserCommand=
-  \end{itemize}
-\end{itemize}
-
-La classe incaricata di eseguire i comandi è \verb=CommandReceiver=, invocata mediante
-\verb=CommandInvoker=, utilizzando i parametri ricevuti dalla parte \gloss{Controller}
-dell'architettura \gloss{MVC} scelta per la componente \gloss{CLI}.
-
-\subsubsection{Iterator Pattern}
-
-\begin{itemize}
-\item \textbf{Scopo:} Fornisce un sistema di navigazione attraverso gli elementi di una generica struttura dati contenitrice,
-  senza esporre i dettagli dell'implementazione e della struttura interna del contenitore.
-\item \textbf{Utilizzo:} Viene utilizzato nella componente \gloss{driver}, più specificamente nel \gloss{package} \verb=actorbaseobject=
-  per permettere l'iterazione degli oggetti restituiti dalla componente \verb=actorsystem=.\\
-  Le classi che implementano l'interfaccia \verb=cursor= sono:
-  \begin{itemize}
-  \item \verb=CollectionCursor=
-  \item \verb=ItemCursor=
-  \end{itemize}
-\end{itemize}
-
-\subsubsection{Observer Pattern}
-
-\label{sec:ObserverPattern}
-
-\begin{itemize}
-\item \textbf{Scopo:} Viene utilizzato per tenere sotto controllo lo stato di diversi oggetti, ed è parte dell'implementazione
-  del \gloss{Design Pattern} \gloss{MVC} con logica \gloss{push model}, il funzionamento si basa su meccanismi di callback.
-\item \textbf{Utilizzo:} È stato utilizzato nella componente \gloss{CLI} del progetto in modo da ottenere una \gloss{view}
-  auto-aggiornante sull'output prodotto dai comandi inviati alla componente \gloss{driver}.\\
-  Più in dettaglio, la classe \verb=CommandInvoker= realizza l'interfaccia \verb=Observable= aggiungendo l'oggetto di tipo
-  \verb=ResultView= alla propria lista di \gloss{observers}, all'esecuzione di ogni comando, notifica \verb=resultview=
-  con l'output prodotto.
-\end{itemize}
-
-\subsubsection{Strategy}
-
-\begin{itemize}
-\item \textbf{Scopo:} Viene usato per isolare più algoritmi all'interno di oggetti e
-  ne permette la modifica dinamica.
-\item \textbf{Utilizzo:} Nella componente \verb=actorsystem= è stato utilizzato
-  per offrire più possibilità di \gloss{serializzazione} e \gloss{deserializzazione} sia in
-  ambito di persistenza su disco che in ambito comunicazioni tra \gloss{server} ed
-  esterno.\\ Nella componente \gloss{driver} viene offerta una singola
-  strategia, dedicata esclusivamente alla comunicazione con la componente
-  \verb=actorsystem=, con la scelta di mantenere il \gloss{Design Pattern} in
-  vista di eventuali estensioni. Contesti di utilizzo:
-  \begin{itemize}
-
-  \item \textbf{driver:}
-    \begin{itemize}
-    \item Dopo che la classe \verb=Connection= riceve i parametri da inviare è
-      possibile selezionare mediante \verb=SerializationContext=, una delle
-      strategie di \gloss{serializzazione} tra:
-      \begin{itemize}
-      \item \verb=RESPSerialize=
-      \end{itemize}
-    \end{itemize}
-    \begin{itemize}
-    \item In ricezione dei dati all'interno della classe \verb=Connection=, utilizzando
-      \verb=DeserializationContext= è possibile selezionare una delle
-      strategie di \gloss{deserializzazione} tra:
-      \begin{itemize}
-      \item \verb=RESPDeserialize=
-      \end{itemize}
-    \end{itemize}
-
-  \item \textbf{actorsystem:}
-    \begin{itemize}
-    \item All'interno del \gloss{package} \verb=clientactor=, la classe utilizzata per la
-      gestione dei messaggi in ingresso \verb=RESPInput= è possibile selezionare
-      mediante \verb=DeserializationContext=, una delle strategie di \gloss{deserializzazione}
-      tra:
-      \begin{itemize}
-      \item \verb=RESPDeserialization=
-      \item \verb=PickleDeserialization=
-      \end{itemize}
-    \item All'interno del \gloss{package} \verb=clientactor=, la classe utilizzata per la
-      gestione dei messaggi in uscita \verb=Response= è possibile selezionare
-      mediante \verb=SerializationContext=, una delle strategie di \gloss{serializzazione}
-      tra:
-      \begin{itemize}
-      \item \verb=RESPSerialization=
-      \item \verb=PickleSerialization=
-      \end{itemize}
-    \item All'interno del \gloss{package} \verb=warehouseman=, la classe utilizzata per
-      la gestione del salvataggio in persistenza dei dati \verb=Save= è
-      possibile selezionare mediante \verb=SerializationContext=, una delle
-      strategie di \gloss{serializzazione} tra:
-      \begin{itemize}
-      \item \verb=PickleSerialization=
-      \item \verb=RESPSerialization=
-      \end{itemize}
-    \item All'interno del \gloss{package} \verb=warehouseman=, la classe utilizzata per
-      la gestione della lettura da persistenza dei dati \verb=Init= è
-      possibile selezionare mediante \verb=DeserializationContext=, una delle
-      strategie di \gloss{serializzazione} tra:
-      \begin{itemize}
-      \item \verb=PickleDeserialization=
-      \item \verb=RESPDeserialization=
-      \end{itemize}
-    \end{itemize}
-
-  \end{itemize}
-
-\end{itemize}
-
-\section{Stime di fattibilità e di bisogno di risorse}
-
-Durante la progettazione dell'architettura, oltre alle tecnologie e librerie
-consigliate dal proponente, ne sono state ricercate e testate altre in modo da
-poter usufruire di funzionalità già esistenti.\\ Dopo un iniziale orientamento
-verso il \gloss{framework} \gloss{Spring}, più precisamente nella sua
-derivazione \gloss{SpringShell}, in modo da poter generare una \gloss{CLI}
-personalizzata, abbiamo deciso di rimanere su un'implementazione più leggera in
-linguaggio \gloss{Scala} in quanto la scarsa personalizzazione offerta e il
-grosso carico di dipendenze che necessitava \gloss{SpringShell} per il suo
-utilizzo è stato ritenuto eccessivamente gravoso sulla realizzazione della
-componente in questione.\\ È stato tuttavia deciso di utilizzare il
-\gloss{framework} \gloss{pickling} per effettuare \gloss{serializzazione} della
-persistenza su disco; offre una buona documentazione e numerosi esempi di
-utilizzo, rende inoltre possibile la definizione di protocolli di
-\gloss{serializzazione} personalizzati.
 
 \section{Tracciamento}
 
@@ -4704,153 +4140,6 @@ utilizzo, rende inoltre possibile la definizione di protocolli di
 \appendix
 \label{sec:appendice}
 
-\section{Descrizione Design Pattern}
-
-\subsection{Design Pattern Architetturali}
-
-\subsubsection{MVC}
-\begin{figure}[H]
-  \begin{center}
-    \includegraphics[width=0.9 \textwidth, keepaspectratio]{img/designPattern/mvc.jpg}
-    \caption{Esempio di applicazione del design pattern MVC}
-  \end{center}
-\end{figure}
-\begin{itemize}
-\item \textbf{Scopo:} Disaccoppiare le tre seguenti componenti:
-  \begin{itemize}
-  \item Model: parte che si occupa direttamente di dati, logica e regole dell'applicazione;
-  \item View: rappresentazione grafica sotto forma delle varie tipologie di output utilizzate per rappresentare i dati dell'applicazione;
-  \item Controller: parte che accetta gli input e li converte in comandi per il model o la view;
-  \end{itemize}
-\item \textbf{Motivazione:} Molte applicazioni hanno la necessità di recuperare dati e di mostrarli in maniera opportuna agli utenti. Poiché si tratta di una comunicazione tra i dati dei dati e la interfaccia utente, bisogna trovare il metodo per far comunicare le due parti senza accorparle assieme, cosa che comporterebbe codice pesante e scarsa manutenibilità, in quanto in genere la parte grafica si evolve più in fretta della parte di model e, viceversa, bisogna rendere l'interfaccia che si offre all'utente quanto più separata possibile dall'implementazione effettiva della gestione dei dati. La soluzione che è stata trovata è costituita dal \gloss{design pattern} Model-View-Controller (MVC) che separa le tre componenti come già illustrato;
-\item \textbf{Applicabilità:} Il pattern MVC è adatto ad essere utilizzato nei seguenti casi:
-  \begin{itemize}
-  \item se c'è la necessità che un insieme di oggetti debba essere considerato come un oggetto singolo;
-  \item se c'è la necessità di disaccoppiare il model e la view, creando un sistema di notifiche tra le due componenti;
-  \item Se c'è la necessità di avere più view per il medesimo model.
-  \end{itemize}
-\end{itemize}
-\subsection{Design Pattern Creazionali}
-
-\subsubsection{Singleton}
-
-\begin{figure}[H]
-  \begin{center}
-    \includegraphics[width=0.3\textwidth, keepaspectratio]{img/designPattern/Singleton.png}
-    \caption{Esempio di applicazione del design pattern singleton}
-  \end{center}
-\end{figure}
-
-\begin{itemize}
-
-\item \textbf{Scopo:} Assicurare che una classe abbia un'unica istanza ed avere
-  un punto di accesso globale ad essa;
-
-\item \textbf{Motivazione:} Per alcune classi è fondamentale assicurare che non
-  abbiano più di un'istanza. Per questo motivo la classe tipicamente ha un
-  costruttore privato e un metodo per poter accedere all'istanza della classe
-  pubblico;
-
-\item \textbf{Applicabilità:} Questo \gloss{design pattern} può essere
-  applicato nei seguenti casi:
-  \begin{itemize}
-  \item Quando è essenziale che ci sia solo una istanza di una classe e tale
-    istanza deve essere resa accessibile attraverso un unico punto di accesso;
-  \item Quando l'unica istanza della classe deve essere estesa in maniera
-    tale da non dover avere \gloss{client} con codici diversi.
-  \end{itemize}
-
-\end{itemize}
-
-\subsection{Design Pattern Strutturali}
-
-\subsubsection{Façade}
-
-\begin{figure}[H]
-  \begin{center}
-    \includegraphics[width=0.7\textwidth, keepaspectratio]{img/designPattern/Facade.png}
-    \caption{Esempio di applicazione del design pattern façade}
-  \end{center}
-\end{figure}
-
-\begin{itemize}
-
-\item \textbf{Scopo:} Semplificare l'interfaccia visibile all'utente di un sistema complesso.
-  Per fare ciò viene creata un'unica interfaccia che racchiude più classi, nascondendole all'esterno;
-
-\item \textbf{Motivazione:} Raggruppare più sottosistemi in un sistema unico aiuta a ridurne la complessità.
-  L'utilizzo di una classe façade riduce le dipendenze tra i vari sottosistemi;
-
-\item \textbf{Applicabilità:} Questo \gloss{design pattern} può essere
-  applicato nei seguenti casi:
-  \begin{itemize}
-  \item Quando c'è la necessità di avere una singola interfaccia semplice che raggruppi più sottosistemi;
-  \item Quando c'è un alto livello di accoppiamento tra sottosistemi e client. La
-    classe façade diminuisce queste dipendenze offrendo un'interfaccia singola;
-  \item Quando si vogliono stratificare i sottosistemi con una struttura a livelli.
-  \end{itemize}
-
-\end{itemize}
-
-\subsection{Design Pattern Comportamentali}
-
-\subsubsection{Command}
-\begin{figure}[H]
-  \begin{center}
-    \includegraphics[width=0.7\textwidth, keepaspectratio]{img/designPattern/CommandPattern.png}
-    \caption{Esempio di applicazione del design pattern command}
-  \end{center}
-\end{figure}
-\begin{itemize}
-\item \textbf{Scopo:} Incapsulare una richiesta in un oggetto, cosicché il \gloss{client} sia indipendente dalle richieste, poiché le richieste hanno al loro interno tutti i dati necessari per essere risolte.
-\item \textbf{Motivazione:} C'è la necessità di gestire richieste di cui non si conoscono i particolari poiché i Toolkit associano ai propri elementi, richieste da eseguire.
-  Una classe astratta, Command, definisce l’interfaccia per eseguire la richiesta che è un semplice oggetto, per cui è possibile rendere variabile la reazione del \gloss{client} senza conoscere i dettagli dell'operazione stessa.
-\item \textbf{Applicabilità:} Il Command pattern si presta bene alla parametrizzazione di oggetti sull’azione da eseguire (Callback function) soprattutto nello specificare, accodare ed eseguire richieste molteplici volte. Vi è inoltre il Supporto alle operazioni di "Undo" e "Redo". Vi è inoltre il supporto a transazione in quanto è possibile incapsulare un'azione in una operazione atomica.
-\end{itemize}
-\subsubsection{Iterator}
-\begin{figure}[H]
-  \begin{center}
-    \includegraphics[width=0.6\textwidth, keepaspectratio]{img/designPattern/IteratorPattern.png}
-    \caption{Esempio di applicazione del design pattern iterator}
-  \end{center}
-\end{figure}
-\begin{itemize}
-\item \textbf{Scopo:} In un aggregato delegare la responsabilità dell'accesso da una classe separata dal contenitore stesso senza darne l'effettiva implementazione: si usa quindi l'iteratore, che fornisce metodi per navigare in maniera sequenziale attraverso il contenitore.
-\item \textbf{Motivazione:} Permette l'accesso ai dati nella medesima maniera dall'esterno e evita di appesantire il contenitore che altrimenti andrebbe arricchito di operazioni, rendendo il codice più complesso e difficilmente manutenibile. Inoltre permette di slegare il contenitore dalla maniera in cui si accede ad esso. Attraverso un iteratore si può inoltre ad esempio tenere traccia dell'elemento corrente, del precedente e del successivo.
-\item \textbf{Applicabilità:} Fornire l'accesso ad un aggregato senza fornire dettagli implementativi quali la struttura interna e la sua implementazione. Poiché rende  il contenitore indipendente dalla maniera in cui si percorre, esso è dunque aperto a diverse implementazioni per percorrerlo: è sufficiente reimplementare l'iteratore, senza toccare il contenitore. Permette inoltre la presenza di più iteratori su uno stesso aggregato.
-\end{itemize}
-\subsubsection{Observer}
-\begin{figure}[H]
-  \begin{center}
-    \includegraphics[width=0.7\textwidth, keepaspectratio]{img/designPattern/Observer.png}
-    \caption{Esempio di applicazione del design pattern observer}
-  \end{center}
-\end{figure}
-\begin{itemize}
-\item \textbf{Scopo:} Definisce una dipendenza “1..n” fra oggetti, riflettendo la modifica di un oggetto su quelli che ad esso dipendono.
-\item \textbf{Motivazione:} Mantenere la consistenza fra oggetti, oltre che al modello e alle viste ad esso collegate.
-  Observer pattern definisce come implementare la relazione di dipendenza: infatti il modello prevede due  attori principali che sono:
-  \begin{itemize}
-  \item Subject, che effettua le notifiche e contiene le interfacce per registrare e rimuovere gli observer;
-  \item Observer, che si aggiorna in base alle notifiche che riceve dal subject.
-  \end{itemize}
-\item \textbf{Applicabilità:} È utile nei casi in cui si debba associare più “viste” differenti ad una astrazione. Il pattern comporta inoltre un aumento del grado di riuso dei singoli tipi;
-  È indicato inoltre quando il cambiamento di un oggetto richiede il cambiamento di altri oggetti, oppure non si conosce quanti oggetti devono cambiare.
-  È utile anche per notificare oggetti senza fare assunzioni su quali siano questi oggetti ed evita l’accoppiamento “forte”.
-\end{itemize}
-\subsubsection{Strategy}
-\begin{figure}[H]
-  \begin{center}
-    \includegraphics[width=1.0\textwidth, keepaspectratio]{img/designPattern/StrategyPattern.png}
-    \caption{Esempio di applicazione del design pattern strategy}
-  \end{center}
-\end{figure}
-\begin{itemize}
-\item \textbf{Scopo:} Isolare un algoritmo all'interno di un oggetto, allo scopo di definire un gruppo di algoritmi, rendendoli
-  interscambiabili e indipendenti dal \gloss{client} che li utilizza. A questo proposito è necessario che la famiglia di algoritmi che implementa una stessa funzionalità esporti la medesima interfaccia in ogni caso, in questo modo il \gloss{client} che applica l'algoritmo non deve fare nessuna assunzioni sulla strategia applicata.
-\item \textbf{Motivazione:} Esistono differenti algoritmi (strategie) che non possono essere inserite direttamente nel client. Infatti i \gloss{client}, senza l'utilizzo di questo pattern rischiano di divenire troppo complessi: differenti strategie sono appropriate in casi differenti e dover scrivere codice ogni volta è troppo gravoso. Inoltre, se non si utilizza questo \gloss{design pattern}, è difficile aggiungere nuovi algoritmi e modificare gli esistenti.
-\item \textbf{Applicabilità:} questo \gloss{design pattern} si usa quando delle classi differiscono solo per il loro comportamento e si necessita di diverse varianti dello stesso algoritmo oppure quando una classe implementa diverse strategie attraverso molti statement condizionali, che si possono eliminare con questo \gloss{design pattern}. Inoltre l'iterator pattern si basa proprio su questo pattern.
-\end{itemize}
 \newpage
 \listoftables
 \newpage

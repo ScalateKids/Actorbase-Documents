@@ -67,7 +67,7 @@
     1.0.2 & & & 2016-04-28 & Incremento sezione 4.23 e relative sotto-sezioni\\
     \hline
     1.0.1 & & & 2016-04-27 & Incremento sezione Driver 4.22 e sotto-sezione 4.22.4\\
-\hline
+    \hline
     1.0.0 & Marco Boseggia & Responsabile & 2016-04-08 & Approvazione documento\\
     \hline
     0.8.0 & Andrea Giacomo Baldan & Verificatore & 2016-04-03 & Verifica appendice\\
@@ -123,7 +123,7 @@
 
 Il seguente documento ha lo scopo di descrivere la progettazione ad alto livello
 che il gruppo \textit{ScalateKids} ha scelto per il
-progetto \textbf{ActorBase}.\\  Sarà descritta l'\gloss{architettura} generale
+progetto \textbf{Actorbase}.\\  Sarà descritta l'\gloss{architettura} generale
 del progetto, in particolare  la scelta dei \gloss{design pattern} e delle
 componenti che andranno a comporre il software.
 
@@ -146,18 +146,23 @@ componenti che andranno a comporre il software.
 \subsubsection{Informativi}
 
 \begin{itemize}
-\item\textbf{Piano di Progetto:}
-  \href{run:./PianoDiProgetto\_v3.0.0.pdf}{Piano di Progetto v3.0.0}
-\item\textbf{Dispense fornite dall'insegnamento Ingegneria del Software mod.
-    A:}\\   \url{http://www.math.unipd.it/~tullio/IS-1/2015/}
+\item\textbf{Piano di Progetto:} \href{run:./PianoDiProgetto\_v3.0.0.pdf}{Piano di Progetto v3.0.0}
+\item\textbf{Dispense fornite dall'insegnamento Ingegneria del Software mod.A:}\\
+  \url{http://www.math.unipd.it/~tullio/IS-1/2015/}
 \item\textbf{Documentazione di \gloss{Akka} su \gloss{Scala}:}
   \url{http://doc.akka.io/docs/akka/2.4.2/scala.html}
 \item\textbf{SBT\ -\ Scala build tool:}
   \url{http://www.scala-sbt.org/index.html}
-\item\textbf{Scala Pickling\ -\ Fast, Customizable, Boilerplate-Free Serialization for Scala:}
-  \url{http://lampwww.epfl.ch/~hmiller/pickling}
-\item\textbf{RESP\ -\ Redis Protocol Specification:} Protocollo di comunicazione testuale \gloss{TCP} (Transmission Control Protocol)
-  \url{http://redis.io/topics/protocol}
+\item\textbf{Scala Pickling\ -\ Fast, Customizable, Boilerplate-Free Serialization for Scala:} Libreria di serializzazione e deserializzazione
+  multiformato, pieno supporto \gloss{JSON} (JavaScript Object Notation) e
+  serializzazione in binario \url{http://lampwww.epfl.ch/~hmiller/pickling}
+\item\textbf{Spray\ -\ an open-source toolkit for building REST/HTTP-based integration layers on top of Scala and Akka}:
+  Libreria per la gestione di richieste \gloss{HTTP}(HyperText Transfert Protocol) in modo asincrono, basata sul modello ad
+  attori offerto dalla libreria Akka. \url{http://spray.io/}
+\item\textbf{REST\ -\ Representational State Transfer:} Architettura software
+  per sistemmi di \gloss{ipertesto} distribuiti, rappresenta un sistema di
+  localizzazione e richiesta risorse \gloss{stateless}, poggia su \gloss{HTTP}
+  come protocollo di comunicazione \url{https://en.wikipedia.org/wiki/Representational_state_transfer}
 \end{itemize}
 
 \newpage
