@@ -766,11 +766,11 @@ La colonna "Stato" nella tabella è lasciata vuota in quanto i test saranno effe
   \hline
   TI.actorbasedata & Verifica della corretta integrazione con le componenti client e serializer & actorbasedata &\\
   \hline
-  TI.actorsystem & Test di integrazione finale per tcpserver, storefinder, storekeeper, ninja, manager, userkeeper, main, clientactor, serialization, warehouseman & actorsystem &\\
+  TI.actorsystem & Test di integrazione finale per HTTPserver, storefinder, storekeeper, ninja, manager, userkeeper, main, clientactor, serialization, warehouseman & actorsystem &\\
   \hline
   TI.serialization & Verifica delle corrette procedure di \gloss{serializzazione} e \gloss{deserializzazione} secondo i protocolli specificati & serialization &\\
   \hline
-  TI.tcpserver & Test di verifica del corretto funzionamento del server tcp & tcpserver &\\
+  TI.HTTPserver & Test di verifica del corretto funzionamento del server HTTP & HTTPserver &\\
   \hline
   TI.clientactor & Test di verifica del parsing dei comandi riecvuti dall'esterno e della corretta esecuzione dei messaggi & clientactor &\\
   \hline
@@ -818,7 +818,7 @@ La colonna "Stato" nella tabella è lasciata vuota in quanto i test saranno effe
   \hline
   actorbase::actorsystem::serialization & TI.serialization\\
   \hline
-  actorbase::actorsystem::tcpserver & TI.tcpserver\\
+  actorbase::actorsystem::HTTPserver & TI.HTTPserver\\
   \hline
   actorbase::actorsystem::clientactor & TI.clientactor\\
   \hline
@@ -847,13 +847,13 @@ a cui fa riferimento
   \hline
   Test & Descrizione & Stato & Requisito\\
   \hline
-  TU.OBF1.1.1.1 & Si verifica che All'interno del singolo \gloss{nodo} dovrà essere implementato l'attore \gloss{Tcpserver} per gestire le connessioni provenienti dall'esterno & empty & OBF1.1.1.1   \\
+  TU.OBF1.1.1.1 & Si verifica che All'interno del singolo \gloss{nodo} dovrà essere implementato l'attore \gloss{HTTPserver} per gestire le connessioni provenienti dall'esterno & empty & OBF1.1.1.1   \\
   \hline
-  TU.OBF1.1.1.1.1 & Si verifica che L'attore di tipo \gloss{Tcpserver} dovrà gestire la ricezione del messaggio Bound & empty & OBF1.1.1.1.1   \\
+  TU.OBF1.1.1.1.1 & Si verifica che L'attore di tipo \gloss{HTTPserver} dovrà gestire la ricezione del messaggio Bound & empty & OBF1.1.1.1.1   \\
   \hline
-  TU.OBF1.1.1.1.2 & Si verifica che L'attore di tipo \gloss{Tcpserver} dovrà gestire la ricezione del messaggio CommandFailed  & empty & OBF1.1.1.1.2   \\
+  TU.OBF1.1.1.1.2 & Si verifica che L'attore di tipo \gloss{HTTPserver} dovrà gestire la ricezione del messaggio CommandFailed  & empty & OBF1.1.1.1.2   \\
   \hline
-  TU.OBF1.1.1.1.3 & Si verifica che L'attore di tipo \gloss{Tcpserver} dovrà gestire la ricezione del messaggio Connected  & empty & OBF1.1.1.1.3   \\
+  TU.OBF1.1.1.1.3 & Si verifica che L'attore di tipo \gloss{HTTPserver} dovrà gestire la ricezione del messaggio Connected  & empty & OBF1.1.1.1.3   \\
   \hline
   TU.OBF1.1.10 & Si verifica che Il sistema dovrà permettere di interagire con il sistema ad attori all'interno di ogni singolo \gloss{nodo}   & empty & OBF1.1.10   \\
   \hline

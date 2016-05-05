@@ -106,8 +106,12 @@ There are some errors that are specific to some commands, these will be explaine
 in the section dedicated to the commands that cause them.
 
 %TODO scrivere anche i tipi di dato possibili da inserire? tipo le stringhe devono essere in " ", permission su addcontributor può essere vuoto, r o rw ecc
-
 %TODO scrivere i requisiti delle password di actorbase
+
+\subsection{Password requirements}
+\label{sec:passwordrequirement}
+Every password must contain at least one uppercase, one lowercase letter and one
+number and be at least 4 characters long.
 
 \subsection{Configuration of the actorbase CLI}
 \label{sec:configurationcli}
@@ -137,10 +141,6 @@ using this procedure.\\
 \paragraph{Login}
 
 \textbf{Description:} this is the procedure an unauthenticated user must follow to authenticate.\\
-\textbf{Requirements:} this feature requires the user to have the credentials 
-to authenticate in the actorbase server.\\
-Otherwise the user must contact an actorbase server 
-administrator to obtain one.\\
 \textbf{How to:} 
 \begin{itemize}
 	\item Type \texttt{login <your username>}
@@ -288,7 +288,7 @@ If the user wants to insert the item in a non existing collection the server
 will automatically create that collection.\\
 \textbf{How to:} 
 \begin{itemize}
-	\item Type \texttt{insert <key> -> <value> to <collection name> o} %TODO WHAT?
+	\item Type \texttt{insert (<key> -> <value>) to <collection name> o}
 \end{itemize}
 \textbf{Possible errors:} the CLI will answer with self explanatory error messages 
 \begin{itemize}
@@ -376,7 +376,7 @@ This operation could be expensive.\\
 \textbf{Possible errors:} the CLI will answer with self explanatory error messages 
 \begin{itemize}
 	\item If the old password typed was wrong
-	\item If the new password typed doesn't follow the rules %TODO linkare rules
+	\item If the new password typed doesn't follow the rules explained \hyperref[sec:passwordrequirement]{here}.
 \end{itemize}
 
 \paragraph{Logout}
@@ -420,6 +420,16 @@ This operation could be expensive.\\
 \section{Use through Driver}
 
 \subsection{Introduction to Driver}
+The \textit{Actorbase} driver allows a Scala program to use the database through its methods. It is used
+by the \textit{Actorbase} CLI for every operation.
+
+\subsection{Error management}
+
+There is one error that is shared by every method and that is in case of a
+connection error, which can be caused by not receiving a response from the
+server in a predetermined time, the driver will launch a timeout connection exception.
+There are some errors that are specific to some methods, these will be explained
+in the section dedicated to the methods that cause them.
 
 \listoftables
 
