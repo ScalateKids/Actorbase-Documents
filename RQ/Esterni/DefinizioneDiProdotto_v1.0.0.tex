@@ -276,8 +276,6 @@ Rappresentano le tre macro-componenti del sistema.
 %%%                       ACTORSYSTEM PARTE                      %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% TODO aggiungere package utils con classi annesse
-
 \subsection{actorbase::actorsystem}
 \label{sec:actorbase::actorsystem}
 
@@ -313,6 +311,224 @@ rappresentano il \gloss{server}.
 \item \hyperref[sec:actorbase::driver]{actorbase::driver};
 \item Akka.
 \end{itemize}
+
+
+% TODO aggiungere package utils con classi annesse
+\subsection{actorbase::actorsystem::utils}
+\label{sec:actorbase::actorsystem::utils}
+
+\begin{figure}[H] %TODO aggiungere immagine
+  \begin{center}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RP/utils.png}
+    \caption{Package actorsystem::utils}
+  \end{center}
+\end{figure}
+
+\subsubsection{Descrizione}
+\gloss{Package} contenente diverse classi di utilità comune a più attori.
+
+\subsubsection{Classi}
+
+\paragraph{KeyRange}
+\label{sec:actorbase::actorsystem::utils::KeyRange}
+
+\subparagraph{Descrizione}
+Classe atta a modellare un intervallo di chiavi.\\Viene utilizzata da diversi 
+attori.
+
+\subparagraph{Utilizzo}
+Viene utilizzata da diversi attori del sistema. Questa classe espone metodi 
+getter, un metodo compare e un metodo per controllare se una determinata 
+stringa fa parte di questo intervallo di chiavi.
+
+\subparagraph{Eredita}
+
+\subparagraph{Realizza}
+\begin{itemize}
+  \item trait scala.math.Ordered.orderingToOrdered
+\end{itemize}
+
+\subparagraph{Attributi}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  minRange & privata & immutabile & String & Rappresenta il limite inferiore delle possibili chiavi di questo range \\
+  \hline
+  maxRange & private & immutabile & String & Rappresenta il limite superiore delle possibili chiavi di questo range \\ 
+  \hline
+\end{tabular}
+
+\subparagraph{Metodi}
+\begin{tabular}{| l | l | l | l |}
+  \hline
+  Nome & Accesso & Tipo di ritorno & Descrizione\\
+  \hline
+  getMinRange & pubblico & String & Metodo che ritorna il limite minimo del range \\
+  \hline
+  getMaxRange & pubblico & String & Metodo che ritorna il limite massimo del range \\
+  \hline
+  contains & pubblico & Boolean & Metodo che ritorna true se il parametro è una stringa contenuta nel KeyRange, false altrimenti\\
+  \hline
+  toString & pubblico & String & Metodo che ritorna una stringa che contiene un indicazione con il range minimo e massimo del range\\
+  \hline
+  compare & pubblico & Int & Metodo per l'implementazione dell'interfaccia Ordered
+  \hline
+\end{tabular}
+
+\subparagraph{Parametri}
+\begin{center}
+  \textbf{contains}\\
+\end{center}
+\begin{tabular}{| l | l | l |}
+  \hline
+  Nome & Tipo & Descrizione\\
+  \hline
+  key & String & Stringa che rappresenta la chiave da controllare se fa parte di questo KeyRange \\
+  \hline
+\end{tabular}
+
+\begin{center}
+  \textbf{compare}\\
+\end{center}
+\begin{tabular}{| l | l | l |}
+  \hline
+  Nome & Tipo & Descrizione\\
+  \hline
+  that & KeyRange & KeyRange da confrontare con l'oggetto this \\
+  \hline
+\end{tabular}
+
+\paragraph{CollectionRange}
+\label{sec:actorbase::actorsystem::utils::CollectionRange}
+
+\subparagraph{Descrizione}
+Classe atta a modellare un intervallo di chiavi di una specifica collezione.
+
+\subparagraph{Utilizzo}
+Viene utilizzata da diversi attori del sistema. Questa classe espone metodi 
+getter, un metodo per il confronto della collezione, un meotodo per il 
+confronto del range delle chiavi e un metodo compare.
+
+\subparagraph{Realizza}
+\begin{itemize}
+  \item trait scala.math.Ordered.orderingToOrdered
+\end{itemize}
+
+\subparagraph{Attributi}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  collection & privata & mutabile & \hyperref[sec:actorbase::actorsystem::utils::ActorbaseCollection]{ActorbaseCollection} & Rappresenta la collezione rappresentata \\
+  \hline
+  range & private & mutabile & \hyperref[sec:actorbase::actorsystem::utils::KeyRange]{KeyRange} & Rappresenta il range di chiavi della collezione \\ 
+  \hline
+\end{tabular}
+
+\subparagraph{Metodi}
+\begin{tabular}{| l | l | l | l |}
+  \hline
+  Nome & Accesso & Tipo di ritorno & Descrizione\\
+  \hline
+  getCollection & pubblico & \hyperref[sec:actorbase::actorsystem::utils::ActorbaseCollection]{ActorbaseCollection} & Metodo che ritorna la collezione rappresentata \\
+  \hline
+  getKeyRange & pubblico & \hyperref[sec:actorbase::actorsystem::utils::KeyRange]{KeyRange} & Metodo che ritorna il range di chiavi rappresentato \\
+  \hline
+  contains & pubblico & Boolean & Metodo che ritorna true se il parametro è una stringa contenuta nel KeyRange, false altrimenti\\
+  \hline
+  isSameCollection & pubblico & Boolean & Metodo che ritorna true se il parametro rappresenta la stessa collezione dell'oggetto this, false altrimenti \\
+  \hline
+  compare & pubblico & Int & Metodo per l'implementazione dell'interfaccia Ordered.
+  \hline
+\end{tabular}
+
+\subparagraph{Parametri}
+\begin{center}
+  \textbf{contains}\\
+\end{center}
+\begin{tabular}{| l | l | l |}
+  \hline
+  Nome & Tipo & Descrizione\\
+  \hline
+  key & String & Stringa che rappresenta la chiave da controllare se fa parte del KeyRange della collezione rappresentata \\
+  \hline
+\end{tabular}
+
+\subparagraph{Parametri}
+\begin{center}
+  \textbf{isSameCollection}\\
+\end{center}
+\begin{tabular}{| l | l | l |}
+  \hline
+  Nome & Tipo & Descrizione\\
+  \hline
+  that & \hyperref[sec:actorbase::actorsystem::utils::ActorbaseCollection]{ActorbaseCollection} & collezione da confrontare con la collezione rappresentata dall'oggetto this \\
+  \hline
+\end{tabular}
+
+\begin{center}
+  \textbf{compare}\\
+\end{center}
+\begin{tabular}{| l | l | l |}
+  \hline
+  Nome & Tipo & Descrizione\\
+  \hline
+  that & CollectionRange & CollectionRange da confrontare con l'oggetto this \\
+  \hline
+\end{tabular}
+
+\paragraph{ActorbaseCollection}
+\label{sec:actorbase::actorsystem::utils::ActorbaseCollection}
+
+\subparagraph{Descrizione}
+Classe atta a modellare una collezione del sistema actorbase.
+
+\subparagraph{Utilizzo}
+Viene utilizzata da diversi attori del sistema. Questa classe espone metodi 
+getter e un meotodo per il confronto con un altro oggetto ActorbaseCollection.
+
+\subparagraph{Realizza}
+\begin{itemize}
+  \item trait scala.math.Ordered
+\end{itemize}
+
+\subparagraph{Attributi}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  name & privata & mutabile & String & Rappresenta il nome della collezione \\
+  \hline
+  owner & private & mutabile & String & Rappresenta lo username dell'utente che ha creato la collezione \\ 
+  \hline
+\end{tabular}
+
+\subparagraph{Metodi}
+\begin{tabular}{| l | l | l | l |}
+  \hline
+  Nome & Accesso & Tipo di ritorno & Descrizione\\
+  \hline
+  getName & pubblico & String & Metodo che ritorna il nome della collezione \\
+  \hline
+  getOwner & pubblico & String & Metodo che ritorna lo username dell'utente che ha creato la collezione \\
+  \hline
+  compare & pubblico & Int & Metodo per l'implementazione dell'interfaccia Ordered.
+  \hline
+\end{tabular}
+
+\begin{center}
+  \textbf{compare}\\
+\end{center}
+\begin{tabular}{| l | l | l |}
+  \hline
+  Nome & Tipo & Descrizione\\
+  \hline
+  that & ActorbaseCollection & ActorbaseCollection da confrontare con l'oggetto this \\
+  \hline
+\end{tabular}
+
+% TODO di utils manca cryptoutils
 
 \subsection{actorbase::actorsystem::clientactor} % TODO PACKAGE DA FARE
 \label{sec:actorbase::actorsystem::clientactor}
