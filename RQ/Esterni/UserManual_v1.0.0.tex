@@ -144,7 +144,7 @@ administrator to obtain one.\\
 \textbf{How to:} 
 \begin{itemize}
 	\item Type \texttt{login <your username>}
-	\item The CLI will ask you to insert your password (it won't be	displayed)
+	\item The CLI will ask you to insert your password (it will be masked during the typing)
 	\item Type \texttt{<your password>} 
 	\item The CLI will display a message notifing the user if the login was successfull or not
 \end{itemize}
@@ -204,7 +204,7 @@ collection into the database.\\
 
 \paragraph{List collections}
 \label{sec:listcollection}
-\textbf{Description:} this functionality allow the user to see a list of 
+\textbf{Description:} this feature allows the user to see a list of 
 the collections he has permission on.\\
 \textbf{How to:} 
 \begin{itemize}
@@ -215,21 +215,21 @@ the collections he has permission on.\\
 
 \paragraph{Rename a collection}
 \label{sec:renamecollection}
-\textbf{Description:} this functionality allow the user to rename a 
+\textbf{Description:} this feature allows the user to rename a 
 collection of his own.\\
 \textbf{How to:} 
 \begin{itemize}
-	\item Type \texttt{enameCollection <old collection name> to <new collection name>}
+	\item Type \texttt{renameCollection <old collection name> to <new collection name>}
 \end{itemize}
 \textbf{Possible errors:} the CLI will answer with self explanatory error messages 
 \begin{itemize}
-	\item If the old collection name you typed correspond with no collection inside the actorbase server
-	\item If the new collection name you typed is already taken by a collection inside the actorbase server 
+	\item If the old collection name the user typed correspond with no collection inside the actorbase server
+	\item If the new collection name the user typed is already taken by a collection inside the actorbase server 
 \end{itemize}
 
 \paragraph{Delete a collection}
 \label{sec:deletecollection}
-\textbf{Description:} this functionality allow the user to remove a collection and all the items inside it from the database.\\
+\textbf{Description:} this feature allows the user to remove a collection and all the items inside it from the database.\\
 \textbf{How to:} 
 \begin{itemize}
 	\item Type \texttt{deleteCollection <collection name>}
@@ -259,41 +259,41 @@ to a collection of his own. The contributor will have the permission to operate 
 \end{itemize}
 \textbf{Possible errors:} the CLI will answer with self explanatory error messages 
 \begin{itemize}
-	\item If the collection the user want to remove the contributor from does not exists on the server or it is not a collection the user own
+	\item If the collection the user wants to remove the contributor from does not exists on the server or it is not a collection the user owns
 	\item If the username the user typed does not correspond with a user registered in actorbase
 \end{itemize}
 
 \paragraph{Export one or more collections to file}
 \label{sec:export}
-\textbf{Description:} this feature allows the user to export one or more collections it have access at.\\
-The filename the user insert can a path prefix; if the path is not present the file will be created at the user local work directory.\\
-The collection list can contain zero or more collections name. If empty it will export all the collection the user have access to (possibly resulting in an expensive operation).
+\textbf{Description:} this feature allows the user to export one or more collections he has access to.\\
+The filename the user insert can be a relative or absolute path; if the path is not present, the file will be created at the user local work directory.\\
+The collection list can contain zero or more collections' name, if empty it will export all the collections the user has access to (possibly resulting in an expensive operation).
 \textbf{How to:} 
 \begin{itemize}
-	\item Type export \texttt{<collection name1>, <collection name2>, ... , to <filename>}
+	\item Type \texttt{export <collection name1>, <collection name2>, ... , to <filename>}
 \end{itemize}
 \textbf{Possible errors:} the CLI will answer with self explanatory error messages 
 \begin{itemize}
-	\item If at least one of the collection name the user inserted does not exist on the server
+	\item If at least one of the collections' name the user inserted does not exist on the server
 	\item If the filename the user inserted contains a path that is not valid
 \end{itemize}
 
 \paragraph{Insert item}
 \label{sec:insertitem}
-\textbf{Description:} this feature allows the user to insert a item in a particular collection.\\
-The last parameter ( o ) can be omitted; if omitted the insert operation will not overwrite existing items with the same key and it will overwrite them otherwise \\
+\textbf{Description:} this feature allows the user to insert an item in a particular collection.\\
+The last parameter ( o ) can be omitted; if omitted the insert operation will not overwrite existing items with the same key. It will overwrite them otherwise. \\
 The <key> is a String representing the key of the item the user wants to insert.\\
-The <value> can be anything the user wants to insert and it rapresent the value of the item itself.\\
+The <value> can be anything the user wants to insert and it represent the value of the item itself.\\
 If the user wants to insert the item in a non existing collection the server 
-will automaticly create that collection.\\
+will automatically create that collection.\\
 \textbf{How to:} 
 \begin{itemize}
-	\item Type \texttt{insert <key> -> <value> to <collection name> o}
+	\item Type \texttt{insert <key> -> <value> to <collection name> o} %TODO WHAT?
 \end{itemize}
 \textbf{Possible errors:} the CLI will answer with self explanatory error messages 
 \begin{itemize}
-	\item If the collection the user wants to insert the item into does not exist or user has not permission to write on it
-	\item If the user decide to insert an item with an already existing key in that collection and the overwrite option has not been chosen.  
+	\item If the collection the user wants to insert the item in does not exist or user has not permission to write on it
+	\item If the user decides to insert an item with an already existing key in that collection and the overwrite option has not been chosen.  
 \end{itemize}
 
 \paragraph{Import from file}
@@ -302,11 +302,11 @@ will automaticly create that collection.\\
 The file has to be formatted as specified in \\%TODO mettere link to sezione giusta
 \textbf{How to:} 
 \begin{itemize}
-	\item Type \texttt{import nomefile}
+	\item Type \texttt{import <nomefile>}
 \end{itemize}
 \textbf{Possible errors:} the CLI will answer with self explanatory error messages 
 \begin{itemize}
-	\item If the file is not a JSON file.
+	\item If the file is not a JSON file
 	\item If the file is not formatted as specified in %TODO link a sezione
 	\item If the file specified the creation of collection that the user can not create (see \hyperref[sec:createcollection]{create collection})
 	\item If the file specified the insertion of items that the user can not insert (see \hyperref[sec:insertitem]{insert item}) 
@@ -322,7 +322,7 @@ The file has to be formatted as specified in \\%TODO mettere link to sezione giu
 \end{itemize}
 \textbf{Possible errors:} the CLI will answer with self explanatory error messages 
 \begin{itemize}
-	\item If the collection the user typed does not exists in the server or user do not have permission to remove items from it
+	\item If the collection the user typed does not exist in the server or if the user does not have permission to remove items from
 \end{itemize}
 
 \paragraph{Find item}
@@ -330,36 +330,36 @@ The file has to be formatted as specified in \\%TODO mettere link to sezione giu
 \textbf{Description:} this feature allows the user to search for particular items in the database. There are different types of search based on the parameters typed.\\
 
 \subparagraph{Search items in one or more collections}
-\textbf{Description:} this feature lets the user search for an item in one or more collection; the user must have the permission to read these collections.\\
+\textbf{Description:} this feature lets the user search for an item in one or more collections; the user must have the permission to read these collections.\\
 \textbf{How to:} 
 \begin{itemize}
 	\item Type \texttt{find <key> from <collection name 1>, <collection name 2>, ... , <collection name N>}
 \end{itemize}
 \textbf{Possible errors:} the CLI will answer with self explanatory error messages 
 \begin{itemize}
-	\item If at least one of the collection does not exists on the server
+	\item If at least one of the collections does not exist on the server
 \end{itemize}
 
 \subparagraph{Search items in the entire database}
-\textbf{Description:} this feature lets the user search for an item in the entire database.\\
+\textbf{Description:} this feature lets the user search for an item in the entire database visible to him.\\
 \textbf{How to:} 
 \begin{itemize}
 	\item Type \texttt{find <key>}
 \end{itemize}
 
 \subparagraph{Search for all the items of one or more collections}
-\textbf{Description:} this feature lets the user to retrieve all the items contained in one or more collections.\\
+\textbf{Description:} this feature lets the user retrieve all the items contained in one or more collections.\\
 \textbf{How to:} 
 \begin{itemize}
 	\item Type \texttt{find from <collection name 1>, <collection name 2>, ... , <collection name N>}
 \end{itemize}
 \textbf{Possible errors:} the CLI will answer with self explanatory error messages 
 \begin{itemize}
-	\item If at least one of the collection does not exists on the server
+	\item If at least one of the collection does not exist on the server or if the user doesn't have access to it
 \end{itemize}
 
 \subparagraph{Get all database items grouped by collection}
-\textbf{Description:} this feature lets the user to retrieve all the items contained in the entire database grouped by collection.\\
+\textbf{Description:} this feature lets the user to retrieve all the items contained in the section of the database that is visible to him grouped by collection.\\
 This operation could be expensive.\\
 \textbf{How to:} 
 \begin{itemize}
@@ -380,7 +380,7 @@ This operation could be expensive.\\
 \end{itemize}
 
 \paragraph{Logout}
-\label{sec:removeitem}
+\label{sec:logout}
 \textbf{Description:} this feature allows the user to logout from the server becoming an unauthenticated user.\\
 \textbf{How to:} 
 \begin{itemize}
