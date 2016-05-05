@@ -276,6 +276,8 @@ Rappresentano le tre macro-componenti del sistema.
 %%%                       ACTORSYSTEM PARTE                      %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+% TODO aggiungere package utils con classi annesse
+
 \subsection{actorbase::actorsystem}
 \label{sec:actorbase::actorsystem}
 
@@ -334,7 +336,7 @@ rappresentano il \gloss{server}.
 
 \subsubsection{Classi}
 
-\paragraph{actorbase::actorsystem::clientactor::ClientActor}
+\paragraph{actorbase::actorsystem::clientactor::ClientActor} %TODO da fare
 \label{sec:actorbase::actorsystem::clientactor::ClientActor}
 
 \subparagraph{Descrizione}
@@ -463,7 +465,7 @@ Quando \hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{actorbase
 riceve questo messaggio il contenuto di quest'ultimo viene
 mandato a \hyperref[sec:actorbase::driver::client::ActorbaseClient]{actorbase::driver::\allowbreak{}client::\allowbreak{}ActorbaseClient}.
 
-\subsection{actorbase::actorsystem::httpserver}
+\subsection{actorbase::actorsystem::httpserver} %TODO da fare
 \label{sec:actorbase::actorsystem::httpserver}
 
 \begin{figure}[H]
@@ -485,7 +487,7 @@ mandato a \hyperref[sec:actorbase::driver::client::ActorbaseClient]{actorbase::d
 
 \subsubsection{Classi}
 
-\paragraph{actorbase::actorsystem::httpserver::HTTPServer}
+\paragraph{actorbase::actorsystem::httpserver::HTTPServer} %TODO da fare
 \label{sec:actorbase::actorsystem::httpserver::HTTPServer}
 
 \subparagraph{Descrizione}
@@ -1261,7 +1263,7 @@ che ha inviato questo messaggio.
 \end{tabular}
 
 
-\subsection{actorbase::actorsystem::storefinder} %TODO DA FARE
+\subsection{actorbase::actorsystem::storefinder} %TODO DA controllare e finire 
 \label{sec:actorbase::actorsystem::storefinder}
 
 \begin{figure}[H]
@@ -1534,7 +1536,7 @@ Questa classe viene utilizzata per salvare nel \gloss{database} gli item.
 \subparagraph{Parametri}
 
 \begin{center}
-  \textbf{insertOrUpdate}
+  \textbf{insertOrUpdate}\\
 \end{center}
 \begin{tabular}{| l | l | l |}
   \hline
@@ -1593,7 +1595,7 @@ che aveva effettuato la richiesta.
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  key & public & mutabile & String & chiave che rappresenta l'\gloss{item} cercato\\
+  key & public & immutabile & String & chiave che rappresenta l'\gloss{item} cercato\\
   \hline
 \end{tabular}
 
@@ -1629,11 +1631,11 @@ riceve questo messaggio inserisce l'\gloss{item} nel suo attributo data.
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  key & public & mutabile & String & Chiave che rappresenta l'\gloss{item} da inserire\\
+  key & public & immutabile & String & Chiave che rappresenta l'\gloss{item} da inserire\\
   \hline
-  value & public & mutabile & Any & Valore dell'\gloss{item} da inserire\\
+  value & public & immutabile & Any & Valore dell'\gloss{item} da inserire\\
   \hline
-  update & public & mutabile & Boolean & Indica se l'inserimento da effettuare sia con o senza sovrascrittura\\
+  update & public & immutabile & Boolean & Indica se l'inserimento da effettuare sia con o senza sovrascrittura\\
   \hline
 \end{tabular}
 
@@ -1654,7 +1656,7 @@ riceve questo messaggio rimuove l'\gloss{item}.
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  key & public & mutabile & String & Chiave che rappresenta l'\gloss{item} da rimuovere\\
+  key & public & immutabile & String & Chiave che rappresenta l'\gloss{item} da rimuovere\\
   \hline
 \end{tabular}
 
@@ -1679,7 +1681,6 @@ Messaggio che richiede che l'\gloss{attore} di tipo \gloss{Ninja} diventi di tip
 \gloss{Storekeeper}.
 
 \subparagraph{Utilizzo}
-
 Quando \hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{actorbase::actorsystem::storekeeper::Storekeeper}
 riceve questo messaggio ed è attualmente un attore di tipo \gloss{Ninja},
 esso cambia il proprio contesto e potrà ricevere tutti i messaggi
@@ -1691,12 +1692,10 @@ eccetto \hyperref[sec:actorbase::actorsystem::storekeeper::messages::BecomeNinja
 \label{sec:actorbase::actorsystem::storekeeper::messages::BecomeNinja}
 
 \subparagraph{Descrizione}
-
 Messaggio che richiede che l'\gloss{attore} di tipo \gloss{Storekeeper} diventi di tipo
 \gloss{Ninja}.
 
 \subparagraph{Utilizzo}
-
 Quando \hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{actorbase::actorsystem::storekeeper::Storekeeper}
 riceve questo messaggio cambia il proprio contesto diventando un attore di tipo \gloss{Ninja}. Questo comporta l'accesso ai messaggi
 \hyperref[sec:actorbase::actorsystem::storekeeper::messages::BecomeNinja]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storekeeper::\allowbreak{}messages::\allowbreak{}BecomeNinja},
@@ -1717,15 +1716,12 @@ riceve questo messaggio cambia il proprio contesto diventando un attore di tipo 
 \end{figure}
 
 \subsubsection{Descrizione}
-
 \gloss{Package} che rappresenta l'\gloss{attore} di tipo \gloss{Manager}.
 
 \subsubsection{Package contenuti}
 
 \begin{itemize}
-
-\item \hyperref[sec:actorbase::actorsystem::manager::messages]{actorbase::actorsystem::manager::messages}.
-
+  \item \hyperref[sec:actorbase::actorsystem::manager::messages]{actorbase::actorsystem::manager::messages}.
 \end{itemize}
 
 \subsubsection{Classi}
@@ -1734,27 +1730,22 @@ riceve questo messaggio cambia il proprio contesto diventando un attore di tipo 
 \label{sec:actorbase::actorsystem::manager::Manager}
 
 \subparagraph{Descrizione}
-
 Classe che rappresenta un \gloss{attore} di tipo \gloss{Manager}.
 
 \subparagraph{Utilizzo}
-
 Questa classe viene utilizzata per gestire le richieste di divisione di attori di tipo
 \hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{sec:actorbase::\allowbreak{}actorsystem::\allowbreak{}storekeeper::\allowbreak{}Storekeeper}
 e \hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{sec:actorbase::\allowbreak{}actorsystem::\allowbreak{}storefinder::\allowbreak{}Storefinder}.
 
 \subparagraph{Classi ereditate}
-
 \begin{itemize}
-
-\item akka::actor::Actor.
-
+  \item akka::actor::Actor.
 \end{itemize}
 
 \subparagraph{Interazioni con altre classi}
 
 \begin{itemize}
-\item akka::actor::ActorRef.
+  \item akka::actor::ActorRef.
 \end{itemize}
 
 \subsection{actorbase::actorsystem::manager::messages}
@@ -1783,6 +1774,21 @@ che dovrà essere diviso.Manderà inoltre un messaggio all'\gloss{attore} di tip
 \hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storefinder::\allowbreak{}Storefinder}
 per aggiornare i suoi riferimenti.
 
+\subparagraph{Attributi}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  oldKeyRange & public & immutabile & KeyRange & KeyRange che rappresenta il range di chiavi identificativo da duplicare\\
+  \hline
+  leftRange & public & immutable & KeyRange & KeyRange che rappresenta il range di chiavi nuovo relativo allo Storekeeper che si è duplicato\\
+  \hline
+  map & public & immutable & TreeSet [String, Any] & struttura dati da inizializzare allo Storekeeper da creare\\
+  \hline
+  rightRange & public & immutable & KeyRange & KeyRange che rappresenta il range di chiavi da assegnare allo Storekeeper da creare\\
+  \hline
+\end{tabular}
+
 \paragraph{actorbase::actorsystem::manager::messages::DuplicationRequestSF}
 \label{sec:actorbase::actorsystem::manager::messages::DuplicationRequestSF}
 
@@ -1800,8 +1806,23 @@ che dovrà essere diviso. Manderà inoltre un messaggio all'\gloss{attore} di ti
 \hyperref[sec:actorbase::actorsystem::main::Main]{actorbase::\allowbreak{}actorsystem::\allowbreak{}main::\allowbreak{}Main}
 per aggiornare i suoi riferimenti.
 
+\subparagraph{Attributi}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione \\
+  \hline
+  oldCollRange & public & immutabile & CollectionRange & CollectionRange che identifica quale CollectionRange è da duplicare \\
+  \hline
+  leftCollRange & public & immutable & CollRange & Identifica il nuovo CollectionRange dello Storefinder che si è duplicato \\
+  \hline
+  map & public & immutable & TreeSet [KeyRamge, ActorRef] & struttura dati da inizializzare allo Storefinder da creare\\
+  \hline
+  rightCollRange & public & immutable & CollRange & Identifica il nuovo CollectionRange dello Storefinder da duplicare \\
+  \hline
+\end{tabular}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% DRIVER PARTE                              %
+%%%                         DRIVER PARTE                         %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{actorbase::driver}
@@ -2818,10 +2839,10 @@ Questa classe viene utilizzata dal \gloss{driver} per gestire il caso in cui all
 \label{sec:actorbase::cli}
 
 \begin{figure}[H]
-  \begin{center}
-    \includegraphics[width=1.0\textwidth,keepaspectratio]{RP/CLI.png}
-    \caption{CLI, architettura MVC variante push model}
-  \end{center}
+	\begin{center}
+		\includegraphics[width=1.0\textwidth,keepaspectratio]{RP/CLI.png}
+		\caption{CLI, architettura MVC variante push model}
+	\end{center}
 \end{figure}
 
 \subsubsection{Descrizione}
@@ -2833,25 +2854,25 @@ Questa componente viene rappresentata usando il \gloss{design pattern}
 \subsubsection{Interazioni con altre componenti}
 
 \begin{itemize}
-\item \hyperref[sec:actorbase::driver]{actorbase::driver}.
+	\item \hyperref[sec:actorbase::driver]{actorbase::driver}.
 \end{itemize}
 
 \subsubsection{Package contenuti}
 
 \begin{itemize}
-\item \hyperref[sec:actorbase::cli::views]{actorbase::cli::views};
-\item \hyperref[sec:actorbase::cli::controllers]{actorbase::cli::controllers};
-\item \hyperref[sec:actorbase::cli::models]{actorbase::cli::models}.
+	\item \hyperref[sec:actorbase::cli::views]{actorbase::cli::views};
+	\item \hyperref[sec:actorbase::cli::controllers]{actorbase::cli::controllers};
+	\item \hyperref[sec:actorbase::cli::models]{actorbase::cli::models}.
 \end{itemize}
 
 \subsection{actorbase::cli::views}
 \label{sec:actorbase::cli::views}
 
 \begin{figure}[H]
-  \begin{center}
-    \includegraphics[width=1.0\textwidth,keepaspectratio]{RP/CLI-view.png}
-    \caption{CLI, views package, interazioni con Controllers e Models}
-  \end{center}
+	\begin{center}
+		\includegraphics[width=1.0\textwidth,keepaspectratio]{RP/CLI-view.png}
+		\caption{CLI, views package, interazioni con Controllers e Models}
+	\end{center}
 \end{figure}
 
 \subsubsection{Descrizione}
@@ -2863,8 +2884,8 @@ comandi.
 \subsubsection{Interazioni con altre componenti}
 
 \begin{itemize}
-\item \hyperref[sec:actorbase::cli::controllers]{actorbase::cli::controllers};
-\item \hyperref[sec:actorbase::cli::models]{actorbase::cli::models}.
+	\item \hyperref[sec:actorbase::cli::controllers]{actorbase::cli::controllers};
+	\item \hyperref[sec:actorbase::cli::models]{actorbase::cli::models}.
 \end{itemize}
 
 \subsection{Interfacce}
@@ -2883,24 +2904,18 @@ Offre un'interfaccia per la creazione di un \gloss{prompt} generico.
 \subparagraph{Realizzata da}
 
 \begin{itemize}
-\item ActorbasePrompt
+	\item actorbase::cli::views::ActorbasePrompt
 \end{itemize}
 
 \subparagraph{Metodi}
 
-\begin{tabular}{l | l | l | l}
-  \hline
-  Nome & Accesso & Tipo di ritorno & Descrizione\\
-  \hline
-  getPrompt & public & String & \\
+\begin{tabular}{| l | l | l | l |}
+	\hline
+	Nome & Accesso & Tipo di ritorno & Descrizione\\
+	\hline
+	getPrompt & public & String & \\
+	\hline
 \end{tabular}
-
-
-\subparagraph{Interazioni con altre classi}
-
-\begin{itemize}
-\item \hyperref[sec:actorbase::cli::views::CommandLoop]{actorbase::cli::views::CommandLoop}.
-\end{itemize}
 
 \paragraph{actorbase::cli::views::Observer}
 \label{sec:actorbase::cli::views::Observer}
@@ -2916,11 +2931,34 @@ che permette di aggiornare la \gloss{view} ad ogni risposta della componente
 Offre un'interfaccia per permettere di aggiornare la \gloss{view} ad ogni
 risposta ricevuta dal \gloss{driver}.
 
-\subparagraph{Interazioni con altre classi}
+\subparagraph{Realizzata da}
 
 \begin{itemize}
-\item \hyperref[sec:actorbase::cli::models::Observable]{actorbase::cli::models::Observable}.
+	\item actorbase::cli::views::ResultView
 \end{itemize}
+
+\subparagraph{Metodi}
+
+\begin{tabular}{| l | l | l | l |}
+	\hline
+	Nome & Accesso & Tipo di ritorno & Descrizione\\
+	\hline
+	update & public & Unit & \\
+	\hline
+\end{tabular}
+
+\subparagraph{Parametri}
+
+\begin{center}
+	\textbf{update}
+\end{center}
+\begin{tabular}{| l | l | l |}
+	\hline
+	Nome & Tipo & Descrizione\\
+	\hline
+	o & \hyperref[actorbase::cli::models::Observable]{Observable} & \\
+	\hline
+\end{tabular}
 
 \subsubsection{Classi}
 
@@ -2935,14 +2973,7 @@ Questa classe verrà utilizzata per leggere i comandi inseriti dall'utente.
 
 Viene utilizzata per la lettura dei comandi inseriti dall'utente.
 
-\subparagraph{Interazioni con altre classi}
 
-\begin{itemize}
-\item \hyperref[sec:actorbase::cli::views::PromptProvider]{actorbase::cli::views::PromptProvider};
-\item \hyperref[sec:actorbase::cli::views::ActorbaseBanner]{actorbase::cli::views::ActorbaseBanner};
-\item \hyperref[sec:actorbase::cli::views::ResultView]{actorbase::cli::views::ResultView};
-\item \hyperref[sec:actorbase::cli::controllers::GrammarParser]{actorbase::cli::controllers::GrammarParser}.
-\end{itemize}
 
 \paragraph{actorbase::cli::views::ActorbaseBanner}
 \label{sec:actorbase::cli::views::ActorbaseBanner}
@@ -2960,7 +2991,7 @@ all'avvio della \gloss{CLI}.
 \subparagraph{Interazioni con altre classi}
 
 \begin{itemize}
-\item \hyperref[sec:actorbase::cli::views::CommandLoop]{actorbase::cli::views::CommandLoop}.
+	\item \hyperref[sec:actorbase::cli::views::CommandLoop]{actorbase::cli::views::CommandLoop}.
 \end{itemize}
 
 \paragraph{actorbase::cli::views::ActorbasePrompt}
@@ -2976,7 +3007,6 @@ la creazione di un \gloss{prompt} dei comandi.
 Viene utilizzata per la creazione di un \gloss{prompt} per l'inserimento dei
 comandi e la visualizzazione delle informazioni relative alla connessione
 effettuata. %TODO: scrivere meglio
-
 \subparagraph{Classi ereditate}
 
 \begin{itemize}
