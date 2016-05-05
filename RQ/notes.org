@@ -33,7 +33,6 @@ PDP:
   
 PDQ:
   - aggiungere metriche di prodotto come tempo di risposta
-  - fare tabella di BV e SV da mettere in appendice
 
 * OLD STUFF
 * Note Actorbase
