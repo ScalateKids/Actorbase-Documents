@@ -398,6 +398,12 @@ questo caso verrà utilizzato il software ScalateTrack (\ref{sec:scalatetrack})
 il quale renderà automatico l'esportazione in formato \LaTeX\xspace delle
 tabelle di tracciamento classi-requisiti e requisiti-classi.
 
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.2\textwidth]{TracciamentoClasses.png}
+  \caption{Creazione nuova classe}
+\end{figure}
+
 \subparagraph{Diagrammi UML}
 
 Dovranno essere aggiornati i seguenti diagrammi rispettando gli stessi standard
@@ -999,6 +1005,7 @@ semplicità di utilizzo e modeste esperienze passate di alcuni componenti del
 gruppo.
 
 \paragraph{Travis-CI}
+\label{sec:travis}
 
 È un servizio di \gloss{integrazione continua} comprensivo di un piano di
 utilizzo gratuito. Facilmente configurabile, il collegamento ai \gloss{repository}
@@ -1220,6 +1227,9 @@ Gli strumenti da utilizzare per le \gloss{attività} di analisi statica saranno:
   \item\textbf{Condition coverage:} Ogni espressione booleana è stata
     valutata sia in true che in false;
   \end{itemize}
+  Lo strumento scelto per l'attività in questione è \textbf{sbt-coveralls}, si
+  presta perfettamente allo scopo in quanto integrato con lo strumento di
+  \gloss{integrazione continua scelto} (\hyperref[sec:travis]{Travis-CI});
 \item\textbf{Numero di attributi per classe:} Numero pesato di attributi
   contenuti in ogni classe di un programma;
 \item\textbf{Parametri per metodo:} Numero pesato di parametri utilizzabili
