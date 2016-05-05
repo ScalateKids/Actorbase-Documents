@@ -3614,7 +3614,7 @@ utilizzati nel progetto \textbf{Actorbase}.
 \end{itemize}
 
 \subsection{Design Pattern Creazionali}
-
+% TODO: ricontrollare Singletonnnno
 \subsubsection{Singleton}
 
 \begin{figure}[H]
@@ -3631,17 +3631,35 @@ utilizzati nel progetto \textbf{Actorbase}.
   della componente \gloss{driver}, in modo da offrire un unico punto di accesso al \gloss{server}.
 \end{itemize}
 
-\subsection{Design Pattern Strutturali}
-
-\subsubsection{Facade}
+\subsubsection{Builder}
 
 \begin{itemize}
-\item \textbf{Scopo:} Il pattern \gloss{Facade} viene usato per fornire
-  un'interfaccia unica e semplificata a più classi;
+\item \textbf{Scopo:} Il pattern \gloss{Builder} viene usato per separare la
+costruzione di un oggetto complesso dalla sua rappresentazione. L'algoritmo di
+creazione dell'oggetto complesso è indipendente dalle varie parti che
+costituiscono l'oggetto e da come vengono assemblate. In questo modo è possibile
+costruire diverse rappresentazioni dell'oggetto utilizzando lo stesso oggetto
+\gloss{Builder}.
+
+\item \textbf{Utilizzo:} Viene implementato all'interno della componente
+\gloss{driver}, precisamente dalla classe
+\hyperref[sec:actorbase::driver::client::api::RequestBuilder]{RequestBuilder} per
+la costruzione delle diverse richieste \gloss{HTTP} da inviare alla componente \gloss{server}.
+\end{itemize}
+
+\subsection{Design Pattern Strutturali}
+
+\subsubsection{Decorator}
+
+\begin{itemize}
+\item \textbf{Scopo:} Il pattern \gloss{Decorator} viene usato per aggiungere dinamicamente
+  nuove funzionalità ad oggetti già esistenti, e permette di estenderli più facilmente;
+
 \item \textbf{Utilizzo:} Viene utilizzato all'interno della componente
-  \gloss{driver} per l'esecuzione e l'invio al \gloss{server} dei comandi mediante
-  la classe CommandRunner, la quale mediante l'istanza \gloss{Singleton} di
-  Connection invia e riceve i comandi al \gloss{server}.
+\gloss{driver}, precisamente dalla classe
+\hyperref[sec:actorbase::driver::client::ActorbaseClient]{ActorbaseClient} per
+aggiungere funzionalità di protezione \gloss{SSL/TLS} alla comnicazione
+\gloss{HTTP} con la componente \gloss{server}.
 \end{itemize}
 
 \subsection{Design Pattern Comportamentali}
@@ -3796,7 +3814,15 @@ componente in questione.\\ È stato tuttavia deciso di utilizzare il
 \gloss{framework} \gloss{pickling} per effettuare \gloss{serializzazione} della
 persistenza su disco; offre una buona documentazione e numerosi esempi di
 utilizzo, rende inoltre possibile la definizione di protocolli di
-\gloss{serializzazione} personalizzati.
+\gloss{serializzazione} personalizzati.\\
+Per la gestione della comunicazione \gloss{HTTP} sono stati utilizzate due librerie:
+\begin{itemize}
+\item\textbf{Lato server:} Spray permette di gestire efficacemente le richieste in ingresso
+di tipo \gloss{HTTP} asincronamente, appositamente sviluppata per funzionare in congiunzione
+con il modello ad attori offerto da \gloss{akka};
+\item\textbf{Lato client:} Scalaj-http è una semplice libreria \gloss{Scala} che funge da client
+\gloss{HTTP} per la comunicazione con la componente \gloss{server}.
+\end{itemize}
 
 \section{Tracciamento}
 
@@ -4385,6 +4411,7 @@ utilizzo, rende inoltre possibile la definizione di protocolli di
   \item Se c'è la necessità di avere più view per il medesimo model.
   \end{itemize}
 \end{itemize}
+
 \subsection{Design Pattern Creazionali}
 
 \subsubsection{Singleton}
@@ -4417,9 +4444,40 @@ utilizzo, rende inoltre possibile la definizione di protocolli di
 
 \end{itemize}
 
+\subsubsection{Builder}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.3\textwidth, keepaspectratio]{img/designPattern/Singleton.png}
+    \caption{Esempio di applicazione del design pattern builder}
+  \end{center}
+\end{figure}
+
+\begin{itemize}
+
+\item \textbf{Scopo:} Permettere la crezione di oggetti complessi indipendentemente dalla
+sua rappresentazione;
+
+\item \textbf{Motivazione:} Alcuni oggetti richiedono molti parametri di inizializzazione
+e possono avere molte rappresentazioni, questo porta spesso all'effetto \gloss{telescoping}
+dei costruttori di tale oggetto, e il \gloss{pattern} \gloss{abstract factory} risulta non essere
+abbastanza adeguato allo scopo;
+
+\item \textbf{Applicabilità:} Questo \gloss{design pattern} può essere
+  applicato nei seguenti casi:
+
+  \begin{itemize}
+
+  \item quando è necessaria la creazione di oggetti complessi con molte varianti
+di rappresentazione.
+
+  \end{itemize}
+
+\end{itemize}
+
 \subsection{Design Pattern Strutturali}
 
-\subsubsection{Façade}
+\subsubsection{Decorator}
 
 \begin{figure}[H]
   \begin{center}
@@ -4430,19 +4488,17 @@ utilizzo, rende inoltre possibile la definizione di protocolli di
 
 \begin{itemize}
 
-\item \textbf{Scopo:} Semplificare l'interfaccia visibile all'utente di un sistema complesso.
-  Per fare ciò viene creata un'unica interfaccia che racchiude più classi, nascondendole all'esterno;
+\item \textbf{Scopo:} Aggiungere responsabilità e funzionalità dinamicamente ad oggetti già esistenti;
 
-\item \textbf{Motivazione:} Raggruppare più sottosistemi in un sistema unico aiuta a ridurne la complessità.
-  L'utilizzo di una classe façade riduce le dipendenze tra i vari sottosistemi;
+
+\item \textbf{Motivazione:} Permettere l'estendibilità di oggetti e affinare le funzionalità offerte
+modificandole o aggiungendone di nuove in modo trasparente.
 
 \item \textbf{Applicabilità:} Questo \gloss{design pattern} può essere
   applicato nei seguenti casi:
   \begin{itemize}
-  \item Quando c'è la necessità di avere una singola interfaccia semplice che raggruppi più sottosistemi;
-  \item Quando c'è un alto livello di accoppiamento tra sottosistemi e client. La
-    classe façade diminuisce queste dipendenze offrendo un'interfaccia singola;
-  \item Quando si vogliono stratificare i sottosistemi con una struttura a livelli.
+  \item Quanto si presenta la necessita di riutilizzare un oggetto per le sue funzionalità, necessitando
+    tuttavia di funzionalità aggiuntive.
   \end{itemize}
 
 \end{itemize}
