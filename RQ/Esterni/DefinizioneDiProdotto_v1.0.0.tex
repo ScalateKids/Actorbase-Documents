@@ -2839,10 +2839,10 @@ Questa classe viene utilizzata dal \gloss{driver} per gestire il caso in cui all
 \label{sec:actorbase::cli}
 
 \begin{figure}[H]
-  \begin{center}
-    \includegraphics[width=1.0\textwidth,keepaspectratio]{RP/CLI.png}
-    \caption{CLI, architettura MVC variante push model}
-  \end{center}
+	\begin{center}
+		\includegraphics[width=1.0\textwidth,keepaspectratio]{RP/CLI.png}
+		\caption{CLI, architettura MVC variante push model}
+	\end{center}
 \end{figure}
 
 \subsubsection{Descrizione}
@@ -2854,25 +2854,25 @@ Questa componente viene rappresentata usando il \gloss{design pattern}
 \subsubsection{Interazioni con altre componenti}
 
 \begin{itemize}
-\item \hyperref[sec:actorbase::driver]{actorbase::driver}.
+	\item \hyperref[sec:actorbase::driver]{actorbase::driver}.
 \end{itemize}
 
 \subsubsection{Package contenuti}
 
 \begin{itemize}
-\item \hyperref[sec:actorbase::cli::views]{actorbase::cli::views};
-\item \hyperref[sec:actorbase::cli::controllers]{actorbase::cli::controllers};
-\item \hyperref[sec:actorbase::cli::models]{actorbase::cli::models}.
+	\item \hyperref[sec:actorbase::cli::views]{actorbase::cli::views};
+	\item \hyperref[sec:actorbase::cli::controllers]{actorbase::cli::controllers};
+	\item \hyperref[sec:actorbase::cli::models]{actorbase::cli::models}.
 \end{itemize}
 
 \subsection{actorbase::cli::views}
 \label{sec:actorbase::cli::views}
 
 \begin{figure}[H]
-  \begin{center}
-    \includegraphics[width=1.0\textwidth,keepaspectratio]{RP/CLI-view.png}
-    \caption{CLI, views package, interazioni con Controllers e Models}
-  \end{center}
+	\begin{center}
+		\includegraphics[width=1.0\textwidth,keepaspectratio]{RP/CLI-view.png}
+		\caption{CLI, views package, interazioni con Controllers e Models}
+	\end{center}
 \end{figure}
 
 \subsubsection{Descrizione}
@@ -2884,8 +2884,8 @@ comandi.
 \subsubsection{Interazioni con altre componenti}
 
 \begin{itemize}
-\item \hyperref[sec:actorbase::cli::controllers]{actorbase::cli::controllers};
-\item \hyperref[sec:actorbase::cli::models]{actorbase::cli::models}.
+	\item \hyperref[sec:actorbase::cli::controllers]{actorbase::cli::controllers};
+	\item \hyperref[sec:actorbase::cli::models]{actorbase::cli::models}.
 \end{itemize}
 
 \subsection{Interfacce}
@@ -2904,24 +2904,18 @@ Offre un'interfaccia per la creazione di un \gloss{prompt} generico.
 \subparagraph{Realizzata da}
 
 \begin{itemize}
-\item ActorbasePrompt
+	\item actorbase::cli::views::ActorbasePrompt
 \end{itemize}
 
 \subparagraph{Metodi}
 
-\begin{tabular}{l | l | l | l}
-  \hline
-  Nome & Accesso & Tipo di ritorno & Descrizione\\
-  \hline
-  getPrompt & public & String & \\
+\begin{tabular}{| l | l | l | l |}
+	\hline
+	Nome & Accesso & Tipo di ritorno & Descrizione\\
+	\hline
+	getPrompt & public & String & \\
+	\hline
 \end{tabular}
-
-
-\subparagraph{Interazioni con altre classi}
-
-\begin{itemize}
-\item \hyperref[sec:actorbase::cli::views::CommandLoop]{actorbase::cli::views::CommandLoop}.
-\end{itemize}
 
 \paragraph{actorbase::cli::views::Observer}
 \label{sec:actorbase::cli::views::Observer}
@@ -2937,11 +2931,34 @@ che permette di aggiornare la \gloss{view} ad ogni risposta della componente
 Offre un'interfaccia per permettere di aggiornare la \gloss{view} ad ogni
 risposta ricevuta dal \gloss{driver}.
 
-\subparagraph{Interazioni con altre classi}
+\subparagraph{Realizzata da}
 
 \begin{itemize}
-\item \hyperref[sec:actorbase::cli::models::Observable]{actorbase::cli::models::Observable}.
+	\item actorbase::cli::views::ResultView
 \end{itemize}
+
+\subparagraph{Metodi}
+
+\begin{tabular}{| l | l | l | l |}
+	\hline
+	Nome & Accesso & Tipo di ritorno & Descrizione\\
+	\hline
+	update & public & Unit & \\
+	\hline
+\end{tabular}
+
+\subparagraph{Parametri}
+
+\begin{center}
+	\textbf{update}
+\end{center}
+\begin{tabular}{| l | l | l |}
+	\hline
+	Nome & Tipo & Descrizione\\
+	\hline
+	o & \hyperref[actorbase::cli::models::Observable]{Observable} & \\
+	\hline
+\end{tabular}
 
 \subsubsection{Classi}
 
@@ -2956,14 +2973,7 @@ Questa classe verrà utilizzata per leggere i comandi inseriti dall'utente.
 
 Viene utilizzata per la lettura dei comandi inseriti dall'utente.
 
-\subparagraph{Interazioni con altre classi}
 
-\begin{itemize}
-\item \hyperref[sec:actorbase::cli::views::PromptProvider]{actorbase::cli::views::PromptProvider};
-\item \hyperref[sec:actorbase::cli::views::ActorbaseBanner]{actorbase::cli::views::ActorbaseBanner};
-\item \hyperref[sec:actorbase::cli::views::ResultView]{actorbase::cli::views::ResultView};
-\item \hyperref[sec:actorbase::cli::controllers::GrammarParser]{actorbase::cli::controllers::GrammarParser}.
-\end{itemize}
 
 \paragraph{actorbase::cli::views::ActorbaseBanner}
 \label{sec:actorbase::cli::views::ActorbaseBanner}
@@ -2981,7 +2991,7 @@ all'avvio della \gloss{CLI}.
 \subparagraph{Interazioni con altre classi}
 
 \begin{itemize}
-\item \hyperref[sec:actorbase::cli::views::CommandLoop]{actorbase::cli::views::CommandLoop}.
+	\item \hyperref[sec:actorbase::cli::views::CommandLoop]{actorbase::cli::views::CommandLoop}.
 \end{itemize}
 
 \paragraph{actorbase::cli::views::ActorbasePrompt}
@@ -2997,7 +3007,6 @@ la creazione di un \gloss{prompt} dei comandi.
 Viene utilizzata per la creazione di un \gloss{prompt} per l'inserimento dei
 comandi e la visualizzazione delle informazioni relative alla connessione
 effettuata. %TODO: scrivere meglio
-
 \subparagraph{Classi ereditate}
 
 \begin{itemize}
