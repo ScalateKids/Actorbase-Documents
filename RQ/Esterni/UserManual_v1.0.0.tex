@@ -68,9 +68,9 @@ Actorbase is a database that comes with two different software modules capable o
 
 \subsection{References}
 
-\subsubsection{Regular} % TODO non so tradurre
+\subsubsection{Normative} % TODO check, translated with wordreference
 
-\subsubsection{Information} % TODO non so tradurre
+\subsubsection{Informational} % TODO check, translated with wordreference
 
 % TODO parte server: installazione, configurazione, accensione, spegnimento
 
@@ -83,15 +83,29 @@ Actorbase is a database that comes with two different software modules capable o
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Actorbase by Command Line Interface}
 
-\subsection{DSL}
+\subsection{DSL} %TODO vedete voi se aggiungerci qualcosa, best english in the document atm z.z
 
-%TODO scrivere qualcosa sul dsl
+The DSL, upon which the \textit{actorbase} CLI is based, has been developed
+trying to emulate a SQL language. By doing so we achieved an easily
+understandable language that's close to spoken English.
 
-%TODO spiegare anche che nei capitoli prossimi dove c'è scritto write login <username> si intende dire login e il tuo username
+%TODO scrivere in caso di errore cosa succede.. tipo errori di typo e connessione, best english in the document atm z.z
+\subsection{Error management}
 
-%TODO scrivere in caso di errore cosa succede.. tipo errori di typo e connessione
+There are two kinds of errors that are shared by every command which will be
+now explained:
+\begin{itemize}
+\item In case of an unrecognized command, or in case of a typographical error,
+	the CLI will show an unrecognized command error followed by a list of all
+	the commands available to the user;
+\item In case of a connection error, which can be caused by not receiving a
+	response from the server in a predetermined time, the CLI will show a
+	timeout connection error.
+\end{itemize}
+There are some errors that are specific to some commands, these will be explained
+in the section dedicated to the commands that cause them.
 
-%TODO scrievere anche i tipi di dato possibili da inserire? tipo le stringhe devono essere in " ", permission su addcontributor può essere vuoto, r o rw ecc
+%TODO scrivere anche i tipi di dato possibili da inserire? tipo le stringhe devono essere in " ", permission su addcontributor può essere vuoto, r o rw ecc
 
 %TODO scrivere i requisiti delle password di actorbase
 
@@ -99,7 +113,7 @@ Actorbase is a database that comes with two different software modules capable o
 \label{sec:configurationcli}
 The \textit{actorbase} CLI is designed specifically to operate 
 with the actorbase server software.\\
-To work properly an actorbase server instance must be runnning 
+To work properly an actorbase server instance must be running 
 (anywhere) and the user must configurate the access point on the configuration file.
 %TODO configurazione cli? da fare 
 
@@ -115,8 +129,7 @@ The features described are divided by the type of the user.
 
 \textbf{Description:} every user can exit from the actorbase CLI 
 using this procedure.\\
-\textbf{How to:} to exit from the actorbase CLI the user must simply type \texttt{exit} on the CLI and 
-press Enter.
+\textbf{How to:} type \texttt{exit} on the CLI
 
 \subsubsection{Unauthenticated user}
 \label{sec:unauthenticateduser}
@@ -131,7 +144,7 @@ administrator to obtain one.\\
 \textbf{How to:} 
 \begin{itemize}
 	\item Type \texttt{login <your username>}
-	\item The CLI will ask you to insert your password (it won't be	displayed)
+	\item The CLI will ask you to insert your password (it will be masked during the typing)
 	\item Type \texttt{<your password>} 
 	\item The CLI will display a message notifing the user if the login was successfull or not
 \end{itemize}
@@ -191,7 +204,7 @@ collection into the database.\\
 
 \paragraph{List collections}
 \label{sec:listcollection}
-\textbf{Description:} this functionality allow the user to see a list of 
+\textbf{Description:} this feature allows the user to see a list of 
 the collections he has permission on.\\
 \textbf{How to:} 
 \begin{itemize}
@@ -202,21 +215,21 @@ the collections he has permission on.\\
 
 \paragraph{Rename a collection}
 \label{sec:renamecollection}
-\textbf{Description:} this functionality allow the user to rename a 
+\textbf{Description:} this feature allows the user to rename a 
 collection of his own.\\
 \textbf{How to:} 
 \begin{itemize}
-	\item Type \texttt{enameCollection <old collection name> to <new collection name>}
+	\item Type \texttt{renameCollection <old collection name> to <new collection name>}
 \end{itemize}
 \textbf{Possible errors:} the CLI will answer with self explanatory error messages 
 \begin{itemize}
-	\item If the old collection name you typed correspond with no collection inside the actorbase server
-	\item If the new collection name you typed is already taken by a collection inside the actorbase server 
+	\item If the old collection name the user typed correspond with no collection inside the actorbase server
+	\item If the new collection name the user typed is already taken by a collection inside the actorbase server 
 \end{itemize}
 
 \paragraph{Delete a collection}
 \label{sec:deletecollection}
-\textbf{Description:} this functionality allow the user to remove a collection and all the items inside it from the database.\\
+\textbf{Description:} this feature allows the user to remove a collection and all the items inside it from the database.\\
 \textbf{How to:} 
 \begin{itemize}
 	\item Type \texttt{deleteCollection <collection name>}
@@ -246,41 +259,41 @@ to a collection of his own. The contributor will have the permission to operate 
 \end{itemize}
 \textbf{Possible errors:} the CLI will answer with self explanatory error messages 
 \begin{itemize}
-	\item If the collection the user want to remove the contributor from does not exists on the server or it is not a collection the user own
+	\item If the collection the user wants to remove the contributor from does not exists on the server or it is not a collection the user owns
 	\item If the username the user typed does not correspond with a user registered in actorbase
 \end{itemize}
 
 \paragraph{Export one or more collections to file}
 \label{sec:export}
-\textbf{Description:} this feature allows the user to export one or more collections it have access at.\\
-The filename the user insert can a path prefix; if the path is not present the file will be created at the user local work directory.\\
-The collection list can contain zero or more collections name. If empty it will export all the collection the user have access to (possibly resulting in an expensive operation).
+\textbf{Description:} this feature allows the user to export one or more collections he has access to.\\
+The filename the user insert can be a relative or absolute path; if the path is not present, the file will be created at the user local work directory.\\
+The collection list can contain zero or more collections' name, if empty it will export all the collections the user has access to (possibly resulting in an expensive operation).
 \textbf{How to:} 
 \begin{itemize}
-	\item Type export \texttt{<collection name1>, <collection name2>, ... , to <filename>}
+	\item Type \texttt{export <collection name1>, <collection name2>, ... , to <filename>}
 \end{itemize}
 \textbf{Possible errors:} the CLI will answer with self explanatory error messages 
 \begin{itemize}
-	\item If at least one of the collection name the user inserted does not exist on the server
+	\item If at least one of the collections' name the user inserted does not exist on the server
 	\item If the filename the user inserted contains a path that is not valid
 \end{itemize}
 
 \paragraph{Insert item}
 \label{sec:insertitem}
-\textbf{Description:} this feature allows the user to insert a item in a particular collection.\\
-The last parameter ( o ) can be omitted; if omitted the insert operation will not overwrite existing items with the same key and it will overwrite them otherwise \\
+\textbf{Description:} this feature allows the user to insert an item in a particular collection.\\
+The last parameter ( o ) can be omitted; if omitted the insert operation will not overwrite existing items with the same key. It will overwrite them otherwise. \\
 The <key> is a String representing the key of the item the user wants to insert.\\
-The <value> can be anything the user wants to insert and it rapresent the value of the item itself.\\
+The <value> can be anything the user wants to insert and it represent the value of the item itself.\\
 If the user wants to insert the item in a non existing collection the server 
-will automaticly create that collection.\\
+will automatically create that collection.\\
 \textbf{How to:} 
 \begin{itemize}
-	\item Type \texttt{insert <key> -> <value> to <collection name> o}
+	\item Type \texttt{insert <key> -> <value> to <collection name> o} %TODO WHAT?
 \end{itemize}
 \textbf{Possible errors:} the CLI will answer with self explanatory error messages 
 \begin{itemize}
-	\item If the collection the user wants to insert the item into does not exist or user has not permission to write on it
-	\item If the user decide to insert an item with an already existing key in that collection and the overwrite option has not been chosen.  
+	\item If the collection the user wants to insert the item in does not exist or user has not permission to write on it
+	\item If the user decides to insert an item with an already existing key in that collection and the overwrite option has not been chosen.  
 \end{itemize}
 
 \paragraph{Import from file}
@@ -289,11 +302,11 @@ will automaticly create that collection.\\
 The file has to be formatted as specified in \\%TODO mettere link to sezione giusta
 \textbf{How to:} 
 \begin{itemize}
-	\item Type \texttt{import nomefile}
+	\item Type \texttt{import <nomefile>}
 \end{itemize}
 \textbf{Possible errors:} the CLI will answer with self explanatory error messages 
 \begin{itemize}
-	\item If the file is not a JSON file.
+	\item If the file is not a JSON file
 	\item If the file is not formatted as specified in %TODO link a sezione
 	\item If the file specified the creation of collection that the user can not create (see \hyperref[sec:createcollection]{create collection})
 	\item If the file specified the insertion of items that the user can not insert (see \hyperref[sec:insertitem]{insert item}) 
@@ -309,7 +322,7 @@ The file has to be formatted as specified in \\%TODO mettere link to sezione giu
 \end{itemize}
 \textbf{Possible errors:} the CLI will answer with self explanatory error messages 
 \begin{itemize}
-	\item If the collection the user typed does not exists in the server or user do not have permission to remove items from it
+	\item If the collection the user typed does not exist in the server or if the user does not have permission to remove items from
 \end{itemize}
 
 \paragraph{Find item}
@@ -317,36 +330,36 @@ The file has to be formatted as specified in \\%TODO mettere link to sezione giu
 \textbf{Description:} this feature allows the user to search for particular items in the database. There are different types of search based on the parameters typed.\\
 
 \subparagraph{Search items in one or more collections}
-\textbf{Description:} this feature lets the user search for an item in one or more collection; the user must have the permission to read these collections.\\
+\textbf{Description:} this feature lets the user search for an item in one or more collections; the user must have the permission to read these collections.\\
 \textbf{How to:} 
 \begin{itemize}
 	\item Type \texttt{find <key> from <collection name 1>, <collection name 2>, ... , <collection name N>}
 \end{itemize}
 \textbf{Possible errors:} the CLI will answer with self explanatory error messages 
 \begin{itemize}
-	\item If at least one of the collection does not exists on the server
+	\item If at least one of the collections does not exist on the server
 \end{itemize}
 
 \subparagraph{Search items in the entire database}
-\textbf{Description:} this feature lets the user search for an item in the entire database.\\
+\textbf{Description:} this feature lets the user search for an item in the entire database visible to him.\\
 \textbf{How to:} 
 \begin{itemize}
 	\item Type \texttt{find <key>}
 \end{itemize}
 
 \subparagraph{Search for all the items of one or more collections}
-\textbf{Description:} this feature lets the user to retrieve all the items contained in one or more collections.\\
+\textbf{Description:} this feature lets the user retrieve all the items contained in one or more collections.\\
 \textbf{How to:} 
 \begin{itemize}
 	\item Type \texttt{find from <collection name 1>, <collection name 2>, ... , <collection name N>}
 \end{itemize}
 \textbf{Possible errors:} the CLI will answer with self explanatory error messages 
 \begin{itemize}
-	\item If at least one of the collection does not exists on the server
+	\item If at least one of the collection does not exist on the server or if the user doesn't have access to it
 \end{itemize}
 
 \subparagraph{Get all database items grouped by collection}
-\textbf{Description:} this feature lets the user to retrieve all the items contained in the entire database grouped by collection.\\
+\textbf{Description:} this feature lets the user to retrieve all the items contained in the section of the database that is visible to him grouped by collection.\\
 This operation could be expensive.\\
 \textbf{How to:} 
 \begin{itemize}
@@ -367,21 +380,44 @@ This operation could be expensive.\\
 \end{itemize}
 
 \paragraph{Logout}
-\label{sec:removeitem}
+\label{sec:logout}
 \textbf{Description:} this feature allows the user to logout from the server becoming an unauthenticated user.\\
 \textbf{How to:} 
 \begin{itemize}
 	\item Type \texttt{logout}
 \end{itemize}
 
-
 \subsubsection{Administrator user}
 \label{sec:administratoruser}
+
+\paragraph{Add user}
+\label{sec:adduser}
+\textbf{Description:} this feature allows the administrator to add a new user to the database with a default password.\\
+\textbf{How to:} 
+\begin{itemize}
+	\item Type \texttt{addUser <username>}
+\end{itemize}
+
+\paragraph{Remove user}
+\label{sec:removeuser}
+\textbf{Description:} this feature allows the administrator to remove an user from the database.\\
+\textbf{How to:} 
+\begin{itemize}
+	\item Type \texttt{removeUser <username>}
+\end{itemize}
+
+\paragraph{Reset password}
+\label{sec:resetpassword}
+\textbf{Description:} this feature allows the administrator to change the password of an user to the one that was set by default.\\
+\textbf{How to:} 
+\begin{itemize}
+	\item Type \texttt{resetPassword <username>}
+\end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%							DRIVER PART 						 %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Use throught Driver}
+\section{Use through Driver}
 
 \subsection{Introduction to Driver}
 
