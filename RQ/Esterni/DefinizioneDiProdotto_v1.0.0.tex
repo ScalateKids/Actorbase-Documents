@@ -3188,7 +3188,33 @@ Questa classe verrà utilizzata per leggere i comandi inseriti dall'utente.
 
 Viene utilizzata per la lettura dei comandi inseriti dall'utente.
 
+\subparagraph{Attributi}
 
+\begin{tabular}{| l | l | l | l | l |}
+	\hline
+	Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+	\hline
+	loop & private & immutabile & Boolean & Variabile di stato che rappresenta la condizione do/while\\
+	\hline
+	commandInvoker & private & immutabile & CommandInvoker & Variabile che rappresenta il riferimento al model\\
+	\hline
+	view & private & immutabile & ResultView & Variabile che rappresenta il riferimento alla view\\
+	\hline
+	grammarParser & private & immutabile & GrammarParser & Variabile che rappresenta il riferimento al controller\\
+	\hline
+	reader & private & immutabile & ConsoleReader & \\ %TODO descrizione 
+	\hline
+	history & private & immutabile & FileHistory & \\ % TODO descrizione
+	\hline
+	prompt & private & immutabile & ActorbasePrompt & \\ %TODO descrizione
+	\hline
+	banner & private & immutabile & ActorbaseBanner & \\ %TODO descrizione
+	\hline
+	completers & private & mutabile & List di String & \\ %TODO descriozione
+	\hline
+	out & private & immutabile & PrintWriter & \\ %TODO descrizione
+	\hline
+\end{tabular}
 
 \paragraph{actorbase::cli::views::ActorbaseBanner}
 \label{sec:actorbase::cli::views::ActorbaseBanner}
