@@ -3259,6 +3259,71 @@ l'esecuzione del comando.
 \item \hyperref[sec:actorbase::cli::models::CommandInvoker]{actorbase::cli::models::CommandInvoker}.
 \end{itemize}
 
+\subparagraph{Metodi}
+
+\begin{tabular}{| l | l | l | l |}
+	\hline
+	Nome & Accesso & Tipo di ritorno & Descrizione\\
+	\hline
+	authManagementCommand & public & Parser di Command & \\
+	\hline
+	changePasswordCommand & public & Parser di Command & \\
+	\hline
+	helpCommand & public & Parser di Command & \\
+	\hline
+	collectionManagementCommand & public & Parser di Command & \\
+	\hline
+	addCollaboratorCommand & public & Parser di Command & \\
+	\hline
+	removeCollaboratorCommand & public & Parser di Command & \\
+	\hline
+	exportCommand & public & Parser di Command & \\
+	\hline
+	insertItemCommand & public & Parser di Command & \\
+	\hline
+	removeItemCommand & public & Parser di Command & \\
+	\hline
+	findCommand & public & Parser di Command & \\
+	\hline
+	userManagementCommand & public & Parser di Command & \\
+	\hline
+	commandList & ublic & Parser di Command & \\
+	\hline
+	parseInput & public & Boolean & \\
+	\hline
+\end{tabular}
+
+\subparagraph{Parametri}
+
+\begin{center}
+	\textbf{parserInput}
+\end{center}
+\begin{tabular}{| l | l | l |}
+	\hline
+	Nome & Tipo & Descrizione\\
+	\hline
+	input & String & \\
+	\hline
+\end{tabular}
+
+\subparagraph{Attributi}
+
+\begin{tabular}{| l | l | l | l | l |}
+	\hline
+	Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+	\hline
+	types & private & immutabile & Parser[String] & \\
+	\hline
+	quotedString & private & immutabile & Parser[String] & \\
+	\hline
+	literalString & private & immutabile & Parser[String] & \\
+	\hline
+	listString & private & immutabile & Parser[String] & \\
+	\hline
+	keyString & private & immutabile & Parser[String] & \\
+	\hline
+\end{tabular}
+
 \subsection{actorbase::cli::models}
 \label{sec:actorbase::cli::models}
 
