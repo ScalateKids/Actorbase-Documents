@@ -963,8 +963,9 @@ che mappano gli attori di tipo \hyperref[sec:actorbase::actorsystem::storefinder
 la creazione di un \gloss{attore} di questo tipo.
 
 
-
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{actorbase::actorsystem::userfinder} %TODO da fare qualcosa, tipo l'immagine
 \label{sec:actorbase::actorsystem::userfinder}
@@ -1591,15 +1592,11 @@ che dovranno restituire tutti gli \gloss{items} contenuti in essi.
 \end{figure}
 
 \subsubsection{Descrizione}
-
 \gloss{Package} che rappresenta l'\gloss{attore} di tipo \gloss{Storekeeper}.
 
 \subsubsection{Package contenuti}
-
 \begin{itemize}
-
-\item \hyperref[sec:actorbase::actorsystem::storekeeper::messages]{actorbase::actorsystem::storekeeper::messages}.
-
+  \item \hyperref[sec:actorbase::actorsystem::storekeeper::messages]{actorbase::actorsystem::storekeeper::messages}.
 \end{itemize}
 
 \subsubsection{Classi}
@@ -1608,19 +1605,14 @@ che dovranno restituire tutti gli \gloss{items} contenuti in essi.
 \label{sec:actorbase::actorsystem::storekeeper::Storekeeper}
 
 \subparagraph{Descrizione}
-
 Classe che rappresenta un \gloss{attore} di tipo \gloss{Storekeeper}.
 
 \subparagraph{Utilizzo}
-
 Questa classe viene utilizzata per salvare nel \gloss{database} gli item.
 
 \subparagraph{Classi ereditate}
-
 \begin{itemize}
-
-\item akka::actor::Actor.
-
+  \item akka::actor::Actor.
 \end{itemize}
 
 \subparagraph{Attributi}
@@ -1819,7 +1811,9 @@ riceve questo messaggio cambia il proprio contesto diventando un attore di tipo 
 \hyperref[sec:actorbase::actorsystem::storekeeper::messages::Init]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storekeeper::\allowbreak{}messages::\allowbreak{}Init}.
 
 
-% TODO fine storekeeper SONO QUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{actorbase::actorsystem::manager}
 \label{sec:actorbase::actorsystem::manager}
@@ -1850,25 +1844,28 @@ Classe che rappresenta un \gloss{attore} di tipo \gloss{Manager}.
 
 \subparagraph{Utilizzo}
 Questa classe viene utilizzata per gestire le richieste di divisione di attori di tipo
-\hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{sec:actorbase::\allowbreak{}actorsystem::\allowbreak{}storekeeper::\allowbreak{}Storekeeper}
-e \hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{sec:actorbase::\allowbreak{}actorsystem::\allowbreak{}storefinder::\allowbreak{}Storefinder}.
+\hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{Storekeeper}
+e \hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{Storefinder}.
 
 \subparagraph{Classi ereditate}
 \begin{itemize}
   \item akka::actor::Actor.
 \end{itemize}
 
-\subparagraph{Interazioni con altre classi}
+\subparagraph{Attributi}
 
-\begin{itemize}
-  \item akka::actor::ActorRef.
-\end{itemize}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  parentRef & private & immutabile & ActorRef & Riferimento all'attore di tipo \gloss{Storefinder} che l'ha creato\\
+  \hline
+\end{tabular}
 
 \subsection{actorbase::actorsystem::manager::messages}
 \label{sec:actorbase::actorsystem::manager::messages}
 
 \subparagraph{Descrizione}
-
 \gloss{Package} che contiene tutti i messaggi che possono essere ricevuti
 dall'\gloss{attore} di tipo
 \hyperref[sec:actorbase::actorsystem::manager::Manager]{actorbase::\allowbreak{}actorsystem::\allowbreak{}manager::\allowbreak{}Manager}
@@ -1879,15 +1876,15 @@ dall'\gloss{attore} di tipo
 \subparagraph{Descrizione}
 
 Messaggio che richiede la divisione a metà dell'\gloss{attore} di tipo
-\gloss{Storekeeper}.
+\hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{Storekeeper}.
 
 \subparagraph{Utilizzo}
 
-Quando \hyperref[sec:actorbase::actorsystem::manager::Manager]{actorbase::\allowbreak{}actorsystem::\allowbreak{}manager::\allowbreak{}Manager}
+Quando \hyperref[sec:actorbase::actorsystem::manager::Manager]{Manager}
 riceve questo messaggio provvederà a dividere a metà l'\gloss{attore} di tipo
-\hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storekeeper::\allowbreak{}Storekeeper}
-che dovrà essere diviso.Manderà inoltre un messaggio all'\gloss{attore} di tipo
-\hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storefinder::\allowbreak{}Storefinder}
+\hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{Storekeeper}
+che dovrà essere diviso.\\Manderà inoltre un messaggio \hyperref[sec:actorbase::actorsystem::storefinder::messages::DuplicateSKNotify]{DuplicateSKNotify} all'\gloss{attore} di tipo
+\hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{Storefinder}
 per aggiornare i suoi riferimenti.
 
 \subparagraph{Attributi}
