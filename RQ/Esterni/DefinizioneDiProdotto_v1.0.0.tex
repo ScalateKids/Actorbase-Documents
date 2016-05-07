@@ -962,85 +962,8 @@ riceve questo messaggio provvederà a inoltrare agli attori di tipo
 che mappano gli attori di tipo \hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{actorbase::actorsystem::\allowbreak{}userkeeper::\allowbreak{}Userkeeper}
 la creazione di un \gloss{attore} di questo tipo.
 
-% TODO wtf? mancano pezzi? sopra c'è main e qua sotto storefinder
 
-\paragraph{actorbase::actorsystem::storefinder::messages::Init}
-\label{sec:actorbase::actorsystem::storefinder::messages::Init}
 
-\subparagraph{Descrizione}
-
-Messaggio importato dal package \hyperref[sec:actorbase::actorsystem::storefinder::messages]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storefinder::\allowbreak{}messages}
-che, se ricevuto dall'\gloss{attore} di tipo \gloss{Main},
-indica la necessità di inizializzare degli \gloss{Storefinder}.
-
-\subparagraph{Utilizzo}
-
-Quando \hyperref[sec:actorbase::actorsystem::main::Main]{actorbase::\allowbreak{}actorsystem::\allowbreak{}main::\allowbreak{}Main}
-riceve questo messaggio provvederà a inizializzare gli attori di tipo
-\hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storefinder::\allowbreak{}Storefinder}
-presenti nella cartella indicata dal messaggio.
-
-\paragraph{actorbase::actorsystem::storefinder::messages::DuplicateRequest}
-\label{sec:actorbase::actorsystem::storefinder::messages::DuplicateRequest}
-
-\subparagraph{Descrizione}
-
-Messaggio importato dal package \hyperref[sec:actorbase::actorsystem::storefinder::messages]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storefinder::\allowbreak{}messages}
-che, se ricevuto dall'\gloss{attore} di tipo \gloss{Main},
-indica l'avvenuta divisione di uno \gloss{Storefinder}.
-
-\subparagraph{Utilizzo}
-
-Quando \hyperref[sec:actorbase::actorsystem::main::Main]{actorbase::\allowbreak{}actorsystem::\allowbreak{}main::\allowbreak{}Main}
-riceve questo messaggio provvederà ad aggiornare i suoi indici.
-
-\paragraph{actorbase::actorsystem::storefinder::messages::GetItem}
-\label{sec:actorbase::actorsystem::storefinder::messages::GetItem}
-
-\subparagraph{Descrizione}
-
-Messaggio importato dal package \hyperref[sec:actorbase::actorsystem::storefinder::messages]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storefinder::\allowbreak{}messages}
-che indica la richiesta di un \gloss{item}.
-
-\subparagraph{Utilizzo}
-
-Quando \hyperref[sec:actorbase::actorsystem::main::Main]{actorbase::\allowbreak{}actorsystem::\allowbreak{}main::\allowbreak{}Main}
-riceve questo messaggio provvederà a inoltrare la richiesta all'\gloss{attore} di tipo
-\hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storefinder::\allowbreak{}Storefinder}
-che contiene l'\gloss{item} cercato.
-
-\paragraph{actorbase::actorsystem::storefinder::messages::RemoveItem}
-\label{sec:actorbase::actorsystem::storefinder::messages::RemoveItem}
-
-\subparagraph{Descrizione}
-
-Messaggio che indica la richiesta di rimozione di un \gloss{item}.
-
-\subparagraph{Utilizzo}
-
-Quando \hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storefinder::\allowbreak{}Storefinder}
-riceve questo messaggio provvederà a inoltrare la richiesta all'\gloss{attore} di tipo
-\hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storekeeper::\allowbreak{}Storekeeper}
-contenente l'\gloss{attore} di tipo
-\hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storekeeper::\allowbreak{}Storekeeper}
-contenente l'\gloss{item} da rimuovere.
-
-\paragraph{actorbase::actorsystem::storefinder::messages::Insert}
-\label{sec:actorbase::actorsystem::storefinder::messages::Insert}
-
-\subparagraph{Descrizione}
-
-Messaggio importato dal package \hyperref[sec:actorbase::actorsystem::storefinder::messages]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storefinder::\allowbreak{}messages}
-che indica la richiesta di inserimento di un \gloss{item}.
-
-\subparagraph{Utilizzo}
-
-Quando \hyperref[sec:actorbase::actorsystem::main::Main]{actorbase::\allowbreak{}actorsystem::\allowbreak{}main::\allowbreak{}Main}
-riceve questo messaggio provvederà a inoltrare la richiesta all'\gloss{attore} di tipo
-\hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storefinder::\allowbreak{}Storefinder}
-contenente l'\gloss{attore} di tipo
-\hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storekeeper::\allowbreak{}Storekeeper}
-destinato a ricevere l'\gloss{item} da inserire.
 
 
 \subsection{actorbase::actorsystem::userfinder} %TODO da fare qualcosa, tipo l'immagine
@@ -1105,6 +1028,26 @@ Questa classe viene utilizzata per tener traccia degli attori di tipo
 \hyperref[sec:actorbase::actorsystem::userfinder::Userfinder]{actorbase::actorsystem::userfinder::Userfinder}.
 
 \subsubsection{Classi}
+
+\paragraph{actorbase::actorsystem::userfinder::messages::GetPasswordOf}
+\label{sec:actorbase::actorsystem::userfinder::messages::GetPasswordOf}
+
+\subparagraph{Descrizione}
+Messaggio che indica la richiesta di autenticazione da parte di un utente.\\
+
+\subparagraph{Utilizzo}
+Quando l'attore riceve questo messaggio provvederà a inoltrare la richiesta 
+allo \hyperref[sec:actorbase::actorsystem::userkeeper::Userkeeper]{Userkeeper}
+relativo allo username ricevuto.
+
+\subparagraph{Attributi}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  username & public & immutabile & String & stringa che rappresenta lo username dell'utente che richiede di autenticarsi\\
+  \hline
+\end{tabular}
 
 \paragraph{actorbase::actorsystem::userfinder::messages::InsertTo}
 \label{sec:actorbase::actorsystem::userfinder::messages::InsertTo}
@@ -1216,6 +1159,10 @@ corrispondente all'utente su cui effettuare l'operazione.
   collection & public & immutabile & String & stringa che rappresenta la collezione da aggiungere \\
   \hline
 \end{tabular}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{actorbase::actorsystem::userkeeper} %TODO fatto, non so se ci sia da aggiornare qualcosa, tipo l'immagine, boh
 \label{sec:actorbase::actorsystem::userkeeper}
@@ -1393,7 +1340,7 @@ lettura o in lettura e scrittura.
 \subparagraph{Attributi}
 \begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
   \hline
-  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  Nome & Accesso & Mutabilità & Tipo & Descrizione \\
   \hline
   write & public & immutabile & Boolean & Boolean che rappresenta i permessi dell'utente sulla collezione da aggiungere ( \=0 se sola lettura e \=1 se lettura e scrittura) \\
   \hline
@@ -1425,6 +1372,9 @@ che ha inviato questo messaggio.
   \hline
 \end{tabular}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{actorbase::actorsystem::storefinder} %TODO DA controllare e finire
 \label{sec:actorbase::actorsystem::storefinder}
@@ -1626,6 +1576,9 @@ di tipo
 \hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storekeeper::\allowbreak{}Storekeeper}
 che dovranno restituire tutti gli \gloss{items} contenuti in essi.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{actorbase::actorsystem::storekeeper}
 \label{sec:actorbase::actorsystem::storekeeper}
