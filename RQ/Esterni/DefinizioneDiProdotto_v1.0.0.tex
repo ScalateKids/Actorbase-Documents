@@ -3295,7 +3295,7 @@ l'esecuzione del comando.
 
 \subparagraph{Metodi}
 
-\begin{tabular}{| l | l | l | l |}
+\begin{tabular}{| l | l | l | l |} %TODO descrizione
 	\hline
 	Nome & Accesso & Tipo di ritorno & Descrizione\\
 	\hline
@@ -3369,7 +3369,7 @@ con la componente \gloss{view} tramite il \gloss{push model} del \gloss{design
   pattern} \gloss{observer}. Per la gestione dei comandi si è scelto di
 utilizzare il \gloss{command pattern}.
 
-\subsubsection{Classi}
+\subsection{Interfacce}
 
 \paragraph{actorbase::cli::models::Observable}
 \label{sec:actorbase::cli::models::Observable}
@@ -3377,7 +3377,7 @@ utilizzare il \gloss{command pattern}.
 \subparagraph{Descrizione}
 
 Questa classe rappresenta l'oggetto osservato nell'ambito del \gloss{design
-  pattern} \gloss{observer}.
+	pattern} \gloss{observer}.
 
 \subparagraph{Utilizzo}
 
@@ -3388,8 +3388,135 @@ ha ritornato un risultato.
 \subparagraph{Interazioni con altre classi}
 
 \begin{itemize}
-\item \hyperref[sec:actorbase::cli::views::Observer]{actorbase::cli::views::Observer}.
+	\item \hyperref[sec:actorbase::cli::views::Observer]{actorbase::cli::views::Observer}.
 \end{itemize}
+
+\subparagraph{Realizzata da}
+
+\begin{itemize}
+	\item \hyperref[sec:actorbase::cli::models::CommandInvoker]{actorbase::cli::models::CommandInvoker}
+	\item \hyperref[sec:actorbase::cli::controllers::GrammarParser]{actorbase::cli::controllers::GrammarParser}
+\end{itemize}
+
+\subparagraph{Attributi}
+
+\begin{tabular}{| l | l | l | l | l |}
+	\hline
+	Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+	\hline
+	observers & private & mutabile & ListBuffer[Observer] & \\
+	\hline
+	state & private & mutabile & String & \\
+	\hline
+\end{tabular}
+
+\subparagraph{Metodi}
+
+\begin{tabular}{| l | l | l | l |}
+	\hline
+	Nome & Accesso & Tipo di ritorno & Descrizione\\
+	\hline
+	setState & public & Unit & \\
+	\hline
+	getState & public & String & \\
+	\hline
+	attach & public & Unit & \\
+	\hline
+	detach & public & Unit & \\
+	\hline
+	notifyAllObservers & public & Unit & \\
+	\hline
+\end{tabular}
+
+\subparagraph{Parametri}
+
+\begin{center}
+	\textbf{setState}
+\end{center}
+\begin{tabular}{| l | l | l |}
+	\hline
+	Nome & Tipo & Descrizione\\
+	\hline
+	s & String & \\
+	\hline
+\end{tabular}
+
+\begin{center}
+	\textbf{attach}
+\end{center}
+\begin{tabular}{| l | l | l |}
+	\hline
+	Nome & Tipo & Descrizione\\
+	\hline
+	observer & Observer & \\
+	\hline
+\end{tabular}
+
+\begin{center}
+	\textbf{detach}
+\end{center}
+\begin{tabular}{| l | l | l |}
+	\hline
+	Nome & Tipo & Descrizione\\
+	\hline
+	observer & Observer & \\
+	\hline
+\end{tabular}
+
+\paragraph{actorbase::cli::models::Command}
+\label{sec:actorbase::cli::models::Command}
+
+\subparagraph{Descrizione}
+
+Interfaccia generica che rappresenta un comando.
+
+\subparagraph{Utilizzo}
+
+Viene utilizzata per offrire un'interfaccia comune a tutti i comandi.\\Ha un
+riferimento a \hyperref[sec:actorbase::cli::models::CommandReceiver]{actorbase::cli::models::CommandReceiver} per l'esecuzione del
+comando.
+
+\subparagraph{Interazioni con altre classi}
+
+\begin{itemize}
+	\item \hyperref[sec:actorbase::cli::models::CommandInvoker]{actorbase::cli::models::CommandInvoker};
+	\item \hyperref[sec:actorbase::view::cli::models::CommandReceiver]{actorbase::view::cli::models::CommandReceiver}.
+\end{itemize}
+
+\subparagraph{Realizzata da}
+
+\begin{itemize}
+	\item \hyperref[sec:actorbase::cli::models::AddCollaboratorCommand]{actorbase::cli::models::AddCollaboratorCommand};
+	\item \hyperref[sec:actorbase::view::cli::models::AddUserCommand]{actorbase::view::cli::models::AddUserCommand};
+	\hyperref[sec:actorbase::view::cli::models::ChangePasswordCommand]{actorbase::view::cli::models::ChangePasswordCommand};
+	\hyperref[sec:actorbase::view::cli::models::CreateCollectionCommand]{actorbase::view::cli::models::CreateCollectionCommand};
+	\hyperref[sec:actorbase::view::cli::models::DeleteCollectionCommand]{actorbase::view::cli::models::DeleteCollectionCommand};
+	\hyperref[sec:actorbase::view::cli::models::ExportCommand]{actorbase::view::cli::models::ExportCommand};
+	\hyperref[sec:actorbase::view::cli::models::FindCommand]{actorbase::view::cli::models::FindCommand};
+	\hyperref[sec:actorbase::view::cli::models::HelpCommand]{actorbase::view::cli::models::HelpCommand};
+	\hyperref[sec:actorbase::view::cli::models::InsertItemCommand]{actorbase::view::cli::models::InsertItemCommand};
+	\hyperref[sec:actorbase::view::cli::models::ListCollectionsCommand]{actorbase::view::cli::models::ListCollectionsCommand};
+	\hyperref[sec:actorbase::view::cli::models::LoginCommand]{actorbase::view::cli::models::LoginCommand};
+	\hyperref[sec:actorbase::view::cli::models::LogoutCommand]{actorbase::view::cli::models::LogoutCommand};
+	\hyperref[sec:actorbase::view::cli::models::RemoveCollaboratorCommand]{actorbase::view::cli::models::RemoveCollaboratorCommand};
+	\hyperref[sec:actorbase::view::cli::models::RemoveItemCommand]{actorbase::view::cli::models::RemoveItemCommand};
+	\hyperref[sec:actorbase::view::cli::models::RemoveUserCommand]{actorbase::view::cli::models::RemoveUserCommand};
+	\hyperref[sec:actorbase::view::cli::models::RenameCollectionCommand]{actorbase::view::cli::models::RenameCollectionCommand};
+	\hyperref[sec:actorbase::view::cli::models::RemoveUserCommand]{actorbase::view::cli::models::RemoveUserCommand};
+	\hyperref[sec:actorbase::view::cli::models::ResetPasswordCommand]{actorbase::view::cli::models::ResetPasswordCommand};
+\end{itemize}
+
+\subparagraph{Metodi}
+
+\begin{tabular}{| l | l | l | l |}
+	\hline
+	Nome & Accesso & Tipo di ritorno & Descrizione\\
+	\hline
+	execute & public & String & \\
+	\hline
+\end{tabular}
+
+\subsubsection{Classi}
 
 \paragraph{actorbase::cli::models::CommandInvoker}
 \label{sec:actorbase::cli::models::CommandInvoker}
@@ -3418,25 +3545,38 @@ implementa l'interfaccia \hyperref[sec:actorbase::cli::models::Command]{actorbas
 \item \hyperref[sec:actorbase::cli::models::Command]{actorbase::cli::models::Command}.
 \end{itemize}
 
-\paragraph{actorbase::cli::models::Command}
-\label{sec:actorbase::cli::models::Command}
+\subparagraph{Attributi}
 
-\subparagraph{Descrizione}
+\begin{tabular}{| l | l | l | l | l |}
+	\hline
+	Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+	\hline
+	history & private & mutabile & List[Command] & \\
+	\hline
+\end{tabular}
 
-Interfaccia generica che rappresenta un comando.
+\subparagraph{Metodi}
 
-\subparagraph{Utilizzo}
+\begin{tabular}{| l | l | l | l |}
+	\hline
+	Nome & Accesso & Tipo di ritorno & Descrizione\\
+	\hline
+	storeAndExecute & public & String & \\
+	\hline
+\end{tabular}
 
-Viene utilizzata per offrire un'interfaccia comune a tutti i comandi.\\Ha un
-riferimento a \hyperref[sec:actorbase::cli::models::CommandReceiver]{actorbase::cli::models::CommandReceiver} per l'esecuzione del
-comando.
+\subparagraph{Parametri}
 
-\subparagraph{Interazioni con altre classi}
-
-\begin{itemize}
-\item \hyperref[sec:actorbase::cli::models::CommandInvoker]{actorbase::cli::models::CommandInvoker};
-\item \hyperref[sec:actorbase::view::cli::models::CommandReceiver]{actorbase::view::cli::models::CommandReceiver}.
-\end{itemize}
+\begin{center}
+	\textbf{setState}
+\end{center}
+\begin{tabular}{| l | l | l |}
+	\hline
+	Nome & Tipo & Descrizione\\
+	\hline
+	cmd & Command & \\
+	\hline
+\end{tabular}
 
 \paragraph{actorbase::cli::models::FindCommand}
 \label{sec:actorbase::cli::models::FindCommand}
@@ -3457,6 +3597,26 @@ dall'utente.
 \item \hyperref[sec:actorbase::cli::models::Command]{actorbase::cli::models::Command}.
 \end{itemize}
 
+\subparagraph{Attributi}
+
+\begin{tabular}{| l | l | l | l | l |}
+	\hline
+	Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+	\hline
+	cr & public & immutabile & CommandReceiver & \\
+	\hline
+\end{tabular}
+
+\subparagraph{Metodi}
+
+\begin{tabular}{| l | l | l | l |}
+	\hline
+	Nome & Accesso & Tipo di ritorno & Descrizione\\
+	\hline
+	execute & public & String & \\
+	\hline
+\end{tabular}
+
 \paragraph{actorbase::cli::models::LogoutCommand}
 \label{sec:actorbase::cli::models::LogoutCommand}
 
@@ -3474,6 +3634,26 @@ Viene utilizzata per chiamare il metodo di
 \begin{itemize}
 \item \hyperref[sec:actorbase::cli::models::Command]{actorbase::cli::models::Command}.
 \end{itemize}
+
+\subparagraph{Attributi}
+
+\begin{tabular}{| l | l | l | l | l |}
+	\hline
+	Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+	\hline
+	cr & public & immutabile & CommandReceiver & \\
+	\hline
+\end{tabular}
+
+\subparagraph{Metodi}
+
+\begin{tabular}{| l | l | l | l |}
+	\hline
+	Nome & Accesso & Tipo di ritorno & Descrizione\\
+	\hline
+	execute & public & String & \\
+	\hline
+\end{tabular}
 
 \paragraph{actorbase::cli::models::ResetPasswordCommand}
 \label{sec:actorbase::cli::models::ResetPasswordCommand}
@@ -3494,7 +3674,27 @@ dell'utente specificato in input.
 \item \hyperref[sec:actorbase::cli::models::Command]{actorbase::cli::models::Command}.
 \end{itemize}
 
-\paragraph{actorbase::cli::models::ListCommand}
+\subparagraph{Attributi}
+
+\begin{tabular}{| l | l | l | l | l |}
+	\hline
+	Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+	\hline
+	cr & public & immutabile & CommandReceiver & \\
+	\hline
+\end{tabular}
+
+\subparagraph{Metodi}
+
+\begin{tabular}{| l | l | l | l |}
+	\hline
+	Nome & Accesso & Tipo di ritorno & Descrizione\\
+	\hline
+	execute & public & String & \\
+	\hline
+\end{tabular}
+
+\paragraph{actorbase::cli::models::ListCollectionsCommand}
 \label{sec:actorbase::cli::models::ListCommand}
 
 \subparagraph{Descrizione}
@@ -3513,6 +3713,26 @@ nomi di tutte le collezioni presenti nel \gloss{database}.
 \begin{itemize}
 \item \hyperref[sec:actorbase::cli::models::Command]{actorbase::cli::models::Command}.
 \end{itemize}
+
+\subparagraph{Attributi}
+
+\begin{tabular}{| l | l | l | l | l |}
+	\hline
+	Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+	\hline
+	cr & public & immutabile & CommandReceiver & \\
+	\hline
+\end{tabular}
+
+\subparagraph{Metodi}
+
+\begin{tabular}{| l | l | l | l |}
+	\hline
+	Nome & Accesso & Tipo di ritorno & Descrizione\\
+	\hline
+	execute & public & String & \\
+	\hline
+\end{tabular}
 
 \paragraph{actorbase::cli::models::AddContributorCommand}
 \label{sec:actorbase::cli::models::AddContributorCommand}
@@ -3534,6 +3754,26 @@ in input.
 \item \hyperref[sec:actorbase::cli::models::Command]{actorbase::cli::models::Command}.
 \end{itemize}
 
+\subparagraph{Attributi}
+
+\begin{tabular}{| l | l | l | l | l |}
+	\hline
+	Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+	\hline
+	cr & public & immutabile & CommandReceiver & \\
+	\hline
+\end{tabular}
+
+\subparagraph{Metodi}
+
+\begin{tabular}{| l | l | l | l |}
+	\hline
+	Nome & Accesso & Tipo di ritorno & Descrizione\\
+	\hline
+	execute & public & String & \\
+	\hline
+\end{tabular}
+
 \paragraph{actorbase::cli::models::LoginCommand}
 \label{sec:actorbase::cli::models::LoginCommand}
 
@@ -3553,6 +3793,26 @@ immesse dall'utente.
 \item \hyperref[sec:actorbase::cli::models::Command]{actorbase::cli::models::Command}.
 \end{itemize}
 
+\subparagraph{Attributi}
+
+\begin{tabular}{| l | l | l | l | l |}
+	\hline
+	Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+	\hline
+	cr & public & immutabile & CommandReceiver & \\
+	\hline
+\end{tabular}
+
+\subparagraph{Metodi}
+
+\begin{tabular}{| l | l | l | l |}
+	\hline
+	Nome & Accesso & Tipo di ritorno & Descrizione\\
+	\hline
+	execute & public & String & \\
+	\hline
+\end{tabular}
+
 \paragraph{actorbase::cli::models::RemoveCollectionCommand}
 \label{sec:actorbase::cli::models::RemoveCollectionCommand}
 
@@ -3571,6 +3831,26 @@ i parametri specificati in input.
 \begin{itemize}
 \item \hyperref[sec:actorbase::cli::models::Command]{actorbase::cli::models::Command}.
 \end{itemize}
+
+\subparagraph{Attributi}
+
+\begin{tabular}{| l | l | l | l | l |}
+	\hline
+	Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+	\hline
+	cr & public & immutabile & CommandReceiver & \\
+	\hline
+\end{tabular}
+
+\subparagraph{Metodi}
+
+\begin{tabular}{| l | l | l | l |}
+	\hline
+	Nome & Accesso & Tipo di ritorno & Descrizione\\
+	\hline
+	execute & public & String & \\
+	\hline
+\end{tabular}
 
 \paragraph{actorbase::cli::models::RemoveContributorCommand}
 \label{sec:actorbase::cli::models::RemoveContributorCommand}
@@ -3592,6 +3872,26 @@ specificati in input.
 \item \hyperref[sec:actorbase::cli::models::Command]{actorbase::cli::models::Command}.
 \end{itemize}
 
+\subparagraph{Attributi}
+
+\begin{tabular}{| l | l | l | l | l |}
+	\hline
+	Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+	\hline
+	cr & public & immutabile & CommandReceiver & \\
+	\hline
+\end{tabular}
+
+\subparagraph{Metodi}
+
+\begin{tabular}{| l | l | l | l |}
+	\hline
+	Nome & Accesso & Tipo di ritorno & Descrizione\\
+	\hline
+	execute & public & String & \\
+	\hline
+\end{tabular}
+
 \paragraph{actorbase::cli::models::RenameCollectionCommand}
 \label{sec:actorbase::cli::models::RenameCollectionCommand}
 
@@ -3608,6 +3908,26 @@ Viene utilizzata per chiamare il metodo di \hyperref[sec:actorbase::cli::models:
 \begin{itemize}
 \item \hyperref[sec:actorbase::cli::models::Command]{actorbase::cli::models::Command}.
 \end{itemize}
+
+\subparagraph{Attributi}
+
+\begin{tabular}{| l | l | l | l | l |}
+	\hline
+	Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+	\hline
+	cr & public & immutabile & CommandReceiver & \\
+	\hline
+\end{tabular}
+
+\subparagraph{Metodi}
+
+\begin{tabular}{| l | l | l | l |}
+	\hline
+	Nome & Accesso & Tipo di ritorno & Descrizione\\
+	\hline
+	execute & public & String & \\
+	\hline
+\end{tabular}
 
 \paragraph{actorbase::cli::models::AddUserCommand}
 \label{sec:actorbase::cli::models::AddUserCommand}
@@ -3628,6 +3948,26 @@ parametri specificati in input.
 \item \hyperref[sec:actorbase::cli::models::Command]{actorbase::cli::models::Command}.
 \end{itemize}
 
+\subparagraph{Attributi}
+
+\begin{tabular}{| l | l | l | l | l |}
+	\hline
+	Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+	\hline
+	cr & public & immutabile & CommandReceiver & \\
+	\hline
+\end{tabular}
+
+\subparagraph{Metodi}
+
+\begin{tabular}{| l | l | l | l |}
+	\hline
+	Nome & Accesso & Tipo di ritorno & Descrizione\\
+	\hline
+	execute & public & String & \\
+	\hline
+\end{tabular}
+
 \paragraph{actorbase::cli::models::HelpCommand}
 \label{sec:actorbase::cli::models::HelpCommand}
 
@@ -3640,6 +3980,32 @@ Classe per la richiesta di aiuto.
 Viene utilizzata per chiamare il metodo di
 actorbase::cli::models::CommandReceiver per la richiesta di aiuto con i
 parametri immessi dall'utente.
+
+\subparagraph{Classi ereditate}
+
+\begin{itemize}
+	\item \hyperref[sec:actorbase::cli::models::Command]{actorbase::cli::models::Command}.
+\end{itemize}
+
+\subparagraph{Attributi}
+
+\begin{tabular}{| l | l | l | l | l |}
+	\hline
+	Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+	\hline
+	cr & public & immutabile & CommandReceiver & \\
+	\hline
+\end{tabular}
+
+\subparagraph{Metodi}
+
+\begin{tabular}{| l | l | l | l |}
+	\hline
+	Nome & Accesso & Tipo di ritorno & Descrizione\\
+	\hline
+	execute & public & String & \\
+	\hline
+\end{tabular}
 
 \paragraph{actorbase::cli::models::RemoveItemCommand}
 \label{sec:actorbase::cli::models::RemoveItemCommand}
@@ -3660,6 +4026,26 @@ con i parametri immessi dall'utente.
 \item \hyperref[sec:actorbase::cli::models::Command]{actorbase::cli::models::Command}.
 \end{itemize}
 
+\subparagraph{Attributi}
+
+\begin{tabular}{| l | l | l | l | l |}
+	\hline
+	Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+	\hline
+	cr & public & immutabile & CommandReceiver & \\
+	\hline
+\end{tabular}
+
+\subparagraph{Metodi}
+
+\begin{tabular}{| l | l | l | l |}
+	\hline
+	Nome & Accesso & Tipo di ritorno & Descrizione\\
+	\hline
+	execute & public & String & \\
+	\hline
+\end{tabular}
+
 \paragraph{actorbase::cli::models::RemoveUserCommand}
 \label{sec:actorbase::cli::models::RemoveUserCommand}
 
@@ -3678,6 +4064,26 @@ parametri immessi dall'utente.
 \begin{itemize}
 \item \hyperref[sec:actorbase::cli::models::Command]{actorbase::cli::models::Command}.
 \end{itemize}
+
+\subparagraph{Attributi}
+
+\begin{tabular}{| l | l | l | l | l |}
+	\hline
+	Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+	\hline
+	cr & public & immutabile & CommandReceiver & \\
+	\hline
+\end{tabular}
+
+\subparagraph{Metodi}
+
+\begin{tabular}{| l | l | l | l |}
+	\hline
+	Nome & Accesso & Tipo di ritorno & Descrizione\\
+	\hline
+	execute & public & String & \\
+	\hline
+\end{tabular}
 
 \paragraph{actorbase::cli::models::ImportCommand}
 \label{sec:actorbase::cli::models::ImportCommand}
@@ -3698,6 +4104,26 @@ Viene utilizzata per chiamare il metodo di
 \item \hyperref[sec:actorbase::cli::models::Command]{actorbase::cli::models::Command}.
 \end{itemize}
 
+\subparagraph{Attributi}
+
+\begin{tabular}{| l | l | l | l | l |}
+	\hline
+	Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+	\hline
+	cr & public & immutabile & CommandReceiver & \\
+	\hline
+\end{tabular}
+
+\subparagraph{Metodi}
+
+\begin{tabular}{| l | l | l | l |}
+	\hline
+	Nome & Accesso & Tipo di ritorno & Descrizione\\
+	\hline
+	execute & public & String & \\
+	\hline
+\end{tabular}
+
 \paragraph{actorbase::cli::models::InsertItemCommand}
 \label{sec:actorbase::cli::models::InsertItemCommand}
 
@@ -3715,6 +4141,26 @@ Viene utilizzata per chiamare il metodo di \hyperref[sec:actorbase::cli::models:
 \begin{itemize}
 \item \hyperref[sec:actorbase::cli::models::Command]{actorbase::cli::models::Command}.
 \end{itemize}
+
+\subparagraph{Attributi}
+
+\begin{tabular}{| l | l | l | l | l |}
+	\hline
+	Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+	\hline
+	cr & public & immutabile & CommandReceiver & \\
+	\hline
+\end{tabular}
+
+\subparagraph{Metodi}
+
+\begin{tabular}{| l | l | l | l |}
+	\hline
+	Nome & Accesso & Tipo di ritorno & Descrizione\\
+	\hline
+	execute & public & String & \\
+	\hline
+\end{tabular}
 
 \paragraph{actorbase::cli::models::CreateCollectionCommand}
 \label{sec:actorbase::cli::models::CreateCollectionCommand}
@@ -3735,6 +4181,26 @@ Viene utilizzata per chiamare il metodo di
 \item \hyperref[sec:actorbase::cli::models::Command]{actorbase::cli::models::Command}.
 \end{itemize}
 
+\subparagraph{Attributi}
+
+\begin{tabular}{| l | l | l | l | l |}
+	\hline
+	Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+	\hline
+	cr & public & immutabile & CommandReceiver & \\
+	\hline
+\end{tabular}
+
+\subparagraph{Metodi}
+
+\begin{tabular}{| l | l | l | l |}
+	\hline
+	Nome & Accesso & Tipo di ritorno & Descrizione\\
+	\hline
+	execute & public & String & \\
+	\hline
+\end{tabular}
+
 \paragraph{actorbase::cli::models::ExportCommand}
 \label{sec:actorbase::cli::models::ExportCommand}
 
@@ -3753,6 +4219,26 @@ Viene utilizzata per chiamare il metodo di
 \begin{itemize}
 \item \hyperref[sec:actorbase::cli::models::Command]{actorbase::cli::models::Command}.
 \end{itemize}
+
+\subparagraph{Attributi}
+
+\begin{tabular}{| l | l | l | l | l |}
+	\hline
+	Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+	\hline
+	cr & public & immutabile & CommandReceiver & \\
+	\hline
+\end{tabular}
+
+\subparagraph{Metodi}
+
+\begin{tabular}{| l | l | l | l |}
+	\hline
+	Nome & Accesso & Tipo di ritorno & Descrizione\\
+	\hline
+	execute & public & String & \\
+	\hline
+\end{tabular}
 
 \paragraph{actorbase::cli::models::CommandReceiver}
 \label{sec:actorbase::cli::models::CommandReceiver}
@@ -3774,6 +4260,60 @@ visualizzare se richiesto dall'utente.
 \item \hyperref[sec:actorbase::cli::models::Command]{actorbase::cli::models::Command};
 \item \hyperref[sec:actorbase::driver::client::ActorbaseClient]{actorbase::driver::client::ActorbaseClient}.
 \end{itemize}
+
+\subparagraph{Attributi}
+
+\begin{tabular}{| l | l | l | l | l |}
+	\hline
+	Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+	\hline
+	actorbaseDriver & public & mutabile & ActorbaseDriver & \\
+	\hline
+	params & public & immutabile & Map[Any,Any] & \\
+	\hline
+\end{tabular}
+
+\subparagraph{Metodi}
+
+\begin{tabular}{| l | l | l | l |}
+	\hline
+	Nome & Accesso & Tipo di ritorno & Descrizione\\
+	\hline
+	insert & public & String & \\
+	\hline
+	removeItem & public & String & \\
+	\hline
+	export & public & String & \\
+	\hline
+	login & public & String & \\
+	\hline
+	logout & public & String & \\
+	\hline
+	find & public & String & \\
+	\hline
+	help & public & String & \\
+	\hline
+	createCollection & public & String & \\
+	\hline
+	listCollections & public & String & \\
+	\hline
+	renameCollection & public & String & \\
+	\hline
+	deleteCollection & public & String & \\
+	\hline
+	addContributor & public & String & \\
+	\hline
+	removeContributor & public & String & \\
+	\hline
+	changePassword & public & String & \\
+	\hline
+	addUser & public & String & \\
+	\hline
+	removeUser & public & String & \\
+	\hline
+	resetPassword & public & String & \\
+	\hline
+\end{tabular}
 
 \section{Diagrammi di Sequenza}
 
