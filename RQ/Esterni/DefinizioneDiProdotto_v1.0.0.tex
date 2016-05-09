@@ -586,7 +586,7 @@ mandato a \hyperref[sec:actorbase::driver::client::ActorbaseClient]{actorbase::d
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{actorbase::actorsystem::httpserver} %TODO da fare
+\subsection{actorbase::actorsystem::httpserver} %TODO da ricontrollare
 \label{sec:actorbase::actorsystem::httpserver}
 
 \begin{figure}[H]
@@ -597,18 +597,16 @@ mandato a \hyperref[sec:actorbase::driver::client::ActorbaseClient]{actorbase::d
 \end{figure}
 
 \subsubsection{Descrizione}
-
 \gloss{Package} per l'\gloss{attore} con cui si interfaccerà il \gloss{driver} per la connessione iniziale.
 
 \subsubsection{Package contenuti}
-
 \begin{itemize}
 \item \hyperref[sec:actorbase::actorsystem::httpserver::messages]{actorbase::actorsystem::httpserver::messages}.
 \end{itemize}
 
 \subsubsection{Classi}
 
-\paragraph{actorbase::actorsystem::httpserver::HTTPServer} %TODO da fare
+\paragraph{actorbase::actorsystem::httpserver::HTTPServer} 
 \label{sec:actorbase::actorsystem::httpserver::HTTPServer}
 
 \subparagraph{Descrizione}
@@ -624,12 +622,49 @@ e si occupa di associare al \gloss{client} un \gloss{attore} di tipo
 per continuare le comunicazioni.
 
 \subparagraph{Classi ereditate}
-
 \begin{itemize}
   \item akka::actor::Actor.
 \end{itemize}
 
-% TODO metodi?
+\subparagraph{Attributi}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  router & privata & immutabile & ActorRef & Rappresenta un riferimento all'attore che si occupa del routing delle richieste agli attori di tipo \hyperref[sec:actorbase::actorsystem::main::Main]{Main} \\
+  \hline
+  listenPort & private & immutabile & Int & Rappresenta la porta in cui il server si mette in ascolto \\
+  \hline
+\end{tabular}
+
+\subparagraph{Metodi}
+
+\begin{tabular}{| l | l | l | l |}
+  \hline
+  Nome & Accesso & Tipo di ritorno & Descrizione\\
+  \hline
+  receive & public &  & Effettua operazioni diverse a seconda del tipo di messaggio ricevuto\\
+  \hline
+\end{tabular}
+
+\paragraph{actorbase::actorsystem::httpserver::SslConfiguration} 
+\label{sec:actorbase::actorsystem::httpserver::SslConfiguration}
+
+\subparagraph{Descrizione}
+Classe che contiene metodi di utilità per applicare algoritmi di crittografia
+ssl.
+
+\subparagraph{Metodi}
+
+\begin{tabular}{| l | l | l | l |}
+  \hline
+  Nome & Accesso & Tipo di ritorno & Descrizione\\
+  \hline
+  sslContext & public & SSLContext & metodo per impostare le opzioni per SSL\\
+  \hline
+  sslEngineProvider & public & ServerSSLEngineProvider & metodo per impostare una \gloss{cipher suite}\\
+  \hline
+\end{tabular}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -781,7 +816,7 @@ Questa classe viene utilizzata per gestire le richieste ricevute al
   \hline
   receive & public &  & Effettua operazioni diverse a seconda del tipo di messaggio ricevuto\\
   \hline
-  createCollection & private & ActorRef & Metodo utilizzato per creare una collezione, al suo interno il metodo crea uno Storefinder adibito a tale collezione, successivamente aggiorna sfMap. Ritorna il riferimento al nuovo attore creato
+  createCollection & private & ActorRef & Metodo utilizzato per creare una collezione, al suo interno il metodo crea uno Storefinder adibito a tale collezione, successivamente aggiorna sfMap. Ritorna il riferimento al nuovo attore creato\\
   \hline
 \end{tabular}
 
