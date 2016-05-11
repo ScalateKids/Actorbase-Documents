@@ -1,4 +1,4 @@
-*** Driver usage: Generic example
+**** Driver usage: Generic example
 #+begin_src scala
   val client = new ActorbaseDriver("localhost", 9999)
   client.authenticate("foo", "bar") // athentication method
@@ -26,4 +26,20 @@
   val myCollections = client.getCollections
   // drop collections 'customers' and 'people'
   myCollections.drop("customers", "people")
+#+end_src
+
+**** Printing a collection
+#+begin_src scala
+println(driver.getCollection("customer"))
+#+end_src
+
+**** Printing some collections
+#+begin_src scala
+driver.getCollections.foreach(println)
+#+end_src
+
+**** Adding a local collection
+#+begin_src scala
+val collection = ActorbaseCollection("owner", "foo", "key" -> "value", "key2" -> "value2")
+driver.addCollection(collection)
 #+end_src
