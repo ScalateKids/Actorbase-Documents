@@ -1,0 +1,29 @@
+*** Driver usage: Generic example
+#+begin_src scala
+  val client = new ActorbaseDriver("localhost", 9999)
+  client.authenticate("foo", "bar") // athentication method
+  val coll = client.addCollection("people")
+  // just a "key" -> "value" pair
+  coll.insert("key" -> "value")
+  // creating a simple Person class
+  case class Person(name: String, age: Int)
+  // insert Person type object..
+  coll.insert("Seagal" -> Person("Steven", 60))
+  //..and aother two
+  coll.insert("Arnold" -> Person("Shwarzenegger", 68), "Sylvester" -> Person("Stallone", 67))
+  // finally two totally different item
+  coll.insert("Foo" -> 42, "bar" -> "baz")
+  // printing all collection contents
+  for ((k, v) <- coll) {
+    println(s"$k -> $v")
+  }
+  // find some keys inside collection and do operations
+  for ((k, v) <- coll.find("Arnold", "Foo")) {
+    // operations...
+  }
+
+  // get all collections owned on the database
+  val myCollections = client.getCollections
+  // drop collections 'customers' and 'people'
+  myCollections.drop("customers", "people")
+#+end_src

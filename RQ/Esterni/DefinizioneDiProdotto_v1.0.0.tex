@@ -224,12 +224,12 @@ rappresentano il \gloss{server}.
 \label{sec:actorbase::actorsystem::utils::KeyRange}
 
 \subparagraph{Descrizione}
-Classe atta a modellare un intervallo di chiavi.\\Viene utilizzata da diversi 
+Classe atta a modellare un intervallo di chiavi.\\Viene utilizzata da diversi
 attori.
 
 \subparagraph{Utilizzo}
-Viene utilizzata da diversi attori del sistema. Questa classe espone metodi 
-getter, un metodo compare e un metodo per controllare se una determinata 
+Viene utilizzata da diversi attori del sistema. Questa classe espone metodi
+getter, un metodo compare e un metodo per controllare se una determinata
 stringa fa parte di questo intervallo di chiavi.
 
 \subparagraph{Eredita}
@@ -246,7 +246,7 @@ stringa fa parte di questo intervallo di chiavi.
   \hline
   minRange & privata & immutabile & String & Rappresenta il limite inferiore delle possibili chiavi di questo range \\
   \hline
-  maxRange & private & immutabile & String & Rappresenta il limite superiore delle possibili chiavi di questo range \\ 
+  maxRange & private & immutabile & String & Rappresenta il limite superiore delle possibili chiavi di questo range \\
   \hline
 \end{tabular}
 
@@ -300,8 +300,8 @@ stringa fa parte di questo intervallo di chiavi.
 Classe atta a modellare un intervallo di chiavi di una specifica collezione.
 
 \subparagraph{Utilizzo}
-Viene utilizzata da diversi attori del sistema. Questa classe espone metodi 
-getter, un metodo per il confronto della collezione, un meotodo per il 
+Viene utilizzata da diversi attori del sistema. Questa classe espone metodi
+getter, un metodo per il confronto della collezione, un meotodo per il
 confronto del range delle chiavi e un metodo compare.
 
 \subparagraph{Realizza}
@@ -316,7 +316,7 @@ confronto del range delle chiavi e un metodo compare.
   \hline
   collection & privata & mutabile & \hyperref[sec:actorbase::actorsystem::utils::ActorbaseCollection]{ActorbaseCollection} & Rappresenta la collezione rappresentata \\
   \hline
-  range & private & mutabile & \hyperref[sec:actorbase::actorsystem::utils::KeyRange]{KeyRange} & Rappresenta il range di chiavi della collezione \\ 
+  range & private & mutabile & \hyperref[sec:actorbase::actorsystem::utils::KeyRange]{KeyRange} & Rappresenta il range di chiavi della collezione \\
   \hline
 \end{tabular}
 
@@ -382,7 +382,7 @@ confronto del range delle chiavi e un metodo compare.
 Classe atta a modellare una collezione del sistema actorbase.
 
 \subparagraph{Utilizzo}
-Viene utilizzata da diversi attori del sistema. Questa classe espone metodi 
+Viene utilizzata da diversi attori del sistema. Questa classe espone metodi
 getter e un meotodo per il confronto con un altro oggetto ActorbaseCollection.
 
 \subparagraph{Realizza}
@@ -397,7 +397,7 @@ getter e un meotodo per il confronto con un altro oggetto ActorbaseCollection.
   \hline
   name & privata & mutabile & String & Rappresenta il nome della collezione \\
   \hline
-  owner & private & mutabile & String & Rappresenta lo username dell'utente che ha creato la collezione \\ 
+  owner & private & mutabile & String & Rappresenta lo username dell'utente che ha creato la collezione \\
   \hline
 \end{tabular}
 
@@ -728,7 +728,7 @@ mandato a \hyperref[sec:actorbase::driver::client::ActorbaseClient]{actorbase::d
 
 \subsubsection{Classi}
 
-\paragraph{actorbase::actorsystem::httpserver::HTTPServer} 
+\paragraph{actorbase::actorsystem::httpserver::HTTPServer}
 \label{sec:actorbase::actorsystem::httpserver::HTTPServer}
 
 \subparagraph{Descrizione}
@@ -769,7 +769,7 @@ per continuare le comunicazioni.
   \hline
 \end{tabular}
 
-\paragraph{actorbase::actorsystem::httpserver::SslConfiguration} 
+\paragraph{actorbase::actorsystem::httpserver::SslConfiguration}
 \label{sec:actorbase::actorsystem::httpserver::SslConfiguration}
 
 \subparagraph{Descrizione}
@@ -955,12 +955,12 @@ Questa classe viene utilizzata per gestire le richieste ricevute al
 \label{sec:actorbase::actorsystem::main::messages::AddUser}
 
 \subparagraph{Descrizione}
-Messaggio che porta alla creazione di un \gloss{utente}.\\Viene ricevuto 
+Messaggio che porta alla creazione di un \gloss{utente}.\\Viene ricevuto
 quando un amministratore di actorbase aggiunge un utente al sistema.
 
 \subparagraph{Utilizzo}
 Quando \hyperref[sec:actorbase::actorsystem::main::Main]{actorbase::actorsystem::main::Main}
-riceve questo messaggio inoltra la richiesta di aggiunta utente allo 
+riceve questo messaggio inoltra la richiesta di aggiunta utente allo
 Userfinder di cui ha riferimento.
 
 \subparagraph{Attributi}
@@ -982,7 +982,7 @@ Messaggio che indica una richiesta di autenticazione al sistema.
 
 \subparagraph{Utilizzo}
 Quando \hyperref[sec:actorbase::actorsystem::main::Main]{actorbase::actorsystem::main::Main}
-riceve questo messaggio manderà un messaggio di tipo GetPasswordOf 
+riceve questo messaggio manderà un messaggio di tipo GetPasswordOf
 all'attore di tipo \hyperref[sec:actorbase::actorsystem::userfinder::Userfinder]{Userfinder} di cui ha riferimento.
 
 \subparagraph{Attributi}
@@ -1005,7 +1005,7 @@ Messaggio che indica una richiesta di inserimento di un item.
 \subparagraph{Utilizzo}
 
 Quando \hyperref[sec:actorbase::actorsystem::main::Main]{Main}
-riceve questo messaggio inoltrerà il messaggio allo \hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{Storefinder} 
+riceve questo messaggio inoltrerà il messaggio allo \hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{Storefinder}
 che si occupa del range di chiavi che contiene la chiave inserita.
 
 \subparagraph{Attributi}
@@ -1029,7 +1029,7 @@ Messaggio che indica una richiesta di rimozione di un item.
 
 \subparagraph{Utilizzo}
 Quando \hyperref[sec:actorbase::actorsystem::main::Main]{Main}
-riceve questo messaggio inoltrerà il messaggio allo \hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{Storefinder} 
+riceve questo messaggio inoltrerà il messaggio allo \hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{Storefinder}
 che si occupa del range di chiavi che contiene la chiave inserita.
 
 \subparagraph{Attributi}
@@ -1079,7 +1079,7 @@ Messaggio che indica una richiesta di una \gloss{collezione}.
 \subparagraph{Utilizzo}
 
 Quando \hyperref[sec:actorbase::actorsystem::main::Main]{Main}
-riceve questo messaggio inoltrerà la richiesta a tutti gli attori di 
+riceve questo messaggio inoltrerà la richiesta a tutti gli attori di
 tipo \hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{Storefinder} per restituire tutta la collezione richiesta.
 
 \subparagraph{Attributi}
@@ -1099,8 +1099,8 @@ Messaggio che indica una richiesta di creazione di una \gloss{collezione}.
 
 \subparagraph{Utilizzo}
 Quando \hyperref[sec:actorbase::actorsystem::main::Main]{Main}
-riceve questo messaggio provvederà a creare uno \hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{Storefinder} adibito 
-alla gestione della collezione e aggiornerà la propria struttura dati 
+riceve questo messaggio provvederà a creare uno \hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{Storefinder} adibito
+alla gestione della collezione e aggiornerà la propria struttura dati
 aggiungendo questo riferimento.
 
 \subparagraph{Attributi}
@@ -1120,7 +1120,7 @@ Messaggio che indica una richiesta di rimozione di una \gloss{collezione}.
 
 \subparagraph{Utilizzo}
 Quando \hyperref[sec:actorbase::actorsystem::main::Main]{Main}
-riceve questo messaggio provvederà a terminare gli attori storefinder 
+riceve questo messaggio provvederà a terminare gli attori storefinder
 che rappresentano la collezione da rimuovere.
 
 \subparagraph{Attributi}
@@ -1143,7 +1143,7 @@ Messaggio che indica una richiesta di aggiunta di un collaboratore ad una
 \subparagraph{Utilizzo}
 
 Quando \hyperref[sec:actorbase::actorsystem::main::Main]{Main}
-riceve questo messaggio inoltrerà la richiesta all'attore 
+riceve questo messaggio inoltrerà la richiesta all'attore
 \hyperref[sec:actorbase::actorsystem::userfinder::Userfinder]{Userfinder}.
 
 \subparagraph{Attributi}
@@ -1168,7 +1168,7 @@ Messaggio che indica l'avvenuto duplicamento di uno \hyperref[sec:actorbase::act
 
 \subparagraph{Utilizzo}
 Quando \hyperref[sec:actorbase::actorsystem::main::Main]{Main}
-riceve questo messaggio provvederà a aggiornare la propria struttura dati 
+riceve questo messaggio provvederà a aggiornare la propria struttura dati
 contenente la mappatura degli \hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{Storefinder}.
 
 \subparagraph{Attributi}
@@ -1216,8 +1216,8 @@ riceve questo messaggio inoltrerà la richiesta all'attore \hyperref[sec:actorba
 \label{sec:actorbase::actorsystem::main::messages::InitUsers}
 
 \subparagraph{Descrizione}
-Messaggio che indica la necessità di lettura da filesystem della collezione 
-contenente gli utenti del sistema.\\Messaggio per il popolamento del database 
+Messaggio che indica la necessità di lettura da filesystem della collezione
+contenente gli utenti del sistema.\\Messaggio per il popolamento del database
 post accensione.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1294,7 +1294,7 @@ Questa classe viene utilizzata per tener traccia degli attori di tipo
 Messaggio che indica la richiesta di autenticazione da parte di un utente.\\
 
 \subparagraph{Utilizzo}
-Quando l'attore riceve questo messaggio provvederà a inoltrare la richiesta 
+Quando l'attore riceve questo messaggio provvederà a inoltrare la richiesta
 allo \hyperref[sec:actorbase::actorsystem::userkeeper::Userkeeper]{Userkeeper}
 relativo allo username ricevuto.
 
@@ -2200,8 +2200,8 @@ per aggiornare i suoi riferimenti.
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=1.0\textwidth,keepaspectratio]{RP/Driver.png}
-    \caption{CLI:architettura MVC variante push model}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/Driver-RQ.png}
+    \caption{Driver: Architettura generale}
   \end{center}
 \end{figure}
 
@@ -3357,7 +3357,7 @@ Viene utilizzata per la lettura dei comandi inseriti dall'utente.
 	\hline
 	grammarParser & private & immutabile & GrammarParser & Oggetto che rappresenta il riferimento al controller\\
 	\hline
-	reader & private & immutabile & ConsoleReader & \\ %TODO descrizione 
+	reader & private & immutabile & ConsoleReader & \\ %TODO descrizione
 	\hline
 	history & private & immutabile & FileHistory & \\ % TODO descrizione
 	\hline
