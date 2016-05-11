@@ -30,16 +30,24 @@
 
 **** Printing a collection
 #+begin_src scala
-println(driver.getCollection("customer"))
+println(client.getCollection("customer"))
 #+end_src
 
 **** Printing some collections
 #+begin_src scala
-driver.getCollections.foreach(println)
+client.getCollections.foreach(println)
 #+end_src
 
 **** Adding a local collection
 #+begin_src scala
 val collection = ActorbaseCollection("owner", "foo", "key" -> "value", "key2" -> "value2")
-driver.addCollection(collection)
+client.addCollection(collection)
+#+end_src
+
+**** Collaborator operations
+#+begin_src scala
+val fooCollection = client.getCollection("foo")
+fooCollection.addCollaborator("aFriend")
+// remove
+fooCollection.removeCollection("aFriend")
 #+end_src
