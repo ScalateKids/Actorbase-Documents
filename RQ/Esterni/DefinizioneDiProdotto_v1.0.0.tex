@@ -3283,7 +3283,7 @@ Offre un'interfaccia per la creazione di un \gloss{prompt} generico.
 	\hline
 	Nome & Accesso & Tipo di ritorno & Descrizione\\
 	\hline
-	getPrompt & public & String & \\
+	getPrompt & public & String & Ritorna la stringa che rappresenta il \gloss{prompt}.\\
 	\hline
 \end{tabular}
 
@@ -3313,7 +3313,7 @@ risposta ricevuta dal \gloss{driver}.
 	\hline
 	Nome & Accesso & Tipo di ritorno & Descrizione\\
 	\hline
-	update & public & Unit & \\
+	update & public & Unit & Aggiorna lo stato della \gloss{view}\\
 	\hline
 \end{tabular}
 
@@ -3326,7 +3326,7 @@ risposta ricevuta dal \gloss{driver}.
 	\hline
 	Nome & Tipo & Descrizione\\
 	\hline
-	o & \hyperref[actorbase::cli::models::Observable]{Observable} & \\
+	o & \hyperref[actorbase::cli::models::Observable]{Observable} & Rappresenta l'oggetto osservato\\
 	\hline
 \end{tabular}
 
@@ -3357,13 +3357,13 @@ Viene utilizzata per la lettura dei comandi inseriti dall'utente.
 	\hline
 	grammarParser & private & immutabile & GrammarParser & Oggetto che rappresenta il riferimento al controller\\
 	\hline
-	reader & private & immutabile & ConsoleReader & \\ %TODO descrizione
+	reader & private & immutabile & ConsoleReader & Oggetto che rappresenta il reader per console appplication \\
 	\hline
-	history & private & immutabile & FileHistory & \\ % TODO descrizione
+	history & private & immutabile & FileHistory & Oggetto che rappresenta il file contenente la storia dei comandi\\
 	\hline
-	prompt & private & immutabile & ActorbasePrompt & \\ %TODO descrizione
+	prompt & private & immutabile & ActorbasePrompt & Oggetto che rappresenta il prompt di Actorbase\\
 	\hline
-	banner & private & immutabile & ActorbaseBanner & \\ %TODO descrizione
+	banner & private & immutabile & ActorbaseBanner & Oggetto che rappresenta il banner di Actorbase\\
 	\hline
 	completers & private & mutabile & List di String & \\ %TODO descriozione
 	\hline
