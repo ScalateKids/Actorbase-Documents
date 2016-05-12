@@ -439,7 +439,7 @@ Abbiamo standardizzato la scrittura di tutti i documenti attraverso un
 \gloss{template} \LaTeX\xspace appositamente creato e presente su
 \textit{\gloss{GitHub}} nel \gloss{repository} \textit{ActorBase-Documents}.\gloss{git} (vedi~\ref{sec:ServiziWeb}).\\
 L'uso del \gloss{template} ci permette di creare una serie di documenti
-stilisticamente uniformi tra loro e ci facilita la modifica delle parti in
+libraryDependenciesstilisticamente uniformi tra loro e ci facilita la modifica delle parti in
 comune tra essi.\\Facilita inoltre la creazione di nuove \gloss{macro} e comandi
 \LaTeX\xspace. Nella fattispecie abbiamo creato i seguenti:
 \begin{itemize}
@@ -574,7 +574,7 @@ Per uniformare il più possibile la stesura di tutti i documenti queste sono le 
   \item Nome del \textit{Proponente}: il \textit{Proponente} sarà indicato come \textit{prof. Riccardo Cardin};
   \item Nome del gruppo: il gruppo sarà indicato come \textit{ScalateKids}.
   \end{itemize}
-\end{itemize}
+\end{itemize}libraryDependencies
 
 \paragraph{Immagini}
 
@@ -619,7 +619,7 @@ La citazione di una versione specifica di un documento deve comprendere sia il n
 \subsubsection{Ciclo di vita dei documenti}
 
 Tutti i documenti nascono nello stato di \textit{in lavorazione}.\\
-Dopo l'avvenuta di tutte le modifiche necessarie per arrivare ad una versione completa del documento, il suddetto si verrà a trovare nello stato \textit{da verificare}.\\
+Dopo l'avvenuta di tutte le modilibraryDependenciesfiche necessarie per arrivare ad una versione completa del documento, il suddetto si verrà a trovare nello stato \textit{da verificare}.\\
 Alla fine della fase di verifica del documento, se approvato, il documento andrà nello stato di \textit{approvato}.
 I tre stati sono descritti brevemente come segue:
 \begin{itemize}
@@ -742,7 +742,7 @@ all'accentramento di responsabilità che \textit{Responsabile} e
 \textit{Amministratore} comprendono naturalmente da contratto.
 
 \subsubsection{Responsabile di Progetto}
-
+libraryDependencies
 Il \textit{Responsabile di Progetto} rappresenta il gruppo presso il \textit{Proponente}
 e presso il \textit{Committente}. È il ruolo più presente lungo tutto l'arco temporale di
 sviluppo del prodotto, in quanto deve partecipare e seguire il prodotto dalla
@@ -1435,34 +1435,35 @@ plugin di sbt.
 
 \subsection{Accesso alla console Scala}
 
-Sbt offre la possibilità di accedere mediante la sua cli alla scala console. Per accedervi è sufficiente lanciare il comando sbt che
+Sbt offre la possibilità di accedere mediante la sua cli alla scala console. Per accedervi è sufficiente lanciare il comando \verb=sbt= che
 ci aprirà una nuova istanza della console di sbt. Dalla quale è possibile manualmente configurare progetti versioni e ogni tipo di 
-impostazione di sbt. Per aprire la console scala è sufficiente dare il comando consoleProject su CLI di sbt per avviare la scala
+impostazione di sbt. Per aprire la console scala è sufficiente dare il comando \verb=consoleProject= su CLI di sbt per avviare la scala
 console.
 
 \subsection{Compilazione di progetti}
 
 Per la compilazione di un progetto sbt, una volta configurato a dovere il file build.sbt sarà sufficiente dalla directory del
-progetto dare il comando sbt compile per compilare il progetto e lanciarlo. Alla prima esecuzione tale comando dovrà occuparsi di
+progetto dare il comando \verb=sbt compile= per compilare il progetto e lanciarlo. Alla prima esecuzione tale comando dovrà occuparsi di
 risolvere tutte le dipendenze del progetto e ottenerle dalla rete. Di conseguenza è necessaria una connessione.
 Dopo che sarà stata scaricata la corretta versione di scala e le librerie il verrà compilato il progetto e mostrati eventuali 
 messaggi di errore. Dalla seconda esecuzione in poi il progetto verrà solo compilato, usando scala e librerie precedentemente
 scaricate.
-Se si desidera fare un clean e riscaricare nuovamente da capo scala e librerie sarà sufficente dare il comando sbt clean compile, che
+Se si desidera fare un clean e riscaricare nuovamente da capo scala e librerie sarà sufficente dare il comando \verb=sbt clean= compile, che
 eseguirà un clean del progetto per poi ricompilare il tutto da capo.
 
 \subsubsection{Compilazione di moduli separati}
 
-In caso sia necessario compilare e testare un singolo modulo, viene utilizzato il comando sbt test seguito dal modulo del
+In caso sia necessario compilare e testare un singolo modulo, viene utilizzato il comando \verb=sbt test= seguito dal modulo del
 progetto che si desidera compilare e testare
 
 \subsubsection{Esecuzione del codice Scala}
 
-Per l'esecuzione del progetto sbt dalla directory home è sufficiente lanciare il comando sbt run che automaticamente eseguirà
+Per l'esecuzione del progetto sbt dalla directory home è sufficiente lanciare il comando \verb=sbt run= che automaticamente eseguirà
 una compilazione se ci sono modifiche dall'ultima compilazione nota, e poi eseguirà il progetto.
 
 \subsubsection{Esecuzione dei test di unità previsti}
+\newpage
 
 \listoffigures
 
-\end{document}
+\end{document}libraryDependencies
