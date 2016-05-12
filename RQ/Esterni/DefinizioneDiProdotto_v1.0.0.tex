@@ -3400,7 +3400,7 @@ risposta ricevuta dal \gloss{driver}.
 \subparagraph{Realizzata da}
 
 \begin{itemize}
-\item actorbase::cli::views::ResultView
+\item actorbase::cli::views::ResultViewer
 \end{itemize}
 
 \subparagraph{Metodi}
@@ -3409,7 +3409,7 @@ risposta ricevuta dal \gloss{driver}.
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  update & public & Unit & Aggiorna lo stato della \gloss{view}\\
+  update & public & Unit & Aggiorna lo stato dell'observer\\
   \hline
 \end{tabular}
 
@@ -3445,25 +3445,25 @@ Viene utilizzata per la lettura dei comandi inseriti dall'utente.
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  loop & private & immutabile & Boolean & Oggetto che rappresenta la condizione do/while\\
+  loop & private & immutabile & Boolean & Rappresenta la condizione do/while\\
   \hline
-  commandInvoker & private & immutabile & CommandInvoker & Oggetto che rappresenta il riferimento al model\\
+  commandInvoker & private & immutabile & CommandInvoker & Rappresenta il riferimento al model\\
   \hline
-  view & private & immutabile & ResultView & Oggetto che rappresenta il riferimento alla view\\
+  view & private & immutabile & ResultViewer & Rappresenta il riferimento alla view\\
   \hline
-  grammarParser & private & immutabile & GrammarParser & Oggetto che rappresenta il riferimento al controller\\
+  grammarParser & private & immutabile & GrammarParser & Rappresenta il riferimento al controller\\
   \hline
-  reader & private & immutabile & ConsoleReader & Oggetto che rappresenta il reader per console appplication \\
+  reader & private & immutabile & ConsoleReader & Rappresenta il reader per console appplication \\
   \hline
-  history & private & immutabile & FileHistory & Oggetto che rappresenta il file contenente la storia dei comandi\\
+  history & private & immutabile & FileHistory & Rappresenta il file contenente la storia dei comandi\\
   \hline
-  prompt & private & immutabile & ActorbasePrompt & Oggetto che rappresenta il prompt di Actorbase\\
+  prompt & private & immutabile & ActorbasePrompt & Rappresenta il prompt di Actorbase\\
   \hline
-  banner & private & immutabile & ActorbaseBanner & Oggetto che rappresenta il banner di Actorbase\\
+  banner & private & immutabile & ActorbaseBanner & Rappresenta il banner di Actorbase\\
   \hline
-  completers & private & mutabile & List di String & \\ %TODO descriozione
+  completers & private & mutabile & List di String & Lista di stringhe che serve per suggerire i completamenti\\
   \hline
-  out & private & immutabile & PrintWriter & \\ %TODO descrizione
+  out & private & immutabile & PrintWriter & Oggetto di tipo PrintWriter\\
   \hline
 \end{tabular}
 
@@ -3516,7 +3516,7 @@ effettuata. %TODO: scrivere meglio
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  getPrompt & public & String & \\
+  getPrompt & public & String & Ritorna la stringa che rappresenta il \gloss{prompt} di actorbase\\
   \hline
 \end{tabular}
 
@@ -3526,12 +3526,12 @@ effettuata. %TODO: scrivere meglio
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  os & private & immutabile & String & \\
+  os & private & immutabile & String & Oggetto che rappresenta il nome del sistema\\
   \hline
 \end{tabular}
 
-\paragraph{actorbase::cli::views::ResultView}
-\label{sec:actorbase::cli::views::ResultView}
+\paragraph{actorbase::cli::views::ResultViewer}
+\label{sec:actorbase::cli::views::ResultViewer}
 
 \subparagraph{Descrizione}
 
@@ -3563,7 +3563,7 @@ ottenuti dal server mediante l'inserimento dei comandi tramite il
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  update & public & Unit & \\
+  update & public & Unit & Aggiorna lo stato della \gloss{view}\\
   \hline
 \end{tabular}
 
@@ -3576,7 +3576,7 @@ ottenuti dal server mediante l'inserimento dei comandi tramite il
   \hline
   Nome & Tipo & Descrizione\\
   \hline
-  o & \hyperref[actorbase::cli::models::Observable]{Observable} & \\
+  o & \hyperref[actorbase::cli::models::Observable]{Observable} & Rappresenta l'oggetto osservato\\
   \hline
 \end{tabular}
 
@@ -3623,35 +3623,37 @@ l'esecuzione del comando.
 
 \subparagraph{Metodi}
 
-\begin{tabular}{| l | l | l | l |} %TODO descrizione
+\begin{tabular}{| p{5.5cm} | p{1.5cm} | p{2cm} | p{7.5cm} |} %TODO descrizione
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  authManagementCommand & public & Parser di Command & \\
+  authManagementCommand & public & Parser di \hyperref[sec:actorbase::cli::models::Command]{Command} & Fa il parsing del comando di autenticazione e istanzia il \hyperref[sec:actorbase::cli::models::LoginCommand]{LoginCommand} o il \hyperref[sec:actorbase::cli::models::LogoutCommand]{LogoutCommand} dedicato a seconda del caso\\
   \hline
-  changePasswordCommand & public & Parser di Command & \\
+  changePasswordCommand & public & Parser di \hyperref[sec:actorbase::cli::models::Command]{Command} & Fa il parsing del comando di cambio password e istanzia il \hyperref[sec:actorbase::cli::models::ChangePasswordCommand]{ChangePasswordCommand}\\
   \hline
-  helpCommand & public & Parser di Command & \\
+  helpCommand & public & Parser di \hyperref[sec:actorbase::cli::models::Command]{Command} & Fa il parsing del comando di aiuto e istanzia l'\hyperref[sec:actorbase::cli::models::HelpCommand]{HelpCommand}\\
   \hline
-  collectionManagementCommand & public & Parser di Command & \\
+  collectionManagementCommand & public & Parser di \hyperref[sec:actorbase::cli::models::Command]{Command} & Fa il parsing del comando di gestione delle collezioni e istanzia il \hyperref[sec:actorbase::cli::models::CreateCollectionCommand]{CreateCollectionCommand}, il \hyperref[sec:actorbase::cli::models::RemoveCollectionCommand]{RemoveCollectionCommand}, il \hyperref[sec:actorbase::cli::models::ListCollectionsCommand]{ListCollectionsCommand} o il \hyperref[sec:actorbase::cli::models::RenameCollectionCommand]{RenameCollectionCommand} a seconda del caso\\
   \hline
-  addCollaboratorCommand & public & Parser di Command & \\
+  addContributorCommand & public & Parser di \hyperref[sec:actorbase::cli::models::Command]{Command} & Fa il parsing del comando di aggiunta collaboratore e istanzia l'\hyperref[sec:actorbase::cli::models::AddContributorCommand]{AddContributorCommand}\\
   \hline
-  removeCollaboratorCommand & public & Parser di Command & \\
+  removeContributorCommand & public & Parser di \hyperref[sec:actorbase::cli::models::Command]{Command} & 
+  Fa il parsing del comando di rimozione collaboratore e istanzia il \hyperref[sec:actorbase::cli::models::RemoveContributorCommand]{RemoveContributorCommand}\\
   \hline
-  exportCommand & public & Parser di Command & \\
+  importExportCommand & public & Parser di \hyperref[sec:actorbase::cli::models::Command]{Command} & Fa il parsing del comando di import/export e istanzia l'\hyperref[sec:actorbase::cli::models::ImportCommand]{ImportCommand} o l'\hyperref[sec:actorbase::cli::models::ExportCommand]{ExportCommand} a seconda del caso\\
   \hline
-  insertItemCommand & public & Parser di Command & \\
+  insertItemCommand & public & Parser di \hyperref[sec:actorbase::cli::models::Command]{Command} & Fa il parsing del comando di inserimento item e istanzia l'\hyperref[sec:actorbase::cli::models::InsertItemCommand]{InsertItemCommand}\\
   \hline
-  removeItemCommand & public & Parser di Command & \\
+  removeItemCommand & public & Parser di \hyperref[sec:actorbase::cli::models::Command]{Command} & 
+  Fa il parsing del comando di rimozione item e istanzia il \hyperref[sec:actorbase::cli::models::RemoveItemCommand]{RemoveItemCommand}\\
   \hline
-  findCommand & public & Parser di Command & \\
+  findCommand & public & Parser di \hyperref[sec:actorbase::cli::models::Command]{Command} & Fa il parsing del comando di ricerca e istanzia il \hyperref[sec:actorbase::cli::models::FindCommand]{FindCommand}\\
   \hline
-  userManagementCommand & public & Parser di Command & \\
+  userManagementCommand & public & Parser di \hyperref[sec:actorbase::cli::models::Command]{Command} & Fa il parsing del comando di gestione utente e istanzia l'\hyperref[sec:actorbase::cli::models::AddUserCommand]{AddUserCommand}, il \hyperref[sec:actorbase::cli::models::RemoveUserCommand]{RemoveUserCommand} o il \hyperref[sec:actorbase::cli::models::ResetPasswordCommand]{ResetPasswordCommand} a seconda del caso\\
   \hline
-  commandList & ublic & Parser di Command & \\
+  commandList & public & Parser di \hyperref[sec:actorbase::cli::models::Command]{Command} & Racchiude tutti i possibili metodi di parsing\\
   \hline
-  parseInput & public & Boolean & \\
+  parseInput & public & Boolean & Metodo dedicato alla cattura dell'input a cui fare il parsing\\
   \hline
 \end{tabular}
 
@@ -3674,15 +3676,17 @@ l'esecuzione del comando.
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  types & private & immutabile & Parser[String] & \\
+  types & private & immutabile & Parser[String] & Rappresenta i tipi accettati dalla shell\\
   \hline
-  quotedString & private & immutabile & Parser[String] & \\
+  permissions & private & immutabile & Parser[String] & Rappresenta i permessi accettati dalla shell\\
   \hline
-  literalString & private & immutabile & Parser[String] & \\
+  quotedString & private & immutabile & Parser[String] & Rappresenta le Quoted String accettate dalla shell\\
   \hline
-  listString & private & immutabile & Parser[String] & \\
+  literalString & private & immutabile & Parser[String] & Rappresenta le Stringhe letterali accettate dalla shell\\
   \hline
-  keyString & private & immutabile & Parser[String] & \\
+  listString & private & immutabile & Parser[String] & Rappresenta le ListString accettate dalla shell\\
+  \hline
+  keyString & private & immutabile & Parser[String] & Rappresenta le keyString accettate dalla shell\\
   \hline
 \end{tabular}
 
@@ -3698,98 +3702,6 @@ con la componente \gloss{view} tramite il \gloss{push model} del \gloss{design
 utilizzare il \gloss{command pattern}.
 
 \subsection{Interfacce}
-
-\paragraph{actorbase::cli::models::Observable}
-\label{sec:actorbase::cli::models::Observable}
-
-\subparagraph{Descrizione}
-
-Questa classe rappresenta l'oggetto osservato nell'ambito del \gloss{design
-  pattern} \gloss{observer}.
-
-\subparagraph{Utilizzo}
-
-Viene utilizzata per notificare la classe \hyperref[sec:actorbase::cli::views::Observer]{actorbase::cli::views::Observer}
-quando avviene una modifica al proprio stato, ossia quando il \gloss{driver}
-ha ritornato un risultato.
-
-\subparagraph{Interazioni con altre classi}
-
-\begin{itemize}
-\item \hyperref[sec:actorbase::cli::views::Observer]{actorbase::cli::views::Observer}.
-\end{itemize}
-
-\subparagraph{Realizzata da}
-
-\begin{itemize}
-\item \hyperref[sec:actorbase::cli::models::CommandInvoker]{actorbase::cli::models::CommandInvoker}
-\item \hyperref[sec:actorbase::cli::controllers::GrammarParser]{actorbase::cli::controllers::GrammarParser}
-\end{itemize}
-
-\subparagraph{Attributi}
-
-\begin{tabular}{| l | l | l | l | l |}
-  \hline
-  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
-  \hline
-  observers & private & mutabile & ListBuffer[Observer] & \\
-  \hline
-  state & private & mutabile & String & \\
-  \hline
-\end{tabular}
-
-\subparagraph{Metodi}
-
-\begin{tabular}{| l | l | l | l |}
-  \hline
-  Nome & Accesso & Tipo di ritorno & Descrizione\\
-  \hline
-  setState & public & Unit & \\
-  \hline
-  getState & public & String & \\
-  \hline
-  attach & public & Unit & \\
-  \hline
-  detach & public & Unit & \\
-  \hline
-  notifyAllObservers & public & Unit & \\
-  \hline
-\end{tabular}
-
-\subparagraph{Parametri}
-
-\begin{center}
-  \textbf{setState}
-\end{center}
-\begin{tabular}{| l | l | l |}
-  \hline
-  Nome & Tipo & Descrizione\\
-  \hline
-  s & String & \\
-  \hline
-\end{tabular}
-
-\begin{center}
-  \textbf{attach}
-\end{center}
-\begin{tabular}{| l | l | l |}
-  \hline
-  Nome & Tipo & Descrizione\\
-  \hline
-  observer & Observer & \\
-  \hline
-\end{tabular}
-
-\begin{center}
-  \textbf{detach}
-\end{center}
-\begin{tabular}{| l | l | l |}
-  \hline
-  Nome & Tipo & Descrizione\\
-  \hline
-  observer & Observer & \\
-  \hline
-\end{tabular}
 
 \paragraph{actorbase::cli::models::Command}
 \label{sec:actorbase::cli::models::Command}
@@ -3814,11 +3726,11 @@ comando.
 \subparagraph{Realizzata da}
 
 \begin{itemize}
-\item \hyperref[sec:actorbase::cli::models::AddCollaboratorCommand]{actorbase::cli::models::AddCollaboratorCommand};
+\item \hyperref[sec:actorbase::cli::models::AddContributorCommand]{actorbase::cli::models::AddContributorCommand};
 \item \hyperref[sec:actorbase::view::cli::models::AddUserCommand]{actorbase::view::cli::models::AddUserCommand};
 \item  \hyperref[sec:actorbase::view::cli::models::ChangePasswordCommand]{actorbase::view::cli::models::ChangePasswordCommand};
 \item  \hyperref[sec:actorbase::view::cli::models::CreateCollectionCommand]{actorbase::view::cli::models::CreateCollectionCommand};
-\item  \hyperref[sec:actorbase::view::cli::models::DeleteCollectionCommand]{actorbase::view::cli::models::DeleteCollectionCommand};
+\item  \hyperref[sec:actorbase::view::cli::models::RemoveCollectionCommand]{actorbase::view::cli::models::RemoveCollectionCommand};
 \item  \hyperref[sec:actorbase::view::cli::models::ExportCommand]{actorbase::view::cli::models::ExportCommand};
 \item  \hyperref[sec:actorbase::view::cli::models::FindCommand]{actorbase::view::cli::models::FindCommand};
 \item  \hyperref[sec:actorbase::view::cli::models::HelpCommand]{actorbase::view::cli::models::HelpCommand};
@@ -3826,7 +3738,7 @@ comando.
 \item  \hyperref[sec:actorbase::view::cli::models::ListCollectionsCommand]{actorbase::view::cli::models::ListCollectionsCommand};
 \item  \hyperref[sec:actorbase::view::cli::models::LoginCommand]{actorbase::view::cli::models::LoginCommand};
 \item  \hyperref[sec:actorbase::view::cli::models::LogoutCommand]{actorbase::view::cli::models::LogoutCommand};
-\item  \hyperref[sec:actorbase::view::cli::models::RemoveCollaboratorCommand]{actorbase::view::cli::models::RemoveCollaboratorCommand};
+\item  \hyperref[sec:actorbase::view::cli::models::RemoveContributorCommand]{actorbase::view::cli::models::RemoveContributorCommand};
 \item  \hyperref[sec:actorbase::view::cli::models::RemoveItemCommand]{actorbase::view::cli::models::RemoveItemCommand};
 \item  \hyperref[sec:actorbase::view::cli::models::RemoveUserCommand]{actorbase::view::cli::models::RemoveUserCommand};
 \item  \hyperref[sec:actorbase::view::cli::models::RenameCollectionCommand]{actorbase::view::cli::models::RenameCollectionCommand};
@@ -3845,6 +3757,98 @@ comando.
 \end{tabular}
 
 \subsubsection{Classi}
+
+\paragraph{actorbase::cli::models::Observable (abstract)}
+\label{sec:actorbase::cli::models::Observable}
+
+\subparagraph{Descrizione}
+
+Classe astratta che rappresenta l'oggetto osservato nell'ambito del \gloss{design
+	pattern} \gloss{observer}.
+
+\subparagraph{Utilizzo}
+
+Viene utilizzata per notificare la classe \hyperref[sec:actorbase::cli::views::Observer]{actorbase::cli::views::Observer}
+quando avviene una modifica al proprio stato, ossia quando il \gloss{driver}
+ha ritornato un risultato.
+
+\subparagraph{Interazioni con altre classi}
+
+\begin{itemize}
+	\item \hyperref[sec:actorbase::cli::views::Observer]{actorbase::cli::views::Observer}.
+\end{itemize}
+
+\subparagraph{Realizzata da}
+
+\begin{itemize}
+	\item \hyperref[sec:actorbase::cli::models::CommandInvoker]{actorbase::cli::models::CommandInvoker}
+	\item \hyperref[sec:actorbase::cli::controllers::GrammarParser]{actorbase::cli::controllers::GrammarParser}
+\end{itemize}
+
+\subparagraph{Attributi}
+
+\begin{tabular}{| l | l | l | l | l |}
+	\hline
+	Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+	\hline
+	observers & private & mutabile & ListBuffer[Observer] & \\
+	\hline
+	state & private & mutabile & String & \\
+	\hline
+\end{tabular}
+
+\subparagraph{Metodi}
+
+\begin{tabular}{| l | l | l | l |}
+	\hline
+	Nome & Accesso & Tipo di ritorno & Descrizione\\
+	\hline
+	setState & public & Unit & \\
+	\hline
+	getState & public & String & \\
+	\hline
+	attach & public & Unit & \\
+	\hline
+	detach & public & Unit & \\
+	\hline
+	notifyAllObservers & public & Unit & \\
+	\hline
+\end{tabular}
+
+\subparagraph{Parametri}
+
+\begin{center}
+	\textbf{setState}
+\end{center}
+\begin{tabular}{| l | l | l |}
+	\hline
+	Nome & Tipo & Descrizione\\
+	\hline
+	s & String & \\
+	\hline
+\end{tabular}
+
+\begin{center}
+	\textbf{attach}
+\end{center}
+\begin{tabular}{| l | l | l |}
+	\hline
+	Nome & Tipo & Descrizione\\
+	\hline
+	observer & Observer & \\
+	\hline
+\end{tabular}
+
+\begin{center}
+	\textbf{detach}
+\end{center}
+\begin{tabular}{| l | l | l |}
+	\hline
+	Nome & Tipo & Descrizione\\
+	\hline
+	observer & Observer & \\
+	\hline
+\end{tabular}
 
 \paragraph{actorbase::cli::models::CommandInvoker}
 \label{sec:actorbase::cli::models::CommandInvoker}
@@ -3905,6 +3909,45 @@ implementa l'interfaccia \hyperref[sec:actorbase::cli::models::Command]{actorbas
   cmd & Command & \\
   \hline
 \end{tabular}
+
+\paragraph{actorbase::cli::models::ChangePasswordCommand}
+\label{sec:actorbase::cli::models::ChangePasswordCommand}
+
+\subparagraph{Descrizione}
+
+Classe per il comando di cambiamento password.
+
+\subparagraph{Utilizzo}
+
+Viene utilizzata per chiamare il metodo di
+\hyperref[sec:actorbase::cli::models::CommandReceiver]{actorbase::cli::models::CommandReceiver} per il cambiamento della password.
+
+\subparagraph{Classi ereditate}
+
+\begin{itemize}
+	\item \hyperref[sec:actorbase::cli::models::Command]{actorbase::cli::models::Command}.
+\end{itemize}
+
+\subparagraph{Attributi}
+
+\begin{tabular}{| l | l | l | l | l |}
+	\hline
+	Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+	\hline
+	cr & public & immutabile & CommandReceiver & \\
+	\hline
+\end{tabular}
+
+\subparagraph{Metodi}
+
+\begin{tabular}{| l | l | l | l |}
+	\hline
+	Nome & Accesso & Tipo di ritorno & Descrizione\\
+	\hline
+	execute & public & String & \\
+	\hline
+\end{tabular}
+
 
 \paragraph{actorbase::cli::models::FindCommand}
 \label{sec:actorbase::cli::models::FindCommand}
@@ -4023,7 +4066,7 @@ dell'utente specificato in input.
 \end{tabular}
 
 \paragraph{actorbase::cli::models::ListCollectionsCommand}
-\label{sec:actorbase::cli::models::ListCommand}
+\label{sec:actorbase::cli::models::ListCollectionsCommand}
 
 \subparagraph{Descrizione}
 
@@ -4790,7 +4833,7 @@ La componente \hyperref[sec:actorbase::driver::client::Connection]{actorbase::dr
 manda tramite \gloss{socket tcp} al \hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{actorbase::actorsystem::clientactor::ClientActor}
 una stringa \hyperref[sec:RESP]{RESP} contenente il comando di aggiunta collaboratore \gloss{item} con
 i parametri.\\
-Da questo componente parte il messaggio di addCollaborator(collection, permission, username) ad un \hyperref[sec:actorbase::actorsystem::clientactor::MainActor]{actorbase::actorsystem::clientactor::MainActor} scelto in base ad una
+Da questo componente parte il messaggio di addContributor(collection, permission, username) ad un \hyperref[sec:actorbase::actorsystem::clientactor::MainActor]{actorbase::actorsystem::clientactor::MainActor} scelto in base ad una
 politica di \gloss{routing}. Il MainActor manderà un messaggio allo
 \hyperref[sec:actorbase::actorsystem::clientactor::StoreFinder]{actorbase::actorsystem::clientactor::StoreFinder}
 relativo il quale manderà un messaggio addReadCollection(collection) allo
