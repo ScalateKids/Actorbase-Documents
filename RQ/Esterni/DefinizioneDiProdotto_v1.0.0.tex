@@ -205,12 +205,12 @@ rappresentano il \gloss{server}.
 \subsection{actorbase::actorsystem::utils}
 \label{sec:actorbase::actorsystem::utils}
 
-\begin{figure}[H] %TODO aggiungere immagine
-  \begin{center}
-    \includegraphics[width=1.0\textwidth,keepaspectratio]{RP/utils.png}
-    \caption{Package actorsystem::utils}
-  \end{center}
-\end{figure}
+%\begin{figure}[H] %TODO aggiungere immagine
+  %\begin{center}
+    %\includegraphics[width=1.0\textwidth,keepaspectratio]{RP/utils.png}
+    %\caption{Package actorsystem::utils}
+  %\end{center}
+%\end{figure}
 
 \subsubsection{Descrizione}
 \gloss{Package} contenente diverse classi di utilità.
@@ -1464,12 +1464,12 @@ riceve questo messaggio provvederà ad inoltrare allo \hyperref[sec:actorbase::a
 \subsection{actorbase::actorsystem::userfinder} %TODO da fare qualcosa, tipo l'immagine
 \label{sec:actorbase::actorsystem::userfinder}
 
-\begin{figure}[H]
-  \begin{center}
-    \includegraphics[width=0.8\textwidth,keepaspectratio]{RP/userfinder.png}
-    \caption{Userfinder, visione generale del package}
-  \end{center}
-\end{figure}
+%\begin{figure}[H]
+  %\begin{center}
+    %\includegraphics[width=0.8\textwidth,keepaspectratio]{RP/userfinder.png}
+    %\caption{Userfinder, visione generale del package}
+  %\end{center}
+%\end{figure} 
 
 \subsubsection{Descrizione}
 Classe che rappresenta un \gloss{attore} di tipo \gloss{Userfinder}.
@@ -2579,6 +2579,13 @@ per aggiornare i suoi riferimenti.
 \paragraph{ActorbaseDriver}
 \label{sec:actorbase::driver::ActorbaseDriver}
 
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/ActorbaseDriver.png}
+		\caption{Driver: Classe ActorbaseDriver}
+	\end{center}
+\end{figure}
+
 \subparagraph{Descrizione}
 
 Classe principale della componente \gloss{driver}, rappresenta l'interfaccia
@@ -2618,7 +2625,7 @@ remoti all'interno del \gloss{database}.
 
 % TODO: Da completare
 
-\begin{tabular}{| l | l | l | l |}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2.5cm} | p{10cm} |}
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
@@ -2682,6 +2689,13 @@ remoti all'interno del \gloss{database}.
 \paragraph{Connection}
 \label{sec:actorbase::driver::Connection}
 
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/Connection.png}
+		\caption{Driver: Classe Connection}
+	\end{center}
+\end{figure}
+
 \subparagraph{Descrizione}
 
 Classe interna all'oggetto
@@ -2716,10 +2730,10 @@ utilizzare nelle classi che necessitano di collegamenti al \gloss{server}.
 \label{sec:actorbase::driver::client}
 
 \begin{figure}[H]
-  \begin{center}
-    \includegraphics[width=0.9\textwidth,keepaspectratio]{RP/Driver-Client.png}
-    \caption{CLI, architettura MVC variante push model}
-  \end{center}
+	\begin{center}
+		\includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/Client.png}
+		\caption{Driver: Client}
+	\end{center}
 \end{figure}
 
 \subsubsection{Descrizione}
@@ -2738,6 +2752,13 @@ che con la componente \gloss{server} del sistema.
 
 \paragraph{Client}
 \label{sec:actorbase::driver::client::Client}
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/ClientInterface.png}
+		\caption{Driver: Client interface}
+	\end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 
@@ -2763,7 +2784,7 @@ metodi.
 
 \subparagraph{Metodi}
 
-\begin{tabular}{| l | l | l | l |}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2.5cm} | p{10cm} |}
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
@@ -2792,6 +2813,13 @@ metodi.
 
 \paragraph{SSLClient (abstract)}
 \label{sec:actorbase::driver::client::SSLClient}
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/SSLClient.png}
+		\caption{Driver: Classe SSLClient}
+	\end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 
@@ -2840,6 +2868,13 @@ hanno libertà di implementazione specifica dei metodi.
 
 \paragraph{ActorbaseClient}
 \label{sec:actorbase::driver::client::ActorbaseClient}
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/ActorbaseClient.png}
+		\caption{Driver: Classe ActorbaseClient}
+	\end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 
@@ -2896,6 +2931,13 @@ necessitano.
 \paragraph{Connector (abstract)}
 \label{sec:actorbase::driver::client::Connector}
 
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/Connector.png}
+		\caption{Driver: Classe astratta Connector}
+	\end{center}
+\end{figure}
+
 \subparagraph{Descrizione}
 
 Classe astratta che si occupa di istanziare un oggetto di tipo
@@ -2928,7 +2970,12 @@ Viene estesa dalle classi che necessitano di comunicare con il server.
 \subsection{actorbase::driver::client::api}
 \label{sec:actorbase::driver::client::api}
 
-% TODO: FIGURA API
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/Api.png}
+		\caption{Driver: Package api}
+	\end{center}
+\end{figure}
 
 \subsubsection{Descrizione}
 
@@ -2946,6 +2993,13 @@ protocollo \gloss{HTTP}.
 
 \paragraph{RequestMethod (abstract)}
 \label{sec:actorbase::driver::client::api::RequestMethod}
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/RequestMethod.png}
+		\caption{Driver: RequestMethod interface}
+	\end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 
@@ -2968,10 +3022,17 @@ Viene utilizzata come classe padre per l'implementazione delle richieste
 \item \hyperref[sec:actorbase::driver::client::api::DELETE]{actorbase::driver::client::api::DELETE}
 \end{itemize}
 
-% FINE REQUESTMETHOD
+% FINE REQUEST METHOD
 
 \paragraph{GET (abstract)}
 \label{sec:actorbase::driver::client::api::GET}
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/Get.png}
+		\caption{Driver: Oggetto rappresentante richiesta get}
+	\end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 
@@ -2996,6 +3057,13 @@ di tipo \gloss{GET} da utilizzare nella comunicazione con il server.
 \paragraph{POST (abstract)}
 \label{sec:actorbase::driver::client::api::POST}
 
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/Post.png}
+		\caption{Driver: Oggetto rappresentante richiesta post}
+	\end{center}
+\end{figure}
+
 \subparagraph{Descrizione}
 
 Classe astratta che rappresenta una generica richiesta \gloss{HTTP} di tipo
@@ -3018,6 +3086,13 @@ di tipo \gloss{POST} da utilizzare nella comunicazione con il server.
 
 \paragraph{PUT (abstract)}
 \label{sec:actorbase::driver::client::api::PUT}
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/Put.png}
+		\caption{Driver: Oggetto rappresentante richiesta Put}
+	\end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 
@@ -3042,6 +3117,13 @@ di tipo \gloss{PUT} da utilizzare nella comunicazione con il server.
 \paragraph{DELETE (abstract)}
 \label{sec:actorbase::driver::client::api::DELETE}
 
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/Delete.png}
+		\caption{Driver: Oggetto rappresentante richiesta Delete}
+	\end{center}
+\end{figure}
+
 \subparagraph{Descrizione}
 
 Classe astratta che rappresenta una generica richiesta \gloss{HTTP} di tipo
@@ -3064,6 +3146,13 @@ di tipo \gloss{DELETE} da utilizzare nella comunicazione con il server.
 
 \paragraph{Request}
 \label{sec:actorbase::driver::client::api::Request}
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/Request.png}
+		\caption{Driver: Classe request}
+	\end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 
@@ -3104,6 +3193,13 @@ creata mediante il design pattern \gloss{Builder} nella classe
 
 \paragraph{Response}
 \label{sec:actorbase::driver::client::api::Response}
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/Response.png}
+		\caption{Driver: Classe response}
+	\end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 
@@ -3173,6 +3269,13 @@ Viene utilizzata come classe per l'incapsulamento dei codici di ritorno
 
 \paragraph{RequestBuilder}
 \label{sec:actorbase::driver::client::api::RequestBuilder}
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/RequestBuilder.png}
+		\caption{Driver: Classe RequestBuilder}
+	\end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 
@@ -3292,10 +3395,10 @@ nella comunicazione con il server.
 \label{sec:actorbase::driver::client::api::data}
 
 \begin{figure}[H]
-  \begin{center}
-    \includegraphics[width=0.9\textwidth,keepaspectratio]{RP/Driver-Actorbasedata.png}
-    \caption{Driver, package actorbasedata e interazioni con package serializer e package client}
-  \end{center}
+	\begin{center}
+		\includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/Data.png}
+		\caption{Driver: Package data}
+	\end{center}
 \end{figure}
 
 \subsubsection{Descrizione}
@@ -3314,6 +3417,14 @@ eventuali modifiche locali sul server remoto che contiene i dati originali.
 
 \paragraph{Serializer (abstract)}
 \label{sec:actorbase::driver::client::data::Serializer}
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/Serializer.png}
+		\caption{Driver: Classe serializer}
+	\end{center}
+\end{figure}
+
 
 \subparagraph{Descrizione}
 
@@ -3343,9 +3454,9 @@ o entrambi.
   \hline
   serialize2JSON & public & String & Serializza l'oggetto parametro in formato \gloss{JSON}\\
   \hline
-  deserializeFromByteArray & public & \gloss{Any} & Deserializza l'\gloss{array} di \gloss{Byte} parametro riportandolo al formato originale\\
+  \allowbreak{deserializeFromByteArray} & public & \gloss{Any} & Deserializza l'\gloss{array} di \gloss{Byte} parametro riportandolo al formato originale\\
   \hline
-  deserializeFromJSON & public & \gloss{Any} & Deserializza la stringa \gloss{JSON} parametro riportandola al formato originale\\
+  \allowbreak{deserializeFromJSON} & public & \gloss{Any} & Deserializza la stringa \gloss{JSON} parametro riportandola al formato originale\\
   \hline
 \end{tabular}
 
@@ -3400,6 +3511,13 @@ o entrambi.
 \paragraph{ActorbaseObject}
 \label{sec:actorbase::driver::data::ActorbaseObject}
 
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/ActorbaseObject.png}
+		\caption{Driver: Classe ActorbaseObject}
+	\end{center}
+\end{figure}
+
 \subparagraph{Descrizione}
 
 Interfaccia che rappresenta un oggetto generico contenente una coppia
@@ -3453,6 +3571,13 @@ Classe utilizzata per agevolare le ricerche specifiche all'interno delle
 
 \paragraph{actorbase::driver::data::ActorbaseCollection}
 \label{sec:actorbase::driver::data::ActorbaseCollection}
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/ActorbaseCollection.png}
+		\caption{Driver: Classe ActorbaseCollection}
+	\end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 
@@ -3630,6 +3755,13 @@ navigabilità dei contenuti.
 \paragraph{actorbase::driver::data::ActorbaseCollectionMap}
 \label{sec:actorbase::driver::data::ActorbaseCollectionMap}
 
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/ActorbaseCollectionMap.png}
+		\caption{Driver: Classe ActorbaseCollectionMap}
+	\end{center}
+\end{figure}
+
 \subparagraph{Descrizione}
 
 Classe che rappresenta una \gloss{collezione} di \gloss{collezione} del sistema.
@@ -3652,8 +3784,8 @@ Questa classe viene utilizzata per la rappresentazione dell'aggregazione di
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  data & private & mutabile & TreeMap[String, \hyperref[sec:actorbase::driver::data::ActorbaseCollection]{ActorbaseCollection}] & Mappa che rappresenta un insieme di \hyperref[sec:actorbase::driver::data::ActorbaseCollection]{ActorbaseCollection}
-                                                                                                                                  \hline
+  data & private & mutabile & TreeMap[String, \hyperref[sec:actorbase::driver::data::ActorbaseCollection]{ActorbaseCollection}] & Mappa che rappresenta un insieme di \hyperref[sec:actorbase::driver::data::ActorbaseCollection]{ActorbaseCollection}\\
+  \hline
 \end{tabular}
 
 \subparagraph{Metodi}
@@ -3713,7 +3845,7 @@ Questa classe viene utilizzata per la rappresentazione dell'aggregazione di
 
 % FINITO ACTORBASECOLLECTIONMAP
 
-\subsection{actorbase::driver::exceptions}
+\subsection{::exceptions}
 \label{sec:actorbase::driver::exceptions}
 
 \begin{figure}[H]
