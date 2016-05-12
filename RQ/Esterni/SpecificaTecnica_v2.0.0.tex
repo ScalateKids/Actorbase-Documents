@@ -1901,6 +1901,41 @@ remoti all'interno del \gloss{database}.
 \item \hyperref[sec:actorbase::driver::client::Connector]{actorbase::driver::data::Serializer}.
 \end{itemize}
 
+\subparagraph{Interazioni con le altre classi}
+
+\begin{itemize}
+\item \hyperref[sec:actorbase::driver::client::data::Connection]{actorbase::driver::client::data::Connection};
+\item \hyperref[sec:actorbase::driver::client::data::ActorbaseCollection]{actorbase::driver::client::data::ActorbaseCollection};
+\item \hyperref[sec:actorbase::driver::client::data::ActorbaseCollection]{actorbase::driver::client::data::ActorbaseCollectionMap}.
+\end{itemize}
+
+\paragraph{Connection}
+\label{sec:actorbase::driver::Connection}
+
+\subparagraph{Descrizione}
+
+Classe interna all'oggetto
+\hyperref[sec:actorbase::driver::ActorbaseDriver]{ActorbaseDriver} contenente i
+parametri di connessione al \gloss{server}.
+
+\subparagraph{Utilizzo}
+
+Viene utilizzata come oggetto contenente i parametri di connessione, da
+utilizzare nelle classi che necessitano di collegamenti al \gloss{server}.
+
+\subparagraph{Eredita}
+
+\begin{itemize}
+\item \hyperref[sec:actorbase::driver::client::Connector]{actorbase::driver::client::Connector};
+\item \hyperref[sec:actorbase::driver::client::Connector]{actorbase::driver::data::Serializer}.
+\end{itemize}
+
+\subparagraph{Interazioni con le altre classi}
+
+\begin{itemize}
+\item \hyperref[sec:actorbase::driver::client::data::ActorbaseCollection]{actorbase::driver::client::data::ActorbaseCollection}.
+\end{itemize}
+
 \subsection{actorbase::driver::client}
 \label{sec:actorbase::driver::client}
 
@@ -2350,6 +2385,39 @@ navigabilità dei contenuti.
 
 \begin{itemize}
 \item \hyperref[sec:actorbase::driver::data::Serializer]{actorbase::driver::data::Serializer}.
+\end{itemize}
+
+\subparagraph{Interazioni con le altre classi}
+
+\begin{itemize}
+\item \hyperref[sec:actorbase::driver::client::data::ActorbaseObject]{actorbase::driver::client::data::ActorbaseObject}.
+\item \hyperref[sec:actorbase::driver::client::data::ActorbaseCollectionMap]{actorbase::driver::client::data::ActorbaseCollectionMap}.
+\end{itemize}
+
+\paragraph{actorbase::driver::data::ActorbaseCollectionMap}
+\label{sec:actorbase::driver::data::ActorbaseCollectionMap}
+
+\subparagraph{Descrizione}
+
+Classe che rappresenta una \gloss{collezione} di \gloss{collezione} del sistema.
+
+\subparagraph{Utilizzo}
+
+Questa classe viene utilizzata per la rappresentazione dell'aggregazione di
+\gloss{collezioni}, è formata da una mappa di coppie nomecollezione -
+\hyperref[sec:actorbase::driver::data::ActorbaseCollection]{ActorbaseCollection}.
+
+\subparagraph{Eredita}
+
+\begin{itemize}
+\item \hyperref[sec:actorbase::driver::data::Serializer]{actorbase::driver::data::Serializer}.
+\end{itemize}
+
+\subparagraph{Interazioni con le altre classi}
+
+\begin{itemize}
+\item \hyperref[sec:actorbase::driver::client::ActorbaseDriver]{actorbase::driver::client::ActorbaseDriver}.
+\item \hyperref[sec:actorbase::driver::client::data::ActorbaseCollection]{actorbase::driver::client::data::ActorbaseCollection}.
 \end{itemize}
 
 % FINE DATA
