@@ -375,6 +375,69 @@ confronto del range delle chiavi e un metodo compare.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\paragraph{CryptoUtils}
+\label{sec:actorbase::actorsystem::utils::CryptoUtils}
+
+\subparagraph{Descrizione}
+Classe atta a criptare e decriptare i dati per il salvataggio e la lettura dei dati su disco.
+
+\subparagraph{Utilizzo}
+Viene utilizzata dall'attore di tipo \gloss{Warehouseman} per il salvataggio e la lettura del database su disco.
+
+\subparagraph{Attributi}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  Algorithm & pubblica & immutabile & String & Rappresenta l'agoritmo usato per la criptazione \\
+  \hline
+  Transformation & pubblica & immutabile & String & Rappresenta la trasformazione per ottenere il cifrario usato per la criptazione \\
+  \hline
+\end{tabular}
+
+\subparagraph{Metodi} %TODO sfora
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{3.5cm} | p{9cm} |}
+  \hline
+  Nome & Accesso & Tipo di ritorno & Descrizione\\
+  \hline
+  encrypt & pubblico & Void & Metodo che si occupa di criptare i dati \\
+  \hline
+  decrypt & pubblico & TreeMap[String, Any] & Metodo che si occupa di decriptare i dati \\
+  \hline
+\end{tabular}
+
+\subparagraph{Parametri}
+\begin{center}
+  \textbf{encrypt}\\
+\end{center}
+\begin{tabular}{| l | l | l |}
+  \hline
+  Nome & Tipo & Descrizione\\
+  \hline
+  key & String & Stringa che rappresenta la chiave di criptazione \\
+  \hline
+  inputData & TreeMap[String, Any] & Mappa che rappresenta i dati che verranno criptati \\
+  \hline
+  outputFile & File & File destinato a contenere i dati criptati \\
+  \hline
+\end{tabular}
+
+\begin{center}
+  \textbf{decrypt}\\
+\end{center}
+\begin{tabular}{| l | l | l |}
+  \hline
+  Nome & Tipo & Descrizione\\
+  \hline
+  key & String & Stringa che rappresenta la chiave di decriptazione \\
+  \hline
+  inputFile & File & File che contiene i dati da decriptare \\
+  \hline
+\end{tabular}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \paragraph{ActorbaseCollection}
 \label{sec:actorbase::actorsystem::utils::ActorbaseCollection}
 
