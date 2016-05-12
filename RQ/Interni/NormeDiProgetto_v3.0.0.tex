@@ -1426,15 +1426,40 @@ del prodotto possono tuttavia richiederne l'utilizzo da riga di comando, in ques
 % TODO: da rimpire, con immagini anche
 \subsection{Configurazione}
 
+Come prima cosa è necessario assicurarsi di avere installato nel proprio sistema java, aggiornato alla versione 8.
+Poi sarà necessario installare SBT da repository nel proprio sistema. Per creare un nuovo progetto è necessario avere una struttura 
+di directory che sbt sia in grado di riconoscere. Noi abbiamo preso come modello la struttura di maven.
+Poi per definire nome del progetto dipendenze e librerie è necessario scrivere un file chiamato "build.sbt" che conterrà: nome del
+progetto, versione del progetto, versione di scala utilizzata nel progetto, libreire e dipendenze da necessarie ed eventuali
+plugin di sbt.
+
 \subsection{Accesso alla console Scala}
 
-Sbt offre la possibilità di
+Sbt offre la possibilità di accedere mediante la sua cli alla scala console. Per accedervi è sufficiente lanciare il comando sbt che
+ci aprirà una nuova istanza della console di sbt. Dalla quale è possibile manualmente configurare progetti versioni e ogni tipo di 
+impostazione di sbt. Per aprire la console scala è sufficiente dare il comando consoleProject su CLI di sbt per avviare la scala
+console.
 
 \subsection{Compilazione di progetti}
 
+Per la compilazione di un progetto sbt, una volta configurato a dovere il file build.sbt sarà sufficiente dalla directory del
+progetto dare il comando sbt compile per compilare il progetto e lanciarlo. Alla prima esecuzione tale comando dovrà occuparsi di
+risolvere tutte le dipendenze del progetto e ottenerle dalla rete. Di conseguenza è necessaria una connessione.
+Dopo che sarà stata scaricata la corretta versione di scala e le librerie il verrà compilato il progetto e mostrati eventuali 
+messaggi di errore. Dalla seconda esecuzione in poi il progetto verrà solo compilato, usando scala e librerie precedentemente
+scaricate.
+Se si desidera fare un clean e riscaricare nuovamente da capo scala e librerie sarà sufficente dare il comando sbt clean compile, che
+eseguirà un clean del progetto per poi ricompilare il tutto da capo.
+
 \subsubsection{Compilazione di moduli separati}
 
+In caso sia necessario compilare e testare un singolo modulo, viene utilizzato il comando sbt test seguito dal modulo del
+progetto che si desidera compilare e testare
+
 \subsubsection{Esecuzione del codice Scala}
+
+Per l'esecuzione del progetto sbt dalla directory home è sufficiente lanciare il comando sbt run che automaticamente eseguirà
+una compilazione se ci sono modifiche dall'ultima compilazione nota, e poi eseguirà il progetto.
 
 \subsubsection{Esecuzione dei test di unità previsti}
 
