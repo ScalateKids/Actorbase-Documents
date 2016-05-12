@@ -375,6 +375,69 @@ confronto del range delle chiavi e un metodo compare.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\paragraph{CryptoUtils}
+\label{sec:actorbase::actorsystem::utils::CryptoUtils}
+
+\subparagraph{Descrizione}
+Classe atta a criptare e decriptare i dati per il salvataggio e la lettura dei dati su disco.
+
+\subparagraph{Utilizzo}
+Viene utilizzata dall'attore di tipo \gloss{Warehouseman} per il salvataggio e la lettura del database su disco.
+
+\subparagraph{Attributi}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  Algorithm & pubblica & immutabile & String & Rappresenta l'agoritmo usato per la criptazione \\
+  \hline
+  Transformation & pubblica & immutabile & String & Rappresenta la trasformazione per ottenere il cifrario usato per la criptazione \\
+  \hline
+\end{tabular}
+
+\subparagraph{Metodi} %TODO sfora
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{3.5cm} | p{9cm} |}
+  \hline
+  Nome & Accesso & Tipo di ritorno & Descrizione\\
+  \hline
+  encrypt & pubblico & Void & Metodo che si occupa di criptare i dati \\
+  \hline
+  decrypt & pubblico & TreeMap[String, Any] & Metodo che si occupa di decriptare i dati \\
+  \hline
+\end{tabular}
+
+\subparagraph{Parametri}
+\begin{center}
+  \textbf{encrypt}\\
+\end{center}
+\begin{tabular}{| l | l | l |}
+  \hline
+  Nome & Tipo & Descrizione\\
+  \hline
+  key & String & Stringa che rappresenta la chiave di criptazione \\
+  \hline
+  inputData & TreeMap[String, Any] & Mappa che rappresenta i dati che verranno criptati \\
+  \hline
+  outputFile & File & File destinato a contenere i dati criptati \\
+  \hline
+\end{tabular}
+
+\begin{center}
+  \textbf{decrypt}\\
+\end{center}
+\begin{tabular}{| l | l | l |}
+  \hline
+  Nome & Tipo & Descrizione\\
+  \hline
+  key & String & Stringa che rappresenta la chiave di decriptazione \\
+  \hline
+  inputFile & File & File che contiene i dati da decriptare \\
+  \hline
+\end{tabular}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \paragraph{ActorbaseCollection}
 \label{sec:actorbase::actorsystem::utils::ActorbaseCollection}
 
@@ -837,13 +900,38 @@ Questa classe viene utilizzata per effettuare il salvataggio su filesystem del
 
 \end{itemize}
 
-\subparagraph{Interazioni con altre classi}
+\subparagraph{Attributi}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  collectionShard & pubblico & immutabile & String & Rappresenta il nome della cartella dentro cui verranno salvati i dati \\
+  \hline
+\end{tabular}
 
-\begin{itemize}
-\item \hyperref[sec:actorbase::actorsystem::serialization::SerializationContext]{actorbase::actorsystem::serialization::SerializationContext};
-\item \hyperref[sec:actorbase::actorsystem::serialization::DeserializationContext]{actorbase::actorsystem::serialization::DeserializationContext};
-\item akka::actor::ActorRef.
-\end{itemize}
+\subparagraph{Metodi}
+\begin{tabular}{| l | l | l | l |}
+  \hline
+  Nome & Accesso & Tipo di ritorno & Descrizione\\
+  \hline
+  receive & pubblico & Unit & Effettua operazioni diverse a seconda del tipo di messaggio ricevuto \\
+  \hline
+  removeAll & privato & Unit & Rimuove tutti i file all'interno di una cartella, eliminando anche quest'ultima \\
+  \hline
+\end{tabular}
+
+\subparagraph{Parametri}
+
+\begin{center}
+  \textbf{removeAll}\\
+\end{center}
+\begin{tabular}{| l | l | l |}
+  \hline
+  Nome & Tipo & Descrizione\\
+  \hline
+  path & String & Percorso della cartella da eliminare\\
+  \hline
+\end{tabular}
 
 \subsection{actorbase::actorsystem::warehouseman::messages}
 \label{sec:actorbase::actorsystem::warehouseman::messages}
@@ -877,7 +965,86 @@ Messaggio che porta al salvataggio dei dati su disco.
 
 Quando \hyperref[sec:actorbase::actorsystem::warehouseman::Warehouseman]{actorbase::actorsystem::warehouseman::Warehouseman}
 riceve questo messaggio salverà i dati su disco sfruttando
-\hyperref[sec:actorbase::actorsystem::serialization::SerializationContext]{actorbase::actorsystem::serialization::SerializationContext}.
+\hyperref[sec:actorbase::actorsystem::serialization::SerializationContext]{actorbase::actorsystem::utils::CryptoUtils}.
+
+\subparagraph{Attributi}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  sfRange & pubblico & immutabile & KeyRange & Rappresenta il \gloss{collectionShard} identificativo del padre dell'attore che ha richiesto il salvataggio \\
+  \hline
+  range & pubblico & immutabile & KeyRange & Rappresenta il \gloss{collectionShard} che verrà salvato \\
+  \hline
+  map & pubblico & immutabile & TreeMap[String, Any] & Rappresenta i dati che verranno salvati \\
+  \hline
+\end{tabular}
+
+\paragraph{actorbase::actorsystem::warehouseman::messages::Clean}
+\label{sec:actorbase::actorsystem::warehouseman::messages::Clean}
+
+\subparagraph{Descrizione}
+
+Messaggio che porta alla cancellazione dal filesystem di alcuni dati.
+
+\subparagraph{Utilizzo}
+
+Quando \hyperref[sec:actorbase::actorsystem::warehouseman::Warehouseman]{actorbase::actorsystem::warehouseman::Warehouseman}
+riceve questo messaggio rimuoverà i dati dal filesystem.
+
+\subparagraph{Attributi}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  sfRange & pubblico & immutabile & KeyRange & Rappresenta il \gloss{collectionShard} identificativo del padre dell'attore che ha richiesto la rimozione \\
+  \hline
+  range & pubblico & immutabile & KeyRange & Rappresenta il \gloss{collectionShard} che verrà rimosso \\
+  \hline
+\end{tabular}
+
+\paragraph{actorbase::actorsystem::warehouseman::messages::RemoveSfFolder}
+\label{sec:actorbase::actorsystem::warehouseman::messages::RemoveSfFolder}
+
+\subparagraph{Descrizione}
+
+Messaggio che porta alla rimozione di una cartella da disco.
+
+\subparagraph{Utilizzo}
+
+Quando \hyperref[sec:actorbase::actorsystem::warehouseman::Warehouseman]{actorbase::actorsystem::warehouseman::Warehouseman}
+riceve questo messaggio rimuoverà i dati da disco.
+
+\subparagraph{Attributi}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  sfRange & pubblico & immutabile & KeyRange & Rappresenta il \gloss{collectionShard} identificativo dei dati da rimuovere \\
+  \hline
+\end{tabular}
+
+\paragraph{actorbase::actorsystem::warehouseman::messages::Read}
+\label{sec:actorbase::actorsystem::warehouseman::messages::Read}
+
+\subparagraph{Descrizione}
+
+Messaggio che porta alla lettura di dati da disco.
+
+\subparagraph{Utilizzo}
+
+Quando \hyperref[sec:actorbase::actorsystem::warehouseman::Warehouseman]{actorbase::actorsystem::warehouseman::Warehouseman}
+riceve questo messaggio leggerà i dati da disco sfruttando
+\hyperref[sec:actorbase::actorsystem::utils::CryptoUtils]{actorbase::actorsystem::utils::CryptoUtils}.
+
+\subparagraph{Attributi}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  file & pubblico & immutabile & File & Rappresenta il file che verrà letto \\
+  \hline
+\end{tabular}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1264,7 +1431,7 @@ Questa classe viene utilizzata per tener traccia degli attori di tipo
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  ukMap & private & mutabile & TreeMap [String, ActorRef] & Rappresenta una mappa contenente come chiavi gli username degli utenti e come valori i riferimenti degli userkeeper che li rappresentano \\
+  ukMap & private & immutabile & TreeMap [String, ActorRef] & Rappresenta una mappa contenente come chiavi gli username degli utenti e come valori i riferimenti degli userkeeper che li rappresentano \\
   \hline
 \end{tabular}
 
@@ -1417,6 +1584,31 @@ corrispondente all'utente su cui effettuare l'operazione.
   collection & public & immutabile & String & stringa che rappresenta la collezione da aggiungere \\
   \hline
 \end{tabular}
+
+\paragraph{actorbase::actorsystem::userfinder::messages::UpdateCollectionSizeTo}
+\label{sec:actorbase::actorsystem::userfinder::messages::UpdateCollectionSizeTo}
+
+\subparagraph{Descrizione}
+
+Messaggio che indica la ncessità di aggiornare il numero di item di una collezione.
+
+\subparagraph{Utilizzo}
+
+Quando \hyperref[sec:actorbase::actorsystem::userfinder::Userfinder]{actorbase::\allowbreak{}actorsystem::\allowbreak{}userfinder::\allowbreak{}Userfinder}
+riceve questo messaggio provvederà ad inoltrare all'attore di tipo 
+\hyperref[sec:actorbase::actorsystem::userkeeper::Userkeeper]{actorbase::\allowbreak{}actorsystem::\allowbreak{}userkeeper::\allowbreak{}Userkeeper}.
+
+\subparagraph{Attributi}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  collection & public & immutabile & ActorbaseCollection & Collezione di cui aggiornare il contatore \\
+  \hline
+  increment & public & immutabile & Boolean & Se true causa un incremento del contatore, se false causa un decremento del contatore \\
+  \hline
+\end{tabular}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1627,6 +1819,30 @@ che ha inviato questo messaggio.
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
   client & public & immutabile & ActorRef & Riferimento all'attore del tipo \gloss{ClientActor} che si occupa delle richieste dell'utente rappresentato da questo Userkeeper \\
+  \hline
+\end{tabular}
+
+\paragraph{actorbase::actorsystem::userkeeper::messages::UpdateCollectionSize}
+\label{sec:actorbase::actorsystem::userkeeper::messages::UpdateCollectionSize}
+
+\subparagraph{Descrizione}
+
+Messaggio che aggiorna il numero di item di una collezione.
+
+\subparagraph{Utilizzo}
+
+Quando \hyperref[sec:actorbase::actorsystem::userkeeper::Userkeeper]{actorbase::\allowbreak{}actorsystem::\allowbreak{}userkeeper::\allowbreak{}Userkeeper}
+riceve questo messaggio provvederà ad aggiornare il contatore relativo al numero di oggetti
+nella collezione.
+
+\subparagraph{Attributi}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  collection & public & immutabile & ActorbaseCollection & Collezione di cui aggiornare il contatore \\
+  \hline
+  increment & public & immutabile & Boolean & Se true causa un incremento del contatore, se false causa un decremento del contatore \\
   \hline
 \end{tabular}
 
