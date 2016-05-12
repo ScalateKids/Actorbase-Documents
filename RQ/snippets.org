@@ -10,7 +10,7 @@
   // insert Person type object..
   coll.insert("Seagal" -> Person("Steven", 64))
   //..and aother two
-  coll.insert("Shwarzenegger" -> Person("Arnold", 68), "Stallone" -> Person("Sylvester", 70))
+  coll.insert("Schwarzenegger" -> Person("Arnold", 68), "Stallone" -> Person("Sylvester", 70))
   // finally two totally different item
   coll.insert("Foo" -> 42, "bar" -> "baz")
   // printing all collection contents
@@ -46,7 +46,7 @@ println(client.getCollection("people"))
   *         "name": "Steven",
   *         "age": 64
   *     }
-  *     "Shwarzenegger": {
+  *     "Schwarzenegger": {
   *         "type": "Person",
   *         "name": "Arnold",
   *         "age": 68
@@ -66,16 +66,10 @@ println(client.getCollection("people"))
 client.getCollections.foreach(println)
 #+end_src
 
-**** Adding a local collection
-#+begin_src scala
-val collection = ActorbaseCollection("owner", "foo", "key" -> "value", "key2" -> "value2")
-client.addCollection(collection)
-#+end_src
-
-**** Collaborator operations
+**** Contributor operations
 #+begin_src scala
 val fooCollection = client.getCollection("foo")
-fooCollection.addCollaborator("aFriend")
+fooCollection.addContributor("aFriend")
 // remove
-fooCollection.removeCollection("aFriend")
+fooCollection.removeContributor("aFriend")
 #+end_src
