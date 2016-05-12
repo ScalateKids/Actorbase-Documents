@@ -2284,8 +2284,6 @@ remoti all'interno del \gloss{database}.
   \hline
   addCollection & public & \hyperref[sec:actorbase::driver::data::ActorbaseCollection]{ActorbaseCollection} & Ritorna un oggetto di tipo \hyperref[sec:actorbase::driver::data::ActorbaseCollection]{ActorbaseCollection}\\
   \hline
-  addCollection & public & \hyperref[sec:actorbase::driver::data::ActorbaseCollection]{ActorbaseCollection} & Ritorna un oggetto di tipo \hyperref[sec:actorbase::driver::data::ActorbaseCollection]{ActorbaseCollection}\\
-  \hline
   dropCollection & public & \hyperref[sec:actorbase::driver::data::ActorbaseCollection]{ActorbaseCollection} & Ritorna un oggetto di tipo \hyperref[sec:actorbase::driver::data::ActorbaseCollection]{ActorbaseCollection}\\
   \hline
   logout & public & Void & Effettua il logout dal server\\
@@ -2328,17 +2326,6 @@ remoti all'interno del \gloss{database}.
   Nome & Tipo & Descrizione\\
   \hline
   collectionName & String & Rappresenta il nome della \gloss{collezione} da richiedere al server\\
-  \hline
-\end{tabular}
-
-\begin{center}
-  \textbf{addCollection}
-\end{center}
-\begin{tabular}{| l | l | l |}
-  \hline
-  Nome & Tipo & Descrizione\\
-  \hline
-  collection & \hyperref[sec:actorbase::driver::data::ActorbaseCollection]{ActorbaseCollection} & Oggetto che rappresenta una \gloss{collezione} di Actorbase\\
   \hline
 \end{tabular}
 
@@ -3159,6 +3146,32 @@ navigabilità dei contenuti.
 
 \begin{tabular}{| p{3cm} | p{1.5cm} | p{2.5cm} | p{10cm} |}
   \hline
+  Nome & Accesso & Tipo di ritorno & Descrizione\\
+  \hline
+  insert & public & Boolean & Inserisce una o più coppie chiave-valore all'interno di Actorbase\\
+  \hline
+  insert & public & Boolean & Inserisce un'oggetto di tipo \hyperref[sec:actorbase::driver::data::ActorbaseObject]{ActorbaseObject}\\
+  \hline
+  remove & public & \hyperref[sec:actorbase::driver::data::ActorbaseObject]{ActorbaseObject} & Rimuove una o più coppie chiave-valore dal sistema\\
+  \hline
+  remove & public & \hyperref[sec:actorbase::driver::data::ActorbaseObject]{ActorbaseObject} & Rimuove una coppia chiave-valore dal sistema\\
+  \hline
+  find & public & \hyperref[sec:actorbase::driver::data::ActorbaseCollection]{ActorbaseCollection} & Cerca uno o più coppie-chiave valore nel sistema\\
+  \hline
+  findOne & public & \hyperref[sec::actorbase::driver::data::ActorbaseObject]{ActorbaseObject} & Cerca una coppia chiave-valore nel sistema\\
+  \hline
+  addContributor & public & Boolean & Aggiunge un \gloss{collaboratore} alla \gloss{collezione}\\
+  \hline
+  removeContributor & public & Boolean & Rimuove un \gloss{collaborator} dalla \gloss{collezione}\\
+  \hline
+  drop & public & Boolean & Cancella la \gloss{collezione}\\
+  \hline
+  count & public & Int & Conta il numero di coppie chiave-valore che formano la \gloss{collezione}\\
+  \hline
+  foreach & public & Void & Permette di visitare l'intera \gloss{collezione} applicando una funzione ad ogni \gloss{item}\\
+  \hline
+  toString & public & String & Ritorna la \gloss{collezione} in formato String \gloss{JSON}\\
+  \hline
 \end{tabular}
 
 \subparagraph{Parametri}
@@ -3166,13 +3179,191 @@ navigabilità dei contenuti.
 % TODO: Da completare
 
 \begin{center}
-  \textbf{ActorbaseObject}
+  \textbf{insert}
 \end{center}
 \begin{tabular}{| l | l | l |}
+  \hline
+  Nome & Tipo & Descrizione\\
+  \hline
+  kv & \gloss{vararg} di Tuple2[String, Any] & Rappresenta una sequenza di Tuple2[String, Any] da inserire nella \gloss{collezione}\\
+  \hline
+\end{tabular}
+
+\begin{center}
+  \textbf{insert (overload)}
+\end{center}
+\begin{tabular}{| l | l | l |}
+  \hline
+  Nome & Tipo & Descrizione\\
+  \hline
+  kv & \hyperref[sec:actorbase::driver::data::ActorbaseObject]{ActorbaseObject} & Rappresenta un oggetto del sistema Actorbase da inserire nel sistema\\
+  \hline
+\end{tabular}
+
+\begin{center}
+  \textbf{remove}
+\end{center}
+\begin{tabular}{| l | l | l |}
+  \hline
+  Nome & Tipo & Descrizione\\
+  \hline
+  keys & \gloss{vararg} di String & Rappresenta una sequenza di String, rappresentano le chiavi da rimuovere dal sistema\\
+  \hline
+\end{tabular}
+
+\begin{center}
+  \textbf{remove (overload)}
+\end{center}
+\begin{tabular}{| l | l | l |}
+  \hline
+  Nome & Tipo & Descrizione\\
+  \hline
+  kv & \hyperref[sec:actorbase::driver::data::ActorbaseObject]{ActorbaseObject} & Rappresenta un oggetto di tipo chiave-valore del sistema, rappresentano le chiavi da rimuovere dal sistema\\
+  \hline
+\end{tabular}
+
+\begin{center}
+  \textbf{find}
+\end{center}
+\begin{tabular}{| l | l | l |}
+  \hline
+  Nome & Tipo & Descrizione\\
+  \hline
+  keys & \gloss{vararg} di String & Rappresenta una sequenza di String, sono chiavi da ricercare nel sistema\\
+  \hline
+\end{tabular}
+
+\begin{center}
+  \textbf{findOne}
+\end{center}
+\begin{tabular}{| l | l | l |}
+  \hline
+  Nome & Tipo & Descrizione\\
+  \hline
+  key & String & Rappresenta una String da ricercare nel sistema \\
+  \hline
+\end{tabular}
+
+\begin{center}
+  \textbf{addContributor}
+\end{center}
+\begin{tabular}{| l | l | l |}
+  \hline
+  Nome & Tipo & Descrizione\\
+  \hline
+  username & String & Rappresenta lo \gloss{username} dell'utente da aggiungere ai collaboratori della \gloss{collezione}\\
+  \hline
+\end{tabular}
+
+\begin{center}
+  \textbf{removeContributor}
+\end{center}
+\begin{tabular}{| l | l | l |}
+  \hline
+  Nome & Tipo & Descrizione\\
+  \hline
+  username & String & Rappresenta lo \gloss{username} dell'utente da rimuove ai collaboratori della \gloss{collezione}\\
+  \hline
+\end{tabular}
+
+\begin{center}
+  \textbf{foreach}
+\end{center}
+\begin{tabular}{| l | l | l |}
+  \hline
+  Nome & Tipo & Descrizione\\
+  \hline
+  f: ((A, B)) => Unit  & Funzione anonima & Rappresenta la funzione da applicare a tutti gli \gloss{item} della \gloss{collezione}\\
   \hline
 \end{tabular}
 
 % TODO ACTORBASECOLLECTION
+
+\paragraph{actorbase::driver::data::ActorbaseCollectionMap}
+\label{sec:actorbase::driver::data::ActorbaseCollectionMap}
+
+\subparagraph{Descrizione}
+
+Classe che rappresenta una \gloss{collezione} di \gloss{collezione} del sistema.
+
+\subparagraph{Utilizzo}
+
+Questa classe viene utilizzata per la rappresentazione dell'aggregazione di
+\gloss{collezioni}, è formata da una mappa di coppie nomecollezione -
+\hyperref[sec:actorbase::driver::data::ActorbaseCollection]{ActorbaseCollection}.
+
+\subparagraph{Eredita}
+
+\begin{itemize}
+\item \hyperref[sec:actorbase::driver::data::Serializer]{actorbase::driver::data::Serializer}.
+\end{itemize}
+
+\subparagraph{Attributi}
+
+\begin{tabular}{| p{2.5cm} | p{1.5cm} | p{2cm} | p{2.5cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  data & private & mutabile & TreeMap[String, \hyperref[sec:actorbase::driver::data::ActorbaseCollection]{ActorbaseCollection}] & Mappa che rappresenta un insieme di \hyperref[sec:actorbase::driver::data::ActorbaseCollection]{ActorbaseCollection}
+                                                                                                                                  \hline
+\end{tabular}
+
+\subparagraph{Metodi}
+
+% TODO: Da completare
+
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2.5cm} | p{10cm} |}
+  \hline
+  Nome & Accesso & Tipo di ritorno & Descrizione\\
+  \hline
+  find & public & \hyperref[sec:actorbase::driver::data::ActorbaseCollection]{ActorbaseCollection} & Cerca uno o più coppie-chiave valore nelle \gloss{collezioni}\\
+  \hline
+  drop & public & Boolean & Cancella una o più \gloss{collezione}\\
+  \hline
+  foreach & public & Void & Permette di visitare l'intera \gloss{collezione} di \gloss{collezioni} applicando una funzione ad ogni \gloss{item}\\
+  \hline
+  toString & public & String & Ritorna la \gloss{collezione} in formato Stringa \gloss{JSON}\\
+  \hline
+\end{tabular}
+
+\subparagraph{Parametri}
+
+% TODO: Da completare
+
+\begin{center}
+  \textbf{find}
+\end{center}
+\begin{tabular}{| l | l | l |}
+  \hline
+  Nome & Tipo & Descrizione\\
+  \hline
+  keys & \gloss{vararg} di String & Rappresenta una sequenza di String, sono chiavi da ricercare nella \gloss{collezione}\\
+  \hline
+\end{tabular}
+
+\begin{center}
+  \textbf{drop}
+\end{center}
+\begin{tabular}{| l | l | l |}
+  \hline
+  Nome & Tipo & Descrizione\\
+  \hline
+  collections & \gloss{vararg} di String & Rappresenta una sequenza di String, sono nomi di \gloss{collezioni} da rimuovere\\
+  \hline
+\end{tabular}
+
+\begin{center}
+  \textbf{foreach}
+\end{center}
+\begin{tabular}{| l | l | l |}
+  \hline
+  Nome & Tipo & Descrizione\\
+  \hline
+  f: ((A, B)) => Unit  & Funzione anonima & Rappresenta la funzione da applicare a tutti gli \gloss{item} della \gloss{collezione}\\
+  \hline
+\end{tabular}
+
+% FINITO ACTORBASECOLLECTIONMAP
 
 \subsection{actorbase::driver::exceptions}
 \label{sec:actorbase::driver::exceptions}
