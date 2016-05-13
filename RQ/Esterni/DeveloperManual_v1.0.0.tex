@@ -49,6 +49,10 @@
     \hline
     Version & Author & Role & Date & Description \\
     \hline
+    0.1.1 & Andrea Giacomo Baldan & 2016-05.12 & Added section 2.3
+    \hline
+    0.1.0 &  &  & 2016-05-10 & Verified section 2: Actorbase Usage and all relative subsections\\
+    \hline
     0.0.2 & Andrea Giacomo Baldan & Programmer & 2016-05-10 & Added section 2: Actorbase Usage and all relative subsections\\
     \hline
     0.0.1 & Andrea Giacomo Baldan & Programmer & 2016-05-10 & Created document structure\\
@@ -157,7 +161,7 @@ gives the possibility to call all collection-management methods:
   e.g.:
   % \begin{figure}[H]
   %   \begin{center}
-  %     \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Driver-Common.png}
+  %     \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Driver-Insert.png}
   %     \caption{Driver usage: insertion methods}
   %   \end{center}
   % \end{figure}
@@ -165,7 +169,7 @@ gives the possibility to call all collection-management methods:
   analogous to insert, e.g.:
   % \begin{figure}[H]
   %   \begin{center}
-  %     \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Driver-Common.png}
+  %     \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Driver-Insert2.png}
   %     \caption{Driver usage: remove methods}
   %   \end{center}
   % \end{figure}
@@ -174,7 +178,7 @@ gives the possibility to call all collection-management methods:
   remove methods, e.g.:
   % \begin{figure}[H]
   %   \begin{center}
-  %     \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Driver-Common.png}
+  %     \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Driver-Find.png}
   %     \caption{Driver usage: find method}
   %   \end{center}
   % \end{figure}
@@ -183,7 +187,7 @@ gives the possibility to call all collection-management methods:
   remove methods, e.g.:
   % \begin{figure}[H]
   %   \begin{center}
-  %     \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Driver-Common.png}
+  %     \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Driver-FindOne.png}
   %     \caption{Driver usage: findOne method}
   %   \end{center}
   % \end{figure}
@@ -191,14 +195,14 @@ gives the possibility to call all collection-management methods:
   \verb=dropCollections= that can be used to wipe out all the database, e.g.:
     % \begin{figure}[H]
   %   \begin{center}
-  %     \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Driver-Common.png}
+  %     \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Driver-DropCollections.png}
   %     \caption{Driver usage: dropCollections method}
   %   \end{center}
   % \end{figure}
   the \verb=drop= inside an \verb=ActorbaseCollection= object:
     % \begin{figure}[H]
   %   \begin{center}
-  %     \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Driver-Common.png}
+  %     \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Driver-Drop.png}
   %     \caption{Driver usage: drop method}
   %   \end{center}
   % \end{figure}
@@ -207,7 +211,7 @@ gives the possibility to call all collection-management methods:
   e.g.:
   % \begin{figure}[H]
   %   \begin{center}
-  %     \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Driver-Common.png}
+  %     \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Driver-Drop2.png}
   %     \caption{Driver usage: drop method}
   %   \end{center}
   % \end{figure}
@@ -217,14 +221,14 @@ is already provided by one of its superclasses} to the method \verb=toString=
 that return a pretty formatted JSON(JavaScript Object Notation) \verb=String=, e.g.:
   % \begin{figure}[H]
   %   \begin{center}
-  %     \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Driver-Common.png}
+  %     \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Driver-Printing.png}
   %     \caption{Driver usage: drop method}
   %   \end{center}
   % \end{figure}
 \item \verb=count= elements inside a collection\textsuperscript{\ref{coll}} e.g.
     % \begin{figure}[H]
   %   \begin{center}
-  %     \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Driver-Common.png}
+  %     \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Driver-Counting.png}
   %     \caption{Driver usage: drop method}
   %   \end{center}
   % \end{figure}
@@ -242,7 +246,7 @@ permission:
 e.g.:
 % \begin{figure}[H]
   %   \begin{center}
-  %     \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Driver-Common.png}
+  %     \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Driver-Contributor.png}
   %     \caption{Driver usage: drop method}
   %   \end{center}
   % \end{figure}
@@ -255,7 +259,7 @@ database) with read-write permissions, and capabilities of adding and removing
 users to and from the system, and finally resetting the password of given users.
   % \begin{figure}[H]
   %   \begin{center}
-  %     \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Driver-Common.png}
+  %     \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Driver-Administrative.png}
   %     \caption{Driver usage: drop method}
   %   \end{center}
   % \end{figure}
