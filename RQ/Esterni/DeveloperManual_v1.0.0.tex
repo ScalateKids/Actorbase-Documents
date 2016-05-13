@@ -89,7 +89,7 @@ This document aim to describe the procedures and methods to use in order to take
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%                         DRIVER PART                          %%%
+%%% DRIVER PART                          %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Actorbase usage}
@@ -148,12 +148,12 @@ operations on users and collections of the system.
 \textit{ActorbaseDriver} provides a method to modify the current password,
 associated to an user profile.
 e.g.:
-  % \begin{figure}[H]
-  %   \begin{center}
-  %     \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Driver-UserManagement.png}
-  %     \caption{Driver usage: insertion methods}
-  %   \end{center}
-  % \end{figure}
+% \begin{figure}[H]
+%   \begin{center}
+%     \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Driver-UserManagement.png}
+%     \caption{Driver usage: insertion methods}
+%   \end{center}
+% \end{figure}
 
 \paragraph{Collections operations}
 
@@ -200,14 +200,14 @@ gives the possibility to call all collection-management methods:
   % \end{figure}
 \item \verb=drop= methods:\\ Again this method have multiple variants, there's the
   \verb=dropCollections= that can be used to wipe out all the database, e.g.:
-    % \begin{figure}[H]
+  % \begin{figure}[H]
   %   \begin{center}
   %     \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Driver-DropCollections.png}
   %     \caption{Driver usage: dropCollections method}
   %   \end{center}
   % \end{figure}
   the \verb=drop= inside an \verb=ActorbaseCollection= object:
-    % \begin{figure}[H]
+  % \begin{figure}[H]
   %   \begin{center}
   %     \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Driver-Drop.png}
   %     \caption{Driver usage: drop method}
@@ -222,10 +222,10 @@ gives the possibility to call all collection-management methods:
   %     \caption{Driver usage: drop method}
   %   \end{center}
   % \end{figure}
-  \item printing collections:\\All object returned by \verb=ActorbaseDriver=
-have an override\footnote{Specific implementation of a method in a subclass that
-is already provided by one of its superclasses} to the method \verb=toString=
-that return a pretty formatted JSON(JavaScript Object Notation) \verb=String=, e.g.:
+\item printing collections:\\All object returned by \verb=ActorbaseDriver=
+  have an override\footnote{Specific implementation of a method in a subclass that
+    is already provided by one of its superclasses} to the method \verb=toString=
+  that return a pretty formatted JSON(JavaScript Object Notation) \verb=String=, e.g.:
   % \begin{figure}[H]
   %   \begin{center}
   %     \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Driver-Printing.png}
@@ -233,7 +233,7 @@ that return a pretty formatted JSON(JavaScript Object Notation) \verb=String=, e
   %   \end{center}
   % \end{figure}
 \item \verb=count= elements inside a collection\textsuperscript{\ref{coll}} e.g.
-    % \begin{figure}[H]
+  % \begin{figure}[H]
   %   \begin{center}
   %     \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Driver-Counting.png}
   %     \caption{Driver usage: drop method}
@@ -252,11 +252,11 @@ permission:
 \end{itemize}
 e.g.:
 % \begin{figure}[H]
-  %   \begin{center}
-  %     \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Driver-Contributor.png}
-  %     \caption{Driver usage: drop method}
-  %   \end{center}
-  % \end{figure}
+%   \begin{center}
+%     \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Driver-Contributor.png}
+%     \caption{Driver usage: drop method}
+%   \end{center}
+% \end{figure}
 
 \paragraph{Administrative operations}
 
@@ -264,12 +264,12 @@ Actorbase expect two kind of users, common an administrator. The last one have
 some privileges over the others, such as a wider range of collections (all
 database) with read-write permissions, and capabilities of adding and removing
 users to and from the system, and finally resetting the password of given users.
-  % \begin{figure}[H]
-  %   \begin{center}
-  %     \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Driver-Administrative.png}
-  %     \caption{Driver usage: drop method}
-  %   \end{center}
-  % \end{figure}
+% \begin{figure}[H]
+%   \begin{center}
+%     \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Driver-Administrative.png}
+%     \caption{Driver usage: drop method}
+%   \end{center}
+% \end{figure}
 
 \paragraph{Error management}
 

@@ -4412,6 +4412,21 @@ utilizzati nel progetto \textbf{Actorbase}.
   (vedi~\hyperref[sec:ObserverPattern]{Observer Pattern}) secondo la variante \gloss{Push model}.
 \end{itemize}
 
+% TODO: Accertare la DI
+
+\subsubsection{Dependancy Injection}
+\begin{itemize}
+\item \textbf{Scopo:} Separa il comportamento di una componente dalla risoluzione
+  delle sue dipendenze, offrendo un maggiore grado di astrazione;
+\item \textbf{Utilizzo:} Viene utilizzato nella componente driver, più
+precisamente nella classe
+\hyperref[sec:actorbase::driver::ActorbaseServices]{ActorbaseServices},
+sfruttando la variante \gloss{cake-pattern} offerta dal linguaggio \gloss{Scala}
+per aggiungere dipendenze amministrative fornite da
+\hyperref[sec:actorbase::driver::ActorbaseAdminservices]{ActorbaseAdminServices}
+alla classe dedicata alle operazioni comuni.
+\end{itemize}
+
 \subsection{Design Pattern Creazionali}
 % TODO: ricontrollare Singletonnnno
 \subsubsection{Singleton}
