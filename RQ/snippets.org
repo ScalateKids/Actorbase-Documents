@@ -35,6 +35,26 @@ scala> client.changePassword("oldpw", "newpw")
 res0: Boolean = true
 #+end_src
 
+**** Inserting into a collection
+#+begin_src scala
+scala> client.getCollection("people").insert("keyOne" -> "valueOne", "keyTwo" -> 42).insert(ActorbaseObject("obj" -> "inserting with object"))
+#+end_src
+
+**** Find into a collection
+#+begin_src scala
+scala> client.getCollection("people").find("keyOne" -> "valueOne", "keyTwo" -> 42)
+res0: com.actorbase.driver.data.ActorbaseCollection
+
+scala> client.getCollection("people").findOne("key" -> "value") // just a single value
+res1: com.actorbase.driver.data.ActorbaseObject
+
+#+end_src
+
+**** Remove item
+#+begin_src scala
+scala> client.getCollection("people").remove("keyOne" -> "valueOne", "keyTwo" -> 42).remove(ActorbaseObject("obj" -> "inserting with object"))
+#+end_src
+
 **** Printing a collection
 #+begin_src scala
 scala> println(client.getCollection("people"))
@@ -69,20 +89,17 @@ scala> println(client.getCollection("people"))
 scala> client.getCollections.foreach(println)
 #+end_src
 
-
 **** Drop a collection
 #+begin_src scala
 scala> coll.drop
 res0: Boolean = true
 #+end_src
 
-**** Drop a collections
+**** Drop some collections
 #+begin_src scala
 scala> client.dropCollections
 res0: Boolean = true
-#+end_src
 
-#+begin_src scala
 scala> client.getCollections.drop
 res0: Boolean = true
 #+end_src
@@ -92,6 +109,7 @@ res0: Boolean = true
 scala> println(client.getCollection("people").count)
 res0: Int = 3
 #+end_src
+
 **** Contributor operations
 #+begin_src scala
 scala> val fooCollection = client.getCollection("foo")
@@ -101,5 +119,20 @@ res0: Boolean = true
 scala> // remove
 
 scala> fooCollection.removeContributor("aFriend")
+res1: Boolean = true
+#+end_src
+
+**** Administrative operations
+#+begin_src scala
+scala> client.addUser("aUser")
+res0: Boolean = true
+
+scala> // remove
+
+scala> client.removeUser("aUser")
+res1: Boolean = true
+
+scala> // reset
+scala> client.resetPassword("anotherUser")
 res1: Boolean = true
 #+end_src

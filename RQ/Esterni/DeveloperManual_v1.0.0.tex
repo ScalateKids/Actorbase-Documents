@@ -85,7 +85,7 @@ This document aim to describe the procedures and methods to use in order to take
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% DRIVER PART                          %%%
+%%%                         DRIVER PART                          %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Actorbase usage}
@@ -104,7 +104,6 @@ The most common operations include:
 \item Authentication;
 \item Profile management operations;
 \item Collections operations;
-\item Items operations;
 \item Administrative operations.
 \end{itemize}
 
@@ -119,7 +118,7 @@ These are some of the most common operations that the driver allows to do,
 there's not too much boilerplate\footnote{A section of code that have to be
   included in many places with little to no alteration.} code, and it's possible
 to make operations directly on objects representing \textbf{Actorbase}
-collections\footnote{A data-structure constituted by a list of key-value items}
+collections\footnote{A data-structure constituted by a list of key-value items\label{coll}}
 in a purely OOP (Object Oriented Programming) fashion.\\ As explained on
 the snippet\footnote{A programming term for a small region of reusable code.}
 image, these objects also retain some of the common functional constructs (e.g.
@@ -151,7 +150,7 @@ As previously explained, operations on the collections can be done in a purely
 OOP way, this mean that all methods that return an \verb=ActorbaseCollection=,
 gives the possibility to call all collection-management methods:
 \begin{itemize}
-\item insert methods:\\ These methods come in two variants, first one accepting
+\item \verb=insert= methods:\\ These methods come in two variants, first one accepting
   a vararg\footnote{A sequence of arguments} of key-value tuple, the second
   accepting an
   \verb=ActorbaseObject=\footnote{An object representing a key-value pair inside Actorbase} instance;
@@ -159,16 +158,107 @@ gives the possibility to call all collection-management methods:
   % \begin{figure}[H]
   %   \begin{center}
   %     \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Driver-Common.png}
-  %     \caption{Driver usage: Generic example}
+  %     \caption{Driver usage: insertion methods}
+  %   \end{center}
+  % \end{figure}
+\item \verb=remove= methods:\\ There're two variants of this method too, the usage is
+  analogous to insert, e.g.:
+  % \begin{figure}[H]
+  %   \begin{center}
+  %     \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Driver-Common.png}
+  %     \caption{Driver usage: remove methods}
+  %   \end{center}
+  % \end{figure}
+\item \verb=find= method:\\ This method accept one or more \verb=String= representing
+  keys to be retrieved from the collection\textsuperscript{\ref{coll}}, again the usage is similar to insert and
+  remove methods, e.g.:
+  % \begin{figure}[H]
+  %   \begin{center}
+  %     \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Driver-Common.png}
+  %     \caption{Driver usage: find method}
+  %   \end{center}
+  % \end{figure}
+\item \verb=findOne= method:\\ This method accept one \verb=ActorbaseObject= representing
+  a key-value pair to be retrieved from the collection, again the usage is similar to insert and
+  remove methods, e.g.:
+  % \begin{figure}[H]
+  %   \begin{center}
+  %     \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Driver-Common.png}
+  %     \caption{Driver usage: findOne method}
+  %   \end{center}
+  % \end{figure}
+\item \verb=drop= methods:\\ Again this method have multiple variants, there's the
+  \verb=dropCollections= that can be used to wipe out all the database, e.g.:
+    % \begin{figure}[H]
+  %   \begin{center}
+  %     \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Driver-Common.png}
+  %     \caption{Driver usage: dropCollections method}
+  %   \end{center}
+  % \end{figure}
+  the \verb=drop= inside an \verb=ActorbaseCollection= object:
+    % \begin{figure}[H]
+  %   \begin{center}
+  %     \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Driver-Common.png}
+  %     \caption{Driver usage: drop method}
+  %   \end{center}
+  % \end{figure}
+  and finally \verb=drop= inside an \verb=ActorbaseCollectionMap=, it takes a
+  vararg of \verb=String= representing a sequence of collections to be removed
+  e.g.:
+  % \begin{figure}[H]
+  %   \begin{center}
+  %     \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Driver-Common.png}
+  %     \caption{Driver usage: drop method}
+  %   \end{center}
+  % \end{figure}
+  \item printing collections:\\All object returned by \verb=ActorbaseDriver=
+have an override\footnote{Specific implementation of a method in a subclass that
+is already provided by one of its superclasses} to the method \verb=toString=
+that return a pretty formatted JSON(JavaScript Object Notation) \verb=String=, e.g.:
+  % \begin{figure}[H]
+  %   \begin{center}
+  %     \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Driver-Common.png}
+  %     \caption{Driver usage: drop method}
+  %   \end{center}
+  % \end{figure}
+\item \verb=count= elements inside a collection\textsuperscript{\ref{coll}} e.g.
+    % \begin{figure}[H]
+  %   \begin{center}
+  %     \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Driver-Common.png}
+  %     \caption{Driver usage: drop method}
   %   \end{center}
   % \end{figure}
 \end{itemize}
 
 \subparagraph{Contributor management}
 
-\paragraph{Items operations}
+Each user in \textbf{Actorbase} have the possibility to add and remove contributors
+to his collections\textsuperscript{\ref{coll}}, a user can be added with two level of
+permission:
+\begin{itemize}
+\item read, means that a user can only make read operations on the collection\textsuperscript{\ref{coll}} without modifying it;
+\item read-write, means that a user can make read and write operations on the collection\textsuperscript{\ref{coll}}.
+\end{itemize}
+e.g.:
+% \begin{figure}[H]
+  %   \begin{center}
+  %     \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Driver-Common.png}
+  %     \caption{Driver usage: drop method}
+  %   \end{center}
+  % \end{figure}
 
 \paragraph{Administrative operations}
+
+Actorbase expect two kind of users, common an administrator. The last one have
+some privileges over the others, such as a wider range of collections (all
+database) with read-write permissions, and capabilities of adding and removing
+users to and from the system, and finally resetting the password of given users.
+  % \begin{figure}[H]
+  %   \begin{center}
+  %     \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Driver-Common.png}
+  %     \caption{Driver usage: drop method}
+  %   \end{center}
+  % \end{figure}
 
 \paragraph{Error management}
 
@@ -177,5 +267,7 @@ connection error, which can be caused by not receiving a response from the
 server in a predetermined time, the driver will launch a timeout connection
 exception. There are some errors that are specific to some methods, these will
 be explained in the section dedicated to the methods that cause them.
+
+% TODO: tutte le librerie utilizzate per la serializzazione...
 
 \end{document}
