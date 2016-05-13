@@ -66,7 +66,7 @@ scala> println(client.getCollection("people"))
 
 **** Printing some collections
 #+begin_src scala
-client.getCollections.foreach(println)
+scala> client.getCollections.foreach(println)
 #+end_src
 
 
@@ -97,6 +97,7 @@ res0: Int = 3
 scala> val fooCollection = client.getCollection("foo")
 scala> fooCollection.addContributor("aFriend")
 res0: Boolean = true
+
 scala> // remove
 
 scala> fooCollection.removeContributor("aFriend")
