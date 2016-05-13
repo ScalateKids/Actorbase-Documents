@@ -941,19 +941,6 @@ Questa classe viene utilizzata per effettuare il salvataggio su filesystem del
 \gloss{Package} che racchiude tutti i messaggi che gli attori di tipo
 \gloss{Warehouseman} possono ricevere.
 
-\paragraph{actorbase::actorsystem::warehouseman::messages::Init}
-\label{sec:actorbase::actorsystem::warehouseman::messages::Init}
-
-\subparagraph{Descrizione}
-
-Messaggio che porta alla lettura dei dati da disco.
-
-\subparagraph{Utilizzo}
-
-Quando \hyperref[sec:actorbase::actorsystem::warehouseman::Warehouseman]{actorbase::actorsystem::warehouseman::Warehouseman}
-riceve questo messaggio inizializza uno \hyperref[sec:actorbase::actorsystem::storekeeper::StoreKeeper]{actorbase::actorsystem::storekeeper::StoreKeeper}
-con i dati letti da disco.
-
 \paragraph{actorbase::actorsystem::warehouseman::messages::Save}
 \label{sec:actorbase::actorsystem::warehouseman::messages::Save}
 
@@ -1146,15 +1133,6 @@ Userfinder di cui ha riferimento.
   password & public & immutabile & String & stringa che rappresenta la password dell'utente da inserire \\
   \hline
 \end{tabular}
-
-\paragraph{actorbase::actorsystem::main::messages::InitUsers}
-\label{sec:actorbase::actorsystem::main::messages::InitUsers} 
-
-\subparagraph{Descrizione}
-Messaggio che indica la necessità di lettura da filesystem della collezione
-contenente gli utenti del sistema.\\Messaggio per il popolamento del database
-post accensione.
-%TODO
 
 \paragraph{actorbase::actorsystem::main::messages::Login}
 \label{sec:actorbase::actorsystem::main::messages::Login}
@@ -2001,21 +1979,6 @@ Questa classe viene utilizzata per tener traccia degli attori di tipo
 
 \subsubsection{Classi}
 
-\paragraph{actorbase::actorsystem::storefinder::messages::Init} %TODO da fare
-\label{sec:actorbase::actorsystem::storefinder::messages::Init}
-
-\subparagraph{Descrizione}
-
-Messaggio che, se ricevuto dall'\gloss{attore} di tipo \gloss{Storefinder},
-indica la necessità di inizializzare degli \gloss{Storekeeper}.
-
-\subparagraph{Utilizzo}
-
-Quando \hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storefinder::\allowbreak{}Storefinder}
-riceve questo messaggio provvederà a inizializzare gli attori di tipo
-\hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storekeeper::\allowbreak{}Storekeeper}
-presenti nella cartella indicata dal messaggio.
-
 \paragraph{actorbase::actorsystem::storefinder::messages::DuplicationRequestSK}
 \label{sec:actorbase::actorsystem::storefinder::messages::DuplicationRequestSK}
 
@@ -2282,32 +2245,6 @@ ricevuti dall'\gloss{attore} di tipo
 
 \subsubsection{Classi}
 
-\paragraph{actorbase::actorsystem::storekeeper::messages::Init}
-\label{sec:actorbase::actorsystem::storekeeper::messages::Init}
-
-\subparagraph{Descrizione}
-
-Messaggio che richiede l'inizializzazione dello \gloss{Storekeeper}.
-
-\subparagraph{Utilizzo}
-
-Quando \hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{actorbase::actorsystem::storekeeper::Storekeeper}
-riceve questo messaggio manda un messaggio all'\gloss{attore} di tipo
-\hyperref[sec:actorbase::actorsystem::warehouseman::Warehouseman]{actorbase::\allowbreak{}actorsystem::\allowbreak{}warehouseman::\allowbreak{}Warehouseman}
-per la lettura dei dati da disco.
-
-\subparagraph{Attributi}
-
-\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
-  \hline
-  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
-  \hline
-  parentRef & pubblica & immutabile & ActorRef & Riferimento all'attore di tipo \gloss{Storefinder} che contiene l'attore di tipo \gloss{Storekeeper} \\
-  \hline
-  range & pubblica & immutabile & KeyRange & Rappresenta il range di chiavi che sarà contenuto nell'attore\\
-  \hline
-\end{tabular}
-
 \paragraph{actorbase::actorsystem::storekeeper::messages::GetItem}
 \label{sec:actorbase::actorsystem::storekeeper::messages::GetItem}
 
@@ -2455,8 +2392,7 @@ Messaggio che richiede che l'\gloss{attore} di tipo \gloss{Storekeeper} diventi 
 Quando \hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{actorbase::actorsystem::storekeeper::Storekeeper}
 riceve questo messaggio cambia il proprio contesto diventando un attore di tipo \gloss{Ninja}. Questo comporta l'accesso ai messaggi
 \hyperref[sec:actorbase::actorsystem::storekeeper::messages::BecomeNinja]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storekeeper::\allowbreak{}messages::\allowbreak{}BecomeNinja},
-\hyperref[sec:actorbase::actorsystem::storekeeper::messages::Update]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storekeeper::\allowbreak{}messages::\allowbreak{}Update} e
-\hyperref[sec:actorbase::actorsystem::storekeeper::messages::Init]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storekeeper::\allowbreak{}messages::\allowbreak{}Init}.
+\hyperref[sec:actorbase::actorsystem::storekeeper::messages::Update]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storekeeper::\allowbreak{}messages::\allowbreak{}Update}.
 
 \paragraph{actorbase::actorsystem::storekeeper::messages::Persist}
 \label{sec:actorbase::actorsystem::storekeeper::messages::Persist}
