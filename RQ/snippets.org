@@ -37,7 +37,12 @@ res0: Boolean = true
 
 **** Inserting into a collection
 #+begin_src scala
-scala> client.getCollection("people").insert("keyOne" -> "valueOne", "keyTwo" -> 42).insert(ActorbaseObject("obj" -> "inserting with object"))
+scala> client.getCollection("people").insert("keyOne" -> "valueOne", "keyTwo" -> 42)
+res0: com.actorbase.driver.data.ActorbaseCollection
+
+scala> // variant
+scala> client.getCollection("people").insert(ActorbaseObject("obj" -> "inserting with object"))
+res1: com.actorbase.driver.data.ActorbaseCollection
 #+end_src
 
 **** Find into a collection
@@ -52,7 +57,12 @@ res1: com.actorbase.driver.data.ActorbaseObject
 
 **** Remove item
 #+begin_src scala
-scala> client.getCollection("people").remove("keyOne" -> "valueOne", "keyTwo" -> 42).remove(ActorbaseObject("obj" -> "inserting with object"))
+scala> client.getCollection("people").remove("keyOne" -> "valueOne", "keyTwo" -> 42)
+res0: com.actorbase.driver.data.ActorbaseCollection
+
+scala> // variant
+scala> client.getCollection("people").remove(ActorbaseObject("obj" -> "inserting with object"))
+res1: com.actorbase.driver.data.ActorbaseCollection
 #+end_src
 
 **** Printing a collection
