@@ -2226,11 +2226,19 @@ Questa classe viene utilizzata per salvare nel \gloss{database} gli item.
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  manager & private & mutabile & ActorRef & Riferimento all'attore di tipo \gloss{Manager} responsabile della sua gestione\\
+  parentRef & private & mutabile & ActorRef & Riferimento all'attore di tipo \gloss{Storefinder} che contiene l'attore di tipo \gloss{Storekeeper} \\
   \hline
   data & private & mutabile & TreeMap [String, Any] & Rappresenta l'insieme di \gloss{item} contenuta nell'attore\\
   \hline
   range & private & mutabile & KeyRange & Rappresenta il range di chiavi contenuta nell'attore\\
+  \hline
+  collection & private & immutabile & ActorbaseCollection & Rappresenta la collezione a cui lo \gloss{Storekeeper} appartiene\\
+  \hline
+  parentRange & private & mutabile & KeyRange & Rappresenta il range di chiavi contenuta nell'attore di tipo \gloss{Storefinder} che contiene lo \gloss{Storekeeper}\\
+  \hline
+  maxSize & private & immutabile & Int & Rappresenta il numero massimo di \gloss{item} che possono essere contenuti\\
+  \hline
+  warehouseman & private & immutabile & ActorRef & Rappresenta il \gloss{Warehouseman} responsabile del salvataggio dei dati dello \gloss{Storekeeper}\\
   \hline
 \end{tabular}
 
@@ -2274,7 +2282,7 @@ ricevuti dall'\gloss{attore} di tipo
 
 \subsubsection{Classi}
 
-\paragraph{actorbase::actorsystem::storekeeper::messages::Init} %TODO DA FARE QUANDO SI SAPRA COME
+\paragraph{actorbase::actorsystem::storekeeper::messages::Init}
 \label{sec:actorbase::actorsystem::storekeeper::messages::Init}
 
 \subparagraph{Descrizione}
@@ -2286,7 +2294,19 @@ Messaggio che richiede l'inizializzazione dello \gloss{Storekeeper}.
 Quando \hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{actorbase::actorsystem::storekeeper::Storekeeper}
 riceve questo messaggio manda un messaggio all'\gloss{attore} di tipo
 \hyperref[sec:actorbase::actorsystem::warehouseman::Warehouseman]{actorbase::\allowbreak{}actorsystem::\allowbreak{}warehouseman::\allowbreak{}Warehouseman}
-per la \gloss{deserializzazione} dei dati da leggere da disco.
+per la lettura dei dati da disco.
+
+\subparagraph{Attributi}
+
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  parentRef & pubblica & immutabile & ActorRef & Riferimento all'attore di tipo \gloss{Storefinder} che contiene l'attore di tipo \gloss{Storekeeper} \\
+  \hline
+  range & pubblica & immutabile & KeyRange & Rappresenta il range di chiavi che sarà contenuto nell'attore\\
+  \hline
+\end{tabular}
 
 \paragraph{actorbase::actorsystem::storekeeper::messages::GetItem}
 \label{sec:actorbase::actorsystem::storekeeper::messages::GetItem}
@@ -2373,6 +2393,29 @@ riceve questo messaggio rimuove l'\gloss{item}.
   \hline
 \end{tabular}
 
+\paragraph{actorbase::actorsystem::storekeeper::messages::UpdateOwnerOfSk}
+\label{sec:actorbase::actorsystem::storekeeper::messages::UpdateOwnerOfSk}
+
+\subparagraph{Descrizione}
+
+Messaggio che richiede l'update del campo dati che rappresenta lo \hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{Storefinder} che contiene lo \hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{Storekeeper} che ha ricevuto il messaggio.
+
+\subparagraph{Utilizzo}
+
+Quando \hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{Storekeeper}
+riceve questo messaggio aggiorna il campo dati relativo allo \hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{Storefinder} che lo contiene.
+
+\subparagraph{Attributi}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  newParent & public & immutabile & ActorRef & Rappresenta lo \hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{Storefinder} che diventerà padre \\
+  \hline
+  newRange & public & immutabile & KeyRange & Rappresenta il range dello \hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{Storefinder} che diventerà padre \\
+  \hline
+\end{tabular}
+
 \paragraph{actorbase::actorsystem::storekeeper::messages::Update}
 \label{sec:actorbase::actorsystem::storekeeper::messages::Update}
 
@@ -2414,6 +2457,17 @@ riceve questo messaggio cambia il proprio contesto diventando un attore di tipo 
 \hyperref[sec:actorbase::actorsystem::storekeeper::messages::BecomeNinja]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storekeeper::\allowbreak{}messages::\allowbreak{}BecomeNinja},
 \hyperref[sec:actorbase::actorsystem::storekeeper::messages::Update]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storekeeper::\allowbreak{}messages::\allowbreak{}Update} e
 \hyperref[sec:actorbase::actorsystem::storekeeper::messages::Init]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storekeeper::\allowbreak{}messages::\allowbreak{}Init}.
+
+\paragraph{actorbase::actorsystem::storekeeper::messages::Persist}
+\label{sec:actorbase::actorsystem::storekeeper::messages::Persist}
+
+\subparagraph{Descrizione}
+Messaggio che richiede che il salvataggio su disco dei dati contenuti.
+
+\subparagraph{Utilizzo}
+Quando lo \hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{Storekeeper}
+riceve questo messaggio si occupa di mandare un messaggio al \hyperref[sec:actorbase::actorsystem::warehouseman::Warehouseman]{Warehouseman}
+per il salvataggio dei propri dati su disco.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
