@@ -2690,7 +2690,7 @@ profilo nel sistema.
 \begin{center}
   \textbf{authenticate}
 \end{center}
-\begin{tabular}{| p{3cm} | p{3cm} | p{8cm} |}
+\begin{tabular}{| p{3cm} | p{3.5cm} | p{8.5cm} |}
   \hline
   Nome & Tipo & Descrizione\\
   \hline
@@ -2703,7 +2703,7 @@ profilo nel sistema.
 \begin{center}
   \textbf{getCollection}
 \end{center}
-\begin{tabular}{ p{3cm} | p{3cm} | p{3cm}}
+\begin{tabular}{| p{3cm} | p{3.5cm} | p{8.5cm} |}
   \hline
   Nome & Tipo & Descrizione\\
   \hline
@@ -2714,7 +2714,7 @@ profilo nel sistema.
 \begin{center}
   \textbf{addCollection}
 \end{center}
-\begin{tabular}{ p{3cm} | p{3cm} | p{3cm}}
+\begin{tabular}{| p{3cm} | p{3.5cm} | p{8.5cm} |}
   \hline
   Nome & Tipo & Descrizione\\
   \hline
@@ -2761,7 +2761,7 @@ remoti all'interno del \gloss{database}.
   \hline
   listCollections & public & List[String] & Ritorna una lista di stringhe, rappresentano i nomi delle collezioni\\
   \hline
-  getCollections & public & \hyperref[sec:actorbase::driver::data::ActorbaseCollectionMap]{ActorbaseCollectionMap} & Ritorna un oggetto di tipo \hyperref[sec:actorbase::driver::data::ActorbaseCollectionMap]{ActorbaseCollectionMap}\\
+  getCollections & public & \hyperref[sec:actorbase::driver::data::ActorbaseCollectionMap]{ActorbaseCollection\allowbreak{}Map} & Ritorna un oggetto di tipo \hyperref[sec:actorbase::driver::data::ActorbaseCollectionMap]{ActorbaseCollectionMap}\\
   \hline
   getCollection & public & \hyperref[sec:actorbase::driver::data::ActorbaseCollection]{ActorbaseCollection} & Ritorna un oggetto di tipo \hyperref[sec:actorbase::driver::data::ActorbaseCollection]{ActorbaseCollection}\\
   \hline
@@ -2784,7 +2784,7 @@ remoti all'interno del \gloss{database}.
 \begin{center}
   \textbf{changePassword}
 \end{center}
-\begin{tabular}{ p{3cm} | p{3cm} | p{3cm}}
+\begin{tabular}{| p{3cm} | p{3.5cm} | p{8.5cm} |}
   \hline
   Nome & Tipo & Descrizione\\
   \hline
@@ -2797,7 +2797,7 @@ remoti all'interno del \gloss{database}.
 \begin{center}
   \textbf{getCollection}
 \end{center}
-\begin{tabular}{ p{3cm} | p{3cm} | p{3cm}}
+\begin{tabular}{| p{3cm} | p{3.5cm} | p{8.5cm} |}
   \hline
   Nome & Tipo & Descrizione\\
   \hline
@@ -2808,7 +2808,7 @@ remoti all'interno del \gloss{database}.
 \begin{center}
   \textbf{addCollection}
 \end{center}
-\begin{tabular}{ p{3cm} | p{3cm} | p{3cm}}
+\begin{tabular}{| p{3cm} | p{3.5cm} | p{8.5cm} |}
   \hline
   Nome & Tipo & Descrizione\\
   \hline
@@ -2819,7 +2819,7 @@ remoti all'interno del \gloss{database}.
 \begin{center}
   \textbf{importFromFile}
 \end{center}
-\begin{tabular}{ p{3cm} | p{3cm} | p{3cm}}
+\begin{tabular}{| p{3cm} | p{3.5cm} | p{8.5cm} |}
   \hline
   Nome & Tipo & Descrizione\\
   \hline
@@ -2830,7 +2830,7 @@ remoti all'interno del \gloss{database}.
 \begin{center}
   \textbf{exportToFile}
 \end{center}
-\begin{tabular}{ p{3cm} | p{3cm} | p{3cm}}
+\begin{tabular}{| p{3cm} | p{3.5cm} | p{8.5cm} |}
   \hline
   Nome & Tipo & Descrizione\\
   \hline
@@ -2891,7 +2891,7 @@ operazioni di gestione degli utenti.
 \begin{center}
   \textbf{addUser}
 \end{center}
-\begin{tabular}{ p{3cm} | p{3cm} | p{3cm}}
+\begin{tabular}{| p{3cm} | p{3.5cm} | p{8.5cm} |}
   \hline
   Nome & Tipo & Descrizione\\
   \hline
@@ -2902,7 +2902,7 @@ operazioni di gestione degli utenti.
 \begin{center}
   \textbf{removeUser}
 \end{center}
-\begin{tabular}{ p{3cm} | p{3cm} | p{3cm}}
+\begin{tabular}{| p{3cm} | p{3.5cm} | p{8.5cm} |}
   \hline
   Nome & Tipo & Descrizione\\
   \hline
@@ -2913,7 +2913,7 @@ operazioni di gestione degli utenti.
 \begin{center}
   \textbf{resetPassword}
 \end{center}
-\begin{tabular}{ p{3cm} | p{3cm} | p{3cm}}
+\begin{tabular}{| p{3cm} | p{3.5cm} | p{8.5cm} |}
   \hline
   Nome & Tipo & Descrizione\\
   \hline
@@ -3024,11 +3024,11 @@ metodi.
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  createClientOptions & public & Array di HttpOption & Crea le opzioni di utilizzo del \gloss{client} \gloss{Http}\\
+  createClientOptions & public & \gloss{array} di HttpOption & Crea le opzioni di utilizzo del \gloss{client} \gloss{Http}\\
   \hline
-  send & public & Response & Invia la richiesta al server e riceve la risposta sincronamente\\
+  send & public & \hyperref[sec::actorbase::driver::client::api]{Response} & Invia la richiesta al server e riceve la risposta sincronamente\\
   \hline
-  shutdown & public &  & Chiude la connessione con il server\\
+  shutdown & public & void  & Chiude la connessione con il server\\
   \hline
 \end{tabular}
 
@@ -3037,7 +3037,7 @@ metodi.
 \begin{center}
   \textbf{send}
 \end{center}
-\begin{tabular}{ p{3cm} | p{3cm} | p{3cm}}
+\begin{tabular}{| p{3cm} | p{3.5cm} | p{8.5cm} |}
   \hline
   Nome & Tipo & Descrizione\\
   \hline
@@ -3085,9 +3085,9 @@ o entrambi.
   \hline
   serialize2JSON & public & String & Serializza l'oggetto parametro in formato \gloss{JSON}\\
   \hline
-  \allowbreak{deserializeFromByteArray} & public & \gloss{Any} & Deserializza l'\gloss{array} di \gloss{Byte} parametro riportandolo al formato originale\\
+  deserializeFrom\allowbreak{}ByteArray & public & \gloss{Any} & Deserializza l'\gloss{array} di \gloss{Byte} parametro riportandolo al formato originale\\
   \hline
-  \allowbreak{deserializeFromJSON} & public & \gloss{Any} & Deserializza la stringa \gloss{JSON} parametro riportandola al formato originale\\
+  deserializeFrom\allowbreak{}JSON & public & \gloss{Any} & Deserializza la stringa \gloss{JSON} parametro riportandola al formato originale\\
   \hline
 \end{tabular}
 
@@ -3096,7 +3096,7 @@ o entrambi.
 \begin{center}
   \textbf{serialize2Bytearray}
 \end{center}
-\begin{tabular}{ p{3cm} | p{3cm} | p{3cm}}
+\begin{tabular}{| p{3cm} | p{3.5cm} | p{8.5cm} |}
   \hline
   Nome & Tipo & Descrizione\\
   \hline
@@ -3107,7 +3107,7 @@ o entrambi.
 \begin{center}
   \textbf{serialize2JSON}
 \end{center}
-\begin{tabular}{ p{3cm} | p{3cm} | p{3cm}}
+\begin{tabular}{| p{3cm} | p{3.5cm} | p{8.5cm} |}
   \hline
   Nome & Tipo & Descrizione\\
   \hline
@@ -3118,7 +3118,7 @@ o entrambi.
 \begin{center}
   \textbf{deserializeFromByteArray}
 \end{center}
-\begin{tabular}{ p{3cm} | p{3cm} | p{3cm}}
+\begin{tabular}{| p{3cm} | p{3.5cm} | p{8.5cm} |}
   \hline
   Nome & Tipo & Descrizione\\
   \hline
@@ -3129,7 +3129,7 @@ o entrambi.
 \begin{center}
   \textbf{deserializeFromJSON}
 \end{center}
-\begin{tabular}{ p{3cm} | p{3cm} | p{3cm}}
+\begin{tabular}{| p{3cm} | p{3.5cm} | p{8.5cm} |}
   \hline
   Nome & Tipo & Descrizione\\
   \hline
@@ -3173,11 +3173,11 @@ hanno libertà di implementazione specifica dei metodi.
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  createClientOptions & public & Array di HttpOption & Crea le opzioni di utilizzo del \gloss{client} \gloss{Http} specificandone il protocollo di protezione\\
+  createClientOptions & public & \gloss{array} di HttpOption & Crea le opzioni di utilizzo del \gloss{client} \gloss{Http} specificandone il protocollo di protezione\\
   \hline
-  send & public & Response & Invia la richiesta al server e riceve la risposta sincronamente\\
+  send & public & \hyperref[sec:actorbase::driver::client::api::Response]{Response} & Invia la richiesta al server e riceve la risposta sincronamente\\
   \hline
-  shutdown & public &  & Chiude la connessione con il server\\
+  shutdown & public & void  & Chiude la connessione con il server\\
   \hline
 \end{tabular}
 
@@ -3186,7 +3186,7 @@ hanno libertà di implementazione specifica dei metodi.
 \begin{center}
   \textbf{send}
 \end{center}
-\begin{tabular}{ p{3cm} | p{3cm} | p{3cm}}
+\begin{tabular}{| p{3cm} | p{3.5cm} | p{8.5cm} |}
   \hline
   Nome & Tipo & Descrizione\\
   \hline
@@ -3246,9 +3246,9 @@ necessitano.
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  createClientOptions & public & Array di HttpOption & Crea le opzioni di utilizzo del \gloss{client} \gloss{Http}\\
+  createClientOptions & public & \gloss{array} di HttpOption & Crea le opzioni di utilizzo del \gloss{client} \gloss{Http}\\
   \hline
-  send & public & Response & Invia la richiesta al server e riceve la risposta sincronamente\\
+  send & public & \hyperref[sec::actorbase::driver::api::Response]{Response} & Invia la richiesta al server e riceve la risposta sincronamente\\
   \hline
   shutdown & public &  & Chiude la connessione con il server\\
   \hline
@@ -3675,7 +3675,7 @@ nella comunicazione con il server.
 \begin{center}
   \textbf{withMethod}
 \end{center}
-\begin{tabular}{ p{3cm} | p{3cm} | p{3cm}}
+\begin{tabular}{| p{3cm} | p{3.5cm} | p{8.5cm} |}
   \hline
   Nome & Tipo & Descrizione\\
   \hline
@@ -3686,7 +3686,7 @@ nella comunicazione con il server.
 \begin{center}
   \textbf{withUrl}
 \end{center}
-\begin{tabular}{ p{3cm} | p{3cm} | p{3cm}}
+\begin{tabular}{| p{3cm} | p{3.5cm} | p{8.5cm} |}
   \hline
   Nome & Tipo & Descrizione\\
   \hline
@@ -3697,7 +3697,7 @@ nella comunicazione con il server.
 \begin{center}
   \textbf{withParams}
 \end{center}
-\begin{tabular}{ p{3cm} | p{3cm} | p{3cm}}
+\begin{tabular}{| p{3cm} | p{3.5cm} | p{8.5cm} |}
   \hline
   Nome & Tipo & Descrizione\\
   \hline
@@ -3708,7 +3708,7 @@ nella comunicazione con il server.
 \begin{center}
   \textbf{withBody}
 \end{center}
-\begin{tabular}{ p{3cm} | p{3cm} | p{3cm}}
+\begin{tabular}{| p{3cm} | p{3.5cm} | p{8.5cm} |}
   \hline
   Nome & Tipo & Descrizione\\
   \hline
@@ -3719,7 +3719,7 @@ nella comunicazione con il server.
 \begin{center}
   \textbf{addPath}
 \end{center}
-\begin{tabular}{ p{3cm} | p{3cm} | p{3cm}}
+\begin{tabular}{| p{3cm} | p{3.5cm} | p{8.5cm} |}
   \hline
   Nome & Tipo & Descrizione\\
   \hline
@@ -3804,7 +3804,7 @@ Classe utilizzata per agevolare le ricerche specifiche all'interno delle
 \begin{center}
   \textbf{ActorbaseObject}
 \end{center}
-\begin{tabular}{ p{3cm} | p{3cm} | p{3cm}}
+\begin{tabular}{| p{3cm} | p{3.5cm} | p{8.5cm} |}
   \hline
   Nome & Tipo & Descrizione\\
   \hline
@@ -3876,7 +3876,7 @@ navigabilità dei contenuti.
   \hline
   find & public & \hyperref[sec:actorbase::driver::data::ActorbaseCollection]{ActorbaseCollection} & Cerca uno o più coppie-chiave valore nel sistema\\
   \hline
-  findOne & public & \hyperref[sec::actorbase::driver::data::ActorbaseObject]{ActorbaseObject} & Cerca una coppia chiave-valore nel sistema\\
+  findOne & public & \hyperref[sec:actorbase::driver::data::ActorbaseObject]{ActorbaseObject} & Cerca una coppia chiave-valore nel sistema\\
   \hline
   addContributor & public & Boolean & Aggiunge un \gloss{collaboratore} alla \gloss{collezione}\\
   \hline
@@ -3899,7 +3899,7 @@ navigabilità dei contenuti.
 \begin{center}
   \textbf{insert}
 \end{center}
-\begin{tabular}{ p{3cm} | p{3cm} | p{3cm}}
+\begin{tabular}{| p{3cm} | p{3.5cm} | p{8.5cm} |}
   \hline
   Nome & Tipo & Descrizione\\
   \hline
@@ -3910,7 +3910,7 @@ navigabilità dei contenuti.
 \begin{center}
   \textbf{insert (overload)}
 \end{center}
-\begin{tabular}{ p{3cm} | p{3cm} | p{3cm}}
+\begin{tabular}{| p{3cm} | p{3.5cm} | p{8.5cm} |}
   \hline
   Nome & Tipo & Descrizione\\
   \hline
@@ -3921,7 +3921,7 @@ navigabilità dei contenuti.
 \begin{center}
   \textbf{remove}
 \end{center}
-\begin{tabular}{ p{3cm} | p{3cm} | p{3cm}}
+\begin{tabular}{| p{3cm} | p{3.5cm} | p{8.5cm} |}
   \hline
   Nome & Tipo & Descrizione\\
   \hline
@@ -3932,7 +3932,7 @@ navigabilità dei contenuti.
 \begin{center}
   \textbf{remove (overload)}
 \end{center}
-\begin{tabular}{ p{3cm} | p{3cm} | p{3cm}}
+\begin{tabular}{| p{3cm} | p{3.5cm} | p{8.5cm} |}
   \hline
   Nome & Tipo & Descrizione\\
   \hline
@@ -3943,7 +3943,7 @@ navigabilità dei contenuti.
 \begin{center}
   \textbf{find}
 \end{center}
-\begin{tabular}{ p{3cm} | p{3cm} | p{3cm}}
+\begin{tabular}{| p{3cm} | p{3.5cm} | p{8.5cm} |}
   \hline
   Nome & Tipo & Descrizione\\
   \hline
@@ -3954,7 +3954,7 @@ navigabilità dei contenuti.
 \begin{center}
   \textbf{findOne}
 \end{center}
-\begin{tabular}{ p{3cm} | p{3cm} | p{3cm}}
+\begin{tabular}{| p{3cm} | p{3.5cm} | p{8.5cm} |}
   \hline
   Nome & Tipo & Descrizione\\
   \hline
@@ -3965,7 +3965,7 @@ navigabilità dei contenuti.
 \begin{center}
   \textbf{addContributor}
 \end{center}
-\begin{tabular}{ p{3cm} | p{3cm} | p{3cm}}
+\begin{tabular}{| p{3cm} | p{3.5cm} | p{8.5cm} |}
   \hline
   Nome & Tipo & Descrizione\\
   \hline
@@ -3976,7 +3976,7 @@ navigabilità dei contenuti.
 \begin{center}
   \textbf{removeContributor}
 \end{center}
-\begin{tabular}{ p{3cm} | p{3cm} | p{3cm}}
+\begin{tabular}{| p{3cm} | p{3.5cm} | p{8.5cm} |}
   \hline
   Nome & Tipo & Descrizione\\
   \hline
@@ -3987,7 +3987,7 @@ navigabilità dei contenuti.
 \begin{center}
   \textbf{foreach}
 \end{center}
-\begin{tabular}{ p{3cm} | p{3cm} | p{3cm}}
+\begin{tabular}{| p{3cm} | p{3.5cm} | p{8.5cm} |}
   \hline
   Nome & Tipo & Descrizione\\
   \hline
@@ -4041,7 +4041,7 @@ Questa classe viene utilizzata per la rappresentazione dell'aggregazione di
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  find & public & \hyperref[sec:actorbase::driver::data::ActorbaseCollection]{ActorbaseCollection} & Cerca uno o più coppie-chiave valore nelle \gloss{collezioni}\\
+  find & public & \hyperref[sec:actorbase::driver::data::ActorbaseCollection]{ActorbaseCollect\allowbreak{}ion} & Cerca uno o più coppie-chiave valore nelle \gloss{collezioni}\\
   \hline
   drop & public & Boolean & Cancella una o più \gloss{collezione}\\
   \hline
@@ -4058,7 +4058,7 @@ Questa classe viene utilizzata per la rappresentazione dell'aggregazione di
 \begin{center}
   \textbf{find}
 \end{center}
-\begin{tabular}{ p{3cm} | p{3cm} | p{3cm}}
+\begin{tabular}{| p{3cm} | p{3.5cm} | p{8.5cm} |}
   \hline
   Nome & Tipo & Descrizione\\
   \hline
@@ -4069,7 +4069,7 @@ Questa classe viene utilizzata per la rappresentazione dell'aggregazione di
 \begin{center}
   \textbf{drop}
 \end{center}
-\begin{tabular}{ p{3cm} | p{3cm} | p{3cm}}
+\begin{tabular}{| p{3cm} | p{3.5cm} | p{8.5cm} |}
   \hline
   Nome & Tipo & Descrizione\\
   \hline
@@ -4080,7 +4080,7 @@ Questa classe viene utilizzata per la rappresentazione dell'aggregazione di
 \begin{center}
   \textbf{foreach}
 \end{center}
-\begin{tabular}{ p{3cm} | p{3cm} | p{3cm}}
+\begin{tabular}{| p{3cm} | p{3.5cm} | p{8.5cm} |}
   \hline
   Nome & Tipo & Descrizione\\
   \hline
@@ -4334,7 +4334,7 @@ risposta ricevuta dal \gloss{driver}.
 \begin{center}
   \textbf{update}
 \end{center}
-\begin{tabular}{ p{3cm} | p{3cm} | p{3cm}}
+\begin{tabular}{| p{3cm} | p{3.5cm} | p{8.5cm} |}
   \hline
   Nome & Tipo & Descrizione\\
   \hline
@@ -4488,7 +4488,7 @@ ottenuti dal server mediante l'inserimento dei comandi tramite il
 \begin{center}
   \textbf{update}
 \end{center}
-\begin{tabular}{ p{3cm} | p{3cm} | p{3cm}}
+\begin{tabular}{| p{3cm} | p{3.5cm} | p{8.5cm} |}
   \hline
   Nome & Tipo & Descrizione\\
   \hline
@@ -4578,7 +4578,7 @@ l'esecuzione del comando.
 \begin{center}
   \textbf{parserInput}
 \end{center}
-\begin{tabular}{ p{3cm} | p{3cm} | p{3cm}}
+\begin{tabular}{| p{3cm} | p{3.5cm} | p{8.5cm} |}
   \hline
   Nome & Tipo & Descrizione\\
   \hline
@@ -4736,7 +4736,7 @@ ha ritornato un risultato.
 \begin{center}
   \textbf{setState}
 \end{center}
-\begin{tabular}{ p{3cm} | p{3cm} | p{3cm}}
+\begin{tabular}{| p{3cm} | p{3.5cm} | p{8.5cm} |}
   \hline
   Nome & Tipo & Descrizione\\
   \hline
@@ -4747,7 +4747,7 @@ ha ritornato un risultato.
 \begin{center}
   \textbf{attach}
 \end{center}
-\begin{tabular}{ p{3cm} | p{3cm} | p{3cm}}
+\begin{tabular}{| p{3cm} | p{3.5cm} | p{8.5cm} |}
   \hline
   Nome & Tipo & Descrizione\\
   \hline
@@ -4758,7 +4758,7 @@ ha ritornato un risultato.
 \begin{center}
   \textbf{detach}
 \end{center}
-\begin{tabular}{ p{3cm} | p{3cm} | p{3cm}}
+\begin{tabular}{| p{3cm} | p{3.5cm} | p{8.5cm} |}
   \hline
   Nome & Tipo & Descrizione\\
   \hline
@@ -4818,7 +4818,7 @@ implementa l'interfaccia \hyperref[sec:actorbase::cli::models::Command]{actorbas
 \begin{center}
   \textbf{setState}
 \end{center}
-\begin{tabular}{ p{3cm} | p{3cm} | p{3cm}}
+\begin{tabular}{| p{3cm} | p{3.5cm} | p{8.5cm} |}
   \hline
   Nome & Tipo & Descrizione\\
   \hline
