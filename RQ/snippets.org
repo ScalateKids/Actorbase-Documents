@@ -66,6 +66,10 @@ println(client.getCollection("people"))
 client.getCollections.foreach(println)
 #+end_src
 
+**** Count collections elements
+#+begin_src scala
+println(client.getCollection("people").count) // print 3
+#+end_src
 **** Contributor operations
 #+begin_src scala
 val fooCollection = client.getCollection("foo")

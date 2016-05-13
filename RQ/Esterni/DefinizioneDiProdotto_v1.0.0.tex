@@ -205,12 +205,12 @@ rappresentano il \gloss{server}.
 \subsection{actorbase::actorsystem::utils}
 \label{sec:actorbase::actorsystem::utils}
 
-%\begin{figure}[H] %TODO aggiungere immagine
-  %\begin{center}
-    %\includegraphics[width=1.0\textwidth,keepaspectratio]{RP/utils.png}
-    %\caption{Package actorsystem::utils}
-  %\end{center}
-%\end{figure}
+% \begin{figure}[H] %TODO aggiungere immagine
+%   \begin{center}
+%     \includegraphics[width=1.0\textwidth,keepaspectratio]{RP/utils.png}
+%     \caption{Package actorsystem::utils}
+%   \end{center}
+% \end{figure}
 
 \subsubsection{Descrizione}
 \gloss{Package} contenente diverse classi di utilità.
@@ -1148,13 +1148,13 @@ Userfinder di cui ha riferimento.
 \end{tabular}
 
 \paragraph{actorbase::actorsystem::main::messages::InitUsers}
-\label{sec:actorbase::actorsystem::main::messages::InitUsers} 
+\label{sec:actorbase::actorsystem::main::messages::InitUsers}
 
 \subparagraph{Descrizione}
 Messaggio che indica la necessità di lettura da filesystem della collezione
 contenente gli utenti del sistema.\\Messaggio per il popolamento del database
 post accensione.
-%TODO
+% TODO
 
 \paragraph{actorbase::actorsystem::main::messages::Login}
 \label{sec:actorbase::actorsystem::main::messages::Login}
@@ -1256,7 +1256,7 @@ e inoltrerà lui la richiesta dell'\gloss{item} con la chiave da cercare.
 
 \subparagraph{Descrizione}
 
-Messaggio che serve per comporre l'intera collezione da restituire all'utente 
+Messaggio che serve per comporre l'intera collezione da restituire all'utente
 
 \subparagraph{Utilizzo}
 
@@ -1268,15 +1268,15 @@ e inoltrerà lui la richiesta dell'\gloss{item} con la chiave da cercare.
 
 \subparagraph{Attributi}
 \begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
-	\hline
-	Nome & Accesso & Mutabilità & Tipo & Descrizione\\
-	\hline
-	clientRef & public & immutabile & ActorRef & Riferimento del client che richiede la collezione\\
-	\hline
-	collection & public & immutabile & ActorbaseCollection & contiene il numero di risposte attese per la collezione richiesta\\
-	\hline
-	items & public & immutabile & TreeMap[String, Any] & rappresenta un pezzo della collezione richiesta\\
-	\hline
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  clientRef & public & immutabile & ActorRef & Riferimento del client che richiede la collezione\\
+  \hline
+  collection & public & immutabile & ActorbaseCollection & contiene il numero di risposte attese per la collezione richiesta\\
+  \hline
+  items & public & immutabile & TreeMap[String, Any] & rappresenta un pezzo della collezione richiesta\\
+  \hline
 \end{tabular}
 
 \paragraph{actorbase::actorsystem::main::messages::GetCollection}
@@ -1421,17 +1421,17 @@ contenente la mappatura degli \hyperref[sec:actorbase::actorsystem::storefinder:
 
 \subparagraph{Attributi}
 \begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
-	\hline
-	Nome & Accesso & Mutabilità & Tipo & Descrizione\\
-	\hline
-	oldCollRange & public & immutable & \hyperref[sec:actorbase::actorsystem::utils::CollectionRange]{CollectionRange} & Rappresenta il pezzo di collezione che si è duplicato\\
-	\hline
-	leftCollRange & public & immutable & \hyperref[sec:actorbase::actorsystem::utils::CollectionRange]{CollectionRange} & Rappresenta il nuovo CollectionRange dello \hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{Storefinder} che si è duplicato\\
-	\hline
-	newSf & public & immutabile & ActorRef & Riferimento allo \hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{Storefinder} nuovo\\
-	\hline
-	rightCollRange & public & immutable & \hyperref[sec:actorbase::actorsystem::utils::CollectionRange]{CollectionRange} & Rappresenta il CollectionRange dello \hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{Storefinder} nuovo\\
-	\hline
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  oldCollRange & public & immutable & \hyperref[sec:actorbase::actorsystem::utils::CollectionRange]{CollectionRange} & Rappresenta il pezzo di collezione che si è duplicato\\
+  \hline
+  leftCollRange & public & immutable & \hyperref[sec:actorbase::actorsystem::utils::CollectionRange]{CollectionRange} & Rappresenta il nuovo CollectionRange dello \hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{Storefinder} che si è duplicato\\
+  \hline
+  newSf & public & immutabile & ActorRef & Riferimento allo \hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{Storefinder} nuovo\\
+  \hline
+  rightCollRange & public & immutable & \hyperref[sec:actorbase::actorsystem::utils::CollectionRange]{CollectionRange} & Rappresenta il CollectionRange dello \hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{Storefinder} nuovo\\
+  \hline
 \end{tabular}
 
 \paragraph{actorbase::actorsystem::main::messages::UpdateCollectionSize}
@@ -1444,17 +1444,17 @@ Messaggio che incrementa il numero delle coppie chiave-valore alla collezione
 \subparagraph{Utilizzo}
 
 Quando \hyperref[sec:actorbase::actorsystem::main::Main]{Main}
-riceve questo messaggio provvederà ad inoltrare allo \hyperref[sec:actorbase::actorsystem::userfinder::Userfinder]{Userfinder} l'incremento della collezione.  
+riceve questo messaggio provvederà ad inoltrare allo \hyperref[sec:actorbase::actorsystem::userfinder::Userfinder]{Userfinder} l'incremento della collezione.
 
 \subparagraph{Attributi}
 \begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
-	\hline
-	Nome & Accesso & Mutabilità & Tipo & Descrizione\\
-	\hline
-	collectionName & public & immutable & ActorbaseCollection & Nome della collezione che si vuole incrementare\\
-	\hline
-	increment & public & immutable & boolean & indica se deve esser fatto un incremento (true) o un decremento (false)\\
-	\hline
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  collectionName & public & immutable & ActorbaseCollection & Nome della collezione che si vuole incrementare\\
+  \hline
+  increment & public & immutable & boolean & indica se deve esser fatto un incremento (true) o un decremento (false)\\
+  \hline
 \end{tabular}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1464,12 +1464,12 @@ riceve questo messaggio provvederà ad inoltrare allo \hyperref[sec:actorbase::a
 \subsection{actorbase::actorsystem::userfinder} %TODO da fare qualcosa, tipo l'immagine
 \label{sec:actorbase::actorsystem::userfinder}
 
-%\begin{figure}[H]
-  %\begin{center}
-    %\includegraphics[width=0.8\textwidth,keepaspectratio]{RP/userfinder.png}
-    %\caption{Userfinder, visione generale del package}
-  %\end{center}
-%\end{figure} 
+% \begin{figure}[H]
+%   \begin{center}
+%     \includegraphics[width=0.8\textwidth,keepaspectratio]{RP/userfinder.png}
+%     \caption{Userfinder, visione generale del package}
+%   \end{center}
+% \end{figure}
 
 \subsubsection{Descrizione}
 Classe che rappresenta un \gloss{attore} di tipo \gloss{Userfinder}.
@@ -1665,7 +1665,7 @@ Messaggio che indica la ncessità di aggiornare il numero di item di una collezi
 \subparagraph{Utilizzo}
 
 Quando \hyperref[sec:actorbase::actorsystem::userfinder::Userfinder]{actorbase::\allowbreak{}actorsystem::\allowbreak{}userfinder::\allowbreak{}Userfinder}
-riceve questo messaggio provvederà ad inoltrare all'attore di tipo 
+riceve questo messaggio provvederà ad inoltrare all'attore di tipo
 \hyperref[sec:actorbase::actorsystem::userkeeper::Userkeeper]{actorbase::\allowbreak{}actorsystem::\allowbreak{}userkeeper::\allowbreak{}Userkeeper}.
 
 \subparagraph{Attributi}
@@ -2139,23 +2139,23 @@ che dovranno restituire tutti gli \gloss{items} contenuti in essi.
 
 \subparagraph{Descrizione}
 
-Messaggio che serve per comporre l'intera collezione da restituire all'utente 
+Messaggio che serve per comporre l'intera collezione da restituire all'utente
 
 \subparagraph{Utilizzo}
 
 Quando \hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{Storefinder}
-riceve questo messaggio non farà altro che richiamare il metodo 
+riceve questo messaggio non farà altro che richiamare il metodo
 \hyperref[sec:actorbase::actorsystem::main::messages::GetItemFromResponse]{GetItemFromResponse} del Main.
 
 \subparagraph{Attributi}
 \begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
-	\hline
-	Nome & Accesso & Mutabilità & Tipo & Descrizione\\
-	\hline
-	clientRef & public & immutabile & ActorRef & Riferimento del client che richiede la collezione\\
-	\hline
-	items & public & immutabile & TreeMap[String, Any] & rappresenta un pezzo della collezione richiesta\\
-	\hline
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  clientRef & public & immutabile & ActorRef & Riferimento del client che richiede la collezione\\
+  \hline
+  items & public & immutabile & TreeMap[String, Any] & rappresenta un pezzo della collezione richiesta\\
+  \hline
 \end{tabular}
 
 \paragraph{actorbase::actorsystem::storefinder::messages::UpdateCollectionSize}
@@ -2168,18 +2168,18 @@ Messaggio che incrementa il numero delle coppie chiave-valore alla collezione
 \subparagraph{Utilizzo}
 
 Quando \hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{Storefinder}
-riceve questo messaggio non farà altro che richiamare il metodo 
+riceve questo messaggio non farà altro che richiamare il metodo
 \hyperref[sec:actorbase::actorsystem::main::messages::UpdateCollectionSize]{UpdateCollectionSize} del Main.
 
 \subparagraph{Attributi}
 \begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
-	\hline
-	Nome & Accesso & Mutabilità & Tipo & Descrizione\\
-	\hline
-	collection & public & immutable & ActorbaseCollection & Nome della collezione che si vuole incrementare\\
-	\hline
-	increment & public & immutable & boolean & indica se deve esser fatto un incremento (true) o un decremento (false)\\
-	\hline
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  collection & public & immutable & ActorbaseCollection & Nome della collezione che si vuole incrementare\\
+  \hline
+  increment & public & immutable & boolean & indica se deve esser fatto un incremento (true) o un decremento (false)\\
+  \hline
 \end{tabular}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -2580,27 +2580,27 @@ per aggiornare i suoi riferimenti.
 \label{sec:actorbase::driver::ActorbaseDriver}
 
 \begin{figure}[H]
-	\begin{center}
-		\includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/ActorbaseDriver.png}
-		\caption{Driver: Classe ActorbaseDriver}
-	\end{center}
+  \begin{center}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/ActorbaseDriver.png}
+    \caption{Driver: Classe ActorbaseDriver}
+  \end{center}
 \end{figure}
 
 \subparagraph{Descrizione}
 
 Classe principale della componente \gloss{driver}, rappresenta l'interfaccia
-contenente i metodi designati all'utilizzo finale in un programma \gloss{Scala}.
+di connessione e autenticazione con il \gloss{server}
 
 \subparagraph{Utilizzo}
 
-Espone i metodi di connessione, interrogazione, ricerca e gestione dei dati
-remoti all'interno del \gloss{database}.
+Espone i metodi di connessione e autenticazione al \gloss{server} \textbf{Actorbase}, e restituisce un oggetto
+di tipo \hyperref[sec::actorbase::driver::ActorbaseServices]{ActorbaseServices} in base ai privilegi del proprio
+profilo nel sistema.
 
 \subparagraph{Eredita}
 
 \begin{itemize}
-\item \hyperref[sec:actorbase::driver::client::Connector]{actorbase::driver::client::Connector};
-\item \hyperref[sec:actorbase::driver::client::Connector]{actorbase::driver::data::Serializer}.
+\item \hyperref[sec:actorbase::driver::client::Connector]{actorbase::driver::client::Connector}.
 \end{itemize}
 
 \subparagraph{Attributi}
@@ -2610,10 +2610,6 @@ remoti all'interno del \gloss{database}.
 \begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
-  \hline
-  username & private & immutabile & String & Rappresenta lo \gloss{username} dell'utente\\
-  \hline
-  password & private & immutabile & String & Rappresenta la password dell'utente\\
   \hline
   address & private & immutabile & String & Rappresenta l'indirizzo del \gloss{server} Actorbase\\
   \hline
@@ -2684,35 +2680,227 @@ remoti all'interno del \gloss{database}.
   \hline
 \end{tabular}
 
+\paragraph{ActorbaseServices}
+\label{sec:actorbase::driver::ActorbaseServices}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/ActorbaseDriver.png}
+    \caption{Driver: Classe ActorbaseDriver}
+  \end{center}
+\end{figure}
+
+\subparagraph{Descrizione}
+
+Classe principale della componente \gloss{driver}, rappresenta l'interfaccia
+contenente i metodi designati all'utilizzo di \textbf{Actorbase} in un programma
+\gloss{Scala}.
+
+\subparagraph{Utilizzo}
+
+Espone i metodi di interrogazione, ricerca e gestione dei dati
+remoti all'interno del \gloss{database}.
+
+\subparagraph{Eredita}
+
+\begin{itemize}
+\item \hyperref[sec:actorbase::driver::client::Connector]{actorbase::driver::client::Connector}.
+\end{itemize}
+
+\subparagraph{Metodi}
+
+% TODO: Da completare
+
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2.5cm} | p{10cm} |}
+  \hline
+  Nome & Accesso & Tipo di ritorno & Descrizione\\
+  \hline
+  changePassword & public & Boolean & Metodo utilizzato per la modifica della propria password di profilo \textbf{Actorbase}\\
+  \hline
+  listCollections & public & List[String] & Ritorna una lista di stringhe, rappresentano i nomi delle collezioni\\
+  \hline
+  getCollections & public & \hyperref[sec:actorbase::driver::data::ActorbaseCollectionMap]{ActorbaseCollectionMap} & Ritorna un oggetto di tipo \hyperref[sec:actorbase::driver::data::ActorbaseCollectionMap]{ActorbaseCollectionMap}\\
+  \hline
+  getCollection & public & \hyperref[sec:actorbase::driver::data::ActorbaseCollection]{ActorbaseCollection} & Ritorna un oggetto di tipo \hyperref[sec:actorbase::driver::data::ActorbaseCollection]{ActorbaseCollection}\\
+  \hline
+  addCollection & public & \hyperref[sec:actorbase::driver::data::ActorbaseCollection]{ActorbaseCollection} & Ritorna un oggetto di tipo \hyperref[sec:actorbase::driver::data::ActorbaseCollection]{ActorbaseCollection}\\
+  \hline
+  dropCollection & public & \hyperref[sec:actorbase::driver::data::ActorbaseCollection]{ActorbaseCollection} & Ritorna un oggetto di tipo \hyperref[sec:actorbase::driver::data::ActorbaseCollection]{ActorbaseCollection}\\
+  \hline
+  importFromFile & public & Boolean & Metodo da utilizzare per importare \gloss{collezioni} sul \gloss{server} da \gloss{file}\\
+  \hline
+  exportToFile & public & Boolean & Metodo da utilizzare per esportare \gloss{collezioni} dal \gloss{server} su \gloss{filesystem}\\
+  \hline
+  logout & public & Void & Effettua il logout dal server\\
+  \hline
+\end{tabular}
+
+\subparagraph{Parametri}
+
+% TODO: Da completare
+
+\begin{center}
+  \textbf{changePassword}
+\end{center}
+\begin{tabular}{| l | l | l |}
+  \hline
+  Nome & Tipo & Descrizione\\
+  \hline
+  current & String & Rappresenta la password attuale sul profilo \textbf{Actorbase}\\
+  \hline
+  new & String & Rappresenta la nuova password di profilo \textbf{Actorbase}\\
+  \hline
+\end{tabular}
+
+\begin{center}
+  \textbf{getCollection}
+\end{center}
+\begin{tabular}{| l | l | l |}
+  \hline
+  Nome & Tipo & Descrizione\\
+  \hline
+  collectionName & String & Rappresenta il nome della \gloss{collezione} da richiedere al \gloss{server}\\
+  \hline
+\end{tabular}
+
+\begin{center}
+  \textbf{addCollection}
+\end{center}
+\begin{tabular}{| l | l | l |}
+  \hline
+  Nome & Tipo & Descrizione\\
+  \hline
+  collectionName & String & Rappresenta il nome della \gloss{collezione} da richiedere al \gloss{server}\\
+  \hline
+\end{tabular}
+
+\begin{center}
+  \textbf{importFromFile}
+\end{center}
+\begin{tabular}{| l | l | l |}
+  \hline
+  Nome & Tipo & Descrizione\\
+  \hline
+  path & String & Rappresenta il percorso su \gloss{filesystem} del \gloss{file} contenente le \gloss{collezioni} da importare sul \gloss{server}\\
+  \hline
+\end{tabular}
+
+\begin{center}
+  \textbf{exportToFile}
+\end{center}
+\begin{tabular}{| l | l | l |}
+  \hline
+  Nome & Tipo & Descrizione\\
+  \hline
+  path & String & Rappresenta il percorso su \gloss{filesystem} del \gloss{file} da utilizzare per l'esportazione delle \gloss{collezioni} dal \gloss{server}\\
+  \hline
+\end{tabular}
+
 % FINE ACTORBASEDRIVER
+
+\paragraph{ActorbaseAdminServices}
+\label{sec:actorbase::driver::ActorbaseAdminServices}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/ActorbaseDriver.png}
+    \caption{Driver: Classe ActorbaseDriver}
+  \end{center}
+\end{figure}
+
+\subparagraph{Descrizione}
+
+Classe principale della componente \gloss{driver}, rappresenta l'interfaccia
+contenente i metodi designati all'utilizzo di \textbf{Actorbase} in un programma
+\gloss{Scala}.
+
+\subparagraph{Utilizzo}
+
+Aggiunge funzionalità amministrative all'oggetto
+\hyperref[sec:actorbase::driver::ActorbaseServices]{ActorbaseServices}, ossia
+operazioni di gestione degli utenti.
+
+\subparagraph{Eredita}
+
+\begin{itemize}
+\item \hyperref[sec:actorbase::driver::client::ActorbaseServices]{actorbase::driver::client::ActorbaseServices}.
+\end{itemize}
+
+\subparagraph{Metodi}
+
+% TODO: Da completare
+
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2.5cm} | p{10cm} |}
+  \hline
+  Nome & Accesso & Tipo di ritorno & Descrizione\\
+  \hline
+  addUSer & public & Boolean & Permette di aggiungere un nuovo utente al sistema\\
+  \hline
+  removeUser & public & Boolean & Permette la rimozione di un utente dal sistema\\
+  \hline
+  resetPassword & public & Boolean & Effettua il \gloss{reset} della password di un utente\\
+  \hline
+\end{tabular}
+
+\subparagraph{Parametri}
+
+% TODO: Da completare
+
+\begin{center}
+  \textbf{addUser}
+\end{center}
+\begin{tabular}{| l | l | l |}
+  \hline
+  Nome & Tipo & Descrizione\\
+  \hline
+  username & String & Rappresenta lo \gloss{username} dell'utente da aggiungere al sistema\\
+  \hline
+\end{tabular}
+
+\begin{center}
+  \textbf{removeUser}
+\end{center}
+\begin{tabular}{| l | l | l |}
+  \hline
+  Nome & Tipo & Descrizione\\
+  \hline
+  username & String & Rappresenta lo \gloss{username} dell'utente da rimuovere dal sistema\\
+  \hline
+\end{tabular}
+
+\begin{center}
+  \textbf{resetPassword}
+\end{center}
+\begin{tabular}{| l | l | l |}
+  \hline
+  Nome & Tipo & Descrizione\\
+  \hline
+  username & String & Rappresenta lo \gloss{username} dell'utente a cui effettuare il \gloss{reset} della password\\
+  \hline
+\end{tabular}
+
+% FINE ACTORBASEADMINSERVICES
 
 \paragraph{Connection}
 \label{sec:actorbase::driver::Connection}
 
 \begin{figure}[H]
-	\begin{center}
-		\includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/Connection.png}
-		\caption{Driver: Classe Connection}
-	\end{center}
+  \begin{center}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/Connection.png}
+    \caption{Driver: Classe Connection}
+  \end{center}
 \end{figure}
 
 \subparagraph{Descrizione}
 
 Classe interna all'oggetto
-\hyperref[sec:actorbase::driver::ActorbaseDriver]{ActorbaseDriver} contenente i
-parametri di connessione al \gloss{server}.
+\hyperref[sec:actorbase::driver::ActorbaseServices]{ActorbaseServices} contenente i
+parametri di connessione al \gloss{server} e le credenziali del profilo \textbf{Actorbase}.
 
 \subparagraph{Utilizzo}
 
 Viene utilizzata come oggetto contenente i parametri di connessione, da
 utilizzare nelle classi che necessitano di collegamenti al \gloss{server}.
-
-\subparagraph{Eredita}
-
-\begin{itemize}
-\item \hyperref[sec:actorbase::driver::client::Connector]{actorbase::driver::client::Connector};
-\item \hyperref[sec:actorbase::driver::client::Connector]{actorbase::driver::data::Serializer}.
-\end{itemize}
 
 \subparagraph{Attributi}
 
@@ -2720,9 +2908,15 @@ utilizzare nelle classi che necessitano di collegamenti al \gloss{server}.
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  address & private & immutabile & String & Rappresenta l'indirizzo del \gloss{server} Actorbase\\
+  username & public & immutabile & String & Rappresenta lo \gloss{username} dell'utente\\
   \hline
-  port & private & immutabile & Int & Rappresenta la porta esposta dal \gloss{server}\\
+  password & public & immutabile & String & Rappresenta la password dell'utente\\
+  \hline
+  administrator & public & immutabile & Boolean & Indica il livello di privilegio del profilo \textbf{Actorbase}, \gloss{true} se amministrativo, altrimento \gloss{false}\\
+  \hline
+  address & public & immutabile & String & Rappresenta l'indirizzo del \gloss{server} \textbf{Actorbase}\\
+  \hline
+  port & public & immutabile & Int & Rappresenta la porta esposta dal \gloss{server}\\
   \hline
 \end{tabular}
 
@@ -2730,10 +2924,10 @@ utilizzare nelle classi che necessitano di collegamenti al \gloss{server}.
 \label{sec:actorbase::driver::client}
 
 \begin{figure}[H]
-	\begin{center}
-		\includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/Client.png}
-		\caption{Driver: Client}
-	\end{center}
+  \begin{center}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/Client.png}
+    \caption{Driver: Client}
+  \end{center}
 \end{figure}
 
 \subsubsection{Descrizione}
@@ -2754,10 +2948,10 @@ che con la componente \gloss{server} del sistema.
 \label{sec:actorbase::driver::client::Client}
 
 \begin{figure}[H]
-	\begin{center}
-		\includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/ClientInterface.png}
-		\caption{Driver: Client interface}
-	\end{center}
+  \begin{center}
+    \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/ClientInterface.png}
+    \caption{Driver: Client interface}
+  \end{center}
 \end{figure}
 
 \subparagraph{Descrizione}
@@ -2811,14 +3005,106 @@ metodi.
 
 \subsubsection{Classi}
 
+\paragraph{Serializer (abstract)}
+\label{sec:actorbase::driver::client::Serializer}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/Serializer.png}
+    \caption{Driver: Classe serializer}
+  \end{center}
+\end{figure}
+
+
+\subparagraph{Descrizione}
+
+Classe astratta atta a fornire metodi di serializzazione e deserializzazione nelle
+varianti \gloss{JSON} e \gloss{array} di \gloss{byte}.
+
+\subparagraph{Utilizzo}
+
+Viene utilizzata mediante estensione dalle classi che necessitano di operazioni di
+serializzazione e deserializzazione in formato \gloss{JSON} o \gloss{array} di byte
+o entrambi.
+
+\subparagraph{Ereditata da}
+% TODO controllare eventuali altre eredità
+\begin{itemize}
+\item \hyperref[sec:actorbase::driver::client::Connector]{actorbase::driver::client::Connector}.
+\end{itemize}
+
+\subparagraph{Metodi}
+
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2.5cm} | p{10cm} |}
+  \hline
+  Nome & Accesso & Tipo di ritorno & Descrizione\\
+  \hline
+  serialize2ByteArray & public & \gloss{array} di \gloss{Byte} & Serializza l'oggetto parametro in formato \gloss{array} di \gloss{Byte}\\
+  \hline
+  serialize2JSON & public & String & Serializza l'oggetto parametro in formato \gloss{JSON}\\
+  \hline
+  \allowbreak{deserializeFromByteArray} & public & \gloss{Any} & Deserializza l'\gloss{array} di \gloss{Byte} parametro riportandolo al formato originale\\
+  \hline
+  \allowbreak{deserializeFromJSON} & public & \gloss{Any} & Deserializza la stringa \gloss{JSON} parametro riportandola al formato originale\\
+  \hline
+\end{tabular}
+
+\subparagraph{Parametri}
+
+\begin{center}
+  \textbf{serialize2Bytearray}
+\end{center}
+\begin{tabular}{| l | l | l |}
+  \hline
+  Nome & Tipo & Descrizione\\
+  \hline
+  o & \gloss{Any} & L'oggetto generico da serializzare in formato \gloss{array} di \gloss{byte}\\
+  \hline
+\end{tabular}
+
+\begin{center}
+  \textbf{serialize2JSON}
+\end{center}
+\begin{tabular}{| l | l | l |}
+  \hline
+  Nome & Tipo & Descrizione\\
+  \hline
+  o & \gloss{Any} & L'oggetto generico da serializzare in formato \gloss{JSON}\\
+  \hline
+\end{tabular}
+
+\begin{center}
+  \textbf{deserializeFromByteArray}
+\end{center}
+\begin{tabular}{| l | l | l |}
+  \hline
+  Nome & Tipo & Descrizione\\
+  \hline
+  bytes & \gloss{array} di \gloss{Byte} & Rappresentazione di un' oggetto serializzato in formato \gloss{array} di \gloss{byte}\\
+  \hline
+\end{tabular}
+
+\begin{center}
+  \textbf{deserializeFromJSON}
+\end{center}
+\begin{tabular}{| l | l | l |}
+  \hline
+  Nome & Tipo & Descrizione\\
+  \hline
+  json & String & Rappresentazione di un' oggetto serializzato in formato \gloss{JSON}\\
+  \hline
+\end{tabular}
+
+% FINE SERIALIZER
+
 \paragraph{SSLClient (abstract)}
 \label{sec:actorbase::driver::client::SSLClient}
 
 \begin{figure}[H]
-	\begin{center}
-		\includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/SSLClient.png}
-		\caption{Driver: Classe SSLClient}
-	\end{center}
+  \begin{center}
+    \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/SSLClient.png}
+    \caption{Driver: Classe SSLClient}
+  \end{center}
 \end{figure}
 
 \subparagraph{Descrizione}
@@ -2870,10 +3156,10 @@ hanno libertà di implementazione specifica dei metodi.
 \label{sec:actorbase::driver::client::ActorbaseClient}
 
 \begin{figure}[H]
-	\begin{center}
-		\includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/ActorbaseClient.png}
-		\caption{Driver: Classe ActorbaseClient}
-	\end{center}
+  \begin{center}
+    \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/ActorbaseClient.png}
+    \caption{Driver: Classe ActorbaseClient}
+  \end{center}
 \end{figure}
 
 \subparagraph{Descrizione}
@@ -2932,10 +3218,10 @@ necessitano.
 \label{sec:actorbase::driver::client::Connector}
 
 \begin{figure}[H]
-	\begin{center}
-		\includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/Connector.png}
-		\caption{Driver: Classe astratta Connector}
-	\end{center}
+  \begin{center}
+    \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/Connector.png}
+    \caption{Driver: Classe astratta Connector}
+  \end{center}
 \end{figure}
 
 \subparagraph{Descrizione}
@@ -2963,6 +3249,16 @@ Viene estesa dalle classi che necessitano di comunicare con il server.
   \hline
 \end{tabular}
 
+\subparagraph{Eredita}
+\begin{itemize}
+\item \hyperref[sec:actorbase::driver::client::Serializer]{actorbase::driver::client::Serializer}.
+\end{itemize}
+
+\subparagraph{Ereditata da}
+\begin{itemize}
+\item \hyperref[sec:actorbase::driver::client::Connector]{actorbase::driver::client::Connector}.
+\end{itemize}
+
 % FINE CONNECTOR
 
 % INIZIO PACKAGE ACTORBASE::DRIVER::CLIENT::API
@@ -2971,10 +3267,10 @@ Viene estesa dalle classi che necessitano di comunicare con il server.
 \label{sec:actorbase::driver::client::api}
 
 \begin{figure}[H]
-	\begin{center}
-		\includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/Api.png}
-		\caption{Driver: Package api}
-	\end{center}
+  \begin{center}
+    \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/Api.png}
+    \caption{Driver: Package api}
+  \end{center}
 \end{figure}
 
 \subsubsection{Descrizione}
@@ -2995,10 +3291,10 @@ protocollo \gloss{HTTP}.
 \label{sec:actorbase::driver::client::api::RequestMethod}
 
 \begin{figure}[H]
-	\begin{center}
-		\includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/RequestMethod.png}
-		\caption{Driver: RequestMethod interface}
-	\end{center}
+  \begin{center}
+    \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/RequestMethod.png}
+    \caption{Driver: RequestMethod interface}
+  \end{center}
 \end{figure}
 
 \subparagraph{Descrizione}
@@ -3028,10 +3324,10 @@ Viene utilizzata come classe padre per l'implementazione delle richieste
 \label{sec:actorbase::driver::client::api::GET}
 
 \begin{figure}[H]
-	\begin{center}
-		\includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/Get.png}
-		\caption{Driver: Oggetto rappresentante richiesta get}
-	\end{center}
+  \begin{center}
+    \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/Get.png}
+    \caption{Driver: Oggetto rappresentante richiesta get}
+  \end{center}
 \end{figure}
 
 \subparagraph{Descrizione}
@@ -3058,10 +3354,10 @@ di tipo \gloss{GET} da utilizzare nella comunicazione con il server.
 \label{sec:actorbase::driver::client::api::POST}
 
 \begin{figure}[H]
-	\begin{center}
-		\includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/Post.png}
-		\caption{Driver: Oggetto rappresentante richiesta post}
-	\end{center}
+  \begin{center}
+    \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/Post.png}
+    \caption{Driver: Oggetto rappresentante richiesta post}
+  \end{center}
 \end{figure}
 
 \subparagraph{Descrizione}
@@ -3088,10 +3384,10 @@ di tipo \gloss{POST} da utilizzare nella comunicazione con il server.
 \label{sec:actorbase::driver::client::api::PUT}
 
 \begin{figure}[H]
-	\begin{center}
-		\includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/Put.png}
-		\caption{Driver: Oggetto rappresentante richiesta Put}
-	\end{center}
+  \begin{center}
+    \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/Put.png}
+    \caption{Driver: Oggetto rappresentante richiesta Put}
+  \end{center}
 \end{figure}
 
 \subparagraph{Descrizione}
@@ -3118,10 +3414,10 @@ di tipo \gloss{PUT} da utilizzare nella comunicazione con il server.
 \label{sec:actorbase::driver::client::api::DELETE}
 
 \begin{figure}[H]
-	\begin{center}
-		\includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/Delete.png}
-		\caption{Driver: Oggetto rappresentante richiesta Delete}
-	\end{center}
+  \begin{center}
+    \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/Delete.png}
+    \caption{Driver: Oggetto rappresentante richiesta Delete}
+  \end{center}
 \end{figure}
 
 \subparagraph{Descrizione}
@@ -3148,10 +3444,10 @@ di tipo \gloss{DELETE} da utilizzare nella comunicazione con il server.
 \label{sec:actorbase::driver::client::api::Request}
 
 \begin{figure}[H]
-	\begin{center}
-		\includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/Request.png}
-		\caption{Driver: Classe request}
-	\end{center}
+  \begin{center}
+    \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/Request.png}
+    \caption{Driver: Classe request}
+  \end{center}
 \end{figure}
 
 \subparagraph{Descrizione}
@@ -3195,10 +3491,10 @@ creata mediante il design pattern \gloss{Builder} nella classe
 \label{sec:actorbase::driver::client::api::Response}
 
 \begin{figure}[H]
-	\begin{center}
-		\includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/Response.png}
-		\caption{Driver: Classe response}
-	\end{center}
+  \begin{center}
+    \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/Response.png}
+    \caption{Driver: Classe response}
+  \end{center}
 \end{figure}
 
 \subparagraph{Descrizione}
@@ -3271,10 +3567,10 @@ Viene utilizzata come classe per l'incapsulamento dei codici di ritorno
 \label{sec:actorbase::driver::client::api::RequestBuilder}
 
 \begin{figure}[H]
-	\begin{center}
-		\includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/RequestBuilder.png}
-		\caption{Driver: Classe RequestBuilder}
-	\end{center}
+  \begin{center}
+    \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/RequestBuilder.png}
+    \caption{Driver: Classe RequestBuilder}
+  \end{center}
 \end{figure}
 
 \subparagraph{Descrizione}
@@ -3395,10 +3691,10 @@ nella comunicazione con il server.
 \label{sec:actorbase::driver::client::api::data}
 
 \begin{figure}[H]
-	\begin{center}
-		\includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/Data.png}
-		\caption{Driver: Package data}
-	\end{center}
+  \begin{center}
+    \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/Data.png}
+    \caption{Driver: Package data}
+  \end{center}
 \end{figure}
 
 \subsubsection{Descrizione}
@@ -3415,107 +3711,14 @@ eventuali modifiche locali sul server remoto che contiene i dati originali.
 
 \subsubsection{Classi}
 
-\paragraph{Serializer (abstract)}
-\label{sec:actorbase::driver::client::data::Serializer}
-
-\begin{figure}[H]
-	\begin{center}
-		\includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/Serializer.png}
-		\caption{Driver: Classe serializer}
-	\end{center}
-\end{figure}
-
-
-\subparagraph{Descrizione}
-
-Classe astratta atta a fornire metodi di serializzazione e deserializzazione nelle
-varianti \gloss{JSON} e \gloss{array} di \gloss{byte}.
-
-\subparagraph{Utilizzo}
-
-Viene utilizzata mediante estensione dalle classi che necessitano di operazioni di
-serializzazione e deserializzazione in formato \gloss{JSON} o \gloss{array} di byte
-o entrambi.
-
-\subparagraph{Ereditata da}
-% TODO controllare eventuali altre eredità
-\begin{itemize}
-\item \hyperref[sec:actorbase::driver::ActorbaseDriver]{actorbase::driver::ActorbaseDriver};
-\item \hyperref[sec:actorbase::driver::data::ActorbaseCollection]{actorbase::driver::data::ActorbaseCollection}.
-\end{itemize}
-
-\subparagraph{Metodi}
-
-\begin{tabular}{| p{3cm} | p{1.5cm} | p{2.5cm} | p{10cm} |}
-  \hline
-  Nome & Accesso & Tipo di ritorno & Descrizione\\
-  \hline
-  serialize2ByteArray & public & \gloss{array} di \gloss{Byte} & Serializza l'oggetto parametro in formato \gloss{array} di \gloss{Byte}\\
-  \hline
-  serialize2JSON & public & String & Serializza l'oggetto parametro in formato \gloss{JSON}\\
-  \hline
-  \allowbreak{deserializeFromByteArray} & public & \gloss{Any} & Deserializza l'\gloss{array} di \gloss{Byte} parametro riportandolo al formato originale\\
-  \hline
-  \allowbreak{deserializeFromJSON} & public & \gloss{Any} & Deserializza la stringa \gloss{JSON} parametro riportandola al formato originale\\
-  \hline
-\end{tabular}
-
-\subparagraph{Parametri}
-
-\begin{center}
-  \textbf{serialize2Bytearray}
-\end{center}
-\begin{tabular}{| l | l | l |}
-  \hline
-  Nome & Tipo & Descrizione\\
-  \hline
-  o & \gloss{Any} & L'oggetto generico da serializzare in formato \gloss{array} di \gloss{byte}\\
-  \hline
-\end{tabular}
-
-\begin{center}
-  \textbf{serialize2JSON}
-\end{center}
-\begin{tabular}{| l | l | l |}
-  \hline
-  Nome & Tipo & Descrizione\\
-  \hline
-  o & \gloss{Any} & L'oggetto generico da serializzare in formato \gloss{JSON}\\
-  \hline
-\end{tabular}
-
-\begin{center}
-  \textbf{deserializeFromByteArray}
-\end{center}
-\begin{tabular}{| l | l | l |}
-  \hline
-  Nome & Tipo & Descrizione\\
-  \hline
-  bytes & \gloss{array} di \gloss{Byte} & Rappresentazione di un' oggetto serializzato in formato \gloss{array} di \gloss{byte}\\
-  \hline
-\end{tabular}
-
-\begin{center}
-  \textbf{deserializeFromJSON}
-\end{center}
-\begin{tabular}{| l | l | l |}
-  \hline
-  Nome & Tipo & Descrizione\\
-  \hline
-  json & String & Rappresentazione di un' oggetto serializzato in formato \gloss{JSON}\\
-  \hline
-\end{tabular}
-
-% FINE SERIALIZER
-
 \paragraph{ActorbaseObject}
 \label{sec:actorbase::driver::data::ActorbaseObject}
 
 \begin{figure}[H]
-	\begin{center}
-		\includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/ActorbaseObject.png}
-		\caption{Driver: Classe ActorbaseObject}
-	\end{center}
+  \begin{center}
+    \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/ActorbaseObject.png}
+    \caption{Driver: Classe ActorbaseObject}
+  \end{center}
 \end{figure}
 
 \subparagraph{Descrizione}
@@ -3573,10 +3776,10 @@ Classe utilizzata per agevolare le ricerche specifiche all'interno delle
 \label{sec:actorbase::driver::data::ActorbaseCollection}
 
 \begin{figure}[H]
-	\begin{center}
-		\includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/ActorbaseCollection.png}
-		\caption{Driver: Classe ActorbaseCollection}
-	\end{center}
+  \begin{center}
+    \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/ActorbaseCollection.png}
+    \caption{Driver: Classe ActorbaseCollection}
+  \end{center}
 \end{figure}
 
 \subparagraph{Descrizione}
@@ -3594,7 +3797,7 @@ navigabilità dei contenuti.
 \subparagraph{Eredita}
 
 \begin{itemize}
-\item \hyperref[sec:actorbase::driver::data::Serializer]{actorbase::driver::data::Serializer}.
+\item \hyperref[sec:actorbase::driver::client::Connector]{actorbase::driver::client::Connector}.
 \end{itemize}
 
 \subparagraph{Attributi}
@@ -3756,10 +3959,10 @@ navigabilità dei contenuti.
 \label{sec:actorbase::driver::data::ActorbaseCollectionMap}
 
 \begin{figure}[H]
-	\begin{center}
-		\includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/ActorbaseCollectionMap.png}
-		\caption{Driver: Classe ActorbaseCollectionMap}
-	\end{center}
+  \begin{center}
+    \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/ActorbaseCollectionMap.png}
+    \caption{Driver: Classe ActorbaseCollectionMap}
+  \end{center}
 \end{figure}
 
 \subparagraph{Descrizione}
@@ -3775,7 +3978,7 @@ Questa classe viene utilizzata per la rappresentazione dell'aggregazione di
 \subparagraph{Eredita}
 
 \begin{itemize}
-\item \hyperref[sec:actorbase::driver::data::Serializer]{actorbase::driver::data::Serializer}.
+\item \hyperref[sec:actorbase::driver::client::Connector]{actorbase::driver::client::Connector}.
 \end{itemize}
 
 \subparagraph{Attributi}
@@ -4308,15 +4511,15 @@ l'esecuzione del comando.
   \hline
   addContributorCommand & public & Parser di \hyperref[sec:actorbase::cli::models::Command]{Command} & Fa il parsing del comando di aggiunta collaboratore e istanzia l'\hyperref[sec:actorbase::cli::models::AddContributorCommand]{AddContributorCommand}\\
   \hline
-  removeContributorCommand & public & Parser di \hyperref[sec:actorbase::cli::models::Command]{Command} & 
-  Fa il parsing del comando di rimozione collaboratore e istanzia il \hyperref[sec:actorbase::cli::models::RemoveContributorCommand]{RemoveContributorCommand}\\
+  removeContributorCommand & public & Parser di \hyperref[sec:actorbase::cli::models::Command]{Command} &
+                                                                                                          Fa il parsing del comando di rimozione collaboratore e istanzia il \hyperref[sec:actorbase::cli::models::RemoveContributorCommand]{RemoveContributorCommand}\\
   \hline
   importExportCommand & public & Parser di \hyperref[sec:actorbase::cli::models::Command]{Command} & Fa il parsing del comando di import/export e istanzia l'\hyperref[sec:actorbase::cli::models::ImportCommand]{ImportCommand} o l'\hyperref[sec:actorbase::cli::models::ExportCommand]{ExportCommand} a seconda del caso\\
   \hline
   insertItemCommand & public & Parser di \hyperref[sec:actorbase::cli::models::Command]{Command} & Fa il parsing del comando di inserimento item e istanzia l'\hyperref[sec:actorbase::cli::models::InsertItemCommand]{InsertItemCommand}\\
   \hline
-  removeItemCommand & public & Parser di \hyperref[sec:actorbase::cli::models::Command]{Command} & 
-  Fa il parsing del comando di rimozione item e istanzia il \hyperref[sec:actorbase::cli::models::RemoveItemCommand]{RemoveItemCommand}\\
+  removeItemCommand & public & Parser di \hyperref[sec:actorbase::cli::models::Command]{Command} &
+                                                                                                   Fa il parsing del comando di rimozione item e istanzia il \hyperref[sec:actorbase::cli::models::RemoveItemCommand]{RemoveItemCommand}\\
   \hline
   findCommand & public & Parser di \hyperref[sec:actorbase::cli::models::Command]{Command} & Fa il parsing del comando di ricerca e istanzia il \hyperref[sec:actorbase::cli::models::FindCommand]{FindCommand}\\
   \hline
@@ -4435,7 +4638,7 @@ comando.
 \subparagraph{Descrizione}
 
 Classe astratta che rappresenta l'oggetto osservato nell'ambito del \gloss{design
-	pattern} \gloss{observer}.
+  pattern} \gloss{observer}.
 
 \subparagraph{Utilizzo}
 
@@ -4446,79 +4649,79 @@ ha ritornato un risultato.
 \subparagraph{Interazioni con altre classi}
 
 \begin{itemize}
-	\item \hyperref[sec:actorbase::cli::views::Observer]{actorbase::cli::views::Observer}.
+\item \hyperref[sec:actorbase::cli::views::Observer]{actorbase::cli::views::Observer}.
 \end{itemize}
 
 \subparagraph{Realizzata da}
 
 \begin{itemize}
-	\item \hyperref[sec:actorbase::cli::models::CommandInvoker]{actorbase::cli::models::CommandInvoker}
-	\item \hyperref[sec:actorbase::cli::controllers::GrammarParser]{actorbase::cli::controllers::GrammarParser}
+\item \hyperref[sec:actorbase::cli::models::CommandInvoker]{actorbase::cli::models::CommandInvoker}
+\item \hyperref[sec:actorbase::cli::controllers::GrammarParser]{actorbase::cli::controllers::GrammarParser}
 \end{itemize}
 
 \subparagraph{Attributi}
 
 \begin{tabular}{| l | l | l | l | l |}
-	\hline
-	Nome & Accesso & Mutabilità & Tipo & Descrizione\\
-	\hline
-	observers & private & mutabile & ListBuffer[Observer] & \\
-	\hline
-	state & private & mutabile & String & \\
-	\hline
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  observers & private & mutabile & ListBuffer[Observer] & \\
+  \hline
+  state & private & mutabile & String & \\
+  \hline
 \end{tabular}
 
 \subparagraph{Metodi}
 
 \begin{tabular}{| l | l | l | l |}
-	\hline
-	Nome & Accesso & Tipo di ritorno & Descrizione\\
-	\hline
-	setState & public & Unit & \\
-	\hline
-	getState & public & String & \\
-	\hline
-	attach & public & Unit & \\
-	\hline
-	detach & public & Unit & \\
-	\hline
-	notifyAllObservers & public & Unit & \\
-	\hline
+  \hline
+  Nome & Accesso & Tipo di ritorno & Descrizione\\
+  \hline
+  setState & public & Unit & \\
+  \hline
+  getState & public & String & \\
+  \hline
+  attach & public & Unit & \\
+  \hline
+  detach & public & Unit & \\
+  \hline
+  notifyAllObservers & public & Unit & \\
+  \hline
 \end{tabular}
 
 \subparagraph{Parametri}
 
 \begin{center}
-	\textbf{setState}
+  \textbf{setState}
 \end{center}
 \begin{tabular}{| l | l | l |}
-	\hline
-	Nome & Tipo & Descrizione\\
-	\hline
-	s & String & \\
-	\hline
+  \hline
+  Nome & Tipo & Descrizione\\
+  \hline
+  s & String & \\
+  \hline
 \end{tabular}
 
 \begin{center}
-	\textbf{attach}
+  \textbf{attach}
 \end{center}
 \begin{tabular}{| l | l | l |}
-	\hline
-	Nome & Tipo & Descrizione\\
-	\hline
-	observer & Observer & \\
-	\hline
+  \hline
+  Nome & Tipo & Descrizione\\
+  \hline
+  observer & Observer & \\
+  \hline
 \end{tabular}
 
 \begin{center}
-	\textbf{detach}
+  \textbf{detach}
 \end{center}
 \begin{tabular}{| l | l | l |}
-	\hline
-	Nome & Tipo & Descrizione\\
-	\hline
-	observer & Observer & \\
-	\hline
+  \hline
+  Nome & Tipo & Descrizione\\
+  \hline
+  observer & Observer & \\
+  \hline
 \end{tabular}
 
 \paragraph{actorbase::cli::models::CommandInvoker}
@@ -4596,27 +4799,27 @@ Viene utilizzata per chiamare il metodo di
 \subparagraph{Classi ereditate}
 
 \begin{itemize}
-	\item \hyperref[sec:actorbase::cli::models::Command]{actorbase::cli::models::Command}.
+\item \hyperref[sec:actorbase::cli::models::Command]{actorbase::cli::models::Command}.
 \end{itemize}
 
 \subparagraph{Attributi}
 
 \begin{tabular}{| l | l | l | l | l |}
-	\hline
-	Nome & Accesso & Mutabilità & Tipo & Descrizione\\
-	\hline
-	cr & public & immutabile & CommandReceiver & \\
-	\hline
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  cr & public & immutabile & CommandReceiver & \\
+  \hline
 \end{tabular}
 
 \subparagraph{Metodi}
 
 \begin{tabular}{| l | l | l | l |}
-	\hline
-	Nome & Accesso & Tipo di ritorno & Descrizione\\
-	\hline
-	execute & public & String & \\
-	\hline
+  \hline
+  Nome & Accesso & Tipo di ritorno & Descrizione\\
+  \hline
+  execute & public & String & \\
+  \hline
 \end{tabular}
 
 

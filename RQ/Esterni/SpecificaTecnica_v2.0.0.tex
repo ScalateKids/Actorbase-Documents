@@ -338,7 +338,7 @@ La componente principale rappresentata dal package globale \textbf{actorbase}.
 Rappresentano le tre macro-componenti del sistema.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%                      ACTORSYSTEM PARTE                           %
+% ACTORSYSTEM PARTE                           %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{actorbase::actorsystem}
@@ -1887,48 +1887,115 @@ all'utilizzo finale in un programma \gloss{Scala}.
 \subparagraph{Descrizione}
 
 Classe principale della componente \gloss{driver}, rappresenta l'interfaccia
-contenente i metodi designati all'utilizzo finale in un programma \gloss{Scala}.
+di connessione e autenticazione con il \gloss{server}.
 
 \subparagraph{Utilizzo}
 
-Espone i metodi di connessione, interrogazione, ricerca e gestione dei dati
-remoti all'interno del \gloss{database}.
+Espone i metodi di connessione e autenticazione al \gloss{server} \textbf{Actorbase}, e restituisce un oggetto
+di tipo \hyperref[sec::actorbase::driver::ActorbaseServices]{ActorbaseServices} in base ai privilegi del proprio
+profilo nel sistema.
 
 \subparagraph{Eredita}
 
 \begin{itemize}
-\item \hyperref[sec:actorbase::driver::client::Connector]{actorbase::driver::client::Connector};
-\item \hyperref[sec:actorbase::driver::client::Connector]{actorbase::driver::data::Serializer}.
+\item \hyperref[sec:actorbase::driver::client::Connector]{actorbase::driver::client::Connector}.
 \end{itemize}
 
 \subparagraph{Interazioni con le altre classi}
 
 \begin{itemize}
-\item \hyperref[sec:actorbase::driver::client::data::Connection]{actorbase::driver::client::data::Connection};
-\item \hyperref[sec:actorbase::driver::client::data::ActorbaseCollection]{actorbase::driver::client::data::ActorbaseCollection};
-\item \hyperref[sec:actorbase::driver::client::data::ActorbaseCollection]{actorbase::driver::client::data::ActorbaseCollectionMap}.
+\item \hyperref[sec::actorbase::driver::ActorbaseServices]{actorbase::driver::ActorbaseServices}
+\end{itemize}
+
+\paragraph{ActorbaseServices}
+\label{sec:actorbase::driver::ActorbaseServices}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/ActorbaseDriver.png}
+    \caption{Driver: Classe ActorbaseDriver}
+  \end{center}
+\end{figure}
+
+\subparagraph{Descrizione}
+
+Classe principale della componente \gloss{driver}, rappresenta l'interfaccia
+contenente i metodi designati all'utilizzo di \textbf{Actorbase} in un programma
+\gloss{Scala}.
+
+\subparagraph{Utilizzo}
+
+Espone i metodi di interrogazione, ricerca e gestione dei dati
+remoti all'interno del \gloss{database}.
+
+\subparagraph{Eredita}
+
+\begin{itemize}
+\item \hyperref[sec:actorbase::driver::client::Connector]{actorbase::driver::client::Connector}.
+\end{itemize}
+
+\subparagraph{Interazioni con le altre classi}
+
+\begin{itemize}
+\item \hyperref[sec:actorbase::driver::client::ActorbaseCollection]{actorbase::driver::client::ActorbaseCollection};
+\item \hyperref[sec:actorbase::driver::client::ActorbaseCollection]{actorbase::driver::client::ActorbaseCollectionMap}.
+\end{itemize}
+
+\paragraph{ActorbaseAdminServices}
+\label{sec:actorbase::driver::ActorbaseAdminServices}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/ActorbaseDriver.png}
+    \caption{Driver: Classe ActorbaseDriver}
+  \end{center}
+\end{figure}
+
+\subparagraph{Descrizione}
+
+Classe principale della componente \gloss{driver}, rappresenta l'interfaccia
+contenente i metodi designati all'utilizzo di \textbf{Actorbase} in un programma
+\gloss{Scala}.
+
+\subparagraph{Utilizzo}
+
+Aggiunge funzionalità amministrative all'oggetto
+\hyperref[sec:actorbase::driver::ActorbaseServices]{ActorbaseServices}, ossia
+operazioni di gestione degli utenti.
+
+\subparagraph{Eredita}
+
+\begin{itemize}
+\item \hyperref[sec:actorbase::driver::client::ActorbaseServices]{actorbase::driver::client::ActorbaseServices}.
+\end{itemize}
+
+\subparagraph{Interazioni con le altre classi}
+
+\begin{itemize}
+\item \hyperref[sec:actorbase::driver::client::ActorbaseCollection]{actorbase::driver::client::ActorbaseCollection};
+\item \hyperref[sec:actorbase::driver::client::ActorbaseCollection]{actorbase::driver::client::ActorbaseCollectionMap}.
 \end{itemize}
 
 \paragraph{Connection}
 \label{sec:actorbase::driver::Connection}
 
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/Connection.png}
+    \caption{Driver: Classe Connection}
+  \end{center}
+\end{figure}
+
 \subparagraph{Descrizione}
 
 Classe interna all'oggetto
-\hyperref[sec:actorbase::driver::ActorbaseDriver]{ActorbaseDriver} contenente i
-parametri di connessione al \gloss{server}.
+\hyperref[sec:actorbase::driver::ActorbaseServices]{ActorbaseServices} contenente i
+parametri di connessione al \gloss{server} e le credenziali del profilo \textbf{Actorbase}.
 
 \subparagraph{Utilizzo}
 
 Viene utilizzata come oggetto contenente i parametri di connessione, da
 utilizzare nelle classi che necessitano di collegamenti al \gloss{server}.
-
-\subparagraph{Eredita}
-
-\begin{itemize}
-\item \hyperref[sec:actorbase::driver::client::Connector]{actorbase::driver::client::Connector};
-\item \hyperref[sec:actorbase::driver::client::Connector]{actorbase::driver::data::Serializer}.
-\end{itemize}
 
 \subparagraph{Interazioni con le altre classi}
 
@@ -2022,7 +2089,27 @@ necessitano.
 \item \hyperref[sec:actorbase::driver::client::SSLClient]{actorbase::driver::client::SSLClient}.
 \end{itemize}
 
-\paragraph{Connector (abstract)}
+\paragraph{Serializer (abstract)}
+\label{sec:actorbase::driver::client::Serializer}
+
+\subparagraph{Descrizione}
+
+Classe astratta atta a fornire metodi di serializzazione e deserializzazione nelle
+varianti \gloss{JSON} e \gloss{array} di \gloss{byte}.
+
+\subparagraph{Utilizzo}
+
+Viene utilizzata mediante estensione dalle classi che necessitano di operazioni di
+serializzazione e deserializzazione in formato \gloss{JSON} o \gloss{array} di byte
+o entrambi.
+
+\subparagraph{Ereditata da}
+
+\begin{itemize}
+\item \hyperref[sec:actorbase::driver::client::Connector]{actorbase::driver::client::Connector}
+\end{itemize}
+
+\paragraph{actorbase::driver::client::Connector (abstract)}
 \label{sec:actorbase::driver::client::Connector}
 
 \subparagraph{Descrizione}
@@ -2038,6 +2125,11 @@ estendono.
 
 Viene estesa dalle classi che necessitano di comunicare con il server.
 
+\subparagraph{Eredita}
+
+\begin{itemize}
+\item \hyperref[sec:actorbase::driver::client::Serializer]{actorbase::driver::client::Serializer}
+\end{itemize}
 
 \subsection{actorbase::driver::client::api}
 \label{sec:actorbase::driver::client::api}
@@ -2063,7 +2155,7 @@ protocollo \gloss{HTTP}.
 
 \subsubsection{Classi}
 
-\paragraph{RequestMethod (abstract)}
+\paragraph{actorbase::driver::client::api::RequestMethod (abstract)}
 \label{sec:actorbase::driver::client::api::RequestMethod}
 
 \subparagraph{Descrizione}
@@ -2086,7 +2178,7 @@ Viene utilizzata come classe padre per l'implementazione delle richieste
 
 % FINE REQUESTMETHOD
 
-\paragraph{GET (abstract)}
+\paragraph{actorbase::driver::client::api::GET (abstract)}
 \label{sec:actorbase::driver::client::api::GET}
 
 \subparagraph{Descrizione}
@@ -2115,7 +2207,7 @@ di tipo \gloss{GET} da utilizzare nella comunicazione con il server.
 
 % FINE GET
 
-\paragraph{POST (abstract)}
+\paragraph{actorbase::driver::client::api::POST (abstract)}
 \label{sec:actorbase::driver::client::api::POST}
 
 \subparagraph{Descrizione}
@@ -2144,7 +2236,7 @@ di tipo \gloss{POST} da utilizzare nella comunicazione con il server.
 
 % FINE POST
 
-\paragraph{PUT (abstract)}
+\paragraph{actorbase::driver::client::api::PUT (abstract)}
 \label{sec:actorbase::driver::client::api::PUT}
 
 \subparagraph{Descrizione}
@@ -2173,7 +2265,7 @@ di tipo \gloss{PUT} da utilizzare nella comunicazione con il server.
 
 % FINE PUT
 
-\paragraph{DELETE (abstract)}
+\paragraph{actorbase::driver::client::api::DELETE (abstract)}
 \label{sec:actorbase::driver::client::api::DELETE}
 
 \subparagraph{Descrizione}
@@ -2202,7 +2294,7 @@ di tipo \gloss{DELETE} da utilizzare nella comunicazione con il server.
 
 % FINE DELETE
 
-\paragraph{Request}
+\paragraph{actorbase::driver::client::api::Request}
 \label{sec:actorbase::driver::client::api::Request}
 
 \subparagraph{Descrizione}
@@ -2229,7 +2321,7 @@ creata mediante il design pattern \gloss{Builder} nella classe
 \item \hyperref[sec:actorbase::driver::client::ActorbaseClient]{actorbase::driver::client::ActorbaseClient}.
 \end{itemize}
 
-\paragraph{Response}
+\paragraph{actorbase::driver::client::api::Response}
 \label{sec:actorbase::driver::client::api::Response}
 
 \subparagraph{Descrizione}
@@ -2331,20 +2423,6 @@ eventuali modifiche locali sul server remoto che contiene i dati originali.
 
 \subsubsection{Classi}
 
-\paragraph{Serializer (abstract)}
-\label{sec:actorbase::driver::client::data::Serializer}
-
-\subparagraph{Descrizione}
-
-Classe astratta atta a fornire metodi di serializzazione e deserializzazione nelle
-varianti \gloss{JSON} e \gloss{array} di \gloss{byte}.
-
-\subparagraph{Utilizzo}
-
-Viene utilizzata mediante estensione dalle classi che necessitano di operazioni di
-serializzazione e deserializzazione in formato \gloss{JSON} o \gloss{array} di byte
-o entrambi.
-
 \paragraph{ActorbaseObject}
 \label{sec:actorbase::driver::data::ActorbaseObject}
 
@@ -2364,9 +2442,7 @@ Classe utilizzata per agevolare le ricerche specifiche all'interno delle
 \item \hyperref[sec:actorbase::driver::client::data::ActorbaseCollection]{actorbase::driver::client::data::ActorbaseCollection}.
 \end{itemize}
 
-% FINE ACTORBASEOBJECT
-
-\paragraph{ActorbaseCollection}
+\paragraph{actorbase::driver::data::ActorbaseCollection}
 \label{sec:actorbase::driver::data::ActorbaseCollection}
 
 \subparagraph{Descrizione}
