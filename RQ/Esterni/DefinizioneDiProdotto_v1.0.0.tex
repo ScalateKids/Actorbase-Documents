@@ -4188,19 +4188,16 @@ Questa classe viene utilizzata dal \gloss{driver} per gestire il caso in cui all
 \end{figure}
 
 \subsubsection{Descrizione}
-
 \gloss{Package} per la parte di \gloss{client} rappresentata dalla \gloss{cli}.
 Questa componente viene rappresentata usando il \gloss{design pattern}
 \gloss{MVC} in versione \gloss{push model}.
 
 \subsubsection{Interazioni con altre componenti}
-
 \begin{itemize}
 \item \hyperref[sec:actorbase::driver]{actorbase::driver}.
 \end{itemize}
 
 \subsubsection{Package contenuti}
-
 \begin{itemize}
 \item \hyperref[sec:actorbase::cli::views]{actorbase::cli::views};
 \item \hyperref[sec:actorbase::cli::controllers]{actorbase::cli::controllers};
@@ -4223,34 +4220,23 @@ Questa componente viene rappresentata usando il \gloss{design pattern}
 gestisce l'output e offre l'interfaccia tramite cui l'utente può inserire i
 comandi.
 
-\subsubsection{Interazioni con altre componenti}
-
-\begin{itemize}
-\item \hyperref[sec:actorbase::cli::controllers]{actorbase::cli::controllers};
-\item \hyperref[sec:actorbase::cli::models]{actorbase::cli::models}.
-\end{itemize}
-
 \subsubsection{Interfacce}
 
 \paragraph{actorbase::cli::views::PromptProvider}
 \label{sec:actorbase::cli::views::PromptProvider}
 
 \subparagraph{Descrizione}
-
 Interfaccia per la creazione del \gloss{prompt} dei comandi.
 
 \subparagraph{Utilizzo}
-
 Offre un'interfaccia per la creazione di un \gloss{prompt} generico.
 
 \subparagraph{Realizzata da}
-
 \begin{itemize}
 \item actorbase::cli::views::ActorbasePrompt
 \end{itemize}
 
 \subparagraph{Metodi}
-
 \begin{tabular}{| l | l | l | l |}
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
@@ -4263,24 +4249,20 @@ Offre un'interfaccia per la creazione di un \gloss{prompt} generico.
 \label{sec:actorbase::cli::views::Observer}
 
 \subparagraph{Descrizione}
-
 Interfaccia per l'implementazione del \gloss{design pattern} \gloss{Observer}
 che permette di aggiornare la \gloss{view} ad ogni risposta della componente
 \gloss{driver}.
 
 \subparagraph{Utilizzo}
-
 Offre un'interfaccia per permettere di aggiornare la \gloss{view} ad ogni
 risposta ricevuta dal \gloss{driver}.
 
 \subparagraph{Realizzata da}
-
 \begin{itemize}
 \item actorbase::cli::views::ResultViewer
 \end{itemize}
 
 \subparagraph{Metodi}
-
 \begin{tabular}{| l | l | l | l |}
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
@@ -4290,7 +4272,6 @@ risposta ricevuta dal \gloss{driver}.
 \end{tabular}
 
 \subparagraph{Parametri}
-
 \begin{center}
   \textbf{update}
 \end{center}
@@ -4308,16 +4289,13 @@ risposta ricevuta dal \gloss{driver}.
 \label{sec:actorbase::cli::views::CommandLoop}
 
 \subparagraph{Descrizione}
-
 Questa classe verrà utilizzata per leggere i comandi inseriti dall'utente.
 
 \subparagraph{Utilizzo}
-
 Viene utilizzata per la lettura dei comandi inseriti dall'utente.
 
 \subparagraph{Attributi}
-
-\begin{tabular}{| l | l | l | l | l |}
+\begin{tabular}{| p{2.5cm} | p{1.5cm} | p{2cm} | p{2.5cm} | p{8.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
@@ -4378,7 +4356,7 @@ la creazione di un \gloss{prompt} dei comandi.
 
 Viene utilizzata per la creazione di un \gloss{prompt} per l'inserimento dei
 comandi e la visualizzazione delle informazioni relative alla connessione
-effettuata. %TODO: scrivere meglio
+effettuata.
 
 \subparagraph{Classi ereditate}
 
@@ -4398,7 +4376,7 @@ effettuata. %TODO: scrivere meglio
 
 \subparagraph{Attributi}
 
-\begin{tabular}{| l | l | l | l | l |}
+\begin{tabular}{| p{2.5cm} | p{1.5cm} | p{2cm} | p{2.5cm} | p{8.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
@@ -4427,14 +4405,7 @@ ottenuti dal server mediante l'inserimento dei comandi tramite il
 \item \hyperref[sec:actorbase::cli::views::Observer]{actorbase::cli::views::Observer}.
 \end{itemize}
 
-\subparagraph{Interazioni con altre classi}
-
-\begin{itemize}
-\item \hyperref[sec:actorbase::cli::views::CommandLoop]{actorbase::cli::views::CommandLoop}.
-\end{itemize}
-
 \subparagraph{Metodi}
-
 \begin{tabular}{| l | l | l | l |}
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
@@ -4459,18 +4430,13 @@ ottenuti dal server mediante l'inserimento dei comandi tramite il
 \subsection{actorbase::cli::controllers}
 \label{sec:actorbase::cli::controllers}
 
+%TODO QUA MANCA L'IMMAGINE
+
 \subsubsection{Descrizione}
 
 \gloss{Package} per la parte \gloss{controller} della \gloss{cli}. Questa
 componente si occupa di passare il comando ricevuto dalla \gloss{view} al
 \gloss{model}.
-
-\subsubsection{Interazioni con altre componenti}
-
-\begin{itemize}
-\item \hyperref[sec:actorbase::cli::views]{actorbase::cli::views};
-\item \hyperref[sec:actorbase::cli::models]{actorbase::cli::models}.
-\end{itemize}
 
 \subsubsection{Classi}
 
@@ -4490,16 +4456,9 @@ Viene utilizzata per effettuare il \gloss{parsing} del comando ricevuto da
 \hyperref[sec:actorbase::cli::models::CommandInvoker]{actorbase::cli::models::CommandInvoker} con i parametri corretti per
 l'esecuzione del comando.
 
-\subparagraph{Interazioni con altre classi}
-
-\begin{itemize}
-\item \hyperref[sec:actorbase::cli::views::CommandLoop]{actorbase::cli::views::CommandLoop};
-\item \hyperref[sec:actorbase::cli::models::CommandInvoker]{actorbase::cli::models::CommandInvoker}.
-\end{itemize}
-
 \subparagraph{Metodi}
 
-\begin{tabular}{| p{5.5cm} | p{1.5cm} | p{2cm} | p{7.5cm} |} %TODO descrizione
+\begin{tabular}{| p{5.5cm} | p{1.5cm} | p{2cm} | p{7.5cm} |}
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
@@ -4542,13 +4501,13 @@ l'esecuzione del comando.
   \hline
   Nome & Tipo & Descrizione\\
   \hline
-  input & String & \\
+  input & String & Stringa immessa dall'utente\\
   \hline
 \end{tabular}
 
 \subparagraph{Attributi}
 
-\begin{tabular}{| l | l | l | l | l |}
+\begin{tabular}{| p{2.5cm} | p{1.5cm} | p{2cm} | p{2.5cm} | p{8.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
@@ -4577,7 +4536,7 @@ con la componente \gloss{view} tramite il \gloss{push model} del \gloss{design
   pattern} \gloss{observer}. Per la gestione dei comandi si è scelto di
 utilizzare il \gloss{command pattern}.
 
-\subsection{Interfacce}
+\subsubsection{Interfacce}
 
 \paragraph{actorbase::cli::models::Command}
 \label{sec:actorbase::cli::models::Command}
@@ -4592,34 +4551,27 @@ Viene utilizzata per offrire un'interfaccia comune a tutti i comandi.\\Ha un
 riferimento a \hyperref[sec:actorbase::cli::models::CommandReceiver]{actorbase::cli::models::CommandReceiver} per l'esecuzione del
 comando.
 
-\subparagraph{Interazioni con altre classi}
-
-\begin{itemize}
-\item \hyperref[sec:actorbase::cli::models::CommandInvoker]{actorbase::cli::models::CommandInvoker};
-\item \hyperref[sec:actorbase::view::cli::models::CommandReceiver]{actorbase::view::cli::models::CommandReceiver}.
-\end{itemize}
-
 \subparagraph{Realizzata da}
 
 \begin{itemize}
 \item \hyperref[sec:actorbase::cli::models::AddContributorCommand]{actorbase::cli::models::AddContributorCommand};
-\item \hyperref[sec:actorbase::view::cli::models::AddUserCommand]{actorbase::view::cli::models::AddUserCommand};
-\item  \hyperref[sec:actorbase::view::cli::models::ChangePasswordCommand]{actorbase::view::cli::models::ChangePasswordCommand};
-\item  \hyperref[sec:actorbase::view::cli::models::CreateCollectionCommand]{actorbase::view::cli::models::CreateCollectionCommand};
-\item  \hyperref[sec:actorbase::view::cli::models::RemoveCollectionCommand]{actorbase::view::cli::models::RemoveCollectionCommand};
-\item  \hyperref[sec:actorbase::view::cli::models::ExportCommand]{actorbase::view::cli::models::ExportCommand};
-\item  \hyperref[sec:actorbase::view::cli::models::FindCommand]{actorbase::view::cli::models::FindCommand};
-\item  \hyperref[sec:actorbase::view::cli::models::HelpCommand]{actorbase::view::cli::models::HelpCommand};
-\item  \hyperref[sec:actorbase::view::cli::models::InsertItemCommand]{actorbase::view::cli::models::InsertItemCommand};
-\item  \hyperref[sec:actorbase::view::cli::models::ListCollectionsCommand]{actorbase::view::cli::models::ListCollectionsCommand};
-\item  \hyperref[sec:actorbase::view::cli::models::LoginCommand]{actorbase::view::cli::models::LoginCommand};
-\item  \hyperref[sec:actorbase::view::cli::models::LogoutCommand]{actorbase::view::cli::models::LogoutCommand};
-\item  \hyperref[sec:actorbase::view::cli::models::RemoveContributorCommand]{actorbase::view::cli::models::RemoveContributorCommand};
-\item  \hyperref[sec:actorbase::view::cli::models::RemoveItemCommand]{actorbase::view::cli::models::RemoveItemCommand};
-\item  \hyperref[sec:actorbase::view::cli::models::RemoveUserCommand]{actorbase::view::cli::models::RemoveUserCommand};
-\item  \hyperref[sec:actorbase::view::cli::models::RenameCollectionCommand]{actorbase::view::cli::models::RenameCollectionCommand};
-\item  \hyperref[sec:actorbase::view::cli::models::RemoveUserCommand]{actorbase::view::cli::models::RemoveUserCommand};
-\item  \hyperref[sec:actorbase::view::cli::models::ResetPasswordCommand]{actorbase::view::cli::models::ResetPasswordCommand};
+\item \hyperref[sec:actorbase::cli::models::AddUserCommand]{actorbase::cli::models::AddUserCommand};
+\item  \hyperref[sec:actorbase::cli::models::ChangePasswordCommand]{actorbase::cli::models::ChangePasswordCommand};
+\item  \hyperref[sec:actorbase::cli::models::CreateCollectionCommand]{actorbase::cli::models::CreateCollectionCommand};
+\item  \hyperref[sec:actorbase::cli::models::RemoveCollectionCommand]{actorbase::cli::models::RemoveCollectionCommand};
+\item  \hyperref[sec:actorbase::cli::models::ExportCommand]{actorbase::cli::models::ExportCommand};
+\item  \hyperref[sec:actorbase::cli::models::FindCommand]{actorbase::cli::models::FindCommand};
+\item  \hyperref[sec:actorbase::cli::models::HelpCommand]{actorbase::cli::models::HelpCommand};
+\item  \hyperref[sec:actorbase::cli::models::InsertItemCommand]{actorbase::cli::models::InsertItemCommand};
+\item  \hyperref[sec:actorbase::cli::models::ListCollectionsCommand]{actorbase::cli::models::ListCollectionsCommand};
+\item  \hyperref[sec:actorbase::cli::models::LoginCommand]{actorbase::cli::models::LoginCommand};
+\item  \hyperref[sec:actorbase::cli::models::LogoutCommand]{actorbase::cli::models::LogoutCommand};
+\item  \hyperref[sec:actorbase::cli::models::RemoveContributorCommand]{actorbase::cli::models::RemoveContributorCommand};
+\item  \hyperref[sec:actorbase::cli::models::RemoveItemCommand]{actorbase::cli::models::RemoveItemCommand};
+\item  \hyperref[sec:actorbase::cli::models::RemoveUserCommand]{actorbase::cli::models::RemoveUserCommand};
+\item  \hyperref[sec:actorbase::cli::models::RenameCollectionCommand]{actorbase::cli::models::RenameCollectionCommand};
+\item  \hyperref[sec:actorbase::cli::models::RemoveUserCommand]{actorbase::cli::models::RemoveUserCommand};
+\item  \hyperref[sec:actorbase::cli::models::ResetPasswordCommand]{actorbase::cli::models::ResetPasswordCommand};
 \end{itemize}
 
 \subparagraph{Metodi}
@@ -4628,7 +4580,7 @@ comando.
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  execute & public & String & \\
+  execute & public & String & Esegue il metodo\\
   \hline
 \end{tabular}
 
@@ -4663,13 +4615,13 @@ ha ritornato un risultato.
 
 \subparagraph{Attributi}
 
-\begin{tabular}{| l | l | l | l | l |}
+\begin{tabular}{| p{1.5cm} | p{1.5cm} | p{2cm} | p{3.5cm} | p{8.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  observers & private & mutabile & ListBuffer[Observer] & \\
+  observers & private & mutabile & ListBuffer[Observer] & Lista di oggetti che osservano questa classe\\
   \hline
-  state & private & mutabile & String & \\
+  state & private & mutabile & String & Stato dell'oggetto\\
   \hline
 \end{tabular}
 
@@ -4679,15 +4631,15 @@ ha ritornato un risultato.
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  setState & public & Unit & \\
+  setState & public & Unit & Cambia lo stato con quello in input\\
   \hline
-  getState & public & String & \\
+  getState & public & String & Ritorna lo stato\\
   \hline
-  attach & public & Unit & \\
+  attach & public & Unit & Aggiunge un observer\\
   \hline
-  detach & public & Unit & \\
+  detach & public & Unit & Rimuove un observer\\
   \hline
-  notifyAllObservers & public & Unit & \\
+  notifyAllObservers & public & Unit & Notifica tutti gli observers col proprio stato\\
   \hline
 \end{tabular}
 
@@ -4700,7 +4652,7 @@ ha ritornato un risultato.
   \hline
   Nome & Tipo & Descrizione\\
   \hline
-  s & String & \\
+  s & String & Stato da assegnare\\
   \hline
 \end{tabular}
 
@@ -4711,7 +4663,7 @@ ha ritornato un risultato.
   \hline
   Nome & Tipo & Descrizione\\
   \hline
-  observer & Observer & \\
+  observer & Observer & Observer da aggiungere all'oggetto\\
   \hline
 \end{tabular}
 
@@ -4722,7 +4674,7 @@ ha ritornato un risultato.
   \hline
   Nome & Tipo & Descrizione\\
   \hline
-  observer & Observer & \\
+  observer & Observer & Observer da rimuovere dall'oggetto\\
   \hline
 \end{tabular}
 
@@ -4746,20 +4698,13 @@ implementa l'interfaccia \hyperref[sec:actorbase::cli::models::Command]{actorbas
 \item \hyperref[sec:actorbase::cli::models::Observable]{actorbase::cli::models::Observable}.
 \end{itemize}
 
-\subparagraph{Interazioni con altre classi}
-
-\begin{itemize}
-\item \hyperref[sec:actorbase::cli::controllers::GrammarParser]{actorbase::cli::controllers::GrammarParser};
-\item \hyperref[sec:actorbase::cli::models::Command]{actorbase::cli::models::Command}.
-\end{itemize}
-
 \subparagraph{Attributi}
 
-\begin{tabular}{| l | l | l | l | l |}
+\begin{tabular}{| p{2.5cm} | p{1.5cm} | p{2cm} | p{2.5cm} | p{8.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  history & private & mutabile & List[Command] & \\
+  history & private & mutabile & List[Command] & Una lista contenente la history dei comandi inseriti\\
   \hline
 \end{tabular}
 
@@ -4769,7 +4714,7 @@ implementa l'interfaccia \hyperref[sec:actorbase::cli::models::Command]{actorbas
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  storeAndExecute & public & String & \\
+  storeAndExecute & public & String & Immagazzina il comando nella history e provvede alla sua esecuzione\\
   \hline
 \end{tabular}
 
@@ -4782,7 +4727,7 @@ implementa l'interfaccia \hyperref[sec:actorbase::cli::models::Command]{actorbas
   \hline
   Nome & Tipo & Descrizione\\
   \hline
-  cmd & Command & \\
+  cmd & Command & Comando da eseguire\\
   \hline
 \end{tabular}
 
@@ -4806,11 +4751,11 @@ Viene utilizzata per chiamare il metodo di
 
 \subparagraph{Attributi}
 
-\begin{tabular}{| l | l | l | l | l |}
+\begin{tabular}{| p{1cm} | p{1.5cm} | p{2cm} | p{4cm} | p{8.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  cr & public & immutabile & CommandReceiver & \\
+  cr & public & immutabile & CommandReceiver & Oggetto per l'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -4820,7 +4765,7 @@ Viene utilizzata per chiamare il metodo di
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  execute & public & String & \\
+  execute & public & String & Provvede all'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -4846,11 +4791,11 @@ dall'utente.
 
 \subparagraph{Attributi}
 
-\begin{tabular}{| l | l | l | l | l |}
+\begin{tabular}{| p{1cm} | p{1.5cm} | p{2cm} | p{4cm} | p{8.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  cr & public & immutabile & CommandReceiver & \\
+  cr & public & immutabile & CommandReceiver & Oggetto per l'esecuzione del comando \\
   \hline
 \end{tabular}
 
@@ -4860,7 +4805,44 @@ dall'utente.
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  execute & public & String & \\
+  execute & public & String & Provvede all'esecuzione del comando\\
+  \hline
+\end{tabular}
+
+
+\paragraph{actorbase::cli::models::HelpCommand}
+\label{sec:actorbase::cli::models::HelpCommand}
+
+\subparagraph{Descrizione}
+
+Classe per il comando di aiunto.
+
+\subparagraph{Utilizzo}
+Viene utilizzata per chiamare il metodo di
+\hyperref[sec:actorbase::cli::models::CommandReceiver]{actorbase::cli::models::CommandReceiver} per richiedere aiuto sulle possibili operazioni da fare.
+
+\subparagraph{Classi ereditate}
+\begin{itemize}
+\item \hyperref[sec:actorbase::cli::models::Command]{actorbase::cli::models::Command}.
+\end{itemize}
+
+\subparagraph{Attributi}
+
+\begin{tabular}{| p{1cm} | p{1.5cm} | p{2cm} | p{4cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  cr & public & immutabile & CommandReceiver & Oggetto per l'esecuzione del comando \\
+  \hline
+\end{tabular}
+
+\subparagraph{Metodi}
+
+\begin{tabular}{| l | l | l | l |}
+  \hline
+  Nome & Accesso & Tipo di ritorno & Descrizione\\
+  \hline
+  execute & public & String & Provvede all'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -4884,11 +4866,11 @@ Viene utilizzata per chiamare il metodo di
 
 \subparagraph{Attributi}
 
-\begin{tabular}{| l | l | l | l | l |}
+\begin{tabular}{| p{1cm} | p{1.5cm} | p{2cm} | p{4cm} | p{8.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  cr & public & immutabile & CommandReceiver & \\
+  cr & public & immutabile & CommandReceiver & Oggetto per l'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -4898,7 +4880,7 @@ Viene utilizzata per chiamare il metodo di
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  execute & public & String & \\
+  execute & public & String & Provvede all'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -4923,11 +4905,11 @@ dell'utente specificato in input.
 
 \subparagraph{Attributi}
 
-\begin{tabular}{| l | l | l | l | l |}
+\begin{tabular}{| p{1cm} | p{1.5cm} | p{2cm} | p{4cm} | p{8.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  cr & public & immutabile & CommandReceiver & \\
+  cr & public & immutabile & CommandReceiver & Oggetto per l'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -4937,7 +4919,7 @@ dell'utente specificato in input.
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  execute & public & String & \\
+  execute & public & String & Provvede all'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -4963,11 +4945,11 @@ nomi di tutte le collezioni presenti nel \gloss{database}.
 
 \subparagraph{Attributi}
 
-\begin{tabular}{| l | l | l | l | l |}
+\begin{tabular}{| p{1cm} | p{1.5cm} | p{2cm} | p{4cm} | p{8.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  cr & public & immutabile & CommandReceiver & \\
+  cr & public & immutabile & CommandReceiver & Oggetto per l'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -4977,7 +4959,7 @@ nomi di tutte le collezioni presenti nel \gloss{database}.
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  execute & public & String & \\
+  execute & public & String & Provvede all'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -5003,11 +4985,11 @@ in input.
 
 \subparagraph{Attributi}
 
-\begin{tabular}{| l | l | l | l | l |}
+\begin{tabular}{| p{1cm} | p{1.5cm} | p{2cm} | p{4cm} | p{8.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  cr & public & immutabile & CommandReceiver & \\
+  cr & public & immutabile & CommandReceiver & Oggetto per l'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -5017,7 +4999,7 @@ in input.
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  execute & public & String & \\
+  execute & public & String & Provvede all'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -5042,11 +5024,11 @@ immesse dall'utente.
 
 \subparagraph{Attributi}
 
-\begin{tabular}{| l | l | l | l | l |}
+\begin{tabular}{| p{1cm} | p{1.5cm} | p{2cm} | p{4cm} | p{8.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  cr & public & immutabile & CommandReceiver & \\
+  cr & public & immutabile & CommandReceiver & Oggetto per l'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -5056,7 +5038,7 @@ immesse dall'utente.
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  execute & public & String & \\
+  execute & public & String & Provvede all'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -5081,11 +5063,11 @@ i parametri specificati in input.
 
 \subparagraph{Attributi}
 
-\begin{tabular}{| l | l | l | l | l |}
+\begin{tabular}{| p{1cm} | p{1.5cm} | p{2cm} | p{4cm} | p{8.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  cr & public & immutabile & CommandReceiver & \\
+  cr & public & immutabile & CommandReceiver & Oggetto per l'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -5095,7 +5077,7 @@ i parametri specificati in input.
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  execute & public & String & \\
+  execute & public & String & Provvede all'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -5121,11 +5103,11 @@ specificati in input.
 
 \subparagraph{Attributi}
 
-\begin{tabular}{| l | l | l | l | l |}
+\begin{tabular}{| p{1cm} | p{1.5cm} | p{2cm} | p{4cm} | p{8.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  cr & public & immutabile & CommandReceiver & \\
+  cr & public & immutabile & CommandReceiver & Oggetto per l'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -5135,7 +5117,7 @@ specificati in input.
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  execute & public & String & \\
+  execute & public & String & Provvede all'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -5158,11 +5140,11 @@ Viene utilizzata per chiamare il metodo di \hyperref[sec:actorbase::cli::models:
 
 \subparagraph{Attributi}
 
-\begin{tabular}{| l | l | l | l | l |}
+\begin{tabular}{| p{1cm} | p{1.5cm} | p{2cm} | p{4cm} | p{8.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  cr & public & immutabile & CommandReceiver & \\
+  cr & public & immutabile & CommandReceiver & Oggetto per l'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -5172,7 +5154,7 @@ Viene utilizzata per chiamare il metodo di \hyperref[sec:actorbase::cli::models:
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  execute & public & String & \\
+  execute & public & String & Provvede all'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -5180,7 +5162,6 @@ Viene utilizzata per chiamare il metodo di \hyperref[sec:actorbase::cli::models:
 \label{sec:actorbase::cli::models::AddUserCommand}
 
 \subparagraph{Descrizione}
-
 Classe per il comando di aggiunta di un utente.
 
 \subparagraph{Utilizzo}
@@ -5197,11 +5178,11 @@ parametri specificati in input.
 
 \subparagraph{Attributi}
 
-\begin{tabular}{| l | l | l | l | l |}
+\begin{tabular}{| p{1cm} | p{1.5cm} | p{2cm} | p{4cm} | p{8.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  cr & public & immutabile & CommandReceiver & \\
+  cr & public & immutabile & CommandReceiver & Oggetto per l'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -5211,7 +5192,7 @@ parametri specificati in input.
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  execute & public & String & \\
+  execute & public & String & Provvede all'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -5219,7 +5200,6 @@ parametri specificati in input.
 \label{sec:actorbase::cli::models::HelpCommand}
 
 \subparagraph{Descrizione}
-
 Classe per la richiesta di aiuto.
 
 \subparagraph{Utilizzo}
@@ -5236,11 +5216,11 @@ parametri immessi dall'utente.
 
 \subparagraph{Attributi}
 
-\begin{tabular}{| l | l | l | l | l |}
+\begin{tabular}{| p{1cm} | p{1.5cm} | p{2cm} | p{4cm} | p{8.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  cr & public & immutabile & CommandReceiver & \\
+  cr & public & immutabile & CommandReceiver & Oggetto per l'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -5250,7 +5230,7 @@ parametri immessi dall'utente.
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  execute & public & String & \\
+  execute & public & String & Provvede all'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -5275,11 +5255,11 @@ con i parametri immessi dall'utente.
 
 \subparagraph{Attributi}
 
-\begin{tabular}{| l | l | l | l | l |}
+\begin{tabular}{| p{1cm} | p{1.5cm} | p{2cm} | p{4cm} | p{8.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  cr & public & immutabile & CommandReceiver & \\
+  cr & public & immutabile & CommandReceiver & Oggetto per l'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -5289,7 +5269,7 @@ con i parametri immessi dall'utente.
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  execute & public & String & \\
+  execute & public & String & Provvede all'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -5314,11 +5294,11 @@ parametri immessi dall'utente.
 
 \subparagraph{Attributi}
 
-\begin{tabular}{| l | l | l | l | l |}
+\begin{tabular}{| p{1cm} | p{1.5cm} | p{2cm} | p{4cm} | p{8.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  cr & public & immutabile & CommandReceiver & \\
+  cr & public & immutabile & CommandReceiver & Oggetto per l'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -5328,7 +5308,7 @@ parametri immessi dall'utente.
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  execute & public & String & \\
+  execute & public & String & Provvede all'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -5352,12 +5332,11 @@ Viene utilizzata per chiamare il metodo di
 \end{itemize}
 
 \subparagraph{Attributi}
-
-\begin{tabular}{| l | l | l | l | l |}
+\begin{tabular}{| p{1cm} | p{1.5cm} | p{2cm} | p{4cm} | p{8.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  cr & public & immutabile & CommandReceiver & \\
+  cr & public & immutabile & CommandReceiver & Oggetto per l'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -5367,7 +5346,7 @@ Viene utilizzata per chiamare il metodo di
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  execute & public & String & \\
+  execute & public & String & Provvede all'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -5391,11 +5370,11 @@ Viene utilizzata per chiamare il metodo di \hyperref[sec:actorbase::cli::models:
 
 \subparagraph{Attributi}
 
-\begin{tabular}{| l | l | l | l | l |}
+\begin{tabular}{| p{1cm} | p{1.5cm} | p{2cm} | p{4cm} | p{8.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  cr & public & immutabile & CommandReceiver & \\
+  cr & public & immutabile & CommandReceiver & Oggetto per l'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -5405,7 +5384,7 @@ Viene utilizzata per chiamare il metodo di \hyperref[sec:actorbase::cli::models:
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  execute & public & String & \\
+  execute & public & String & Provvede all'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -5430,11 +5409,11 @@ Viene utilizzata per chiamare il metodo di
 
 \subparagraph{Attributi}
 
-\begin{tabular}{| l | l | l | l | l |}
+\begin{tabular}{| p{1cm} | p{1.5cm} | p{2cm} | p{4cm} | p{8.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  cr & public & immutabile & CommandReceiver & \\
+  cr & public & immutabile & CommandReceiver & Oggetto per l'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -5444,7 +5423,7 @@ Viene utilizzata per chiamare il metodo di
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  execute & public & String & \\
+  execute & public & String & Provvede all'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -5469,11 +5448,11 @@ Viene utilizzata per chiamare il metodo di
 
 \subparagraph{Attributi}
 
-\begin{tabular}{| l | l | l | l | l |}
+\begin{tabular}{| p{1cm} | p{1.5cm} | p{2cm} | p{4cm} | p{8.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  cr & public & immutabile & CommandReceiver & \\
+  cr & public & immutabile & CommandReceiver & Oggetto per l'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -5483,7 +5462,7 @@ Viene utilizzata per chiamare il metodo di
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  execute & public & String & \\
+  execute & public & String & Provvede all'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -5510,13 +5489,13 @@ visualizzare se richiesto dall'utente.
 
 \subparagraph{Attributi}
 
-\begin{tabular}{| l | l | l | l | l |}
+\begin{tabular}{| p{2.5cm} | p{1.5cm} | p{2cm} | p{2.5cm} | p{8.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  actorbaseDriver & public & mutabile & ActorbaseDriver & \\
+  actorbaseDriver & public & mutabile & ActorbaseDriver & Istanza di \hyperref[sec:actorbase::driver::]{ActorbaseDriver} usata per l'esecuzione del comandi\\
   \hline
-  params & public & immutabile & Map[Any,Any] & \\
+  params & public & immutabile & Map[Any,Any] & Parametri inseriti dall'utente per l'esecuzione dei comandi\\
   \hline
 \end{tabular}
 
@@ -5524,41 +5503,41 @@ visualizzare se richiesto dall'utente.
 
 \begin{tabular}{| l | l | l | l |}
   \hline
-  Nome & Accesso & Tipo di ritorno & Descrizione\\
+  Nome & Accesso & Ritorno & Descrizione\\
   \hline
-  insert & public & String & \\
+  insert & public & String & Metodo per richiamare il comando di inserimento del driver\\
   \hline
-  removeItem & public & String & \\
+  removeItem & public & String & Metodo per richiamare il comando di rimozione Item del driver\\
   \hline
-  export & public & String & \\
+  export & public & String & Metodo per richiamare il comando di esportazione su file del driver\\
   \hline
-  login & public & String & \\
+  login & public & String & Metodo per richiamare il comando di login del driver\\
   \hline
-  logout & public & String & \\
+  logout & public & String & Metodo per richiamare il comando di logout del driver\\
   \hline
-  find & public & String & \\
+  find & public & String & Metodo per richiamare il comando di ricerca di items del driver\\
   \hline
-  help & public & String & \\
+  help & public & String & Metodo per il comando di aiuto\\
   \hline
-  createCollection & public & String & \\
+  createCollection & public & String & Metodo per richiamare il comando di creazione collezione del driver\\
   \hline
-  listCollections & public & String & \\
+  listCollections & public & String & Metodo per richiamare il metodo di lista collezioni del driver\\
   \hline
-  renameCollection & public & String & \\
+  renameCollection & public & String & Metodo per richiamare il metodo di rinomina collezione del driver\\
   \hline
-  deleteCollection & public & String & \\
+  deleteCollection & public & String & Metodo per richiamare il metodo di rimozione collezione del driver\\
   \hline
-  addContributor & public & String & \\
+  addContributor & public & String & Metodo per richiamare il metodo di aggiunta collaboratore del driver\\
   \hline
-  removeContributor & public & String & \\
+  removeContributor & public & String & Metodo per richiamare il metodo di rimozione collaboratore del driver\\
   \hline
-  changePassword & public & String & \\
+  changePassword & public & String & Metodo per richiamare il metodo di cambio password del driver\\
   \hline
-  addUser & public & String & \\
+  addUser & public & String & Metodo per richiamare il metodo di aggiunta utente del driver\\
   \hline
-  removeUser & public & String & \\
+  removeUser & public & String & Metodo per richiamare il metodo di rimozione utente del driver\\
   \hline
-  resetPassword & public & String & \\
+  resetPassword & public & String & Metodo per richiamare il metodo di reset password del driver\\
   \hline
 \end{tabular}
 
