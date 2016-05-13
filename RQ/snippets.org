@@ -1,5 +1,7 @@
 **** Driver usage: Generic example
 #+begin_src scala
+  import com.actorbase.driver._
+
   val auth = new ActorbaseDriver("localhost", 9999)
   val client = auth.authenticate("foo", "bar") // athentication method
   val coll = client.addCollection("people")
@@ -25,6 +27,12 @@
   val myCollections = client.getCollections
   // drop collections 'customers' and 'people'
   myCollections.drop("customers", "people")
+#+end_src
+
+**** Modify user password
+#+begin_src scala
+scala> client.changePassword("oldpw", "newpw")
+res0: Boolean = true
 #+end_src
 
 **** Printing a collection
@@ -63,6 +71,24 @@ println(client.getCollection("people"))
 **** Printing some collections
 #+begin_src scala
 client.getCollections.foreach(println)
+#+end_src
+
+
+**** Drop a collection
+#+begin_src
+scala> coll.drop
+res0: Boolean = true
+#+end_src
+
+**** Drop a collections
+#+begin_src
+scala> client.dropCollections
+res0: Boolean = true
+#+end_src
+
+#+begin_src
+scala> client.getCollections.drop
+res0: Boolean = true
 #+end_src
 
 **** Count collections elements

@@ -41,13 +41,18 @@
 \setcounter{page}{1}
 \begin{flushleft}
   \vspace{0cm}
-         {\large\bfseries History log}
+  {\large\bfseries History log}
 \end{flushleft}
 \vspace{0cm}
 \begin{center}
   \begin{tabular}{| l | l | l | l | p{5cm} |}
     \hline
     Version & Author & Role & Date & Description \\
+    \hline
+    0.0.2 & Andrea Giacomo Baldan & Programmer & 2016-05-10 & Added section 2: Actorbase Usage and all relative subsections\\
+    \hline
+    0.0.1 & Andrea Giacomo Baldan & Programmer & 2016-05-10 & Created document structure\\
+    \hline
   \end{tabular}
 \end{center}
 \tableofcontents
@@ -70,17 +75,17 @@ This document aim to describe the procedures and methods to use in order to take
 % TODO bisogna spiegare come devnoon essere formati i file pel l'import
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%							  INSTALLATION PART					 %%%
+%%% INSTALLATION PART                    %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%                  MACHETE                   %%%%%%%%%%%%
+%%%%%%%%%%%% MACHETE                   %%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%							  DRIVER PART  						 %%%
+%%% DRIVER PART                          %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Actorbase usage}
@@ -91,6 +96,9 @@ Actorbase is essentially an actor system built upon a server component that
 exposes some API forming a RESTful web services. To facilitate the use from
 inside a Scala source, it has been developed a driver in order to allow the
 usage of all features that Actorbase provides.\\
+
+\subsubsection{Quick Start: a generic example}
+
 The most common operations include:
 \begin{itemize}
 \item Authentication;
@@ -99,5 +107,75 @@ The most common operations include:
 \item Items operations;
 \item Administrative operations.
 \end{itemize}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Driver-Common.png}
+    \caption{Driver usage: Generic example}
+  \end{center}
+\end{figure}
+
+These are some of the most common operations that the driver allows to do,
+there's not too much boilerplate\footnote{A section of code that have to be
+  included in many places with little to no alteration.} code, and it's possible
+to make operations directly on objects representing \textbf{Actorbase}
+collections\footnote{A data-structure constituted by a list of key-value items}
+in a purely OOP (Object Oriented Programming) fashion.\\ As explained on
+the snippet\footnote{A programming term for a small region of reusable code.}
+image, these objects also retain some of the common functional constructs (e.g.
+foreach), so it's possible to apply custom functions to every item of the
+collection.
+
+\subsection{More in depth: common operations}
+
+\paragraph{Authentication}
+
+Althrough in the future perhaps there could be the possibility to make some
+operations as an anonymous user, at the current state the only possible action
+that a non-logged-in user can do with ActorbaseDriver is the authentication.
+This method send a login request to the server-side of the system and, according
+to the response, it will return an \verb=ActorbaseService= or an
+\verb=ActorbaseAdminServices=. These two objects give the methods to actually
+make all operations on the database, the main difference is that
+\verb=ActorbaseAdminServices= allows to do some high-level administrative
+operations on users and collections of the system.
+
+\paragraph{Profile management}
+
+\textit{ActorbaseDriver} provides a method to modify the current password,
+associated to an user profile.
+
+\paragraph{Collections operations}
+
+As previously explained, operations on the collections can be done in a purely
+OOP way, this mean that all methods that return an \verb=ActorbaseCollection=,
+gives the possibility to call all collection-management methods:
+\begin{itemize}
+\item insert methods:\\ These methods come in two variants, first one accepting
+  a vararg\footnote{A sequence of arguments} of key-value tuple, the second
+  accepting an
+  \verb=ActorbaseObject=\footnote{An object representing a key-value pair inside Actorbase} instance;
+  e.g.:
+  % \begin{figure}[H]
+  %   \begin{center}
+  %     \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Driver-Common.png}
+  %     \caption{Driver usage: Generic example}
+  %   \end{center}
+  % \end{figure}
+\end{itemize}
+
+\subparagraph{Contributor management}
+
+\paragraph{Items operations}
+
+\paragraph{Administrative operations}
+
+\paragraph{Error management}
+
+There is one error that is shared by every method and that is in case of a
+connection error, which can be caused by not receiving a response from the
+server in a predetermined time, the driver will launch a timeout connection
+exception. There are some errors that are specific to some methods, these will
+be explained in the section dedicated to the methods that cause them.
 
 \end{document}
