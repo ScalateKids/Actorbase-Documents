@@ -4505,7 +4505,7 @@ comando.
 \item  \hyperref[sec:actorbase::cli::models::RemoveCollectionCommand]{actorbase::cli::models::RemoveCollectionCommand};
 \item  \hyperref[sec:actorbase::cli::models::ExportCommand]{actorbase::cli::models::ExportCommand};
 \item  \hyperref[sec:actorbase::cli::models::FindCommand]{actorbase::cli::models::FindCommand};
-\item  \hyperref[sec:actorbasew::cli::models::HelpCommand]{actorbase::cli::models::HelpCommand};
+\item  \hyperref[sec:actorbase::cli::models::HelpCommand]{actorbase::cli::models::HelpCommand};
 \item  \hyperref[sec:actorbase::cli::models::InsertItemCommand]{actorbase::cli::models::InsertItemCommand};
 \item  \hyperref[sec:actorbase::cli::models::ListCollectionsCommand]{actorbase::cli::models::ListCollectionsCommand};
 \item  \hyperref[sec:actorbase::cli::models::LoginCommand]{actorbase::cli::models::LoginCommand};
@@ -4559,7 +4559,7 @@ ha ritornato un risultato.
 
 \subparagraph{Attributi}
 
-\begin{tabular}{| p{2.5cm} | p{1.5cm} | p{2cm} | p{2.5cm} | p{8.5cm} |}
+\begin{tabular}{| p{1.5cm} | p{1.5cm} | p{2cm} | p{3.5cm} | p{8.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
@@ -4695,7 +4695,7 @@ Viene utilizzata per chiamare il metodo di
 
 \subparagraph{Attributi}
 
-\begin{tabular}{| p{2.5cm} | p{1.5cm} | p{2cm} | p{2.5cm} | p{8.5cm} |}
+\begin{tabular}{| p{1cm} | p{1.5cm} | p{2cm} | p{4cm} | p{8.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
@@ -4735,7 +4735,44 @@ dall'utente.
 
 \subparagraph{Attributi}
 
-\begin{tabular}{| p{2.5cm} | p{1.5cm} | p{2cm} | p{2.5cm} | p{8.5cm} |}
+\begin{tabular}{| p{1cm} | p{1.5cm} | p{2cm} | p{4cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  cr & public & immutabile & CommandReceiver & Oggetto per l'esecuzione del comando \\
+  \hline
+\end{tabular}
+
+\subparagraph{Metodi}
+
+\begin{tabular}{| l | l | l | l |}
+  \hline
+  Nome & Accesso & Tipo di ritorno & Descrizione\\
+  \hline
+  execute & public & String & Provvede all'esecuzione del comando\\
+  \hline
+\end{tabular}
+
+
+\paragraph{actorbase::cli::models::HelpCommand}
+\label{sec:actorbase::cli::models::HelpCommand}
+
+\subparagraph{Descrizione}
+
+Classe per il comando di aiunto.
+
+\subparagraph{Utilizzo}
+Viene utilizzata per chiamare il metodo di
+\hyperref[sec:actorbase::cli::models::CommandReceiver]{actorbase::cli::models::CommandReceiver} per richiedere aiuto sulle possibili operazioni da fare.
+
+\subparagraph{Classi ereditate}
+\begin{itemize}
+\item \hyperref[sec:actorbase::cli::models::Command]{actorbase::cli::models::Command}.
+\end{itemize}
+
+\subparagraph{Attributi}
+
+\begin{tabular}{| p{1cm} | p{1.5cm} | p{2cm} | p{4cm} | p{8.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
@@ -4773,7 +4810,7 @@ Viene utilizzata per chiamare il metodo di
 
 \subparagraph{Attributi}
 
-\begin{tabular}{| p{2.5cm} | p{1.5cm} | p{2cm} | p{2.5cm} | p{8.5cm} |}
+\begin{tabular}{| p{1cm} | p{1.5cm} | p{2cm} | p{4cm} | p{8.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
@@ -4812,7 +4849,7 @@ dell'utente specificato in input.
 
 \subparagraph{Attributi}
 
-\begin{tabular}{| p{2.5cm} | p{1.5cm} | p{2cm} | p{2.5cm} | p{8.5cm} |}
+\begin{tabular}{| p{1cm} | p{1.5cm} | p{2cm} | p{4cm} | p{8.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
@@ -4852,7 +4889,7 @@ nomi di tutte le collezioni presenti nel \gloss{database}.
 
 \subparagraph{Attributi}
 
-\begin{tabular}{| p{2.5cm} | p{1.5cm} | p{2cm} | p{2.5cm} | p{8.5cm} |}
+\begin{tabular}{| p{1cm} | p{1.5cm} | p{2cm} | p{4cm} | p{8.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
@@ -4892,7 +4929,7 @@ in input.
 
 \subparagraph{Attributi}
 
-\begin{tabular}{| p{2.5cm} | p{1.5cm} | p{2cm} | p{2.5cm} | p{8.5cm} |}
+\begin{tabular}{| p{1cm} | p{1.5cm} | p{2cm} | p{4cm} | p{8.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
@@ -4931,7 +4968,7 @@ immesse dall'utente.
 
 \subparagraph{Attributi}
 
-\begin{tabular}{| p{2.5cm} | p{1.5cm} | p{2cm} | p{2.5cm} | p{8.5cm} |}
+\begin{tabular}{| p{1cm} | p{1.5cm} | p{2cm} | p{4cm} | p{8.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
@@ -4970,7 +5007,7 @@ i parametri specificati in input.
 
 \subparagraph{Attributi}
 
-\begin{tabular}{| p{2.5cm} | p{1.5cm} | p{2cm} | p{2.5cm} | p{8.5cm} |}
+\begin{tabular}{| p{1cm} | p{1.5cm} | p{2cm} | p{4cm} | p{8.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
@@ -5010,7 +5047,7 @@ specificati in input.
 
 \subparagraph{Attributi}
 
-\begin{tabular}{| p{2.5cm} | p{1.5cm} | p{2cm} | p{2.5cm} | p{8.5cm} |}
+\begin{tabular}{| p{1cm} | p{1.5cm} | p{2cm} | p{4cm} | p{8.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
@@ -5047,7 +5084,7 @@ Viene utilizzata per chiamare il metodo di \hyperref[sec:actorbase::cli::models:
 
 \subparagraph{Attributi}
 
-\begin{tabular}{| p{2.5cm} | p{1.5cm} | p{2cm} | p{2.5cm} | p{8.5cm} |}
+\begin{tabular}{| p{1cm} | p{1.5cm} | p{2cm} | p{4cm} | p{8.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
@@ -5085,7 +5122,7 @@ parametri specificati in input.
 
 \subparagraph{Attributi}
 
-\begin{tabular}{| p{2.5cm} | p{1.5cm} | p{2cm} | p{2.5cm} | p{8.5cm} |}
+\begin{tabular}{| p{1cm} | p{1.5cm} | p{2cm} | p{4cm} | p{8.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
@@ -5123,7 +5160,7 @@ parametri immessi dall'utente.
 
 \subparagraph{Attributi}
 
-\begin{tabular}{| p{2.5cm} | p{1.5cm} | p{2cm} | p{2.5cm} | p{8.5cm} |}
+\begin{tabular}{| p{1cm} | p{1.5cm} | p{2cm} | p{4cm} | p{8.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
@@ -5162,7 +5199,7 @@ con i parametri immessi dall'utente.
 
 \subparagraph{Attributi}
 
-\begin{tabular}{| p{2.5cm} | p{1.5cm} | p{2cm} | p{2.5cm} | p{8.5cm} |}
+\begin{tabular}{| p{1cm} | p{1.5cm} | p{2cm} | p{4cm} | p{8.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
@@ -5201,7 +5238,7 @@ parametri immessi dall'utente.
 
 \subparagraph{Attributi}
 
-\begin{tabular}{| p{2.5cm} | p{1.5cm} | p{2cm} | p{2.5cm} | p{8.5cm} |}
+\begin{tabular}{| p{1cm} | p{1.5cm} | p{2cm} | p{4cm} | p{8.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
@@ -5239,7 +5276,7 @@ Viene utilizzata per chiamare il metodo di
 \end{itemize}
 
 \subparagraph{Attributi}
-\begin{tabular}{| p{2.5cm} | p{1.5cm} | p{2cm} | p{2.5cm} | p{8.5cm} |}
+\begin{tabular}{| p{1cm} | p{1.5cm} | p{2cm} | p{4cm} | p{8.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
@@ -5277,7 +5314,7 @@ Viene utilizzata per chiamare il metodo di \hyperref[sec:actorbase::cli::models:
 
 \subparagraph{Attributi}
 
-\begin{tabular}{| p{2.5cm} | p{1.5cm} | p{2cm} | p{2.5cm} | p{8.5cm} |}
+\begin{tabular}{| p{1cm} | p{1.5cm} | p{2cm} | p{4cm} | p{8.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
@@ -5316,7 +5353,7 @@ Viene utilizzata per chiamare il metodo di
 
 \subparagraph{Attributi}
 
-\begin{tabular}{| p{2.5cm} | p{1.5cm} | p{2cm} | p{2.5cm} | p{8.5cm} |}
+\begin{tabular}{| p{1cm} | p{1.5cm} | p{2cm} | p{4cm} | p{8.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
@@ -5355,7 +5392,7 @@ Viene utilizzata per chiamare il metodo di
 
 \subparagraph{Attributi}
 
-\begin{tabular}{| p{2.5cm} | p{1.5cm} | p{2cm} | p{2.5cm} | p{8.5cm} |}
+\begin{tabular}{| p{1cm} | p{1.5cm} | p{2cm} | p{4cm} | p{8.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
@@ -5410,7 +5447,7 @@ visualizzare se richiesto dall'utente.
 
 \begin{tabular}{| l | l | l | l |}
   \hline
-  Nome & Accesso & Tipo di ritorno & Descrizione\\
+  Nome & Accesso & Ritorno & Descrizione\\
   \hline
   insert & public & String & Metodo per richiamare il comando di inserimento del driver\\
   \hline
