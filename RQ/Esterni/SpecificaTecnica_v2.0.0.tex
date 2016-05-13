@@ -341,7 +341,7 @@ Rappresentano le tre macro-componenti del sistema.
 % ACTORSYSTEM PARTE                           %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{actorbase::actorsystem}
+\subsection{actorbase::actorsystem} %TODO da fare actorsystem
 \label{sec:actorbase::actorsystem}
 
 \begin{figure}[H]
@@ -363,12 +363,12 @@ rappresentano il \gloss{server}.
 \item \hyperref[sec:actorbase::actorsystem::httpserver]{actorbase::actorsystem::httpserver};
 \item \hyperref[sec:actorbase::actorsystem::storefinder]{actorbase::actorsystem::storefinder};
 \item \hyperref[sec:actorbase::actorsystem::storekeeper]{actorbase::actorsystem::storekeeper};
-\item \hyperref[sec:actorbase::actorsystem::warehouseman]{actorbase::actorsystem::warehouseman};
-\item \hyperref[sec:actorbase::actorsystem::ninja]{actorbase::actorsystem::ninja};
-\item \hyperref[sec:actorbase::actorsystem::manager]{actorbase::actorsystem::manager};
+\item \hyperref[sec:actorbase::actorsystem::userfinder]{actorbase::actorsystem::userfinder};
 \item \hyperref[sec:actorbase::actorsystem::userkeeper]{actorbase::actorsystem::userkeeper};
+\item \hyperref[sec:actorbase::actorsystem::warehouseman]{actorbase::actorsystem::warehouseman};
+\item \hyperref[sec:actorbase::actorsystem::manager]{actorbase::actorsystem::manager};
 \item \hyperref[sec:actorbase::actorsystem::main]{actorbase::actorsystem::main};
-\item \hyperref[sec:actorbase::actorsystem::serialization]{actorbase::actorsystem::serialization}.
+\item \hyperref[sec:actorbase::actorsystem::serialization]{actorbase::actorsystem::utils}.
 \end{itemize}
 
 \subsubsection{Interazioni con altre componenti}
@@ -377,6 +377,137 @@ rappresentano il \gloss{server}.
 \item \hyperref[sec:actorbase::driver]{actorbase::driver};
 \item Akka.
 \end{itemize}
+
+
+\subsection{actorbase::actorsystem::utils}
+\label{sec:actorbase::actorsystem::utils}
+
+% \begin{figure}[H] %TODO aggiungere immagine
+%   \begin{center}
+%     \includegraphics[width=1.0\textwidth,keepaspectratio]{RP/utils.png}
+%     \caption{Package actorsystem::utils}
+%   \end{center}
+% \end{figure}
+
+\subsubsection{Descrizione}
+\gloss{Package} contenente diverse classi di utilità.
+
+\subsubsection{Interazioni con altre componenti}
+
+\begin{itemize}
+\item \hyperref[sec:actorbase::actorsystem::storekeeper]{actorbase::actorsystem::storekeeper};
+\item \hyperref[sec:actorbase::actorsystem::storefinder]{actorbase::actorsystem::storefinder};
+\item \hyperref[sec:actorbase::actorsystem::userkeeper]{actorbase::actorsystem::userkeeper};
+\item \hyperref[sec:actorbase::actorsystem::warehouseman]{actorbase::actorsystem::warehouseman};
+\item \hyperref[sec:actorbase::actorsystem::main]{actorbase::actorsystem::main};
+\item \hyperref[sec:actorbase::actorsystem::clientactor]{actorbase::actorsystem::clientactor}.
+\end{itemize}
+
+\subsubsection{Classi}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\paragraph{KeyRange}
+\label{sec:actorbase::actorsystem::utils::KeyRange}
+
+\subparagraph{Descrizione}
+Classe atta a modellare un intervallo di chiavi.\\Viene utilizzata da diversi
+attori.
+
+\subparagraph{Utilizzo}
+Viene utilizzata da diversi attori del sistema. Questa classe espone metodi
+getter, un metodo compare e un metodo per controllare se una determinata
+stringa fa parte di questo intervallo di chiavi.
+
+\subparagraph{Realizza}
+\begin{itemize}
+\item trait scala.math.Ordered.orderingToOrdered
+\end{itemize}
+
+\subsubsection{Interazioni con altre classi}
+
+\begin{itemize}
+\item \hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{actorbase::actorsystem::storekeeper::Storekeeper};
+\item \hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{actorbase::actorsystem::storefinder::Storefinder};
+\item \hyperref[sec:actorbase::actorsystem::main::Main]{actorbase::actorsystem::main::Main}.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\paragraph{CollectionRange}
+\label{sec:actorbase::actorsystem::utils::CollectionRange}
+
+\subparagraph{Descrizione}
+Classe atta a modellare un intervallo di chiavi di una specifica collezione.
+
+\subparagraph{Utilizzo}
+Viene utilizzata da diversi attori del sistema. Questa classe espone metodi
+getter, un metodo per il confronto della collezione, un meotodo per il
+confronto del range delle chiavi e un metodo compare.
+
+\subparagraph{Realizza}
+\begin{itemize}
+\item trait scala.math.Ordered.orderingToOrdered
+\end{itemize}
+
+\subsubsection{Interazioni con altre classi}
+
+\begin{itemize}
+\item \hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{actorbase::actorsystem::storefinder::Storefinder};
+\item \hyperref[sec:actorbase::actorsystem::main::Main]{actorbase::actorsystem::main::Main}.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\paragraph{CryptoUtils}
+\label{sec:actorbase::actorsystem::utils::CryptoUtils}
+
+\subparagraph{Descrizione}
+Classe atta a criptare e decriptare i dati per il salvataggio e la lettura dei dati su disco.
+
+\subparagraph{Utilizzo}
+Viene utilizzata dall'attore di tipo \gloss{Warehouseman} per il salvataggio e la lettura del database su disco.
+
+\subsubsection{Interazioni con altre classi}
+
+\begin{itemize}
+\item \hyperref[sec:actorbase::actorsystem::warehouseman::Warehouseman]{actorbase::actorsystem::warehouseman::Warehouseman}.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\paragraph{ActorbaseCollection}
+\label{sec:actorbase::actorsystem::utils::ActorbaseCollection}
+
+\subparagraph{Descrizione}
+Classe atta a modellare una collezione del sistema actorbase.
+
+\subparagraph{Utilizzo}
+Viene utilizzata da diversi attori del sistema. Questa classe espone metodi
+getter e un meotodo per il confronto con un altro oggetto ActorbaseCollection.
+
+\subparagraph{Realizza}
+\begin{itemize}
+\item trait scala.math.Ordered
+\end{itemize}
+
+\subsubsection{Interazioni con altre classi}
+
+\begin{itemize}
+\item \hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{actorbase::actorsystem::storekeeper::Storekeeper};
+\item \hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{actorbase::actorsystem::storefinder::Storefinder};
+\item \hyperref[sec:actorbase::actorsystem::userkeeper::Userkeeper]{actorbase::actorsystem::userkeeper::Userkeeper};
+\item \hyperref[sec:actorbase::actorsystem::main::Main]{actorbase::actorsystem::main::Main};
+\item \hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{actorbase::actorsystem::clientactor::ClientActor}.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{actorbase::actorsystem::clientactor}
 \label{sec:actorbase::actorsystem::clientactor}
@@ -398,9 +529,85 @@ rappresentano il \gloss{server}.
 \item \hyperref[sec:actorbase::actorsystem::clientactor::messages]{actorbase::actorsystem::clientactor::messages}.
 \end{itemize}
 
+\subsubsection{Interazioni con altre componenti}
+
+\begin{itemize}
+\item spray.json;
+\item spray.routing;
+\item akka.actor;
+\item com.github.t3hnar.bcrypt.
+\end{itemize}
+
 \subsubsection{Classi}
 
-\paragraph{actorbase::actorsystem::clientactor::ClientActor}
+\paragraph{actorbase::actorsystem::clientactor::Authenticator}
+\label{sec:actorbase::actorsystem::clientactor::Authenticator}
+
+\subparagraph{Descrizione}
+
+Classe astratta usata per effettuare la validazione di un login.
+
+\subparagraph{Utilizzo}
+
+Questa classe viene usata dalla classe che la realizza per effettuare il controllo
+delle credenziali di login.
+
+\paragraph{actorbase::actorsystem::clientactor::CollectionApi}
+\label{sec:actorbase::actorsystem::clientactor::CollectionApi}
+
+\subparagraph{Descrizione}
+
+Classe astratta usata per analizzare le route che richiedono operazioni su collezioni.
+
+\subparagraph{Utilizzo}
+
+Questa classe viene usata dalla classe che la realizza per effettuare l'analisi
+delle route che richiedono operazioni su collezioni.
+
+\subsubsection{Interazioni con altre classi}
+
+\begin{itemize}
+\item \item \hyperref[sec:actorbase::actorsystem::utils::ActorbaseCollection]{actorbase::actorsystem::utils::ActorbaseCollection};
+\item spray.routing.
+\end{itemize}
+
+\paragraph{actorbase::actorsystem::clientactor::ItemApi}
+\label{sec:actorbase::actorsystem::clientactor::ItemApi}
+
+\subparagraph{Descrizione}
+
+Classe astratta usata per analizzare le route che richiedono operazioni su item.
+
+\subparagraph{Utilizzo}
+
+Questa classe viene usata dalla classe che la realizza per effettuare l'analisi
+delle route che richiedono operazioni su item.
+
+\subsubsection{Interazioni con altre classi}
+
+\begin{itemize}
+\item spray.routing.
+\end{itemize}
+
+\paragraph{actorbase::actorsystem::clientactor::UserApi}
+\label{sec:actorbase::actorsystem::clientactor::UserApi}
+
+\subparagraph{Descrizione}
+
+Classe astratta usata per analizzare le route che richiedono operazioni su utenti.
+
+\subparagraph{Utilizzo}
+
+Questa classe viene usata dalla classe che la realizza per effettuare l'analisi
+delle route che richiedono operazioni su utenti.
+
+\subsubsection{Interazioni con altre classi}
+
+\begin{itemize}
+\item spray.routing.
+\end{itemize}
+
+\paragraph{actorbase::actorsystem::clientactor::ClientActor} %TODO da fare
 \label{sec:actorbase::actorsystem::clientactor::ClientActor}
 
 \subparagraph{Descrizione}
@@ -411,23 +618,44 @@ la connessione.
 \subparagraph{Utilizzo}
 
 Questo \gloss{attore} riceve le richieste da \hyperref[sec:actorbase::driver::client::Connection]{actorbase::driver::client::Connection}
-e si occupa di inviare messaggi a \hyperref[sec:actorbase::actorsystem::main::Main]{actorbase::actorsystem::main::Main}.
+e si occupa di inviare messaggi a \hyperref[sec:actorbase::actorsystem::main::Main]{actorbase::actorsystem::main::Main}. \\
+Questa classe inoltre si occupa di capire che tipo di richiesta è stata fatta dal \gloss{driver} basandosi sulla route di quest'ultima.
 
 \subparagraph{Classi ereditate}
 
 \begin{itemize}
 
-\item akka::actor::Actor.
+\item akka::actor::Actor;
+\item \hyperref[com::actorbase::actorsystem::clientactor::Authenticator]{com::actorbase::actorsystem::clientactor::Authenticator};
+\item \hyperref[com::actorbase::actorsystem::clientactor::CollectionApi]{com::actorbase::actorsystem::clientactor::CollectionApi};
+\item \hyperref[com::actorbase::actorsystem::clientactor::RestApi]{com::actorbase::actorsystem::clientactor::RestApi};.
 
 \end{itemize}
 
-\subparagraph{Interazioni con altre classi}
+\subparagraph{Attributi}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  router & public & immutabile & ActorRef & Rappresenta il riferimento di un attore che si occuperà di gestire le richieste verso i vari \gloss{main} \\
+  \hline
+  timeout & public & immutabile & Timeout & Rappresenta il tempo limite oltre il quale se un'operazione non è conclusa viene lanciato un errore di timeout \\
+  \hline
+  collections & private & mutabile & ListBuffer[String] & Rappresenta la lista di collezioni a cui l'utente ha accesso in scrittura e lettura \\
+  \hline
+  readCollections & private & mutabile & ListBuffer[String] & Rappresenta la lista di collezioni a cui l'utente ha accesso in sola lettura \\
+  \hline
+\end{tabular}
 
-\begin{itemize}
-\item \hyperref[sec:actorbase::actorsystem::serialization::SerializationContext]{actorbase::actorsystem::serialization::SerializationContext};
-\item \hyperref[sec:actorbase::actorsystem::serialization::DeserializationContext]{actorbase::actorsystem::serialization::DeserializationContext};
-\item akka::actor::ActorRef.
-\end{itemize}
+\subparagraph{Metodi}
+
+\begin{tabular}{| l | l | l | l |}
+  \hline
+  Nome & Accesso & Tipo di ritorno & Descrizione\\
+  \hline
+  receive & public &  & Effettua operazioni diverse a seconda del tipo di messaggio ricevuto\\
+  \hline
+\end{tabular}
 
 \subsection{actorbase::actorsystem::clientactor::messages}
 \label{sec:actorbase::actorsystem::clientactor::messages}
@@ -438,82 +666,6 @@ e si occupa di inviare messaggi a \hyperref[sec:actorbase::actorsystem::main::Ma
 \hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{actorbase::actorsystem::clientactor::ClientActor}.
 
 \subsubsection{Classi}
-
-\paragraph{actorbase::actorsystem::clientactor::messages::LoginResponse}
-\label{sec:actorbase::actorsystem::clientactor::messages::LoginResponse}
-
-\subparagraph{Descrizione}
-
-Messaggio che contiene la password di un utente che ha richiesto il login.
-
-\subparagraph{Utilizzo}
-
-In seguito alla ricezione di questo messaggio l'\gloss{attore} di tipo
-\hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{actorbase::\allowbreak{}actorsystem::\allowbreak{}clientactor::\allowbreak{}ClientActor}
-controlla che la password ricevuta sia uguale a quella immessa
-dall'utente e, in caso affermativo, cambia il proprio stato e salva
-il riferimento dell'\gloss{attore} di tipo
-\hyperref[sec:actorbase::actorsystem::userkeeper::Userkeeper]{actorbase::\allowbreak{}actorsystem::\allowbreak{}userkeeper::\allowbreak{}Userkeeper}
-che aveva inviato questo messaggio.
-
-\paragraph{actorbase::actorsystem::clientactor::messages::PeerClosed}
-\label{sec:actorbase::actorsystem::clientactor::messages::PeerClosed}
-
-\subparagraph{Descrizione}
-
-Messaggio che indica la volontà di chiudere la connessione con il \gloss{driver}.
-
-\subparagraph{Utilizzo}
-
-In seguito alla ricezione di questo messaggio l'\gloss{attore} di tipo
-\hyperref[sec:actorbase::actorsystem::actorclient::ActorClient]{actorbase::actorsystem::actorclient::ActorClient}
-chiude la connessione con il \gloss{driver} e termina.
-
-\paragraph{actorbase::actorsystem::clientactor::messages::RESPInput}
-\label{sec:actorbase::actorsystem::clientactor::messages::RESPInput}
-
-\subparagraph{Descrizione}
-
-Messaggio che rappresenta l'input ricevuto dal \gloss{driver}.
-
-\subparagraph{Utilizzo}
-
-In seguito alla ricezione di questo messaggio l'\gloss{attore} di tipo
-\hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{actorbase::actorsystem::clientactor::ClientActor}
-deserializza il messaggio sfruttando la componente
-\hyperref[sec:actorbase::actorsystem::serialization::DeserializationContext]{actorbase::actorsystem::serialization::DeserializationContext}.
-Dopo aver fatto ciò crea il messaggio corrispondente al tipo di richiesta che gli era arrivato
-e lo manda all'\gloss{attore} \hyperref[sec:actorbase::actorsystem::main::Main]{actorbase::actorsystem::main::Main}.
-
-\paragraph{actorbase::actorsystem::clientactor::messages::UpdateReadCollections}
-\label{sec:actorbase::actorsystem::clientactor::messages::UpdateReadCollections}
-
-\subparagraph{Descrizione}
-
-Messaggio che indica la necessità di aggiornare l'insieme delle
-\gloss{collezioni} cui l'utente ha permessi di sola lettura.
-
-\subparagraph{Utilizzo}
-
-Quando \hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{actorbase::actorsystem::clientactor::ClientActor}
-riceve questo messaggio aggiorna la sua lista di \gloss{collezioni}
-cui l'utente ha permessi di sola lettura aggiungendo la
-\gloss{collezione} presente nel messaggio.
-
-\paragraph{actorbase::actorsystem::clientactor::messages::UpdateCollections}
-\label{sec:actorbase::actorsystem::clientactor::messages::UpdateCollections}
-
-\subparagraph{Descrizione}
-
-Messaggio che indica la necessità di aggiornare l'insieme delle
-\gloss{collezioni} cui l'utente ha permessi di lettura e scrittura.
-
-\subparagraph{Utilizzo}
-
-Quando \hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{actorbase::actorsystem::clientactor::ClientActor}
-riceve questo messaggio aggiorna la sua lista di \gloss{collezioni}
-cui l'utente ha permessi di lettura e scrittura aggiungendo
-la \gloss{collezione} presente nel messaggio.
 
 \paragraph{actorbase::actorsystem::clientactor::messages::Response}
 \label{sec:actorbase::actorsystem::clientactor::messages::Response}
@@ -526,309 +678,132 @@ al \gloss{driver}.
 \subparagraph{Utilizzo}
 
 Quando \hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{actorbase::actorsystem::clientactor::ClientActor}
-riceve questo messaggio il contenuto di quest'ultimo viene serializzato tramite
-\hyperref[sec:actorbase::actorsystem::serialization::DeserializationContext]{actorbase::actorsystem::serialization::DeserializationContext}
-e mandato a \hyperref[sec:actorbase::driver::client::Connection]{actorbase::driver::\allowbreak{}client::\allowbreak{}Connection}.
+riceve questo messaggio il contenuto di quest'ultimo viene
+mandato a \hyperref[sec:actorbase::driver::client::ActorbaseClient]{actorbase::driver::\allowbreak{}client::\allowbreak{}ActorbaseClient}.
 
-\subsection{actorbase::actorsystem::tcpserver}
-\label{sec:actorbase::actorsystem::tcpserver}
+\subparagraph{Attributi}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  response & public & immutabile & String & Rappresenta la risposta ricevuta dal server \\
+  \hline
+\end{tabular}
+
+\paragraph{actorbase::actorsystem::clientactor::messages::MapResponse}
+\label{sec:actorbase::actorsystem::clientactor::messages::MapResponse}
+
+\subparagraph{Descrizione}
+
+Messaggio che rappresenta la risposta da parte del \gloss{server} ad una ricerca da inoltrare
+al \gloss{driver}.
+
+\subparagraph{Utilizzo}
+
+Quando \hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{actorbase::actorsystem::clientactor::ClientActor}
+riceve questo messaggio il contenuto di quest'ultimo viene
+mandato a \hyperref[sec:actorbase::driver::client::ActorbaseClient]{actorbase::driver::\allowbreak{}client::\allowbreak{}ActorbaseClient}.
+
+\subparagraph{Attributi}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  collection & public & immutabile & String & Rappresenta la collezione su cui è stata fatta la ricerca \\
+  \hline
+  map & public & immutabile & Map[String, Any] & Rappresenta l'item (o l'insieme di item) cercati \\
+  \hline
+\end{tabular}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{actorbase::actorsystem::httpserver} %TODO da ricontrollare
+\label{sec:actorbase::actorsystem::httpserver}
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.5\textwidth,keepaspectratio]{RP/tcpserver.png}
-    \caption{tcpserver, visione generale del package}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RP/tcpserver.png} % TODO IMMAGINE DA INSERIRE E DA CREARE PERCHE' E' BELLO COSì
+    \caption{httpserver, visione generale del package}
   \end{center}
 \end{figure}
 
 \subsubsection{Descrizione}
-
 \gloss{Package} per l'\gloss{attore} con cui si interfaccerà il \gloss{driver} per la connessione iniziale.
 
 \subsubsection{Package contenuti}
-
 \begin{itemize}
-\item \hyperref[sec:actorbase::actorsystem::tcpserver::messages]{actorbase::actorsystem::tcpserver::messages}.
+\item \hyperref[sec:actorbase::actorsystem::httpserver::messages]{actorbase::actorsystem::httpserver::messages}.
 \end{itemize}
 
 \subsubsection{Classi}
 
-\paragraph{actorbase::actorsystem::tcpserver::TCPServer}
-\label{sec:actorbase::actorsystem::tcpserver::TCPServer}
+\paragraph{actorbase::actorsystem::httpserver::HTTPServer}
+\label{sec:actorbase::actorsystem::httpserver::HTTPServer}
 
 \subparagraph{Descrizione}
-
 Classe che rappresenta l'\gloss{attore} con cui si interfaccia il \gloss{driver} per
 istanziare la connessione.
 
 \subparagraph{Utilizzo}
 
 Questo \gloss{attore} riceve la richiesta di connessione da
-\hyperref[sec:actorbase::driver::client::Connection]{actorbase::driver::client::Connection}
+\hyperref[sec:actorbase::driver::client::ActorbaseClient]{ActorbaseClient}
 e si occupa di associare al \gloss{client} un \gloss{attore} di tipo
-\hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{actorbase::actorsystem::clientactor::ClientActor}
+\hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{ClientActor}
 per continuare le comunicazioni.
 
 \subparagraph{Classi ereditate}
-
 \begin{itemize}
-
 \item akka::actor::Actor.
-
 \end{itemize}
 
-\subsection{actorbase::actorsystem::tcpserver::messages}
-\label{sec:actorbase::actorsystem::tcpserver::messages}
+\subparagraph{Attributi}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  router & privata & immutabile & ActorRef & Rappresenta un riferimento all'attore che si occupa del routing delle richieste agli attori di tipo \hyperref[sec:actorbase::actorsystem::main::Main]{Main} \\
+  \hline
+  listenPort & private & immutabile & Int & Rappresenta la porta in cui il server si mette in ascolto \\
+  \hline
+\end{tabular}
 
-\subsubsection{Descrizione}
+\subparagraph{Metodi}
 
-\gloss{Package} che contiene tutti i messaggi che possono essere ricevuti da
-\hyperref[sec:actorbase::actorsystem::tcpserver::TCPServer]{actorbase::actorsystem::tcpserver::TCPServer}.
+\begin{tabular}{| l | l | l | l |}
+  \hline
+  Nome & Accesso & Tipo di ritorno & Descrizione\\
+  \hline
+  receive & public &  & Effettua operazioni diverse a seconda del tipo di messaggio ricevuto\\
+  \hline
+\end{tabular}
 
-\subsubsection{Classi}
-
-\paragraph{actorbase::actorsystem::tcpserver::messages::Bound}
-\label{sec:actorbase::actorsystem::tcpserver::messages::Bound}
-
-\subparagraph{Descrizione}
-
-Messaggio che rappresenta la necessità di mettere il \gloss{server} in ascolto.
-
-\subparagraph{Utilizzo}
-
-Quando \hyperref[sec:actorbase::actorsystem::tcpserver::TCPServer]{actorbase::actorsystem::tcpserver::TCPServer}
-riceve questo messaggio si mette in ascolto su una porta del \gloss{server}.
-
-\paragraph{actorbase::actorsystem::tcpserver::messages::CommandFailed}
-\label{sec:actorbase::actorsystem::tcpserver::messages::CommandFailed}
-
-\subparagraph{Descrizione}
-
-Messaggio che rappresenta un errore nella comunicazione \gloss{TCP}.
-
-\subparagraph{Utilizzo}
-
-Quando \hyperref[sec:actorbase::actorsystem::tcpserver::TCPServer]{actorbase::actorsystem::tcpserver::TCPServer}
-riceve questo messaggio manderà una notifica a
-\hyperref[sec:actorbase::driver::client::Connection]{actorbase::driver::client::Connection}.
-
-\paragraph{actorbase::actorsystem::tcpserver::messages::Connected}
-\label{sec:actorbase::actorsystem::tcpserver::messages::Connected}
+\paragraph{actorbase::actorsystem::httpserver::SslConfiguration}
+\label{sec:actorbase::actorsystem::httpserver::SslConfiguration}
 
 \subparagraph{Descrizione}
-
-Messaggio che rappresenta una connessione \gloss{TCP} riuscita.
-
-\subparagraph{Utilizzo}
-
-Quando \hyperref[sec:actorbase::actorsystem::tcpserver::TCPServer]{actorbase::actorsystem::tcpserver::TCPServer}
-riceve questo messaggio associa al \gloss{client} un \gloss{attore} di tipo
-\hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{actorbase::actorsystem::clientactor::ClientActor}.
-
-\subsection{actorbase::actorsystem::serialization}
-\label{sec:actorbase::actorsystem::serialization}
-
-\begin{figure}[H]
-  \begin{center}
-    \includegraphics[width=1.0\textwidth,keepaspectratio]{RP/Serialization.png}
-    \caption{Serialization e interazioni con main e clientactor}
-  \end{center}
-\end{figure}
-
-\subsubsection{Descrizione}
-
-\gloss{Package} che si occupa di \gloss{serializzare} e \gloss{deserializzare}
-i messaggi mandati o ricevuti dal \gloss{driver}.
-
-\subsubsection{Interazioni con altre componenti}
-
-\begin{itemize}
-
-\item \hyperref[sec:actorbase::actorsystem::warehouseman]{actorbase::actorsystem::warehouseman};
-\item \hyperref[sec:actorbase::actorsystem::clientactor]{actorbase::actorsystem::clientactor}.
-
-\end{itemize}
-
-\subsubsection{Classi}
-
-\paragraph{actorbase::actorsystem::serialization::SerializationContext}
-\label{sec:actorbase::actorsystem::serialization::SerializationContext}
-
-\subparagraph{Descrizione}
-
-Classe che offre dei metodi per la scelta su quale tipo di \gloss{serializzazione}
-effettuare.
-
-\subparagraph{Utilizzo}
-
-Questa classe viene utilizzata da \hyperref[sec:actorbase::actorsystem::warehouseman::Warehouseman]{actorbase::\allowbreak{}actorsystem::\allowbreak{}warehouseman::\allowbreak{}Warehouseman}
-e \hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{actorbase::\allowbreak{}actorsystem::\allowbreak{}clientactor::\allowbreak{}ClientActor}
-per \gloss{serializzare} i dati scegliendo una tra le strategie indicate
-dalle classi che estendono \hyperref[sec:actorbase::actorsystem::serialization::SerializationStrategy]{actorbase::\allowbreak{}actorsystem::\allowbreak{}serialization::\allowbreak{}SerializationStrategy}.
-
-\subparagraph{Interazioni con altre classi}
-
-\begin{itemize}
-
-\item \hyperref[sec:actorbase::actorsystem::warehouseman::Warehouseman]{actorbase::actorsystem::warehouseman::Warehouseman};
-\item \hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{actorbase::actorsystem::clientactor::ClientActor};
-\item \hyperref[sec:actorbase::actorsystem::serialization::SerializationStrategy]{actorbase::actorsystem::serialization::SerializationStrategy}.
-
-\end{itemize}
-
-\paragraph{actorbase::actorsystem::serialization::SerializationStrategy}
-\label{sec:actorbase::actorsystem::serialization::SerializationStrategy}
-
-\subparagraph{Descrizione}
-
-Interfaccia che offre una strategia generale per \gloss{serializzare} i dati.
-
-\subparagraph{Utilizzo}
-
-Questa interfaccia viene utilizzata per l'applicazione del \gloss{designpattern}
-\gloss{strategy}. Offre un metodo generalizzato per la
-\gloss{serializzazione} di dati che verrà poi implementato dalle classi che
-implementeranno questa interfaccia.
-
-\subparagraph{Interazioni con altre classi}
-
-\begin{itemize}
-
-\item \hyperref[sec:actorbase::actorsystem::serialization::SerializationContext]{actorbase::actorsystem::serialization::SerializationContext}.
-
-\end{itemize}
-
-\paragraph{actorbase::actorsystem::serialization::RESPSerialization}
-\label{sec:actorbase::actorsystem::serialization::RESPSerialization}
-
-\subparagraph{Descrizione}
-
-Classe che si occupa di serializzare i dati in stringhe di formato \gloss{RESP}.
-
-\subparagraph{Utilizzo}
-
-Questa classe viene utilizzata per l'implementazione di una strategia di
-\gloss{serializzazione} in formato \gloss{RESP}. Viene utilizzata principalmente per
-dati che dovranno essere mandati al \gloss{driver}.
-
-\subparagraph{Classi ereditate}
-
-\begin{itemize}
-
-\item \hyperref[sec:actorbase::actorsystem::serialization::SerializationStrategy]{actorbase::actorsystem::serialization::SerializationStrategy}.
-
-\end{itemize}
-
-\paragraph{actorbase::actorsystem::serialization::PickleSerialization}
-\label{sec:actorbase::actorsystem::serialization::PickleSerialization}
-
-\subparagraph{Descrizione}
-
-Classe che si occupa di serializzare i dati in formato \gloss{Pickle}.
-
-\subparagraph{Utilizzo}
-
-Questa classe viene utilizzata per l'implementazione di una strategia di
-\gloss{serializzazione} in formato \gloss{Pickle}. Viene utilizzata principalmente per
-dati che dovranno essere salvati su disco.
-
-\subparagraph{Classi ereditate}
-
-\begin{itemize}
-
-\item \hyperref[sec:actorbase::actorsystem::serialization::SerializationStrategy]{actorbase::actorsystem::serialization::SerializationStrategy}.
-
-\end{itemize}
-
-\paragraph{actorbase::actorsystem::serialization::DeserializationContext}
-\label{sec:actorbase::actorsystem::serialization::DeserializationContext}
-
-\subparagraph{Descrizione}
-
-Classe che offre dei metodi per la scelta su quale tipo di \gloss{deserializzazione}
-effettuare.
-
-\subparagraph{Utilizzo}
-
-Questa classe viene utilizzata da \hyperref[sec:actorbase::actorsystem::warehouseman::Warehouseman]{actorbase::actorsystem::warehouseman::Warehouseman}
-e \hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{actorbase::\allowbreak{}actorsystem::\allowbreak{}clientactor::\allowbreak{}ClientActor}
-per \gloss{deserializzare} i dati scegliendo una tra le strategie indicate
-dalle classi che estendono \hyperref[sec:actorbase::actorsystem::serialization::DeserializationStrategy]{actorbase::\allowbreak{}actorsystem::\allowbreak{}serialization::\allowbreak{}DeserializationStrategy}.
-
-\subparagraph{Interazioni con altre classi}
-
-\begin{itemize}
-
-\item \hyperref[sec:actorbase::actorsystem::warehouseman::Warehouseman]{actorbase::actorsystem::warehouseman::Warehouseman};
-\item \hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{actorbase::actorsystem::clientactor::ClientActor};
-\item \hyperref[sec:actorbase::actorsystem::serialization::DeserializationStrategy]{actorbase::actorsystem::serialization::DeserializationStrategy}.
-
-\end{itemize}
-
-\paragraph{actorbase::actorsystem::serialization::DeserializationStrategy}
-\label{sec:actorbase::actorsystem::serialization::DeserializationStrategy}
-
-\subparagraph{Descrizione}
-
-Interfaccia che offre una strategia generale per \gloss{deserializzare} i dati.
-
-\subparagraph{Utilizzo}
-
-Questa interfaccia viene utilizzata per l'applicazione del \gloss{design pattern}
-\gloss{strategy}. Offre un metodo generalizzato per la
-\gloss{deserializzazione} di dati che verrà poi implementato dalle classi che
-implementeranno questa interfaccia.
-
-\subparagraph{Interazioni con altre classi}
-
-\begin{itemize}
-
-\item \hyperref[sec:actorbase::actorsystem::serialization::DeserializationContext]{actorbase::actorsystem::serialization::DeserializationContext}.
-
-\end{itemize}
-
-\paragraph{actorbase::actorsystem::serialization::RESPDeserialization}
-\label{sec:actorbase::actorsystem::serialization::RESPDeserialization}
-
-\subparagraph{Descrizione}
-
-Classe che si occupa di deserializzare i dati da stringhe in formato \gloss{RESP}.
-
-\subparagraph{Utilizzo}
-
-Questa classe viene utilizzata per l'implementazione di una strategia di
-\gloss{deserializzazione} dal formato \gloss{RESP}. Viene utilizzato
-principalmente per i dati ricevuti dal \gloss{driver}.
-
-\subparagraph{Classi ereditate}
-
-\begin{itemize}
-
-\item \hyperref[sec:actorbase::actorsystem::serialization::DeserializationStrategy]{actorbase::actorsystem::serialization::DeserializationStrategy}.
-
-\end{itemize}
-
-\paragraph{actorbase::actorsystem::serialization::PickleDeserialization}
-\label{sec:actorbase::actorsystem::serialization::PickleDeserialization}
-
-\subparagraph{Descrizione}
-
-Classe che si occupa di \gloss{deserializzare} i dati dal formato \gloss{Pickle}.
-
-\subparagraph{Utilizzo}
-
-Questa classe viene utilizzata per l'implementazione di una strategia di
-\gloss{deserializzazione} dal formato \gloss{Pickle}. Viene utilizzato
-principalmente per la lettura di dati da disco.
-
-\subparagraph{Classi ereditate}
-
-\begin{itemize}
-
-\item \hyperref[sec:actorbase::actorsystem::serialization::DeserializationStrategy]{actorbase::actorsystem::serialization::DeserializationStrategy}.
-
-\end{itemize}
-
-\subsection{actorbase::actorsystem::warehouseman}
+Classe che contiene metodi di utilità per applicare algoritmi di crittografia
+ssl.
+
+\subparagraph{Metodi}
+
+\begin{tabular}{| l | l | l | l |}
+  \hline
+  Nome & Accesso & Tipo di ritorno & Descrizione\\
+  \hline
+  sslContext & public & SSLContext & metodo per impostare le opzioni per SSL\\
+  \hline
+  sslEngineProvider & public & ServerSSLEngineProvider & metodo per impostare una \gloss{cipher suite}\\
+  \hline
+\end{tabular}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{actorbase::actorsystem::warehouseman} %TODO DA FARE
 \label{sec:actorbase::actorsystem::warehouseman}
 
 \begin{figure}[H]
@@ -873,13 +848,38 @@ Questa classe viene utilizzata per effettuare il salvataggio su filesystem del
 
 \end{itemize}
 
-\subparagraph{Interazioni con altre classi}
+\subparagraph{Attributi}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  collectionShard & pubblico & immutabile & String & Rappresenta il nome della cartella dentro cui verranno salvati i dati \\
+  \hline
+\end{tabular}
 
-\begin{itemize}
-\item \hyperref[sec:actorbase::actorsystem::serialization::SerializationContext]{actorbase::actorsystem::serialization::SerializationContext};
-\item \hyperref[sec:actorbase::actorsystem::serialization::DeserializationContext]{actorbase::actorsystem::serialization::DeserializationContext};
-\item akka::actor::ActorRef.
-\end{itemize}
+\subparagraph{Metodi}
+\begin{tabular}{| l | l | l | l |}
+  \hline
+  Nome & Accesso & Tipo di ritorno & Descrizione\\
+  \hline
+  receive & pubblico & Unit & Effettua operazioni diverse a seconda del tipo di messaggio ricevuto \\
+  \hline
+  removeAll & privato & Unit & Rimuove tutti i file all'interno di una cartella, eliminando anche quest'ultima \\
+  \hline
+\end{tabular}
+
+\subparagraph{Parametri}
+
+\begin{center}
+  \textbf{removeAll}\\
+\end{center}
+\begin{tabular}{| l | l | l |}
+  \hline
+  Nome & Tipo & Descrizione\\
+  \hline
+  path & String & Percorso della cartella da eliminare\\
+  \hline
+\end{tabular}
 
 \subsection{actorbase::actorsystem::warehouseman::messages}
 \label{sec:actorbase::actorsystem::warehouseman::messages}
@@ -888,19 +888,6 @@ Questa classe viene utilizzata per effettuare il salvataggio su filesystem del
 
 \gloss{Package} che racchiude tutti i messaggi che gli attori di tipo
 \gloss{Warehouseman} possono ricevere.
-
-\paragraph{actorbase::actorsystem::warehouseman::messages::Init}
-\label{sec:actorbase::actorsystem::warehouseman::messages::Init}
-
-\subparagraph{Descrizione}
-
-Messaggio che porta alla lettura dei dati da disco.
-
-\subparagraph{Utilizzo}
-
-Quando \hyperref[sec:actorbase::actorsystem::warehouseman::Warehouseman]{actorbase::actorsystem::warehouseman::Warehouseman}
-riceve questo messaggio inizializza uno \hyperref[sec:actorbase::actorsystem::storekeeper::StoreKeeper]{actorbase::actorsystem::storekeeper::StoreKeeper}
-con i dati letti da disco.
 
 \paragraph{actorbase::actorsystem::warehouseman::messages::Save}
 \label{sec:actorbase::actorsystem::warehouseman::messages::Save}
@@ -913,104 +900,310 @@ Messaggio che porta al salvataggio dei dati su disco.
 
 Quando \hyperref[sec:actorbase::actorsystem::warehouseman::Warehouseman]{actorbase::actorsystem::warehouseman::Warehouseman}
 riceve questo messaggio salverà i dati su disco sfruttando
-\hyperref[sec:actorbase::actorsystem::serialization::SerializationContext]{actorbase::actorsystem::serialization::SerializationContext}.
+\hyperref[sec:actorbase::actorsystem::serialization::SerializationContext]{actorbase::actorsystem::utils::CryptoUtils}.
 
-\subsection{actorbase::actorsystem::main}
+\subparagraph{Attributi}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  sfRange & pubblico & immutabile & KeyRange & Rappresenta il \gloss{collectionShard} identificativo del padre dell'attore che ha richiesto il salvataggio \\
+  \hline
+  range & pubblico & immutabile & KeyRange & Rappresenta il \gloss{collectionShard} che verrà salvato \\
+  \hline
+  map & pubblico & immutabile & TreeMap[String, Any] & Rappresenta i dati che verranno salvati \\
+  \hline
+\end{tabular}
+
+\paragraph{actorbase::actorsystem::warehouseman::messages::Clean}
+\label{sec:actorbase::actorsystem::warehouseman::messages::Clean}
+
+\subparagraph{Descrizione}
+
+Messaggio che porta alla cancellazione dal filesystem di alcuni dati.
+
+\subparagraph{Utilizzo}
+
+Quando \hyperref[sec:actorbase::actorsystem::warehouseman::Warehouseman]{actorbase::actorsystem::warehouseman::Warehouseman}
+riceve questo messaggio rimuoverà i dati dal filesystem.
+
+\subparagraph{Attributi}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  sfRange & pubblico & immutabile & KeyRange & Rappresenta il \gloss{collectionShard} identificativo del padre dell'attore che ha richiesto la rimozione \\
+  \hline
+  range & pubblico & immutabile & KeyRange & Rappresenta il \gloss{collectionShard} che verrà rimosso \\
+  \hline
+\end{tabular}
+
+\paragraph{actorbase::actorsystem::warehouseman::messages::RemoveSfFolder}
+\label{sec:actorbase::actorsystem::warehouseman::messages::RemoveSfFolder}
+
+\subparagraph{Descrizione}
+
+Messaggio che porta alla rimozione di una cartella da disco.
+
+\subparagraph{Utilizzo}
+
+Quando \hyperref[sec:actorbase::actorsystem::warehouseman::Warehouseman]{actorbase::actorsystem::warehouseman::Warehouseman}
+riceve questo messaggio rimuoverà i dati da disco.
+
+\subparagraph{Attributi}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  sfRange & pubblico & immutabile & KeyRange & Rappresenta il \gloss{collectionShard} identificativo dei dati da rimuovere \\
+  \hline
+\end{tabular}
+
+\paragraph{actorbase::actorsystem::warehouseman::messages::Read}
+\label{sec:actorbase::actorsystem::warehouseman::messages::Read}
+
+\subparagraph{Descrizione}
+
+Messaggio che porta alla lettura di dati da disco.
+
+\subparagraph{Utilizzo}
+
+Quando \hyperref[sec:actorbase::actorsystem::warehouseman::Warehouseman]{actorbase::actorsystem::warehouseman::Warehouseman}
+riceve questo messaggio leggerà i dati da disco sfruttando
+\hyperref[sec:actorbase::actorsystem::utils::CryptoUtils]{actorbase::actorsystem::utils::CryptoUtils}.
+
+\subparagraph{Attributi}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  file & pubblico & immutabile & File & Rappresenta il file che verrà letto \\
+  \hline
+\end{tabular}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{actorbase::actorsystem::main} %TODO DA controllare e finire
 \label{sec:actorbase::actorsystem::main}
 
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=0.8\textwidth,keepaspectratio]{RP/Main.png}
-    \caption{Main e interazioni con storefinder}
+    \caption{Package dell'attore di tipo Main}
   \end{center}
 \end{figure}
 
 \subsubsection{Descrizione}
-
 \gloss{Package} che rappresenta l'\gloss{attore} che si occuperà di gestire le
 richieste al \gloss{server}.
 
 \subsubsection{Package contenuti}
-
 \begin{itemize}
-
 \item \hyperref[sec:actorbase::actorsystem::main::messages]{actorbase::actorsystem::main::messages}.
-
 \end{itemize}
 
 \subsubsection{Classi}
 
-\paragraph{actorbase::actorsystem::main::Main}
+\paragraph{actorbase::actorsystem::main::}
 \label{sec:actorbase::actorsystem::main::Main}
 
 \subparagraph{Descrizione}
-
 Classe che rappresenta un \gloss{attore} di tipo \gloss{Main}.
 
 \subparagraph{Utilizzo}
-
 Questa classe viene utilizzata per gestire le richieste ricevute al
 \gloss{server}.
 
 \subparagraph{Classi ereditate}
-
 \begin{itemize}
-
 \item akka::actor::Actor.
-
 \end{itemize}
 
-\subparagraph{Interazioni con altre classi}
+\subparagraph{Attributi}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  sfMap & private & mutabile & TreeMap [CollectionRange, ActorRef] & Rappresenta una mappa contenente come chiavi degli oggetti CollectionRange (che a sua volta rappresentano intervalli di chiavi di una specifica collezione) e come valore i riferimenti degli storefinder che mappano quelle chiavi \\
+  \hline
+  ufRef & private & immutabile & ActorRef & Rappresenta il riferimento all'attore di tipo Userfinder. Questo serve per poter instradare le richieste più velocemente agli attori Userkeeper \\
+  \hline
+  requestMap & private & mutabile & TreeMap[ActorRef, Map[ActorbaseCollection, Map[String, Any]]] & Struttura dati atta a restituire intere collezioni\\
+  \hline
+\end{tabular}
 
-\begin{itemize}
-\item akka::actor::ActorRef;
-\item \hyperref[sec:actorbase::actorsystem::main::SFRange]{actorbase::actorsystem::main::SFRange}.
-\end{itemize}
+\subparagraph{Metodi}
 
-\paragraph{actorbase::actorsystem::main::SFRange}
-\label{sec:actorbase::actorsystem::main::SFRange}
-
-\subparagraph{Descrizione}
-
-Classe che rappresenta i range di indici contenuti in ogni \gloss{attore} di tipo
-\gloss{Storekeeper}.
-
-\subparagraph{Utilizzo}
-
-Questa classe viene utilizzata per tener traccia del contenuto degli attori di tipo
-\hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storefinder::\allowbreak{}Storefinder}.
-
-\subparagraph{Interazioni con altre classi}
-
-\begin{itemize}
-\item \hyperref[sec:actorbase::actorsystem::main::Main]{actorbase::actorsystem::main::Main}.
-\end{itemize}
+\begin{tabular}{| l | l | l | l |}
+  \hline
+  Nome & Accesso & Tipo di ritorno & Descrizione\\
+  \hline
+  receive & public &  & Effettua operazioni diverse a seconda del tipo di messaggio ricevuto\\
+  \hline
+  createCollection & private & ActorRef & Metodo utilizzato per creare una collezione, al suo interno il metodo crea uno Storefinder adibito a tale collezione, successivamente aggiorna sfMap. Ritorna il riferimento al nuovo attore creato\\
+  \hline
+  waitingForRequests & private & Actor.Receive & Metodo che definisce il tipo di messaggio che l'attore \hyperref[sec:actorbase::actorsystem::main::Main]{Main} può ricevere mentre si trova nello stato waitingForRequests\\
+  \hline
+  processingRequest & private & Actor.Receive & Metodo che definisce il tipo di messaggio che l'attore \hyperref[sec:actorbase::actorsystem::main::Main]{Main} può ricevere mentre si trova nello stato processingRequest\\
+  \hline
+\end{tabular}
 
 \subsection{actorbase::actorsystem::main::messages}
 \label{sec:actorbase::actorsystem::main::messages}
 
 \subsubsection{Descrizione}
-
 \gloss{Package} che racchiude tutti i messaggi che gli attori di tipo
-\gloss{Warehouseman} possono ricevere.
+\gloss{Main} possono ricevere.
 
-\subsubsection{Package importati}
+\subsubsection{Classi}
 
-\begin{itemize}
-\item \hyperref[sec:actorbase::actorsystem::storefinder::messages]{actorbase::actorsystem::storefinder::messages}
-\end{itemize}
-
-\paragraph{actorbase::actorsystem::main::messages::CreateCollection}
-\label{sec:actorbase::actorsystem::main::messages::CreateCollection}
+\paragraph{actorbase::actorsystem::main::messages::AddUser}
+\label{sec:actorbase::actorsystem::main::messages::AddUser}
 
 \subparagraph{Descrizione}
+Messaggio che porta alla creazione di un \gloss{utente}.\\Viene ricevuto
+quando un amministratore di actorbase aggiunge un utente al sistema.
 
-Messaggio che porta alla creazione di una \gloss{collezione}.
+\subparagraph{Utilizzo}
+Quando \hyperref[sec:actorbase::actorsystem::main::Main]{actorbase::actorsystem::main::Main}
+riceve questo messaggio inoltra la richiesta di aggiunta utente allo
+Userfinder di cui ha riferimento.
+
+\subparagraph{Attributi}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  username & public & immutabile & String & stringa che rappresenta lo username dell'utente da inserire \\
+  \hline
+  password & public & immutabile & String & stringa che rappresenta la password dell'utente da inserire \\
+  \hline
+\end{tabular}
+
+\paragraph{actorbase::actorsystem::main::messages::Login}
+\label{sec:actorbase::actorsystem::main::messages::Login}
+
+\subparagraph{Descrizione}
+Messaggio che indica una richiesta di autenticazione al sistema.
+
+\subparagraph{Utilizzo}
+Quando \hyperref[sec:actorbase::actorsystem::main::Main]{actorbase::actorsystem::main::Main}
+riceve questo messaggio manderà un messaggio di tipo GetPasswordOf
+all'attore di tipo \hyperref[sec:actorbase::actorsystem::userfinder::Userfinder]{Userfinder} di cui ha riferimento.
+
+\subparagraph{Attributi}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  username & public & immutabile & String & stringa che rappresenta lo username inserito dall'utente \\
+  \hline
+  password & public & immutabile & String & stringa che rappresenta la password inserita dall'utente \\
+  \hline
+\end{tabular}
+
+\paragraph{actorbase::actorsystem::main::messages::Insert}
+\label{sec:actorbase::actorsystem::main::messages::Insert}
+
+\subparagraph{Descrizione}
+Messaggio che indica una richiesta di inserimento di un item.
 
 \subparagraph{Utilizzo}
 
-Quando \hyperref[sec:actorbase::actorsystem::main::Main]{actorbase::actorsystem::main::Main}
-riceve questo messaggio inizializza uno \hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{actorbase::actorsystem::\allowbreak{}storefinder::\allowbreak{}Storefinder}.
+Quando \hyperref[sec:actorbase::actorsystem::main::Main]{Main}
+riceve questo messaggio inoltrerà il messaggio allo \hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{Storefinder}
+che si occupa del range di chiavi che contiene la chiave inserita.
+
+\subparagraph{Attributi}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  key & public & immutabile & String & stringa che rappresenta la chiave dell'item da inserire \\
+  \hline
+  value & public & immutabile & Any & stringa che rappresenta il valore dell'item da inserire \\
+  \hline
+  update & public & immutable & Boolean & flag che rappresenta se l'inserimento può sovrascrivere un item già presente o no \\
+  \hline
+\end{tabular}
+
+\paragraph{actorbase::actorsystem::main::messages::RemoveItemFrom}
+\label{sec:actorbase::actorsystem::main::messages::RemoveItemFrom}
+
+\subparagraph{Descrizione}
+Messaggio che indica una richiesta di rimozione di un item.
+
+\subparagraph{Utilizzo}
+Quando \hyperref[sec:actorbase::actorsystem::main::Main]{Main}
+riceve questo messaggio inoltrerà il messaggio allo \hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{Storefinder}
+che si occupa del range di chiavi che contiene la chiave inserita.
+
+\subparagraph{Attributi}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  key & public & immutabile & String & stringa che rappresenta la chiave dell'item da inserire \\
+  \hline
+  collection & public & immutabile & String & Rappresenta la collezione su cui effettuare l'operazione \\
+  \hline
+\end{tabular}
+
+\paragraph{actorbase::actorsystem::main::messages::GetItemFrom}
+\label{sec:actorbase::actorsystem::main::messages::GetItemFrom}
+
+\subparagraph{Descrizione}
+
+Messaggio che indica una richiesta di ricerca di un \gloss{item} da una \gloss{collezione}.
+
+\subparagraph{Utilizzo}
+
+Quando \hyperref[sec:actorbase::actorsystem::main::Main]{Main}
+riceve questo messaggio cercherà gli attori di tipo
+\hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{Storefinder}
+corrispondenti alla \gloss{collezione} su cui effettuare la ricerca
+e inoltrerà lui la richiesta dell'\gloss{item} con la chiave da cercare.
+
+\subparagraph{Attributi}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  collection & public & immutabile & String & Stringa che rappresenta la collezione da cui restitire l'item\\
+  \hline
+  key & public & immutabile & String & stringa che rappresenta la chiave dell'item da restituire \\
+  \hline
+\end{tabular}
+
+\paragraph{actorbase::actorsystem::main::messages::GetItemFromResponse}
+\label{sec:actorbase::actorsystem::main::messages::GetItemFromResponse}
+
+\subparagraph{Descrizione}
+
+Messaggio che serve per comporre l'intera collezione da restituire all'utente
+
+\subparagraph{Utilizzo}
+
+Quando \hyperref[sec:actorbase::actorsystem::main::Main]{Main}
+riceve questo messaggio cercherà gli attori di tipo
+\hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{Storefinder}
+corrispondenti alla \gloss{collezione} su cui effettuare la ricerca
+e inoltrerà lui la richiesta dell'\gloss{item} con la chiave da cercare.
+
+\subparagraph{Attributi}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  clientRef & public & immutabile & ActorRef & Riferimento del client che richiede la collezione\\
+  \hline
+  collection & public & immutabile & ActorbaseCollection & contiene il numero di risposte attese per la collezione richiesta\\
+  \hline
+  items & public & immutabile & TreeMap[String, Any] & rappresenta un pezzo della collezione richiesta\\
+  \hline
+\end{tabular}
 
 \paragraph{actorbase::actorsystem::main::messages::GetCollection}
 \label{sec:actorbase::actorsystem::main::messages::GetCollection}
@@ -1021,40 +1214,59 @@ Messaggio che indica una richiesta di una \gloss{collezione}.
 
 \subparagraph{Utilizzo}
 
-Quando \hyperref[sec:actorbase::actorsystem::main::Main]{actorbase::actorsystem::main::Main}
-riceve questo messaggio cercherà l'\gloss{attore} di tipo
-\hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{actorbase::actorsystem::\allowbreak{}storefinder::\allowbreak{}Storefinder}
-corrispondente alla \gloss{collezione} cercata.
+Quando \hyperref[sec:actorbase::actorsystem::main::Main]{Main}
+riceve questo messaggio inoltrerà la richiesta a tutti gli attori di
+tipo \hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{Storefinder} per restituire tutta la collezione richiesta.
+
+\subparagraph{Attributi}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  collection & public & immutabile & String & Stringa che rappresenta la collezione da cui restitire l'item\\
+  \hline
+\end{tabular}
+
+\paragraph{actorbase::actorsystem::main::messages::CreateCollection}
+\label{sec:actorbase::actorsystem::main::messages::CreateCollection}
+
+\subparagraph{Descrizione}
+Messaggio che indica una richiesta di creazione di una \gloss{collezione}.
+
+\subparagraph{Utilizzo}
+Quando \hyperref[sec:actorbase::actorsystem::main::Main]{Main}
+riceve questo messaggio provvederà a creare uno \hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{Storefinder} adibito
+alla gestione della collezione e aggiornerà la propria struttura dati
+aggiungendo questo riferimento.
+
+\subparagraph{Attributi}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  collection & public & immutabile & String & Stringa che rappresenta la collezione da cui restitire l'item\\
+  \hline
+\end{tabular}
 
 \paragraph{actorbase::actorsystem::main::messages::RemoveCollection}
 \label{sec:actorbase::actorsystem::main::messages::RemoveCollection}
 
 \subparagraph{Descrizione}
-
 Messaggio che indica una richiesta di rimozione di una \gloss{collezione}.
 
 \subparagraph{Utilizzo}
+Quando \hyperref[sec:actorbase::actorsystem::main::Main]{Main}
+riceve questo messaggio provvederà a terminare gli attori storefinder
+che rappresentano la collezione da rimuovere.
 
-Quando \hyperref[sec:actorbase::actorsystem::main::Main]{actorbase::actorsystem::main::Main}
-riceve questo messaggio cercherà l'\gloss{attore} di tipo
-\hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{actorbase::actorsystem::\allowbreak{}storefinder::\allowbreak{}Storefinder}
-corrispondente alla \gloss{collezione} cercata e ne avvierà
-la procedura di rimozione dal \gloss{database}.
-
-\paragraph{actorbase::actorsystem::main::messages::GetItemFrom}
-\label{sec:actorbase::actorsystem::main::messages::GetItemFrom}
-
-\subparagraph{Descrizione}
-
-Messaggio che indica una richiesta di ricerca di un \gloss{item} da una o più \gloss{collezione}.
-
-\subparagraph{Utilizzo}
-
-Quando \hyperref[sec:actorbase::actorsystem::main::Main]{actorbase::actorsystem::main::Main}
-riceve questo messaggio cercherà gli attori di tipo
-\hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{actorbase::actorsystem::\allowbreak{}storefinder::\allowbreak{}Storefinder}
-corrispondenti alle \gloss{collezioni} su cui effettuare la ricerca
-e inoltrerà a loro la richiesta dell'\gloss{item} con la chiave da cercare.
+\subparagraph{Attributi}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  collection & public & immutabile & String & Stringa che rappresenta la collezione da cui restitire l'item\\
+  \hline
+\end{tabular}
 
 \paragraph{actorbase::actorsystem::main::messages::AddContributor}
 \label{sec:actorbase::actorsystem::main::messages::AddContributor}
@@ -1066,135 +1278,339 @@ Messaggio che indica una richiesta di aggiunta di un collaboratore ad una
 
 \subparagraph{Utilizzo}
 
-Quando \hyperref[sec:actorbase::actorsystem::main::Main]{actorbase::actorsystem::main::Main}
-riceve questo messaggio cercherà gli attori di tipo
-\hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{actorbase::actorsystem::\allowbreak{}storefinder::\allowbreak{}Storefinder}
-che mappano gli attori di tipo \hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{actorbase::actorsystem::\allowbreak{}userkeeper::\allowbreak{}Userkeeper}.
-e inoltrerà loro la richiesta di aggiunta del collaboratore.
+Quando \hyperref[sec:actorbase::actorsystem::main::Main]{Main}
+riceve questo messaggio inoltrerà la richiesta all'attore
+\hyperref[sec:actorbase::actorsystem::userfinder::Userfinder]{Userfinder}.
 
-\paragraph{actorbase::actorsystem::main::messages::DuplicateRequestSF}
-\label{sec:actorbase::actorsystem::main::messages::DuplicateRequestSF}
-
-\subparagraph{Descrizione}
-
-Messaggio che indica una richiesta di sdoppiamento di uno \gloss{Storefinder}.
-
-\subparagraph{Utilizzo}
-
-Quando \hyperref[sec:actorbase::actorsystem::main::Main]{actorbase::actorsystem::main::Main}
-riceve questo messaggio provvederà a sdoppiare l'\gloss{attore} di tipo
-\hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{actorbase::actorsystem::\allowbreak{}storefinder::\allowbreak{}Storefinder}.
+\subparagraph{Attributi}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  Username & public & immutable & String & Stringa che rappresenta lo username dell'utente da aggiungere come collaboratore\\
+  \hline
+  permissions & public & immutable & Boolean & Flag che indica i permessi del collaboratore ( false se sola lettura, true se lettura e scrittura )\\
+  \hline
+  collection & public & immutabile & String & Stringa che rappresenta la collezione a cui dare accesso\\
+  \hline
+\end{tabular}
 
 \paragraph{actorbase::actorsystem::main::messages::RemoveContributor}
 \label{sec:actorbase::actorsystem::main::messages::RemoveContributor}
 
 \subparagraph{Descrizione}
 
-Messaggio che indica una richiesta di rimozione di un collaboratore ad una
+Messaggio che indica una richiesta di rimozione di un collaboratore da una
 \gloss{collezione}.
 
 \subparagraph{Utilizzo}
 
-Quando \hyperref[sec:actorbase::actorsystem::main::Main]{actorbase::actorsystem::main::Main}
-riceve questo messaggio cercherà gli attori di tipo
-\hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{actorbase::actorsystem::\allowbreak{}storefinder::\allowbreak{}Storefinder}
-che mappano gli attori di tipo \hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{actorbase::actorsystem::\allowbreak{}userkeeper::\allowbreak{}Userkeeper}
-e inoltrerà loro la richiesta di rimozione del collaboratore.
+Quando \hyperref[sec:actorbase::actorsystem::main::Main]{Main}
+riceve questo messaggio inoltrerà la richiesta all'attore \hyperref[sec:actorbase::actorsystem::userfinder::Userfinder]{Userfinder}.
 
-\paragraph{actorbase::actorsystem::main::messages::InitUserkeeper}
-\label{sec:actorbase::actorsystem::main::messages::InitUserkeeper}
+\subparagraph{Attributi}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  Username & public & immutable & String & Stringa che rappresenta lo username dell'utente da rimuovere come collaboratore\\
+  \hline
+  permissions & public & immutable & Boolean & Flag che indica i permessi del collaboratore ( false se sola lettura, true se lettura e scrittura )\\
+  \hline
+  collection & public & immutabile & String & Stringa che rappresenta la collezione da cui rimuovere il collaboratore\\
+  \hline
+\end{tabular}
 
-\subparagraph{Descrizione}
-
-Messaggio che indica una richiesta di creazione di uno \gloss{Userkeeper}.
-
-\subparagraph{Utilizzo}
-
-Quando \hyperref[sec:actorbase::actorsystem::main::Main]{actorbase::actorsystem::main::Main}
-riceve questo messaggio provvederà a inoltrare agli attori di tipo
-\hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{actorbase::actorsystem::\allowbreak{}storefinder::\allowbreak{}Storefinder}
-che mappano gli attori di tipo \hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{actorbase::actorsystem::\allowbreak{}userkeeper::\allowbreak{}Userkeeper}
-la creazione di un \gloss{attore} di questo tipo.
-
-\paragraph{actorbase::actorsystem::storefinder::messages::Init}
-\label{sec:actorbase::actorsystem::storefinder::messages::Init}
+\paragraph{actorbase::actorsystem::main::messages::Ack}
+\label{sec:actorbase::actorsystem::main::messages::Ack}
 
 \subparagraph{Descrizione}
 
-Messaggio importato dal package \hyperref[sec:actorbase::actorsystem::storefinder::messages]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storefinder::\allowbreak{}messages}
-che, se ricevuto dall'\gloss{attore} di tipo \gloss{Main},
-indica la necessità di inizializzare degli \gloss{Storefinder}.
+Messaggio che indica il completamento della richiesta precedente; \hyperref[sec:actorbase::actorsystem::main::Main]{Main} torna nello stato waitingForRequests.
 
 \subparagraph{Utilizzo}
 
-Quando \hyperref[sec:actorbase::actorsystem::main::Main]{actorbase::\allowbreak{}actorsystem::\allowbreak{}main::\allowbreak{}Main}
-riceve questo messaggio provvederà a inizializzare gli attori di tipo
-\hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storefinder::\allowbreak{}Storefinder}
-presenti nella cartella indicata dal messaggio.
+Quando \hyperref[sec:actorbase::actorsystem::main::Main]{Main}
+riceve questo messaggio cambia il suo context passando a waitingForRequests.
 
-\paragraph{actorbase::actorsystem::storefinder::messages::DuplicateRequest}
-\label{sec:actorbase::actorsystem::storefinder::messages::DuplicateRequest}
+\paragraph{actorbase::actorsystem::main::messages::DuplicationRequestSF}
+\label{sec:actorbase::actorsystem::main::messages::DuplicateRequestSF}
 
 \subparagraph{Descrizione}
 
-Messaggio importato dal package \hyperref[sec:actorbase::actorsystem::storefinder::messages]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storefinder::\allowbreak{}messages}
-che, se ricevuto dall'\gloss{attore} di tipo \gloss{Main},
-indica l'avvenuta divisione di uno \gloss{Storefinder}.
+Messaggio che indica l'avvenuto duplicamento di uno \hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{Storefinder}.
 
 \subparagraph{Utilizzo}
+Quando \hyperref[sec:actorbase::actorsystem::main::Main]{Main}
+riceve questo messaggio provvederà a aggiornare la propria struttura dati
+contenente la mappatura degli \hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{Storefinder}.
 
-Quando \hyperref[sec:actorbase::actorsystem::main::Main]{actorbase::\allowbreak{}actorsystem::\allowbreak{}main::\allowbreak{}Main}
-riceve questo messaggio provvederà ad aggiornare i suoi indici.
+\subparagraph{Attributi}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  oldCollRange & public & immutable & \hyperref[sec:actorbase::actorsystem::utils::CollectionRange]{CollectionRange} & Rappresenta il pezzo di collezione che si è duplicato\\
+  \hline
+  leftCollRange & public & immutable & \hyperref[sec:actorbase::actorsystem::utils::CollectionRange]{CollectionRange} & Rappresenta il nuovo CollectionRange dello \hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{Storefinder} che si è duplicato\\
+  \hline
+  newSf & public & immutabile & ActorRef & Riferimento allo \hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{Storefinder} nuovo\\
+  \hline
+  rightCollRange & public & immutable & \hyperref[sec:actorbase::actorsystem::utils::CollectionRange]{CollectionRange} & Rappresenta il CollectionRange dello \hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{Storefinder} nuovo\\
+  \hline
+\end{tabular}
 
-\paragraph{actorbase::actorsystem::storefinder::messages::GetItem}
-\label{sec:actorbase::actorsystem::storefinder::messages::GetItem}
+\paragraph{actorbase::actorsystem::main::messages::UpdateCollectionSize}
+\label{sec:actorbase::actorsystem::main::messages::UpdateCollectionSize}
 
 \subparagraph{Descrizione}
 
-Messaggio importato dal package \hyperref[sec:actorbase::actorsystem::storefinder::messages]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storefinder::\allowbreak{}messages}
-che indica la richiesta di un \gloss{item}.
+Messaggio che incrementa il numero delle coppie chiave-valore alla collezione
 
 \subparagraph{Utilizzo}
 
-Quando \hyperref[sec:actorbase::actorsystem::main::Main]{actorbase::\allowbreak{}actorsystem::\allowbreak{}main::\allowbreak{}Main}
-riceve questo messaggio provvederà a inoltrare la richiesta all'\gloss{attore} di tipo
-\hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storefinder::\allowbreak{}Storefinder}
-che contiene l'\gloss{item} cercato.
+Quando \hyperref[sec:actorbase::actorsystem::main::Main]{Main}
+riceve questo messaggio provvederà ad inoltrare allo \hyperref[sec:actorbase::actorsystem::userfinder::Userfinder]{Userfinder} l'incremento della collezione.
 
-\paragraph{actorbase::actorsystem::storefinder::messages::RemoveItem}
-\label{sec:actorbase::actorsystem::storefinder::messages::RemoveItem}
+\subparagraph{Attributi}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  collectionName & public & immutable & ActorbaseCollection & Nome della collezione che si vuole incrementare\\
+  \hline
+  increment & public & immutable & boolean & indica se deve esser fatto un incremento (true) o un decremento (false)\\
+  \hline
+\end{tabular}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{actorbase::actorsystem::userfinder} %TODO da fare qualcosa, tipo l'immagine
+\label{sec:actorbase::actorsystem::userfinder}
+
+% \begin{figure}[H]
+%   \begin{center}
+%     \includegraphics[width=0.8\textwidth,keepaspectratio]{RP/userfinder.png}
+%     \caption{Userfinder, visione generale del package}
+%   \end{center}
+% \end{figure}
+
+\subsubsection{Descrizione}
+Classe che rappresenta un \gloss{attore} di tipo \gloss{Userfinder}.
+
+\subsubsection{Package contenuti}
+\begin{itemize}
+\item \hyperref[sec:actorbase::actorsystem::userfinder::messages]{actorbase::actorsystem::userfinder::messages}.
+\end{itemize}
+
+\subsubsection{Classi}
+
+\paragraph{actorbase::actorsystem::userfinder::Userfinder}
+\label{sec:actorbase::actorsystem::userfinder::Userfinder}
+
+\subparagraph{Descrizione}
+Classe che rappresenta un \gloss{attore} di tipo \gloss{Userfinder}.
+
+\subparagraph{Utilizzo}
+Questa classe viene utilizzata per tener traccia degli attori di tipo
+\hyperref[sec:actorbase::actorsystem::userkeeper::Userkeeper]{actorbase::actorsystem::userkeeper::Userkeeper}.
+
+\subparagraph{Classi ereditate}
+\begin{itemize}
+\item akka::actor::Actor.
+\end{itemize}
+
+\subparagraph{Attributi}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  ukMap & private & immutabile & TreeMap [String, ActorRef] & Rappresenta una mappa contenente come chiavi gli username degli utenti e come valori i riferimenti degli userkeeper che li rappresentano \\
+  \hline
+\end{tabular}
+
+\subparagraph{Metodi}
+
+\begin{tabular}{| l | l | l | l |}
+  \hline
+  Nome & Accesso & Tipo di ritorno & Descrizione\\
+  \hline
+  receive & public &  & Effettua operazioni diverse a seconda del tipo di messaggio ricevuto\\
+  \hline
+\end{tabular}
+
+\subsection{actorbase::actorsystem::userfinder::messages}
+\label{sec:actorbase::actorsystem::userfinder::messages}
+
+\subsubsection{Descrizione}
+\gloss{Package} che contiene tutti i messaggi che possono essere ricevuti da
+\hyperref[sec:actorbase::actorsystem::userfinder::Userfinder]{actorbase::actorsystem::userfinder::Userfinder}.
+
+\subsubsection{Classi}
+
+\paragraph{actorbase::actorsystem::userfinder::messages::GetPasswordOf}
+\label{sec:actorbase::actorsystem::userfinder::messages::GetPasswordOf}
+
+\subparagraph{Descrizione}
+Messaggio che indica la richiesta di autenticazione da parte di un utente.\\
+
+\subparagraph{Utilizzo}
+Quando l'attore riceve questo messaggio provvederà a inoltrare la richiesta
+allo \hyperref[sec:actorbase::actorsystem::userkeeper::Userkeeper]{Userkeeper}
+relativo allo username ricevuto.
+
+\subparagraph{Attributi}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  username & public & immutabile & String & stringa che rappresenta lo username dell'utente che richiede di autenticarsi\\
+  \hline
+\end{tabular}
+
+\paragraph{actorbase::actorsystem::userfinder::messages::InsertTo}
+\label{sec:actorbase::actorsystem::userfinder::messages::InsertTo}
+
+\subparagraph{Descrizione}
+Messaggio che indica la richiesta di un aggiunta di un utente nel sistema,
+corrisponde con la creazione di un attore \hyperref[sec:actorbase::actorsystem::userkeeper::Userkeeper]{actorbase::\allowbreak{}actorsystem::\allowbreak{}userkeeper::\allowbreak{}Userkeeper}.
+
+\subparagraph{Utilizzo}
+Quando l'attore riceve questo messaggio provvederà a creare un attore di tipo \hyperref[sec:actorbase::actorsystem::userkeeper::Userkeeper]{actorbase::\allowbreak{}actorsystem::\allowbreak{}userkeeper::\allowbreak{}Userkeeper}
+e l'inserimento del suo riferimento nella propria struttura dati.
+
+\subparagraph{Attributi}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  username & public & immutabile & String & stringa che rappresenta lo username dell'utente da inserire \\
+  \hline
+  password & public & immutabile & String & stringa che rappresenta la password dell'utente da inserire \\
+  \hline
+\end{tabular}
+
+\paragraph{actorbase::actorsystem::userfinder::messages::GetCollectionOf}
+\label{sec:actorbase::actorsystem::userfinder::messages::GetCollectionOf}
+
+\subparagraph{Descrizione}
+Messaggio che indica la necessità di tornare le collezioni con il tipo di permessi immesso di un utente.
+
+\subparagraph{Utilizzo}
+Quando l'attore riceve questo messaggio provvederà a inoltrare la richiesta all'attore di tipo \hyperref[sec:actorbase::actorsystem::userkeeper::Userkeeper]{actorbase::\allowbreak{}actorsystem::\allowbreak{}userkeeper::\allowbreak{}Userkeeper}
+che rappresenta l'utente richiesto dal parametro di ingresso.
+
+\subparagraph{Attributi}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  username & public & immutabile & String & stringa che rappresenta lo username dell'utente cui si vogliono ritornare le collezioni \\
+  \hline
+  write & public & immutabile & Boolean & Flag che indica se il metodo deve tornare le collezioni su cui l'utente ha permessi in sola lettura (write \= 0) o le collezioni su cui l'utente ha permessi di lettura e scrittura (write \= 1) \\
+  \hline
+\end{tabular}
+
+\paragraph{actorbase::actorsystem::userfinder::messages::ChangePasswordOf}
+\label{sec:actorbase::actorsystem::userfinder::messages::ChangePasswordOf}
+
+\subparagraph{Descrizione}
+Messaggio che indica la richiesta di una modifica password di un utente.
+
+\subparagraph{Utilizzo}
+Quando l'attore riceve questo messaggio provvederà a inoltrare la richiesta di cambio password all'attore di tipo \hyperref[sec:actorbase::actorsystem::userkeeper::Userkeeper]{actorbase::\allowbreak{}actorsystem::\allowbreak{}userkeeper::\allowbreak{}Userkeeper}
+corrispondente all'utente corretto.
+
+\subparagraph{Attributi}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  username & public & immutabile & String & stringa che rappresenta lo username dell'utente che ha richiesto la modifica password \\
+  \hline
+  newPassword & public & immutabile & String & stringa che rappresenta la password nuoca dell'utente \\
+  \hline
+\end{tabular}
+
+\paragraph{actorbase::actorsystem::userfinder::messages::RemoveCollectionFrom}
+\label{sec:actorbase::actorsystem::userfinder::messages::RemoveCollectionFrom}
+
+\subparagraph{Descrizione}
+Messaggio che indica la richiesta di rimozione di una collezione dalla struttura dati dello \hyperref[sec:actorbase::actorsystem::userkeeper::Userkeeper]{actorbase::\allowbreak{}actorsystem::\allowbreak{}userkeeper::\allowbreak{}Userkeeper} corrispondente.
+
+\subparagraph{Utilizzo}
+Quando l'attore riceve questo messaggio provvederà a inoltrare la richiesta
+all'attore di tipo \hyperref[sec:actorbase::actorsystem::userkeeper::Userkeeper]{actorbase::\allowbreak{}actorsystem::\allowbreak{}userkeeper::\allowbreak{}Userkeeper}
+corrispondente all'utente corretto.
+
+\subparagraph{Attributi}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  username & public & immutabile & String & stringa che rappresenta lo username dell'utente su cui effettuare l'operazione \\
+  \hline
+  write & public & immutable & Boolean & flag che rappresenta i permessi che l'utente ha sulla collezione da rimuovere \\
+  \hline
+  collection & public & immutabile & String & stringa che rappresenta la collezione da rimuovere \\
+  \hline
+\end{tabular}
+
+\paragraph{actorbase::actorsystem::userfinder::messages::AddCollectionTo}
+\label{sec:actorbase::actorsystem::userfinder::messages::AddCollectionTo}
+
+\subparagraph{Descrizione}
+Messaggio che indica la richiesta di un aggiunta di una collezione con i permessi inseriti ad un utente nel sistema.
+
+\subparagraph{Utilizzo}
+Quando l'attore riceve questo messaggio provvederà a inoltrare la richiesta all'attore di tipo \hyperref[sec:actorbase::actorsystem::userkeeper::Userkeeper]{actorbase::\allowbreak{}actorsystem::\allowbreak{}userkeeper::\allowbreak{}Userkeeper}
+corrispondente all'utente su cui effettuare l'operazione.
+
+\subparagraph{Attributi}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  username & public & immutabile & String & stringa che rappresenta lo username dell'utente a cui aggiungere la collezione \\
+  \hline
+  write & public & immutable & Boolean & flag che rappresenta i permessi che l'utente ha sulla collezione da aggiungere \\
+  \hline
+  collection & public & immutabile & String & stringa che rappresenta la collezione da aggiungere \\
+  \hline
+\end{tabular}
+
+\paragraph{actorbase::actorsystem::userfinder::messages::UpdateCollectionSizeTo}
+\label{sec:actorbase::actorsystem::userfinder::messages::UpdateCollectionSizeTo}
 
 \subparagraph{Descrizione}
 
-Messaggio che indica la richiesta di rimozione di un \gloss{item}.
+Messaggio che indica la ncessità di aggiornare il numero di item di una collezione.
 
 \subparagraph{Utilizzo}
 
-Quando \hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storefinder::\allowbreak{}Storefinder}
-riceve questo messaggio provvederà a inoltrare la richiesta all'\gloss{attore} di tipo
-\hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storekeeper::\allowbreak{}Storekeeper}
-contenente l'\gloss{attore} di tipo
-\hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storekeeper::\allowbreak{}Storekeeper}
-contenente l'\gloss{item} da rimuovere.
+Quando \hyperref[sec:actorbase::actorsystem::userfinder::Userfinder]{actorbase::\allowbreak{}actorsystem::\allowbreak{}userfinder::\allowbreak{}Userfinder}
+riceve questo messaggio provvederà ad inoltrare all'attore di tipo
+\hyperref[sec:actorbase::actorsystem::userkeeper::Userkeeper]{actorbase::\allowbreak{}actorsystem::\allowbreak{}userkeeper::\allowbreak{}Userkeeper}.
 
-\paragraph{actorbase::actorsystem::storefinder::messages::Insert}
-\label{sec:actorbase::actorsystem::storefinder::messages::Insert}
+\subparagraph{Attributi}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  collection & public & immutabile & ActorbaseCollection & Collezione di cui aggiornare il contatore \\
+  \hline
+  increment & public & immutabile & Boolean & Se true causa un incremento del contatore, se false causa un decremento del contatore \\
+  \hline
+\end{tabular}
 
-\subparagraph{Descrizione}
 
-Messaggio importato dal package \hyperref[sec:actorbase::actorsystem::storefinder::messages]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storefinder::\allowbreak{}messages}
-che indica la richiesta di inserimento di un \gloss{item}.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subparagraph{Utilizzo}
-
-Quando \hyperref[sec:actorbase::actorsystem::main::Main]{actorbase::\allowbreak{}actorsystem::\allowbreak{}main::\allowbreak{}Main}
-riceve questo messaggio provvederà a inoltrare la richiesta all'\gloss{attore} di tipo
-\hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storefinder::\allowbreak{}Storefinder}
-contenente l'\gloss{attore} di tipo
-\hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storekeeper::\allowbreak{}Storekeeper}
-destinato a ricevere l'\gloss{item} da inserire.
-
-\subsection{actorbase::actorsystem::userkeeper}
+\subsection{actorbase::actorsystem::userkeeper} %TODO fatto, non so se ci sia da aggiornare qualcosa, tipo l'immagine, boh
 \label{sec:actorbase::actorsystem::userkeeper}
 
 \begin{figure}[H]
@@ -1205,15 +1621,11 @@ destinato a ricevere l'\gloss{item} da inserire.
 \end{figure}
 
 \subsubsection{Descrizione}
-
 Classe che rappresenta un \gloss{attore} di tipo \gloss{Userkeeper}.
 
 \subsubsection{Package contenuti}
-
 \begin{itemize}
-
 \item \hyperref[sec:actorbase::actorsystem::userkeeper::messages]{actorbase::actorsystem::userkeeper::messages}.
-
 \end{itemize}
 
 \subsubsection{Classi}
@@ -1222,26 +1634,49 @@ Classe che rappresenta un \gloss{attore} di tipo \gloss{Userkeeper}.
 \label{sec:actorbase::actorsystem::userkeeper::Userkeeper}
 
 \subparagraph{Descrizione}
-
 Classe che rappresenta un \gloss{attore} di tipo \gloss{Userkeeper}.
 
 \subparagraph{Utilizzo}
-
-Questa classe viene utilizzata per salvare gli utenti nel \gloss{database}.
+Questa classe viene utilizzata per salvare gli utenti e i loro dati nel \gloss{database}.
 
 \subparagraph{Classi ereditate}
-
 \begin{itemize}
-
 \item akka::actor::Actor.
-
 \end{itemize}
 
-\subparagraph{Interazioni con altre classi}
+\subparagraph{Attributi}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  collections & private & mutabile & ListBuffer [String] & Rappresenta la lista di collezioni di cui l'utente ha permessi di lettura e scrittura \\
+  \hline
+  readCollections & private & mutabile & ListBuffer [String] & Rappresenta la lista di collezioni di cui l'utente ha permessi di sola lettura \\
+  \hline
+  client & private & mutabile & ActorRef & Riferimento all'attore di tipo \gloss{ClientActor}. Questo servirà a velocizzare l'aggiornamento del \gloss{ClientActor} \\
+  \hline
+  username & private & mutabile & String & Stringa che rappresenta l'username dell'utente associato a questo Userkeeper \\
+  \hline
+  password & private & mutabile & String & Stringa che rappresenta la password dell'utente associato a questo Userkeeper \\
+  \hline
+  uuid & private & immutable & String & Stringa generata casualmente che rappresenta l'id dell'utente associato a questo Userkeeper \\
+  \hline
+\end{tabular}
 
-\begin{itemize}
-\item akka::actor::ActorRef.
-\end{itemize}
+\subparagraph{Metodi}
+\begin{tabular}{| l | l | l | l |}
+  \hline
+  Nome & Accesso & Tipo di ritorno & Descrizione\\
+  \hline
+  receive & public & Actor.Receive  & Effettua operazioni diverse a seconda del tipo di messaggio ricevuto\\
+  \hline
+  updateOwnerOfSK & private &  Unit & Metodo che aggiorna il proprietario di tutti gli \hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{Storekeeper} mappati dallo storefinder\\
+  \hline
+  waitingForRequests & private & Actor.Receive & Metodo che definisce il tipo di messaggio che l'attore \hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{Storefinder} può ricevere mentre si trova nello stato waitingForRequests\\
+  \hline
+  processingRequest & private & Actor.Receive & Metodo che definisce il tipo di messaggio che l'attore \hyperref[sec:actorbase::actorsystem::main::storefinder::Storefinder]{Storefinder} può ricevere mentre si trova nello stato processingRequest\\
+  \hline
+\end{tabular}
 
 \subsection{actorbase::actorsystem::userkeeper::messages}
 \label{sec:actorbase::actorsystem::userkeeper::messages}
@@ -1257,44 +1692,45 @@ Questa classe viene utilizzata per salvare gli utenti nel \gloss{database}.
 \label{sec:actorbase::actorsystem::userkeeper::messages::GetCollections}
 
 \subparagraph{Descrizione}
-
 Messaggio che indica la richiesta della lista di \gloss{collezioni} di cui
-l'utente ha  permessi in lettura e scrittura.
+l'utente ha permessi in lettura e scrittura.
 
 \subparagraph{Utilizzo}
-
 Quando \hyperref[sec:actorbase::actorsystem::userkeeper::Userkeeper]{actorbase::\allowbreak{}actorsystem::\allowbreak{}userkeeper::\allowbreak{}Userkeeper}
 riceve questo messaggio provvederà a restituire all'\gloss{attore} di tipo
 \hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{actorbase::\allowbreak{}actorsystem::\allowbreak{}clientactor::\allowbreak{}ClientActor}
 la lista di \gloss{collezioni} di cui l'utente ha permessi in lettura
 e scrittura.
 
-\paragraph{actorbase::actorsystem::userkeeper::messages::GetReadCollection}
-\label{sec:actorbase::actorsystem::userkeeper::messages::GetReadCollection}
+\subparagraph{Attributi}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  write & public & immutabile & Boolean & Booleano che serve a scegliere se il metodo deve tornare la lista di collezioni cui l'utente ha permessi in sola lettura (se write = false) o in lettura e scrittura (se write = true) \\
+  \hline
+\end{tabular}
 
-\subparagraph{Descrizione}
-
-Messaggio che indica la richiesta della lista di \gloss{collezioni} di cui
-l'utente ha  permessi in lettura.
-
-\subparagraph{Utilizzo}
-
-Quando \hyperref[sec:actorbase::actorsystem::userkeeper::Userkeeper]{actorbase::\allowbreak{}actorsystem::\allowbreak{}userkeeper::\allowbreak{}Userkeeper}
-riceve questo messaggio provvederà a restituire all'\gloss{attore} di tipo
-\hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{actorbase::\allowbreak{}actorsystem::\allowbreak{}clientactor::\allowbreak{}ClientActor}
-la lista di \gloss{collezioni} di cui l'utente ha permessi in lettura.
 
 \paragraph{actorbase::actorsystem::userkeeper::messages::ChangePassword}
 \label{sec:actorbase::actorsystem::userkeeper::messages::ChangePassword}
 
 \subparagraph{Descrizione}
-
 Messaggio che indica la richiesta di cambiamento della password.
 
 \subparagraph{Utilizzo}
-
 Quando \hyperref[sec:actorbase::actorsystem::userkeeper::Userkeeper]{actorbase::\allowbreak{}actorsystem::\allowbreak{}userkeeper::\allowbreak{}Userkeeper}
 riceve questo messaggio provvederà a modificare la password dell'utente.
+
+\subparagraph{Attributi}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  newPassword & public & immutabile & String & stringa che rappresenta la nuova password da assegnare all'utente rappresentato \\
+  \hline
+\end{tabular}
+
 
 \paragraph{actorbase::actorsystem::userkeeper::messages::GetPassword}
 \label{sec:actorbase::actorsystem::userkeeper::messages::GetPassword}
@@ -1316,14 +1752,26 @@ riceve questo messaggio provvederà a inviare la password all'\gloss{attore} di 
 
 Messaggio che indica la richiesta di rimozione di una \gloss{collezione} dalla
 lista contenente le \gloss{collezioni} di cui l'utente ha permessi in lettura
-e scrittura.
+o in scrittura.
 
 \subparagraph{Utilizzo}
 
 Quando \hyperref[sec:actorbase::actorsystem::userkeeper::Userkeeper]{actorbase::\allowbreak{}actorsystem::\allowbreak{}userkeeper::\allowbreak{}Userkeeper}
 riceve questo messaggio provvederà a rimuovere la \gloss{collezione} desiderata
 dalla lista contenente le \gloss{collezioni} di cui l'utente ha permessi in
-lettura e scrittura.
+lettura o in scrittura.
+
+\subparagraph{Attributi}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  write & public & immutabile & Boolean & Boolean che rappresenta i permessi dell'utente sulla collezione da rimuovere ( \=0 se sola lettura e \=1 se lettura e scrittura) \\
+  \hline
+  collection & public & immutabile & String & Stringa che rappresenta il nome della collezione da rimuovere \\
+  \hline
+\end{tabular}
+
 
 \paragraph{actorbase::actorsystem::userkeeper::messages::AddCollection}
 \label{sec:actorbase::actorsystem::userkeeper::messages::AddCollection}
@@ -1332,44 +1780,26 @@ lettura e scrittura.
 
 Messaggio che indica la richiesta di aggiunta di una \gloss{collezione} dalla
 lista contenente le \gloss{collezioni} di cui l'utente ha permessi in lettura
-e scrittura.
+o in lettura e scrittura.
 
 \subparagraph{Utilizzo}
 
 Quando \hyperref[sec:actorbase::actorsystem::userkeeper::Userkeeper]{actorbase::\allowbreak{}actorsystem::\allowbreak{}userkeeper::\allowbreak{}Userkeeper}
 riceve questo messaggio provvederà ad aggiungere la \gloss{collezione} desiderata
 dalla lista contenente le \gloss{collezioni} di cui l'utente ha permessi in
-lettura e scrittura.
+lettura o in lettura e scrittura.
 
-\paragraph{actorbase::actorsystem::userkeeper::messages::RemoveReadCollection}
-\label{sec:actorbase::actorsystem::userkeeper::messages::RemoveReadCollection}
+\subparagraph{Attributi}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione \\
+  \hline
+  write & public & immutabile & Boolean & Boolean che rappresenta i permessi dell'utente sulla collezione da aggiungere ( \=0 se sola lettura e \=1 se lettura e scrittura) \\
+  \hline
+  collection & public & immutabile & String & Stringa che rappresenta il nome della collezione da aggiungere \\
+  \hline
+\end{tabular}
 
-\subparagraph{Descrizione}
-
-Messaggio che indica la richiesta di rimozione di una \gloss{collezione} dalla
-lista contenente le \gloss{collezioni} di cui l'utente ha permessi in lettura.
-
-\subparagraph{Utilizzo}
-
-Quando \hyperref[sec:actorbase::actorsystem::userkeeper::Userkeeper]{actorbase::\allowbreak{}actorsystem::\allowbreak{}userkeeper::\allowbreak{}Userkeeper}
-riceve questo messaggio provvederà a rimuovere la \gloss{collezione} desiderata
-dalla lista contenente le \gloss{collezioni} di cui l'utente ha permessi in
-lettura.
-
-\paragraph{actorbase::actorsystem::userkeeper::messages::AddReadCollection}
-\label{sec:actorbase::actorsystem::userkeeper::messages::AddReadCollection}
-
-\subparagraph{Descrizione}
-
-Messaggio che indica la richiesta di aggiunta di una \gloss{collezione} dalla
-lista contenente le \gloss{collezioni} di cui l'utente ha permessi in lettura.
-
-\subparagraph{Utilizzo}
-
-Quando \hyperref[sec:actorbase::actorsystem::userkeeper::Userkeeper]{actorbase::\allowbreak{}actorsystem::\allowbreak{}userkeeper::\allowbreak{}Userkeeper}
-riceve questo messaggio provvederà ad aggiungere la \gloss{collezione} desiderata
-dalla lista contenente le \gloss{collezioni} di cui l'utente ha permessi in
-lettura.
 
 \paragraph{actorbase::actorsystem::userkeeper::messages::BindClient}
 \label{sec:actorbase::actorsystem::userkeeper::messages::BindClient}
@@ -1385,7 +1815,44 @@ riceve questo messaggio provvederà a salvarsi il riferimento dell'\gloss{attore
 \hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{actorbase::\allowbreak{}actorsystem::\allowbreak{}clientactor::\allowbreak{}ClientActor}
 che ha inviato questo messaggio.
 
-\subsection{actorbase::actorsystem::storefinder}
+\subparagraph{Attributi}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  client & public & immutabile & ActorRef & Riferimento all'attore del tipo \gloss{ClientActor} che si occupa delle richieste dell'utente rappresentato da questo Userkeeper \\
+  \hline
+\end{tabular}
+
+\paragraph{actorbase::actorsystem::userkeeper::messages::UpdateCollectionSize}
+\label{sec:actorbase::actorsystem::userkeeper::messages::UpdateCollectionSize}
+
+\subparagraph{Descrizione}
+
+Messaggio che aggiorna il numero di item di una collezione.
+
+\subparagraph{Utilizzo}
+
+Quando \hyperref[sec:actorbase::actorsystem::userkeeper::Userkeeper]{actorbase::\allowbreak{}actorsystem::\allowbreak{}userkeeper::\allowbreak{}Userkeeper}
+riceve questo messaggio provvederà ad aggiornare il contatore relativo al numero di oggetti
+nella collezione.
+
+\subparagraph{Attributi}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  collection & public & immutabile & ActorbaseCollection & Collezione di cui aggiornare il contatore \\
+  \hline
+  increment & public & immutabile & Boolean & Se true causa un incremento del contatore, se false causa un decremento del contatore \\
+  \hline
+\end{tabular}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{actorbase::actorsystem::storefinder} %TODO DA controllare e finire
 \label{sec:actorbase::actorsystem::storefinder}
 
 \begin{figure}[H]
@@ -1396,15 +1863,11 @@ che ha inviato questo messaggio.
 \end{figure}
 
 \subsubsection{Descrizione}
-
 Classe che rappresenta un \gloss{attore} di tipo \gloss{Storefinder}.
 
 \subsubsection{Package contenuti}
-
 \begin{itemize}
-
 \item \hyperref[sec:actorbase::actorsystem::storefinder::messages]{actorbase::actorsystem::storefinder::messages}.
-
 \end{itemize}
 
 \subsubsection{Classi}
@@ -1417,7 +1880,6 @@ Classe che rappresenta un \gloss{attore} di tipo \gloss{Storefinder}.
 Classe che rappresenta un \gloss{attore} di tipo \gloss{Storefinder}.
 
 \subparagraph{Utilizzo}
-
 Questa classe viene utilizzata per tener traccia degli attori di tipo
 \hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{actorbase::actorsystem::storekeeper::Storekeeper}.
 
@@ -1429,31 +1891,31 @@ Questa classe viene utilizzata per tener traccia degli attori di tipo
 
 \end{itemize}
 
-\subparagraph{Interazioni con altre classi}
+\subparagraph{Attributi}
 
-\begin{itemize}
-\item akka::actor::ActorRef;
-\item \hyperref[sec:actorbase::actorsystem::storefinder::SKRange]{actorbase::actorsystem::storefinder::SKRange}.
-\end{itemize}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  skMap & private & mutabile & TreeMap [KeyRange, ActorRef] & Rappresenta la mappa di attori di tipo storekeeper relativi alla collezione \\
+  \hline
+  collection & private & mutabile & actorbaseCollection & Rappresenta il nome della collezione che va a rappresentare\\
+  \hline
+  range & private & mutabile & KeyRange & Rappresenta l'intervallo delle chiavi mappabili nel particolare storefinder\\
+  \hline
+  maxSize & private & immutabile & int & Rappresenta la grandezza massima della collezione\\
+  \hline
+\end{tabular}
 
-\paragraph{actorbase::actorsystem::storefinder::SKRange}
-\label{sec:actorbase::actorsystem::storefinder::SKRange}
+\subparagraph{Metodi}
 
-\subparagraph{Descrizione}
-
-Classe che rappresenta i range di indici contenuti in ogni \gloss{attore} di tipo
-\gloss{Storekeeper}.
-
-\subparagraph{Utilizzo}
-
-Questa classe viene utilizzata per tener traccia del contenuto degli attori di tipo
-\hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storekeeper::\allowbreak{}Storekeeper}.
-
-\subparagraph{Interazioni con altre classi}
-
-\begin{itemize}
-\item \hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{actorbase::actorsystem::storefinder::Storefinder}.
-\end{itemize}
+\begin{tabular}{| l | l | l | l |}
+  \hline
+  Nome & Accesso & Tipo di ritorno & Descrizione\\
+  \hline
+  receive & public &  & Effettua operazioni diverse a seconda del tipo di messaggio ricevuto\\
+  \hline
+\end{tabular}
 
 \subsection{actorbase::actorsystem::storefinder::messages}
 \label{sec:actorbase::actorsystem::storefinder::messages}
@@ -1465,33 +1927,34 @@ Questa classe viene utilizzata per tener traccia del contenuto degli attori di t
 
 \subsubsection{Classi}
 
-\paragraph{actorbase::actorsystem::storefinder::messages::Init}
-\label{sec:actorbase::actorsystem::storefinder::messages::Init}
+\paragraph{actorbase::actorsystem::storefinder::messages::DuplicationRequestSK}
+\label{sec:actorbase::actorsystem::storefinder::messages::DuplicationRequestSK}
 
 \subparagraph{Descrizione}
-
-Messaggio che, se ricevuto dall'\gloss{attore} di tipo \gloss{Storefinder},
-indica la necessità di inizializzare degli \gloss{Storekeeper}.
-
-\subparagraph{Utilizzo}
-
-Quando \hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storefinder::\allowbreak{}Storefinder}
-riceve questo messaggio provvederà a inizializzare gli attori di tipo
-\hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storekeeper::\allowbreak{}Storekeeper}
-presenti nella cartella indicata dal messaggio.
-
-\paragraph{actorbase::actorsystem::storefinder::messages::DuplicateRequest}
-\label{sec:actorbase::actorsystem::storefinder::messages::DuplicateRequest}
-
-\subparagraph{Descrizione}
-
-Messaggio che, se ricevuto dall'\gloss{attore} di tipo \gloss{Storefinder},
-indica l'avvenuta divisione di uno \gloss{Storekeeper}.
+Messaggio atto ad aggiornare uno Storefinder a seguito di una duplicazione
+di un attore di tipo Storekeeper.\\
 
 \subparagraph{Utilizzo}
-
 Quando \hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storefinder::\allowbreak{}Storefinder}
-riceve questo messaggio provvederà ad aggiornare i suoi indici.
+riceve questo messaggio provvederà ad aggiornare la sua struttura dati.\\In
+particolare aggiornerà i range di chiavi contenuti dagli Storekeeper presenti
+nella sua struttura dati.
+
+\subparagraph{Attributi}  % TODO da fare quando il metodo sarà fatto
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  oldKeyRange & public & immutabile & \hyperref[sec:actorbase::actorsystem::utils::KeyRange]{KeyRange} & rappresenta il \hyperref[sec:actorbase::actorsystem::utils::KeyRange]{KeyRange} da duplicare\\
+  \hline
+  leftRange & public & immutabile & \hyperref[sec:actorbase::actorsystem::utils::KeyRange]{KeyRange} & rappresenta il \hyperref[sec:actorbase::actorsystem::utils::KeyRange]{KeyRange} da assegnare allo \hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{Storekeeper} duplicato \\
+  \hline
+  map & public & immutable & struttura dati dello \hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{Storekeeper} da creare\\
+  \hline
+  rightRange & public & immutabile & \hyperref[sec:actorbase::actorsystem::utils::KeyRange]{KeyRange} & rappresenta il \hyperref[sec:actorbase::actorsystem::utils::KeyRange]{KeyRange} da assegnare allo \hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{Storekeeper} da creare\\
+  \hline
+\end{tabular}
+
 
 \paragraph{actorbase::actorsystem::storefinder::messages::GetItem}
 \label{sec:actorbase::actorsystem::storefinder::messages::GetItem}
@@ -1507,6 +1970,15 @@ riceve questo messaggio provvederà a inoltrare la richiesta all'\gloss{attore} 
 \hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storekeeper::\allowbreak{}Storekeeper}
 che contiene l'\gloss{item} cercato.
 
+\subparagraph{Attributi}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  key & public & immutabile & String & chiave che rappresenta l'\gloss{item} cercato\\
+  \hline
+\end{tabular}
+
 \paragraph{actorbase::actorsystem::storefinder::messages::RemoveItem}
 \label{sec:actorbase::actorsystem::storefinder::messages::RemoveItem}
 
@@ -1520,6 +1992,15 @@ Quando \hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{actorbase
 riceve questo messaggio provvederà a inoltrare la richiesta all'\gloss{attore} di tipo
 \hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storekeeper::\allowbreak{}Storekeeper}
 che contiene l'\gloss{item} da rimuovere.
+
+\subparagraph{Attributi}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  key & public & immutabile & String & chiave che rappresenta l'\gloss{item} da rimuovere\\
+  \hline
+\end{tabular}
 
 \paragraph{actorbase::actorsystem::storefinder::messages::Insert}
 \label{sec:actorbase::actorsystem::storefinder::messages::Insert}
@@ -1535,6 +2016,87 @@ riceve questo messaggio provvederà a inoltrare la richiesta all'\gloss{attore} 
 \hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storekeeper::\allowbreak{}Storekeeper}
 destinato a ricevere l'\gloss{item} da inserire.
 
+\subparagraph{Attributi}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  key & public & immutabile & String & chiave che rappresenta l'\gloss{item} da inserire\\
+  \hline
+  value & public & immutable & Any & valore dell'\gloss{item} da inserire\\
+  \hline
+  update & public & immutable & Boolean & flag che serve a sapere se l'\gloss{item} da inserire può sovrascrivere un \gloss{item} già presente o no\\
+  \hline
+\end{tabular}
+
+\paragraph{actorbase::actorsystem::storefinder::messages::GetAllItem}
+\label{sec:actorbase::actorsystem::storefinder::messages::GetAllItem}
+
+\subparagraph{Descrizione}
+
+Messaggio che indica la richiesta di restituzione di tutti gli
+\gloss{item} mappati dallo Storefinder.
+
+\subparagraph{Utilizzo}
+
+Quando \hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storefinder::\allowbreak{}Storefinder}
+riceve questo messaggio provvederà a inoltrare la richiesta a tutti gli attori
+di tipo
+\hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storekeeper::\allowbreak{}Storekeeper}
+che dovranno restituire tutti gli \gloss{items} contenuti in essi.
+
+\paragraph{actorbase::actorsystem::storefinder::messages::GetAllItemResponse}
+\label{sec:actorbase::actorsystem::storefinder::messages::GetAllItemResponse}
+
+\subparagraph{Descrizione}
+
+Messaggio che serve per comporre l'intera collezione da restituire all'utente
+
+\subparagraph{Utilizzo}
+
+Quando \hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{Storefinder}
+riceve questo messaggio non farà altro che richiamare il metodo
+\hyperref[sec:actorbase::actorsystem::main::messages::GetItemFromResponse]{GetItemFromResponse} del Main.
+
+\subparagraph{Attributi}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  clientRef & public & immutabile & ActorRef & Riferimento del client che richiede la collezione\\
+  \hline
+  items & public & immutabile & TreeMap[String, Any] & rappresenta un pezzo della collezione richiesta\\
+  \hline
+\end{tabular}
+
+\paragraph{actorbase::actorsystem::storefinder::messages::UpdateCollectionSize}
+\label{sec:actorbase::actorsystem::storefinder::messages::UpdateCollectionSize}
+
+\subparagraph{Descrizione}
+
+Messaggio che incrementa il numero delle coppie chiave-valore alla collezione
+
+\subparagraph{Utilizzo}
+
+Quando \hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{Storefinder}
+riceve questo messaggio non farà altro che richiamare il metodo
+\hyperref[sec:actorbase::actorsystem::main::messages::UpdateCollectionSize]{UpdateCollectionSize} del Main.
+
+\subparagraph{Attributi}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  collection & public & immutable & ActorbaseCollection & Nome della collezione che si vuole incrementare\\
+  \hline
+  increment & public & immutable & boolean & indica se deve esser fatto un incremento (true) o un decremento (false)\\
+  \hline
+\end{tabular}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \subsection{actorbase::actorsystem::storekeeper}
 \label{sec:actorbase::actorsystem::storekeeper}
 
@@ -1546,15 +2108,11 @@ destinato a ricevere l'\gloss{item} da inserire.
 \end{figure}
 
 \subsubsection{Descrizione}
-
 \gloss{Package} che rappresenta l'\gloss{attore} di tipo \gloss{Storekeeper}.
 
 \subsubsection{Package contenuti}
-
 \begin{itemize}
-
 \item \hyperref[sec:actorbase::actorsystem::storekeeper::messages]{actorbase::actorsystem::storekeeper::messages}.
-
 \end{itemize}
 
 \subsubsection{Classi}
@@ -1563,26 +2121,66 @@ destinato a ricevere l'\gloss{item} da inserire.
 \label{sec:actorbase::actorsystem::storekeeper::Storekeeper}
 
 \subparagraph{Descrizione}
-
 Classe che rappresenta un \gloss{attore} di tipo \gloss{Storekeeper}.
 
 \subparagraph{Utilizzo}
-
 Questa classe viene utilizzata per salvare nel \gloss{database} gli item.
 
 \subparagraph{Classi ereditate}
-
 \begin{itemize}
-
 \item akka::actor::Actor.
-
 \end{itemize}
 
-\subparagraph{Interazioni con altre classi}
+\subparagraph{Attributi}
 
-\begin{itemize}
-\item akka::actor::ActorRef.
-\end{itemize}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  parentRef & private & mutabile & ActorRef & Riferimento all'attore di tipo \gloss{Storefinder} che contiene l'attore di tipo \gloss{Storekeeper} \\
+  \hline
+  data & private & mutabile & TreeMap [String, Any] & Rappresenta l'insieme di \gloss{item} contenuta nell'attore\\
+  \hline
+  range & private & mutabile & KeyRange & Rappresenta il range di chiavi contenuta nell'attore\\
+  \hline
+  collection & private & immutabile & ActorbaseCollection & Rappresenta la collezione a cui lo \gloss{Storekeeper} appartiene\\
+  \hline
+  parentRange & private & mutabile & KeyRange & Rappresenta il range di chiavi contenuta nell'attore di tipo \gloss{Storefinder} che contiene lo \gloss{Storekeeper}\\
+  \hline
+  maxSize & private & immutabile & Int & Rappresenta il numero massimo di \gloss{item} che possono essere contenuti\\
+  \hline
+  warehouseman & private & immutabile & ActorRef & Rappresenta il \gloss{Warehouseman} responsabile del salvataggio dei dati dello \gloss{Storekeeper}\\
+  \hline
+\end{tabular}
+
+\subparagraph{Metodi}
+
+\begin{tabular}{| l | l | l | l |}
+  \hline
+  Nome & Accesso & Tipo di ritorno & Descrizione\\
+  \hline
+  receive & public &  & Effettua operazioni diverse a seconda del tipo di messaggio ricevuto\\
+  \hline
+  insertOrUpdate & private & & Inserisce un item nella collezione\\
+  \hline
+\end{tabular}
+
+\subparagraph{Parametri}
+
+\begin{center}
+  \textbf{insertOrUpdate}\\
+\end{center}
+\begin{tabular}{| l | l | l |}
+  \hline
+  Nome & Tipo & Descrizione\\
+  \hline
+  update & Boolean & Variabile che, se uguale a true, indica che l'inserimento da effettuare è con sovrascrittura\\
+  \hline
+  key & String & Variabile che indica la chiave dell'\gloss{item} da inserire\\
+  \hline
+  value & Any & Variabile che indica il valore dell'\gloss{item} da inserire\\
+  \hline
+\end{tabular}
 
 \subsection{actorbase::actorsystem::storekeeper::messages}
 \label{sec:actorbase::actorsystem::storekeeper::messages}
@@ -1594,20 +2192,6 @@ ricevuti dall'\gloss{attore} di tipo
 \hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storekeeper::\allowbreak{}Storekeeper}.
 
 \subsubsection{Classi}
-
-\paragraph{actorbase::actorsystem::storekeeper::messages::Init}
-\label{sec:actorbase::actorsystem::storekeeper::messages::Init}
-
-\subparagraph{Descrizione}
-
-Messaggio che richiede l'inizializzazione dello \gloss{Storekeeper}.
-
-\subparagraph{Utilizzo}
-
-Quando \hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{actorbase::actorsystem::storekeeper::Storekeeper}
-riceve questo messaggio manda un messaggio all'\gloss{attore} di tipo
-\hyperref[sec:actorbase::actorsystem::warehouseman::Warehouseman]{actorbase::\allowbreak{}actorsystem::\allowbreak{}warehouseman::\allowbreak{}Warehouseman}
-per la \gloss{deserializzazione} dei dati da leggere da disco.
 
 \paragraph{actorbase::actorsystem::storekeeper::messages::GetItem}
 \label{sec:actorbase::actorsystem::storekeeper::messages::GetItem}
@@ -1623,6 +2207,15 @@ Quando \hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{actorbase
 riceve questo messaggio risponde mandando l'\gloss{item} cercato all'\gloss{attore} di tipo
 \hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{actorbase::actorsystem::clientactor::ClientActor}
 che aveva effettuato la richiesta.
+
+\subparagraph{Attributi}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  key & public & immutabile & String & chiave che rappresenta l'\gloss{item} cercato\\
+  \hline
+\end{tabular}
 
 \paragraph{actorbase::actorsystem::storekeeper::messages::GetAllItem}
 \label{sec:actorbase::actorsystem::storekeeper::messages::GetAllItem}
@@ -1649,7 +2242,20 @@ Messaggio che richiede l'inserimento di un \gloss{item}.
 \subparagraph{Utilizzo}
 
 Quando \hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{actorbase::actorsystem::storekeeper::Storekeeper}
-riceve questo messaggio inserisce l'\gloss{item}.
+riceve questo messaggio inserisce l'\gloss{item} nel suo attributo data.
+
+\subparagraph{Attributi}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  key & public & immutabile & String & Chiave che rappresenta l'\gloss{item} da inserire\\
+  \hline
+  value & public & immutabile & Any & Valore dell'\gloss{item} da inserire\\
+  \hline
+  update & public & immutabile & Boolean & Indica se l'inserimento da effettuare sia con o senza sovrascrittura\\
+  \hline
+\end{tabular}
 
 \paragraph{actorbase::actorsystem::storekeeper::messages::RemoveItem}
 \label{sec:actorbase::actorsystem::storekeeper::messages::RemoveItem}
@@ -1663,67 +2269,40 @@ Messaggio che richiede la rimozione di un \gloss{item}.
 Quando \hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{actorbase::actorsystem::storekeeper::Storekeeper}
 riceve questo messaggio rimuove l'\gloss{item}.
 
-\subsection{actorbase::actorsystem::ninja}
-\label{sec:actorbase::actorsystem::ninja}
+\subparagraph{Attributi}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  key & public & immutabile & String & Chiave che rappresenta l'\gloss{item} da rimuovere\\
+  \hline
+\end{tabular}
 
-\begin{figure}[H]
-  \begin{center}
-    \includegraphics[width=0.8\textwidth,keepaspectratio]{RP/Ninja.png}
-    \caption{Ninja e interazioni con storekeeper}
-  \end{center}
-\end{figure}
-
-\subsubsection{Descrizione}
-
-\gloss{Package} che rappresenta l'\gloss{attore} di tipo \gloss{Ninja}.
-
-\subsubsection{Package contenuti}
-
-\begin{itemize}
-
-\item \hyperref[sec:actorbase::actorsystem::ninja::messages]{actorbase::actorsystem::ninja::messages}.
-
-\end{itemize}
-
-\subsubsection{Classi}
-
-\paragraph{actorbase::actorsystem::ninja::Ninja}
-\label{sec:actorbase::actorsystem::ninja::Ninja}
+\paragraph{actorbase::actorsystem::storekeeper::messages::UpdateOwnerOfSk}
+\label{sec:actorbase::actorsystem::storekeeper::messages::UpdateOwnerOfSk}
 
 \subparagraph{Descrizione}
 
-Classe che rappresenta un \gloss{attore} di tipo \gloss{Ninja}.
+Messaggio che richiede l'update del campo dati che rappresenta lo \hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{Storefinder} che contiene lo \hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{Storekeeper} che ha ricevuto il messaggio.
 
 \subparagraph{Utilizzo}
 
-Questa classe viene utilizzata per avere un \gloss{backup} per gli attori di tipo
-\hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{actorbase::actorsystem::storekeeper::Storekeeper}.
+Quando \hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{Storekeeper}
+riceve questo messaggio aggiorna il campo dati relativo allo \hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{Storefinder} che lo contiene.
 
-\subparagraph{Classi ereditate}
+\subparagraph{Attributi}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  newParent & public & immutabile & ActorRef & Rappresenta lo \hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{Storefinder} che diventerà padre \\
+  \hline
+  newRange & public & immutabile & KeyRange & Rappresenta il range dello \hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{Storefinder} che diventerà padre \\
+  \hline
+\end{tabular}
 
-\begin{itemize}
-
-\item akka::actor::Actor.
-
-\end{itemize}
-
-\subparagraph{Interazioni con altre classi}
-
-\begin{itemize}
-\item akka::actor::ActorRef.
-\end{itemize}
-
-\subsection{actorbase::actorsystem::ninja::messages}
-\label{sec:actorbase::actorsystem::ninja::messages}
-
-\subparagraph{Descrizione}
-
-\gloss{Package} che contiene tutti i messaggi che possono essere ricevuti
-dall'\gloss{attore} di tipo
-\hyperref[sec:actorbase::actorsystem::ninja::Ninja]{actorbase::actorsystem::ninja::Ninja}
-
-\paragraph{actorbase::actorsystem::ninja::messages::Update}
-\label{sec:actorbase::actorsystem::ninja::messages::Update}
+\paragraph{actorbase::actorsystem::storekeeper::messages::Update}
+\label{sec:actorbase::actorsystem::storekeeper::messages::Update}
 
 \subparagraph{Descrizione}
 
@@ -1731,11 +2310,11 @@ Messaggio che richiede l'update dell'\gloss{attore} che lo riceve.
 
 \subparagraph{Utilizzo}
 
-Quando \hyperref[sec:actorbase::actorsystem::ninja::Ninja]{actorbase::actorsystem::ninja::Ninja}
+Quando \hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{actorbase::actorsystem::storekeeper::Storekeeper}
 riceve questo messaggio aggiorna gli \gloss{item} che contiene.
 
-\paragraph{actorbase::actorsystem::ninja::messages::BecomeSK}
-\label{sec:actorbase::actorsystem::ninja::messages::BecomeSK}
+\paragraph{actorbase::actorsystem::storekeeper::messages::BecomeSK}
+\label{sec:actorbase::actorsystem::storekeeper::messages::BecomeSK}
 
 \subparagraph{Descrizione}
 
@@ -1743,11 +2322,41 @@ Messaggio che richiede che l'\gloss{attore} di tipo \gloss{Ninja} diventi di tip
 \gloss{Storekeeper}.
 
 \subparagraph{Utilizzo}
-
-Quando \hyperref[sec:actorbase::actorsystem::ninja::Ninja]{actorbase::actorsystem::ninja::Ninja}
-riceve questo messaggio cambia il proprio contesto importando tutti i messaggi
+Quando \hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{actorbase::actorsystem::storekeeper::Storekeeper}
+riceve questo messaggio ed è attualmente un attore di tipo \gloss{Ninja},
+esso cambia il proprio contesto e potrà ricevere tutti i messaggi
 di \hyperref[sec:actorbase::actorsystem::storekeeper::messages]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storekeeper::\allowbreak{}messages}
-e comportandosi come se fosse un \hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storekeeper::\allowbreak{}Storekeeper}.
+eccetto \hyperref[sec:actorbase::actorsystem::storekeeper::messages::BecomeNinja]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storekeeper::\allowbreak{}messages::\allowbreak{}BecomeNinja} e
+\hyperref[sec:actorbase::actorsystem::storekeeper::messages::Update]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storekeeper::\allowbreak{}messages::\allowbreak{}Update}.
+
+\paragraph{actorbase::actorsystem::storekeeper::messages::BecomeNinja}
+\label{sec:actorbase::actorsystem::storekeeper::messages::BecomeNinja}
+
+\subparagraph{Descrizione}
+Messaggio che richiede che l'\gloss{attore} di tipo \gloss{Storekeeper} diventi di tipo
+\gloss{Ninja}.
+
+\subparagraph{Utilizzo}
+Quando \hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{actorbase::actorsystem::storekeeper::Storekeeper}
+riceve questo messaggio cambia il proprio contesto diventando un attore di tipo \gloss{Ninja}. Questo comporta l'accesso ai messaggi
+\hyperref[sec:actorbase::actorsystem::storekeeper::messages::BecomeNinja]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storekeeper::\allowbreak{}messages::\allowbreak{}BecomeNinja},
+\hyperref[sec:actorbase::actorsystem::storekeeper::messages::Update]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storekeeper::\allowbreak{}messages::\allowbreak{}Update}.
+
+\paragraph{actorbase::actorsystem::storekeeper::messages::Persist}
+\label{sec:actorbase::actorsystem::storekeeper::messages::Persist}
+
+\subparagraph{Descrizione}
+Messaggio che richiede che il salvataggio su disco dei dati contenuti.
+
+\subparagraph{Utilizzo}
+Quando lo \hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{Storekeeper}
+riceve questo messaggio si occupa di mandare un messaggio al \hyperref[sec:actorbase::actorsystem::warehouseman::Warehouseman]{Warehouseman}
+per il salvataggio dei propri dati su disco.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{actorbase::actorsystem::manager}
 \label{sec:actorbase::actorsystem::manager}
@@ -1760,15 +2369,12 @@ e comportandosi come se fosse un \hyperref[sec:actorbase::actorsystem::storekeep
 \end{figure}
 
 \subsubsection{Descrizione}
-
 \gloss{Package} che rappresenta l'\gloss{attore} di tipo \gloss{Manager}.
 
 \subsubsection{Package contenuti}
 
 \begin{itemize}
-
 \item \hyperref[sec:actorbase::actorsystem::manager::messages]{actorbase::actorsystem::manager::messages}.
-
 \end{itemize}
 
 \subsubsection{Classi}
@@ -1777,34 +2383,32 @@ e comportandosi come se fosse un \hyperref[sec:actorbase::actorsystem::storekeep
 \label{sec:actorbase::actorsystem::manager::Manager}
 
 \subparagraph{Descrizione}
-
 Classe che rappresenta un \gloss{attore} di tipo \gloss{Manager}.
 
 \subparagraph{Utilizzo}
-
 Questa classe viene utilizzata per gestire le richieste di divisione di attori di tipo
-\hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{sec:actorbase::\allowbreak{}actorsystem::\allowbreak{}storekeeper::\allowbreak{}Storekeeper}
-e \hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{sec:actorbase::\allowbreak{}actorsystem::\allowbreak{}storefinder::\allowbreak{}Storefinder}.
+\hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{Storekeeper}
+e \hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{Storefinder}.
 
 \subparagraph{Classi ereditate}
-
 \begin{itemize}
-
 \item akka::actor::Actor.
-
 \end{itemize}
 
-\subparagraph{Interazioni con altre classi}
+\subparagraph{Attributi}
 
-\begin{itemize}
-\item akka::actor::ActorRef.
-\end{itemize}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  parentRef & private & immutabile & ActorRef & Riferimento all'attore di tipo \gloss{Storefinder} che l'ha creato\\
+  \hline
+\end{tabular}
 
 \subsection{actorbase::actorsystem::manager::messages}
 \label{sec:actorbase::actorsystem::manager::messages}
 
 \subparagraph{Descrizione}
-
 \gloss{Package} che contiene tutti i messaggi che possono essere ricevuti
 dall'\gloss{attore} di tipo
 \hyperref[sec:actorbase::actorsystem::manager::Manager]{actorbase::\allowbreak{}actorsystem::\allowbreak{}manager::\allowbreak{}Manager}
@@ -1815,16 +2419,31 @@ dall'\gloss{attore} di tipo
 \subparagraph{Descrizione}
 
 Messaggio che richiede la divisione a metà dell'\gloss{attore} di tipo
-\gloss{Storekeeper}.
+\hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{Storekeeper}.
 
 \subparagraph{Utilizzo}
 
-Quando \hyperref[sec:actorbase::actorsystem::manager::Manager]{actorbase::\allowbreak{}actorsystem::\allowbreak{}manager::\allowbreak{}Manager}
+Quando \hyperref[sec:actorbase::actorsystem::manager::Manager]{Manager}
 riceve questo messaggio provvederà a dividere a metà l'\gloss{attore} di tipo
-\hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storekeeper::\allowbreak{}Storekeeper}
-che dovrà essere diviso.Manderà inoltre un messaggio all'\gloss{attore} di tipo
-\hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storefinder::\allowbreak{}Storefinder}
+\hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{Storekeeper}
+che dovrà essere diviso.\\Manderà inoltre un messaggio \hyperref[sec:actorbase::actorsystem::storefinder::messages::DuplicateSKNotify]{DuplicateSKNotify} all'\gloss{attore} di tipo
+\hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{Storefinder}
 per aggiornare i suoi riferimenti.
+
+\subparagraph{Attributi}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  oldKeyRange & public & immutabile & KeyRange & KeyRange che rappresenta il range di chiavi identificativo da duplicare\\
+  \hline
+  leftRange & public & immutable & KeyRange & KeyRange che rappresenta il range di chiavi nuovo relativo allo Storekeeper che si è duplicato\\
+  \hline
+  map & public & immutable & TreeSet [String, Any] & struttura dati da inizializzare allo Storekeeper da creare\\
+  \hline
+  rightRange & public & immutable & KeyRange & KeyRange che rappresenta il range di chiavi da assegnare allo Storekeeper da creare\\
+  \hline
+\end{tabular}
 
 \paragraph{actorbase::actorsystem::manager::messages::DuplicationRequestSF}
 \label{sec:actorbase::actorsystem::manager::messages::DuplicationRequestSF}
@@ -1842,6 +2461,21 @@ riceve questo messaggio provvederà a dividere a metà l'\gloss{attore} di tipo
 che dovrà essere diviso. Manderà inoltre un messaggio all'\gloss{attore} di tipo
 \hyperref[sec:actorbase::actorsystem::main::Main]{actorbase::\allowbreak{}actorsystem::\allowbreak{}main::\allowbreak{}Main}
 per aggiornare i suoi riferimenti.
+
+\subparagraph{Attributi}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione \\
+  \hline
+  oldCollRange & public & immutabile & CollectionRange & CollectionRange che identifica quale CollectionRange è da duplicare \\
+  \hline
+  leftCollRange & public & immutable & CollRange & Identifica il nuovo CollectionRange dello Storefinder che si è duplicato \\
+  \hline
+  map & public & immutable & TreeSet [KeyRamge, ActorRef] & struttura dati da inizializzare allo Storefinder da creare\\
+  \hline
+  rightCollRange & public & immutable & CollRange & Identifica il nuovo CollectionRange dello Storefinder da duplicare \\
+  \hline
+\end{tabular}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % DRIVER PARTE                              %
