@@ -187,11 +187,12 @@ rappresentano il \gloss{server}.
 \item \hyperref[sec:actorbase::actorsystem::httpserver]{actorbase::actorsystem::httpserver};
 \item \hyperref[sec:actorbase::actorsystem::storefinder]{actorbase::actorsystem::storefinder};
 \item \hyperref[sec:actorbase::actorsystem::storekeeper]{actorbase::actorsystem::storekeeper};
+\item \hyperref[sec:actorbase::actorsystem::userfinder]{actorbase::actorsystem::userfinder};
+\item \hyperref[sec:actorbase::actorsystem::userkeeper]{actorbase::actorsystem::userkeeper};
 \item \hyperref[sec:actorbase::actorsystem::warehouseman]{actorbase::actorsystem::warehouseman};
 \item \hyperref[sec:actorbase::actorsystem::manager]{actorbase::actorsystem::manager};
-\item \hyperref[sec:actorbase::actorsystem::userkeeper]{actorbase::actorsystem::userkeeper};
 \item \hyperref[sec:actorbase::actorsystem::main]{actorbase::actorsystem::main};
-\item \hyperref[sec:actorbase::actorsystem::serialization]{actorbase::actorsystem::serialization}.
+\item \hyperref[sec:actorbase::actorsystem::serialization]{actorbase::actorsystem::utils}.
 \end{itemize}
 
 \subsection{actorbase::actorsystem::utils}
@@ -223,8 +224,6 @@ attori.
 Viene utilizzata da diversi attori del sistema. Questa classe espone metodi
 getter, un metodo compare e un metodo per controllare se una determinata
 stringa fa parte di questo intervallo di chiavi.
-
-\subparagraph{Eredita}
 
 \subparagraph{Realizza}
 \begin{itemize}
@@ -545,7 +544,7 @@ delle credenziali di login.
   \hline
   ec & ExecutionContext & Contesto di esecuzione all'interno del quale è stato chiamato questo metodo\\
   \hline
-  router & ActorRef & Riferimento dell'attore che si occuperà di comunicare con un attore \gloss{main} per cercare le credenziali all'interno del server\\
+  router & ActorRef & Riferimento dell'attore che si occuperà di comunicare con un attore \gloss{main} per effettuare le operazioni richieste \\
   \hline
 \end{tabular}
 \\
@@ -568,6 +567,98 @@ delle credenziali di login.
   Nome & Tipo & Descrizione\\
   \hline
   userPass & Option[UserPass] & Credenziali di accesso dell'utente che vuole autenticarsi\\
+  \hline
+\end{tabular}
+
+\paragraph{actorbase::actorsystem::clientactor::ItemApi}
+\label{sec:actorbase::actorsystem::clientactor::ItemApi}
+
+\subparagraph{Descrizione}
+
+Classe astratta usata per analizzare le route che richiedono operazioni su item.
+
+\subparagraph{Utilizzo}
+
+Questa classe viene usata dalla classe che la realizza per effettuare l'analisi
+delle route che richiedono operazioni su item.
+
+\subparagraph{Attributi}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  ec & public & immutabile & ExecutionContext & Rappresenta il Contesto di esecuzione all'interno del quale è stata creata questa classe \\
+\end{tabular}
+
+\subparagraph{Metodi}
+
+\begin{tabular}{| l | l | l | l |}
+  \hline
+  Nome & Accesso & Tipo di ritorno & Descrizione\\
+  \hline
+  items & public & Route & Metodo che interagisce con il server tramite un router basandosi sulla route immessa dall'utente\\
+  \hline
+\end{tabular}
+
+\subparagraph{Parametri}
+
+\begin{center}
+  \textbf{items}\\
+\end{center}
+\begin{tabular}{| l | l | l |}
+  \hline
+  Nome & Tipo & Descrizione\\
+  \hline
+  owner & String & Proprietario della collezione su cui si vuole operare\\
+  \hline
+  router & ActorRef & Riferimento dell'attore che si occuperà di comunicare con un attore \gloss{main} per effettuare le operazioni richieste\\
+  \hline
+  collectionName & String & Nome della collezione su cui si vuole operare\\
+  \hline
+\end{tabular}
+
+\paragraph{actorbase::actorsystem::clientactor::UserApi}
+\label{sec:actorbase::actorsystem::clientactor::UserApi}
+
+\subparagraph{Descrizione}
+
+Classe astratta usata per analizzare le route che richiedono operazioni su utenti.
+
+\subparagraph{Utilizzo}
+
+Questa classe viene usata dalla classe che la realizza per effettuare l'analisi
+delle route che richiedono operazioni su utenti.
+
+\subparagraph{Attributi}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  ec & public & immutabile & ExecutionContext & Rappresenta il Contesto di esecuzione all'interno del quale è stata creata questa classe \\
+\end{tabular}
+
+\subparagraph{Metodi}
+
+\begin{tabular}{| l | l | l | l |}
+  \hline
+  Nome & Accesso & Tipo di ritorno & Descrizione\\
+  \hline
+  users & public & Route & Metodo che interagisce con il server tramite un router basandosi sulla route immessa dall'utente\\
+  \hline
+\end{tabular}
+
+\subparagraph{Parametri}
+
+\begin{center}
+  \textbf{collections}\\
+\end{center}
+\begin{tabular}{| l | l | l |}
+  \hline
+  Nome & Tipo & Descrizione\\
+  \hline
+  user & String & Utente su cui si vuole operare\\
+  \hline
+  router & ActorRef & Riferimento dell'attore che si occuperà di comunicare con un attore \gloss{main} per effettuare le operazioni richieste \\
   \hline
 \end{tabular}
 
@@ -612,42 +703,7 @@ delle route che richiedono operazioni su collezioni.
   \hline
   owner & String & Proprietario della collezione su cui si vuole operare\\
   \hline
-  router & ActorRef & Riferimento dell'attore che si occuperà di comunicare con un attore \gloss{main} per cercare le credenziali all'interno del server\\
-  \hline
-\end{tabular}
-
-\paragraph{actorbase::actorsystem::clientactor::RestApi}
-\label{sec:actorbase::actorsystem::clientactor::RestApi}
-
-\subparagraph{Descrizione}
-
-Classe astratta usata per analizzare le route che richiedono operazioni generiche.
-
-\subparagraph{Utilizzo}
-
-Questa classe viene usata dalla classe che la realizza per effettuare l'analisi
-delle route che richiedono operazioni generiche.
-
-\subparagraph{Metodi}
-
-\begin{tabular}{| l | l | l | l |}
-  \hline
-  Nome & Accesso & Tipo di ritorno & Descrizione\\
-  \hline
-  route & public & Route & Metodo che interagisce con il server tramite un router basandosi sulla route immessa dall'utente\\
-  \hline
-\end{tabular}
-
-\subparagraph{Parametri}
-
-\begin{center}
-  \textbf{route}\\
-\end{center}
-\begin{tabular}{| l | l | l |}
-  \hline
-  Nome & Tipo & Descrizione\\
-  \hline
-  router & ActorRef & Riferimento dell'attore che si occuperà di comunicare con un attore \gloss{main} per cercare le credenziali all'interno del server\\
+  router & ActorRef & Riferimento dell'attore che si occuperà di comunicare con un attore \gloss{main} per effettuare le operazioni richieste\\
   \hline
 \end{tabular}
 
