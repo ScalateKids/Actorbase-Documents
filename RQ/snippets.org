@@ -71,30 +71,34 @@ client.getCollections.foreach(println)
 
 
 **** Drop a collection
-#+begin_src
+#+begin_src scala
 scala> coll.drop
 res0: Boolean = true
 #+end_src
 
 **** Drop a collections
-#+begin_src
+#+begin_src scala
 scala> client.dropCollections
 res0: Boolean = true
 #+end_src
 
-#+begin_src
+#+begin_src scala
 scala> client.getCollections.drop
 res0: Boolean = true
 #+end_src
 
 **** Count collections elements
 #+begin_src scala
-println(client.getCollection("people").count) // print 3
+scala> println(client.getCollection("people").count)
+res0: Int = 3
 #+end_src
 **** Contributor operations
 #+begin_src scala
-val fooCollection = client.getCollection("foo")
-fooCollection.addContributor("aFriend")
-// remove
-fooCollection.removeContributor("aFriend")
+scala> val fooCollection = client.getCollection("foo")
+scala> fooCollection.addContributor("aFriend")
+res0: Boolean = true
+scala> // remove
+
+scala> fooCollection.removeContributor("aFriend")
+res1: Boolean = true
 #+end_src
