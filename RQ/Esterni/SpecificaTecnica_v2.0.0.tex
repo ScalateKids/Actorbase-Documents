@@ -4412,8 +4412,6 @@ utilizzati nel progetto \textbf{Actorbase}.
   (vedi~\hyperref[sec:ObserverPattern]{Observer Pattern}) secondo la variante \gloss{Push model}.
 \end{itemize}
 
-% TODO: Accertare la DI
-
 \subsubsection{Dependancy Injection}
 \begin{itemize}
 \item \textbf{Scopo:} Separa il comportamento di una componente dalla risoluzione
@@ -4424,7 +4422,11 @@ precisamente nella classe
 sfruttando la variante \gloss{cake-pattern} offerta dal linguaggio \gloss{Scala}
 per aggiungere dipendenze amministrative fornite da
 \hyperref[sec:actorbase::driver::ActorbaseAdminservices]{ActorbaseAdminServices}
-alla classe dedicata alle operazioni comuni.
+alla classe dedicata alle operazioni comuni. Tale \gloss{pattern} viene anche
+utilizzato nella classe \hyperref[sec:actorbase::driver::client::ActorbaseClient]{ActorbaseClient}
+per fornire crittografia \gloss{TLS/SSL} (Transport Layer Security / Secure Socket Layer) al \gloss{client}
+utilizzato per la connessione.
+
 \end{itemize}
 
 \subsection{Design Pattern Creazionali}
@@ -4525,78 +4527,6 @@ dell'architettura \gloss{MVC} scelta per la componente \gloss{CLI}.
   Più in dettaglio, la classe \verb=CommandInvoker= realizza l'interfaccia \verb=Observable= aggiungendo l'oggetto di tipo
   \verb=ResultView= alla propria lista di \gloss{observers}, all'esecuzione di ogni comando, notifica \verb=resultview=
   con l'output prodotto.
-\end{itemize}
-
-\subsubsection{Strategy}
-
-\begin{itemize}
-\item \textbf{Scopo:} Viene usato per isolare più algoritmi all'interno di oggetti e
-  ne permette la modifica dinamica.
-\item \textbf{Utilizzo:} Nella componente \verb=actorsystem= è stato utilizzato
-  per offrire più possibilità di \gloss{serializzazione} e \gloss{deserializzazione} sia in
-  ambito di persistenza su disco che in ambito comunicazioni tra \gloss{server} ed
-  esterno.\\ Nella componente \gloss{driver} viene offerta una singola
-  strategia, dedicata esclusivamente alla comunicazione con la componente
-  \verb=actorsystem=, con la scelta di mantenere il \gloss{Design Pattern} in
-  vista di eventuali estensioni. Contesti di utilizzo:
-  \begin{itemize}
-
-  \item \textbf{driver:}
-    \begin{itemize}
-    \item Dopo che la classe \verb=Connection= riceve i parametri da inviare è
-      possibile selezionare mediante \verb=SerializationContext=, una delle
-      strategie di \gloss{serializzazione} tra:
-      \begin{itemize}
-      \item \verb=RESPSerialize=
-      \end{itemize}
-    \end{itemize}
-    \begin{itemize}
-    \item In ricezione dei dati all'interno della classe \verb=Connection=, utilizzando
-      \verb=DeserializationContext= è possibile selezionare una delle
-      strategie di \gloss{deserializzazione} tra:
-      \begin{itemize}
-      \item \verb=RESPDeserialize=
-      \end{itemize}
-    \end{itemize}
-
-  \item \textbf{actorsystem:}
-    \begin{itemize}
-    \item All'interno del \gloss{package} \verb=clientactor=, la classe utilizzata per la
-      gestione dei messaggi in ingresso \verb=RESPInput= è possibile selezionare
-      mediante \verb=DeserializationContext=, una delle strategie di \gloss{deserializzazione}
-      tra:
-      \begin{itemize}
-      \item \verb=RESPDeserialization=
-      \item \verb=PickleDeserialization=
-      \end{itemize}
-    \item All'interno del \gloss{package} \verb=clientactor=, la classe utilizzata per la
-      gestione dei messaggi in uscita \verb=Response= è possibile selezionare
-      mediante \verb=SerializationContext=, una delle strategie di \gloss{serializzazione}
-      tra:
-      \begin{itemize}
-      \item \verb=RESPSerialization=
-      \item \verb=PickleSerialization=
-      \end{itemize}
-    \item All'interno del \gloss{package} \verb=warehouseman=, la classe utilizzata per
-      la gestione del salvataggio in persistenza dei dati \verb=Save= è
-      possibile selezionare mediante \verb=SerializationContext=, una delle
-      strategie di \gloss{serializzazione} tra:
-      \begin{itemize}
-      \item \verb=PickleSerialization=
-      \item \verb=RESPSerialization=
-      \end{itemize}
-    \item All'interno del \gloss{package} \verb=warehouseman=, la classe utilizzata per
-      la gestione della lettura da persistenza dei dati \verb=Init= è
-      possibile selezionare mediante \verb=DeserializationContext=, una delle
-      strategie di \gloss{serializzazione} tra:
-      \begin{itemize}
-      \item \verb=PickleDeserialization=
-      \item \verb=RESPDeserialization=
-      \end{itemize}
-    \end{itemize}
-
-  \end{itemize}
-
 \end{itemize}
 
 \section{Stime di fattibilità e di bisogno di risorse}
@@ -5337,19 +5267,7 @@ Per la gestione della comunicazione \gloss{HTTP} sono stati utilizzate due libre
   È indicato inoltre quando il cambiamento di un oggetto richiede il cambiamento di altri oggetti, oppure non si conosce quanti oggetti devono cambiare.
   È utile anche per notificare oggetti senza fare assunzioni su quali siano questi oggetti ed evita l’accoppiamento “forte”.
 \end{itemize}
-\subsubsection{Strategy}
-\begin{figure}[H]
-  \begin{center}
-    \includegraphics[width=1.0\textwidth, keepaspectratio]{img/designPattern/StrategyPattern.png}
-    \caption{Esempio di applicazione del design pattern strategy}
-  \end{center}
-\end{figure}
-\begin{itemize}
-\item \textbf{Scopo:} Isolare un algoritmo all'interno di un oggetto, allo scopo di definire un gruppo di algoritmi, rendendoli
-  interscambiabili e indipendenti dal \gloss{client} che li utilizza. A questo proposito è necessario che la famiglia di algoritmi che implementa una stessa funzionalità esporti la medesima interfaccia in ogni caso, in questo modo il \gloss{client} che applica l'algoritmo non deve fare nessuna assunzioni sulla strategia applicata.
-\item \textbf{Motivazione:} Esistono differenti algoritmi (strategie) che non possono essere inserite direttamente nel client. Infatti i \gloss{client}, senza l'utilizzo di questo pattern rischiano di divenire troppo complessi: differenti strategie sono appropriate in casi differenti e dover scrivere codice ogni volta è troppo gravoso. Inoltre, se non si utilizza questo \gloss{design pattern}, è difficile aggiungere nuovi algoritmi e modificare gli esistenti.
-\item \textbf{Applicabilità:} questo \gloss{design pattern} si usa quando delle classi differiscono solo per il loro comportamento e si necessita di diverse varianti dello stesso algoritmo oppure quando una classe implementa diverse strategie attraverso molti statement condizionali, che si possono eliminare con questo \gloss{design pattern}. Inoltre l'iterator pattern si basa proprio su questo pattern.
-\end{itemize}
+
 \newpage
 \listoftables
 \newpage
