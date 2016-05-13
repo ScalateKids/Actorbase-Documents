@@ -194,14 +194,6 @@ rappresentano il \gloss{server}.
 \item \hyperref[sec:actorbase::actorsystem::serialization]{actorbase::actorsystem::serialization}.
 \end{itemize}
 
-\subsubsection{Interazioni con altre componenti}
-
-\begin{itemize}
-\item \hyperref[sec:actorbase::driver]{actorbase::driver};
-\item Akka.
-\end{itemize}
-
-
 \subsection{actorbase::actorsystem::utils}
 \label{sec:actorbase::actorsystem::utils}
 
@@ -941,19 +933,6 @@ Questa classe viene utilizzata per effettuare il salvataggio su filesystem del
 \gloss{Package} che racchiude tutti i messaggi che gli attori di tipo
 \gloss{Warehouseman} possono ricevere.
 
-\paragraph{actorbase::actorsystem::warehouseman::messages::Init}
-\label{sec:actorbase::actorsystem::warehouseman::messages::Init}
-
-\subparagraph{Descrizione}
-
-Messaggio che porta alla lettura dei dati da disco.
-
-\subparagraph{Utilizzo}
-
-Quando \hyperref[sec:actorbase::actorsystem::warehouseman::Warehouseman]{actorbase::actorsystem::warehouseman::Warehouseman}
-riceve questo messaggio inizializza uno \hyperref[sec:actorbase::actorsystem::storekeeper::StoreKeeper]{actorbase::actorsystem::storekeeper::StoreKeeper}
-con i dati letti da disco.
-
 \paragraph{actorbase::actorsystem::warehouseman::messages::Save}
 \label{sec:actorbase::actorsystem::warehouseman::messages::Save}
 
@@ -1146,15 +1125,6 @@ Userfinder di cui ha riferimento.
   password & public & immutabile & String & stringa che rappresenta la password dell'utente da inserire \\
   \hline
 \end{tabular}
-
-\paragraph{actorbase::actorsystem::main::messages::InitUsers}
-\label{sec:actorbase::actorsystem::main::messages::InitUsers}
-
-\subparagraph{Descrizione}
-Messaggio che indica la necessità di lettura da filesystem della collezione
-contenente gli utenti del sistema.\\Messaggio per il popolamento del database
-post accensione.
-% TODO
 
 \paragraph{actorbase::actorsystem::main::messages::Login}
 \label{sec:actorbase::actorsystem::main::messages::Login}
@@ -2001,21 +1971,6 @@ Questa classe viene utilizzata per tener traccia degli attori di tipo
 
 \subsubsection{Classi}
 
-\paragraph{actorbase::actorsystem::storefinder::messages::Init} %TODO da fare
-\label{sec:actorbase::actorsystem::storefinder::messages::Init}
-
-\subparagraph{Descrizione}
-
-Messaggio che, se ricevuto dall'\gloss{attore} di tipo \gloss{Storefinder},
-indica la necessità di inizializzare degli \gloss{Storekeeper}.
-
-\subparagraph{Utilizzo}
-
-Quando \hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storefinder::\allowbreak{}Storefinder}
-riceve questo messaggio provvederà a inizializzare gli attori di tipo
-\hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storekeeper::\allowbreak{}Storekeeper}
-presenti nella cartella indicata dal messaggio.
-
 \paragraph{actorbase::actorsystem::storefinder::messages::DuplicationRequestSK}
 \label{sec:actorbase::actorsystem::storefinder::messages::DuplicationRequestSK}
 
@@ -2282,32 +2237,6 @@ ricevuti dall'\gloss{attore} di tipo
 
 \subsubsection{Classi}
 
-\paragraph{actorbase::actorsystem::storekeeper::messages::Init}
-\label{sec:actorbase::actorsystem::storekeeper::messages::Init}
-
-\subparagraph{Descrizione}
-
-Messaggio che richiede l'inizializzazione dello \gloss{Storekeeper}.
-
-\subparagraph{Utilizzo}
-
-Quando \hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{actorbase::actorsystem::storekeeper::Storekeeper}
-riceve questo messaggio manda un messaggio all'\gloss{attore} di tipo
-\hyperref[sec:actorbase::actorsystem::warehouseman::Warehouseman]{actorbase::\allowbreak{}actorsystem::\allowbreak{}warehouseman::\allowbreak{}Warehouseman}
-per la lettura dei dati da disco.
-
-\subparagraph{Attributi}
-
-\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
-  \hline
-  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
-  \hline
-  parentRef & pubblica & immutabile & ActorRef & Riferimento all'attore di tipo \gloss{Storefinder} che contiene l'attore di tipo \gloss{Storekeeper} \\
-  \hline
-  range & pubblica & immutabile & KeyRange & Rappresenta il range di chiavi che sarà contenuto nell'attore\\
-  \hline
-\end{tabular}
-
 \paragraph{actorbase::actorsystem::storekeeper::messages::GetItem}
 \label{sec:actorbase::actorsystem::storekeeper::messages::GetItem}
 
@@ -2455,8 +2384,7 @@ Messaggio che richiede che l'\gloss{attore} di tipo \gloss{Storekeeper} diventi 
 Quando \hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{actorbase::actorsystem::storekeeper::Storekeeper}
 riceve questo messaggio cambia il proprio contesto diventando un attore di tipo \gloss{Ninja}. Questo comporta l'accesso ai messaggi
 \hyperref[sec:actorbase::actorsystem::storekeeper::messages::BecomeNinja]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storekeeper::\allowbreak{}messages::\allowbreak{}BecomeNinja},
-\hyperref[sec:actorbase::actorsystem::storekeeper::messages::Update]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storekeeper::\allowbreak{}messages::\allowbreak{}Update} e
-\hyperref[sec:actorbase::actorsystem::storekeeper::messages::Init]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storekeeper::\allowbreak{}messages::\allowbreak{}Init}.
+\hyperref[sec:actorbase::actorsystem::storekeeper::messages::Update]{actorbase::\allowbreak{}actorsystem::\allowbreak{}storekeeper::\allowbreak{}messages::\allowbreak{}Update}.
 
 \paragraph{actorbase::actorsystem::storekeeper::messages::Persist}
 \label{sec:actorbase::actorsystem::storekeeper::messages::Persist}
@@ -2611,13 +2539,6 @@ per aggiornare i suoi riferimenti.
 
 \gloss{Package} per la componente \gloss{driver} da utilizzare in un programma
 \gloss{Scala}.
-
-\subsubsection{Interazioni con altre componenti}
-
-\begin{itemize}
-\item \hyperref[sec:actorbase::cli]{actorbase::cli};
-\item \hyperref[sec:actorbase::actorsystem]{actorbase::actorsystem}.
-\end{itemize}
 
 \subsubsection{Package contenuti}
 
@@ -2977,13 +2898,6 @@ utilizzare nelle classi che necessitano di collegamenti al \gloss{server}.
 \gloss{Package} che si occupa di comunicare sia con la componente \gloss{cli}
 che con la componente \gloss{server} del sistema.
 
-\subsubsection{Interazioni con altre componenti}
-
-\begin{itemize}
-\item \hyperref[sec:actorbase::cli::models]{actorbase::cli::models};
-\item \hyperref[sec:actorbase::actorsystem::clientactor]{actorbase::actorsystem::clientactor}.
-\end{itemize}
-
 \subsubsection{Interfacce}
 
 \paragraph{Client}
@@ -3321,11 +3235,6 @@ Viene estesa dalle classi che necessitano di comunicare con il server.
 il \gloss{server}, con la \gloss{cli} o eventuali programmi esterni. Si occupa
 inoltre della gestione delle richieste \gloss{REST} da inviare utilizzando il
 protocollo \gloss{HTTP}.
-
-\subsubsection{Interazioni con altre componenti}
-\begin{itemize}
-\item \hyperref[sec:actorbase::driver::client]{actorbase::driver::client};
-\end{itemize}
 
 \subsubsection{Classi}
 
@@ -3745,11 +3654,6 @@ nella comunicazione con il server.
 della base di dati in locale, permettendo di eseguire le comuni operazioni di
 \gloss{CRUD} e ricerche più accurate in maniera semplificata, riflettendo le
 eventuali modifiche locali sul server remoto che contiene i dati originali.
-
-\subsubsection{Interazioni con altre componenti}
-\begin{itemize}
-\item \hyperref[sec:actorbase::driver::client]{actorbase::driver::client}.
-\end{itemize}
 
 \subsubsection{Classi}
 
@@ -5795,560 +5699,9 @@ dall'utente verranno gestite dal proprio \gloss{ClientActor}.\\
 
 \section{Tracciamento}
 
-\subsection{Tracciamento Componenti-Requisiti}
+\subsection{Tracciamento Classi-Requisiti}
 
-\begin{longtable}[H]{|p{7.3cm}|p{10.7cm}|}
-  \hline
-  \textbf{Componente} & \textbf{Requisiti}\\
-  \hline
-  \small actorbase & \multiLineCell[t]{\footnotesize DEF3 DEV8 DEV9 OBF1 OBF2 OBQ12 OBV4 OBV5 OBV6 OBV7}\\
-  \hline
-  \small actorbase::actorsystem & \multiLineCell[t]{\footnotesize OBF1}\\
-  \hline
-  \small actorbase::actorsystem::clientactor & \multiLineCell[t]{\footnotesize OBF1.1.10 OBF1.1.10.1 OBF1.1.10.1.1 OBF1.1.10.2 OBF1.1.10.2.1\\ \footnotesize OBF1.1.10.2.1.1 OBF1.1.10.2.2 OBF1.1.10.2.3 OBF1.1.10.2.3.1\\ \footnotesize OBF1.1.10.2.3.2 OBF1.1.10.2.4 OBF1.1.10.2.4.1 OBF1.1.10.2.5\\ \footnotesize OBF1.1.10.2.5.1 OBF1.1.10.2.5.2 OBF1.1.10.2.5.3 OBF1.1.10.2.5.4 OBF1.1.10.2.6\\ \footnotesize OBF1.1.10.2.6.1 OBF1.1.10.2.7 OBF1.1.10.3 OBF1.1.10.3.1 OBF1.1.10.3.2\\ \footnotesize OBF1.1.10.3.3 OBF1.1.10.3.4 OBF1.1.10.3.5 OBF1.1.10.4 OBF1.1.10.5\\ \footnotesize OBF1.1.10.5.1 OBF1.1.10.6 OBF1.1.10.7 OBF1.1.10.7.1 OBF1.1.10.7.1.1\\ \footnotesize OBF1.1.10.7.2 OBF1.1.10.7.2.1 OBF1.1.10.7.3 OBF1.1.10.7.3.1 OBF1.1.2}\\
-  \hline
-  \small actorbase::actorsystem::clientactor::messages & \multiLineCell[t]{\footnotesize OBF1.1.2.1 OBF1.1.2.2 OBF1.1.2.3 OBF1.1.2.4 OBF1.1.2.5 OBF1.1.2.6 }\\
-  \hline
-  \small actorbase::actorsystem::main & \multiLineCell[t]{\footnotesize OBF1.1.10.1 OBF1.1.10.2 OBF1.1.10.2.1 OBF1.1.10.2.1.1 OBF1.1.10.2.3\\ \footnotesize OBF1.1.10.2.4 OBF1.1.10.2.5 OBF1.1.10.2.5.1 OBF1.1.10.2.5.2 OBF1.1.10.2.6\\ \footnotesize OBF1.1.10.2.7 OBF1.1.10.3 OBF1.1.10.3.1 OBF1.1.10.3.2 OBF1.1.10.3.3\\ \footnotesize OBF1.1.10.3.4 OBF1.1.10.4 OBF1.1.10.5 OBF1.1.10.7 OBF1.1.10.7.1\\ \footnotesize OBF1.1.10.7.2 OBF1.1.10.7.2.1 OBF1.1.10.7.3 OBF1.1.10.7.3.1 OBF1.1.3 }\\
-  \hline
-  \small actorbase::actorsystem::main::messages & \multiLineCell[t]{\footnotesize OBF1.1.3.1 OBF1.1.3.2 OBF1.1.3.3 OBF1.1.3.4 OBF1.1.3.5\\ \footnotesize OBF1.1.3.7 OBF1.1.3.8 OBF1.1.3.9 }\\
-  \hline
-  \small actorbase::actorsystem::manager & \multiLineCell[t]{\footnotesize DEF1.1.8 OBF1.1.10.3 OBF1.1.10.3.1 }\\
-  \hline
-  \small actorbase::actorsystem::manager::messages & \multiLineCell[t]{\footnotesize DEF1.1.8.1 OBF1.1.8.2 }\\
-  \hline
-  \small actorbase::actorsystem::ninja & \multiLineCell[t]{\footnotesize DEF1.1.7 OBF1.1.10.2 OBF1.1.10.2.4 OBF1.1.10.2.5 OBF1.1.10.2.5.1\\ \footnotesize OBF1.1.10.2.5.2 OBF1.1.10.2.6 OBF1.1.10.2.7 OBF1.1.10.3 OBF1.1.10.3.1\\ \footnotesize OBF1.1.10.3.4 }\\
-  \hline
-  \small actorbase::actorsystem::ninja::messages & \multiLineCell[t]{\footnotesize DEF1.1.7.1 DEF1.1.7.2}\\
-  \hline
-  \small actorbase::actorsystem::serialization & \multiLineCell[t]{\footnotesize OBF1.1.2.1 OBF1.1.2.3 OBF1.1.6 OBF1.1.6.1 OBF1.1.6.2 }\\
-  \hline
-  \small actorbase::actorsystem::storefinder & \multiLineCell[t]{\footnotesize OBF1.1.10.1 OBF1.1.10.2 OBF1.1.10.2.1 OBF1.1.10.2.3 OBF1.1.10.2.4\\ \footnotesize OBF1.1.10.2.5 OBF1.1.10.2.5.1 OBF1.1.10.2.5.2 OBF1.1.10.2.5.4 OBF1.1.10.2.6\\ \footnotesize OBF1.1.10.2.7 OBF1.1.10.3 OBF1.1.10.3.1 OBF1.1.10.3.3 OBF1.1.10.3.4\\ \footnotesize OBF1.1.10.4 OBF1.1.10.5 OBF1.1.10.7 OBF1.1.10.7.1 OBF1.1.10.7.2\\ \footnotesize OBF1.1.10.7.2.1 OBF1.1.10.7.3 OBF1.1.10.7.3.1 OBF1.1.4 }\\
-  \hline
-  \small actorbase::actorsystem::storefinder::messages & \multiLineCell[t]{\footnotesize OBF1.1.4.1 OBF1.1.4.2 OBF1.1.4.3 OBF1.1.4.4 OBF1.1.4.5 }\\
-  \hline
-  \small actorbase::actorsystem::storekeeper & \multiLineCell[t]{\footnotesize OBF1.1.10.2 OBF1.1.10.2.1 OBF1.1.10.2.4 OBF1.1.10.2.5 OBF1.1.10.2.5.1\\ \footnotesize OBF1.1.10.2.5.2 OBF1.1.10.2.6 OBF1.1.10.2.7 OBF1.1.10.3 OBF1.1.10.3.1\\ \footnotesize OBF1.1.10.3.3 OBF1.1.10.3.4 OBF1.1.10.4 OBF1.1.5 }\\
-  \hline
-  \small actorbase::actorsystem::storekeeper::messages & \multiLineCell[t]{\footnotesize OBF1.1.5.1 OBF1.1.5.2 OBF1.1.5.3 OBF1.1.5.4 OBF1.1.5.5 }\\
-  \hline
-  \small actorbase::actorsystem::tcpserver & \multiLineCell[t]{\footnotesize OBF1.1 OBF1.1.1 OBF1.1.1.1 OBF1.1.10 }\\
-  \hline
-  \small actorbase::actorsystem::tcpserver::messages & \multiLineCell[t]{\footnotesize OBF1.1.1.1.1 OBF1.1.1.1.2 OBF1.1.1.1.3 }\\
-  \hline
-  \small actorbase::actorsystem::userkeeper & \multiLineCell[t]{\footnotesize OBF1.1.10.1 OBF1.1.10.1.1 OBF1.1.10.2 OBF1.1.10.2.1 OBF1.1.10.2.3\\ \footnotesize OBF1.1.10.2.3.1 OBF1.1.10.2.4 OBF1.1.10.2.5 OBF1.1.10.2.5.1 OBF1.1.10.2.5.2\\ \footnotesize OBF1.1.10.2.6 OBF1.1.10.2.7 OBF1.1.10.3 OBF1.1.10.3.2 OBF1.1.10.5\\ \footnotesize OBF1.1.10.5.1 OBF1.1.10.7 OBF1.1.10.7.1 OBF1.1.10.7.3 OBF1.1.9 }\\
-  \hline
-  \small actorbase::actorsystem::userkeeper::messages & \multiLineCell[t]{\footnotesize OBF1.1.9.1 OBF1.1.9.2 OBF1.1.9.3 OBF1.1.9.4 OBF1.1.9.5\\ \footnotesize OBF1.1.9.6 OBF1.1.9.7 OBF1.1.9.8 OBF1.1.9.9 }\\
-  \hline
-  \small actorbase::actorsystem::warehouseman & \multiLineCell[t]{\footnotesize OBF1.1.10.2 OBF1.1.10.2.4 OBF1.1.10.2.5 OBF1.1.10.2.5.1 OBF1.1.10.2.5.2\\ \footnotesize OBF1.1.10.2.6 OBF1.1.10.2.7 OBF1.1.10.3 OBF1.1.10.3.1 OBF1.1.10.3.4\\ \footnotesize OBF1.1.6 }\\
-  \hline
-  \small actorbase::actorsystem::warehouseman::messages & \multiLineCell[t]{\footnotesize OBF1.1.6.1 OBF1.1.6.2 }\\
-  \hline
-  \small actorbase::cli & \multiLineCell[t]{\footnotesize OBF2 }\\
-  \hline
-  \small actorbase::cli::controllers & \multiLineCell[t]{\footnotesize DEF2.1.2.7 DEF2.1.3.1.2 DEF2.1.4 DEF2.1.5 OBF2.1\\ \footnotesize OBF2.1.1 OBF2.1.2 OBF2.1.2.1 OBF2.1.2.2 OBF2.1.2.3\\ \footnotesize OBF2.1.2.4 OBF2.1.2.5 OBF2.1.2.6 OBF2.1.3 OBF2.1.3.1\\ \footnotesize OBF2.1.3.1.1 OBF2.1.6 OBF2.1.7 OBF2.1.8 OBF2.1.9\\ \footnotesize OBF2.1.9.1 OBF2.1.9.2 OBF2.1.9.3 }\\
-  \hline
-  \small actorbase::cli::models & \multiLineCell[t]{\footnotesize DEF2.1.2.7 DEF2.1.2.7.1 DEF2.1.3.1.2 DEF2.1.3.1.2.1 DEF2.1.4\\ \footnotesize DEF2.1.5 DEF2.1.5.1 OBF2.1.1 OBF2.1.1.1 OBF2.1.1.2\\ \footnotesize OBF2.1.2 OBF2.1.2.1 OBF2.1.2.1.1 OBF2.1.2.2 OBF2.1.2.3\\ \footnotesize OBF2.1.2.3.1 OBF2.1.2.4 OBF2.1.2.4.1 OBF2.1.2.4.2 OBF2.1.2.5\\ \footnotesize OBF2.1.2.5.1 OBF2.1.2.5.2 OBF2.1.2.5.3 OBF2.1.2.6 OBF2.1.2.6.1\\ \footnotesize OBF2.1.2.6.2 OBF2.1.2.8 OBF2.1.3 OBF2.1.3.1 OBF2.1.3.1.1\\ \footnotesize OBF2.1.3.1.1.1 OBF2.1.3.1.1.2 OBF2.1.3.1.1.3 OBF2.1.3.1.1.4 OBF2.1.3.1.1.5\\ \footnotesize OBF2.1.6 OBF2.1.6.1 OBF2.1.6.2 OBF2.1.7 OBF2.1.7.1\\ \footnotesize OBF2.1.7.2 OBF2.1.7.3 OBF2.1.8 OBF2.1.9 OBF2.1.9.1\\ \footnotesize OBF2.1.9.1.1 OBF2.1.9.1.2 OBF2.1.9.2 OBF2.1.9.2.1 OBF2.1.9.2.2\\ \footnotesize OBF2.1.9.3 OBF2.1.9.3.1 OBF2.1.9.3.2 }\\
-  \hline
-  \small actorbase::cli::views & \multiLineCell[t]{\footnotesize DEF2.1.2.7 DEF2.1.2.7.1 DEF2.1.3.1.2 DEF2.1.3.1.2.1 DEF2.1.3.2\\ \footnotesize DEF2.1.3.3 DEF2.1.4 DEF2.1.5 DEF2.1.5.1 OBF2\\ \footnotesize OBF2.1.1 OBF2.1.1.1 OBF2.1.1.2 OBF2.1.1.3 OBF2.1.2\\ \footnotesize OBF2.1.2.1 OBF2.1.2.1.1 OBF2.1.2.10 OBF2.1.2.11 OBF2.1.2.12\\ \footnotesize OBF2.1.2.13 OBF2.1.2.14 OBF2.1.2.2 OBF2.1.2.3 OBF2.1.2.3.1\\ \footnotesize OBF2.1.2.4 OBF2.1.2.4.1 OBF2.1.2.4.2 OBF2.1.2.5 OBF2.1.2.5.1\\ \footnotesize OBF2.1.2.5.2 OBF2.1.2.5.3 OBF2.1.2.6 OBF2.1.2.6.1 OBF2.1.2.6.2\\ \footnotesize OBF2.1.2.8 OBF2.1.2.9 OBF2.1.3 OBF2.1.3.1 OBF2.1.3.1.1\\ \footnotesize OBF2.1.3.1.1.1 OBF2.1.3.1.1.2 OBF2.1.3.1.1.3 OBF2.1.3.1.1.4 OBF2.1.3.1.1.5\\ \footnotesize OBF2.1.3.4 OBF2.1.3.5 OBF2.1.6 OBF2.1.6.1 OBF2.1.6.2\\ \footnotesize OBF2.1.7 OBF2.1.7.1 OBF2.1.7.2 OBF2.1.7.3 OBF2.1.7.4\\ \footnotesize OBF2.1.7.5 OBF2.1.7.6 OBF2.1.8 OBF2.1.9 OBF2.1.9.1\\ \footnotesize OBF2.1.9.1.1 OBF2.1.9.1.2 OBF2.1.9.2 OBF2.1.9.2.1 OBF2.1.9.2.2\\ \footnotesize OBF2.1.9.3 OBF2.1.9.3.1 OBF2.1.9.3.2 OBF2.1.9.4 OBF2.1.9.5\\ \footnotesize OBF2.1.9.6 }\\
-  \hline
-  \small actorbase::driver & \multiLineCell[t]{\footnotesize DEF3 }\\
-  \hline
-  \small actorbase::driver::actorbasedata & \multiLineCell[t]{\footnotesize DEF3.8 DEF3.8.1 DEF3.8.2 DEF3.8.3 }\\
-  \hline
-  \small actorbase::driver::client & \multiLineCell[t]{\footnotesize DEF3.1 DEF3.1.1 DEF3.1.2 DEF3.1.3 DEF3.2\\ \footnotesize DEF3.2.1 DEF3.2.1.1 DEF3.2.1.2 DEF3.2.2 DEF3.2.3\\ \footnotesize DEF3.2.3.1 DEF3.2.3.2 DEF3.2.4 DEF3.2.4.1 DEF3.2.4.2\\ \footnotesize DEF3.2.4.3 DEF3.2.4.4 DEF3.2.5 DEF3.2.5.1 DEF3.2.5.2\\ \footnotesize DEF3.2.5.3 DEF3.2.5.4 DEF3.2.5.5 DEF3.2.6 DEF3.2.6.1\\ \footnotesize DEF3.2.6.2 DEF3.2.6.3 DEF3.2.7 DEF3.2.7.1 DEF3.2.7.2\\ \footnotesize DEF3.3 DEF3.3.1 DEF3.3.1.1 DEF3.3.1.1.1 DEF3.3.1.1.2\\ \footnotesize DEF3.3.1.1.3 DEF3.3.1.1.4 DEF3.3.1.2 DEF3.3.1.2.1 DEF3.3.1.2.2\\ \footnotesize DEF3.3.1.2.3 DEF3.3.1.4 DEF3.3.2 DEF3.3.2.1 DEF3.3.2.2\\ \footnotesize DEF3.3.2.3 DEF3.4 DEF3.4.1 DEF3.4.2 DEF3.5\\ \footnotesize DEF3.6 DEF3.6.1 DEF3.6.1.1 DEF3.6.2 DEF3.6.2.1\\ \footnotesize DEF3.6.3 DEF3.6.3.1 DEF3.6.4 DEF3.6.5 DEF3.6.6\\ \footnotesize DEF3.7 DEF3.7.1 DEF3.7.2 DEF3.7.3 DEF3.7.4 }\\
-  \hline
-  \small actorbase::driver::exceptions & \multiLineCell[t]{\footnotesize DEF3.1.3 DEF3.2.1.2 DEF3.2.3.2 DEF3.2.4.3 DEF3.2.4.4\\ \footnotesize DEF3.2.5.3 DEF3.2.5.4 DEF3.2.6.3 DEF3.3.1.2.2 DEF3.3.1.2.3\\ \footnotesize DEF3.3.1.4 DEF3.3.2.3 DEF3.6.4 DEF3.6.5 DEF3.6.6\\ \footnotesize DEF3.7.3 DEF3.7.4 }\\
-  \hline
-  \small actorbase::driver::serializer & \multiLineCell[t]{\footnotesize DEF3.1 DEF3.2 DEF3.2.1 DEF3.2.2 DEF3.2.3\\ \footnotesize DEF3.2.4 DEF3.2.5 DEF3.2.6 DEF3.2.7 DEF3.3\\ \footnotesize DEF3.3.1 DEF3.3.2 DEF3.4 DEF3.5 DEF3.6\\ \footnotesize DEF3.6.1 DEF3.6.2 DEF3.6.3 DEF3.7 }\\
-  \hline
-\end{longtable}
-\subsection{Tracciamento Requisiti-Componenti}
-
-\begin{longtable}[H]{|p{3.5cm}|p{7.5cm}|}
-  \hline
-  \textbf{Requisito} & \textbf{Componenti}\\
-  \hline
-  DEF1.1.7 & \multiLineCell[t]{actorbase::actorsystem::ninja\\}\\
-  \hline
-  DEF1.1.7.1 & \multiLineCell[t]{actorbase::actorsystem::ninja::messages\\}\\
-  \hline
-  DEF1.1.7.2 & \multiLineCell[t]{actorbase::actorsystem::ninja::messages\\}\\
-  \hline
-  DEF1.1.8 & \multiLineCell[t]{actorbase::actorsystem::manager\\}\\
-  \hline
-  DEF1.1.8.1 & \multiLineCell[t]{actorbase::actorsystem::manager::messages\\}\\
-  \hline
-  DEF2.1.2.7 & \multiLineCell[t]{actorbase::cli::controllers\\actorbase::cli::models\\actorbase::cli::views\\}\\
-  \hline
-  DEF2.1.2.7.1 & \multiLineCell[t]{actorbase::cli::models\\actorbase::cli::views\\}\\
-  \hline
-  DEF2.1.3.1.2 & \multiLineCell[t]{actorbase::cli::controllers\\actorbase::cli::models\\actorbase::cli::views\\}\\
-  \hline
-  DEF2.1.3.1.2.1 & \multiLineCell[t]{actorbase::cli::models\\actorbase::cli::views\\}\\
-  \hline
-  DEF2.1.3.2 & \multiLineCell[t]{actorbase::cli::views\\}\\
-  \hline
-  DEF2.1.3.3 & \multiLineCell[t]{actorbase::cli::views\\}\\
-  \hline
-  DEF2.1.4 & \multiLineCell[t]{actorbase::cli::controllers\\actorbase::cli::models\\actorbase::cli::views\\}\\
-  \hline
-  DEF2.1.5 & \multiLineCell[t]{actorbase::cli::controllers\\actorbase::cli::models\\actorbase::cli::views\\}\\
-  \hline
-  DEF2.1.5.1 & \multiLineCell[t]{actorbase::cli::models\\actorbase::cli::views\\}\\
-  \hline
-  DEF3 & \multiLineCell[t]{actorbase\\actorbase::driver\\}\\
-  \hline
-  DEF3.1 & \multiLineCell[t]{actorbase::driver::client\\actorbase::driver::serializer\\}\\
-  \hline
-  DEF3.1.1 & \multiLineCell[t]{actorbase::driver::client\\}\\
-  \hline
-  DEF3.1.2 & \multiLineCell[t]{actorbase::driver::client\\}\\
-  \hline
-  DEF3.1.3 & \multiLineCell[t]{actorbase::driver::client\\actorbase::driver::exceptions\\}\\
-  \hline
-  DEF3.2 & \multiLineCell[t]{actorbase::driver::client\\actorbase::driver::serializer\\}\\
-  \hline
-  DEF3.2.1 & \multiLineCell[t]{actorbase::driver::client\\actorbase::driver::serializer\\}\\
-  \hline
-  DEF3.2.1.1 & \multiLineCell[t]{actorbase::driver::client\\}\\
-  \hline
-  DEF3.2.1.2 & \multiLineCell[t]{actorbase::driver::client\\actorbase::driver::exceptions\\}\\
-  \hline
-  DEF3.2.2 & \multiLineCell[t]{actorbase::driver::client\\actorbase::driver::serializer\\}\\
-  \hline
-  DEF3.2.3 & \multiLineCell[t]{actorbase::driver::client\\actorbase::driver::serializer\\}\\
-  \hline
-  DEF3.2.3.1 & \multiLineCell[t]{actorbase::driver::client\\}\\
-  \hline
-  DEF3.2.3.2 & \multiLineCell[t]{actorbase::driver::client\\actorbase::driver::exceptions\\}\\
-  \hline
-  DEF3.2.4 & \multiLineCell[t]{actorbase::driver::client\\actorbase::driver::serializer\\}\\
-  \hline
-  DEF3.2.4.1 & \multiLineCell[t]{actorbase::driver::client\\}\\
-  \hline
-  DEF3.2.4.2 & \multiLineCell[t]{actorbase::driver::client\\}\\
-  \hline
-  DEF3.2.4.3 & \multiLineCell[t]{actorbase::driver::client\\actorbase::driver::exceptions\\}\\
-  \hline
-  DEF3.2.4.4 & \multiLineCell[t]{actorbase::driver::client\\actorbase::driver::exceptions\\}\\
-  \hline
-  DEF3.2.5 & \multiLineCell[t]{actorbase::driver::client\\actorbase::driver::serializer\\}\\
-  \hline
-  DEF3.2.5.1 & \multiLineCell[t]{actorbase::driver::client\\}\\
-  \hline
-  DEF3.2.5.2 & \multiLineCell[t]{actorbase::driver::client\\}\\
-  \hline
-  DEF3.2.5.3 & \multiLineCell[t]{actorbase::driver::client\\actorbase::driver::exceptions\\}\\
-  \hline
-  DEF3.2.5.4 & \multiLineCell[t]{actorbase::driver::client\\actorbase::driver::exceptions\\}\\
-  \hline
-  DEF3.2.5.5 & \multiLineCell[t]{actorbase::driver::client\\}\\
-  \hline
-  DEF3.2.6 & \multiLineCell[t]{actorbase::driver::client\\actorbase::driver::serializer\\}\\
-  \hline
-  DEF3.2.6.1 & \multiLineCell[t]{actorbase::driver::client\\}\\
-  \hline
-  DEF3.2.6.2 & \multiLineCell[t]{actorbase::driver::client\\}\\
-  \hline
-  DEF3.2.6.3 & \multiLineCell[t]{actorbase::driver::client\\actorbase::driver::exceptions\\}\\
-  \hline
-  DEF3.2.7 & \multiLineCell[t]{actorbase::driver::client\\actorbase::driver::serializer\\}\\
-  \hline
-  DEF3.2.7.1 & \multiLineCell[t]{actorbase::driver::client\\}\\
-  \hline
-  DEF3.2.7.2 & \multiLineCell[t]{actorbase::driver::client\\}\\
-  \hline
-  DEF3.3 & \multiLineCell[t]{actorbase::driver::client\\actorbase::driver::serializer\\}\\
-  \hline
-  DEF3.3.1 & \multiLineCell[t]{actorbase::driver::client\\actorbase::driver::serializer\\}\\
-  \hline
-  DEF3.3.1.1 & \multiLineCell[t]{actorbase::driver::client\\}\\
-  \hline
-  DEF3.3.1.1.1 & \multiLineCell[t]{actorbase::driver::client\\}\\
-  \hline
-  DEF3.3.1.1.2 & \multiLineCell[t]{actorbase::driver::client\\}\\
-  \hline
-  DEF3.3.1.1.3 & \multiLineCell[t]{actorbase::driver::client\\}\\
-  \hline
-  DEF3.3.1.1.4 & \multiLineCell[t]{actorbase::driver::client\\}\\
-  \hline
-  DEF3.3.1.2 & \multiLineCell[t]{actorbase::driver::client\\}\\
-  \hline
-  DEF3.3.1.2.1 & \multiLineCell[t]{actorbase::driver::client\\}\\
-  \hline
-  DEF3.3.1.2.2 & \multiLineCell[t]{actorbase::driver::client\\actorbase::driver::exceptions\\}\\
-  \hline
-  DEF3.3.1.2.3 & \multiLineCell[t]{actorbase::driver::client\\actorbase::driver::exceptions\\}\\
-  \hline
-  DEF3.3.1.4 & \multiLineCell[t]{actorbase::driver::client\\actorbase::driver::exceptions\\}\\
-  \hline
-  DEF3.3.2 & \multiLineCell[t]{actorbase::driver::client\\actorbase::driver::serializer\\}\\
-  \hline
-  DEF3.3.2.1 & \multiLineCell[t]{actorbase::driver::client\\}\\
-  \hline
-  DEF3.3.2.2 & \multiLineCell[t]{actorbase::driver::client\\}\\
-  \hline
-  DEF3.3.2.3 & \multiLineCell[t]{actorbase::driver::client\\actorbase::driver::exceptions\\}\\
-  \hline
-  DEF3.4 & \multiLineCell[t]{actorbase::driver::client\\actorbase::driver::serializer\\}\\
-  \hline
-  DEF3.4.1 & \multiLineCell[t]{actorbase::driver::client\\}\\
-  \hline
-  DEF3.4.2 & \multiLineCell[t]{actorbase::driver::client\\}\\
-  \hline
-  DEF3.5 & \multiLineCell[t]{actorbase::driver::client\\actorbase::driver::serializer\\}\\
-  \hline
-  DEF3.6 & \multiLineCell[t]{actorbase::driver::client\\actorbase::driver::serializer\\}\\
-  \hline
-  DEF3.6.1 & \multiLineCell[t]{actorbase::driver::client\\actorbase::driver::serializer\\}\\
-  \hline
-  DEF3.6.1.1 & \multiLineCell[t]{actorbase::driver::client\\}\\
-  \hline
-  DEF3.6.2 & \multiLineCell[t]{actorbase::driver::client\\actorbase::driver::serializer\\}\\
-  \hline
-  DEF3.6.2.1 & \multiLineCell[t]{actorbase::driver::client\\}\\
-  \hline
-  DEF3.6.3 & \multiLineCell[t]{actorbase::driver::client\\actorbase::driver::serializer\\}\\
-  \hline
-  DEF3.6.3.1 & \multiLineCell[t]{actorbase::driver::client\\}\\
-  \hline
-  DEF3.6.4 & \multiLineCell[t]{actorbase::driver::client\\actorbase::driver::exceptions\\}\\
-  \hline
-  DEF3.6.5 & \multiLineCell[t]{actorbase::driver::client\\actorbase::driver::exceptions\\}\\
-  \hline
-  DEF3.6.6 & \multiLineCell[t]{actorbase::driver::client\\actorbase::driver::exceptions\\}\\
-  \hline
-  DEF3.7 & \multiLineCell[t]{actorbase::driver::client\\actorbase::driver::serializer\\}\\
-  \hline
-  DEF3.7.1 & \multiLineCell[t]{actorbase::driver::client\\}\\
-  \hline
-  DEF3.7.2 & \multiLineCell[t]{actorbase::driver::client\\}\\
-  \hline
-  DEF3.7.3 & \multiLineCell[t]{actorbase::driver::client\\actorbase::driver::exceptions\\}\\
-  \hline
-  DEF3.7.4 & \multiLineCell[t]{actorbase::driver::client\\actorbase::driver::exceptions\\}\\
-  \hline
-  DEF3.8 & \multiLineCell[t]{actorbase::driver::actorbasedata\\}\\
-  \hline
-  DEF3.8.1 & \multiLineCell[t]{actorbase::driver::actorbasedata\\}\\
-  \hline
-  DEF3.8.2 & \multiLineCell[t]{actorbase::driver::actorbasedata\\}\\
-  \hline
-  DEF3.8.3 & \multiLineCell[t]{actorbase::driver::actorbasedata\\}\\
-  \hline
-  DEV8 & \multiLineCell[t]{actorbase\\}\\
-  \hline
-  DEV9 & \multiLineCell[t]{actorbase\\}\\
-  \hline
-  OBF1 & \multiLineCell[t]{actorbase\\actorbase::actorsystem\\}\\
-  \hline
-  OBF1.1 & \multiLineCell[t]{actorbase::actorsystem::tcpserver\\}\\
-  \hline
-  OBF1.1.1 & \multiLineCell[t]{actorbase::actorsystem::tcpserver\\}\\
-  \hline
-  OBF1.1.1.1 & \multiLineCell[t]{actorbase::actorsystem::tcpserver\\}\\
-  \hline
-  OBF1.1.1.1.1 & \multiLineCell[t]{actorbase::actorsystem::tcpserver::messages\\}\\
-  \hline
-  OBF1.1.1.1.2 & \multiLineCell[t]{actorbase::actorsystem::tcpserver::messages\\}\\
-  \hline
-  OBF1.1.1.1.3 & \multiLineCell[t]{actorbase::actorsystem::tcpserver::messages\\}\\
-  \hline
-  OBF1.1.10 & \multiLineCell[t]{actorbase::actorsystem::clientactor\\actorbase::actorsystem::tcpserver\\}\\
-  \hline
-  OBF1.1.10.1 & \multiLineCell[t]{actorbase::actorsystem::clientactor\\actorbase::actorsystem::main\\actorbase::actorsystem::storefinder\\actorbase::actorsystem::userkeeper\\}\\
-  \hline
-  OBF1.1.10.1.1 & \multiLineCell[t]{actorbase::actorsystem::clientactor\\actorbase::actorsystem::userkeeper\\}\\
-  \hline
-  OBF1.1.10.2 & \multiLineCell[t]{actorbase::actorsystem::clientactor\\actorbase::actorsystem::main\\actorbase::actorsystem::ninja\\actorbase::actorsystem::storefinder\\actorbase::actorsystem::storekeeper\\actorbase::actorsystem::userkeeper\\actorbase::actorsystem::warehouseman\\}\\
-  \hline
-  OBF1.1.10.2.1 & \multiLineCell[t]{actorbase::actorsystem::clientactor\\actorbase::actorsystem::main\\actorbase::actorsystem::storefinder\\actorbase::actorsystem::storekeeper\\actorbase::actorsystem::userkeeper\\}\\
-  \hline
-  OBF1.1.10.2.1.1 & \multiLineCell[t]{actorbase::actorsystem::clientactor\\actorbase::actorsystem::main\\}\\
-  \hline
-  OBF1.1.10.2.2 & \multiLineCell[t]{actorbase::actorsystem::clientactor\\}\\
-  \hline
-  OBF1.1.10.2.3 & \multiLineCell[t]{actorbase::actorsystem::clientactor\\actorbase::actorsystem::main\\actorbase::actorsystem::storefinder\\actorbase::actorsystem::userkeeper\\}\\
-  \hline
-  OBF1.1.10.2.3.1 & \multiLineCell[t]{actorbase::actorsystem::clientactor\\actorbase::actorsystem::userkeeper\\}\\
-  \hline
-  OBF1.1.10.2.3.2 & \multiLineCell[t]{actorbase::actorsystem::clientactor\\}\\
-  \hline
-  OBF1.1.10.2.4 & \multiLineCell[t]{actorbase::actorsystem::clientactor\\actorbase::actorsystem::main\\actorbase::actorsystem::ninja\\actorbase::actorsystem::storefinder\\actorbase::actorsystem::storekeeper\\actorbase::actorsystem::userkeeper\\actorbase::actorsystem::warehouseman\\}\\
-  \hline
-  OBF1.1.10.2.4.1 & \multiLineCell[t]{actorbase::actorsystem::clientactor\\}\\
-  \hline
-  OBF1.1.10.2.5 & \multiLineCell[t]{actorbase::actorsystem::clientactor\\actorbase::actorsystem::main\\actorbase::actorsystem::ninja\\actorbase::actorsystem::storefinder\\actorbase::actorsystem::storekeeper\\actorbase::actorsystem::userkeeper\\actorbase::actorsystem::warehouseman\\}\\
-  \hline
-  OBF1.1.10.2.5.1 & \multiLineCell[t]{actorbase::actorsystem::clientactor\\actorbase::actorsystem::main\\actorbase::actorsystem::ninja\\actorbase::actorsystem::storefinder\\actorbase::actorsystem::storekeeper\\actorbase::actorsystem::userkeeper\\actorbase::actorsystem::warehouseman\\}\\
-  \hline
-  OBF1.1.10.2.5.2 & \multiLineCell[t]{actorbase::actorsystem::clientactor\\actorbase::actorsystem::main\\actorbase::actorsystem::ninja\\actorbase::actorsystem::storefinder\\actorbase::actorsystem::storekeeper\\actorbase::actorsystem::userkeeper\\actorbase::actorsystem::warehouseman\\}\\
-  \hline
-  OBF1.1.10.2.5.3 & \multiLineCell[t]{actorbase::actorsystem::clientactor\\}\\
-  \hline
-  OBF1.1.10.2.5.4 & \multiLineCell[t]{actorbase::actorsystem::clientactor\\actorbase::actorsystem::storefinder\\}\\
-  \hline
-  OBF1.1.10.2.6 & \multiLineCell[t]{actorbase::actorsystem::clientactor\\actorbase::actorsystem::main\\actorbase::actorsystem::ninja\\actorbase::actorsystem::storefinder\\actorbase::actorsystem::storekeeper\\actorbase::actorsystem::userkeeper\\actorbase::actorsystem::warehouseman\\}\\
-  \hline
-  OBF1.1.10.2.6.1 & \multiLineCell[t]{actorbase::actorsystem::clientactor\\}\\
-  \hline
-  OBF1.1.10.2.7 & \multiLineCell[t]{actorbase::actorsystem::clientactor\\actorbase::actorsystem::main\\actorbase::actorsystem::ninja\\actorbase::actorsystem::storefinder\\actorbase::actorsystem::storekeeper\\actorbase::actorsystem::userkeeper\\actorbase::actorsystem::warehouseman\\}\\
-  \hline
-  OBF1.1.10.3 & \multiLineCell[t]{actorbase::actorsystem::clientactor\\actorbase::actorsystem::main\\actorbase::actorsystem::manager\\actorbase::actorsystem::ninja\\actorbase::actorsystem::storefinder\\actorbase::actorsystem::storekeeper\\actorbase::actorsystem::userkeeper\\actorbase::actorsystem::warehouseman\\}\\
-  \hline
-  OBF1.1.10.3.1 & \multiLineCell[t]{actorbase::actorsystem::clientactor\\actorbase::actorsystem::main\\actorbase::actorsystem::manager\\actorbase::actorsystem::ninja\\actorbase::actorsystem::storefinder\\actorbase::actorsystem::storekeeper\\actorbase::actorsystem::warehouseman\\}\\
-  \hline
-  OBF1.1.10.3.2 & \multiLineCell[t]{actorbase::actorsystem::clientactor\\actorbase::actorsystem::main\\actorbase::actorsystem::userkeeper\\}\\
-  \hline
-  OBF1.1.10.3.3 & \multiLineCell[t]{actorbase::actorsystem::clientactor\\actorbase::actorsystem::main\\actorbase::actorsystem::storefinder\\actorbase::actorsystem::storekeeper\\}\\
-  \hline
-  OBF1.1.10.3.4 & \multiLineCell[t]{actorbase::actorsystem::clientactor\\actorbase::actorsystem::main\\actorbase::actorsystem::ninja\\actorbase::actorsystem::storefinder\\actorbase::actorsystem::storekeeper\\actorbase::actorsystem::warehouseman\\}\\
-  \hline
-  OBF1.1.10.3.5 & \multiLineCell[t]{actorbase::actorsystem::clientactor\\}\\
-  \hline
-  OBF1.1.10.4 & \multiLineCell[t]{actorbase::actorsystem::clientactor\\actorbase::actorsystem::main\\actorbase::actorsystem::storefinder\\actorbase::actorsystem::storekeeper\\}\\
-  \hline
-  OBF1.1.10.5 & \multiLineCell[t]{actorbase::actorsystem::clientactor\\actorbase::actorsystem::main\\actorbase::actorsystem::storefinder\\actorbase::actorsystem::userkeeper\\}\\
-  \hline
-  OBF1.1.10.5.1 & \multiLineCell[t]{actorbase::actorsystem::clientactor\\actorbase::actorsystem::userkeeper\\}\\
-  \hline
-  OBF1.1.10.6 & \multiLineCell[t]{actorbase::actorsystem::clientactor\\}\\
-  \hline
-  OBF1.1.10.7 & \multiLineCell[t]{actorbase::actorsystem::clientactor\\actorbase::actorsystem::main\\actorbase::actorsystem::storefinder\\actorbase::actorsystem::userkeeper\\}\\
-  \hline
-  OBF1.1.10.7.1 & \multiLineCell[t]{actorbase::actorsystem::clientactor\\actorbase::actorsystem::main\\actorbase::actorsystem::storefinder\\actorbase::actorsystem::userkeeper\\}\\
-  \hline
-  OBF1.1.10.7.1.1 & \multiLineCell[t]{actorbase::actorsystem::clientactor\\}\\
-  \hline
-  OBF1.1.10.7.2 & \multiLineCell[t]{actorbase::actorsystem::clientactor\\actorbase::actorsystem::main\\actorbase::actorsystem::storefinder\\}\\
-  \hline
-  OBF1.1.10.7.2.1 & \multiLineCell[t]{actorbase::actorsystem::clientactor\\actorbase::actorsystem::main\\actorbase::actorsystem::storefinder\\}\\
-  \hline
-  OBF1.1.10.7.3 & \multiLineCell[t]{actorbase::actorsystem::clientactor\\actorbase::actorsystem::main\\actorbase::actorsystem::storefinder\\actorbase::actorsystem::userkeeper\\}\\
-  \hline
-  OBF1.1.10.7.3.1 & \multiLineCell[t]{actorbase::actorsystem::clientactor\\actorbase::actorsystem::main\\actorbase::actorsystem::storefinder\\}\\
-  \hline
-  OBF1.1.2 & \multiLineCell[t]{actorbase::actorsystem::clientactor\\}\\
-  \hline
-  OBF1.1.2.1 & \multiLineCell[t]{actorbase::actorsystem::clientactor::messages\\actorbase::actorsystem::serialization\\}\\
-  \hline
-  OBF1.1.2.2 & \multiLineCell[t]{actorbase::actorsystem::clientactor::messages\\}\\
-  \hline
-  OBF1.1.2.3 & \multiLineCell[t]{actorbase::actorsystem::clientactor::messages\\actorbase::actorsystem::serialization\\}\\
-  \hline
-  OBF1.1.2.4 & \multiLineCell[t]{actorbase::actorsystem::clientactor::messages\\}\\
-  \hline
-  OBF1.1.2.5 & \multiLineCell[t]{actorbase::actorsystem::clientactor::messages\\}\\
-  \hline
-  OBF1.1.2.6 & \multiLineCell[t]{actorbase::actorsystem::clientactor::messages\\}\\
-  \hline
-  OBF1.1.3 & \multiLineCell[t]{actorbase::actorsystem::main\\}\\
-  \hline
-  OBF1.1.3.1 & \multiLineCell[t]{actorbase::actorsystem::main::messages\\}\\
-  \hline
-  OBF1.1.3.2 & \multiLineCell[t]{actorbase::actorsystem::main::messages\\}\\
-  \hline
-  OBF1.1.3.3 & \multiLineCell[t]{actorbase::actorsystem::main::messages\\}\\
-  \hline
-  OBF1.1.3.4 & \multiLineCell[t]{actorbase::actorsystem::main::messages\\}\\
-  \hline
-  OBF1.1.3.5 & \multiLineCell[t]{actorbase::actorsystem::main::messages\\}\\
-  \hline
-  OBF1.1.3.7 & \multiLineCell[t]{actorbase::actorsystem::main::messages\\}\\
-  \hline
-  OBF1.1.3.8 & \multiLineCell[t]{actorbase::actorsystem::main::messages\\}\\
-  \hline
-  OBF1.1.3.9 & \multiLineCell[t]{actorbase::actorsystem::main::messages\\}\\
-  \hline
-  OBF1.1.4 & \multiLineCell[t]{actorbase::actorsystem::storefinder\\}\\
-  \hline
-  OBF1.1.4.1 & \multiLineCell[t]{actorbase::actorsystem::storefinder::messages\\}\\
-  \hline
-  OBF1.1.4.2 & \multiLineCell[t]{actorbase::actorsystem::storefinder::messages\\}\\
-  \hline
-  OBF1.1.4.3 & \multiLineCell[t]{actorbase::actorsystem::storefinder::messages\\}\\
-  \hline
-  OBF1.1.4.4 & \multiLineCell[t]{actorbase::actorsystem::storefinder::messages\\}\\
-  \hline
-  OBF1.1.4.5 & \multiLineCell[t]{actorbase::actorsystem::storefinder::messages\\}\\
-  \hline
-  OBF1.1.5 & \multiLineCell[t]{actorbase::actorsystem::storekeeper\\}\\
-  \hline
-  OBF1.1.5.1 & \multiLineCell[t]{actorbase::actorsystem::storekeeper::messages\\}\\
-  \hline
-  OBF1.1.5.2 & \multiLineCell[t]{actorbase::actorsystem::storekeeper::messages\\}\\
-  \hline
-  OBF1.1.5.3 & \multiLineCell[t]{actorbase::actorsystem::storekeeper::messages\\}\\
-  \hline
-  OBF1.1.5.4 & \multiLineCell[t]{actorbase::actorsystem::storekeeper::messages\\}\\
-  \hline
-  OBF1.1.5.5 & \multiLineCell[t]{actorbase::actorsystem::storekeeper::messages\\}\\
-  \hline
-  OBF1.1.6 & \multiLineCell[t]{actorbase::actorsystem::serialization\\actorbase::actorsystem::warehouseman\\}\\
-  \hline
-  OBF1.1.6.1 & \multiLineCell[t]{actorbase::actorsystem::serialization\\actorbase::actorsystem::warehouseman::messages\\}\\
-  \hline
-  OBF1.1.6.2 & \multiLineCell[t]{actorbase::actorsystem::serialization\\actorbase::actorsystem::warehouseman::messages\\}\\
-  \hline
-  OBF1.1.8.2 & \multiLineCell[t]{actorbase::actorsystem::manager::messages\\}\\
-  \hline
-  OBF1.1.9 & \multiLineCell[t]{actorbase::actorsystem::userkeeper\\}\\
-  \hline
-  OBF1.1.9.1 & \multiLineCell[t]{actorbase::actorsystem::userkeeper::messages\\}\\
-  \hline
-  OBF1.1.9.2 & \multiLineCell[t]{actorbase::actorsystem::userkeeper::messages\\}\\
-  \hline
-  OBF1.1.9.3 & \multiLineCell[t]{actorbase::actorsystem::userkeeper::messages\\}\\
-  \hline
-  OBF1.1.9.4 & \multiLineCell[t]{actorbase::actorsystem::userkeeper::messages\\}\\
-  \hline
-  OBF1.1.9.5 & \multiLineCell[t]{actorbase::actorsystem::userkeeper::messages\\}\\
-  \hline
-  OBF1.1.9.6 & \multiLineCell[t]{actorbase::actorsystem::userkeeper::messages\\}\\
-  \hline
-  OBF1.1.9.7 & \multiLineCell[t]{actorbase::actorsystem::userkeeper::messages\\}\\
-  \hline
-  OBF1.1.9.8 & \multiLineCell[t]{actorbase::actorsystem::userkeeper::messages\\}\\
-  \hline
-  OBF1.1.9.9 & \multiLineCell[t]{actorbase::actorsystem::userkeeper::messages\\}\\
-  \hline
-  OBF2 & \multiLineCell[t]{actorbase\\actorbase::cli\\actorbase::cli::views\\}\\
-  \hline
-  OBF2.1 & \multiLineCell[t]{actorbase::cli::controllers\\}\\
-  \hline
-  OBF2.1.1 & \multiLineCell[t]{actorbase::cli::controllers\\actorbase::cli::models\\actorbase::cli::views\\}\\
-  \hline
-  OBF2.1.1.1 & \multiLineCell[t]{actorbase::cli::models\\actorbase::cli::views\\}\\
-  \hline
-  OBF2.1.1.2 & \multiLineCell[t]{actorbase::cli::models\\actorbase::cli::views\\}\\
-  \hline
-  OBF2.1.1.3 & \multiLineCell[t]{actorbase::cli::views\\}\\
-  \hline
-  OBF2.1.2 & \multiLineCell[t]{actorbase::cli::controllers\\actorbase::cli::models\\actorbase::cli::views\\}\\
-  \hline
-  OBF2.1.2.1 & \multiLineCell[t]{actorbase::cli::controllers\\actorbase::cli::models\\actorbase::cli::views\\}\\
-  \hline
-  OBF2.1.2.1.1 & \multiLineCell[t]{actorbase::cli::models\\actorbase::cli::views\\}\\
-  \hline
-  OBF2.1.2.10 & \multiLineCell[t]{actorbase::cli::views\\}\\
-  \hline
-  OBF2.1.2.11 & \multiLineCell[t]{actorbase::cli::views\\}\\
-  \hline
-  OBF2.1.2.12 & \multiLineCell[t]{actorbase::cli::views\\}\\
-  \hline
-  OBF2.1.2.13 & \multiLineCell[t]{actorbase::cli::views\\}\\
-  \hline
-  OBF2.1.2.14 & \multiLineCell[t]{actorbase::cli::views\\}\\
-  \hline
-  OBF2.1.2.2 & \multiLineCell[t]{actorbase::cli::controllers\\actorbase::cli::models\\actorbase::cli::views\\}\\
-  \hline
-  OBF2.1.2.3 & \multiLineCell[t]{actorbase::cli::controllers\\actorbase::cli::models\\actorbase::cli::views\\}\\
-  \hline
-  OBF2.1.2.3.1 & \multiLineCell[t]{actorbase::cli::models\\actorbase::cli::views\\}\\
-  \hline
-  OBF2.1.2.4 & \multiLineCell[t]{actorbase::cli::controllers\\actorbase::cli::models\\actorbase::cli::views\\}\\
-  \hline
-  OBF2.1.2.4.1 & \multiLineCell[t]{actorbase::cli::models\\actorbase::cli::views\\}\\
-  \hline
-  OBF2.1.2.4.2 & \multiLineCell[t]{actorbase::cli::models\\actorbase::cli::views\\}\\
-  \hline
-  OBF2.1.2.5 & \multiLineCell[t]{actorbase::cli::controllers\\actorbase::cli::models\\actorbase::cli::views\\}\\
-  \hline
-  OBF2.1.2.5.1 & \multiLineCell[t]{actorbase::cli::models\\actorbase::cli::views\\}\\
-  \hline
-  OBF2.1.2.5.2 & \multiLineCell[t]{actorbase::cli::models\\actorbase::cli::views\\}\\
-  \hline
-  OBF2.1.2.5.3 & \multiLineCell[t]{actorbase::cli::models\\actorbase::cli::views\\}\\
-  \hline
-  OBF2.1.2.6 & \multiLineCell[t]{actorbase::cli::controllers\\actorbase::cli::models\\actorbase::cli::views\\}\\
-  \hline
-  OBF2.1.2.6.1 & \multiLineCell[t]{actorbase::cli::models\\actorbase::cli::views\\}\\
-  \hline
-  OBF2.1.2.6.2 & \multiLineCell[t]{actorbase::cli::models\\actorbase::cli::views\\}\\
-  \hline
-  OBF2.1.2.8 & \multiLineCell[t]{actorbase::cli::models\\actorbase::cli::views\\}\\
-  \hline
-  OBF2.1.2.9 & \multiLineCell[t]{actorbase::cli::views\\}\\
-  \hline
-  OBF2.1.3 & \multiLineCell[t]{actorbase::cli::controllers\\actorbase::cli::models\\actorbase::cli::views\\}\\
-  \hline
-  OBF2.1.3.1 & \multiLineCell[t]{actorbase::cli::controllers\\actorbase::cli::models\\actorbase::cli::views\\}\\
-  \hline
-  OBF2.1.3.1.1 & \multiLineCell[t]{actorbase::cli::controllers\\actorbase::cli::models\\actorbase::cli::views\\}\\
-  \hline
-  OBF2.1.3.1.1.1 & \multiLineCell[t]{actorbase::cli::models\\actorbase::cli::views\\}\\
-  \hline
-  OBF2.1.3.1.1.2 & \multiLineCell[t]{actorbase::cli::models\\actorbase::cli::views\\}\\
-  \hline
-  OBF2.1.3.1.1.3 & \multiLineCell[t]{actorbase::cli::models\\actorbase::cli::views\\}\\
-  \hline
-  OBF2.1.3.1.1.4 & \multiLineCell[t]{actorbase::cli::models\\actorbase::cli::views\\}\\
-  \hline
-  OBF2.1.3.1.1.5 & \multiLineCell[t]{actorbase::cli::models\\actorbase::cli::views\\}\\
-  \hline
-  OBF2.1.3.4 & \multiLineCell[t]{actorbase::cli::views\\}\\
-  \hline
-  OBF2.1.3.5 & \multiLineCell[t]{actorbase::cli::views\\}\\
-  \hline
-  OBF2.1.6 & \multiLineCell[t]{actorbase::cli::controllers\\actorbase::cli::models\\actorbase::cli::views\\}\\
-  \hline
-  OBF2.1.6.1 & \multiLineCell[t]{actorbase::cli::models\\actorbase::cli::views\\}\\
-  \hline
-  OBF2.1.6.2 & \multiLineCell[t]{actorbase::cli::models\\actorbase::cli::views\\}\\
-  \hline
-  OBF2.1.7 & \multiLineCell[t]{actorbase::cli::controllers\\actorbase::cli::models\\actorbase::cli::views\\}\\
-  \hline
-  OBF2.1.7.1 & \multiLineCell[t]{actorbase::cli::models\\actorbase::cli::views\\}\\
-  \hline
-  OBF2.1.7.2 & \multiLineCell[t]{actorbase::cli::models\\actorbase::cli::views\\}\\
-  \hline
-  OBF2.1.7.3 & \multiLineCell[t]{actorbase::cli::models\\actorbase::cli::views\\}\\
-  \hline
-  OBF2.1.7.4 & \multiLineCell[t]{actorbase::cli::views\\}\\
-  \hline
-  OBF2.1.7.5 & \multiLineCell[t]{actorbase::cli::views\\}\\
-  \hline
-  OBF2.1.7.6 & \multiLineCell[t]{actorbase::cli::views\\}\\
-  \hline
-  OBF2.1.8 & \multiLineCell[t]{actorbase::cli::controllers\\actorbase::cli::models\\actorbase::cli::views\\}\\
-  \hline
-  OBF2.1.9 & \multiLineCell[t]{actorbase::cli::controllers\\actorbase::cli::models\\actorbase::cli::views\\}\\
-  \hline
-  OBF2.1.9.1 & \multiLineCell[t]{actorbase::cli::controllers\\actorbase::cli::models\\actorbase::cli::views\\}\\
-  \hline
-  OBF2.1.9.1.1 & \multiLineCell[t]{actorbase::cli::models\\actorbase::cli::views\\}\\
-  \hline
-  OBF2.1.9.1.2 & \multiLineCell[t]{actorbase::cli::models\\actorbase::cli::views\\}\\
-  \hline
-  OBF2.1.9.2 & \multiLineCell[t]{actorbase::cli::controllers\\actorbase::cli::models\\actorbase::cli::views\\}\\
-  \hline
-  OBF2.1.9.2.1 & \multiLineCell[t]{actorbase::cli::models\\actorbase::cli::views\\}\\
-  \hline
-  OBF2.1.9.2.2 & \multiLineCell[t]{actorbase::cli::models\\actorbase::cli::views\\}\\
-  \hline
-  OBF2.1.9.3 & \multiLineCell[t]{actorbase::cli::controllers\\actorbase::cli::models\\actorbase::cli::views\\}\\
-  \hline
-  OBF2.1.9.3.1 & \multiLineCell[t]{actorbase::cli::models\\actorbase::cli::views\\}\\
-  \hline
-  OBF2.1.9.3.2 & \multiLineCell[t]{actorbase::cli::models\\actorbase::cli::views\\}\\
-  \hline
-  OBF2.1.9.4 & \multiLineCell[t]{actorbase::cli::views\\}\\
-  \hline
-  OBF2.1.9.5 & \multiLineCell[t]{actorbase::cli::views\\}\\
-  \hline
-  OBF2.1.9.6 & \multiLineCell[t]{actorbase::cli::views\\}\\
-  \hline
-  OBQ12 & \multiLineCell[t]{actorbase\\}\\
-  \hline
-  OBV4 & \multiLineCell[t]{actorbase\\}\\
-  \hline
-  OBV5 & \multiLineCell[t]{actorbase\\}\\
-  \hline
-  OBV6 & \multiLineCell[t]{actorbase\\}\\
-  \hline
-  OBV7 & \multiLineCell[t]{actorbase\\}\\
-  \hline
-\end{longtable}
+\subsection{Tracciamento Requisiti-Classi}
 
 \newpage
 \appendix
