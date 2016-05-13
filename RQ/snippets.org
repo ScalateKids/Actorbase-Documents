@@ -1,7 +1,7 @@
 **** Driver usage: Generic example
 #+begin_src scala
-  val client = new ActorbaseDriver("localhost", 9999)
-  client.authenticate("foo", "bar") // athentication method
+  val auth = new ActorbaseDriver("localhost", 9999)
+  val client = auth.authenticate("foo", "bar") // athentication method
   val coll = client.addCollection("people")
   // just a "key" -> "value" pair
   coll.insert("key" -> "value")
@@ -14,9 +14,8 @@
   // finally two totally different item
   coll.insert("Foo" -> 42, "bar" -> "baz")
   // printing all collection contents
-  for ((k, v) <- coll) {
+  for ((k, v) <- coll)
     println(s"$k -> $v")
-  }
   // find some keys inside collection and do operations
   for ((k, v) <- coll.find("Arnold", "Foo")) {
     // operations...
