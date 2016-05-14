@@ -50,6 +50,10 @@
     \hline
     Version & Author & Role & Date & Description \\
     \hline
+    0.6.0 & & & 2016-05-13 & Verified section 2.1 - Installation\\
+    \hline
+    0.5.1 & & Programmer & Added section 2.1 - Installation\\
+    \hline
     0.5.0 & & & 2016-05-13 & Verified section 2.1.1 - Building from sources\\
     \hline
     0.4.1 & & Programmer & 2016-05-13 & Added section 2.1.1 - Building from sources\\
@@ -137,6 +141,12 @@ That's really all for a basic usage, though it's possible to give actorbase a cu
 %   \end{center}
 % \end{figure}
 
+The \textit{--config=path/to/config.cfg} is optional.
+
+As shown in the image, there is a part of the configuration dedicated to distribution of the load between
+multiple nodes in a cluster, \textbf{Actobase} is in fact a scale-out system oriented, and it is possible
+to set all cluster configurations offered by Akka library.
+
 \subsubsection{Building from sources}
 
 \textbf{Actorbase} was conceived and developed using SBT (Simple Building Tool) as building and dependencies
@@ -181,8 +191,6 @@ As shown in the image, there're some eternal libraries needed to build the syste
   distributed, and resilient message-driven applications on the JVM;\ the core of
   the system, of course used in the server-side component.
 \end{itemize}
-\subsection{Distribution: Cluster configuration}
-% TODO
 
 \subsection{ActorbaseDriver: Using Actorbase from inside a Scala source}
 
@@ -225,7 +233,7 @@ collection.
 
 Althrough in the future perhaps there could be the possibility to make some
 operations as an anonymous user, at the current state the only possible action
-that a non-logged-in user can do with ActorbaseDriver is the authentication.
+that a non-logged-in user can do with \verb=ActorbaseDriver= is the authentication.
 This method send a login request to the server-side of the system and, according
 to the response, it will return an \verb=ActorbaseService=\footnote{Main class,
   contains all collection management methods\label{ActorbaseServices}} or an
@@ -277,8 +285,8 @@ gives the possibility to call all collection-management methods:
   e.g.:
   % \begin{figure}[H]
   %   \begin{center}
-  %     \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Driver-Insert.png}
-  %     \caption{Driver usage: insertion methods}
+  %     \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Driver-AddCollection.png}
+  %     \caption{Driver usage: add collection  methods}
   %   \end{center}
   % \end{figure}
   Add collection\textsuperscript{\ref{coll}} method could raise:
@@ -289,7 +297,7 @@ gives the possibility to call all collection-management methods:
 \item \verb=insert= methods:\\ These methods come in two variants, first one accepting
   a vararg\footnote{A sequence of arguments} of key-value tuple, the second
   accepting an
-  \verb=ActorbaseObject=\footnote{An object representing a key-value pair inside Actorbase} instance;
+  \verb=ActorbaseObject=\footnote{An object representing a key-value pair inside Actorbase\label{ABobj}} instance;
   e.g.:
   % \begin{figure}[H]
   %   \begin{center}
@@ -318,7 +326,7 @@ gives the possibility to call all collection-management methods:
   %     \caption{Driver usage: find method}
   %   \end{center}
   % \end{figure}
-\item \verb=findOne= method:\\ This method accept one \verb=ActorbaseObject= representing
+\item \verb=findOne= method:\\ This method accept one \verb=ActorbaseObject=\textsuperscript{\ref{ABobj}} representing
   a key-value pair to be retrieved from the collection\textsuperscript{\ref{coll}}, again the usage is similar to insert and
   remove methods, e.g.:
   % \begin{figure}[H]
@@ -335,14 +343,14 @@ gives the possibility to call all collection-management methods:
   %     \caption{Driver usage: dropCollections method}
   %   \end{center}
   % \end{figure}
-  the \verb=drop= inside an \verb=ActorbaseCollection= object:
+  the \verb=drop= inside an \verb=ActorbaseCollection=\textsuperscript{\ref{ABcoll}} object:
   % \begin{figure}[H]
   %   \begin{center}
   %     \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Driver-Drop.png}
   %     \caption{Driver usage: drop method}
   %   \end{center}
   % \end{figure}
-  and finally \verb=drop= inside an \verb=ActorbaseCollectionMap=, it takes a
+  and finally \verb=drop= inside an \verb=ActorbaseCollectionMap=\textsuperscript{\ref{abcoll}}, it takes a
   vararg of \verb=String= representing a sequence of collections\textsuperscript{\ref{coll}} to be removed
   e.g.:
   % \begin{figure}[H]
