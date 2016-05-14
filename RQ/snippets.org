@@ -35,6 +35,16 @@ scala> client.changePassword("oldpw", "newpw")
 res0: Boolean = true
 #+end_src
 
+**** Creating a new collection
+#+begin_src scala
+scala> client.addCollection("consumers")
+res0: com.actorbase.driver.data.ActorbaseCollection
+#+end_src
+**** Listing collections
+#+begin_src scala
+scala> client.listCollections
+res0: List[String] = List("customers")
+#+end_src
 **** Inserting into a collection
 #+begin_src scala
 scala> client.getCollection("people").insert("keyOne" -> "valueOne", "keyTwo" -> 42)
