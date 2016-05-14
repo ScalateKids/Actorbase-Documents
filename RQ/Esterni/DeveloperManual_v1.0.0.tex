@@ -50,9 +50,13 @@
     \hline
     Version & Author & Role & Date & Description \\
     \hline
+    0.7.0 & & & 2016-05-13 & Verified section 2.1.1 - Building from sources\\
+    \hline
+    0.6.1 & & Programmer & 2016-05-13 & Added section 2.1.1 - Building from sources\\
+    \hline
     0.6.0 & & & 2016-05-13 & Verified section 2.1 - Installation\\
     \hline
-    0.5.1 & & Programmer & Added section 2.1 - Installation\\
+    0.5.1 & & Programmer & 2016-05-13 & Added section 2.1 - Installation\\
     \hline
     0.5.0 & & & 2016-05-13 & Verified section 2.1.1 - Building from sources\\
     \hline
@@ -109,21 +113,22 @@ This document aim to describe the procedures and methods to use in order to take
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% DRIVER PART                          %%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \section{Actorbase usage}
 
 \subsection{Installation}
 
-\textbf{Actorbase} is constituted of two JAR (Java Archive) shipped with all dependencies libraries, there are just
-a few steps to follow to have the system running and ready to receive commands:
+\textbf{Actorbase} require the JVM 8 (Java Virtual Machine) installed on the
+system, basically it's constituted of two JAR (Java Archive) shipped with all
+dependencies libraries, there are just a few steps to follow to have the system
+running and ready to receive commands:
 \begin{itemize}
-\item run actorbase.jar in a shell;
-\item run actorbasecli.jar in a second shell.
+\item run \verb=actorbase.jar= in a shell;
+\item run \verb=actorbasecli.jar= in a second shell.
 \end{itemize}
-That's really all for a basic usage, though it's possible to give actorbase a custom configuration by running:
+That's really all for a basic usage, and the procedure is the same for
+\textit{Windows} from version 10, \textit{Ubuntu 14.04 LTS} and \textit{OSX - El
+Capitan}, though it's possible to give actorbase a custom configuration by
+running:
 
 % \begin{figure}[H]
 %   \begin{center}
@@ -191,6 +196,10 @@ As shown in the image, there're some eternal libraries needed to build the syste
   distributed, and resilient message-driven applications on the JVM;\ the core of
   the system, of course used in the server-side component.
 \end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% DRIVER PART                          %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{ActorbaseDriver: Using Actorbase from inside a Scala source}
 
