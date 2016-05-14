@@ -233,7 +233,7 @@ actorbase {
 
   // map size on storefinders and storekeepers
   map-size {
-    storekeepr = 64
+    storekeeper = 64
     storefinder = 256 // better set higher number on storefinder and low on storekeepers
   }
 
