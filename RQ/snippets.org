@@ -130,6 +130,19 @@ scala> println(client.getCollection("people").count)
 res0: Int = 3
 #+end_src
 
+**** Import from file
+#+begin_src scala
+scala> client.importFromFile("foo/bar/baz.json")
+res0: Boolean = true
+#+end_src
+**** Export to file
+#+begin_src scala
+scala> client.exportToFile("foo/bar/customers_people.json", "customers", "people")
+res0: Boolean = true
+
+scala> client.exportToFile("foo/bar/all_collections.json")
+res1: Boolean = true
+#+end_src
 **** Contributor operations
 #+begin_src scala
 scala> val fooCollection = client.getCollection("foo")

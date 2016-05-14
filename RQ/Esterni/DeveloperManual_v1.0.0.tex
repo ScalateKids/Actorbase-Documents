@@ -151,9 +151,9 @@ to the response, it will return an \verb=ActorbaseService=\footnote{Main class,
 actually make all operations on the database, the main difference is that
 \verb=ActorbaseAdminServices=\textsuperscript{\ref{AdminServices}} allows to do
 some high-level administrative operations on users and
-collections\textsuperscript{\ref{coll}} of the system. Authentication method
-could raise \textbf{WrongCredentialExc} exception, in case of worng credentials
-sent to the server.
+collections\textsuperscript{\ref{coll}} of the system.\\
+Authentication method could raise \textbf{WrongCredentialExc} exception, in case
+of worng credentials sent to the server.
 
 \paragraph{Profile management}
 
@@ -274,7 +274,7 @@ gives the possibility to call all collection-management methods:
   %     \caption{Driver usage: drop method}
   %   \end{center}
   % \end{figure}
-\item \verb=count= elements inside a collection\textsuperscript{\ref{coll}} e.g.
+\item \verb=count= elements\footnote{Key-value pairs} inside a collection\textsuperscript{\ref{coll}} e.g.
   % \begin{figure}[H]
   %   \begin{center}
   %     \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Driver-Counting.png}
@@ -340,13 +340,16 @@ Administrative operations could raise some exceptions:
 \begin{itemize}
 \item \textbf{UndefinedUsernameExc:} In case of addition of a new user with an empty username;
 \end{itemize}
-\paragraph{Error management}
 
-There is one error that is shared by every method and that is in case of a
-connection error, which can be caused by not receiving a response from the
-server in a predetermined time, the driver will launch a timeout connection
-exception. There are some errors that are specific to some methods, these will
-be explained in the section dedicated to the methods that cause them.
+\paragraph{Failure management}
+
+In addition to all exceptions that could be raised, there is one error that is
+shared by every method and that is in case of a communication error, which can
+be caused by not receiving a response from the server in a predetermined time or
+unreachable destination address during connection, the driver will launch a
+timeout connection exception.
+
+\paragraph{External libraries}
 
 % TODO: tutte le librerie utilizzate per la serializzazione
 
