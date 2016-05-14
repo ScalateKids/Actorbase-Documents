@@ -222,13 +222,13 @@ actorbase {
 
   // storage configurations
   storage {
-  // persistence storage path
-  path = "path/to/storage"
-  // type of persistence strategy
-  // can be on-insert or on-timeout
-  strategy = on-insert
-  // on-timeout = 120 seconds  // interval of seconds between every save to disk
-  on-insert = 20               // interval of insertions between every save to disk
+    // persistence storage path
+    path = "path/to/storage"
+    // type of persistence strategy
+    // can be on-insert or on-timeout
+    strategy = on-insert
+    // on-timeout = 120 seconds  // interval of seconds between every save to disk
+    on-insert = 20               // interval of insertions between every save to disk
   }
 
   // map size on storefinders and storekeepers
