@@ -1437,7 +1437,7 @@ Messaggio che indica il completamento della richiesta precedente; \hyperref[sec:
 \subparagraph{Utilizzo}
 
 Quando \hyperref[sec:actorbase::actorsystem::main::Main]{Main}
-riceve questo messaggio cambia il suo context passando a waitingForRequests.
+riceve questo messaggio cambia il suo contesto passando a waitingForRequests.
 
 \paragraph{actorbase::actorsystem::main::messages::DuplicationRequestSF}
 \label{sec:actorbase::actorsystem::main::messages::DuplicateRequestSF}
@@ -1660,7 +1660,7 @@ corrispondente all'utente corretto.
   \hline
   write & public & immutable & Boolean & flag che rappresenta i permessi che l'utente ha sulla collezione da rimuovere \\
   \hline
-  collection & public & immutabile & ActorbaseCollection & stringa che rappresenta la collezione da rimuovere \\
+  collection & public & immutabile &  \hyperref[sec:actorbase::actorsystem::utils::ActorbaseCollection]{ActorbaseCollection} & Rappresenta la collezione da rimuovere \\
   \hline
 \end{tabular}
 
@@ -1683,7 +1683,7 @@ corrispondente all'utente su cui effettuare l'operazione.
   \hline
   write & public & immutable & Boolean & flag che rappresenta i permessi che l'utente ha sulla collezione da aggiungere \\
   \hline
-  collection & public & immutabile & ActorbaseCollection & stringa che rappresenta la collezione da aggiungere \\
+  collection & public & immutabile &  \hyperref[sec:actorbase::actorsystem::utils::ActorbaseCollection]{ActorbaseCollection} & Rappresenta la collezione da aggiungere \\
   \hline
 \end{tabular}
 
@@ -1705,7 +1705,7 @@ riceve questo messaggio provvederà ad inoltrare all'attore di tipo
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  collection & public & immutabile & ActorbaseCollection & Collezione di cui aggiornare il contatore \\
+  collection & public & immutabile &  \hyperref[sec:actorbase::actorsystem::utils::ActorbaseCollection]{ActorbaseCollection} & Collezione di cui aggiornare il contatore \\
   \hline
   increment & public & immutabile & Boolean & Se true causa un incremento del contatore, se false causa un decremento del contatore \\
   \hline
@@ -1755,9 +1755,9 @@ Questa classe viene utilizzata per salvare gli utenti e i loro dati nel \gloss{d
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  collections & private & mutabile & ListBuffer [String] & Rappresenta la lista di collezioni di cui l'utente ha permessi di lettura e scrittura \\
+  collections & private & mutabile & ListBuffer [ \hyperref[sec:actorbase::actorsystem::utils::ActorbaseCollection]{ActorbaseCollection}] & Rappresenta la lista di collezioni di cui l'utente ha permessi di lettura e scrittura \\
   \hline
-  readCollections & private & mutabile & ListBuffer [String] & Rappresenta la lista di collezioni di cui l'utente ha permessi di sola lettura \\
+  readCollections & private & mutabile & ListBuffer [ \hyperref[sec:actorbase::actorsystem::utils::ActorbaseCollection]{ActorbaseCollection}] & Rappresenta la lista di collezioni di cui l'utente ha permessi di sola lettura \\
   \hline
   client & private & mutabile & ActorRef & Riferimento all'attore di tipo \gloss{ClientActor}. Questo servirà a velocizzare l'aggiornamento del \gloss{ClientActor} \\
   \hline
@@ -1874,7 +1874,7 @@ lettura o in scrittura.
   \hline
   write & public & immutabile & Boolean & Boolean che rappresenta i permessi dell'utente sulla collezione da rimuovere ( \=0 se sola lettura e \=1 se lettura e scrittura) \\
   \hline
-  collection & public & immutabile & String & Stringa che rappresenta il nome della collezione da rimuovere \\
+  collection & public & immutabile & \hyperref[sec:actorbase::actorsystem::utils::ActorbaseCollection]{ActorbaseCollection} & Rappresenta il nome della collezione da rimuovere \\
   \hline
 \end{tabular}
 
@@ -1902,7 +1902,7 @@ lettura o in lettura e scrittura.
   \hline
   write & public & immutabile & Boolean & Boolean che rappresenta i permessi dell'utente sulla collezione da aggiungere ( \=0 se sola lettura e \=1 se lettura e scrittura) \\
   \hline
-  collection & public & immutabile & String & Stringa che rappresenta il nome della collezione da aggiungere \\
+  collection & public & immutabile &  \hyperref[sec:actorbase::actorsystem::utils::ActorbaseCollection]{ActorbaseCollection} & Rappresenta il nome della collezione da aggiungere \\
   \hline
 \end{tabular}
 
@@ -1948,7 +1948,7 @@ nella collezione.
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  collection & public & immutabile & ActorbaseCollection & Collezione di cui aggiornare il contatore \\
+  collection & public & immutabile &  \hyperref[sec:actorbase::actorsystem::utils::ActorbaseCollection]{ActorbaseCollection} & Collezione di cui aggiornare il contatore \\
   \hline
   increment & public & immutabile & Boolean & Se true causa un incremento del contatore, se false causa un decremento del contatore \\
   \hline
@@ -1964,7 +1964,7 @@ nella collezione.
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=0.8\textwidth,keepaspectratio]{RQ/storefinder.png}
-    \caption{Storefinder e interazioni con main}
+    \caption{Storefinder, visione generale del package}
   \end{center}
 \end{figure}
 
@@ -2055,7 +2055,7 @@ nella sua struttura dati.
   \hline
   leftRange & public & immutabile & \hyperref[sec:actorbase::actorsystem::utils::KeyRange]{KeyRange} & rappresenta il \hyperref[sec:actorbase::actorsystem::utils::KeyRange]{KeyRange} da assegnare allo \hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{Storekeeper} duplicato \\
   \hline
-  map & public & immutable & struttura dati dello \hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{Storekeeper} da creare\\
+  map & public & immutable & TreeMap[String, Any] & struttura dati dello \hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{Storekeeper} da creare\\
   \hline
   rightRange & public & immutabile & \hyperref[sec:actorbase::actorsystem::utils::KeyRange]{KeyRange} & rappresenta il \hyperref[sec:actorbase::actorsystem::utils::KeyRange]{KeyRange} da assegnare allo \hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{Storekeeper} da creare\\
   \hline
