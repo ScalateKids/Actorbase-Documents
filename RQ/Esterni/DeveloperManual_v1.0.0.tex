@@ -94,10 +94,16 @@ This document aim to describe the procedures and methods to use in order to take
 
 \section{Actorbase usage}
 
+\subsection{Installation}
+% TODO
+
+\subsection{Distribution: Cluster configuration}
+% TODO
+
 \subsection{ActorbaseDriver: Using Actorbase from inside a Scala source}
 
 Actorbase is essentially an actor system built upon a server component that
-exposes some API forming a RESTful web services. To facilitate the use from
+exposes some API forming a RESTful web service. To facilitate the use from
 inside a Scala source, it has been developed a driver in order to allow the
 usage of all features that Actorbase provides.\\
 
@@ -141,7 +147,7 @@ to the response, it will return an \verb=ActorbaseService= or an
 \verb=ActorbaseAdminServices=. These two objects give the methods to actually
 make all operations on the database, the main difference is that
 \verb=ActorbaseAdminServices= allows to do some high-level administrative
-operations on users and collections of the system.
+operations on users and collections\textsuperscript{\ref{coll}} of the system.
 
 \paragraph{Profile management}
 
@@ -157,7 +163,7 @@ e.g.:
 
 \paragraph{Collections operations}
 
-As previously explained, operations on the collections can be done in a purely
+As previously explained, operations on the collections\textsuperscript{\ref{coll} can be done in a purely
 OOP way, this mean that all methods that return an \verb=ActorbaseCollection=,
 gives the possibility to call all collection-management methods:
 \begin{itemize}
@@ -190,7 +196,7 @@ gives the possibility to call all collection-management methods:
   %   \end{center}
   % \end{figure}
 \item \verb=findOne= method:\\ This method accept one \verb=ActorbaseObject= representing
-  a key-value pair to be retrieved from the collection, again the usage is similar to insert and
+  a key-value pair to be retrieved from the collection\textsuperscript{\ref{coll}, again the usage is similar to insert and
   remove methods, e.g.:
   % \begin{figure}[H]
   %   \begin{center}
@@ -214,7 +220,7 @@ gives the possibility to call all collection-management methods:
   %   \end{center}
   % \end{figure}
   and finally \verb=drop= inside an \verb=ActorbaseCollectionMap=, it takes a
-  vararg of \verb=String= representing a sequence of collections to be removed
+  vararg of \verb=String= representing a sequence of collections\textsuperscript{\ref{coll} to be removed
   e.g.:
   % \begin{figure}[H]
   %   \begin{center}
@@ -262,7 +268,7 @@ e.g.:
 \paragraph{Administrative operations}
 
 Actorbase expect two kind of users, common an administrator. The last one have
-some privileges over the others, such as a wider range of collections (all
+some privileges over the others, such as a wider range of collections\textsuperscript{\ref{coll} (all
 database) with read-write permissions, and capabilities of adding and removing
 users to and from the system, and finally resetting the password of given users.
 % \begin{figure}[H]
