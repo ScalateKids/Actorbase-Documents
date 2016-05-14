@@ -199,11 +199,11 @@ rappresentano il \gloss{server}.
 \label{sec:actorbase::actorsystem::utils}
 
 \begin{figure}[H] %TODO aggiungere immagine
-   \begin{center}
-     \includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/utils.png}
-     \caption{Package actorsystem::utils}
-   \end{center}
- \end{figure}
+  \begin{center}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/utils.png}
+    \caption{Package actorsystem::utils}
+  \end{center}
+\end{figure}
 
 \subsubsection{Descrizione}
 \gloss{Package} contenente diverse classi di utilità.
@@ -391,7 +391,7 @@ Viene utilizzata dall'attore di tipo \gloss{Warehouseman} per il salvataggio e l
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  encrypt & pubblico & Void & Metodo che si occupa di criptare i dati \\
+  encrypt & pubblico & Unit & Metodo che si occupa di criptare i dati \\
   \hline
   decrypt & pubblico & TreeMap[String, Any] & Metodo che si occupa di decriptare i dati \\
   \hline
@@ -1494,11 +1494,11 @@ riceve questo messaggio provvederà ad inoltrare allo \hyperref[sec:actorbase::a
 \label{sec:actorbase::actorsystem::userfinder}
 
 \begin{figure}[H]
-   \begin{center}
-     \includegraphics[width=0.8\textwidth,keepaspectratio]{RQ/userfinder.png}
-     \caption{Userfinder, visione generale del package}
-   \end{center}
- \end{figure}
+  \begin{center}
+    \includegraphics[width=0.8\textwidth,keepaspectratio]{RQ/userfinder.png}
+    \caption{Userfinder, visione generale del package}
+  \end{center}
+\end{figure}
 
 \subsubsection{Descrizione}
 Classe che rappresenta un \gloss{attore} di tipo \gloss{Userfinder}.
@@ -2754,7 +2754,7 @@ remoti all'interno del \gloss{database}.
   \hline
   exportToFile & public & Boolean & Metodo da utilizzare per esportare \gloss{collezioni} dal \gloss{server} su \gloss{filesystem}\\
   \hline
-  logout & public & Void & Effettua il logout dal server\\
+  logout & public & Unit & Effettua il logout dal server\\
   \hline
 \end{tabular}
 
@@ -3003,7 +3003,7 @@ metodi.
   \hline
   send & public & \hyperref[sec::actorbase::driver::client::api]{Response} & Invia la richiesta al server e riceve la risposta sincronamente\\
   \hline
-  shutdown & public & void  & Chiude la connessione con il server\\
+  shutdown & public & Unit  & Chiude la connessione con il server\\
   \hline
 \end{tabular}
 
@@ -3152,7 +3152,7 @@ hanno libertà di implementazione specifica dei metodi.
   \hline
   send & public & \hyperref[sec:actorbase::driver::client::api::Response]{Response} & Invia la richiesta al server e riceve la risposta sincronamente\\
   \hline
-  shutdown & public & void  & Chiude la connessione con il server\\
+  shutdown & public & Unit  & Chiude la connessione con il server\\
   \hline
 \end{tabular}
 
@@ -4023,7 +4023,7 @@ Questa classe viene utilizzata per la rappresentazione dell'aggregazione di
   \hline
   drop & public & Boolean & Cancella una o più \gloss{collezione}\\
   \hline
-  foreach & public & Void & Permette di visitare l'intera \gloss{collezione} di \gloss{collezioni} applicando una funzione ad ogni \gloss{item}\\
+  foreach & public & Unit & Permette di visitare l'intera \gloss{collezione} di \gloss{collezioni} applicando una funzione ad ogni \gloss{item}\\
   \hline
   toString & public & String & Ritorna la \gloss{collezione} in formato Stringa \gloss{JSON}\\
   \hline
@@ -4448,7 +4448,7 @@ ottenuti dal server mediante l'inserimento dei comandi tramite il
 \subsection{actorbase::cli::controllers}
 \label{sec:actorbase::cli::controllers}
 
-%TODO QUA MANCA L'IMMAGINE
+% TODO QUA MANCA L'IMMAGINE
 
 \subsubsection{Descrizione}
 
