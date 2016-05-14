@@ -205,6 +205,12 @@ libraryDependencies ++= Seq(
   "org.json4s" %% "json4s-jackson" % "3.3.0",
   "io.spray" %%  "spray-json" % "1.3.2")
 #+end_src
+**** build binaries
+#+begin_src sh
+// building with sbt
+$ sbt assembly
+$ ./target/scala-2.11/actorbase-1.0 --config=path/to/config.cfg
+#+end_src
 **** configuration sample
 #+begin_src scala
 actorbase {
