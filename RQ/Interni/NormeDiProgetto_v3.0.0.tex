@@ -153,6 +153,9 @@ chiarire dubbi o definire comportamenti da seguire in specifici scenari.
 \item\textbf{Docker:} \url{https://www.docker.io/};
 \item\textbf{Travis-ci:} \url{https://travis-ci.org/};
 \item\textbf{Virtual Box:} \url{https://www.virtualbox.org/}.
+\item\textbf{SBT:} Simple Build Tool, ambiente di sviluppo Scala \url{http://www.scala-sbt.org}
+\item\textbf{Apache ab:} Uno strumento per \gloss{benchmarking} di sistemi basati su comunicazioni \gloss{HTTP} (Hyper\-Text Transport Protocol)\url{https://httpd.apache.org/docs/2.4/programs/ab.html}
+\item\textbf{GNU Parallel:} Uno strumento per eseguire in parallelo più processi  \url{http://www.gnu.org/software/parallel/}
 \end{itemize}
 
 \section{Processi Primari}
@@ -1240,16 +1243,6 @@ lista redatta in prima istanza di verifica.
 \subsection{Norme di verifica codice}
 \label{sec:NormeDiVerifica}
 
-\subsubsection{Test di unità}
-
-Sono test destinati al collaudo della più piccola porzione di codice che abbia senso
-testare, compito dei \textit{progettisti} è la stesura e il tracciamento dei test di
-unità con i requisiti e viceversa secondo le regole di nomenclatura seguenti:
-
-\begin{center}
-  \verb=TU.NomeTest=
-\end{center}
-
 \paragraph{Analisi statica}
 \label{sec:AnalisiStatica}
 
@@ -1285,6 +1278,25 @@ Gli strumenti da utilizzare per le \gloss{attività} di analisi statica saranno:
 \end{itemize}
 
 \paragraph{Analisi dinamica}
+
+Gli strumenti da utilizzare per le \gloss{attività} di analisi dinamica saranno:
+\begin{itemize}
+\item\textbf{Apache ab:} Uno strumento utilizzato per effettuare
+  \gloss{benchmark} su sistemi basati su comunicazioni \gloss{HTTP};
+\item\textbf{GNU parallel}: Uno strumento da utilizzare su \gloss{shell} per
+  lanciare più processi contemporaneamente, verrà utilzzato in congiunzione ad
+  ab per effettare test di carico sul prodotto.
+\end{itemize}
+
+\subsubsection{Test di unità}
+
+Sono test destinati al collaudo della più piccola porzione di codice che abbia senso
+testare, compito dei \textit{progettisti} è la stesura e il tracciamento dei test di
+unità con i requisiti e viceversa secondo le regole di nomenclatura seguenti:
+
+\begin{center}
+  \verb=TU.NomeTest=
+\end{center}
 
 \subsubsection{Test di integrazione}
 
@@ -1427,16 +1439,16 @@ del prodotto possono tuttavia richiederne l'utilizzo da riga di comando, in ques
 \subsection{Configurazione}
 
 Come prima cosa è necessario assicurarsi di avere installato nel proprio sistema java, aggiornato alla versione 8.
-Poi sarà necessario installare SBT da repository nel proprio sistema. Per creare un nuovo progetto è necessario avere una struttura 
+Poi sarà necessario installare SBT da repository nel proprio sistema. Per creare un nuovo progetto è necessario avere una struttura
 di directory che sbt sia in grado di riconoscere. Noi abbiamo preso come modello la struttura di maven.
-Poi per definire nome del progetto dipendenze e librerie è necessario scrivere un file chiamato "build.sbt" che conterrà: nome del
+Poi per definire nome del progetto dipendenze e librerie è necessario scrivere un file chiamato ``build.sbt'' che conterrà: nome del
 progetto, versione del progetto, versione di scala utilizzata nel progetto, libreire e dipendenze da necessarie ed eventuali
 plugin di sbt.
 
 \subsection{Accesso alla console Scala}
 
 Sbt offre la possibilità di accedere mediante la sua cli alla scala console. Per accedervi è sufficiente lanciare il comando \verb=sbt= che
-ci aprirà una nuova istanza della console di sbt. Dalla quale è possibile manualmente configurare progetti versioni e ogni tipo di 
+ci aprirà una nuova istanza della console di sbt. Dalla quale è possibile manualmente configurare progetti versioni e ogni tipo di
 impostazione di sbt. Per aprire la console scala è sufficiente dare il comando \verb=consoleProject= su CLI di sbt per avviare la scala
 console.
 
@@ -1445,16 +1457,11 @@ console.
 Per la compilazione di un progetto sbt, una volta configurato a dovere il file build.sbt sarà sufficiente dalla directory del
 progetto dare il comando \verb=sbt compile= per compilare il progetto e lanciarlo. Alla prima esecuzione tale comando dovrà occuparsi di
 risolvere tutte le dipendenze del progetto e ottenerle dalla rete. Di conseguenza è necessaria una connessione.
-Dopo che sarà stata scaricata la corretta versione di scala e le librerie il verrà compilato il progetto e mostrati eventuali 
+Dopo che sarà stata scaricata la corretta versione di scala e le librerie il verrà compilato il progetto e mostrati eventuali
 messaggi di errore. Dalla seconda esecuzione in poi il progetto verrà solo compilato, usando scala e librerie precedentemente
 scaricate.
 Se si desidera fare un clean e riscaricare nuovamente da capo scala e librerie sarà sufficente dare il comando \verb=sbt clean= compile, che
 eseguirà un clean del progetto per poi ricompilare il tutto da capo.
-
-\subsubsection{Compilazione di moduli separati}
-
-In caso sia necessario compilare e testare un singolo modulo, viene utilizzato il comando \verb=sbt test= seguito dal modulo del
-progetto che si desidera compilare e testare
 
 \subsubsection{Esecuzione del codice Scala}
 
@@ -1462,6 +1469,26 @@ Per l'esecuzione del progetto sbt dalla directory home è sufficiente lanciare i
 una compilazione se ci sono modifiche dall'ultima compilazione nota, e poi eseguirà il progetto.
 
 \subsubsection{Esecuzione dei test di unità previsti}
+
+Per l'esecuzione dei test previsti, sbt prevede il comando \verb=sbt test=, fornendo i risultati e il tempo calcolato all'esecuzione
+delle unità di test.
+
+\section{GNU Parallel}
+
+GNU Parallel permette di eseguire più istanze di un programma contemporaneamente, può essere quindi utilizzato per testare le capacità del sistema
+sotto sforzo. E' necessario fornire una lista di richieste da effettuare con Apache ab e impostare alcuni parametri, come il numero di thread da lanciare,
+il numero di richieste per thread e il tipo di connession \gloss{HTTP} da utilizzare.
+Un esempio di utilizzo in congiunzione ad Apache ab e \gloss{grep}, in modo da stampare solamente le richieste per secondo soddisfatte da un generico servizio
+\gloss{HTTP}:
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.9\textwidth, keepaspectratio]{RQ/parallel.png}
+    \caption{GNU Parallel e Apache ab - 2000 richieste da 5 processi paralleli, per un totale di 10000 richieste parallele}
+  \end{center}
+\end{figure}
+
+% TODO
+
 \newpage
 
 \listoffigures
