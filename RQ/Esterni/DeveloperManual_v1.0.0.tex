@@ -1,5 +1,6 @@
 \documentclass{scalatekids-article}
 \usepackage[official]{eurosym}
+\usepackage[english]{babel}
 \begin{document}
 \lfoot{Developer Manual 1.0.0}
 \newgeometry{top=3.5cm}
@@ -49,11 +50,27 @@
     \hline
     Version & Author & Role & Date & Description \\
     \hline
-    0.1.1 & Andrea Giacomo Baldan & Programmer & 2016-05.12 & Added section 2.3\\
+    0.5.0 & & & 2016-05-13 & Verified section 2.1.1 - Building from sources\\
     \hline
-    0.1.0 &  &  & 2016-05-10 & Verified section 2: Actorbase Usage and all relative subsections\\
+    0.4.1 & & Programmer & 2016-05-13 & Added section 2.1.1 - Building from sources\\
     \hline
-    0.0.2 & Andrea Giacomo Baldan & Programmer & 2016-05-10 & Added section 2: Actorbase Usage and all relative subsections\\
+    0.4.0 & & & 2016-05-13 & Verified section 2.4.0.4 - Failure management\\
+    \hline
+    0.3.0 & & & 2016-05-13 & Verified sections 2.4.0.2 - Profile management, 2.4.0.3 - Collections operations and relative subsections\\
+    \hline
+    0.2.2 & & Programmer & 2016-05-13 & Added section 2.4.0.4 - Failure management\\
+    \hline
+    0.2.1 & Andrea Giacomo Baldan & Programmer & 2016-05-13 & Added sections 2.4.0.2 - Profile management, 2.4.0.3 - Collections operations and relative subsections\\
+    \hline
+    0.2.0 &  &  & 2016-05-12 & Verified section 2.3.1 - Quick start, 2.4 - More in depth: common operations and 2.4.1 - Authentication\\
+    \hline
+    0.1.2 & Andrea Giacomo Baldan & Programmer & 2016-05-12 & Added section 2.4 - More in depth: common operations and 2.4.1 - Authentication\\
+    \hline
+    0.1.1 & Andrea Giacomo Baldan & Programmer & 2016-05-12 & Added section 2.3.1 - Quick start\\
+    \hline
+    0.1.0 &  &  & 2016-05-10 & Verified section 2: Actorbase Usage and subsection 2.3\\
+    \hline
+    0.0.2 & Andrea Giacomo Baldan & Programmer & 2016-05-10 & Added section 2: Actorbase Usage and subsection 2.3\\
     \hline
     0.0.1 & Andrea Giacomo Baldan & Programmer & 2016-05-10 & Created document structure\\
     \hline
@@ -95,8 +112,77 @@ This document aim to describe the procedures and methods to use in order to take
 \section{Actorbase usage}
 
 \subsection{Installation}
-% TODO
 
+\textbf{Actorbase} is constituted of two JAR (Java Archive) shipped with all dependencies libraries, there are just
+a few steps to follow to have the system running and ready to receive commands:
+\begin{itemize}
+\item run actorbase.jar in a shell;
+\item run actorbasecli.jar in a second shell.
+\end{itemize}
+That's really all for a basic usage, though it's possible to give actorbase a custom configuration by running:
+
+% \begin{figure}[H]
+%   \begin{center}
+%     \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Actorbase-BuildBin.png}
+%     \caption{Actorbase: build binaries with custom configuration}
+%   \end{center}
+% \end{figure}
+
+The \begin{verbatim}--config\=path/to/config.cfg \end{verbatim} is optional.
+
+\textbf{Configuration sample}
+
+% \begin{figure}[H]
+%   \begin{center}
+%     \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Actorbase-BuildBin.png}
+%     \caption{Actorbase: build binaries with custom configuration}
+%   \end{center}
+% \end{figure}
+
+\subsubsection{Building from sources}
+
+\textbf{Actorbase} was conceived and developed using SBT (Simple Building Tool) as building and dependencies
+manager tool, this makes compilation and building from sources extremely easy to achieve, just by adding a
+\verb=build.sbt= file inside a Maven-like folder tree:
+
+\textbf{Server side}
+
+% \begin{figure}[H]
+%   \begin{center}
+%     \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Actorbase-FromSourceSbt.png}
+%     \caption{Actorbase: build.sbt sample to build from sources}
+%   \end{center}
+% \end{figure}
+
+\textbf{CLI}
+
+% \begin{figure}[H]
+%   \begin{center}
+%     \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Actorbase-FromSourceSbtCLI.png}
+%     \caption{Actorbase-CLI: build.sbt sample to build from sources}
+%   \end{center}
+% \end{figure}
+
+As shown in the image, there're some eternal libraries needed to build the system:
+\begin{itemize}
+\item \textbf{Spray:} An open source toolkit for building REST/HTTP-based
+  integration layers on top of Scala and Akka; mainly used for the server
+  component in order to expose communication API and to
+  Marshall\footnote{Transforming the memory of an object to a data format suitable
+    for storage or transmission, e.g.\ serialization} database contents.
+\item \textbf{scala-pickling:} An automatic serialization framework made for
+  Scala; mainly used in the driver component in order to serialized and
+  deserialize object in a fast and transparent way;
+\item \textbf{scalaj-http:} A fairly simple http library for Scala, used in the
+  driver component in order to establish a communication with the server REST API;\
+\item \textbf{json4s:} Used in the driver component to expose a pretty formatted
+  JSON (JavaScript Object Notation) version of the data retrieved from the server;
+\item \textbf{scala-bcrypt:} Scala version of the encryption library Bcrypt,
+  used on the server side for store hashes of sensitive data;
+\item \textbf{Akka:} A toolkit and runtime for building highly concurrent,
+  distributed, and resilient message-driven applications on the JVM;\ the core of
+  the system, of course used in the server-side component.
+\end{itemize}
 \subsection{Distribution: Cluster configuration}
 % TODO
 
@@ -174,13 +260,16 @@ This method could raise:
 
 \subparagraph{Credential rules}
 % TODO: Complete
-Password must be at least 8 characters length.
+Usernames can't be empty string, neither have spaces, every password must
+contain at least one uppercase, one lowercase letter and one number and be at
+least 8 characters long.
 
 \paragraph{Collections operations}
 
 As previously explained, operations on the collections\textsuperscript{\ref{coll}} can be done in a purely
-OOP way, this mean that all methods that return an \verb=ActorbaseCollection=,
+OOP way, this mean that all methods that return an \verb=ActorbaseCollection=\footnote{An object representing a collection of the system\label{ABcoll}},
 gives the possibility to call all collection-management methods:
+
 \begin{itemize}
 \item \verb=listCollection=, lists all collections\textsuperscript{\ref{coll}}
   contained in the database, these are collections\textsuperscript{\ref{coll}}
@@ -267,7 +356,7 @@ gives the possibility to call all collection-management methods:
 \item printing collections\textsuperscript{\ref{coll}}:\\All object returned by \verb=ActorbaseDriver=
   have an override\footnote{Specific implementation of a method in a subclass that
     is already provided by one of its superclasses} to the method \verb=toString=
-  that return a pretty formatted JSON(JavaScript Object Notation) \verb=String=, e.g.:
+  that return a pretty formatted JSON (JavaScript Object Notation) \verb=String=, e.g.:
   % \begin{figure}[H]
   %   \begin{center}
   %     \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Driver-Printing.png}
@@ -324,7 +413,7 @@ e.g.:
 %   \end{center}
 % \end{figure}
 
-\paragraph{Administrative operations}
+\subparagraph{Administrative operations}
 
 Actorbase expect two kind of users, common an administrator. The last one have
 some privileges over the others, such as a wider range of collections\textsuperscript{\ref{coll}} (all
@@ -348,9 +437,5 @@ shared by every method and that is in case of a communication error, which can
 be caused by not receiving a response from the server in a predetermined time or
 unreachable destination address during connection, the driver will launch a
 timeout connection exception.
-
-\paragraph{External libraries}
-
-% TODO: tutte le librerie utilizzate per la serializzazione
 
 \end{document}

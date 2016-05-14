@@ -167,3 +167,105 @@ scala> // reset
 scala> client.resetPassword("anotherUser")
 res1: Boolean = true
 #+end_src
+**** build.sbt server
+#+begin_src scala
+name := "Actorbase"
+
+version := "1.0"
+
+scalaVersion := "2.11.8"
+
+libraryDependencies ++= Seq(
+  "com.typesafe.akka" %% "akka-actor" % "2.4.4",
+  "com.typesafe.akka" %% "akka-testkit" % "2.4.4",
+  "com.typesafe" % "config" % "1.2.1",
+  "org.scalatest" % "scalatest_2.11" % "2.2.6" % "test",
+  "io.spray" %% "spray-can" % "1.3.3",
+  "io.spray" %% "spray-routing" % "1.3.3",
+  "io.spray" %% "spray-json" % "1.3.2",
+  "org.mindrot.t3hnar" % "scala-bcrypt_2.10" % "2.6")
+)
+#+end_src
+**** build.sbt client
+#+begin_src scala
+name := "Actorbase-CLI"
+
+version := "1.0"
+
+scalaVersion := "2.11.8"
+
+libraryDependencies ++= Seq(
+  "com.typesafe" % "config" % "1.2.1",
+  "org.scala-lang.modules" %% "scala-parser-combinators" % "1.0.2",
+  "org.scala-lang" % "jline" % "2.11.0-M3",
+  "org.scalatest" % "scalatest_2.11" % "2.2.6" % "test",
+  "org.scalaj" %% "scalaj-http" % "2.3.0",
+  "org.scala-lang.modules" %% "scala-pickling" % "0.10.1",
+  "org.json4s" %% "json4s-native" % "3.3.0",
+  "org.json4s" %% "json4s-jackson" % "3.3.0",
+  "io.spray" %%  "spray-json" % "1.3.2")
+#+end_src
+**** configuration sample
+#+begin_src scala
+actorbase {
+
+  // address listening for connections
+  addr = "127.0.0.1"
+  // port open to connections
+  port = 9999
+
+  // storage configurations
+  storage {
+  // persistence storage path
+  path = "path/to/storage"
+  // type of persistence strategy
+  // can be on-insert or on-timeout
+  strategy = on-insert
+  // on-timeout = 120 seconds  // interval of seconds between every save to disk
+  on-insert = 20               // interval of insertions between every save to disk
+  }
+
+  // map size on storefinders and storekeepers
+  map-size {
+    storekeepr = 64
+    storefinder = 256 // better set higher number on storefinder and low on storekeepers
+  }
+
+  // delay for multiple insertions
+  // should change this value based on the type of data
+  // and traffic that is expected to handle
+  insert-delay = 1 // ms of delay, lower than 1 only if there is no high traffic expected
+                   // higher for massive request incoming
+}
+#+end_src
+**** cluster configuration sample
+#+begin_src scala
+akka {
+
+  // setting cluster actor ref
+  actor{
+    provider = "akka.cluster.ClusterActorRefProvider"
+
+    // default mailbox type, using control aware dispatching and
+    // unbound mailbox, beware of memory consumption
+
+    default-mailbox.mailbox-type = "akka.dispath"UnboundedControlAwareMailbox"
+
+    // deployment of main actors
+    deployment./main {
+
+      // routing type
+      // can be all akka provided routing strategy e.g. Round robin pool,
+      // or consistent-hashing pool or even a custom one
+      router = round-robin-pool
+      cluster.allow-local-routees = on
+
+      // max number of routees per nodes (e.g. main actor per node)
+      cluster.max-nr-of-instances-per-node = 10
+      seed-nodes = ["akka.tcp://actorbase@127.0.0.1:2500", "akka.tcp://actorbase@127.0.0.1:2501"]
+      cluster.enabled = on
+    }
+  }
+
+}
+#+end_src
