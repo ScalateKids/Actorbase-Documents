@@ -2659,7 +2659,7 @@ profilo nel sistema.
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  authenticate & public & Boolean & Metodo di autenticazione sul server mediante credenziali\\
+  authenticate & public & \hyperref[sec:actorbase::driver::ActorbaseServices]{ActorbaseServices} & Metodo di autenticazione sul server mediante credenziali\\
   \hline
 \end{tabular}
 
@@ -2727,6 +2727,7 @@ remoti all'interno del \gloss{database}.
 
 \begin{itemize}
 \item \hyperref[sec:actorbase::driver::client::Connector]{actorbase::driver::client::Connector}.
+\item \hyperref[sec:actorbase::driver::ActorbaseAdminServices]{actorbase::driver::ActorbaseAdminServices}.
 \end{itemize}
 
 \subparagraph{Metodi}
@@ -2820,7 +2821,7 @@ remoti all'interno del \gloss{database}.
 
 % FINE ACTORBASEDRIVER
 
-\paragraph{ActorbaseAdminServices}
+\paragraph{ActorbaseAdminServices (abstract)}
 \label{sec:actorbase::driver::ActorbaseAdminServices}
 
 \begin{figure}[H]
@@ -2832,20 +2833,19 @@ remoti all'interno del \gloss{database}.
 
 \subparagraph{Descrizione}
 
-Classe principale della componente \gloss{driver}, rappresenta l'interfaccia
-contenente i metodi designati all'utilizzo di \textbf{Actorbase} in un programma
-\gloss{Scala}.
+Classe astratta contenente alcuni metodi di utilità esclusivamente amministrativa.
 
 \subparagraph{Utilizzo}
 
 Aggiunge funzionalità amministrative all'oggetto
 \hyperref[sec:actorbase::driver::ActorbaseServices]{ActorbaseServices}, ossia
-operazioni di gestione degli utenti.
+operazioni di gestione degli utenti. Funge da iniezione di dipendenze mediante
+\gloss{cake pattern}.
 
 \subparagraph{Eredita}
 
 \begin{itemize}
-\item \hyperref[sec:actorbase::driver::ActorbaseServices]{actorbase::driver::ActorbaseServices}.
+\item \hyperref[sec:actorbase::driver::client::Connector]{actorbase::driver::client::Connector}.
 \end{itemize}
 
 \subparagraph{Metodi}
@@ -3829,11 +3829,11 @@ navigabilità dei contenuti.
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  insert & public & Boolean & Inserisce una o più coppie chiave-valore all'interno di Actorbase\\
+  insert & public & \hyperref[sec::actorbase::driver::data::ActorbaseCollection]{ActorbaseColletion} & Inserisce una o più coppie chiave-valore all'interno di Actorbase\\
   \hline
-  insert & public & Boolean & Inserisce un'oggetto di tipo \hyperref[sec:actorbase::driver::data::ActorbaseObject]{ActorbaseObject}\\
+  insert & public & \hyperref[sec::actorbase::driver::data::ActorbaseCollection]{ActorbaseColletion} & Inserisce un'oggetto di tipo \hyperref[sec:actorbase::driver::data::ActorbaseObject]{ActorbaseObject}\\
   \hline
-  remove & public & \hyperref[sec:actorbase::driver::data::ActorbaseObject]{ActorbaseObject} & Rimuove una o più coppie chiave-valore dal sistema\\
+  remove & public & \hyperref[sec:actorbase::driver::data::ActorbaseCollection]{ActorbaseCollection} & Rimuove una o più coppie chiave-valore dal sistema\\
   \hline
   remove & public & \hyperref[sec:actorbase::driver::data::ActorbaseObject]{ActorbaseObject} & Rimuove una coppia chiave-valore dal sistema\\
   \hline
@@ -3849,7 +3849,7 @@ navigabilità dei contenuti.
   \hline
   count & public & Int & Conta il numero di coppie chiave-valore che formano la \gloss{collezione}\\
   \hline
-  foreach & public & Void & Permette di visitare l'intera \gloss{collezione} applicando una funzione ad ogni \gloss{item}\\
+  foreach & public & Unit & Permette di visitare l'intera \gloss{collezione} applicando una funzione ad ogni \gloss{item}\\
   \hline
   toString & public & String & Ritorna la \gloss{collezione} in formato String \gloss{JSON}\\
   \hline
