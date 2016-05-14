@@ -1,5 +1,6 @@
 \documentclass{scalatekids-article}
 \usepackage[official]{eurosym}
+\usepackage[english]{babel}
 \begin{document}
 \lfoot{Developer Manual 1.0.0}
 \newgeometry{top=3.5cm}
@@ -49,11 +50,31 @@
     \hline
     Version & Author & Role & Date & Description \\
     \hline
-    0.1.1 & Andrea Giacomo Baldan & Programmer & 2016-05.12 & Added section 2.3\\
+    0.6.0 & & & 2016-05-13 & Verified section 2.1 - Installation\\
     \hline
-    0.1.0 &  &  & 2016-05-10 & Verified section 2: Actorbase Usage and all relative subsections\\
+    0.5.1 & & Programmer & Added section 2.1 - Installation\\
     \hline
-    0.0.2 & Andrea Giacomo Baldan & Programmer & 2016-05-10 & Added section 2: Actorbase Usage and all relative subsections\\
+    0.5.0 & & & 2016-05-13 & Verified section 2.1.1 - Building from sources\\
+    \hline
+    0.4.1 & & Programmer & 2016-05-13 & Added section 2.1.1 - Building from sources\\
+    \hline
+    0.4.0 & & & 2016-05-13 & Verified section 2.4.0.4 - Failure management\\
+    \hline
+    0.3.0 & & & 2016-05-13 & Verified sections 2.4.0.2 - Profile management, 2.4.0.3 - Collections operations and relative subsections\\
+    \hline
+    0.2.2 & & Programmer & 2016-05-13 & Added section 2.4.0.4 - Failure management\\
+    \hline
+    0.2.1 & Andrea Giacomo Baldan & Programmer & 2016-05-13 & Added sections 2.4.0.2 - Profile management, 2.4.0.3 - Collections operations and relative subsections\\
+    \hline
+    0.2.0 &  &  & 2016-05-12 & Verified section 2.3.1 - Quick start, 2.4 - More in depth: common operations and 2.4.1 - Authentication\\
+    \hline
+    0.1.2 & Andrea Giacomo Baldan & Programmer & 2016-05-12 & Added section 2.4 - More in depth: common operations and 2.4.1 - Authentication\\
+    \hline
+    0.1.1 & Andrea Giacomo Baldan & Programmer & 2016-05-12 & Added section 2.3.1 - Quick start\\
+    \hline
+    0.1.0 &  &  & 2016-05-10 & Verified section 2: Actorbase Usage and subsection 2.3\\
+    \hline
+    0.0.2 & Andrea Giacomo Baldan & Programmer & 2016-05-10 & Added section 2: Actorbase Usage and subsection 2.3\\
     \hline
     0.0.1 & Andrea Giacomo Baldan & Programmer & 2016-05-10 & Created document structure\\
     \hline
@@ -94,10 +115,87 @@ This document aim to describe the procedures and methods to use in order to take
 
 \section{Actorbase usage}
 
+\subsection{Installation}
+
+\textbf{Actorbase} is constituted of two JAR (Java Archive) shipped with all dependencies libraries, there are just
+a few steps to follow to have the system running and ready to receive commands:
+\begin{itemize}
+\item run actorbase.jar in a shell;
+\item run actorbasecli.jar in a second shell.
+\end{itemize}
+That's really all for a basic usage, though it's possible to give actorbase a custom configuration by running:
+
+% \begin{figure}[H]
+%   \begin{center}
+%     \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Actorbase-BuildBin.png}
+%     \caption{Actorbase: build binaries with custom configuration}
+%   \end{center}
+% \end{figure}
+
+\textbf{Configuration sample}
+
+% \begin{figure}[H]
+%   \begin{center}
+%     \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Actorbase-Config.png}
+%     \caption{Actorbase: configuration sample}
+%   \end{center}
+% \end{figure}
+
+The \textit{--config=path/to/config.cfg} is optional.
+
+As shown in the image, there is a part of the configuration dedicated to distribution of the load between
+multiple nodes in a cluster, \textbf{Actobase} is in fact a scale-out system oriented, and it is possible
+to set all cluster configurations offered by Akka library.
+
+\subsubsection{Building from sources}
+
+\textbf{Actorbase} was conceived and developed using SBT (Simple Building Tool) as building and dependencies
+manager tool, this makes compilation and building from sources extremely easy to achieve, just by adding a
+\verb=build.sbt= file inside a Maven-like folder tree:
+
+\textbf{Server side}
+
+% \begin{figure}[H]
+%   \begin{center}
+%     \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Actorbase-FromSourceSbt.png}
+%     \caption{Actorbase: build.sbt sample to build from sources}
+%   \end{center}
+% \end{figure}
+
+\textbf{CLI}
+
+% \begin{figure}[H]
+%   \begin{center}
+%     \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Actorbase-FromSourceSbtCLI.png}
+%     \caption{Actorbase-CLI: build.sbt sample to build from sources}
+%   \end{center}
+% \end{figure}
+
+As shown in the image, there're some eternal libraries needed to build the system:
+\begin{itemize}
+\item \textbf{Spray:} An open source toolkit for building REST/HTTP-based
+  integration layers on top of Scala and Akka; mainly used for the server
+  component in order to expose communication API and to
+  Marshall\footnote{Transforming the memory of an object to a data format suitable
+    for storage or transmission, e.g.\ serialization} database contents.
+\item \textbf{scala-pickling:} An automatic serialization framework made for
+  Scala; mainly used in the driver component in order to serialized and
+  deserialize object in a fast and transparent way;
+\item \textbf{scalaj-http:} A fairly simple http library for Scala, used in the
+  driver component in order to establish a communication with the server REST API;\
+\item \textbf{json4s:} Used in the driver component to expose a pretty formatted
+  JSON (JavaScript Object Notation) version of the data retrieved from the server;
+\item \textbf{scala-bcrypt:} Scala version of the encryption library Bcrypt,
+  used on the server side for store hashes of sensitive data;
+\item \textbf{Akka:} A toolkit and runtime for building highly concurrent,
+  distributed, and resilient message-driven applications on the JVM;\ the core of
+  the system, of course used in the server-side component.
+\end{itemize}
+
 \subsection{ActorbaseDriver: Using Actorbase from inside a Scala source}
 
 Actorbase is essentially an actor system built upon a server component that
-exposes some API forming a RESTful web services. To facilitate the use from
+exposes some API forming a RESTful web service. To facilitate the use from
 inside a Scala source, it has been developed a driver in order to allow the
 usage of all features that Actorbase provides.\\
 
@@ -135,13 +233,19 @@ collection.
 
 Althrough in the future perhaps there could be the possibility to make some
 operations as an anonymous user, at the current state the only possible action
-that a non-logged-in user can do with ActorbaseDriver is the authentication.
+that a non-logged-in user can do with \verb=ActorbaseDriver= is the authentication.
 This method send a login request to the server-side of the system and, according
-to the response, it will return an \verb=ActorbaseService= or an
-\verb=ActorbaseAdminServices=. These two objects give the methods to actually
-make all operations on the database, the main difference is that
-\verb=ActorbaseAdminServices= allows to do some high-level administrative
-operations on users and collections of the system.
+to the response, it will return an \verb=ActorbaseService=\footnote{Main class,
+  contains all collection management methods\label{ActorbaseServices}} or an
+\verb=ActorbaseAdminServices=\footnote{Defined trait, contains some
+  administrative functionality as dependancy added to
+  ActorbaseServices\label{AdminService}}. These two objects give the methods to
+actually make all operations on the database, the main difference is that
+\verb=ActorbaseAdminServices=\textsuperscript{\ref{AdminServices}} allows to do
+some high-level administrative operations on users and
+collections\textsuperscript{\ref{coll}} of the system.\\
+Authentication method could raise \textbf{WrongCredentialExc} exception, in case
+of worng credentials sent to the server.
 
 \paragraph{Profile management}
 
@@ -154,17 +258,46 @@ e.g.:
 %     \caption{Driver usage: insertion methods}
 %   \end{center}
 % \end{figure}
+This method could raise:
+\begin{itemize}
+\item \textbf{WrongPasswordExc} In case of a wrong current password;
+\item \textbf{WrongNewPasswordExc} In case of a new password that don't matches \textbf{Actorbase} password rules.
+\end{itemize}
+
+\subparagraph{Credential rules}
+% TODO: Complete
+Usernames can't be empty string, neither have spaces, every password must
+contain at least one uppercase, one lowercase letter and one number and be at
+least 8 characters long.
 
 \paragraph{Collections operations}
 
-As previously explained, operations on the collections can be done in a purely
-OOP way, this mean that all methods that return an \verb=ActorbaseCollection=,
+As previously explained, operations on the collections\textsuperscript{\ref{coll}} can be done in a purely
+OOP way, this mean that all methods that return an \verb=ActorbaseCollection=\footnote{An object representing a collection of the system\label{ABcoll}},
 gives the possibility to call all collection-management methods:
+
 \begin{itemize}
+\item \verb=listCollection=, lists all collections\textsuperscript{\ref{coll}}
+  contained in the database, these are collections\textsuperscript{\ref{coll}}
+  owned by the profile of the requester, including contributions ones.
+\item \verb=addCollection= method:\\ Create a new collection\textsuperscript{\ref{coll}} into \textbf{Actorbase}, accepting a \verb=String=
+  representing the name of the new collection\textsuperscript{\ref{coll}};
+  e.g.:
+  % \begin{figure}[H]
+  %   \begin{center}
+  %     \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Driver-AddCollection.png}
+  %     \caption{Driver usage: add collection  methods}
+  %   \end{center}
+  % \end{figure}
+  Add collection\textsuperscript{\ref{coll}} method could raise:
+  \begin{itemize}
+  \item \textbf{CollectionAlreadyExistsExc:} In case of duplicate collection\textsuperscript{\ref{coll}} name into \textbf{Actorbase};
+  \item \textbf{UndefinedCollectionExc:} In case of addition of a new collection\textsuperscript{\ref{coll}} with an empty name.
+  \end{itemize}
 \item \verb=insert= methods:\\ These methods come in two variants, first one accepting
   a vararg\footnote{A sequence of arguments} of key-value tuple, the second
   accepting an
-  \verb=ActorbaseObject=\footnote{An object representing a key-value pair inside Actorbase} instance;
+  \verb=ActorbaseObject=\footnote{An object representing a key-value pair inside Actorbase\label{ABobj}} instance;
   e.g.:
   % \begin{figure}[H]
   %   \begin{center}
@@ -172,6 +305,10 @@ gives the possibility to call all collection-management methods:
   %     \caption{Driver usage: insertion methods}
   %   \end{center}
   % \end{figure}
+  Insert methods could raise:
+  \begin{itemize}
+  \item \textbf{DuplicateKeyExc:} In case of a key already present inside the collection\textsuperscript{\ref{coll}}.
+  \end{itemize}
 \item \verb=remove= methods:\\ There're two variants of this method too, the usage is
   analogous to insert, e.g.:
   % \begin{figure}[H]
@@ -189,8 +326,8 @@ gives the possibility to call all collection-management methods:
   %     \caption{Driver usage: find method}
   %   \end{center}
   % \end{figure}
-\item \verb=findOne= method:\\ This method accept one \verb=ActorbaseObject= representing
-  a key-value pair to be retrieved from the collection, again the usage is similar to insert and
+\item \verb=findOne= method:\\ This method accept one \verb=ActorbaseObject=\textsuperscript{\ref{ABobj}} representing
+  a key-value pair to be retrieved from the collection\textsuperscript{\ref{coll}}, again the usage is similar to insert and
   remove methods, e.g.:
   % \begin{figure}[H]
   %   \begin{center}
@@ -206,15 +343,15 @@ gives the possibility to call all collection-management methods:
   %     \caption{Driver usage: dropCollections method}
   %   \end{center}
   % \end{figure}
-  the \verb=drop= inside an \verb=ActorbaseCollection= object:
+  the \verb=drop= inside an \verb=ActorbaseCollection=\textsuperscript{\ref{ABcoll}} object:
   % \begin{figure}[H]
   %   \begin{center}
   %     \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Driver-Drop.png}
   %     \caption{Driver usage: drop method}
   %   \end{center}
   % \end{figure}
-  and finally \verb=drop= inside an \verb=ActorbaseCollectionMap=, it takes a
-  vararg of \verb=String= representing a sequence of collections to be removed
+  and finally \verb=drop= inside an \verb=ActorbaseCollectionMap=\textsuperscript{\ref{abcoll}}, it takes a
+  vararg of \verb=String= representing a sequence of collections\textsuperscript{\ref{coll}} to be removed
   e.g.:
   % \begin{figure}[H]
   %   \begin{center}
@@ -222,21 +359,45 @@ gives the possibility to call all collection-management methods:
   %     \caption{Driver usage: drop method}
   %   \end{center}
   % \end{figure}
-\item printing collections:\\All object returned by \verb=ActorbaseDriver=
+\item printing collections\textsuperscript{\ref{coll}}:\\All object returned by \verb=ActorbaseDriver=
   have an override\footnote{Specific implementation of a method in a subclass that
     is already provided by one of its superclasses} to the method \verb=toString=
-  that return a pretty formatted JSON(JavaScript Object Notation) \verb=String=, e.g.:
+  that return a pretty formatted JSON (JavaScript Object Notation) \verb=String=, e.g.:
   % \begin{figure}[H]
   %   \begin{center}
   %     \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Driver-Printing.png}
   %     \caption{Driver usage: drop method}
   %   \end{center}
   % \end{figure}
-\item \verb=count= elements inside a collection\textsuperscript{\ref{coll}} e.g.
+\item \verb=count= elements\footnote{Key-value pairs} inside a collection\textsuperscript{\ref{coll}} e.g.
   % \begin{figure}[H]
   %   \begin{center}
   %     \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Driver-Counting.png}
   %     \caption{Driver usage: drop method}
+
+  %   \end{center}
+  % \end{figure}
+\item \verb=importFromFile=, method that allow to import a (possibly) large number of collections\textsuperscript{\ref{coll}}
+  directly into \textbf{Actorbase}
+  % \begin{figure}[H]
+  %   \begin{center}
+  %     \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Driver-Import.png}
+  %     \caption{Driver usage: import from file method}
+
+  %   \end{center}
+  % \end{figure}
+  This method could raise:
+  \begin{itemize}
+  \item \textbf{UndefinedFileExc:} in case of file not found at the given path in the filesystem;
+  \item \textbf{MalformedFileExc:} in case of a file not in JSON format or not valid JSON.
+  \end{itemize}
+
+\item \verb=exportToFile=, method that allow to export one or more collections\textsuperscript{\ref{col}} to a specified path on the filesystem
+  % \begin{figure}[H]
+  %   \begin{center}
+  %     \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Driver-Export.png}
+  %     \caption{Driver usage: export to file method}
+
   %   \end{center}
   % \end{figure}
 \end{itemize}
@@ -258,10 +419,10 @@ e.g.:
 %   \end{center}
 % \end{figure}
 
-\paragraph{Administrative operations}
+\subparagraph{Administrative operations}
 
 Actorbase expect two kind of users, common an administrator. The last one have
-some privileges over the others, such as a wider range of collections (all
+some privileges over the others, such as a wider range of collections\textsuperscript{\ref{coll}} (all
 database) with read-write permissions, and capabilities of adding and removing
 users to and from the system, and finally resetting the password of given users.
 % \begin{figure}[H]
@@ -270,15 +431,17 @@ users to and from the system, and finally resetting the password of given users.
 %     \caption{Driver usage: drop method}
 %   \end{center}
 % \end{figure}
+Administrative operations could raise some exceptions:
+\begin{itemize}
+\item \textbf{UndefinedUsernameExc:} In case of addition of a new user with an empty username;
+\end{itemize}
 
-\paragraph{Error management}
+\paragraph{Failure management}
 
-There is one error that is shared by every method and that is in case of a
-connection error, which can be caused by not receiving a response from the
-server in a predetermined time, the driver will launch a timeout connection
-exception. There are some errors that are specific to some methods, these will
-be explained in the section dedicated to the methods that cause them.
-
-% TODO: tutte le librerie utilizzate per la serializzazione...
+In addition to all exceptions that could be raised, there is one error that is
+shared by every method and that is in case of a communication error, which can
+be caused by not receiving a response from the server in a predetermined time or
+unreachable destination address during connection, the driver will launch a
+timeout connection exception.
 
 \end{document}
