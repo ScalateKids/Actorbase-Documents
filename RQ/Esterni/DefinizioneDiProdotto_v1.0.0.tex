@@ -2599,7 +2599,7 @@ riceve questo messaggio non farà altro che richiamare il metodo
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=0.8\textwidth,keepaspectratio]{RQ/Storekeeper.png}
-    \caption{Storekeeper e interazioni con ninja}
+    \caption{Storekeeper, visione generale del package}
   \end{center}
 \end{figure}
 
@@ -3035,13 +3035,13 @@ per aggiornare i suoi riferimenti.
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione \\
   \hline
-  oldCollRange & public & immutabile & CollectionRange & CollectionRange che identifica quale CollectionRange è da duplicare \\
+  oldCollRange & public & immutabile & \hyperref[sec:actorbase::actorsystem::utils::CollectionRange]{CollectionRange} & CollectionRange che identifica quale CollectionRange è da duplicare \\
   \hline
-  leftCollRange & public & immutable & CollRange & Identifica il nuovo CollectionRange dello Storefinder che si è duplicato \\
+  leftCollRange & public & immutable & \hyperref[sec:actorbase::actorsystem::utils::CollectionRange]{CollectionRange} & Identifica il nuovo CollectionRange dello Storefinder che si è duplicato \\
   \hline
-  map & public & immutable & TreeSet [KeyRamge, ActorRef] & struttura dati da inizializzare allo Storefinder da creare\\
+  map & public & immutable & TreeSet [\hyperref[sec:actorbase::actorsystem::utils::KeyRange]{KeyRange}, ActorRef] & struttura dati da inizializzare allo Storefinder da creare\\
   \hline
-  rightCollRange & public & immutable & CollRange & Identifica il nuovo CollectionRange dello Storefinder da duplicare \\
+  rightCollRange & public & immutable & \hyperref[sec:actorbase::actorsystem::utils::CollectionRange]{CollectionRange} & Identifica il nuovo CollectionRange dello Storefinder da duplicare \\
   \hline
 \end{tabular}
 
