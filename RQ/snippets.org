@@ -249,7 +249,7 @@ akka {
     // default mailbox type, using control aware dispatching and
     // unbound mailbox, beware of memory consumption
 
-    default-mailbox.mailbox-type = "akka.dispath"UnboundedControlAwareMailbox"
+    default-mailbox.mailbox-type = "akka.dispatch.UnboundedControlAwareMailbox"
 
     // deployment of main actors
     deployment./main {
