@@ -2817,6 +2817,8 @@ remoti all'interno del \gloss{database}.
   \hline
   path & String & Rappresenta il percorso su \gloss{filesystem} del \gloss{file} da utilizzare per l'esportazione delle \gloss{collezioni} dal \gloss{server}\\
   \hline
+  collections & \gloss{vararg} di String & Rappresenta una sequenza eventualmente vuota di nomi di \gloss{collezioni} da esportare su \gloss{filesystem}.\\
+  \hline
 \end{tabular}
 
 % FINE ACTORBASEDRIVER
@@ -3833,6 +3835,8 @@ navigabilità dei contenuti.
   \hline
   insert & public & \hyperref[sec::actorbase::driver::data::ActorbaseCollection]{ActorbaseColletion} & Inserisce un'oggetto di tipo \hyperref[sec:actorbase::driver::data::ActorbaseObject]{ActorbaseObject}\\
   \hline
+  update & public & \hyperref[sec::actorbase::driver::data::ActorbaseCollection]{ActorbaseColletion} & Aggiorna la coppia chiave-valore all'interno della \gloss{collezione}\\
+  \hline
   remove & public & \hyperref[sec:actorbase::driver::data::ActorbaseCollection]{ActorbaseCollection} & Rimuove una o più coppie chiave-valore dal sistema\\
   \hline
   remove & public & \hyperref[sec:actorbase::driver::data::ActorbaseObject]{ActorbaseObject} & Rimuove una coppia chiave-valore dal sistema\\
@@ -3878,6 +3882,17 @@ navigabilità dei contenuti.
   Nome & Tipo & Descrizione\\
   \hline
   kv & \hyperref[sec:actorbase::driver::data::ActorbaseObject]{ActorbaseObject} & Rappresenta un oggetto del sistema Actorbase da inserire nel sistema\\
+  \hline
+\end{tabular}
+
+\begin{center}
+  \textbf{update}
+\end{center}
+\begin{tabular}{| p{3cm} | p{3.5cm} | p{8.5cm} |}
+  \hline
+  Nome & Tipo & Descrizione\\
+  \hline
+  kv & \gloss{vararg} di Tuple2[String, Any] & Rappresenta una sequenza di Tuple2[String, Any] da aggiornare nella \gloss{collezione}\\
   \hline
 \end{tabular}
 
