@@ -534,17 +534,8 @@ Per ragioni di spazio e leggibilità si omettono le tabelle complete dei test. P
 In questo paragrafo è possibile vedere il rapporto tra linee di codice e 
 linee di commento, suddivisi per modulo:
 \begin{itemize}
-\item Server:
-\begin{center}
-  \begin{tabular}{| c | c | c | c | c |}
-  	\hline
-  	Files & righe vuote & righe di commento & righe di codice & \% commento su codice\\
-  	\hline
-  	31 & 437 & 1817 & 1087 & 63\% \\
-  	\hline
-  \end{tabular}
-  \end{center}
-\item CLI:
+
+\item \textbf{CLI}:
 \begin{center}
 	\begin{tabular}{| c | c | c | c | c |}
 		\hline
@@ -555,13 +546,24 @@ linee di commento, suddivisi per modulo:
 	\end{tabular}
 \end{center}
 
-\item Driver:
+\item \textbf{Driver}:
 \begin{center}
 	\begin{tabular}{| c | c | c | c | c |}
 		\hline
 		Files & righe vuote & righe di commento & righe di codice & \% commento su codice\\
 		\hline
 		11 & 134 & 887 & 300 & 75\% \\
+		\hline
+	\end{tabular}
+\end{center}
+
+\item \textbf{ActorSystem}:
+\begin{center}
+	\begin{tabular}{| c | c | c | c | c |}
+		\hline
+		Files & righe vuote & righe di commento & righe di codice & \% commento su codice\\
+		\hline
+		31 & 437 & 1817 & 1087 & 63\% \\
 		\hline
 	\end{tabular}
 \end{center}
@@ -572,37 +574,37 @@ Poichè i test non sono stati ancora implementati, non è possibile al momento v
 \paragraph{Numero di attributi per classe}
 Di seguito è riportato il numero medio di attributi per classe del codice di actorbase divisi per modulo; sono riportati inoltre le classi che oltrepassano il range ottimale:
 \begin{itemize}
-	\item CLI:media 1,04, tutte le classi sono all'interno del range ottimale;
-	\item Driver: media 2,69 tutte le classi sono all'interno del range ottimale a parte Status che però è comunque dentro al range di accettazione;
-	\item Actorsystem: media 2,39 tutte le classi sono all'interno del range ottimale a parte storekeeper che rientra comunque all'interno del range di accettazione.
+	\item \textbf{CLI}: 1,04, tutte le classi sono all'interno del range ottimale;
+	\item \textbf{Driver}: 2,69 tutte le classi sono all'interno del range ottimale a parte Status che però è comunque dentro al range di accettazione;
+	\item \textbf{Actorsystem}: 2,39 tutte le classi sono all'interno del range ottimale a parte storekeeper che rientra comunque all'interno del range di accettazione.
 \end{itemize}
 Non sono state considerate nella media le classi che non contengono né attributi né metodi propri.
 
 \paragraph{Numero di parametri per metodo}
 Di seguito è riportato il numero medio di parametri per 
 metodo del codice di actorbase suddiviso per moduli:
-\begin{itemize}
-	\item Driver:0,63;
-	\item Cli:0,1;
-	\item ActorSystem:0,59;
+\begin{itemize}	
+	\item \textbf{CLI}:0,1;
+	\item \textbf{Driver}:0,63;
+	\item \textbf{ActorSystem}:0,59;
 \end{itemize}
 Tutti i metodi sono inoltre all'interno del range ottimale.
 
 \paragraph{Complessità ciclomatica}
 Di seguito è riportata la media della complessità ciclomatica dei vari moduli:
 \begin{itemize}
-	\item Actorbase-Server:2,93;
-	\item Cli:2,05;
-	\item Driver:1,31.
+	\item \textbf{CLI}:2,05;
+	\item \textbf{Driver}:1,31.	
+	\item \textbf{Actorsystem}:2,93;
 \end{itemize}
 
 
 \paragraph{Livelli di annidamento}
 In seguito è riportata la media dei livelli di annidamento dei vari moduli:
-\begin{itemize}
-	\item ActorSystem:1,83;
-	\item Driver:1,56;
-	\item Cli:1,78;
+\begin{itemize}	
+	\item \textbf{Cli}:1,78;	
+	\item \textbf{Driver}:1,56;
+	\item \textbf{ActorSystem}:1,83;
 \end{itemize}
 %TODO se possibile calcolarlo veramente, non riesco a trovare un tool.
 
