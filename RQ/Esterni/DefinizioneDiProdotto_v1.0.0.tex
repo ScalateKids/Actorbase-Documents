@@ -199,11 +199,11 @@ rappresentano il \gloss{server}.
 \label{sec:actorbase::actorsystem::utils}
 
 \begin{figure}[H]
-   \begin{center}
-     \includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/utils.png}
-     \caption{Package actorsystem::utils}
-   \end{center}
- \end{figure}
+  \begin{center}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/utils.png}
+    \caption{Package actorsystem::utils}
+  \end{center}
+\end{figure}
 
 \subsubsection{Descrizione}
 \gloss{Package} contenente diverse classi di utilità.
@@ -217,11 +217,11 @@ rappresentano il \gloss{server}.
 \label{sec:actorbase::actorsystem::utils::KeyRange}
 
 \begin{figure}[H]
-   \begin{center}
-     \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/keyrange.png}
-     \caption{Classe actorsystem::utils::KeyRange}
-   \end{center}
- \end{figure}
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/keyrange.png}
+    \caption{Classe actorsystem::utils::KeyRange}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 Classe atta a modellare un intervallo di chiavi.\\Viene utilizzata da diversi
@@ -295,18 +295,18 @@ stringa fa parte di questo intervallo di chiavi.
 \label{sec:actorbase::actorsystem::utils::CollectionRange}
 
 \begin{figure}[H]
-   \begin{center}
-     \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/collectionrange.png}
-     \caption{Classe actorsystem::utils::CollectionRange}
-   \end{center}
- \end{figure}
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/collectionrange.png}
+    \caption{Classe actorsystem::utils::CollectionRange}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
-Classe atta a modellare un intervallo di chiavi di una specifica collezione.
+Classe atta a modellare un intervallo di chiavi di una specifica \gloss{collezione}.
 
 \subparagraph{Utilizzo}
 Viene utilizzata da diversi attori del sistema. Questa classe espone metodi
-getter, un metodo per il confronto della collezione, un meotodo per il
+getter, un metodo per il confronto della \gloss{collezione}, un meotodo per il
 confronto del range delle chiavi e un metodo compare.
 
 \subparagraph{Realizza}
@@ -319,9 +319,9 @@ confronto del range delle chiavi e un metodo compare.
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  collection & privata & mutabile & \hyperref[sec:actorbase::actorsystem::utils::ActorbaseCollection]{ActorbaseCollection} & Rappresenta la collezione rappresentata \\
+  collection & privata & mutabile & \hyperref[sec:actorbase::actorsystem::utils::ActorbaseCollection]{ActorbaseCollection} & Rappresenta la \gloss{collezione} rappresentata \\
   \hline
-  range & private & mutabile & \hyperref[sec:actorbase::actorsystem::utils::KeyRange]{KeyRange} & Rappresenta il range di chiavi della collezione \\
+  range & private & mutabile & \hyperref[sec:actorbase::actorsystem::utils::KeyRange]{KeyRange} & Rappresenta il range di chiavi della \gloss{collezione} \\
   \hline
 \end{tabular}
 
@@ -330,13 +330,13 @@ confronto del range delle chiavi e un metodo compare.
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  getCollection & pubblico & \hyperref[sec:actorbase::actorsystem::utils::ActorbaseCollection]{ActorbaseCollection} & Metodo che ritorna la collezione rappresentata \\
+  getCollection & pubblico & \hyperref[sec:actorbase::actorsystem::utils::ActorbaseCollection]{ActorbaseCollection} & Metodo che ritorna la \gloss{collezione} rappresentata \\
   \hline
   getKeyRange & pubblico & \hyperref[sec:actorbase::actorsystem::utils::KeyRange]{KeyRange} & Metodo che ritorna il range di chiavi rappresentato \\
   \hline
   contains & pubblico & Boolean & Metodo che ritorna true se il parametro è una stringa contenuta nel KeyRange, false altrimenti\\
   \hline
-  isSameCollection & pubblico & Boolean & Metodo che ritorna true se il parametro rappresenta la stessa collezione dell'oggetto this, false altrimenti \\
+  isSameCollection & pubblico & Boolean & Metodo che ritorna true se il parametro rappresenta la stessa \gloss{collezione} dell'oggetto this, false altrimenti \\
   \hline
   compare & pubblico & Int & Metodo per l'implementazione dell'interfaccia Ordered \\
   \hline
@@ -350,7 +350,7 @@ confronto del range delle chiavi e un metodo compare.
   \hline
   Nome & Tipo & Descrizione\\
   \hline
-  key & String & Stringa che rappresenta la chiave da controllare se fa parte del KeyRange della collezione rappresentata \\
+  key & String & Stringa che rappresenta la chiave da controllare se fa parte del KeyRange della \gloss{collezione} rappresentata \\
   \hline
 \end{tabular}
 
@@ -362,7 +362,7 @@ confronto del range delle chiavi e un metodo compare.
   \hline
   Nome & Tipo & Descrizione\\
   \hline
-  that & \hyperref[sec:actorbase::actorsystem::utils::ActorbaseCollection]{ActorbaseCollection} & Collezione da confrontare con la collezione rappresentata dall'oggetto this \\
+  that & \hyperref[sec:actorbase::actorsystem::utils::ActorbaseCollection]{ActorbaseCollection} & \Gloss{Collezione} da confrontare con la \gloss{collezione} rappresentata dall'oggetto this \\
   \hline
 \end{tabular}
 
@@ -384,11 +384,11 @@ confronto del range delle chiavi e un metodo compare.
 \label{sec:actorbase::actorsystem::utils::CryptoUtils}
 
 \begin{figure}[H]
-   \begin{center}
-     \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/cryptoutils.png}
-     \caption{Classe actorsystem::utils::CryptoUtils}
-   \end{center}
- \end{figure}
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/cryptoutils.png}
+    \caption{Classe actorsystem::utils::CryptoUtils}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 Classe atta a criptare e decriptare i dati per il salvataggio e la lettura dei dati su disco.
@@ -454,14 +454,14 @@ Viene utilizzata dall'attore di tipo \gloss{Warehouseman} per il salvataggio e l
 \label{sec:actorbase::actorsystem::utils::ActorbaseCollection}
 
 \begin{figure}[H]
-   \begin{center}
-     \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/actorbasecollection.png}
-     \caption{Classe actorsystem::utils::ActorbaseCollection}
-   \end{center}
- \end{figure}
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/actorbasecollection.png}
+    \caption{Classe actorsystem::utils::ActorbaseCollection}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
-Classe atta a modellare una collezione del sistema actorbase.
+Classe atta a modellare una \gloss{collezione} del sistema actorbase.
 
 \subparagraph{Utilizzo}
 Viene utilizzata da diversi attori del sistema. Questa classe espone metodi
@@ -477,9 +477,9 @@ getter e un meotodo per il confronto con un altro oggetto ActorbaseCollection.
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  name & privata & mutabile & String & Rappresenta il nome della collezione \\
+  name & privata & mutabile & String & Rappresenta il nome della \gloss{collezione} \\
   \hline
-  owner & private & mutabile & String & Rappresenta lo username dell'utente che ha creato la collezione \\
+  owner & private & mutabile & String & Rappresenta lo username dell'utente che ha creato la \gloss{collezione} \\
   \hline
 \end{tabular}
 
@@ -488,9 +488,9 @@ getter e un meotodo per il confronto con un altro oggetto ActorbaseCollection.
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  getName & pubblico & String & Metodo che ritorna il nome della collezione \\
+  getName & pubblico & String & Metodo che ritorna il nome della \gloss{collezione} \\
   \hline
-  getOwner & pubblico & String & Metodo che ritorna lo username dell'utente che ha creato la collezione \\
+  getOwner & pubblico & String & Metodo che ritorna lo username dell'utente che ha creato la \gloss{collezione} \\
   \hline
   compare & pubblico & Int & Metodo per l'implementazione dell'interfaccia Ordered.\\
   \hline
@@ -539,11 +539,11 @@ getter e un meotodo per il confronto con un altro oggetto ActorbaseCollection.
 \label{sec:actorbase::actorsystem::clientactor::Authenticator}
 
 \begin{figure}[H]
-   \begin{center}
-     \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/authenticator.png}
-     \caption{Classe actorsystem::clientactor::Authenticator}
-   \end{center}
- \end{figure}
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/authenticator.png}
+    \caption{Classe actorsystem::clientactor::Authenticator}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 
@@ -609,11 +609,11 @@ delle credenziali di login.
 \label{sec:actorbase::actorsystem::clientactor::ItemApi}
 
 \begin{figure}[H]
-   \begin{center}
-     \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/itemapi.png}
-     \caption{Classe actorsystem::clientactor::ItemApi}
-   \end{center}
- \end{figure}
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/itemapi.png}
+    \caption{Classe actorsystem::clientactor::ItemApi}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 
@@ -652,11 +652,11 @@ delle route che richiedono operazioni su item.
   \hline
   Nome & Tipo & Descrizione\\
   \hline
-  owner & String & Proprietario della collezione su cui si vuole operare\\
+  owner & String & Proprietario della \gloss{collezione} su cui si vuole operare\\
   \hline
   router & ActorRef & Riferimento dell'attore che si occuperà di comunicare con un attore \gloss{main} per effettuare le operazioni richieste\\
   \hline
-  collectionName & String & Nome della collezione su cui si vuole operare\\
+  collectionName & String & Nome della \gloss{collezione} su cui si vuole operare\\
   \hline
 \end{tabular}
 
@@ -664,11 +664,11 @@ delle route che richiedono operazioni su item.
 \label{sec:actorbase::actorsystem::clientactor::UserApi}
 
 \begin{figure}[H]
-   \begin{center}
-     \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/userapi.png}
-     \caption{Classe actorsystem::clientactor::UserApi}
-   \end{center}
- \end{figure}
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/userapi.png}
+    \caption{Classe actorsystem::clientactor::UserApi}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 
@@ -717,11 +717,11 @@ delle route che richiedono operazioni su utenti.
 \label{sec:actorbase::actorsystem::clientactor::CollectionApi}
 
 \begin{figure}[H]
-   \begin{center}
-     \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/collectionapi.png}
-     \caption{Classe actorsystem::clientactor::CollectionApi}
-   \end{center}
- \end{figure}
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/collectionapi.png}
+    \caption{Classe actorsystem::clientactor::CollectionApi}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 
@@ -760,7 +760,7 @@ delle route che richiedono operazioni su collezioni.
   \hline
   Nome & Tipo & Descrizione\\
   \hline
-  owner & String & Proprietario della collezione su cui si vuole operare\\
+  owner & String & Proprietario della \gloss{collezione} su cui si vuole operare\\
   \hline
   router & ActorRef & Riferimento dell'attore che si occuperà di comunicare con un attore \gloss{main} per effettuare le operazioni richieste\\
   \hline
@@ -770,11 +770,11 @@ delle route che richiedono operazioni su collezioni.
 \label{sec:actorbase::actorsystem::clientactor::ClientActor}
 
 \begin{figure}[H]
-   \begin{center}
-     \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/clientactor.png}
-     \caption{Classe actorsystem::clientactor::ClientActor}
-   \end{center}
- \end{figure}
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/clientactor.png}
+    \caption{Classe actorsystem::clientactor::ClientActor}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 
@@ -827,11 +827,11 @@ Questa classe inoltre si occupa di capire che tipo di richiesta è stata fatta d
 \label{sec:actorbase::actorsystem::clientactor::messages}
 
 \begin{figure}[H]
-   \begin{center}
-     \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/messages-client.png}
-     \caption{Classe actorsystem::clientactor::messages}
-   \end{center}
- \end{figure}
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/messages-client.png}
+    \caption{Classe actorsystem::clientactor::messages}
+  \end{center}
+\end{figure}
 
 \subsubsection{Descrizione}
 
@@ -844,11 +844,11 @@ Questa classe inoltre si occupa di capire che tipo di richiesta è stata fatta d
 \label{sec:actorbase::actorsystem::clientactor::messages::Response}
 
 \begin{figure}[H]
-   \begin{center}
-     \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/response-client.png}
-     \caption{Classe actorsystem::clientactor::messages::Response}
-   \end{center}
- \end{figure}
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/response-client.png}
+    \caption{Classe actorsystem::clientactor::messages::Response}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 
@@ -874,11 +874,11 @@ mandato a \hyperref[sec:actorbase::driver::client::ActorbaseClient]{actorbase::d
 \label{sec:actorbase::actorsystem::clientactor::messages::MapResponse}
 
 \begin{figure}[H]
-   \begin{center}
-     \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/mapresponse-client.png}
-     \caption{Classe actorsystem::clientactor::messages::MapResponse}
-   \end{center}
- \end{figure}
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/mapresponse-client.png}
+    \caption{Classe actorsystem::clientactor::messages::MapResponse}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 
@@ -896,7 +896,7 @@ mandato a \hyperref[sec:actorbase::driver::client::ActorbaseClient]{actorbase::d
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  collection & public & immutabile & String & Rappresenta la collezione su cui è stata fatta la ricerca \\
+  collection & public & immutabile & String & Rappresenta la \gloss{collezione} su cui è stata fatta la ricerca \\
   \hline
   map & public & immutabile & Map[String, Any] & Rappresenta l'item (o l'insieme di item) cercati \\
   \hline
@@ -930,11 +930,11 @@ mandato a \hyperref[sec:actorbase::driver::client::ActorbaseClient]{actorbase::d
 \label{sec:actorbase::actorsystem::httpserver::HTTPServer}
 
 \begin{figure}[H]
-   \begin{center}
-     \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/httpserver.png}
-     \caption{Classe actorsystem::httpserver::HTTPServer}
-   \end{center}
- \end{figure}
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/httpserver.png}
+    \caption{Classe actorsystem::httpserver::HTTPServer}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 Classe che rappresenta l'\gloss{attore} con cui si interfaccia il \gloss{driver} per
@@ -978,11 +978,11 @@ per continuare le comunicazioni.
 \label{sec:actorbase::actorsystem::httpserver::SslConfiguration}
 
 \begin{figure}[H]
-   \begin{center}
-     \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/sslconfiguration.png}
-     \caption{Classe actorsystem::httpserver::SslConfiguration}
-   \end{center}
- \end{figure}
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/sslconfiguration.png}
+    \caption{Classe actorsystem::httpserver::SslConfiguration}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 Classe che contiene metodi di utilità per applicare algoritmi di crittografia
@@ -1036,11 +1036,11 @@ Questa classe verrà utilizzata per applicare la crittografia SSL.
 \label{sec:actorbase::actorsystem::warehouseman::Warehouseman}
 
 \begin{figure}[H]
-   \begin{center}
-     \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/warehouseman.png}
-     \caption{Classe actorsystem::warehouseman::Warehouseman}
-   \end{center}
- \end{figure}
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/warehouseman.png}
+    \caption{Classe actorsystem::warehouseman::Warehouseman}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 Classe che rappresenta un \gloss{attore} di tipo \gloss{Warehouseman}.
@@ -1094,11 +1094,11 @@ Questa classe viene utilizzata per effettuare il salvataggio su filesystem del
 \label{sec:actorbase::actorsystem::warehouseman::messages}
 
 \begin{figure}[H]
-   \begin{center}
-     \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/messages-ware.png}
-     \caption{Classe actorsystem::warehouseman::messages}
-   \end{center}
- \end{figure}
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/messages-ware.png}
+    \caption{Classe actorsystem::warehouseman::messages}
+  \end{center}
+\end{figure}
 
 \subsubsection{Descrizione}
 
@@ -1109,11 +1109,11 @@ Questa classe viene utilizzata per effettuare il salvataggio su filesystem del
 \label{sec:actorbase::actorsystem::warehouseman::messages::Save}
 
 \begin{figure}[H]
-   \begin{center}
-     \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/save-ware.png}
-     \caption{Classe actorsystem::warehouseman::messages::Save}
-   \end{center}
- \end{figure}
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/save-ware.png}
+    \caption{Classe actorsystem::warehouseman::messages::Save}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 
@@ -1142,11 +1142,11 @@ riceve questo messaggio salverà i dati su disco sfruttando
 \label{sec:actorbase::actorsystem::warehouseman::messages::Clean}
 
 \begin{figure}[H]
-   \begin{center}
-     \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/clean-ware.png}
-     \caption{Classe actorsystem::warehouseman::messages::Clean}
-   \end{center}
- \end{figure}
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/clean-ware.png}
+    \caption{Classe actorsystem::warehouseman::messages::Clean}
+  \end{center}
+\end{figure}
 \subparagraph{Descrizione}
 
 Messaggio che porta alla cancellazione dal filesystem di alcuni dati.
@@ -1171,11 +1171,11 @@ riceve questo messaggio rimuoverà i dati dal filesystem.
 \label{sec:actorbase::actorsystem::warehouseman::messages::RemoveSfFolder}
 
 \begin{figure}[H]
-   \begin{center}
-     \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/removesffolder-ware.png}
-     \caption{Classe actorsystem::warehouseman::messages::RemoveSfFolder}
-   \end{center}
- \end{figure}
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/removesffolder-ware.png}
+    \caption{Classe actorsystem::warehouseman::messages::RemoveSfFolder}
+  \end{center}
+\end{figure}
 \subparagraph{Descrizione}
 
 \subparagraph{Descrizione}
@@ -1200,11 +1200,11 @@ riceve questo messaggio rimuoverà i dati da disco.
 \label{sec:actorbase::actorsystem::warehouseman::messages::Read}
 
 \begin{figure}[H]
-   \begin{center}
-     \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/read-ware.png}
-     \caption{Classe actorsystem::warehouseman::messages::Read}
-   \end{center}
- \end{figure}
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/read-ware.png}
+    \caption{Classe actorsystem::warehouseman::messages::Read}
+  \end{center}
+\end{figure}
 \subparagraph{Descrizione}
 
 \subparagraph{Descrizione}
@@ -1255,11 +1255,11 @@ richieste al \gloss{server}.
 \label{sec:actorbase::actorsystem::main::Main}
 
 \begin{figure}[H]
-   \begin{center}
-     \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/mainactor.png}
-     \caption{Classe actorsystem::main::Main}
-   \end{center}
- \end{figure}
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/mainactor.png}
+    \caption{Classe actorsystem::main::Main}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 
@@ -1280,7 +1280,7 @@ Questa classe viene utilizzata per gestire le richieste ricevute al
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  sfMap & private & mutabile & TreeMap[CollectionRange, ActorRef] & Rappresenta una mappa contenente come chiavi degli oggetti CollectionRange (che a sua volta rappresentano intervalli di chiavi di una specifica collezione) e come valore i riferimenti degli storefinder che mappano quelle chiavi \\
+  sfMap & private & mutabile & TreeMap[CollectionRange, ActorRef] & Rappresenta una mappa contenente come chiavi degli oggetti CollectionRange (che a sua volta rappresentano intervalli di chiavi di una specifica \gloss{collezione}) e come valore i riferimenti degli storefinder che mappano quelle chiavi \\
   \hline
   ufRef & private & immutabile & ActorRef & Rappresenta il riferimento all'attore di tipo Userfinder. Questo serve per poter instradare le richieste più velocemente agli attori Userkeeper \\
   \hline
@@ -1296,7 +1296,7 @@ Questa classe viene utilizzata per gestire le richieste ricevute al
   \hline
   receive & public &  & Effettua operazioni diverse a seconda del tipo di messaggio ricevuto\\
   \hline
-  createCollection & private & ActorRef & Metodo utilizzato per creare una collezione, al suo interno il metodo crea uno Storefinder adibito a tale collezione, successivamente aggiorna sfMap. Ritorna il riferimento al nuovo attore creato\\
+  createCollection & private & ActorRef & Metodo utilizzato per creare una \gloss{collezione}, al suo interno il metodo crea uno Storefinder adibito a tale \gloss{collezione}, successivamente aggiorna sfMap. Ritorna il riferimento al nuovo attore creato\\
   \hline
   waitingForRequests & private & Actor.Receive & Metodo che definisce il tipo di messaggio che l'attore \hyperref[sec:actorbase::actorsystem::main::Main]{Main} può ricevere mentre si trova nello stato waitingForRequests\\
   \hline
@@ -1308,11 +1308,11 @@ Questa classe viene utilizzata per gestire le richieste ricevute al
 \label{sec:actorbase::actorsystem::main::messages}
 
 \begin{figure}[H]
-   \begin{center}
-     \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/messages-main.png}
-     \caption{Classe actorsystem::main::messages}
-   \end{center}
- \end{figure}
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/messages-main.png}
+    \caption{Classe actorsystem::main::messages}
+  \end{center}
+\end{figure}
 
 \subsubsection{Descrizione}
 \gloss{Package} che racchiude tutti i messaggi che gli attori di tipo
@@ -1324,11 +1324,11 @@ Questa classe viene utilizzata per gestire le richieste ricevute al
 \label{sec:actorbase::actorsystem::main::messages::AddUser}
 
 \begin{figure}[H]
-   \begin{center}
-     \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/adduser-main.png}
-     \caption{Classe actorsystem::main::messages::AddUser}
-   \end{center}
- \end{figure}
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/adduser-main.png}
+    \caption{Classe actorsystem::main::messages::AddUser}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 Messaggio che porta alla creazione di un \gloss{utente}.\\Viene ricevuto
@@ -1354,11 +1354,11 @@ Userfinder di cui ha riferimento.
 \label{sec:actorbase::actorsystem::main::messages::Login}
 
 \begin{figure}[H]
-   \begin{center}
-     \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/login-main.png}
-     \caption{Classe actorsystem::main::messages::Login}
-   \end{center}
- \end{figure}
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/login-main.png}
+    \caption{Classe actorsystem::main::messages::Login}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 Messaggio che indica una richiesta di autenticazione al sistema.
@@ -1383,11 +1383,11 @@ all'attore di tipo \hyperref[sec:actorbase::actorsystem::userfinder::Userfinder]
 \label{sec:actorbase::actorsystem::main::messages::Insert}
 
 \begin{figure}[H]
-   \begin{center}
-     \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/insert-main.png}
-     \caption{Classe actorsystem::main::messages::Insert}
-   \end{center}
- \end{figure}
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/insert-main.png}
+    \caption{Classe actorsystem::main::messages::Insert}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 Messaggio che indica una richiesta di inserimento di un item.
@@ -1415,11 +1415,11 @@ che si occupa del range di chiavi che contiene la chiave inserita.
 \label{sec:actorbase::actorsystem::main::messages::RemoveItemFrom}
 
 \begin{figure}[H]
-   \begin{center}
-     \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/removeitemfrom-main.png}
-     \caption{Classe actorsystem::main::messages::RemoveItemFrom}
-   \end{center}
- \end{figure}
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/removeitemfrom-main.png}
+    \caption{Classe actorsystem::main::messages::RemoveItemFrom}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 Messaggio che indica una richiesta di rimozione di un item.
@@ -1436,7 +1436,7 @@ che si occupa del range di chiavi che contiene la chiave inserita.
   \hline
   key & public & immutabile & String & stringa che rappresenta la chiave dell'item da inserire \\
   \hline
-  collection & public & immutabile & String & Rappresenta la collezione su cui effettuare l'operazione \\
+  collection & public & immutabile & String & Rappresenta la \gloss{collezione} su cui effettuare l'operazione \\
   \hline
 \end{tabular}
 
@@ -1444,11 +1444,11 @@ che si occupa del range di chiavi che contiene la chiave inserita.
 \label{sec:actorbase::actorsystem::main::messages::GetItemFrom}
 
 \begin{figure}[H]
-   \begin{center}
-     \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/getitemfrom-main.png}
-     \caption{Classe actorsystem::main::messages::GetItemFrom}
-   \end{center}
- \end{figure}
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/getitemfrom-main.png}
+    \caption{Classe actorsystem::main::messages::GetItemFrom}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 
@@ -1467,7 +1467,7 @@ e inoltrerà lui la richiesta dell'\gloss{item} con la chiave da cercare.
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  collection & public & immutabile & String & Stringa che rappresenta la collezione da cui restitire l'item\\
+  collection & public & immutabile & String & Stringa che rappresenta la \gloss{collezione} da cui restitire l'item\\
   \hline
   key & public & immutabile & String & stringa che rappresenta la chiave dell'item da restituire \\
   \hline
@@ -1477,15 +1477,15 @@ e inoltrerà lui la richiesta dell'\gloss{item} con la chiave da cercare.
 \label{sec:actorbase::actorsystem::main::messages::GetItemFromResponse}
 
 \begin{figure}[H]
-   \begin{center}
-     \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/getitemfromresponse-main.png}
-     \caption{Classe actorsystem::main::messages::GetItemFromResponse}
-   \end{center}
- \end{figure}
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/getitemfromresponse-main.png}
+    \caption{Classe actorsystem::main::messages::GetItemFromResponse}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 
-Messaggio che serve per comporre l'intera collezione da restituire all'utente
+Messaggio che serve per comporre l'intera \gloss{collezione} da restituire all'utente
 
 \subparagraph{Utilizzo}
 
@@ -1500,11 +1500,11 @@ e inoltrerà lui la richiesta dell'\gloss{item} con la chiave da cercare.
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  clientRef & public & immutabile & ActorRef & Riferimento del client che richiede la collezione\\
+  clientRef & public & immutabile & ActorRef & Riferimento del client che richiede la \gloss{collezione}\\
   \hline
-  collection & public & immutabile & ActorbaseCollection & contiene il numero di risposte attese per la collezione richiesta\\
+  collection & public & immutabile & ActorbaseCollection & contiene il numero di risposte attese per la \gloss{collezione} richiesta\\
   \hline
-  items & public & immutabile & TreeMap[String, Any] & rappresenta un pezzo della collezione richiesta\\
+  items & public & immutabile & TreeMap[String, Any] & rappresenta un pezzo della \gloss{collezione} richiesta\\
   \hline
 \end{tabular}
 
@@ -1512,11 +1512,11 @@ e inoltrerà lui la richiesta dell'\gloss{item} con la chiave da cercare.
 \label{sec:actorbase::actorsystem::main::messages::CreateCollection}
 
 \begin{figure}[H]
-   \begin{center}
-     \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/createcollection-main.png}
-     \caption{Classe actorsystem::main::messages::CreateCollection}
-   \end{center}
- \end{figure}
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/createcollection-main.png}
+    \caption{Classe actorsystem::main::messages::CreateCollection}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 Messaggio che indica una richiesta di creazione di una \gloss{collezione}.
@@ -1524,7 +1524,7 @@ Messaggio che indica una richiesta di creazione di una \gloss{collezione}.
 \subparagraph{Utilizzo}
 Quando \hyperref[sec:actorbase::actorsystem::main::Main]{Main}
 riceve questo messaggio provvederà a creare uno \hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{Storefinder} adibito
-alla gestione della collezione e aggiornerà la propria struttura dati
+alla gestione della \gloss{collezione} e aggiornerà la propria struttura dati
 aggiungendo questo riferimento.
 
 \subparagraph{Attributi}
@@ -1532,7 +1532,7 @@ aggiungendo questo riferimento.
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  collection & public & immutabile & String & Stringa che rappresenta la collezione da cui restitire l'item\\
+  collection & public & immutabile & String & Stringa che rappresenta la \gloss{collezione} da cui restitire l'item\\
   \hline
 \end{tabular}
 
@@ -1540,11 +1540,11 @@ aggiungendo questo riferimento.
 \label{sec:actorbase::actorsystem::main::messages::RemoveCollection}
 
 \begin{figure}[H]
-   \begin{center}
-     \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/removecollection-main.png}
-     \caption{Classe actorsystem::main::messages::RemoveCollection}
-   \end{center}
- \end{figure}
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/removecollection-main.png}
+    \caption{Classe actorsystem::main::messages::RemoveCollection}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 Messaggio che indica una richiesta di rimozione di una \gloss{collezione}.
@@ -1552,14 +1552,14 @@ Messaggio che indica una richiesta di rimozione di una \gloss{collezione}.
 \subparagraph{Utilizzo}
 Quando \hyperref[sec:actorbase::actorsystem::main::Main]{Main}
 riceve questo messaggio provvederà a terminare gli attori storefinder
-che rappresentano la collezione da rimuovere.
+che rappresentano la \gloss{collezione} da rimuovere.
 
 \subparagraph{Attributi}
 \begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  collection & public & immutabile & String & Stringa che rappresenta la collezione da cui restitire l'item\\
+  collection & public & immutabile & String & Stringa che rappresenta la \gloss{collezione} da cui restitire l'item\\
   \hline
 \end{tabular}
 
@@ -1567,11 +1567,11 @@ che rappresentano la collezione da rimuovere.
 \label{sec:actorbase::actorsystem::main::messages::AddContributor}
 
 \begin{figure}[H]
-   \begin{center}
-     \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/addcontributor-main.png}
-     \caption{Classe actorsystem::main::messages::AddContributor}
-   \end{center}
- \end{figure}
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/addcontributor-main.png}
+    \caption{Classe actorsystem::main::messages::AddContributor}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 
@@ -1593,7 +1593,7 @@ riceve questo messaggio inoltrerà la richiesta all'attore
   \hline
   permissions & public & immutable & Boolean & Flag che indica i permessi del collaboratore ( false se sola lettura, true se lettura e scrittura )\\
   \hline
-  collection & public & immutabile & String & Stringa che rappresenta la collezione a cui dare accesso\\
+  collection & public & immutabile & String & Stringa che rappresenta la \gloss{collezione} a cui dare accesso\\
   \hline
 \end{tabular}
 
@@ -1601,11 +1601,11 @@ riceve questo messaggio inoltrerà la richiesta all'attore
 \label{sec:actorbase::actorsystem::main::messages::RemoveContributor}
 
 \begin{figure}[H]
-   \begin{center}
-     \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/removecontributor-main.png}
-     \caption{Classe actorsystem::main::messages::RemoveContributor}
-   \end{center}
- \end{figure}
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/removecontributor-main.png}
+    \caption{Classe actorsystem::main::messages::RemoveContributor}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 
@@ -1626,7 +1626,7 @@ riceve questo messaggio inoltrerà la richiesta all'attore \hyperref[sec:actorba
   \hline
   permissions & public & immutable & Boolean & Flag che indica i permessi del collaboratore ( false se sola lettura, true se lettura e scrittura )\\
   \hline
-  collection & public & immutabile & String & Stringa che rappresenta la collezione da cui rimuovere il collaboratore\\
+  collection & public & immutabile & String & Stringa che rappresenta la \gloss{collezione} da cui rimuovere il collaboratore\\
   \hline
 \end{tabular}
 
@@ -1634,11 +1634,11 @@ riceve questo messaggio inoltrerà la richiesta all'attore \hyperref[sec:actorba
 \label{sec:actorbase::actorsystem::main::messages::Ack}
 
 \begin{figure}[H]
-   \begin{center}
-     \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/ack-main.png}
-     \caption{Classe actorsystem::main::messages::Ack}
-   \end{center}
- \end{figure}
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/ack-main.png}
+    \caption{Classe actorsystem::main::messages::Ack}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 
@@ -1653,11 +1653,11 @@ riceve questo messaggio cambia il suo contesto passando a waitingForRequests.
 \label{sec:actorbase::actorsystem::main::messages::DuplicateRequestSF}
 
 \begin{figure}[H]
-   \begin{center}
-     \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/duplicationrequestsf.png}
-     \caption{Classe actorsystem::main::messages::DuplicationRequestSF}
-   \end{center}
- \end{figure}
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/duplicationrequestsf.png}
+    \caption{Classe actorsystem::main::messages::DuplicationRequestSF}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 
@@ -1673,7 +1673,7 @@ contenente la mappatura degli \hyperref[sec:actorbase::actorsystem::storefinder:
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  oldCollRange & public & immutable & \hyperref[sec:actorbase::actorsystem::utils::CollectionRange]{CollectionRange} & Rappresenta il pezzo di collezione che si è duplicato\\
+  oldCollRange & public & immutable & \hyperref[sec:actorbase::actorsystem::utils::CollectionRange]{CollectionRange} & Rappresenta il pezzo di \gloss{collezione} che si è duplicato\\
   \hline
   leftCollRange & public & immutable & \hyperref[sec:actorbase::actorsystem::utils::CollectionRange]{CollectionRange} & Rappresenta il nuovo CollectionRange dello \hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{Storefinder} che si è duplicato\\
   \hline
@@ -1687,27 +1687,27 @@ contenente la mappatura degli \hyperref[sec:actorbase::actorsystem::storefinder:
 \label{sec:actorbase::actorsystem::main::messages::UpdateCollectionSize}
 
 \begin{figure}[H]
-   \begin{center}
-     \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/updatecollectionsize-main.png}
-     \caption{Classe actorsystem::main::messages::UpdateCollectionSize}
-   \end{center}
- \end{figure}
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/updatecollectionsize-main.png}
+    \caption{Classe actorsystem::main::messages::UpdateCollectionSize}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 
-Messaggio che incrementa il numero delle coppie chiave-valore alla collezione
+Messaggio che incrementa il numero delle coppie chiave-valore alla \gloss{collezione}
 
 \subparagraph{Utilizzo}
 
 Quando \hyperref[sec:actorbase::actorsystem::main::Main]{Main}
-riceve questo messaggio provvederà ad inoltrare allo \hyperref[sec:actorbase::actorsystem::userfinder::Userfinder]{Userfinder} l'incremento della collezione.
+riceve questo messaggio provvederà ad inoltrare allo \hyperref[sec:actorbase::actorsystem::userfinder::Userfinder]{Userfinder} l'incremento della \gloss{collezione}.
 
 \subparagraph{Attributi}
 \begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  collectionName & public & immutable & ActorbaseCollection & Nome della collezione che si vuole incrementare\\
+  collectionName & public & immutable & ActorbaseCollection & Nome della \gloss{collezione} che si vuole incrementare\\
   \hline
   increment & public & immutable & boolean & indica se deve esser fatto un incremento (true) o un decremento (false)\\
   \hline
@@ -1741,11 +1741,11 @@ Classe che rappresenta un \gloss{attore} di tipo \gloss{Userfinder}.
 \label{sec:actorbase::actorsystem::userfinder::Userfinder}
 
 \begin{figure}[H]
-   \begin{center}
-     \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/userfinder.png}
-     \caption{Classe actorsystem::main::userfinder::Userfinder}
-   \end{center}
- \end{figure}
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/userfinder.png}
+    \caption{Classe actorsystem::main::userfinder::Userfinder}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 Classe che rappresenta un \gloss{attore} di tipo \gloss{Userfinder}.
@@ -1782,11 +1782,11 @@ Questa classe viene utilizzata per tener traccia degli attori di tipo
 \label{sec:actorbase::actorsystem::userfinder::messages}
 
 \begin{figure}[H]
-   \begin{center}
-     \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/messages-uf.png}
-     \caption{Classe actorsystem::userfinder::messages}
-   \end{center}
- \end{figure}
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/messages-uf.png}
+    \caption{Classe actorsystem::userfinder::messages}
+  \end{center}
+\end{figure}
 
 \subsubsection{Descrizione}
 \gloss{Package} che contiene tutti i messaggi che possono essere ricevuti da
@@ -1798,11 +1798,11 @@ Questa classe viene utilizzata per tener traccia degli attori di tipo
 \label{sec:actorbase::actorsystem::userfinder::messages::GetPasswordOf}
 
 \begin{figure}[H]
-   \begin{center}
-     \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/getpasswordof-uf.png}
-     \caption{Classe actorsystem::userfinder::messages::GetPasswordOf}
-   \end{center}
- \end{figure}
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/getpasswordof-uf.png}
+    \caption{Classe actorsystem::userfinder::messages::GetPasswordOf}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 Messaggio che indica la richiesta di autenticazione da parte di un utente.\\
@@ -1825,11 +1825,11 @@ relativo allo username ricevuto.
 \label{sec:actorbase::actorsystem::userfinder::messages::InsertTo}
 
 \begin{figure}[H]
-   \begin{center}
-     \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/insertto-uf.png}
-     \caption{Classe actorsystem::userfinder::messages::InsertTo}
-   \end{center}
- \end{figure}
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/insertto-uf.png}
+    \caption{Classe actorsystem::userfinder::messages::InsertTo}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 Messaggio che indica la richiesta di un aggiunta di un utente nel sistema,
@@ -1854,11 +1854,11 @@ e l'inserimento del suo riferimento nella propria struttura dati.
 \label{sec:actorbase::actorsystem::userfinder::messages::GetCollectionOf}
 
 \begin{figure}[H]
-   \begin{center}
-     \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/getcollectionof-uf.png}
-     \caption{Classe actorsystem::userfinder::messages::GetCollectionOf}
-   \end{center}
- \end{figure}
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/getcollectionof-uf.png}
+    \caption{Classe actorsystem::userfinder::messages::GetCollectionOf}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 Messaggio che indica la necessità di tornare le collezioni con il tipo di permessi immesso di un utente.
@@ -1882,11 +1882,11 @@ che rappresenta l'utente richiesto dal parametro di ingresso.
 \label{sec:actorbase::actorsystem::userfinder::messages::ChangePasswordOf}
 
 \begin{figure}[H]
-   \begin{center}
-     \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/changepasswordof-uf.png}
-     \caption{Classe actorsystem::userfinder::messages::ChangePasswordOf}
-   \end{center}
- \end{figure}
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/changepasswordof-uf.png}
+    \caption{Classe actorsystem::userfinder::messages::ChangePasswordOf}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 Messaggio che indica la richiesta di una modifica password di un utente.
@@ -1910,14 +1910,14 @@ corrispondente all'utente corretto.
 \label{sec:actorbase::actorsystem::userfinder::messages::RemoveCollectionFrom}
 
 \begin{figure}[H]
-   \begin{center}
-     \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/removecollectionfrom-uf.png}
-     \caption{Classe actorsystem::userfinder::messages::RemoveCollectionFrom}
-   \end{center}
- \end{figure}
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/removecollectionfrom-uf.png}
+    \caption{Classe actorsystem::userfinder::messages::RemoveCollectionFrom}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
-Messaggio che indica la richiesta di rimozione di una collezione dalla struttura dati dello \hyperref[sec:actorbase::actorsystem::userkeeper::Userkeeper]{actorbase::\allowbreak{}actorsystem::\allowbreak{}userkeeper::\allowbreak{}Userkeeper} corrispondente.
+Messaggio che indica la richiesta di rimozione di una \gloss{collezione} dalla struttura dati dello \hyperref[sec:actorbase::actorsystem::userkeeper::Userkeeper]{actorbase::\allowbreak{}actorsystem::\allowbreak{}userkeeper::\allowbreak{}Userkeeper} corrispondente.
 
 \subparagraph{Utilizzo}
 Quando l'attore riceve questo messaggio provvederà a inoltrare la richiesta
@@ -1931,9 +1931,9 @@ corrispondente all'utente corretto.
   \hline
   username & public & immutabile & String & stringa che rappresenta lo username dell'utente su cui effettuare l'operazione \\
   \hline
-  write & public & immutable & Boolean & flag che rappresenta i permessi che l'utente ha sulla collezione da rimuovere \\
+  write & public & immutable & Boolean & flag che rappresenta i permessi che l'utente ha sulla \gloss{collezione} da rimuovere \\
   \hline
-  collection & public & immutabile &  \hyperref[sec:actorbase::actorsystem::utils::ActorbaseCollection]{ActorbaseCollection} & Rappresenta la collezione da rimuovere \\
+  collection & public & immutabile &  \hyperref[sec:actorbase::actorsystem::utils::ActorbaseCollection]{ActorbaseCollection} & Rappresenta la \gloss{collezione} da rimuovere \\
   \hline
 \end{tabular}
 
@@ -1941,14 +1941,14 @@ corrispondente all'utente corretto.
 \label{sec:actorbase::actorsystem::userfinder::messages::AddCollectionTo}
 
 \begin{figure}[H]
-   \begin{center}
-     \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/addcollectionto-uf.png}
-     \caption{Classe actorsystem::userfinder::messages::AddCollectionTo}
-   \end{center}
- \end{figure}
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/addcollectionto-uf.png}
+    \caption{Classe actorsystem::userfinder::messages::AddCollectionTo}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
-Messaggio che indica la richiesta di un aggiunta di una collezione con i permessi inseriti ad un utente nel sistema.
+Messaggio che indica la richiesta di un aggiunta di una \gloss{collezione} con i permessi inseriti ad un utente nel sistema.
 
 \subparagraph{Utilizzo}
 Quando l'attore riceve questo messaggio provvederà a inoltrare la richiesta all'attore di tipo \hyperref[sec:actorbase::actorsystem::userkeeper::Userkeeper]{actorbase::\allowbreak{}actorsystem::\allowbreak{}userkeeper::\allowbreak{}Userkeeper}
@@ -1959,11 +1959,11 @@ corrispondente all'utente su cui effettuare l'operazione.
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  username & public & immutabile & String & stringa che rappresenta lo username dell'utente a cui aggiungere la collezione \\
+  username & public & immutabile & String & stringa che rappresenta lo username dell'utente a cui aggiungere la \gloss{collezione} \\
   \hline
-  write & public & immutable & Boolean & flag che rappresenta i permessi che l'utente ha sulla collezione da aggiungere \\
+  write & public & immutable & Boolean & flag che rappresenta i permessi che l'utente ha sulla \gloss{collezione} da aggiungere \\
   \hline
-  collection & public & immutabile &  \hyperref[sec:actorbase::actorsystem::utils::ActorbaseCollection]{ActorbaseCollection} & Rappresenta la collezione da aggiungere \\
+  collection & public & immutabile &  \hyperref[sec:actorbase::actorsystem::utils::ActorbaseCollection]{ActorbaseCollection} & Rappresenta la \gloss{collezione} da aggiungere \\
   \hline
 \end{tabular}
 
@@ -1971,15 +1971,15 @@ corrispondente all'utente su cui effettuare l'operazione.
 \label{sec:actorbase::actorsystem::userfinder::messages::UpdateCollectionSizeTo}
 
 \begin{figure}[H]
-   \begin{center}
-     \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/updatecollectionsizeto-uf.png}
-     \caption{Classe actorsystem::userfinder::messages::UpdateCollectionSizeTo}
-   \end{center}
- \end{figure}
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/updatecollectionsizeto-uf.png}
+    \caption{Classe actorsystem::userfinder::messages::UpdateCollectionSizeTo}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 
-Messaggio che indica la ncessità di aggiornare il numero di item di una collezione.
+Messaggio che indica la ncessità di aggiornare il numero di item di una \gloss{collezione}.
 
 \subparagraph{Utilizzo}
 
@@ -1992,7 +1992,7 @@ riceve questo messaggio provvederà ad inoltrare all'attore di tipo
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  collection & public & immutabile &  \hyperref[sec:actorbase::actorsystem::utils::ActorbaseCollection]{ActorbaseCollection} & Collezione di cui aggiornare il contatore \\
+  collection & public & immutabile &  \hyperref[sec:actorbase::actorsystem::utils::ActorbaseCollection]{ActorbaseCollection} & \Gloss{Collezione} di cui aggiornare il contatore \\
   \hline
   increment & public & immutabile & Boolean & Se true causa un incremento del contatore, se false causa un decremento del contatore \\
   \hline
@@ -2027,11 +2027,11 @@ Classe che rappresenta un \gloss{attore} di tipo \gloss{Userkeeper}.
 \label{sec:actorbase::actorsystem::userkeeper::Userkeeper}
 
 \begin{figure}[H]
-   \begin{center}
-     \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/userkeeper.png}
-     \caption{Classe actorsystem::userkeeper::Userkeeper}
-   \end{center}
- \end{figure}
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/userkeeper.png}
+    \caption{Classe actorsystem::userkeeper::Userkeeper}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 Classe che rappresenta un \gloss{attore} di tipo \gloss{Userkeeper}.
@@ -2082,11 +2082,11 @@ Questa classe viene utilizzata per salvare gli utenti e i loro dati nel \gloss{d
 \label{sec:actorbase::actorsystem::userkeeper::messages}
 
 \begin{figure}[H]
-   \begin{center}
-     \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/messages-uk.png}
-     \caption{Classe actorsystem::userkeeper::messages}
-   \end{center}
- \end{figure}
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/messages-uk.png}
+    \caption{Classe actorsystem::userkeeper::messages}
+  \end{center}
+\end{figure}
 
 \subsubsection{Descrizione}
 
@@ -2099,11 +2099,11 @@ Questa classe viene utilizzata per salvare gli utenti e i loro dati nel \gloss{d
 \label{sec:actorbase::actorsystem::userkeeper::messages::GetCollection}
 
 \begin{figure}[H]
-   \begin{center}
-     \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/getcollection-uk.png}
-     \caption{Classe actorsystem::userkeeper::messages::GetCollection}
-   \end{center}
- \end{figure}
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/getcollection-uk.png}
+    \caption{Classe actorsystem::userkeeper::messages::GetCollection}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 Messaggio che indica la richiesta della lista di \gloss{collezioni} di cui
@@ -2130,11 +2130,11 @@ e scrittura.
 \label{sec:actorbase::actorsystem::userkeeper::messages::ChangePassword}
 
 \begin{figure}[H]
-   \begin{center}
-     \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/changepassword-uk.png}
-     \caption{Classe actorsystem::userkeeper::messages::ChangePassword}
-   \end{center}
- \end{figure}
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/changepassword-uk.png}
+    \caption{Classe actorsystem::userkeeper::messages::ChangePassword}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 Messaggio che indica la richiesta di cambiamento della password.
@@ -2157,11 +2157,11 @@ riceve questo messaggio provvederà a modificare la password dell'utente.
 \label{sec:actorbase::actorsystem::userkeeper::messages::GetPassword}
 
 \begin{figure}[H]
-   \begin{center}
-     \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/getpassword-uk.png}
-     \caption{Classe actorsystem::userkeeper::messages::GetPassword}
-   \end{center}
- \end{figure}
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/getpassword-uk.png}
+    \caption{Classe actorsystem::userkeeper::messages::GetPassword}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 
@@ -2177,11 +2177,11 @@ riceve questo messaggio provvederà a inviare la password all'\gloss{attore} di 
 \label{sec:actorbase::actorsystem::userkeeper::messages::RemoveCollection}
 
 \begin{figure}[H]
-   \begin{center}
-     \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/removecollection-uk.png}
-     \caption{Classe actorsystem::userkeeper::messages::RemoveCollection}
-   \end{center}
- \end{figure}
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/removecollection-uk.png}
+    \caption{Classe actorsystem::userkeeper::messages::RemoveCollection}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 
@@ -2201,9 +2201,9 @@ lettura o in scrittura.
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  write & public & immutabile & Boolean & Boolean che rappresenta i permessi dell'utente sulla collezione da rimuovere ( \=0 se sola lettura e \=1 se lettura e scrittura) \\
+  write & public & immutabile & Boolean & Boolean che rappresenta i permessi dell'utente sulla \gloss{collezione} da rimuovere ( \=0 se sola lettura e \=1 se lettura e scrittura) \\
   \hline
-  collection & public & immutabile & \hyperref[sec:actorbase::actorsystem::utils::ActorbaseCollection]{ActorbaseCollection} & Rappresenta il nome della collezione da rimuovere \\
+  collection & public & immutabile & \hyperref[sec:actorbase::actorsystem::utils::ActorbaseCollection]{ActorbaseCollection} & Rappresenta il nome della \gloss{collezione} da rimuovere \\
   \hline
 \end{tabular}
 
@@ -2212,11 +2212,11 @@ lettura o in scrittura.
 \label{sec:actorbase::actorsystem::userkeeper::messages::AddCollection}
 
 \begin{figure}[H]
-   \begin{center}
-     \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/addcollection-uk.png}
-     \caption{Classe actorsystem::userkeeper::messages::AddCollection}
-   \end{center}
- \end{figure}
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/addcollection-uk.png}
+    \caption{Classe actorsystem::userkeeper::messages::AddCollection}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 
@@ -2236,9 +2236,9 @@ lettura o in lettura e scrittura.
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione \\
   \hline
-  write & public & immutabile & Boolean & Boolean che rappresenta i permessi dell'utente sulla collezione da aggiungere ( \=0 se sola lettura e \=1 se lettura e scrittura) \\
+  write & public & immutabile & Boolean & Boolean che rappresenta i permessi dell'utente sulla \gloss{collezione} da aggiungere ( \=0 se sola lettura e \=1 se lettura e scrittura) \\
   \hline
-  collection & public & immutabile &  \hyperref[sec:actorbase::actorsystem::utils::ActorbaseCollection]{ActorbaseCollection} & Rappresenta il nome della collezione da aggiungere \\
+  collection & public & immutabile &  \hyperref[sec:actorbase::actorsystem::utils::ActorbaseCollection]{ActorbaseCollection} & Rappresenta il nome della \gloss{collezione} da aggiungere \\
   \hline
 \end{tabular}
 
@@ -2247,11 +2247,11 @@ lettura o in lettura e scrittura.
 \label{sec:actorbase::actorsystem::userkeeper::messages::BindClient}
 
 \begin{figure}[H]
-   \begin{center}
-     \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/bindclient-uk.png}
-     \caption{Classe actorsystem::userkeeper::messages::BindClient}
-   \end{center}
- \end{figure}
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/bindclient-uk.png}
+    \caption{Classe actorsystem::userkeeper::messages::BindClient}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 
@@ -2277,28 +2277,28 @@ che ha inviato questo messaggio.
 \label{sec:actorbase::actorsystem::userkeeper::messages::UpdateCollectionSize}
 
 \begin{figure}[H]
-   \begin{center}
-     \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/updatecollectionsize-uk.png}
-     \caption{Classe actorsystem::userkeeper::messages::UpdateCollectionSize}
-   \end{center}
- \end{figure}
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/updatecollectionsize-uk.png}
+    \caption{Classe actorsystem::userkeeper::messages::UpdateCollectionSize}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 
-Messaggio che aggiorna il numero di item di una collezione.
+Messaggio che aggiorna il numero di item di una \gloss{collezione}.
 
 \subparagraph{Utilizzo}
 
 Quando \hyperref[sec:actorbase::actorsystem::userkeeper::Userkeeper]{actorbase::\allowbreak{}actorsystem::\allowbreak{}userkeeper::\allowbreak{}Userkeeper}
 riceve questo messaggio provvederà ad aggiornare il contatore relativo al numero di oggetti
-nella collezione.
+nella \gloss{collezione}.
 
 \subparagraph{Attributi}
 \begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  collection & public & immutabile &  \hyperref[sec:actorbase::actorsystem::utils::ActorbaseCollection]{ActorbaseCollection} & Collezione di cui aggiornare il contatore \\
+  collection & public & immutabile &  \hyperref[sec:actorbase::actorsystem::utils::ActorbaseCollection]{ActorbaseCollection} & \Gloss{Collezione} di cui aggiornare il contatore \\
   \hline
   increment & public & immutabile & Boolean & Se true causa un incremento del contatore, se false causa un decremento del contatore \\
   \hline
@@ -2332,11 +2332,11 @@ Classe che rappresenta un \gloss{attore} di tipo \gloss{Storefinder}.
 \label{sec:actorbase::actorsystem::storefinder::Storefinder}
 
 \begin{figure}[H]
-   \begin{center}
-     \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/storefinder.png}
-     \caption{Classe actorsystem::storefinder::Storefinder}
-   \end{center}
- \end{figure}
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/storefinder.png}
+    \caption{Classe actorsystem::storefinder::Storefinder}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 
@@ -2360,13 +2360,13 @@ Questa classe viene utilizzata per tener traccia degli attori di tipo
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  skMap & private & mutabile & TreeMap [KeyRange, ActorRef] & Rappresenta la mappa di attori di tipo storekeeper relativi alla collezione \\
+  skMap & private & mutabile & TreeMap [KeyRange, ActorRef] & Rappresenta la mappa di attori di tipo storekeeper relativi alla \gloss{collezione} \\
   \hline
-  collection & private & mutabile & actorbaseCollection & Rappresenta il nome della collezione che va a rappresentare\\
+  collection & private & mutabile & actorbaseCollection & Rappresenta il nome della \gloss{collezione} che va a rappresentare\\
   \hline
   range & private & mutabile & KeyRange & Rappresenta l'intervallo delle chiavi mappabili nel particolare storefinder\\
   \hline
-  maxSize & private & immutabile & int & Rappresenta la grandezza massima della collezione\\
+  maxSize & private & immutabile & int & Rappresenta la grandezza massima della \gloss{collezione}\\
   \hline
 \end{tabular}
 
@@ -2384,11 +2384,11 @@ Questa classe viene utilizzata per tener traccia degli attori di tipo
 \label{sec:actorbase::actorsystem::storefinder::messages}
 
 \begin{figure}[H]
-   \begin{center}
-     \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/messages-sf.png}
-     \caption{Classe actorsystem::storefinder::messages}
-   \end{center}
- \end{figure}
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/messages-sf.png}
+    \caption{Classe actorsystem::storefinder::messages}
+  \end{center}
+\end{figure}
 
 \subsubsection{Descrizione}
 
@@ -2401,11 +2401,11 @@ Questa classe viene utilizzata per tener traccia degli attori di tipo
 \label{sec:actorbase::actorsystem::storefinder::messages::DuplicationRequestSK}
 
 \begin{figure}[H]
-   \begin{center}
-     \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/duplicationrequestsk.png}
-     \caption{Classe actorsystem::storefinder::messages::DuplicationRequestSK}
-   \end{center}
- \end{figure}
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/duplicationrequestsk.png}
+    \caption{Classe actorsystem::storefinder::messages::DuplicationRequestSK}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 Messaggio atto ad aggiornare uno Storefinder a seguito di una duplicazione
@@ -2417,7 +2417,7 @@ riceve questo messaggio provvederà ad aggiornare la sua struttura dati.\\In
 particolare aggiornerà i range di chiavi contenuti dagli Storekeeper presenti
 nella sua struttura dati.
 
-\subparagraph{Attributi} 
+\subparagraph{Attributi}
 \begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
@@ -2436,15 +2436,15 @@ nella sua struttura dati.
 \label{sec:actorbase::actorsystem::storefinder::messages::Ack}
 
 \begin{figure}[H]
-   \begin{center}
-     \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/ack-main.png}
-     \caption{Classe actorsystem::storefinder::messages::Ack}
-   \end{center}
- \end{figure}
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/ack-main.png}
+    \caption{Classe actorsystem::storefinder::messages::Ack}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 
-Messaggio che indica il completamento della richiesta precedente; 
+Messaggio che indica il completamento della richiesta precedente;
 \hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{Storefinder} torna nello stato waitingForRequests.
 
 \subparagraph{Utilizzo}
@@ -2456,11 +2456,11 @@ riceve questo messaggio cambia il suo contesto panssando a waitingForRequests.
 \label{sec:actorbase::actorsystem::storefinder::messages::GetItem}
 
 \begin{figure}[H]
-   \begin{center}
-     \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/getitem-sf.png}
-     \caption{Classe actorsystem::storefinder::messages::GetItem}
-   \end{center}
- \end{figure}
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/getitem-sf.png}
+    \caption{Classe actorsystem::storefinder::messages::GetItem}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 
@@ -2486,11 +2486,11 @@ che contiene l'\gloss{item} cercato.
 \label{sec:actorbase::actorsystem::storefinder::messages::RemoveItem}
 
 \begin{figure}[H]
-   \begin{center}
-     \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/removeitem-sf.png}
-     \caption{Classe actorsystem::storefinder::messages::RemoveItem}
-   \end{center}
- \end{figure}
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/removeitem-sf.png}
+    \caption{Classe actorsystem::storefinder::messages::RemoveItem}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 
@@ -2516,11 +2516,11 @@ che contiene l'\gloss{item} da rimuovere.
 \label{sec:actorbase::actorsystem::storefinder::messages::Insert}
 
 \begin{figure}[H]
-   \begin{center}
-     \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/insert-sf.png}
-     \caption{Classe actorsystem::storefinder::messages::Insert}
-   \end{center}
- \end{figure}
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/insert-sf.png}
+    \caption{Classe actorsystem::storefinder::messages::Insert}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 
@@ -2550,11 +2550,11 @@ destinato a ricevere l'\gloss{item} da inserire.
 \label{sec:actorbase::actorsystem::storefinder::messages::GetAllItem}
 
 \begin{figure}[H]
-   \begin{center}
-     \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/getallitem-sf.png}
-     \caption{Classe actorsystem::storefinder::messages::GetAllItem}
-   \end{center}
- \end{figure}
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/getallitem-sf.png}
+    \caption{Classe actorsystem::storefinder::messages::GetAllItem}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 
@@ -2573,15 +2573,15 @@ che dovranno restituire tutti gli \gloss{items} contenuti in essi.
 \label{sec:actorbase::actorsystem::storefinder::messages::GetAllItemFromResponse}
 
 \begin{figure}[H]
-   \begin{center}
-     \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/getallitemfromresponse-sf.png}
-     \caption{Classe actorsystem::storefinder::messages::GetAllItemFromResponse}
-   \end{center}
- \end{figure}
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/getallitemfromresponse-sf.png}
+    \caption{Classe actorsystem::storefinder::messages::GetAllItemFromResponse}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 
-Messaggio che serve per comporre l'intera collezione da restituire all'utente
+Messaggio che serve per comporre l'intera \gloss{collezione} da restituire all'utente
 
 \subparagraph{Utilizzo}
 
@@ -2594,9 +2594,9 @@ riceve questo messaggio non farà altro che richiamare il metodo
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  clientRef & public & immutabile & ActorRef & Riferimento del client che richiede la collezione\\
+  clientRef & public & immutabile & ActorRef & Riferimento del client che richiede la \gloss{collezione}\\
   \hline
-  items & public & immutabile & TreeMap[String, Any] & rappresenta un pezzo della collezione richiesta\\
+  items & public & immutabile & TreeMap[String, Any] & rappresenta un pezzo della \gloss{collezione} richiesta\\
   \hline
 \end{tabular}
 
@@ -2604,15 +2604,15 @@ riceve questo messaggio non farà altro che richiamare il metodo
 \label{sec:actorbase::actorsystem::storefinder::messages::UpdateCollectionSize}
 
 \begin{figure}[H]
-   \begin{center}
-     \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/updatecollectionsize-sf.png}
-     \caption{Classe actorsystem::storefinder::messages::UpdateCollectionSize}
-   \end{center}
- \end{figure}
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/updatecollectionsize-sf.png}
+    \caption{Classe actorsystem::storefinder::messages::UpdateCollectionSize}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 
-Messaggio che incrementa il numero delle coppie chiave-valore alla collezione
+Messaggio che incrementa il numero delle coppie chiave-valore alla \gloss{collezione}
 
 \subparagraph{Utilizzo}
 
@@ -2625,7 +2625,7 @@ riceve questo messaggio non farà altro che richiamare il metodo
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  collection & public & immutable & ActorbaseCollection & Nome della collezione che si vuole incrementare\\
+  collection & public & immutable & ActorbaseCollection & Nome della \gloss{collezione} che si vuole incrementare\\
   \hline
   increment & public & immutable & boolean & indica se deve esser fatto un incremento (true) o un decremento (false)\\
   \hline
@@ -2659,11 +2659,11 @@ riceve questo messaggio non farà altro che richiamare il metodo
 \label{sec:actorbase::actorsystem::storekeeper::Storekeeper}
 
 \begin{figure}[H]
-   \begin{center}
-     \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/storekeeper.png}
-     \caption{Classe actorsystem::storekeeper::Storekeeper}
-   \end{center}
- \end{figure}
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/storekeeper.png}
+    \caption{Classe actorsystem::storekeeper::Storekeeper}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 Classe che rappresenta un \gloss{attore} di tipo \gloss{Storekeeper}.
@@ -2688,7 +2688,7 @@ Questa classe viene utilizzata per salvare nel \gloss{database} gli item.
   \hline
   range & private & mutabile & KeyRange & Rappresenta il range di chiavi contenuta nell'attore\\
   \hline
-  collection & private & immutabile & ActorbaseCollection & Rappresenta la collezione a cui lo \gloss{Storekeeper} appartiene\\
+  collection & private & immutabile & ActorbaseCollection & Rappresenta la \gloss{collezione} a cui lo \gloss{Storekeeper} appartiene\\
   \hline
   parentRange & private & mutabile & KeyRange & Rappresenta il range di chiavi contenuta nell'attore di tipo \gloss{Storefinder} che contiene lo \gloss{Storekeeper}\\
   \hline
@@ -2706,7 +2706,7 @@ Questa classe viene utilizzata per salvare nel \gloss{database} gli item.
   \hline
   receive & public &  & Effettua operazioni diverse a seconda del tipo di messaggio ricevuto\\
   \hline
-  insertOrUpdate & private & & Inserisce un item nella collezione\\
+  insertOrUpdate & private & & Inserisce un item nella \gloss{collezione}\\
   \hline
 \end{tabular}
 
@@ -2731,11 +2731,11 @@ Questa classe viene utilizzata per salvare nel \gloss{database} gli item.
 \label{sec:actorbase::actorsystem::storekeeper::messages}
 
 \begin{figure}[H]
-   \begin{center}
-     \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/messages-sk.png}
-     \caption{Classe actorsystem::storekeeper::messages}
-   \end{center}
- \end{figure}
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/messages-sk.png}
+    \caption{Classe actorsystem::storekeeper::messages}
+  \end{center}
+\end{figure}
 
 \subsubsection{Descrizione}
 
@@ -2749,11 +2749,11 @@ ricevuti dall'\gloss{attore} di tipo
 \label{sec:actorbase::actorsystem::storekeeper::messages::GetItem}
 
 \begin{figure}[H]
-   \begin{center}
-     \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/getitem-sk.png}
-     \caption{Classe actorsystem::storekeeper::messages::GetItem}
-   \end{center}
- \end{figure}
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/getitem-sk.png}
+    \caption{Classe actorsystem::storekeeper::messages::GetItem}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 
@@ -2780,11 +2780,11 @@ che aveva effettuato la richiesta.
 \label{sec:actorbase::actorsystem::storekeeper::messages::GetAllItem}
 
 \begin{figure}[H]
-   \begin{center}
-     \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/getallitem-sk.png}
-     \caption{Classe actorsystem::storekeeper::messages::GetAllItem}
-   \end{center}
- \end{figure}
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/getallitem-sk.png}
+    \caption{Classe actorsystem::storekeeper::messages::GetAllItem}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 
@@ -2802,11 +2802,11 @@ che aveva effettuato la richiesta.
 \label{sec:actorbase::actorsystem::storekeeper::messages::Insert}
 
 \begin{figure}[H]
-   \begin{center}
-     \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/insert-sk.png}
-     \caption{Classe actorsystem::storekeeper::messages::Insert}
-   \end{center}
- \end{figure}
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/insert-sk.png}
+    \caption{Classe actorsystem::storekeeper::messages::Insert}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 
@@ -2834,11 +2834,11 @@ riceve questo messaggio inserisce l'\gloss{item} nel suo attributo data.
 \label{sec:actorbase::actorsystem::storekeeper::messages::RemoveItem}
 
 \begin{figure}[H]
-   \begin{center}
-     \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/removeitem-sk.png}
-     \caption{Classe actorsystem::storekeeper::messages::RemoveItem}
-   \end{center}
- \end{figure}
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/removeitem-sk.png}
+    \caption{Classe actorsystem::storekeeper::messages::RemoveItem}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 
@@ -2862,11 +2862,11 @@ riceve questo messaggio rimuove l'\gloss{item}.
 \label{sec:actorbase::actorsystem::storekeeper::messages::UpdateOwnerOfSk}
 
 \begin{figure}[H]
-   \begin{center}
-     \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/updateownerofsk-sk.png}
-     \caption{Classe actorsystem::storekeeper::messages::UpdateOwnerOfSk}
-   \end{center}
- \end{figure}
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/updateownerofsk-sk.png}
+    \caption{Classe actorsystem::storekeeper::messages::UpdateOwnerOfSk}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 
@@ -2892,11 +2892,11 @@ riceve questo messaggio aggiorna il campo dati relativo allo \hyperref[sec:actor
 \label{sec:actorbase::actorsystem::storekeeper::messages::BecomeSK}
 
 \begin{figure}[H]
-   \begin{center}
-     \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/becomestorekeeper-sk.png}
-     \caption{Classe actorsystem::storekeeper::messages::BecomeSK}
-   \end{center}
- \end{figure}
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/becomestorekeeper-sk.png}
+    \caption{Classe actorsystem::storekeeper::messages::BecomeSK}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 
@@ -2915,11 +2915,11 @@ eccetto \hyperref[sec:actorbase::actorsystem::storekeeper::messages::BecomeNinja
 \label{sec:actorbase::actorsystem::storekeeper::messages::BecomeNinja}
 
 \begin{figure}[H]
-   \begin{center}
-     \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/becomeninja-sk.png}
-     \caption{Classe actorsystem::storekeeper::messages::BecomeNinja}
-   \end{center}
- \end{figure}
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/becomeninja-sk.png}
+    \caption{Classe actorsystem::storekeeper::messages::BecomeNinja}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 Messaggio che richiede che l'\gloss{attore} di tipo \gloss{Storekeeper} diventi di tipo
@@ -2935,11 +2935,11 @@ riceve questo messaggio cambia il proprio contesto diventando un attore di tipo 
 \label{sec:actorbase::actorsystem::storekeeper::messages::Persist}
 
 \begin{figure}[H]
-   \begin{center}
-     \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/persist-sk.png}
-     \caption{Classe actorsystem::storekeeper::messages::Persist}
-   \end{center}
- \end{figure}
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/persist-sk.png}
+    \caption{Classe actorsystem::storekeeper::messages::Persist}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 Messaggio che richiede che il salvataggio su disco dei dati contenuti.
@@ -2979,11 +2979,11 @@ per il salvataggio dei propri dati su disco.
 \label{sec:actorbase::actorsystem::manager::Manager}
 
 \begin{figure}[H]
-   \begin{center}
-     \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/manager.png}
-     \caption{Classe actorsystem::manager::Manager}
-   \end{center}
- \end{figure}
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/manager.png}
+    \caption{Classe actorsystem::manager::Manager}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 Classe che rappresenta un \gloss{attore} di tipo \gloss{Manager}.
@@ -3012,11 +3012,11 @@ e \hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{Storefinder}.
 \label{sec:actorbase::actorsystem::manager::messages}
 
 \begin{figure}[H]
-   \begin{center}
-     \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/messages-manager.png}
-     \caption{Classe actorsystem::manager::messages}
-   \end{center}
- \end{figure}
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/messages-manager.png}
+    \caption{Classe actorsystem::manager::messages}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 \gloss{Package} che contiene tutti i messaggi che possono essere ricevuti
@@ -3027,11 +3027,11 @@ dall'\gloss{attore} di tipo
 \label{sec:actorbase::actorsystem::manager::messages::DuplicationRequestSK}
 
 \begin{figure}[H]
-   \begin{center}
-     \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/duplicationrequestsk.png}
-     \caption{Classe actorsystem::manager::messages::DuplicationRequestSK}
-   \end{center}
- \end{figure}
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/duplicationrequestsk.png}
+    \caption{Classe actorsystem::manager::messages::DuplicationRequestSK}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 
@@ -3066,11 +3066,11 @@ per aggiornare i suoi riferimenti.
 \label{sec:actorbase::actorsystem::manager::messages::DuplicationRequestSF}
 
 \begin{figure}[H]
-   \begin{center}
-     \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/duplicationrequestsf.png}
-     \caption{Classe actorsystem::manager::messages::DuplicationRequestSF}
-   \end{center}
- \end{figure}
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/duplicationrequestsf.png}
+    \caption{Classe actorsystem::manager::messages::DuplicationRequestSF}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 
@@ -4352,6 +4352,8 @@ navigabilità dei contenuti.
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
+  rename & public & Boolean & Rinomina la \gloss{collezione}\\
+  \hline
   insert & public & \hyperref[sec::actorbase::driver::data::ActorbaseCollection]{ActorbaseColletion} & Inserisce una o più coppie chiave-valore all'interno di Actorbase\\
   \hline
   insert & public & \hyperref[sec::actorbase::driver::data::ActorbaseCollection]{ActorbaseColletion} & Inserisce un'oggetto di tipo \hyperref[sec:actorbase::driver::data::ActorbaseObject]{ActorbaseObject}\\
@@ -4372,6 +4374,8 @@ navigabilità dei contenuti.
   \hline
   drop & public & Boolean & Cancella la \gloss{collezione}\\
   \hline
+  export & public & Boolean & Esporta la \gloss{collezione} su \gloss{filesystem} al percorso specificato\\
+  \hline
   count & public & Int & Conta il numero di coppie chiave-valore che formano la \gloss{collezione}\\
   \hline
   foreach & public & Unit & Permette di visitare l'intera \gloss{collezione} applicando una funzione ad ogni \gloss{item}\\
@@ -4383,6 +4387,17 @@ navigabilità dei contenuti.
 \subparagraph{Parametri}
 
 % TODO: Da completare
+
+\begin{center}
+  \textbf{rename}
+\end{center}
+\begin{tabular}{| p{3cm} | p{3.5cm} | p{8.5cm} |}
+  \hline
+  Nome & Tipo & Descrizione\\
+  \hline
+  newName & String & Rappresenta il nuovo nome della \gloss{collezione} da rinominare\\
+  \hline
+\end{tabular}
 
 \begin{center}
   \textbf{insert}
@@ -4470,6 +4485,8 @@ navigabilità dei contenuti.
   \hline
   username & String & Rappresenta lo \gloss{username} dell'utente da aggiungere ai collaboratori della \gloss{collezione}\\
   \hline
+  write & Boolean & Rappresenta il \gloss{flag} dei permessi in scrittura\\
+  \hline
 \end{tabular}
 
 \begin{center}
@@ -4480,6 +4497,19 @@ navigabilità dei contenuti.
   Nome & Tipo & Descrizione\\
   \hline
   username & String & Rappresenta lo \gloss{username} dell'utente da rimuove ai collaboratori della \gloss{collezione}\\
+  \hline
+  write & Boolean & Rappresenta il \gloss{flag} dei permessi in scrittura\\
+  \hline
+\end{tabular}
+
+\begin{center}
+  \textbf{export}
+\end{center}
+\begin{tabular}{| p{3cm} | p{3.5cm} | p{8.5cm} |}
+  \hline
+  Nome & Tipo & Descrizione\\
+  \hline
+  path & String & Rappresenta il percorso su \gloss{filesystem} su cui esporatare la \gloss{collezione} in formato JSON\\
   \hline
 \end{tabular}
 
@@ -4513,7 +4543,7 @@ Classe che rappresenta una \gloss{collezione} di \gloss{collezione} del sistema.
 \subparagraph{Utilizzo}
 
 Questa classe viene utilizzata per la rappresentazione dell'aggregazione di
-\gloss{collezioni}, è formata da una mappa di coppie nomecollezione -
+\gloss{collezioni}, è formata da una mappa di coppie nome \gloss{collezione} -
 \hyperref[sec:actorbase::driver::data::ActorbaseCollection]{ActorbaseCollection}.
 
 \subparagraph{Eredita}
@@ -4645,21 +4675,21 @@ Questa classe viene utilizzata dal \gloss{driver} per gestire il caso in cui all
 
 \subparagraph{Descrizione}
 
-Classe che rappresenta l'eccezione del conflitto di nomi tra una collezione esistente e una nuova.
+Classe che rappresenta l'eccezione del conflitto di nomi tra una \gloss{collezione} esistente e una nuova.
 
 \subparagraph{Utilizzo}
 
-Questa classe viene utilizzata dal \gloss{driver} per gestire il caso in cui alla creazione di una nuova collezione, il nome della nuova collezione corrisponda al nome di una collezione già esistente.
+Questa classe viene utilizzata dal \gloss{driver} per gestire il caso in cui alla creazione di una nuova \gloss{collezione}, il nome della nuova \gloss{collezione} corrisponda al nome di una \gloss{collezione} già esistente.
 
 \paragraph{actorbase::driver::exceptions::UndefinedCollectionExc}
 
 \subparagraph{Descrizione}
 
-Classe che rappresenta l'eccezione di mancato inserimento del nome di una nuova collezione.
+Classe che rappresenta l'eccezione di mancato inserimento del nome di una nuova \gloss{collezione}.
 
 \subparagraph{Utilizzo}
 
-Questa classe viene utilizzata dal \gloss{driver} per gestire il caso in cui alla creazione di una nuova collezione, venga omesso il nome di quest'ultima.
+Questa classe viene utilizzata dal \gloss{driver} per gestire il caso in cui alla creazione di una nuova \gloss{collezione}, venga omesso il nome di quest'ultima.
 
 \paragraph{actorbase::driver::exceptions::UndefinedUsernameExc}
 
@@ -4689,7 +4719,7 @@ Classe che rappresenta l'eccezione del conflitto tra una chiave già esistente e
 
 \subparagraph{Utilizzo}
 
-Questa classe viene utilizzata dal \gloss{driver} per gestire il caso in cui all'inserimento di una nuova chiave, questa corrisponda ad una chiave già esistente nella stessa collezione.
+Questa classe viene utilizzata dal \gloss{driver} per gestire il caso in cui all'inserimento di una nuova chiave, questa corrisponda ad una chiave già esistente nella stessa \gloss{collezione}.
 
 \paragraph{actorbase::driver::exceptions::UndefinedFileExc}
 
@@ -4806,7 +4836,7 @@ risposta ricevuta dal \gloss{driver}.
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  update & public & Unit & Aggiorna lo stato dell'observer\\
+  update & public & Unit & Aggiorna lo stato dell'oggetto di tipo \hyperref[sec:actorbase::cli::views::Observer]{Observer}\\
   \hline
 \end{tabular}
 
@@ -4838,9 +4868,9 @@ Viene utilizzata per la lettura dei comandi inseriti dall'utente.
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  loop & private & immutabile & Boolean & Rappresenta la condizione do/while\\
+  loop & private & immutabile & Boolean & Rappresenta la condizione di uscita dal ciclo di lettura dei comandi\\
   \hline
-  commandInvoker & private & immutabile & CommandInvoker & Rappresenta il riferimento al model\\
+  commandInvoker & private & immutabile & \hyperref[sec:actorbase::cli::models::CommandInvoker]{CommandInvoker} & Rappresenta il riferimento al model\\
   \hline
   view & private & immutabile & ResultViewer & Rappresenta il riferimento alla view\\
   \hline
@@ -5095,22 +5125,22 @@ comando.
 \begin{itemize}
 \item \hyperref[sec:actorbase::cli::models::AddContributorCommand]{actorbase::cli::models::AddContributorCommand};
 \item \hyperref[sec:actorbase::cli::models::AddUserCommand]{actorbase::cli::models::AddUserCommand};
-\item  \hyperref[sec:actorbase::cli::models::ChangePasswordCommand]{actorbase::cli::models::ChangePasswordCommand};
-\item  \hyperref[sec:actorbase::cli::models::CreateCollectionCommand]{actorbase::cli::models::CreateCollectionCommand};
-\item  \hyperref[sec:actorbase::cli::models::RemoveCollectionCommand]{actorbase::cli::models::RemoveCollectionCommand};
-\item  \hyperref[sec:actorbase::cli::models::ExportCommand]{actorbase::cli::models::ExportCommand};
-\item  \hyperref[sec:actorbase::cli::models::FindCommand]{actorbase::cli::models::FindCommand};
-\item  \hyperref[sec:actorbase::cli::models::HelpCommand]{actorbase::cli::models::HelpCommand};
-\item  \hyperref[sec:actorbase::cli::models::InsertItemCommand]{actorbase::cli::models::InsertItemCommand};
-\item  \hyperref[sec:actorbase::cli::models::ListCollectionsCommand]{actorbase::cli::models::ListCollectionsCommand};
-\item  \hyperref[sec:actorbase::cli::models::LoginCommand]{actorbase::cli::models::LoginCommand};
-\item  \hyperref[sec:actorbase::cli::models::LogoutCommand]{actorbase::cli::models::LogoutCommand};
-\item  \hyperref[sec:actorbase::cli::models::RemoveContributorCommand]{actorbase::cli::models::RemoveContributorCommand};
-\item  \hyperref[sec:actorbase::cli::models::RemoveItemCommand]{actorbase::cli::models::RemoveItemCommand};
-\item  \hyperref[sec:actorbase::cli::models::RemoveUserCommand]{actorbase::cli::models::RemoveUserCommand};
-\item  \hyperref[sec:actorbase::cli::models::RenameCollectionCommand]{actorbase::cli::models::RenameCollectionCommand};
-\item  \hyperref[sec:actorbase::cli::models::RemoveUserCommand]{actorbase::cli::models::RemoveUserCommand};
-\item  \hyperref[sec:actorbase::cli::models::ResetPasswordCommand]{actorbase::cli::models::ResetPasswordCommand};
+\item \hyperref[sec:actorbase::cli::models::ChangePasswordCommand]{actorbase::cli::models::ChangePasswordCommand};
+\item \hyperref[sec:actorbase::cli::models::CreateCollectionCommand]{actorbase::cli::models::CreateCollectionCommand};
+\item \hyperref[sec:actorbase::cli::models::RemoveCollectionCommand]{actorbase::cli::models::RemoveCollectionCommand};
+\item \hyperref[sec:actorbase::cli::models::ExportCommand]{actorbase::cli::models::ExportCommand};
+\item \hyperref[sec:actorbase::cli::models::FindCommand]{actorbase::cli::models::FindCommand};
+\item \hyperref[sec:actorbase::cli::models::HelpCommand]{actorbase::cli::models::HelpCommand};
+\item \hyperref[sec:actorbase::cli::models::InsertItemCommand]{actorbase::cli::models::InsertItemCommand};
+\item \hyperref[sec:actorbase::cli::models::ListCollectionsCommand]{actorbase::cli::models::ListCollectionsCommand};
+\item \hyperref[sec:actorbase::cli::models::LoginCommand]{actorbase::cli::models::LoginCommand};
+\item \hyperref[sec:actorbase::cli::models::LogoutCommand]{actorbase::cli::models::LogoutCommand};
+\item \hyperref[sec:actorbase::cli::models::RemoveContributorCommand]{actorbase::cli::models::RemoveContributorCommand};
+\item \hyperref[sec:actorbase::cli::models::RemoveItemCommand]{actorbase::cli::models::RemoveItemCommand};
+\item \hyperref[sec:actorbase::cli::models::RemoveUserCommand]{actorbase::cli::models::RemoveUserCommand};
+\item \hyperref[sec:actorbase::cli::models::RenameCollectionCommand]{actorbase::cli::models::RenameCollectionCommand};
+\item \hyperref[sec:actorbase::cli::models::RemoveUserCommand]{actorbase::cli::models::RemoveUserCommand};
+\item \hyperref[sec:actorbase::cli::models::ResetPasswordCommand]{actorbase::cli::models::ResetPasswordCommand};
 \end{itemize}
 
 \subparagraph{Metodi}
@@ -5119,7 +5149,7 @@ comando.
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  execute & public & String & Esegue il metodo\\
+  execute & public & String & Esegue il comando\\
   \hline
 \end{tabular}
 
@@ -5294,7 +5324,7 @@ Viene utilizzata per chiamare il metodo di
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  cr & public & immutabile & CommandReceiver & Oggetto per l'esecuzione del comando\\
+  cr & public & immutabile & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Oggetto per l'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -5334,7 +5364,7 @@ dall'utente.
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  cr & public & immutabile & CommandReceiver & Oggetto per l'esecuzione del comando \\
+  cr & public & immutabile & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Oggetto per l'esecuzione del comando \\
   \hline
 \end{tabular}
 
@@ -5371,7 +5401,7 @@ Viene utilizzata per chiamare il metodo di
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  cr & public & immutabile & CommandReceiver & Oggetto per l'esecuzione del comando \\
+  cr & public & immutabile & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Oggetto per l'esecuzione del comando \\
   \hline
 \end{tabular}
 
@@ -5409,7 +5439,7 @@ Viene utilizzata per chiamare il metodo di
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  cr & public & immutabile & CommandReceiver & Oggetto per l'esecuzione del comando\\
+  cr & public & immutabile & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Oggetto per l'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -5448,7 +5478,7 @@ dell'utente specificato in input.
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  cr & public & immutabile & CommandReceiver & Oggetto per l'esecuzione del comando\\
+  cr & public & immutabile & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Oggetto per l'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -5488,7 +5518,7 @@ nomi di tutte le collezioni presenti nel \gloss{database}.
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  cr & public & immutabile & CommandReceiver & Oggetto per l'esecuzione del comando\\
+  cr & public & immutabile & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Oggetto per l'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -5507,13 +5537,13 @@ nomi di tutte le collezioni presenti nel \gloss{database}.
 
 \subparagraph{Descrizione}
 
-Classe per il comando di aggiunta collaboratore a una collezione.
+Classe per il comando di aggiunta collaboratore a una \gloss{collezione}.
 
 \subparagraph{Utilizzo}
 
 Viene utilizzata per chiamare il metodo di
 \hyperref[sec:actorbase::cli::models::CommandReceiver]{actorbase::cli::models::CommandReceiver} per l'aggiunta di un collaboratore a
-una collezione con il nome della \gloss{collezione} e lo username specificati
+una \gloss{collezione} con il nome della \gloss{collezione} e lo username specificati
 in input.
 
 \subparagraph{Classi ereditate}
@@ -5528,7 +5558,7 @@ in input.
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  cr & public & immutabile & CommandReceiver & Oggetto per l'esecuzione del comando\\
+  cr & public & immutabile & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Oggetto per l'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -5567,7 +5597,7 @@ immesse dall'utente.
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  cr & public & immutabile & CommandReceiver & Oggetto per l'esecuzione del comando\\
+  cr & public & immutabile & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Oggetto per l'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -5591,7 +5621,7 @@ Classe per il comando di rimozione una \gloss{collezione}.
 \subparagraph{Utilizzo}
 
 Viene utilizzata per chiamare il metodo di
-\hyperref[sec:actorbase::cli::models::CommandReceiver]{actorbase::cli::models::CommandReceiver} per la rimozione di una collezione con
+\hyperref[sec:actorbase::cli::models::CommandReceiver]{actorbase::cli::models::CommandReceiver} per la rimozione di una \gloss{collezione} con
 i parametri specificati in input.
 
 \subparagraph{Classi ereditate}
@@ -5606,7 +5636,7 @@ i parametri specificati in input.
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  cr & public & immutabile & CommandReceiver & Oggetto per l'esecuzione del comando\\
+  cr & public & immutabile & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Oggetto per l'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -5625,13 +5655,13 @@ i parametri specificati in input.
 
 \subparagraph{Descrizione}
 
-Classe per il comando di rimozione di un collaboratore da una collezione.
+Classe per il comando di rimozione di un collaboratore da una \gloss{collezione}.
 
 \subparagraph{Utilizzo}
 
 Viene utilizzata per chiamare il metodo di
 \hyperref[sec:actorbase::cli::models::CommandReceiver]{actorbase::cli::models::CommandReceiver} per la rimozione di un collaboratore
-da una collezione con con il nome della \gloss{collezione} e lo username
+da una \gloss{collezione} con con il nome della \gloss{collezione} e lo username
 specificati in input.
 
 \subparagraph{Classi ereditate}
@@ -5646,7 +5676,7 @@ specificati in input.
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  cr & public & immutabile & CommandReceiver & Oggetto per l'esecuzione del comando\\
+  cr & public & immutabile & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Oggetto per l'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -5683,7 +5713,7 @@ Viene utilizzata per chiamare il metodo di \hyperref[sec:actorbase::cli::models:
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  cr & public & immutabile & CommandReceiver & Oggetto per l'esecuzione del comando\\
+  cr & public & immutabile & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Oggetto per l'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -5721,7 +5751,7 @@ parametri specificati in input.
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  cr & public & immutabile & CommandReceiver & Oggetto per l'esecuzione del comando\\
+  cr & public & immutabile & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Oggetto per l'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -5744,7 +5774,7 @@ Classe per la richiesta di aiuto.
 \subparagraph{Utilizzo}
 
 Viene utilizzata per chiamare il metodo di
-actorbase::cli::models::CommandReceiver per la richiesta di aiuto con i
+\hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} per la richiesta di aiuto con i
 parametri immessi dall'utente.
 
 \subparagraph{Classi ereditate}
@@ -5759,7 +5789,7 @@ parametri immessi dall'utente.
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  cr & public & immutabile & CommandReceiver & Oggetto per l'esecuzione del comando\\
+  cr & public & immutabile & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Oggetto per l'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -5798,7 +5828,7 @@ con i parametri immessi dall'utente.
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  cr & public & immutabile & CommandReceiver & Oggetto per l'esecuzione del comando\\
+  cr & public & immutabile & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Oggetto per l'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -5837,7 +5867,7 @@ parametri immessi dall'utente.
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  cr & public & immutabile & CommandReceiver & Oggetto per l'esecuzione del comando\\
+  cr & public & immutabile & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Oggetto per l'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -5875,7 +5905,7 @@ Viene utilizzata per chiamare il metodo di
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  cr & public & immutabile & CommandReceiver & Oggetto per l'esecuzione del comando\\
+  cr & public & immutabile & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Oggetto per l'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -5913,7 +5943,7 @@ Viene utilizzata per chiamare il metodo di \hyperref[sec:actorbase::cli::models:
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  cr & public & immutabile & CommandReceiver & Oggetto per l'esecuzione del comando\\
+  cr & public & immutabile & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Oggetto per l'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -5952,7 +5982,7 @@ Viene utilizzata per chiamare il metodo di
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  cr & public & immutabile & CommandReceiver & Oggetto per l'esecuzione del comando\\
+  cr & public & immutabile & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Oggetto per l'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -5991,7 +6021,7 @@ Viene utilizzata per chiamare il metodo di
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  cr & public & immutabile & CommandReceiver & Oggetto per l'esecuzione del comando\\
+  cr & public & immutabile & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Oggetto per l'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -6058,13 +6088,13 @@ visualizzare se richiesto dall'utente.
   \hline
   help & public & String & Metodo per il comando di aiuto\\
   \hline
-  createCollection & public & String & Metodo per richiamare il comando di creazione collezione del driver\\
+  createCollection & public & String & Metodo per richiamare il comando di creazione \gloss{collezione} del driver\\
   \hline
   listCollections & public & String & Metodo per richiamare il metodo di lista collezioni del driver\\
   \hline
-  renameCollection & public & String & Metodo per richiamare il metodo di rinomina collezione del driver\\
+  renameCollection & public & String & Metodo per richiamare il metodo di rinomina \gloss{collezione} del driver\\
   \hline
-  deleteCollection & public & String & Metodo per richiamare il metodo di rimozione collezione del driver\\
+  deleteCollection & public & String & Metodo per richiamare il metodo di rimozione \gloss{collezione} del driver\\
   \hline
   addContributor & public & String & Metodo per richiamare il metodo di aggiunta collaboratore del driver\\
   \hline
@@ -6098,10 +6128,10 @@ L'utente è connesso alla \gloss{CLI} e inserisce un comando. A questo punto la
 componente \gloss{CLI} (se non è instanziato un \gloss{Driver} lo crea per poi
 utilizzarlo) utilizza il \gloss{Driver} per richiamare il metodo relativo al
 comando inserito dall'utente.\\Il \gloss{Driver} provvederà a tradurre il
-comando coi relativi parametri immessi dall'utente in una richiesta HTTP 
+comando coi relativi parametri immessi dall'utente in una richiesta HTTP
 e la invierà al server. Il server provvederà a fare le elaborazioni richieste attraverso l'uso
 degli attori e quando queste saranno finite risponderà al \gloss{Driver}
-tramite risposta HTTP il quale provvederà a trasformarla in uno 
+tramite risposta HTTP il quale provvederà a trasformarla in uno
 \hyperref[sec:driver::actorbasedata::ActorbaseCollectionMap]{ActorbaseCollectionMap} e lo
 restituirà al suo utilizzatore.
 \begin{figure}[H]
@@ -6135,14 +6165,14 @@ Questo diagramma rappresenta l'interazione tra le componenti nel caso di una ric
 La componente \hyperref[sec:actorbase::driver::client::Connection]{Connection}
 manda tramite richiesta HTTP al \hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{ClientActor}
 un payload contenente i dati per eseguire l'operazione scelta dalla \gloss{route}.\\
-Da questo componente parte il messaggio di Insert(key, value, update) ad un \hyperref[sec:actorbase::actorsystem::main::Main]{Main} scelto in base 
-ad una politica di \gloss{routing}. 
-Il MainActor manderà un messaggio allo \hyperref[sec:actorbase::actorsystem::storefinder::StoreFinder]{StoreFinder} relativo il quale manderà 
+Da questo componente parte il messaggio di Insert(key, value, update) ad un \hyperref[sec:actorbase::actorsystem::main::Main]{Main} scelto in base
+ad una politica di \gloss{routing}.
+Il MainActor manderà un messaggio allo \hyperref[sec:actorbase::actorsystem::storefinder::StoreFinder]{StoreFinder} relativo il quale manderà
 un messaggio allo \hyperref[sec:actorbase::actorsystem::storekeeper::StoreKeeper]{StoreKeeper} che essendo pieno manda un
-messaggio DuplicateRequestSK contenente metà della propria mappa e un ActorRef del proprio parent ad un 
-\hyperref[sec:actorbase::actorsystem::manager::Manager]{Manager}.\\ 
-Il Manager inoltra il messaggio DuplicateRequestSK al parent dello Storekeeper precedentemente coinvolto. 
-Questo \hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{Storefinder} infine creerà un nuovo 
+messaggio DuplicateRequestSK contenente metà della propria mappa e un ActorRef del proprio parent ad un
+\hyperref[sec:actorbase::actorsystem::manager::Manager]{Manager}.\\
+Il Manager inoltra il messaggio DuplicateRequestSK al parent dello Storekeeper precedentemente coinvolto.
+Questo \hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{Storefinder} infine creerà un nuovo
 \hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{Storekeeper} con il pezzo di mappa ricevuto.\\
 A questo punto il nuovo Storekeeper manderà un messaggio al \hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{ClientActor} con
 la risposta (positiva o negativa che sia) il quale risponderà tramite risposta HTTP al \gloss{Driver} con il risultato.
@@ -6158,15 +6188,15 @@ la risposta (positiva o negativa che sia) il quale risponderà tramite risposta 
 Questo diagramma rappresenta l'interazione tra le componenti nel caso di una richiesta di autenticazione di un utente.\\
 La componente \hyperref[sec:actorbase::driver::client::Connection]{Connection}
 manda tramite richiesta di autenticazione HTTP al \hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{ClientActor}.\\
-Da questo componente parte il messaggio di GetItemFrom(UsersCollection, Username) ad un \hyperref[sec:actorbase::actorsystem::main::Main]{Main} 
-scelto in base ad una politica di \gloss{routing}. 
-Il \hyperref[sec:actorbase::actorsystem::main::Main]{Main} manderà un messaggio allo \hyperref[sec:actorbase::actorsystem::userfinder::Userfinder]{Userfinder} 
-relativo il quale manderà un messaggio getPassword(username) allo \hyperref[sec:actorbase::actorsystem::userkeeper::UserKeeper]{UserKeeper}. 
-Quest'ultimo risponderà al \hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{ClientActor} con un messaggio 
+Da questo componente parte il messaggio di GetItemFrom(UsersCollection, Username) ad un \hyperref[sec:actorbase::actorsystem::main::Main]{Main}
+scelto in base ad una politica di \gloss{routing}.
+Il \hyperref[sec:actorbase::actorsystem::main::Main]{Main} manderà un messaggio allo \hyperref[sec:actorbase::actorsystem::userfinder::Userfinder]{Userfinder}
+relativo il quale manderà un messaggio getPassword(username) allo \hyperref[sec:actorbase::actorsystem::userkeeper::UserKeeper]{UserKeeper}.
+Quest'ultimo risponderà al \hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{ClientActor} con un messaggio
 loginResponse contenente la password relativa allo username richiesto.\\
-Il \hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{ClientActor} eseguirà un confronto tra la password immessa dall'utente 
-e la password ritornata dallo \hyperref[sec:actorbase::actorsystem::userkeeper::UserKeeper]{UserKeeper}. 
-In caso positivo cambierà il proprio stato e risponderà al \gloss{Driver} con un messaggio che indica un esito positivo. 
+Il \hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{ClientActor} eseguirà un confronto tra la password immessa dall'utente
+e la password ritornata dallo \hyperref[sec:actorbase::actorsystem::userkeeper::UserKeeper]{UserKeeper}.
+In caso positivo cambierà il proprio stato e risponderà al \gloss{Driver} con un messaggio che indica un esito positivo.
 In caso negativo resterà nello stato attuale e manderà un messaggio al \gloss{Driver} che indica un esito negativo.
 \begin{figure}[H]
   \begin{center}
@@ -6182,17 +6212,17 @@ effettuato un salvataggio dei dati su filesystem.\\
 La componente \hyperref[sec:actorbase::driver::client::Connection]{Connection}
 manda tramite richiesta HTTP al \hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{ClientActor}.\\
 Da questo componente parte il messaggio di Insert(key, value, update) ad un \hyperref[sec:actorbase::actorsystem::main::Main]{Main} scelto in base ad una
-politica di \gloss{routing}. Il \hyperref[sec:actorbase::actorsystem::main::Main]{Main} manderà un messaggio allo 
-\hyperref[sec:actorbase::actorsystem::storefinder::StoreFinder]{StoreFinder} relativo il quale manderà un messaggio 
+politica di \gloss{routing}. Il \hyperref[sec:actorbase::actorsystem::main::Main]{Main} manderà un messaggio allo
+\hyperref[sec:actorbase::actorsystem::storefinder::StoreFinder]{StoreFinder} relativo il quale manderà un messaggio
 allo \hyperref[sec:actorbase::actorsystem::storekeeper::StoreKeeper]{StoreKeeper} che dovrà salvarsi l'informazione sulla propria mappa.\\
-A questo punto lo \hyperref[sec:actorbase::actorsystem::storekeeper::StoreKeeper]{StoreKeeper} manderà un messaggio al 
+A questo punto lo \hyperref[sec:actorbase::actorsystem::storekeeper::StoreKeeper]{StoreKeeper} manderà un messaggio al
 \hyperref[sec:actorbase::actorsystem::warehouseman::Warehouseman]{Warehouseman} di tipo Save e
 successivamente manderà un messaggio al \hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{ClientActor} con la risposta
 (positiva o negativa che sia) il quale risponderà sempre tramite risposta HTTP al \gloss{Driver} con il risultato.\\
-Nel frattempo l'\gloss{attore} di tipo \hyperref[sec:actorbase::actorsystem::warehouseman::Warehouseman]{Warehouseman} eseguirà un salvataggio 
+Nel frattempo l'\gloss{attore} di tipo \hyperref[sec:actorbase::actorsystem::warehouseman::Warehouseman]{Warehouseman} eseguirà un salvataggio
 su disco dei propri dati previa \gloss{cryptazione}.\\
 Si noti che la frequenza con cui gli attori di tipo \hyperref[sec:actorbase::actorsystem::warehouseman::Warehouseman]{Warehouseman} eseguiranno
-l'aggiornamento delle proprie strutture dati e il salvataggio sarà specificato 
+l'aggiornamento delle proprie strutture dati e il salvataggio sarà specificato
 tramite un parametro di configurazione del sistema.\\
 \begin{figure}[H]
   \begin{center}
@@ -6207,13 +6237,13 @@ Questo diagramma rappresenta l'interazione tra le componenti nel caso venga
 effettuato un aggiornamento dei dati su un \gloss{attore} Ninja.\\
 La componente \hyperref[sec:actorbase::driver::client::Connection]{Connection}
 manda tramite richiesta HTTP al \hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{ClientActor}.\\
-Da questo componente parte il messaggio di Insert(key, value, update) ad un \hyperref[sec:actorbase::actorsystem::main::Main]{Main} 
-scelto in base ad una politica di \gloss{routing}.\\ 
-Il \hyperref[sec:actorbase::actorsystem::main::Main]{Main} manderà un messaggio allo 
-\hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{StoreFinder} relativo il quale manderà un messaggio 
+Da questo componente parte il messaggio di Insert(key, value, update) ad un \hyperref[sec:actorbase::actorsystem::main::Main]{Main}
+scelto in base ad una politica di \gloss{routing}.\\
+Il \hyperref[sec:actorbase::actorsystem::main::Main]{Main} manderà un messaggio allo
+\hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{StoreFinder} relativo il quale manderà un messaggio
 allo \hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{StoreKeeper} che dovrà salvarsi l'informazione sulla propria mappa.\\
-A questo punto lo \hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{StoreKeeper} manderà un messaggio al Ninja di tipo 
-Update contenente la struttura dati aggiornata e successivamente manderà un messaggio al 
+A questo punto lo \hyperref[sec:actorbase::actorsystem::storekeeper::Storekeeper]{StoreKeeper} manderà un messaggio al Ninja di tipo
+Update contenente la struttura dati aggiornata e successivamente manderà un messaggio al
 \hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{ClientActor} con la risposta (positiva o negativa che sia)
 il quale risponderà sempre tramite HTTP al \gloss{Driver} con il risultato.
 Nel frattempo l'\gloss{attore} di tipo Ninja eseguirà un aggiornamento della propria struttura dati.\\
@@ -6231,16 +6261,16 @@ specificata tramite un parametro di configurazione del sistema.
 Questo diagramma rappresenta l'interazione tra le componenti nel caso di una richiesta di autenticazione di un utente.\\
 La componente \hyperref[sec:actorbase::driver::client::Connection]{Connection}
 manda tramite richiesta HTTP al \hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{ClientActor}.\\
-Da questo componente parte il messaggio di addContributor(collection, permission, username) ad un 
+Da questo componente parte il messaggio di addContributor(collection, permission, username) ad un
 \hyperref[sec:actorbase::actorsystem::main::Main]{Main} scelto in base ad una
 politica di \gloss{routing}. Il \hyperref[sec:actorbase::actorsystem::main::Main]{Main} manderà un messaggio allo
 \hyperref[sec:actorbase::actorsystem::userfinder]{Userfinder}
 relativo il quale manderà un messaggio addReadCollection(collection) allo
 \hyperref[sec:actorbase::actorsystem::userkeeper::Userkeeper]{Userkeeper}.
 Quest'ultimo dovrà aggiungere alla mappa delle collezioni di cui l'utente
-relativo ha accesso in sola lettura la collezione inviatagli.
+relativo ha accesso in sola lettura la \gloss{collezione} inviatagli.
 Poi manderà al \hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{ClientActor} un messaggio UpdateReadCollections(collection)
-contenente la collezione da aggiungere.\\
+contenente la \gloss{collezione} da aggiungere.\\
 Il \hyperref[sec:actorbase::actorsystem::clientactor::ClientActor]{ClientActor} effettuerà l'aggiornamento e risponderà al \gloss{Driver}
 con un messaggio che indica un esito positivo. In caso negativo resterà nello
 stato attuale e manderà un messaggio al \gloss{Driver} che indica un esito

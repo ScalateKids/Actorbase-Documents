@@ -46,35 +46,55 @@
 \end{flushleft}
 \vspace{0cm}
 \begin{center}
-  \begin{tabular}{| l | l | l | l | p{5cm} |}
+  \begin{longtable}{| l | l | l | l | p{5cm} |}
     \hline
     Version & Author & Role & Date & Description \\
     \hline
-    0.7.0 & & & 2016-05-13 & Verified section 2.1.1 - Building from sources\\
+    1.0.0 & Michael Munaro & Project Manager & 2016-05e-15 & Document approved\\
     \hline
-    0.6.1 & & Programmer & 2016-05-13 & Added section 2.1.1 - Building from sources\\
+    0.11.0 & & & 2016-05-15 & Verified subsection 2.1.1 - Server-side general structure\\
     \hline
-    0.6.0 & & & 2016-05-13 & Verified section 2.1 - Installation\\
+    0.10.1 & & Programmer & 2016-05-15 & Improvements to section 2.1 - Installation, added subsection 2.1.1 - Server-side general structure\\
     \hline
-    0.5.1 & & Programmer & 2016-05-13 & Added section 2.1 - Installation\\
+    0.10.0 & & & 2016-05-15 & Verified section 2.3.0.5 - Contribute and relative subsections\\
     \hline
-    0.5.0 & & & 2016-05-13 & Verified section 2.1.1 - Building from sources\\
+    0.9.0 & & & 2016-05-15 & Verified improvements in section 2.1.1\ -\ Building from sources, build configuration for CLI and Server\\
     \hline
-    0.4.1 & & Programmer & 2016-05-13 & Added section 2.1.1 - Building from sources\\
+    0.8.3 & & Programmer & 2016-05-15 & Added section 2.3.0.5 - Contribute and relative subsections \\
     \hline
-    0.4.0 & & & 2016-05-13 & Verified section 2.4.0.4 - Failure management\\
+    0.8.2 & & Programmer & 2016-05-15 & Improved section 2.1.1\ -\ Building from sources, added build configuration for CLI\\
     \hline
-    0.3.0 & & & 2016-05-13 & Verified sections 2.4.0.2 - Profile management, 2.4.0.3 - Collections operations and relative subsections\\
+    0.8.1 & & Programmer & 2016-05-14 & Improved section 2.1.1\ -\ Building from sources, added build configuration for server\\
     \hline
-    0.2.2 & & Programmer & 2016-05-13 & Added section 2.4.0.4 - Failure management\\
+    0.8.0 & & & 2016-05-14 & Verified sample configuration in section 2.1\ -\ Installation\\
     \hline
-    0.2.1 & Andrea Giacomo Baldan & Programmer & 2016-05-13 & Added sections 2.4.0.2 - Profile management, 2.4.0.3 - Collections operations and relative subsections\\
+    0.7.1 & & Programmer & 2016-05-14 & Improved section 2.1\ -\ Installation, added sample configuration\\
     \hline
-    0.2.0 &  &  & 2016-05-12 & Verified section 2.3.1 - Quick start, 2.4 - More in depth: common operations and 2.4.1 - Authentication\\
+    0.7.0 & & & 2016-05-13 & Verified section 2.1.1\ -\ Building from sources\\
     \hline
-    0.1.2 & Andrea Giacomo Baldan & Programmer & 2016-05-12 & Added section 2.4 - More in depth: common operations and 2.4.1 - Authentication\\
+    0.6.1 & & Programmer & 2016-05-13 & Added section 2.1.1\ -\ Building from sources\\
     \hline
-    0.1.1 & Andrea Giacomo Baldan & Programmer & 2016-05-12 & Added section 2.3.1 - Quick start\\
+    0.6.0 & & & 2016-05-13 & Verified section 2.1\ -\ Installation\\
+    \hline
+    0.5.1 & & Programmer & 2016-05-13 & Added section 2.1\ -\ Installation\\
+    \hline
+    0.5.0 & & & 2016-05-13 & Verified section 2.1.1\ -\ Building from sources\\
+    \hline
+    0.4.1 & & Programmer & 2016-05-13 & Added section 2.1.1\ -\ Building from sources\\
+    \hline
+    0.4.0 & & & 2016-05-13 & Verified section 2.4.0.4\ -\ Failure management\\
+    \hline
+    0.3.0 & & & 2016-05-13 & Verified sections 2.4.0.2\ -\ Profile management, 2.4.0.3\ -\ Collections operations and relative subsections\\
+    \hline
+    0.2.2 & & Programmer & 2016-05-13 & Added section 2.4.0.4\ -\ Failure management\\
+    \hline
+    0.2.1 & Andrea Giacomo Baldan & Programmer & 2016-05-13 & Added sections 2.4.0.2\ -\ Profile management, 2.4.0.3 - Collections operations and relative subsections\\
+    \hline
+    0.2.0 &  &  & 2016-05-12 & Verified section 2.3.1\ -\ Quick start, 2.4\ -\ More in depth: common operations and 2.4.1 - Authentication\\
+    \hline
+    0.1.2 & Andrea Giacomo Baldan & Programmer & 2016-05-12 & Added section 2.4\ -\ More in depth: common operations and 2.4.1 - Authentication\\
+    \hline
+    0.1.1 & Andrea Giacomo Baldan & Programmer & 2016-05-12 & Added section 2.3.1\ -\ Quick start\\
     \hline
     0.1.0 &  &  & 2016-05-10 & Verified section 2: Actorbase Usage and subsection 2.3\\
     \hline
@@ -82,14 +102,18 @@
     \hline
     0.0.1 & Andrea Giacomo Baldan & Programmer & 2016-05-10 & Created document structure\\
     \hline
-  \end{tabular}
+  \end{longtable}
 \end{center}
 \tableofcontents
 \newpage
 \pagenumbering{arabic}
 \section{Summary}
+
 \subsection{Document purpose}
-This document aim to describe the procedures and methods to use in order to take advantage of \gloss{Actorbase}.
+
+This document aim to describe the procedures and methods to use in order to take
+advantage of \textbf{Actorbase} features, including installation steps and configuration
+available to users.
 
 \subsection{References}
 
@@ -117,17 +141,27 @@ This document aim to describe the procedures and methods to use in order to take
 
 \subsection{Installation}
 
-\textbf{Actorbase} require the JVM 8 (Java Virtual Machine) installed on the
-system, basically it's constituted of two JAR (Java Archive) shipped with all
+\subsubsection{Minimum requirements}
+
+In addition to JVM version 8, for a pleasing experience \textbf{Actorbase} requires at minimum:
+\begin{itemize}
+\item RAM:\@1 GB;\@
+\item Disk space: 512MB;\@
+\item CPU: x64 - 1.2GHz;
+\end{itemize}
+
+\subsubsection{Installation steps}
+
+The system is basically constituted of two JAR (Java Archive) shipped with all
 dependencies libraries, there are just a few steps to follow to have the system
 running and ready to receive commands:
 \begin{itemize}
-\item run \verb=actorbase.jar= in a shell;
-\item run \verb=actorbasecli.jar= in a second shell.
+\item run \verb=actorbase.jar= in a shell\footnote{A command-line interpreter\label{shell}};
+\item run \verb=actorbasecli.jar= in a second shell\textsuperscript{\ref{shell}}.
 \end{itemize}
 That's really all for a basic usage, and the procedure is the same for
 \textit{Windows} from version 10, \textit{Ubuntu 14.04 LTS} and \textit{OSX - El
-Capitan}, though it's possible to give actorbase a custom configuration by
+  Capitan}, though it's possible to give \textbf{Actorbase} a custom configuration by
 running:
 
 % \begin{figure}[H]
@@ -148,9 +182,39 @@ running:
 
 The \textit{--config=path/to/config.cfg} is optional.
 
-As shown in the image, there is a part of the configuration dedicated to distribution of the load between
-multiple nodes in a cluster, \textbf{Actobase} is in fact a scale-out system oriented, and it is possible
-to set all cluster configurations offered by Akka library.
+As shown in the image, there is a part of the configuration dedicated to
+distribution of the load between multiple nodes in a cluster\footnote{A set of
+loosely or tightly connected computers that work together, so that they can be
+viewed as a single system\label{cluster}}, \textbf{Actobase} is in fact a
+scale-out system oriented, and it is possible to set all
+cluster\textsuperscript{\ref{cluster}} configurations offered by Akka library.
+
+\subsubsection{Server-side general structure}
+
+As previously stated, \textbf{Actorbase} is an application conceived to be used in a distributed fashion,
+balancing load between multiple nodes as shown below:
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/ClusterP.png}
+    \caption{Actorbase: load-balancing general view}
+  \end{center}
+\end{figure}
+
+For every incoming connection, a dedicated actor\footnote{A computational entity
+that, in response to a message it receives can send message to other actors,
+create new ones, change his behavior for the next message
+incoming\label{actor}}, namely clientactor\footnote{An actor dedicate
+exclusively to handle incoming request from client connected from outside of the
+system}, is spawned; this one is responsible for all incoming request from the
+client connected, and his main role is to forward these requests directy to
+main\footnote{An actor dedicated to the routing of incoming data to subordinates
+actors and orchestration of the latter\label{main}}
+actors\textsuperscript{\ref{actor}}, equally distributed across the nodes of a
+cluster\textsuperscript{\ref{cluster}}. In this way, with
+main\textsuperscript{\ref{main}} actors\textsuperscript{\ref{actor}} breeding
+their own herarchy of subordinates, all incoming data is spread across the
+cluster\textsuperscript{\ref{cluster}} network.
 
 \subsubsection{Building from sources}
 
@@ -184,7 +248,7 @@ As shown in the image, there're some external libraries needed to build the syst
   Marshall\footnote{Transforming the memory of an object to a data format suitable
     for storage or transmission, e.g.\ serialization} database contents.
 \item \textbf{scala-pickling:} An automatic serialization framework made for
-  Scala; mainly used in the driver component in order to serialized and
+  Scala; mainly used in the driver component in order to serialize and
   deserialize object in a fast and transparent way;
 \item \textbf{scalaj-http:} A fairly simple http library for Scala, used in the
   driver component in order to establish a communication with the server REST API;\
@@ -203,10 +267,10 @@ As shown in the image, there're some external libraries needed to build the syst
 
 \subsection{ActorbaseDriver: Using Actorbase from inside a Scala source}
 
-Actorbase is essentially an actor system built upon a server component that
+Actorbase is essentially an actor\textsuperscript{\ref{actor}} system built upon a server component that
 exposes some API forming a RESTful web service. To facilitate the use from
 inside a Scala source, it has been developed a driver in order to allow the
-usage of all features that Actorbase provides.\\
+usage of all features that \textbf{Actorbase} provides.\\
 
 \subsubsection{Quick Start: a generic example}
 
@@ -430,7 +494,7 @@ e.g.:
 
 \subparagraph{Administrative operations}
 
-Actorbase expect two kind of users, common an administrator. The last one have
+\textbf{Actorbase} expect two kind of users, common an administrator. The last one have
 some privileges over the others, such as a wider range of collections\textsuperscript{\ref{coll}} (all
 database) with read-write permissions, and capabilities of adding and removing
 users to and from the system, and finally resetting the password of given users.
@@ -452,5 +516,30 @@ shared by every method and that is in case of a communication error, which can
 be caused by not receiving a response from the server in a predetermined time or
 unreachable destination address during connection, the driver will launch a
 timeout connection exception.
+
+\paragraph{Contribute}
+
+\subparagraph{Issues}
+
+\textbf{Actorbase} is hosted on github at the url
+\url{https://github.com/ScalateKids} divided into two repositories:
+
+\begin{itemize}
+\item\textbf{Server-side}
+  \begin{itemize}
+  \item \textbf{Issue Tracker:} \url{https://github.com/ScalateKids/Actorbase-Server/issues}
+  \item \textbf{Source code:} \url{https://github.com/ScalateKids/Actorbase-Server}
+  \end{itemize}
+\item\textbf{CLI}
+  \begin{itemize}
+  \item \textbf{Issue Tracker:} \url{https://github.com/ScalateKids/Actorbase-Client/isssues}
+  \item \textbf{Source code:} \url{https://github.com/ScalateKids/Actorbase-Client}
+  \end{itemize}
+\end{itemize}
+
+\subparagraph{Troubleshooting}
+
+If you are having issues or strange malfunctions, please let us know at
+\href{mailto:scalatekids@gmail.com}{scalatekids@gmail.com}.
 
 \end{document}
