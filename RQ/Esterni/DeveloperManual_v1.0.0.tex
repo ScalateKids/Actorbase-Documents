@@ -52,9 +52,13 @@
     \hline
     1.0.0 & Michael Munaro & Project Manager & 2016-05e-15 & Document approved\\
     \hline
-    0.9.0 & & & 2016-05-15 & Verified improvements in section 2.1.1\ -\ Building from sources, build configuration for CLI and Server\\
+    0.11.0 & & & 2016-05-15 & Verified subsection 2.1.1 - Server-side general structure\\
     \hline
-    0.8.4 & & & 2016-05-15 & Verified section 2.3.0.5 - Contribute and relative subsections\\
+    0.10.1 & & Programmer & 2016-05-15 & Improvements to section 2.1 - Installation, added subsection 2.1.1 - Server-side general structure\\
+    \hline
+    0.10.0 & & & 2016-05-15 & Verified section 2.3.0.5 - Contribute and relative subsections\\
+    \hline
+    0.9.0 & & & 2016-05-15 & Verified improvements in section 2.1.1\ -\ Building from sources, build configuration for CLI and Server\\
     \hline
     0.8.3 & & Programmer & 2016-05-15 & Added section 2.3.0.5 - Contribute and relative subsections \\
     \hline
@@ -143,7 +147,7 @@ running and ready to receive commands:
 \end{itemize}
 That's really all for a basic usage, and the procedure is the same for
 \textit{Windows} from version 10, \textit{Ubuntu 14.04 LTS} and \textit{OSX - El
-  Capitan}, though it's possible to give actorbase a custom configuration by
+  Capitan}, though it's possible to give \textbf{Actorbase} a custom configuration by
 running:
 
 % \begin{figure}[H]
@@ -164,9 +168,39 @@ running:
 
 The \textit{--config=path/to/config.cfg} is optional.
 
-As shown in the image, there is a part of the configuration dedicated to distribution of the load between
-multiple nodes in a cluster, \textbf{Actobase} is in fact a scale-out system oriented, and it is possible
-to set all cluster configurations offered by Akka library.
+As shown in the image, there is a part of the configuration dedicated to
+distribution of the load between multiple nodes in a cluster\footnote{A set of
+loosely or tightly connected computers that work together, so that they can be
+viewed as a single system\label{cluster}}, \textbf{Actobase} is in fact a
+scale-out system oriented, and it is possible to set all
+cluster\textsuperscript{\ref{cluster}} configurations offered by Akka library.
+
+\subsubsection{Server-side general structure}
+
+As previously stated, \textbf{Actorbase} is an application conceived to be used in a distributed fashion,
+balancing load between multiple nodes as shown below:
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/ClusterP.png}
+    \caption{Actorbase: load-balancing general view}
+  \end{center}
+\end{figure}
+
+For every incoming connection, a dedicated actor\footnote{A computational entity
+that, in response to a message it receives can send message to other actors,
+create new ones, change his behavior for the next message
+incoming\label{actor}}, namely clientactor\footnote{An actor dedicate
+exclusively to handle incoming request from client connected from outside of the
+system}, is spawned; this one is responsible for all incoming request from the
+client connected, and his main role is to forward these requests directy to
+main\footnote{An actor dedicated to the routing of incoming data to subordinates
+actors and orchestration of the latter\label{main}}
+actors\textsuperscript{\ref{actor}}, equally distributed across the nodes of a
+cluster\textsuperscript{\ref{cluster}}. In this way, with
+main\textsuperscript{\ref{main}} actors\textsuperscript{\ref{actor}} breeding
+their own herarchy of subordinates, all incoming data is spread across the
+cluster\textsuperscript{\ref{cluster}} network.
 
 \subsubsection{Building from sources}
 
@@ -200,7 +234,7 @@ As shown in the image, there're some external libraries needed to build the syst
   Marshall\footnote{Transforming the memory of an object to a data format suitable
     for storage or transmission, e.g.\ serialization} database contents.
 \item \textbf{scala-pickling:} An automatic serialization framework made for
-  Scala; mainly used in the driver component in order to serialized and
+  Scala; mainly used in the driver component in order to serialize and
   deserialize object in a fast and transparent way;
 \item \textbf{scalaj-http:} A fairly simple http library for Scala, used in the
   driver component in order to establish a communication with the server REST API;\
@@ -219,10 +253,10 @@ As shown in the image, there're some external libraries needed to build the syst
 
 \subsection{ActorbaseDriver: Using Actorbase from inside a Scala source}
 
-Actorbase is essentially an actor system built upon a server component that
+Actorbase is essentially an actor\textsuperscript{\ref{actor}} system built upon a server component that
 exposes some API forming a RESTful web service. To facilitate the use from
 inside a Scala source, it has been developed a driver in order to allow the
-usage of all features that Actorbase provides.\\
+usage of all features that \textbf{Actorbase} provides.\\
 
 \subsubsection{Quick Start: a generic example}
 
@@ -446,7 +480,7 @@ e.g.:
 
 \subparagraph{Administrative operations}
 
-Actorbase expect two kind of users, common an administrator. The last one have
+\textbf{Actorbase} expect two kind of users, common an administrator. The last one have
 some privileges over the others, such as a wider range of collections\textsuperscript{\ref{coll}} (all
 database) with read-write permissions, and capabilities of adding and removing
 users to and from the system, and finally resetting the password of given users.
