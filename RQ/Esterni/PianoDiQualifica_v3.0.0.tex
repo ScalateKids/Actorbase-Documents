@@ -530,49 +530,41 @@ Nella tabella di seguito sono riportati i valori degli indici di Gulpease per og
 
 \paragraph{Linee di codice per linee di commento}
 In questo paragrafo è possibile vedere il rapporto tra linee di codice e 
-linee di commento
+linee di commento:
 Server:
-      38 text files.
-      38 unique files.
-      41 files ignored.
-      Language                     files          blank        comment           code
-      -------------------------------------------------------------------------------
-      Scala                           31            437           1817           1087
-      -------------------------------------------------------------------------------
-      SUM:                            31            437           1817           1087
-      
-      circa 0,63
-
+\begin{center}
+  \begin{tabular}{| c | c | c |}
+  	\hline
+  	Files & righe vuote & righe di commento & righe di codice & \% commento su codice\\
+  	\hline
+  	31 & 437 & 1817 & 1087 & 63\% \\
+  	\hline
+  \end{tabular}
+  \end{center}
 CLI:
-28 text files.
-28 unique files.
-4 files ignored.
--------------------------------------------------------------------------------
-Language                     files          blank        comment           code
--------------------------------------------------------------------------------
-Scala                           28            133            834            419
--------------------------------------------------------------------------------
-SUM:                            28            133            834            419
--------------------------------------------------------------------------------
-circa 0,66
+\begin{center}
+	\begin{tabular}{| c | c | c |}
+		\hline
+		Files & righe vuote & righe di commento & righe di codice & \% commento su codice\\
+		\hline
+		28 & 133 & 834 & 419 & 66\% \\
+		\hline
+	\end{tabular}
+\end{center}
 
-DRIVER:
-      11 text files.
-      11 unique files.
-      4 files ignored.
-      -------------------------------------------------------------------------------
-      Language                     files          blank        comment           code
-      -------------------------------------------------------------------------------
-      Scala                           11            134            887            300
-      -------------------------------------------------------------------------------
-      SUM:                            11            134            887            300
-      -------------------------------------------------------------------------------
-      
-      circa 0,75
+Driver:
+\begin{center}
+	\begin{tabular}{| c | c | c |}
+		\hline
+		Files & righe vuote & righe di commento & righe di codice & \% commento su codice\\
+		\hline
+		11 & 134 & 887 & 300 & 75\% \\
+		\hline
+	\end{tabular}
+\end{center}
 
 \paragraph{Copertura del codice}
-In questo paragrafo è possibile vedere la percentuale di codice coperto dai 
-test automatici del sistema (possibile solo al completamento dei test, al momento non si può definire)
+Poichè i test non sono stati ancora implementati, non è possibile al momento valutare la copertura del codice.
 %TODO
 
 \paragraph{Numero di attributi per classe}
