@@ -529,7 +529,7 @@ Nella tabella di seguito sono riportati i valori degli indici di Gulpease per og
 \subsubsection{Codice}
 Di seguito vengono riportati i risultati dei test di analisi statica e dinamica effettuati
 sul codice.
-Per ragioni di spazio e leggibilità si omettono le tabelle complete dei test. Per ogni test si riportano il valore medio riscontrato e si riportano eventuali risultati oltre il range ottimale e nel caso di test oltre i range di accettazione definiti nella sezione \ref{sec:metricheSW}, anche la giustificazione.
+Per ragioni di spazio e leggibilità si omettono le tabelle complete dei test. Per ogni test si riportano il valore medio riscontrato e si riportano eventuali risultati oltre il range di accettazione definiti nella sezione \ref{sec:metricheSW}, oltre alla giustificazione della loro presenza.
 
 \paragraph{Linee di codice per linee di commento}
 In questo paragrafo è possibile vedere il rapporto tra linee di codice e 
@@ -576,7 +576,7 @@ In questo paragrafo è possibile vedere il numero medio di attributi per
 classe del codice di actorbase divisi per modulo:
 \begin{itemize}
 	\item CLI:media 1,04, tutte le classi sono all'interno del range ottimale;
-	\item Driver: media 2,69 tutte le classi sono all'interno del range ottimale a parte Status che però è comunque dentro al range di accettazione.;
+	\item Driver: media 2,69 tutte le classi sono all'interno del range ottimale a parte Status che però è comunque dentro al range di accettazione;
 	\item Actorsystem: media 2,39 tutte le classi sono all'interno del range ottimale a parte storekeeper che rientra comunque all'interno del range di accettazione.
 \end{itemize}
 Non sono state considerate nella media le classi che non contengono né attributi né metodi propri.
@@ -601,13 +601,15 @@ In seguito è riportata la media della complessità ciclomatica dei vari moduli:
 	\item Cli:2,05;
 	\item Driver:1,31.
 \end{itemize}
-report 
-oltre il limite:Storefinder.scala(16) e Main.scala(26).
-Lato client oltre il limite: GrammarParser.scala(24)
 
 
 \paragraph{Livelli di annidamento}
-nei limiti.
+In seguito è riportata la media dei livelli di annidamento dei vari moduli:
+\begin{itemize}
+	\item ActorSystem:1,83;
+	\item Driver:1,56;
+	\item Cli:1,78;
+\end{itemize}.
 %TODO calcolarlo veramente, non riesco a trovare un tool.
 
 \newpage
