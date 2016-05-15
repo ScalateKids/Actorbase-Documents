@@ -146,10 +146,10 @@ res1: Boolean = true
 **** Contributor operations
 #+begin_src scala
 scala> val fooCollection = client.getCollection("foo")
-scala> fooCollection.addContributor("aFriend") // add
+scala> fooCollection.addContributor("aFriend", true) // add
 res0: Boolean = true
 
-scala> fooCollection.removeContributor("aFriend") // remove
+scala> fooCollection.removeContributor("aFriend", true) // remove
 res1: Boolean = true
 #+end_src
 
