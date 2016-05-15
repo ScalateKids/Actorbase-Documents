@@ -527,9 +527,8 @@ Nella tabella di seguito sono riportati i valori degli indici di Gulpease per og
 \end{center}
 
 \subsubsection{Codice}
-Di seguito vengono riportati i risultati dei test di analisi statica e dinamica effettuati
-sul codice.
-Per ragioni di spazio e leggibilità si omettono le tabelle complete dei test. Per ogni test si riportano il valore medio riscontrato e si riportano eventuali risultati oltre il range di accettazione definiti nella sezione \ref{sec:metricheSW}, oltre alla giustificazione della loro presenza.
+Di seguito vengono riportati i risultati dei test di analisi statica e dinamica effettuati sul codice.
+Per ragioni di spazio e leggibilità si omettono le tabelle complete dei test. Per ogni test si riportano almeno il valore medio riscontrato ed eventuali risultati oltre il range di accettazione definiti nella sezione \ref{sec:metricheSW}, oltre alla giustificazione della loro presenza.
 
 \paragraph{Linee di codice per linee di commento}
 In questo paragrafo è possibile vedere il rapporto tra linee di codice e 
@@ -571,30 +570,26 @@ linee di commento, suddivisi per modulo:
 Poichè i test non sono stati ancora implementati, non è possibile al momento valutare la copertura del codice.
 
 \paragraph{Numero di attributi per classe}
-In questo paragrafo è possibile vedere il numero medio di attributi per 
-classe del codice di actorbase divisi per modulo:
+Di seguito è riportato il numero medio di attributi per classe del codice di actorbase divisi per modulo; sono riportati inoltre le classi che oltrepassano il range ottimale:
 \begin{itemize}
 	\item CLI:media 1,04, tutte le classi sono all'interno del range ottimale;
 	\item Driver: media 2,69 tutte le classi sono all'interno del range ottimale a parte Status che però è comunque dentro al range di accettazione;
 	\item Actorsystem: media 2,39 tutte le classi sono all'interno del range ottimale a parte storekeeper che rientra comunque all'interno del range di accettazione.
 \end{itemize}
 Non sono state considerate nella media le classi che non contengono né attributi né metodi propri.
-Classi "vuote" actorsystem:55.
-classi "vuote" driver:14.
 
 \paragraph{Numero di parametri per metodo}
-In questo paragrafo è possibile vedere il numero medio di parametri per 
-metodo del codice di actorbase dei vari moduli:
+Di seguito è riportato il numero medio di parametri per 
+metodo del codice di actorbase suddiviso per moduli:
 \begin{itemize}
 	\item Driver:0,63;
 	\item Cli:0,1;
 	\item ActorSystem:0,59;
 \end{itemize}
-Tutti i metodi sono all'interno del range ottimale.
-Non vengono considerate nella media eventuali classi che non contengono metodi.
+Tutti i metodi sono inoltre all'interno del range ottimale.
 
 \paragraph{Complessità ciclomatica}
-In seguito è riportata la media della complessità ciclomatica dei vari moduli:
+Di seguito è riportata la media della complessità ciclomatica dei vari moduli:
 \begin{itemize}
 	\item Actorbase-Server:2,93;
 	\item Cli:2,05;
@@ -609,7 +604,7 @@ In seguito è riportata la media dei livelli di annidamento dei vari moduli:
 	\item Driver:1,56;
 	\item Cli:1,78;
 \end{itemize}
-%TODO calcolarlo veramente, non riesco a trovare un tool.
+%TODO se possibile calcolarlo veramente, non riesco a trovare un tool.
 
 \newpage
 
