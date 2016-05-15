@@ -527,11 +527,16 @@ Nella tabella di seguito sono riportati i valori degli indici di Gulpease per og
 \end{center}
 
 \subsubsection{Codice}
+Di seguito vengono riportati i risultati dei test di analisi statica e dinamica effettuati
+sul codice.
+Per ragioni di spazio e leggibilità si omettono le tabelle complete dei test. Per ogni test si riportano il valore medio riscontrato e si riportano eventuali risultati oltre il range ottimale e nel caso di test oltre i range di accettazione definiti nella sezione \ref{sec:metricheSW}, anche la giustificazione.
 
 \paragraph{Linee di codice per linee di commento}
 In questo paragrafo è possibile vedere il rapporto tra linee di codice e 
-linee di commento:
-Server:
+linee di commento, suddivisi per modulo:
+\begin{itemize}
+\end{itemize}
+\item Server:
 \begin{center}
   \begin{tabular}{| c | c | c |}
   	\hline
@@ -541,7 +546,7 @@ Server:
   	\hline
   \end{tabular}
   \end{center}
-CLI:
+\item CLI:
 \begin{center}
 	\begin{tabular}{| c | c | c |}
 		\hline
@@ -552,7 +557,7 @@ CLI:
 	\end{tabular}
 \end{center}
 
-Driver:
+\item Driver:
 \begin{center}
 	\begin{tabular}{| c | c | c |}
 		\hline
@@ -562,45 +567,48 @@ Driver:
 		\hline
 	\end{tabular}
 \end{center}
-
+\end{itemize}
 \paragraph{Copertura del codice}
 Poichè i test non sono stati ancora implementati, non è possibile al momento valutare la copertura del codice.
-%TODO
 
 \paragraph{Numero di attributi per classe}
 In questo paragrafo è possibile vedere il numero medio di attributi per 
-classe del codice di actorbase
-Driver: 35/13=2,69 Status sfora l'ottimale ma non quello di accettazione
-classi vuote driver:14.
-CLI:27/26=1,04;
-ActorSystem:43/18=2.39 Storekeeper sfora l'ottimale ma non quello di accettazione
-Classi vuote actorsystem:55.
-%TODO
+classe del codice di actorbase divisi per modulo:
+\begin{itemize}
+	\item CLI:media 1,04, tutte le classi sono all'interno del range ottimale;
+	\item Driver: media 2,69 tutte le classi sono all'interno del range ottimale a parte Status che però è comunque dentro al range di accettazione.;
+	\item Actorsystem: media 2,39 tutte le classi sono all'interno del range ottimale a parte storekeeper che rientra comunque all'interno del range di accettazione.
+\end{itemize}
+Non sono state considerate nella media le classi che non contengono né attributi né metodi propri.
+Classi "vuote" actorsystem:55.
+classi "vuote" driver:14.
 
 \paragraph{Numero di parametri per metodo}
 In questo paragrafo è possibile vedere il numero medio di parametri per 
-metodo del codice di actorbase 
-Driver: 28/44=0,63
-Cli:6/56=0,1
-ActorSystem:27/46=0.59
-%TODO
+metodo del codice di actorbase dei vari moduli:
+\begin{itemize}
+	\item Driver:0,63;
+	\item Cli:0,1;
+	\item ActorSystem:0,59;
+\end{itemize}
+Tutti i metodi sono all'interno del range ottimale.
+Non vengono considerate nella media eventuali classi che non contengono metodi.
 
 \paragraph{Complessità ciclomatica}
-In questo paragrafo è possibile vedere %cosa se vede?
-Complessità ciclomatica entro i range di accettazione:
-Actorbase-server: Complessità ciclomatica media 2.93
-
-report oltre il limite:Storefinder.scala(16) e Main.scala(26).
-
+In seguito è riportata la media della complessità ciclomatica dei vari moduli:
+\begin{itemize}
+	\item Actorbase-Server:2,93;
+	\item Cli:2,05;
+	\item Driver:1,31.
+\end{itemize}
+report 
+oltre il limite:Storefinder.scala(16) e Main.scala(26).
 Lato client oltre il limite: GrammarParser.scala(24)
-Lato Client totale:
-Parte Cli media:2.05;
-Parte driver media:1.31;
-%TODO
+
 
 \paragraph{Livelli di annidamento}
-Non trovo tool, cmq mi pare nei limiti ad una prima occhiata
-%TODO
+nei limiti.
+%TODO calcolarlo veramente, non riesco a trovare un tool.
 
 \newpage
 
