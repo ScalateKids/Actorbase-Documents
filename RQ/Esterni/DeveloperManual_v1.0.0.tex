@@ -46,35 +46,51 @@
 \end{flushleft}
 \vspace{0cm}
 \begin{center}
-  \begin{tabular}{| l | l | l | l | p{5cm} |}
+  \begin{longtable}{| l | l | l | l | p{5cm} |}
     \hline
     Version & Author & Role & Date & Description \\
     \hline
-    0.7.0 & & & 2016-05-13 & Verified section 2.1.1 - Building from sources\\
+    1.0.0 & Michael Munaro & Project Manager & 2016-05e-15 & Document approved\\
     \hline
-    0.6.1 & & Programmer & 2016-05-13 & Added section 2.1.1 - Building from sources\\
+    0.9.0 & & & 2016-05-15 & Verified improvements in section 2.1.1\ -\ Building from sources, build configuration for CLI and Server\\
     \hline
-    0.6.0 & & & 2016-05-13 & Verified section 2.1 - Installation\\
+    0.8.4 & & & 2016-05-15 & Verified section 2.3.0.5 - Contribute and relative subsections\\
     \hline
-    0.5.1 & & Programmer & 2016-05-13 & Added section 2.1 - Installation\\
+    0.8.3 & & Programmer & 2016-05-15 & Added section 2.3.0.5 - Contribute and relative subsections \\
     \hline
-    0.5.0 & & & 2016-05-13 & Verified section 2.1.1 - Building from sources\\
+    0.8.2 & & Programmer & 2016-05-15 & Improved section 2.1.1\ -\ Building from sources, added build configuration for CLI\\
     \hline
-    0.4.1 & & Programmer & 2016-05-13 & Added section 2.1.1 - Building from sources\\
+    0.8.1 & & Programmer & 2016-05-14 & Improved section 2.1.1\ -\ Building from sources, added build configuration for server\\
     \hline
-    0.4.0 & & & 2016-05-13 & Verified section 2.4.0.4 - Failure management\\
+    0.8.0 & & & 2016-05-14 & Verified sample configuration in section 2.1\ -\ Installation\\
     \hline
-    0.3.0 & & & 2016-05-13 & Verified sections 2.4.0.2 - Profile management, 2.4.0.3 - Collections operations and relative subsections\\
+    0.7.1 & & Programmer & 2016-05-14 & Improved section 2.1\ -\ Installation, added sample configuration\\
     \hline
-    0.2.2 & & Programmer & 2016-05-13 & Added section 2.4.0.4 - Failure management\\
+    0.7.0 & & & 2016-05-13 & Verified section 2.1.1\ -\ Building from sources\\
     \hline
-    0.2.1 & Andrea Giacomo Baldan & Programmer & 2016-05-13 & Added sections 2.4.0.2 - Profile management, 2.4.0.3 - Collections operations and relative subsections\\
+    0.6.1 & & Programmer & 2016-05-13 & Added section 2.1.1\ -\ Building from sources\\
     \hline
-    0.2.0 &  &  & 2016-05-12 & Verified section 2.3.1 - Quick start, 2.4 - More in depth: common operations and 2.4.1 - Authentication\\
+    0.6.0 & & & 2016-05-13 & Verified section 2.1\ -\ Installation\\
     \hline
-    0.1.2 & Andrea Giacomo Baldan & Programmer & 2016-05-12 & Added section 2.4 - More in depth: common operations and 2.4.1 - Authentication\\
+    0.5.1 & & Programmer & 2016-05-13 & Added section 2.1\ -\ Installation\\
     \hline
-    0.1.1 & Andrea Giacomo Baldan & Programmer & 2016-05-12 & Added section 2.3.1 - Quick start\\
+    0.5.0 & & & 2016-05-13 & Verified section 2.1.1\ -\ Building from sources\\
+    \hline
+    0.4.1 & & Programmer & 2016-05-13 & Added section 2.1.1\ -\ Building from sources\\
+    \hline
+    0.4.0 & & & 2016-05-13 & Verified section 2.4.0.4\ -\ Failure management\\
+    \hline
+    0.3.0 & & & 2016-05-13 & Verified sections 2.4.0.2\ -\ Profile management, 2.4.0.3\ -\ Collections operations and relative subsections\\
+    \hline
+    0.2.2 & & Programmer & 2016-05-13 & Added section 2.4.0.4\ -\ Failure management\\
+    \hline
+    0.2.1 & Andrea Giacomo Baldan & Programmer & 2016-05-13 & Added sections 2.4.0.2\ -\ Profile management, 2.4.0.3 - Collections operations and relative subsections\\
+    \hline
+    0.2.0 &  &  & 2016-05-12 & Verified section 2.3.1\ -\ Quick start, 2.4\ -\ More in depth: common operations and 2.4.1 - Authentication\\
+    \hline
+    0.1.2 & Andrea Giacomo Baldan & Programmer & 2016-05-12 & Added section 2.4\ -\ More in depth: common operations and 2.4.1 - Authentication\\
+    \hline
+    0.1.1 & Andrea Giacomo Baldan & Programmer & 2016-05-12 & Added section 2.3.1\ -\ Quick start\\
     \hline
     0.1.0 &  &  & 2016-05-10 & Verified section 2: Actorbase Usage and subsection 2.3\\
     \hline
@@ -82,7 +98,7 @@
     \hline
     0.0.1 & Andrea Giacomo Baldan & Programmer & 2016-05-10 & Created document structure\\
     \hline
-  \end{tabular}
+  \end{longtable}
 \end{center}
 \tableofcontents
 \newpage
@@ -127,7 +143,7 @@ running and ready to receive commands:
 \end{itemize}
 That's really all for a basic usage, and the procedure is the same for
 \textit{Windows} from version 10, \textit{Ubuntu 14.04 LTS} and \textit{OSX - El
-Capitan}, though it's possible to give actorbase a custom configuration by
+  Capitan}, though it's possible to give actorbase a custom configuration by
 running:
 
 % \begin{figure}[H]
@@ -452,5 +468,30 @@ shared by every method and that is in case of a communication error, which can
 be caused by not receiving a response from the server in a predetermined time or
 unreachable destination address during connection, the driver will launch a
 timeout connection exception.
+
+\paragraph{Contribute}
+
+\subparagraph{Issues}
+
+\textbf{Actorbase} is hosted on github at the url
+\url{https://github.com/ScalateKids} divided into two repositories:
+
+\begin{itemize}
+\item\textbf{Server-side}
+  \begin{itemize}
+  \item \textbf{Issue Tracker:} \url{https://github.com/ScalateKids/Actorbase-Server/issues}
+  \item \textbf{Source code:} \url{https://github.com/ScalateKids/Actorbase-Server}
+  \end{itemize}
+\item\textbf{CLI}
+  \begin{itemize}
+  \item \textbf{Issue Tracker:} \url{https://github.com/ScalateKids/Actorbase-Client/isssues}
+  \item \textbf{Source code:} \url{https://github.com/ScalateKids/Actorbase-Client}
+  \end{itemize}
+\end{itemize}
+
+\subparagraph{Troubleshooting}
+
+If you are having issues or strange malfunctions, please let us know at
+\href{mailto:scalatekids@gmail.com}{scalatekids@gmail.com}.
 
 \end{document}
