@@ -2601,7 +2601,7 @@ L'attore intende effettuare una ricerca sull'intero database di item con una cer
 \hline
 \textbf{Requisito} & \textbf{Tipologia} & \textbf{Descrizione} & \textbf{Fonti}\\
 \hline
-OBF1 & \multiLineCell{Funzionale\\Obbligatorio} & Il sistema dovrà fornire la possibilità di distribuire il carico all'interno di un cluster scalabile & \multiLineCell{CAPITOLATO\\INTERNO\\}\\
+OBF1 & \multiLineCell{Funzionale\\Obbligatorio} & Il sistema dovrà fornire la possibilità di distribuire il carico all'interno di un cluster scalabile & \multiLineCell{CAPITOLATO\\INTERNO\\UC1\\}\\
 \hline
 OBF1.1 & \multiLineCell{Funzionale\\Obbligatorio} & Il \gloss{cluster} dovrà fornire la possibilità di connettersi ai singoli \gloss{nodi} del \gloss{cluster} & \multiLineCell{CAPITOLATO\\INTERNO\\UC1\\}\\
 \hline
@@ -2609,13 +2609,13 @@ OBF1.1.1 & \multiLineCell{Funzionale\\Obbligatorio} & Il singolo \gloss{nodo} do
 \hline
 OBF1.1.1.1 & \multiLineCell{Funzionale\\Obbligatorio} & All'interno del singolo \gloss{nodo} dovrà essere implementato l'attore \gloss{HTTPserver} per gestire le connessioni provenienti dall'esterno & \multiLineCell{INTERNO\\UC1\\}\\
 \hline
-OBF1.1.1.1.1 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{HTTPServer} dovrà gestire la ricezione del messaggio httprequest & \multiLineCell{INTERNO\\}\\
+OBF1.1.1.1.1 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{HTTPServer} dovrà gestire la ricezione del messaggio httprequest & \multiLineCell{INTERNO\\UC1\\}\\
 \hline
 OBF1.1.2 & \multiLineCell{Funzionale\\Obbligatorio} & All'interno del singolo \gloss{nodo} dovrà essere implementato l'attore \gloss{Clientactor} per gestire il ciclo di vita di una connessione dall'esterno & \multiLineCell{INTERNO\\UC1\\}\\
 \hline
-OBF1.1.2.1 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{Clientactor} dovrà gestire la ricezione del messaggio Response & \multiLineCell{INTERNO\\}\\
+OBF1.1.2.1 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{Clientactor} dovrà gestire la ricezione del messaggio Response & \multiLineCell{INTERNO\\UC1.3.5\\UC1.4.1\\UC2.2.5\\UC2.3.1\\UC1.4.2\\UC2.3.2\\UC1.3.2\\UC2.2.2\\UC1.3.4\\UC2.2.4\\}\\
 \hline
-OBF1.1.2.2 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{Clientactor} dovrà gestire la ricezione del messaggio MapResponse & \multiLineCell{INTERNO\\}\\
+OBF1.1.2.2 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{Clientactor} dovrà gestire la ricezione del messaggio MapResponse & \multiLineCell{INTERNO\\UC1.13\\UC1.14\\UC1.15\\UC1.4\\UC2.11\\UC2.13\\UC2.4\\}\\
 \hline
 OBF1.1.3 & \multiLineCell{Funzionale\\Obbligatorio} & All'interno del singolo \gloss{nodo} dovrà essere implementato l'attore \gloss{Main} per gestire le richieste provenienti dall'attore \gloss{Clientactor} & \multiLineCell{INTERNO\\UC1\\}\\
 \hline
@@ -2629,25 +2629,25 @@ OBF1.1.3.4 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{
 \hline
 OBF1.1.3.5 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{Main} dovrà gestire la ricezione del messaggio AddContributor & \multiLineCell{CAPITOLATO\\INTERNO\\UC1.3.5\\UC2.2.5\\}\\
 \hline
-OBF1.1.3.6 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{Main} dovrà gestire la ricezione del messaggio Login & \multiLineCell{INTERNO\\}\\
+OBF1.1.3.6 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{Main} dovrà gestire la ricezione del messaggio Login & \multiLineCell{INTERNO\\UC1.1\\}\\
 \hline
 OBF1.1.3.7 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{Main} dovrà gestire la ricezione del messaggio RemoveContributor & \multiLineCell{CAPITOLATO\\INTERNO\\UC1.3.6\\UC2.2.6\\}\\
 \hline
-OBF1.1.3.8 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{Main} dovrà gestire la ricezione del messaggio GetItemFromResponse & \multiLineCell{CAPITOLATO\\INTERNO\\}\\
+OBF1.1.3.8 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{Main} dovrà gestire la ricezione del messaggio GetItemFromResponse & \multiLineCell{CAPITOLATO\\INTERNO\\UC1.5\\UC2.4\\}\\
 \hline
-OBF1.1.3.9 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{Main} dovrà gestire la ricezione del messaggio RemoveItemFrom & \multiLineCell{CAPITOLATO\\INTERNO\\}\\
+OBF1.1.3.9 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{Main} dovrà gestire la ricezione del messaggio RemoveItemFrom & \multiLineCell{CAPITOLATO\\INTERNO\\UC1.4.2\\UC2.3.2\\}\\
 \hline
-OBF1.1.3.10 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{Main} dovrà gestire la ricezione dei messaggi del package storefinder.messages & \multiLineCell{INTERNO\\}\\
+OBF1.1.3.10 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{Main} dovrà gestire la ricezione dei messaggi del package storefinder.messages & \multiLineCell{INTERNO\\UC1.4.1\\UC2.3.1\\UC1.5\\2.4\\UC1.4.2\\UC2.3.2\\UC1.3.5\\UC2.2.5\\}\\
 \hline
-OBF1.1.3.11 & \multiLineCell{Funzionale\\Obbligatorio} & l'attore di tipo \gloss{Main} dovrà gestire la ricezione del messaggio DuplicationRequestSF & \multiLineCell{INTERNO\\}\\
+OBF1.1.3.11 & \multiLineCell{Funzionale\\Obbligatorio} & l'attore di tipo \gloss{Main} dovrà gestire la ricezione del messaggio DuplicationRequestSF & \multiLineCell{INTERNO\\UC1.4.1\\UC2.3.1\\}\\
 \hline
-OBF1.1.3.12 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{Main} dovrà gestire la ricezione del messaggio UpdateCollectionSize & \multiLineCell{INTERNO\\}\\
+OBF1.1.3.12 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{Main} dovrà gestire la ricezione del messaggio UpdateCollectionSize & \multiLineCell{INTERNO\\UC1.3.5\\UC1.4.1\\1.4.2\\UC2.2.5\\UC2.3.1\\UC2.3.2\\}\\
 \hline
-OBF1.1.3.13 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{Main} dovrà gestire la ricezione del messaggio Ack & \multiLineCell{INTERNO\\}\\
+OBF1.1.3.13 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{Main} dovrà gestire la ricezione del messaggio Ack & \multiLineCell{INTERNO\\UC1.4.1\\UC2.3.1\\}\\
 \hline
 OBF1.1.4 & \multiLineCell{Funzionale\\Obbligatorio} & All'interno del singolo nodo dovrà essere implementato l'attore \gloss{Storefinder} per la gestione delle \gloss{collezioni} del \gloss{database} & \multiLineCell{CAPITOLATO\\UC1\\}\\
 \hline
-OBF1.1.4.1 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{StoreFinder} dovrà gestire la ricezione del messaggio UpdateCollectionSize & \multiLineCell{CAPITOLATO\\INTERNO\\}\\
+OBF1.1.4.1 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{StoreFinder} dovrà gestire la ricezione del messaggio UpdateCollectionSize & \multiLineCell{CAPITOLATO\\INTERNO\\UC1.3.5\\UC1.4.1\\UC1.4.2\\UC2.5\\UC2.3.1\\UC2.3.2\\}\\
 \hline
 OBF1.1.4.2 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{StoreFinder} dovrà gestire la ricezione del messaggio DuplicationRequestSK & \multiLineCell{INTERNO\\UC1.4.1\\UC2.3.1\\}\\
 \hline
@@ -2659,11 +2659,11 @@ OBF1.1.4.5 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{
 \hline
 OBF1.1.4.6 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{StoreFinder} dovrà gestire la ricezione del messaggio GetAllItem & \multiLineCell{CAPITOLATO\\INTERNO\\UC1.5\\UC2.4\\}\\
 \hline
-OBF1.1.4.7 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{StoreFinder} dovrà gestire la ricezione del messaggio GetAllItemResponse & \multiLineCell{INTERNO\\}\\
+OBF1.1.4.7 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{StoreFinder} dovrà gestire la ricezione del messaggio GetAllItemResponse & \multiLineCell{INTERNO\\UC1.5\\UC2.4\\}\\
 \hline
 OBF1.1.5 & \multiLineCell{Funzionale\\Obbligatorio} & All'interno del singolo \gloss{nodo} dovrà essere implementato l'attore \gloss{Storekeeper} per gestire il contenuto delle \gloss{collezioni} & \multiLineCell{CAPITOLATO\\UC1\\}\\
 \hline
-OBF1.1.5.1 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{StoreKeeper} dovrà gestire la ricezione del messaggio Persist & \multiLineCell{CAPITOLATO\\INTERNO\\}\\
+OBF1.1.5.1 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{StoreKeeper} dovrà gestire la ricezione del messaggio Persist & \multiLineCell{CAPITOLATO\\INTERNO\\UC1.3\\UC2.2\\}\\
 \hline
 OBF1.1.5.2 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{StoreKeeper} dovrà gestire la ricezione del messaggio GetItem & \multiLineCell{CAPITOLATO\\INTERNO\\UC1.14\\UC1.5\\UC2.12\\UC2.13\\UC2.4\\}\\
 \hline
@@ -2673,25 +2673,25 @@ OBF1.1.5.4 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{
 \hline
 OBF1.1.5.5 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{StoreKeeper} dovrà gestire la ricezione del messaggio RemoveItem & \multiLineCell{CAPITOLATO\\INTERNO\\UC1.4.2\\UC2.3.2\\}\\
 \hline
-OBF1.1.5.6 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{StoreKeeper} dovrà gestire la ricezione del messaggio UpdateOwnerOfSK & \multiLineCell{INTERNO\\}\\
+OBF1.1.5.6 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{StoreKeeper} dovrà gestire la ricezione del messaggio UpdateOwnerOfSK & \multiLineCell{INTERNO\\UC1.4.1\\UC2.3.1\\}\\
 \hline
-OBF1.1.5.7 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{StoreKeeper} dovrà gestire la ricezione del messaggio BecomeNinja & \multiLineCell{CAPITOLATO\\INTERNO\\}\\
+OBF1.1.5.7 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{StoreKeeper} dovrà gestire la ricezione del messaggio BecomeNinja & \multiLineCell{CAPITOLATO\\INTERNO\\UC1.3.5\\UC1.4.1\\UC1.4.2\\UC2.2.5\\UC2.3.1\\UC2.3.2\\}\\
 \hline
 OBF1.1.6 & \multiLineCell{Funzionale\\Obbligatorio} & All'interno del singolo \gloss{nodo} dovrà essere implementato l'attore \gloss{Warehouseman} per gestire la persistenza dei dati su disco & \multiLineCell{CAPITOLATO\\UC1\\}\\
 \hline
-OBF1.1.6.1 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{Warehouseman} dovrà gestire la ricezione del messaggio Read & \multiLineCell{INTERNO\\}\\
+OBF1.1.6.1 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{Warehouseman} dovrà gestire la ricezione del messaggio Read & \multiLineCell{INTERNO\\UC1.3.2.2\\}\\
 \hline
-OBF1.1.6.2 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{Warehouseman} dovrà gestire la ricezione del messaggio Save & \multiLineCell{INTERNO\\}\\
+OBF1.1.6.2 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{Warehouseman} dovrà gestire la ricezione del messaggio Save & \multiLineCell{INTERNO\\UC1.3.2.2\\}\\
 \hline
-OBF1.1.6.3 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{Warehouseman} dovrà gestire la ricezione del messaggio Clean & \multiLineCell{INTERNO\\}\\
+OBF1.1.6.3 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{Warehouseman} dovrà gestire la ricezione del messaggio Clean & \multiLineCell{INTERNO\\UC1.4.1\\UC2.3.1\\}\\
 \hline
-OBF1.1.6.4 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{Warehouseman} dovrà gestire la ricezione del messaggio RemoveSfFolder & \multiLineCell{INTERNO\\}\\
+OBF1.1.6.4 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{Warehouseman} dovrà gestire la ricezione del messaggio RemoveSfFolder & \multiLineCell{INTERNO\\UC1.4.1\\UC2.3.1\\}\\
 \hline
 DEF1.1.7 & \multiLineCell{Funzionale\\Desiderabile} & All'interno del singolo \gloss{nodo} dovrà essere implementato l'attore \gloss{Ninja} per gestire la ridondanza dei dati contenuti negli \gloss{Storekeeper} & \multiLineCell{CAPITOLATO\\UC1\\}\\
 \hline
-DEF1.1.7.1 & \multiLineCell{Funzionale\\Desiderabile} & L'attore di tipo \gloss{Ninja} dovrà gestire la ricezione del messaggio Update & \multiLineCell{INTERNO\\}\\
+DEF1.1.7.1 & \multiLineCell{Funzionale\\Desiderabile} & L'attore di tipo \gloss{Ninja} dovrà gestire la ricezione del messaggio Update & \multiLineCell{INTERNO\\UC1.3\\UC2.2\\}\\
 \hline
-DEF1.1.7.2 & \multiLineCell{Funzionale\\Desiderabile} & L'attore di tipo \gloss{Ninja} dovrà poter cambiare il proprio contesto ricevendo il messaggio BecomeSK e importare tutti i messaggi dello StoreKeeper & \multiLineCell{INTERNO\\}\\
+DEF1.1.7.2 & \multiLineCell{Funzionale\\Desiderabile} & L'attore di tipo \gloss{Ninja} dovrà poter cambiare il proprio contesto ricevendo il messaggio BecomeSK e importare tutti i messaggi dello StoreKeeper & \multiLineCell{INTERNO\\UC1.3\\UC1.4\\UC2.2\\UC2.3\\}\\
 \hline
 DEF1.1.8 & \multiLineCell{Funzionale\\Desiderabile} & All'interno del singolo \gloss{nodo} dovrà essere implementato l'attore \gloss{Manager} per la gestione del carico degli attori di tipo \gloss{Storekeeper} e \gloss{Storefinder} & \multiLineCell{CAPITOLATO\\UC1\\}\\
 \hline
@@ -2791,7 +2791,7 @@ OBF1.1.10.7.3.1 & \multiLineCell{Funzionale\\Obbligatorio} & Il sistema ad attor
 \hline
 OBF1.1.11 & \multiLineCell{Funzionale\\Obbligatorio} & All'interno del singolo \gloss{nodo} dovrà essere implementato l'attore \gloss{Userfinder} per mappare gli attori di tipo \gloss{Userkeeper} & \multiLineCell{INTERNO\\UC1\\UC1.3.5\\UC1.8\\}\\
 \hline
-OBF1.1.11.1 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{Userfinder} dovrà gestire la ricezione del messaggio InsertTo & \multiLineCell{INTERNO\\}\\
+OBF1.1.11.1 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{Userfinder} dovrà gestire la ricezione del messaggio InsertTo & \multiLineCell{INTERNO\\UC1.3.2\\UC2.2.2\\}\\
 \hline
 OBF1.1.11.2 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{Userfinder} dovrà gestire la ricezione del messaggio GetPasswordOf & \multiLineCell{INTERNO\\UC1.1\\UC2.1\\}\\
 \hline
@@ -2803,7 +2803,7 @@ OBF1.1.11.5 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss
 \hline
 OBF1.1.11.6 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{Userfinder} dovrà gestire la ricezione del messaggio AddCollectionTo & \multiLineCell{INTERNO\\UC1.3.5\\UC2.2.5\\}\\
 \hline
-OBF1.1.11.7 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{Userfinder} dovrà gestire la ricezione del messaggio UpdateCollectionSizeTo & \multiLineCell{INTERNO\\}\\
+OBF1.1.11.7 & \multiLineCell{Funzionale\\Obbligatorio} & L'attore di tipo \gloss{Userfinder} dovrà gestire la ricezione del messaggio UpdateCollectionSizeTo & \multiLineCell{INTERNO\\UC1.3.5\\UC1.4.1\\UC2.2.5\\UC2.3.1\\UC1.4.2\\UC2.3.2\\}\\
 \hline
 OBF2 & \multiLineCell{Funzionale\\Obbligatorio} & Il sistema dovrà fornire una \gloss{console} per inviare comandi al server (CLI) & \multiLineCell{CAPITOLATO\\UC1\\}\\
 \hline
@@ -3091,13 +3091,13 @@ DEF3.7.3 & \multiLineCell{Funzionale\\Desiderabile} & Il \gloss{driver} dovrà l
 \hline
 DEF3.7.4 & \multiLineCell{Funzionale\\Desiderabile} & Il \gloss{driver} dovrà lanciare un'eccezione nel caso di inserimento di una nuova password che non rispetta i vincoli del sistema durante l'operazione di modifica password & \multiLineCell{UC2.10\\}\\
 \hline
-DEF3.8 & \multiLineCell{Funzionale\\Desiderabile} & Il \gloss{Driver} dovrà strutturare i dati in output in maniera navigabile & \multiLineCell{INTERNO\\}\\
+DEF3.8 & \multiLineCell{Funzionale\\Desiderabile} & Il \gloss{Driver} dovrà strutturare i dati in output in maniera navigabile & \multiLineCell{INTERNO\\UC2.4\\}\\
 \hline
-DEF3.8.1 & \multiLineCell{Funzionale\\Desiderabile} & Il \gloss{Driver} dovrà poter restituire sequenze di \gloss{collezioni} navigabili & \multiLineCell{INTERNO\\}\\
+DEF3.8.1 & \multiLineCell{Funzionale\\Desiderabile} & Il \gloss{Driver} dovrà poter restituire sequenze di \gloss{collezioni} navigabili & \multiLineCell{INTERNO\\UC2.4\\}\\
 \hline
-DEF3.8.2 & \multiLineCell{Funzionale\\Desiderabile} & Il \gloss{Driver} dovrà poter restituire \gloss{collezioni} navigabili & \multiLineCell{INTERNO\\}\\
+DEF3.8.2 & \multiLineCell{Funzionale\\Desiderabile} & Il \gloss{Driver} dovrà poter restituire \gloss{collezioni} navigabili & \multiLineCell{INTERNO\\UC2.4\\}\\
 \hline
-DEF3.8.3 & \multiLineCell{Funzionale\\Desiderabile} & Il \gloss{Driver} dovrà poter restituire \gloss{item} & \multiLineCell{INTERNO\\}\\
+DEF3.8.3 & \multiLineCell{Funzionale\\Desiderabile} & Il \gloss{Driver} dovrà poter restituire \gloss{item} & \multiLineCell{INTERNO\\UC2.4\\}\\
 \hline
 \end{longtable}
 
