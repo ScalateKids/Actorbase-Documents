@@ -88,12 +88,12 @@ scala> println(client.getCollection("people"))
         "type": "Person",
         "name": "Steven",
         "age": 64
-    }
+    },
     "Schwarzenegger": {
         "type": "Person",
         "name": "Arnold",
         "age": 68
-     }
+     },
     "Stallone": {
         "type": "Person",
         "name": "Sylvester",
@@ -273,5 +273,18 @@ akka {
     }
   }
 
+}
+#+end_src
+**** JSON format
+#+begin_src javascript
+{
+  owner: "Owner",
+  collection: "foo",
+  "permissions": "read-write",
+  "map": {
+    "bar": "baz",
+    "foobar": 42,
+    "fooList": ["list", "of", "strings"]
+  }
 }
 #+end_src
