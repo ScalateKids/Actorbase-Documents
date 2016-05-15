@@ -4374,6 +4374,8 @@ navigabilità dei contenuti.
   \hline
   drop & public & Boolean & Cancella la \gloss{collezione}\\
   \hline
+  export & public & Boolean & Esporta la \gloss{collezione} su \gloss{filesystem} al percorso specificato\\
+  \hline
   count & public & Int & Conta il numero di coppie chiave-valore che formano la \gloss{collezione}\\
   \hline
   foreach & public & Unit & Permette di visitare l'intera \gloss{collezione} applicando una funzione ad ogni \gloss{item}\\
@@ -4497,6 +4499,17 @@ navigabilità dei contenuti.
   username & String & Rappresenta lo \gloss{username} dell'utente da rimuove ai collaboratori della \gloss{collezione}\\
   \hline
   write & Boolean & Rappresenta il \gloss{flag} dei permessi in scrittura\\
+  \hline
+\end{tabular}
+
+\begin{center}
+  \textbf{export}
+\end{center}
+\begin{tabular}{| p{3cm} | p{3.5cm} | p{8.5cm} |}
+  \hline
+  Nome & Tipo & Descrizione\\
+  \hline
+  path & String & Rappresenta il percorso su \gloss{filesystem} su cui esporatare la \gloss{collezione} in formato JSON\\
   \hline
 \end{tabular}
 
