@@ -40,9 +40,9 @@
 \usepackage{lastpage}
 \pagestyle{fancy}
 \usepackage[colorlinks=true,
-  linkcolor=red,
-  urlcolor=blue,      % url color set to blue
-  citecolor=gray]{hyperref}
+linkcolor=red,
+urlcolor=blue,      % url color set to blue
+citecolor=gray]{hyperref}
 \usepackage[T1]{fontenc}
 \usepackage[scaled]{beraserif}
 \usepackage[scaled]{berasans}
@@ -81,7 +81,11 @@
 % new command for glossary words
 \newcommand{\gloss}[1]{#1\textsubscript{\textit{\tiny{G}}}}
 % new command for glossary definitions inside glossary file
-\newcommand{\glossDef}[1]{\textbf{#1:}}
+\newcommand{\glossDef}[1]{
+  \phantomsection
+  \addcontentsline{toc}{subsection}{#1}
+  \textbf{#1:}
+}
 % Change name of Toc to 'Indice'
 \renewcommand{\contentsname}{Indice}
 % Change name of LoF to 'Indice'
