@@ -346,7 +346,7 @@ confronto del range delle chiavi e un metodo compare.
 \begin{center}
   \textbf{contains}\\
 \end{center}
-\begin{tabular}{| p{1.5cm} | p{1.5cm} | p{9cm} |}
+\begin{tabular}{| p{1.5cm} | p{1.5cm} | p{14cm} |}
   \hline
   Nome & Tipo & Descrizione\\
   \hline
@@ -1496,7 +1496,7 @@ corrispondenti alla \gloss{collezione} su cui effettuare la ricerca
 e inoltrerà lui la richiesta dell'\gloss{item} con la chiave da cercare.
 
 \subparagraph{Attributi}
-\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+\begin{tabular}{| p{1.5cm} | p{1.5cm} | p{2cm} | p{3.5cm} | p{8.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
@@ -1669,7 +1669,7 @@ riceve questo messaggio provvederà a aggiornare la propria struttura dati
 contenente la mappatura degli \hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{Storefinder}.
 
 \subparagraph{Attributi}
-\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+\begin{tabular}{| p{2.5cm} | p{1.5cm} | p{2cm} | p{3.5cm} | p{8cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
@@ -1703,13 +1703,13 @@ Quando \hyperref[sec:actorbase::actorsystem::main::Main]{Main}
 riceve questo messaggio provvederà ad inoltrare allo \hyperref[sec:actorbase::actorsystem::userfinder::Userfinder]{Userfinder} l'incremento della \gloss{collezione}.
 
 \subparagraph{Attributi}
-\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{3.5cm} | p{7.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
   collectionName & public & immutable & ActorbaseCollection & Nome della \gloss{collezione} che si vuole incrementare\\
   \hline
-  increment & public & immutable & boolean & indica se deve esser fatto un incremento (true) o un decremento (false)\\
+  increment & public & immutable & boolean & Indica se deve esser fatto un incremento (true) o un decremento (false)\\
   \hline
 \end{tabular}
 
@@ -1925,13 +1925,13 @@ all'attore di tipo \hyperref[sec:actorbase::actorsystem::userkeeper::Userkeeper]
 corrispondente all'utente corretto.
 
 \subparagraph{Attributi}
-\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+\begin{tabular}{| p{2cm} | p{1.5cm} | p{2cm} | p{3.5cm} | p{8cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  username & public & immutabile & String & stringa che rappresenta lo username dell'utente su cui effettuare l'operazione \\
+  username & public & immutabile & String & Stringa che rappresenta lo username dell'utente su cui effettuare l'operazione \\
   \hline
-  write & public & immutable & Boolean & flag che rappresenta i permessi che l'utente ha sulla \gloss{collezione} da rimuovere \\
+  write & public & immutable & Boolean & Flag che rappresenta i permessi che l'utente ha sulla \gloss{collezione} da rimuovere \\
   \hline
   collection & public & immutabile &  \hyperref[sec:actorbase::actorsystem::utils::ActorbaseCollection]{ActorbaseCollection} & Rappresenta la \gloss{collezione} da rimuovere \\
   \hline
@@ -1955,13 +1955,13 @@ Quando l'attore riceve questo messaggio provvederà a inoltrare la richiesta all
 corrispondente all'utente su cui effettuare l'operazione.
 
 \subparagraph{Attributi}
-\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+\begin{tabular}{| p{2cm} | p{1.5cm} | p{2cm} | p{3.5cm} | p{8cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  username & public & immutabile & String & stringa che rappresenta lo username dell'utente a cui aggiungere la \gloss{collezione} \\
+  username & public & immutabile & String & Stringa che rappresenta lo username dell'utente a cui aggiungere la \gloss{collezione} \\
   \hline
-  write & public & immutable & Boolean & flag che rappresenta i permessi che l'utente ha sulla \gloss{collezione} da aggiungere \\
+  write & public & immutable & Boolean & Flag che rappresenta i permessi che l'utente ha sulla \gloss{collezione} da aggiungere \\
   \hline
   collection & public & immutabile &  \hyperref[sec:actorbase::actorsystem::utils::ActorbaseCollection]{ActorbaseCollection} & Rappresenta la \gloss{collezione} da aggiungere \\
   \hline
@@ -1988,7 +1988,7 @@ riceve questo messaggio provvederà ad inoltrare all'attore di tipo
 \hyperref[sec:actorbase::actorsystem::userkeeper::Userkeeper]{actorbase::\allowbreak{}actorsystem::\allowbreak{}userkeeper::\allowbreak{}Userkeeper}.
 
 \subparagraph{Attributi}
-\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+\begin{tabular}{| p{2cm} | p{1.5cm} | p{2cm} | p{3.5cm} | p{8cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
@@ -2064,7 +2064,7 @@ Questa classe viene utilizzata per salvare gli utenti e i loro dati nel \gloss{d
 \end{tabular}
 
 \subparagraph{Metodi}
-\begin{tabular}{| l | l | l | l |}
+\begin{tabular}{| p{3.5cm} | p{1.5cm} | p{2.5cm} | p{10cm} |}
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
@@ -2197,7 +2197,7 @@ dalla lista contenente le \gloss{collezioni} di cui l'utente ha permessi in
 lettura o in scrittura.
 
 \subparagraph{Attributi}
-\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+\begin{tabular}{| p{1.5cm} | p{1.5cm} | p{2cm} | p{3.5cm} | p{8.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
@@ -2232,7 +2232,7 @@ dalla lista contenente le \gloss{collezioni} di cui l'utente ha permessi in
 lettura o in lettura e scrittura.
 
 \subparagraph{Attributi}
-\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+\begin{tabular}{| p{1.5cm} | p{1.5cm} | p{2cm} | p{3.5cm} | p{8.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione \\
   \hline
@@ -2294,7 +2294,7 @@ riceve questo messaggio provvederà ad aggiornare il contatore relativo al numer
 nella \gloss{collezione}.
 
 \subparagraph{Attributi}
-\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+\begin{tabular}{| p{1.5cm} | p{1.5cm} | p{2cm} | p{3.5cm} | p{8.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
@@ -2356,7 +2356,7 @@ Questa classe viene utilizzata per tener traccia degli attori di tipo
 
 \subparagraph{Attributi}
 
-\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+\begin{tabular}{| p{1.5cm} | p{1.5cm} | p{2cm} | p{3.5cm} | p{8.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
@@ -2418,7 +2418,7 @@ particolare aggiornerà i range di chiavi contenuti dagli Storekeeper presenti
 nella sua struttura dati.
 
 \subparagraph{Attributi}
-\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+\begin{tabular}{| p{2cm} | p{1.5cm} | p{2cm} | p{3.5cm} | p{8cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
@@ -2590,7 +2590,7 @@ riceve questo messaggio non farà altro che richiamare il metodo
 \hyperref[sec:actorbase::actorsystem::main::messages::GetItemFromResponse]{GetItemFromResponse} del Main.
 
 \subparagraph{Attributi}
-\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+\begin{tabular}{| p{1.5cm} | p{1.5cm} | p{2cm} | p{3.5cm} | p{8.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
@@ -2621,7 +2621,7 @@ riceve questo messaggio non farà altro che richiamare il metodo
 \hyperref[sec:actorbase::actorsystem::main::messages::UpdateCollectionSize]{UpdateCollectionSize} del Main.
 
 \subparagraph{Attributi}
-\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+\begin{tabular}{| p{1.5cm} | p{1.5cm} | p{2cm} | p{3.5cm} | p{8.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
@@ -2678,7 +2678,7 @@ Questa classe viene utilizzata per salvare nel \gloss{database} gli item.
 
 \subparagraph{Attributi}
 
-\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+\begin{tabular}{| p{2.5cm} | p{1.5cm} | p{2cm} | p{3.5cm} | p{8cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
@@ -3087,7 +3087,7 @@ che dovrà essere diviso. Manderà inoltre un messaggio all'\gloss{attore} di ti
 per aggiornare i suoi riferimenti.
 
 \subparagraph{Attributi}
-\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+\begin{tabular}{| p{2.5cm} | p{1.5cm} | p{2cm} | p{3.5cm} | p{7.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione \\
   \hline
@@ -3255,7 +3255,7 @@ remoti all'interno del \gloss{database}.
 
 % TODO: Da completare
 
-\begin{tabular}{| p{3cm} | p{1.5cm} | p{3cm} | p{9.5cm} |}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{3.5cm} | p{9cm} |}
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
@@ -3286,7 +3286,7 @@ remoti all'interno del \gloss{database}.
 \begin{center}
   \textbf{changePassword}
 \end{center}
-\begin{tabular}{| p{3cm} | p{3.5cm} | p{8.5cm} |}
+\begin{tabular}{| p{3cm} | p{3.5cm} | p{10.5cm} |}
   \hline
   Nome & Tipo & Descrizione\\
   \hline
@@ -4348,7 +4348,7 @@ navigabilità dei contenuti.
 
 % TODO: Da completare
 
-\begin{tabular}{| p{3cm} | p{1.5cm} | p{2.5cm} | p{10cm} |}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{3.5cm} | p{9cm} |}
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
@@ -4566,7 +4566,7 @@ Questa classe viene utilizzata per la rappresentazione dell'aggregazione di
 
 % TODO: Da completare
 
-\begin{tabular}{| p{3cm} | p{1.5cm} | p{2.5cm} | p{10cm} |}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{3.5cm} | p{9cm} |}
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
@@ -4885,7 +4885,7 @@ Questa classe verrà utilizzata per leggere i comandi inseriti dall'utente.
 Viene utilizzata per la lettura dei comandi inseriti dall'utente.
 
 \subparagraph{Attributi}
-\begin{tabular}{| p{2.5cm} | p{1.5cm} | p{2cm} | p{2.5cm} | p{8.5cm} |}
+\begin{tabular}{| p{2.7cm} | p{1.5cm} | p{2cm} | p{2.7cm} | p{8cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
