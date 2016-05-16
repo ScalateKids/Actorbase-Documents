@@ -36,6 +36,8 @@
 \end{titlepage}
 \restoregeometry
 \clearpage
+\tableofcontents
+\newpage
 \pagenumbering{arabic}
 \setcounter{page}{1}
 \begin{flushleft}
@@ -113,6 +115,9 @@ All'interno del modello, gli "attori" vengono trattati come primitive universali
 \glossDef{Amazon DynamoDB} Database proprietario di tipo NoSQL e completamente gestito da Amazon.com all'interno del suo portfolio 'Amazon Web Services'.
 \\
 
+\glossDef{Ant} Apache Ant è un software per l'automazione del processo di build. È simile a make, ma scritto in Java ed è principalmente orientato allo sviluppo in Java. Ant è un progetto Apache, open source, ed è distribuito sotto licenza Apache.
+\\
+
 \glossDef{Architettura} Per architettura informatica si intende l'insieme dei criteri e regole in base ai quali è progettato e realizzato un sistema informatico oppure un dispositivo facente parte di esso.
 \\
 
@@ -149,17 +154,20 @@ A livello software, i beacon sono messaggi inviati da questi dispositivi trasmit
 \glossDef{Branch} In computer science, il branch ('salto' in inglese) è un punto in cui in un processo viene alterato il sequenziale flusso delle istruzioni.
 \\
 
-\glossDef{BSON} è un formato informatico di scambio dati utilizzato principalmente come magazzino dati e formato di trasferimento di rete nel database MongoDB. Si tratta di un formato binario per rappresentare strutture dati semplici e array associativi
+\glossDef{BSON(Binary javaScript Object Notation)} è un formato informatico di scambio dati utilizzato principalmente come magazzino dati e formato di trasferimento di rete nel database MongoDB. Si tratta di un formato binario per rappresentare strutture dati semplici e array associativi
 \\
 
 \glossDef{Bug} in informatica, identifica un errore nella scrittura di un programma software, impedendone il corretto funzionamento e provocandone un comportamento imprevisto o comunque diverso da quello specificato dal produttore. Meno comunemente, il termine bug può indicare un difetto di progettazione in un componente hardware.
 L'origine del nome (che in inglese significa "insetto") deriva da un malfunzionamento del computer Mark II nel 1947 dovuto ad una falena incastratasi tra i circuiti.
 \\
 
+\glossDef{Build} trasformazione del codice sorgente in software eseguibile (tramite compilazione e linking). Per estensione, si dice anche del prodotto finale della trasformazione.
+\\
+
 \glossDef{Bundled Software} Si tratta di software distribuito con un altro prodotto come parte di un hardware o come parte di un gruppo di pacchetti software venduti assieme.
 \\
 
-\glossDef{Business Logic} L'espressione logica di business (in inglese business logic) si riferisce a tutta quella logica applicativa che rende operativa un'applicazione cioè la parte o nucleo (core) di elaborazione.
+\glossDef{Business Logic} L'espressione logica di business (in inglese business logic) si riferisce a tutta quella logica applicativa che rende operativa un'applicazione cioè la parte o nucleo (core) di elaorazione.
 Con tale nome ci si riferisce quindi all'algoritmica che gestisce lo scambio di informazioni tra una sorgente dati (generalmente una base dati) deputata gestione della persistenza dei dati stessi da una parte e l'interfaccia utente attraverso la logica di presentazione e le elaborazioni intermedie sui dati estratti dall'altra.
 È un termine largamente utilizzato nella progettazione del software per individuare un componente software, un layer (o tier, cioè livello) di una architettura software, ecc.
 \\
@@ -228,6 +236,9 @@ Questo garantisce che il software funzionerà sempre allo stesso modo, indipende
 \\
 
 \glossDef{Controller} vedi \textit{MVC (Model-View-Controller)}.
+\\
+
+\glossDef{Console} vedi \textit{CLI}.
 \\
 
 \glossDef{CR (Carriage Return)} Carattere di controllo (o meccanismo) utilizzato per riposizionare il device all'inizio della linea di testo.
@@ -497,6 +508,9 @@ Se il coordinatore si guasta, l'intero sistema si blocca. Per risolvere il probl
 
   \glossDef{Persistence Actor} attore persistente.
   \\
+  
+  \glossDef{Persistenza} si riferisce alla caratteristica dei dati di sopravvivere all'esecuzione del programma che li ha creati. Nella programmazione informatica, la persistenza si riferisce in particolare alla possibilità di far sopravvivere delle strutture dati all'esecuzione di un singolo programma. Questa possibilità è raggiunta salvando i dati in uno storage non volatile, come su un file system o su un database (es. applicazioni web).
+  \\
 
   \glossDef{Pickle} \textit{Scala Pickling} è un framework per la serializzazione automatica per Scala. Permette agli utenti di utilizzare diversi formati di serializzazione (come JSON, o formati binari) o di definire il loro formato personale per la serializzazione.
   \\
@@ -542,6 +556,9 @@ Se il coordinatore si guasta, l'intero sistema si blocca. Per risolvere il probl
 
   \glossDef{Refactoring} in ingegneria del software, il refactoring (o code refactoring) è una tecnica per modificare la struttura interna di porzioni di codice senza modificarne il comportamento esterno applicata per migliorare alcune caratteristiche non funzionali del software.
   I vantaggi che il refactoring persegue riguardano in genere un miglioramento della leggibilità della manutenibilità, della riusabilità e dell'estendibilità del codice e la riduzione della sua complessità, eventualmente attraverso l'introduzione a posteriori di design pattern.
+  \\
+  
+  \glossDef{REPL (read–eval–print loop)} è un semplice ambiente interattivo di programmazione informatico che prende singoli input utente(cioè singole espressioni), li valuta, e ritorna il risultato all'utente; un programma scritto in ambiente REPL viene eseguito a tratti.
   \\
 
   \glossDef{Repository (Software Repository)} è uno spazio di archiviazione da dove è possibile recuperare e scaricare dei pacchetti software.
@@ -606,7 +623,10 @@ Se il coordinatore si guasta, l'intero sistema si blocca. Per risolvere il probl
 
   \glossDef{Socket} Un'astrazione software progettata per poter utilizzare delle API standard e condivise per la trasmissione e la ricezione di dati attraverso una rete oppure come meccanismo di IPC.
   \\
-
+  
+  \glossDef{Spring} In informatica Spring è un framework open source per lo sviluppo di applicazioni su piattaforma Java.
+  \\  
+  
   \glossDef{Spring Shell} Shell interattiva che permette di aggiungere dei comandi personalizzati usando un modello di programmazione basato su \textit{Spring}.
   \\
 
@@ -618,10 +638,16 @@ Se il coordinatore si guasta, l'intero sistema si blocca. Per risolvere il probl
   	\item creare e gestire strumenti di controllo ed accesso ai dati (DCL - Data Control Language).
   \end{itemize}
 
+  \glossDef{Stack} in informatica, indica un tipo di dato astratto che viene usato in diversi contesti per riferirsi a strutture dati, le cui modalità d'accesso ai dati in essa contenuti seguono una modalità LIFO (Last In First Out), ovvero tale per cui i dati vengono estratti (letti) in ordine rigorosamente inverso rispetto a quello in cui sono stati inseriti (scritti).
+  \\
+
 \glossDef{Storefinder} nel contesto del capitolato da noi considerato, con storefinder si intende un particolare tipo di attore che si occupa di ricevere le richieste dall’esterno e instradarle ai rispettivi storekeeper, in modo da soddisfarle.
 \\
 
   \glossDef{Storekeeper} nel contesto del capitolato da noi considerato, con storekeeper si intende un particolare tipo di attore che mantiene fisicamente al proprio interno le coppie chiave-valore.
+  \\
+  
+  \glossDef{Strategy, pattern} Lo strategy pattern è uno dei pattern comportamentali. L'obiettivo di questa architettura è isolare un algoritmo all'interno di un oggetto. Il pattern strategy è utile in quelle situazioni dove sia necessario modificare dinamicamente gli algoritmi utilizzati da un'applicazione. Questo pattern prevede che gli algoritmi siano intercambiabili tra loro (in base ad una qualche condizione) in modo trasparente al client che ne fa uso.
   \\
   
   \glossDef{SV (Schedule Variance)} indica quanto sia in anticipo o in ritardo il progetto rispetto ad una schedulazione fatta a priori
@@ -651,7 +677,7 @@ Se il coordinatore si guasta, l'intero sistema si blocca. Per risolvere il probl
   \glossDef{Topic} tema di discussione, argomento.
   \\
 
-  \glossDef{Top-Dpwn} strategia di elaborazione dell'informazione e di gestione delle conoscenze, riguardante principalmente il software.
+  \glossDef{Top-Down} strategia di elaborazione dell'informazione e di gestione delle conoscenze, riguardante principalmente il software.
   Nel modello top-down si formula inizialmente una visione generale del sistema ovvero se ne descrive la finalità principale senza scendere nel dettaglio delle sue parti. Ogni parte del sistema è successivamente rifinita aggiungendo maggiori dettagli della progettazione. Ogni nuova parte così ottenuta può quindi essere nuovamente rifinita, specificando ulteriori dettagli, finché la specifica completa è sufficientemente dettagliata da validare il modello.
   \\
 
@@ -681,6 +707,9 @@ Se il coordinatore si guasta, l'intero sistema si blocca. Per risolvere il probl
   \\
 
   \glossDef{Userkeeper} nel contesto del capitolato da noi considerato, con userkeeper si intende un particolare tipo di attore dedicato alla gestione del profilo utente. Contiene una lista di collezioni e permessi annessi.
+  \\
+  
+  \glossDef{Username(Nome Utente)} in informatica definisce il nome con il quale l'utente viene riconosciuto da un computer, da un programma o da un server.
   \\
 
   \glossDef{UTF-8 (Unicode Transformation Format, 8 bit)} È una codifica dei caratteri \textit{Unicode} (vedi sopra) in sequenze di lunghezza variabile di byte, creata da Rob Pike e Ken Thompson. UTF-8 usa gruppi di byte per rappresentare i caratteri Unicode, ed è particolarmente utile per il trasferimento tramite sistemi di posta elettronica a 8-bit.
