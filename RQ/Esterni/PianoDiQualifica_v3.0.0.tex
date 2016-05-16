@@ -515,13 +515,15 @@ Nella tabella di seguito sono riportati i valori degli indici di Gulpease per og
     \hline
     Documento & Valore indice & Esito\\
     \hline
-    \textit{Definizione di Prodotto v1.0.0} & & Superato\\
-    \textit{Specifica Tecnica v2.0.0} &  & Superato\\
-    \textit{Norme di Progetto v3.0.0} &  & Superato\\
-    \textit{Piano di Progetto v3.0.0} &  & Superato\\
-    \textit{Piano di Qualifica v3.0.0} &  & Superato\\
-    \textit{Analisi dei Requisiti v3.0.0} &  & Superato\\
+    \textit{Definizione di Prodotto v1.0.0} & 75 & Superato\\
+    \textit{Specifica Tecnica v2.0.0} & 74 & Superato\\
+    \textit{Norme di Progetto v3.0.0} & 61 & Superato\\
+    \textit{Piano di Progetto v3.0.0} & 64 & Superato\\
+    \textit{Piano di Qualifica v3.0.0} & 64 & Superato\\
+    \textit{Analisi dei Requisiti v3.0.0} & 89 & Superato\\
     \textit{Glossario v3.0.0} &  & Superato\\ %TODO manuali utente?
+    \textit{Developer Manual v1.0.0} & 66 & Superato\\ %TODO manuali utente?
+    \textit{User Manual v1.0.0} & 68 & Superato\\ %TODO manuali utente?
     \hline
   \end{tabular}
 \end{center}
@@ -569,16 +571,15 @@ linee di commento, suddivisi per modulo:
   \end{center}
 \end{itemize}
 \paragraph{Copertura del codice}
-Poichè i test non sono stati ancora implementati, non è possibile al momento valutare la copertura del codice.
+%TODO MOLTO GRANDE E CATTIVO
 
 \paragraph{Numero di attributi per classe}
-Di seguito è riportato il numero medio di attributi per classe del codice di actorbase divisi per modulo; sono riportati inoltre le classi che oltrepassano il range ottimale:
+Di seguito è riportato il numero medio di attributi per classe del codice di actorbase divisi per modulo:
 \begin{itemize}
-\item \textbf{CLI}: 1,04, tutte le classi sono all'interno del range ottimale;
-\item \textbf{Driver}: 2,69 tutte le classi sono all'interno del range ottimale a parte la classe status che però è comunque dentro al range di accettazione;
-\item \textbf{Actorsystem}: 2,39 tutte le classi sono all'interno del range ottimale a parte la classe storekeeper che rientra comunque all'interno del range di accettazione.
+\item \textbf{CLI}: 1,04;
+\item \textbf{Driver}: 2,69;
+\item \textbf{Actorsystem}: 2,39.
 \end{itemize}
-Non sono state considerate nella media le classi che non contengono né attributi né metodi propri.
 
 \paragraph{Numero di parametri per metodo}
 Di seguito è riportato il numero medio di parametri per
@@ -586,16 +587,15 @@ metodo del codice di actorbase suddiviso per moduli:
 \begin{itemize}
 \item \textbf{CLI}:0,1;
 \item \textbf{Driver}:0,63;
-\item \textbf{ActorSystem}:0,59;
+\item \textbf{ActorSystem}:0,59.
 \end{itemize}
-Tutti i metodi sono inoltre all'interno del range ottimale.
 
 \paragraph{Complessità ciclomatica}
 Di seguito è riportata la media della complessità ciclomatica dei vari moduli:
 \begin{itemize}
 \item \textbf{CLI}:2,05;
-\item \textbf{Driver}:1,31.
-\item \textbf{Actorsystem}:2,93;
+\item \textbf{Driver}:1,31;
+\item \textbf{Actorsystem}:2,93.
 \end{itemize}
 
 
@@ -604,9 +604,8 @@ In seguito è riportata la media dei livelli di annidamento dei vari moduli:
 \begin{itemize}
 \item \textbf{Cli}:1,78;
 \item \textbf{Driver}:1,56;
-\item \textbf{ActorSystem}:1,83;
+\item \textbf{ActorSystem}:1,83.
 \end{itemize}
-% TODO se possibile calcolarlo veramente, non riesco a trovare un tool.
 
 \newpage
 
