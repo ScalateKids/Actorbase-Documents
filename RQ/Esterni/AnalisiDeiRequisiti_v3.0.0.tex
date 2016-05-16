@@ -25,9 +25,9 @@
       \else
       \textbf{Versione} & 3.0.0\\
       \fi
-      \textbf{Redazione} & \multiLineCell[t]{Alberto De Agostini\\Andrea Giacomo Baldan\\Francesco Agostini\\Michael Munaro}\\
-      \textbf{Verifica} & \multiLineCell[t]{Andrea Giacomo Baldan\\Michael Munaro\\Marco Boseggia}\\
-      \textbf{Approvazione} & \multiLineCell[t]{Giacomo Vanin}\\
+      \textbf{Redazione} & \multiLineCell[t]{Andrea Giacomo Baldan}\\
+      \textbf{Verifica} & \multiLineCell[t]{Alberto De Agostini}\\
+      \textbf{Approvazione} & \multiLineCell[t]{Francesco Agostini}\\
       \textbf{Uso} & Esterno\\
       \textbf{Lista di Distribuzione} & \multiLineCell[t]{ScalateKids\\Prof. Tullio Vardanega\\Prof. Riccardo Cardin}\\
     \end{tabular}
@@ -48,6 +48,14 @@
   \begin{longtable}{| l | l | l | l | p{5cm} |}
     \hline
     Versione & Autore & Ruolo & Data & Descrizione \\
+    \hline
+    3.0.0 & Francesco Agostini & Analista & 2016-04-26 & Aggiornamento requisiti \\
+    \hline
+    2.1.0 & Alberto De Agostini & Verificatore & 2016-04-28 & Verifica incrementi \\
+    \hline
+    2.0.2 & Andrea Baldan & Analista & 2016-04-27 & Aggiornamento requisiti minimi sezione 2.4 \\
+    \hline
+    2.0.1 & Andrea Baldan & Analista & 2016-04-26 & Aggiornamento requisiti \\
     \hline
     2.0.0 & Giacomo Vanin & Responsabile & 2016-04-09 & Approvazione documento\\
     \hline
@@ -3969,501 +3977,501 @@ DEF3.8.3 & \multiLineCell{Funzionale\\Desiderabile} & Il \gloss{Driver} dovrà p
 I requisiti che non hanno test abbinati è stato previsto che
 saranno mappati successivamente dai test di unità.
 
-\begin{longtable}[H]{|l|p{4cm}|p{4cm}|}
+\begin{longtable}[H]{|l|p{4cm}|p{4cm}|p{4cm}|}
   \hline
   \textbf{Requisito} & \textbf{Test di sistema} & \textbf{Test di validazione} & \textbf{Test di unità}\\
   \hline
   OBF1 & TS.OBF1 &  & \\
   \hline
-  OBF1.1 & TS.OBF1.1 & TV1 & \\
+  OBF1.1 & TS.OBF1.1 & TV1 &\\
   \hline
   OBF1.1.1 & TS.OBF1.1.1 & &\\
   \hline
-  OBF1.1.1.1 & & TU.OBF1.1.1.1 &\\
+  OBF1.1.1.1 & & & TU.OBF1.1.1.1\\
   \hline
-  OBF1.1.1.1.1 & & TU.OBF1.1.1.1.1 &\\
+  OBF1.1.1.1.1 & & & TU.OBF1.1.1.1.1\\
   \hline
-  OBF1.1.1.1.2 & &  TU.OBF1.1.1.1.2 & \\
+  OBF1.1.1.1.2 & &  & TU.OBF1.1.1.1.2 \\
   \hline
-  OBF1.1.1.1.3 & &  TU.OBF1.1.1.1.3 & \\
+  OBF1.1.1.1.3 & &  & TU.OBF1.1.1.1.3 \\
   \hline
-  OBF1.1.10 & & TU.OBF1.1.10 & \\
+  OBF1.1.10 & & & TU.OBF1.1.10 \\
   \hline
-  OBF1.1.10.1 & TS.OBF1.1.10.1 & TV2 \\
+  OBF1.1.10.1 & TS.OBF1.1.10.1 & TV2  &\\
   \hline
-  OBF1.1.10.1.1 & & \\
+  OBF1.1.10.1.1 & & & TU.OBF1.1.10.1.1 \\
   \hline
-  OBF1.1.10.2 &  & \\
+  OBF1.1.10.2 &  & & TU.OBF1.1.10.1.2 \\
   \hline
-  OBF1.1.10.2.1 & TS.OBF1.1.10.2.1 & TV5 \\
+  OBF1.1.10.2.1 & TS.OBF1.1.10.2.1 & TV5  &\\
   \hline
-  OBF1.1.10.2.1.1 & & \\
+  OBF1.1.10.2.1.1 & & & TU.OBF1.1.10.2.1.1\\
   \hline
-  OBF1.1.10.2.2 & TS.OBF1.1.10.2.2 & TV6\\
+  OBF1.1.10.2.2 & TS.OBF1.1.10.2.2 & TV6 &\\
   \hline
-  OBF1.1.10.2.3 & TS.OBF1.1.10.2.3 & TV7\\
+  OBF1.1.10.2.3 & TS.OBF1.1.10.2.3 & TV7 &\\
   \hline
-  OBF1.1.10.2.3.1 & & \\
+  OBF1.1.10.2.3.1 & & & TU.OBF1.1.10.2.3.1 \\
   \hline
-  OBF1.1.10.2.3.2 & & \\
+  OBF1.1.10.2.3.2 & & & TU.OBF1.1.10.2.3.2 \\
   \hline
-  OBF1.1.10.2.4 & TS.OBF1.1.10.2.4 & TV8\\
+  OBF1.1.10.2.4 & TS.OBF1.1.10.2.4 & TV8 &\\
   \hline
-  OBF1.1.10.2.4.1 & & \\
+  OBF1.1.10.2.4.1 & & & TU.OBF1.1.10.2.4.1 \\
   \hline
-  OBF1.1.10.2.5 & TS.OBF1.1.10.2.5 & TV9\\
+  OBF1.1.10.2.5 & TS.OBF1.1.10.2.5 & TV9 &\\
   \hline
-  OBF1.1.10.2.5.1 & & \\
+  OBF1.1.10.2.5.1 & & & TU.OBF1.1.10.2.5.1 \\
   \hline
-  OBF1.1.10.2.5.2 & & \\
+  OBF1.1.10.2.5.2 & & & TU.OBF1.1.10.2.5.2 \\
   \hline
-  OBF1.1.10.2.5.3 & & \\
+  OBF1.1.10.2.5.3 & & & TU.OBF1.1.10.2.5.3 \\
   \hline
-  OBF1.1.10.2.5.4 & & \\
+  OBF1.1.10.2.5.4 & & & TU.OBF1.1.10.2.5.4 \\
   \hline
-  OBF1.1.10.2.6 & TS.OBF1.1.10.2.6 & TV10\\
+  OBF1.1.10.2.6 & TS.OBF1.1.10.2.6 & TV10 &\\
   \hline
-  OBF1.1.10.2.6.1 & & \\
+  OBF1.1.10.2.6.1 & & & TU.OBF1.1.10.2.6.1 \\
   \hline
-  OBF1.1.10.2.7 & TS.OBF1.1.10.2.7 & TV11\\
+  OBF1.1.10.2.7 & TS.OBF1.1.10.2.7 & TV11 &\\
   \hline
-  OBF1.1.10.3 & & \\
+  OBF1.1.10.3 & & & TU.OBF1.1.10.3 \\
   \hline
-  OBF1.1.10.3.1 & TS.OBF1.1.10.3.1 & TV12\\
+  OBF1.1.10.3.1 & TS.OBF1.1.10.3.1 & TV12 &\\
   \hline
-  OBF1.1.10.3.2 & TS.OBF1.1.10.3.2 & TV12\\
+  OBF1.1.10.3.2 & TS.OBF1.1.10.3.2 & TV12 &\\
   \hline
-  OBF1.1.10.3.3 & TS.OBF1.1.10.3.3 & \\
+  OBF1.1.10.3.3 & TS.OBF1.1.10.3.3 &  &\\
   \hline
-  OBF1.1.10.3.4 & TS.OBF1.1.10.3.4 & TV14\\
+  OBF1.1.10.3.4 & TS.OBF1.1.10.3.4 & TV14 &\\
   \hline
-  OBF1.1.10.3.5 & TS.OBF1.1.10.3.5 & \\
+  OBF1.1.10.3.5 & TS.OBF1.1.10.3.5 &  &\\
   \hline
-  OBF1.1.10.4 & TS.OBF1.1.10.4 & TV15 TV16 TV17 TV18\\
+  OBF1.1.10.4 & TS.OBF1.1.10.4 & TV15 TV16 TV17 TV18 &\\
   \hline
-  OBF1.1.10.5 & TS.OBF1.1.10.5 & TV19\\
+  OBF1.1.10.5 & TS.OBF1.1.10.5 & TV19 &\\
   \hline
-  OBF1.1.10.5.1 & & \\
+  OBF1.1.10.5.1 & & & TU.OBF1.1.10.5.1 \\
   \hline
-  OBF1.1.10.6 & TS.OBF1.1.10.6 & TV20\\
+  OBF1.1.10.6 & TS.OBF1.1.10.6 & TV20 &\\
   \hline
-  OBF1.1.10.7 & & \\
+  OBF1.1.10.7 & & & TU.OBF1.1.10.7 \\
   \hline
-  OBF1.1.10.7.1 & TS.OBF1.1.10.7.1 & TV21\\
+  OBF1.1.10.7.1 & TS.OBF1.1.10.7.1 & TV21 &\\
   \hline
-  OBF1.1.10.7.1.1 & & \\
+  OBF1.1.10.7.1.1 & & & TU.OBF1.1.10.7.1.1 \\
   \hline
-  OBF1.1.10.7.2 & TS.OBF1.1.10.7.2 & TV22\\
+  OBF1.1.10.7.2 & TS.OBF1.1.10.7.2 & TV22 &\\
   \hline
-  OBF1.1.10.7.2.1 & & \\
+  OBF1.1.10.7.2.1 & & & TU.OBF1.1.10.7.2.1 \\
   \hline
-  OBF1.1.10.7.3 & TS.OBF1.1.10.7.3 & TV23\\
+  OBF1.1.10.7.3 & TS.OBF1.1.10.7.3 & TV23 &\\
   \hline
-  OBF1.1.10.7.3.1 & & \\
+  OBF1.1.10.7.3.1 & & & TU.OBF1.1.10.7.3.1 \\
   \hline
-  OBF1.1.2 & & \\
+  OBF1.1.2 & & & TU.OBF1.1.2 \\
   \hline
-  OBF1.1.2.1 & & \\
+  OBF1.1.2.1 & & & TU.OBF1.1.2.1 \\
   \hline
-  OBF1.1.2.2 &  & \\
+  OBF1.1.2.2 &  & & TU.OBF1.1.2.2 \\
   \hline
-  OBF1.1.2.3 &  & \\
+  OBF1.1.2.3 &  & & TU.OBF1.1.2.3 \\
   \hline
-  OBF1.1.2.4 &  & \\
+  OBF1.1.2.4 &  & & TU.OBF1.1.2.4 \\
   \hline
-  OBF1.1.2.5 &  & \\
+  OBF1.1.2.5 &  & & TU.OBF1.1.2.5 \\
   \hline
-  OBF1.1.2.6 &  & \\
+  OBF1.1.2.6 &  & & TU.OBF1.1.2.6 \\
   \hline
-  OBF1.1.3 &  & \\
+  OBF1.1.3 &  & & TU.OBF1.1.3 \\
   \hline
-  OBF1.1.3.1 &  &\\
+  OBF1.1.3.1 &  & & TU.OBF1.1.3.1 \\
   \hline
-  OBF1.1.3.2 &  &\\
+  OBF1.1.3.2 &  & & TU.OBF1.1.3.2 \\
   \hline
-  OBF1.1.3.3 &  &\\
+  OBF1.1.3.3 &  & & TU.OBF1.1.3.3 \\
   \hline
-  OBF1.1.3.4 &  &\\
+  OBF1.1.3.4 &  & & TU.OBF1.1.3.4 \\
   \hline
-  OBF1.1.3.5 &  &\\
+  OBF1.1.3.5 &  & & TU.OBF1.1.3.5 \\
   % \hline
-  % OBF1.1.3.6 & &\\
+  % OBF1.1.3.6 & \\
   \hline
-  OBF1.1.3.7 &  &\\
+  OBF1.1.3.7 &  & & TU.OBF1.1.3.7 \\
   \hline
-  OBF1.1.3.8 &  &\\
+  OBF1.1.3.8 &  & & TU.OBF1.1.3.8 \\
   \hline
-  OBF1.1.3.9 &  &\\
+  OBF1.1.3.9 &  & & TU.OBF1.1.3.9 \\
   \hline
-  OBF1.1.4 &  &\\
+  OBF1.1.4 &  & & TU.OBF1.1.4 \\
   \hline
-  OBF1.1.4.1 &  &\\
+  OBF1.1.4.1 &  & & TU.OBF1.1.4.1 \\
   \hline
-  OBF1.1.4.2 &  &\\
+  OBF1.1.4.2 &  & & TU.OBF1.1.4.2 \\
   \hline
-  OBF1.1.4.3 &  &\\
+  OBF1.1.4.3 &  & & TU.OBF1.1.4.3 \\
   \hline
-  OBF1.1.4.4 &  &\\
+  OBF1.1.4.4 &  & & TU.OBF1.1.4.4 \\
   \hline
-  OBF1.1.4.5 &  &\\
+  OBF1.1.4.5 &  & & TU.OBF1.1.4.5 \\
   \hline
-  OBF1.1.5 &  &\\
+  OBF1.1.5 &  & & TU.OBF1.1.5 \\
   \hline
-  OBF1.1.5.1 &  &\\
+  OBF1.1.5.1 &  & & TU.OBF1.1.5.1 \\
   \hline
-  OBF1.1.5.2 &  &\\
+  OBF1.1.5.2 &  & & TU.OBF1.1.5.2 \\
   \hline
-  OBF1.1.5.3 &  &\\
+  OBF1.1.5.3 &  & & TU.OBF1.1.5.3 \\
   \hline
-  OBF1.1.5.4 &  &\\
+  OBF1.1.5.4 &  & & TU.OBF1.1.5.4 \\
   \hline
-  OBF1.1.5.5 &  &\\
+  OBF1.1.5.5 &  & & TU.OBF1.1.5.5 \\
   \hline
-  OBF1.1.6 & &\\
+  OBF1.1.6 & & & TU.OBF1.1.6 \\
   \hline
-  OBF1.1.6.1 &  &\\
+  OBF1.1.6.1 &  & & TU.OBF1.1.6.1 \\
   \hline
-  OBF1.1.6.2 &  &\\
+  OBF1.1.6.2 &  & & TU.OBF1.1.6.2 \\
   \hline
-  DEF1.1.7 & &\\
+  DEF1.1.7 & & & TU.OBF1.1.7 \\
   \hline
-  DEF1.1.7.1 & &\\
+  DEF1.1.7.1 & & & TU.OBF1.1.7.1 \\
   \hline
-  DEF1.1.7.2 & &\\
+  DEF1.1.7.2 & & & TU.OBF1.1.7.2 \\
   \hline
-  DEF1.1.8 & &\\
+  DEF1.1.8 & & & TU.OBF1.1.8 \\
   \hline
-  DEF1.1.8.1 & &\\
+  DEF1.1.8.1 & & & TU.OBF1.1.8.1 \\
   \hline
-  OBF1.1.8.2 &  &\\
+  OBF1.1.8.2 &  & & TU.OBF1.1.8.2 \\
   \hline
-  OBF1.1.9 &  &\\
+  OBF1.1.9 &  & & TU.OBF1.1.9 \\
   \hline
-  OBF1.1.9.1 &  &\\
+  OBF1.1.9.1 &  & & TU.OBF1.1.9.1 \\
   \hline
-  OBF1.1.9.2 &  &\\
+  OBF1.1.9.2 &  & & TU.OBF1.1.9.2 \\
   \hline
-  OBF1.1.9.3 &  &\\
+  OBF1.1.9.3 &  & & TU.OBF1.1.9.3 \\
   \hline
-  OBF1.1.9.4 &  &\\
+  OBF1.1.9.4 &  & & TU.OBF1.1.9.4 \\
   \hline
-  OBF1.1.9.5 &  &\\
+  OBF1.1.9.5 &  & & TU.OBF1.1.9.5 \\
   \hline
-  OBF1.1.9.6 &  &\\
+  OBF1.1.9.6 &  & & TU.OBF1.1.9.6 \\
   \hline
-  OBF1.1.9.7 &  &\\
+  OBF1.1.9.7 &  & & TU.OBF1.1.9.7 \\
   \hline
-  OBF1.1.9.8 &  &\\
+  OBF1.1.9.8 &  & & TU.OBF1.1.9.8  \\
   \hline
-  OBF1.1.9.9 &  &\\
+  OBF1.1.9.9 &  & & TU.OBF1.1.9.9 \\
   \hline
-  OBF2 & TS.OBF2 & \\
+  OBF2 & TS.OBF2 &  &\\
   \hline
-  OBF2.1 & TS.OBF2.1 &\\
+  OBF2.1 & TS.OBF2.1 & &\\
   \hline
-  OBF2.1.1 & TS.OBF2.1.1 & TV2.1\\
+  OBF2.1.1 & TS.OBF2.1.1 & TV2.1 &\\
   \hline
-  OBF2.1.1.1 & & TV2.2\\
+  OBF2.1.1.1 & & TV2.2 &\\
   \hline
-  OBF2.1.1.2 & & TV2.2\\
+  OBF2.1.1.2 & & TV2.2 &\\
   \hline
-  OBF2.1.1.3 & & \\
+  OBF2.1.1.3 & & & TU.OBF2.1.1.3  \\
   \hline
-  OBF2.1.2 & & \\
+  OBF2.1.2 & &  & TU.OBF2.1.2 \\
   \hline
-  OBF2.1.2.1 & TS.OBF2.1.2.1 & TV5.1\\
+  OBF2.1.2.1 & TS.OBF2.1.2.1 & TV5.1 &\\
   \hline
-  OBF2.1.2.1.1 & & TV5.1\\
+  OBF2.1.2.1.1 & & TV5.1 &\\
   \hline
-  OBF2.1.2.2 & & TV6.1\\
+  OBF2.1.2.2 & & TV6.1 &\\
   \hline
-  OBF2.1.2.3 & TS.OBF2.1.2.3 & TV8.1\\
+  OBF2.1.2.3 & TS.OBF2.1.2.3 & TV8.1 &\\
   \hline
-  OBF2.1.2.3.1 & & TV8.2\\
+  OBF2.1.2.3.1 & & TV8.2 &\\
   \hline
-  OBF2.1.2.4 & TS.OBF2.1.2.4 & TV7.1\\
+  OBF2.1.2.4 & TS.OBF2.1.2.4 & TV7.1 &\\
   \hline
-  OBF2.1.2.4.1 & & TV7.2\\
+  OBF2.1.2.4.1 & & TV7.2 &\\
   \hline
-  OBF2.1.2.4.2 & & TV7.2\\
+  OBF2.1.2.4.2 & & TV7.2 &\\
   \hline
-  OBF2.1.2.5 & TS.OBF2.1.2.5 & TV9.1\\
+  OBF2.1.2.5 & TS.OBF2.1.2.5 & TV9.1 &\\
   \hline
-  OBF2.1.2.5.1 & & TV9.2\\
+  OBF2.1.2.5.1 & & TV9.2 &\\
   \hline
-  OBF2.1.2.5.2 & & TV9.2\\
+  OBF2.1.2.5.2 & & TV9.2 &\\
   \hline
-  OBF2.1.2.5.3 & & TV9.2\\
+  OBF2.1.2.5.3 & & TV9.2 &\\
   \hline
-  OBF2.1.2.6 & TS.OBF2.1.2.6 & TV10.1\\
+  OBF2.1.2.6 & TS.OBF2.1.2.6 & TV10.1 &\\
   \hline
-  OBF2.1.2.6.1 & & TV10.2\\
+  OBF2.1.2.6.1 & & TV10.2 &\\
   \hline
-  OBF2.1.2.6.2 & & TV10.2\\
+  OBF2.1.2.6.2 & & TV10.2 &\\
   \hline
-  DEF2.1.2.7 & TS.OBF2.1.2.7 & TV11.1\\
+  DEF2.1.2.7 & TS.OBF2.1.2.7 & TV11.1 &\\
   \hline
-  DEF2.1.2.7.1 & & TV11.2\\
+  DEF2.1.2.7.1 & & TV11.2 &\\
   \hline
-  OBF2.1.2.8 &  &\\
+  OBF2.1.2.8 &  &  & TU.OBF2.1.2.8 \\
   \hline
-  OBF2.1.2.9 &  &\\
+  OBF2.1.2.9 &  &  & TU.OBF2.1.2.9 \\
   \hline
-  OBF2.1.2.10 &  &\\
+  OBF2.1.2.10 &  &  & TU.OBF2.1.2.10 \\
   \hline
-  OBF2.1.2.11 &  &\\
+  OBF2.1.2.11 &  &  & TU.OBF2.1.2.11 \\
   \hline
-  OBF2.1.2.12 &  &\\
+  OBF2.1.2.12 &  &  & TU.OBF2.1.2.12 \\
   \hline
-  OBF2.1.2.13 &  &\\
+  OBF2.1.2.13 &  &  & TU.OBF2.1.2.13 \\
   \hline
-  OBF2.1.2.14 &  &\\
+  OBF2.1.2.14 &  &  & TU.OBF2.1.2.14 \\
   \hline
-  OBF2.1.3 &  &\\
+  OBF2.1.3 &  &  & TU.OBF2.1.3 \\
   \hline
-  OBF2.1.3.1 & TS.OBF2.1.3.1 & TV12.1\\
+  OBF2.1.3.1 & TS.OBF2.1.3.1 & TV12.1 &\\
   \hline
-  OBF2.1.3.1.1 & TS.OBF2.1.3.1.1 & TV12.1\\
+  OBF2.1.3.1.1 & TS.OBF2.1.3.1.1 & TV12.1 &\\
   \hline
-  OBF2.1.3.1.1.1 & & TV12.2\\
+  OBF2.1.3.1.1.1 & & TV12.2 &\\
   \hline
-  OBF2.1.3.1.1.2 & & TV12.2\\
+  OBF2.1.3.1.1.2 & & TV12.2 &\\
   \hline
-  OBF2.1.3.1.1.3 & & TV12.2\\
+  OBF2.1.3.1.1.3 & & TV12.2 &\\
   \hline
-  OBF2.1.3.1.1.4 & & TV12.2\\
+  OBF2.1.3.1.1.4 & & TV12.2 &\\
   \hline
-  OBF2.1.3.1.1.5 & & TV12.2\\
+  OBF2.1.3.1.1.5 & & TV12.2 &\\
   \hline
-  DEF2.1.3.1.2 & TS.OBF2.1.3.1.2 & TV13.1\\
+  DEF2.1.3.1.2 & TS.OBF2.1.3.1.2 & TV13.1 &\\
   \hline
-  DEF2.1.3.1.2.1 & & TV13.2\\
+  DEF2.1.3.1.2.1 & & TV13.2 &\\
   \hline
-  DEF2.1.3.2 & &\\ %errore
+  DEF2.1.3.2 & &  & TU.OBF2.1.3.2 \\ %errore
   \hline
-  DEF2.1.3.3 & &\\ %errore
+  DEF2.1.3.3 & &  & TU.OBF2.1.3.3 \\ %errore
   \hline
-  OBF2.1.3.4 & &\\ %errore
+  OBF2.1.3.4 & &  & TU.OBF2.1.3.4 \\ %errore
   \hline
-  OBF2.1.3.5 & &\\ %errore
+  OBF2.1.3.5 & & & TU.OBF2.1.3.5 \\ %errore
   \hline
-  OBF2.1.3.6 & TS.OBF2.1.3.6 & TV14.1\\
+  OBF2.1.3.6 & TS.OBF2.1.3.6 & TV14.1 &\\
   \hline
-  OBF2.1.3.6.1 & & TV14.2\\
+  OBF2.1.3.6.1 & & TV14.2 &\\
   \hline
-  OBF2.1.3.6.2 & & TV14.2\\
+  OBF2.1.3.6.2 & & TV14.2 &\\
   \hline
-  DEF2.1.4 & TS.DEF2.1.4 & TV3 TV3.1\\
+  DEF2.1.4 & TS.DEF2.1.4 & TV3 TV3.1 &\\
   \hline
-  DEF2.1.5 & TS.DEF2.1.5 & TV4 TV4.1\\
+  DEF2.1.5 & TS.DEF2.1.5 & TV4 TV4.1 &\\
   \hline
-  DEF2.1.5.1 & & TV4.2\\
+  DEF2.1.5.1 & & TV4.2 &\\
   \hline
-  OBF2.1.6 & TS.OBF2.1.6 & TV15.1 TV16.1 TV17.1 TV18.1\\
+  OBF2.1.6 & TS.OBF2.1.6 & TV15.1 TV16.1 TV17.1 TV18.1 &\\
   \hline
-  OBF2.1.6.1 & & TV15.2 TV16.2 TV17.2 TV18.2\\
+  OBF2.1.6.1 & & TV15.2 TV16.2 TV17.2 TV18.2 &\\
   \hline
-  OBF2.1.6.2 & & TV15.2 TV16.2 TV17.2 TV18.2\\
+  OBF2.1.6.2 & & TV15.2 TV16.2 TV17.2 TV18.2 &\\
   \hline
-  OBF2.1.7 & TS.OBF2.1.7 & TV19.1\\
+  OBF2.1.7 & TS.OBF2.1.7 & TV19.1 &\\
   \hline
-  OBF2.1.7.1 & & TV19.2\\
+  OBF2.1.7.1 & & TV19.2 &\\
   \hline
-  OBF2.1.7.2 & & TV19.2\\
+  OBF2.1.7.2 & & TV19.2 &\\
   \hline
-  OBF2.1.7.3 & & TV19.2\\
+  OBF2.1.7.3 & & TV19.2 &\\
   \hline
-  OBF2.1.7.4 & &\\ %errore
+  OBF2.1.7.4 & & & TU.OBF2.1.7.4 \\ %errore
   \hline
-  OBF2.1.7.5 & &\\ % errore
+  OBF2.1.7.5 & &  & TU.OBF2.1.7.5 \\ % errore
   \hline
-  OBF2.1.7.6 & &\\ % errore
+  OBF2.1.7.6 & &  & TU.OBF2.1.7.6 \\ % errore
   \hline
-  OBF2.1.8 & TS.OBF2.1.8 & TV20.1\\
+  OBF2.1.8 & TS.OBF2.1.8 & TV20.1 &\\
   \hline
-  OBF2.1.9 & &\\
+  OBF2.1.9 & &  & TU.OBF2.1.9 \\
   \hline
-  OBF2.1.9.1 & TS.OBF2.1.9.1 & TV21.1\\
+  OBF2.1.9.1 & TS.OBF2.1.9.1 & TV21.1 &\\
   \hline
-  OBF2.1.9.1.1 & & TV21.2\\
+  OBF2.1.9.1.1 & & TV21.2 &\\
   \hline
-  OBF2.1.9.1.2 & & TV21.2\\
+  OBF2.1.9.1.2 & & TV21.2 &\\
   \hline
-  OBF2.1.9.2 & TS.OBF2.1.9.2 & TV22.1\\
+  OBF2.1.9.2 & TS.OBF2.1.9.2 & TV22.1 &\\
   \hline
-  OBF2.1.9.2.1 & & TV22.2\\
+  OBF2.1.9.2.1 & & TV22.2 &\\
   \hline
-  OBF2.1.9.2.2 & & TV22.2\\
+  OBF2.1.9.2.2 & & TV22.2 &\\
   \hline
-  OBF2.1.9.3 & TS.OBF2.1.9.3 & TV23.1\\
+  OBF2.1.9.3 & TS.OBF2.1.9.3 & TV23.1 &\\
   \hline
-  OBF2.1.9.3.1 & & TV23.2\\
+  OBF2.1.9.3.1 & & TV23.2 &\\
   \hline
-  OBF2.1.9.3.2 & & TV23.2\\
+  OBF2.1.9.3.2 & & TV23.2 &\\
   \hline
-  OBF2.1.9.4 & &\\ % errore
+  OBF2.1.9.4 & & & TU.OBF2.1.9.4 \\ % errore
   \hline
-  OBF2.1.9.5 & &\\ % errore
+  OBF2.1.9.5 & & & TU.OBF2.1.9.5 \\ % errore
   \hline
-  OBF2.1.9.6 & &\\ % errore
+  OBF2.1.9.6 & & & TU.OBF2.1.9.6 \\ % errore
   \hline
-  DEF3 & TS.DEF3 & \\
+  DEF3 & TS.DEF3 &  &\\
   \hline
-  DEF3.1 & TS.DEF3.1 & TB2.1\\
+  DEF3.1 & TS.DEF3.1 & TB2.1 &\\
   \hline
-  DEF3.1.1 & & TV2.2\\
+  DEF3.1.1 & & TV2.2 &\\
   \hline
-  DEF3.1.2 & & TV2.2\\
+  DEF3.1.2 & & TV2.2 &\\
   \hline
-  DEF3.1.3 & &\\
+  DEF3.1.3 & & & TU.DEF3.1.3\\
   \hline
-  DEF3.2 & &\\
+  DEF3.2 & & & TU.DEF3.2\\
   \hline
-  DEF3.2.1 & TS.DEF3.2.1 & TV5.1 \\
+  DEF3.2.1 & TS.DEF3.2.1 & TV5.1  &\\
   \hline
-  DEF3.2.1.1 & & TV5.2\\
+  DEF3.2.1.1 & & TV5.2 &\\
   \hline
-  DEF3.2.1.2 & &\\
+  DEF3.2.1.2 & & & TU.DEF3.2.1.2\\
   \hline
-  DEF3.2.2 & TS.DEF3.2.2 & TV6.1\\
+  DEF3.2.2 & TS.DEF3.2.2 & TV6.1 &\\
   \hline
-  DEF3.2.3 & TS.DEF3.2.3 & TV8.1\\
+  DEF3.2.3 & TS.DEF3.2.3 & TV8.1 &\\
   \hline
-  DEF3.2.3.1 & & TV8.2\\
+  DEF3.2.3.1 & & TV8.2 &\\
   \hline
-  DEF3.2.3.2 & & \\
+  DEF3.2.3.2 & & & TU.DEF3.2.3.2\\
   \hline
-  DEF3.2.4 & TS.DEF3.2.4 & TV7.1\\
+  DEF3.2.4 & TS.DEF3.2.4 & TV7.1 &\\
   \hline
-  DEF3.2.4.1 & & TV7.2\\
+  DEF3.2.4.1 & & TV7.2 &\\
   \hline
-  DEF3.2.4.2 & & TV7.2\\
+  DEF3.2.4.2 & & TV7.2 &\\
   \hline
-  DEF3.2.4.3 & & \\
+  DEF3.2.4.3 & & & TU.DEF3.2.4.3\\
   \hline
-  DEF3.2.4.4 & & \\
+  DEF3.2.4.4 & & & TU.DEF3.2.4.4\\
   \hline
-  DEF3.2.5 & TS.DEF3.2.5 & TV9.1\\
+  DEF3.2.5 & TS.DEF3.2.5 & TV9.1 &\\
   \hline
-  DEF3.2.5.1 & & TV9.2\\
+  DEF3.2.5.1 & & TV9.2 &\\
   \hline
-  DEF3.2.5.2 & & TV9.2\\
+  DEF3.2.5.2 & & TV9.2 &\\
   \hline
-  DEF3.2.5.3 & & \\
+  DEF3.2.5.3 & & & TU.DEF3.2.5.3\\
   \hline
-  DEF3.2.5.4 & & \\
+  DEF3.2.5.4 & & & TU.DEF3.5.4\\
   \hline
-  DEF3.2.5.5 & & TV9.2\\
+  DEF3.2.5.5 & & TV9.2 &\\
   \hline
-  DEF3.2.6 & TS.DEF3.2.6 & TV10.1\\
+  DEF3.2.6 & TS.DEF3.2.6 & TV10.1 &\\
   \hline
-  DEF3.2.6.1 & & TV10.2\\
+  DEF3.2.6.1 & & TV10.2 &\\
   \hline
-  DEF3.2.6.2 & & TV10.2\\
+  DEF3.2.6.2 & & TV10.2 &\\
   \hline
-  DEF3.2.6.3 & & \\
+  DEF3.2.6.3 & & & TU.DEF3.2.6.3\\
   \hline
-  DEF3.2.7 & TS.DEF3.2.7 & TV11.1\\
+  DEF3.2.7 & TS.DEF3.2.7 & TV11.1 &\\
   \hline
-  DEF3.2.7.1 & & TV11.2\\
+  DEF3.2.7.1 & & TV11.2 &\\
   \hline
-  DEF3.2.7.2 & & TV11.2\\
+  DEF3.2.7.2 & & TV11.2 &\\
   \hline
-  DEF3.3 & & \\
+  DEF3.3 & & & TU.DEF3.3\\
   \hline
-  DEF3.3.1 & TS.DEF3.3.1 & TV12.1\\
+  DEF3.3.1 & TS.DEF3.3.1 & TV12.1 &\\
   \hline
-  DEF3.3.1.1 & TS.DEF3.3.1.1 & TV12.1\\
+  DEF3.3.1.1 & TS.DEF3.3.1.1 & TV12.1 &\\
   \hline
-  DEF3.3.1.1.1 & & TV12.2\\
+  DEF3.3.1.1.1 & & TV12.2 &\\
   \hline
-  DEF3.3.1.1.2 & & TV12.2\\
+  DEF3.3.1.1.2 & & TV12.2 &\\
   \hline
-  DEF3.3.1.1.3 & & TV12.2\\
+  DEF3.3.1.1.3 & & TV12.2 &\\
   \hline
-  DEF3.3.1.1.4 & & TV12.2\\
+  DEF3.3.1.1.4 & & TV12.2 &\\
   \hline
-  DEF3.3.1.2 & TS.DEF3.3.1.2 & TV13.1\\
+  DEF3.3.1.2 & TS.DEF3.3.1.2 & TV13.1 &\\
   \hline
-  DEF3.3.1.2.1 & & TV13.2\\
+  DEF3.3.1.2.1 & & TV13.2 &\\
   \hline
-  DEF3.3.1.2.2 & & \\
+  DEF3.3.1.2.2 & & & TU.DEF3.3.1.2.2\\
   \hline
-  DEF3.3.1.2.3 & & \\
+  DEF3.3.1.2.3 & & & TU.DEF3.3.1.2.3\\
   \hline
-  DEF3.3.1.4 & & \\
+  DEF3.3.1.4 & & & TU.DEF3.3.1.4\\
   \hline
-  DEF3.3.2 & TS.DEF3.3.2 & TV14.1\\
+  DEF3.3.2 & TS.DEF3.3.2 & TV14.1 &\\
   \hline
-  DEF3.3.2.1 & & TV14.2\\
+  DEF3.3.2.1 & & TV14.2 &\\
   \hline
-  DEF3.3.2.2 & & TV14.2\\
+  DEF3.3.2.2 & & TV14.2 &\\
   \hline
-  DEF3.3.2.3 & & \\ %eccezione
+  DEF3.3.2.3 & & & TU.DEF3.3.2.3\\ %eccezione
   \hline
-  DEF3.4 & TS.DEF3.4 & TV15.1 TV16.1 TV17.1 TV18.1\\
+  DEF3.4 & TS.DEF3.4 & TV15.1 TV16.1 TV17.1 TV18.1 &\\
   \hline
-  DEF3.4.1 & & TV15.2 TV16.2 TV17.2 TV18.2\\
+  DEF3.4.1 & & TV15.2 TV16.2 TV17.2 TV18.2 &\\
   \hline
-  DEF3.4.2 & & TV15.2 TV16.2 TV17.2 TV18.2\\
+  DEF3.4.2 & & TV15.2 TV16.2 TV17.2 TV18.2 &\\
   \hline
-  DEF3.5 & TS.DEF3.5 & \\
+  DEF3.5 & TS.DEF3.5 &  & \\
   \hline
-  DEF3.6 & & \\
+  DEF3.6 & & & TU.DEF3.6\\
   \hline
-  DEF3.6.1 & TS.DEF3.6.1 & TV21.1\\
+  DEF3.6.1 & TS.DEF3.6.1 & TV21.1 &\\
   \hline
-  DEF3.6.1.1 & & TV21.2\\
+  DEF3.6.1.1 & & TV21.2 &\\
   \hline
-  DEF3.6.2 & TS.DEF3.6.2 & TV22.1\\
+  DEF3.6.2 & TS.DEF3.6.2 & TV22.1 &\\
   \hline
-  DEF3.6.2.1 & & TV22.2\\
+  DEF3.6.2.1 & & TV22.2 &\\
   \hline
-  DEF3.6.3 & TS.DEF3.6.3 & TV23.1\\
+  DEF3.6.3 & TS.DEF3.6.3 & TV23.1 &\\
   \hline
-  DEF3.6.3.1 & & TV23.2\\
+  DEF3.6.3.1 & & TV23.2 &\\
   \hline
-  DEF3.6.4 & & \\ % eccezione
+  DEF3.6.4 & & & TU.DEF3.6.4\\ % eccezione
   \hline
-  DEF3.6.5 & & \\ % eccezione
+  DEF3.6.5 & & & TU.DEF3.6.5\\ % eccezione
   \hline
-  DEF3.6.6 & & \\ % eccezione
+  DEF3.6.6 & & & TU.DEF3.6.6\\ % eccezione
   \hline
-  DEF3.7 & TS.DEF3.7 & TV19.1\\
+  DEF3.7 & TS.DEF3.7 & TV19.1 &\\
   \hline
-  DEF3.7.1 & & TV19.2\\
+  DEF3.7.1 & & TV19.2 &\\
   \hline
-  DEF3.7.2 & & TV19.2\\
+  DEF3.7.2 & & TV19.2 &\\
   \hline
-  DEF3.7.3 & & \\
+  DEF3.7.3 & & & TU.DEF3.7.3\\
   \hline
-  DEF3.7.4 & & \\
+  DEF3.7.4 & & & TU.DEF3.7.4\\
   \hline
-  DEF3.8 & TS.DEF3.8 & \\
+  DEF3.8 & TS.DEF3.8 & & \\
   \hline
-  DEF3.8.1 & & \\
+  DEF3.8.1 & & & TU.DEF3.8.1\\
   \hline
-  DEF3.8.2 & & \\
+  DEF3.8.2 & & & TU.DEF3.8.2\\
   \hline
-  DEF3.8.3 & & \\
+  DEF3.8.3 & & & TU.DEF3.8.3\\
   \hline
-  OBV4 & TS.OBV4 & \\
+  OBV4 & TS.OBV4 & & \\
   \hline
-  OBV5 & TS.OB5 & \\
+  OBV5 & TS.OB5 & & \\
   \hline
-  OBV6 & TS.OBV6 & \\
+  OBV6 & TS.OBV6 & & \\
   \hline
-  OBV7 & TS.OBV7 & \\
+  OBV7 & TS.OBV7 & & \\
   \hline
-  DEV8 & TS.DEV8 & \\
+  DEV8 & TS.DEV8 & & \\
   \hline
-  DEV9 & TS.DEV9 & \\
+  DEV9 & TS.DEV9 & & \\
   \hline
-  OBQ10 & TS.OBQ10 & \\
+  OBQ10 & TS.OBQ10 & & \\
   \hline
-  OBQ11 & TS.OBQ11 & \\
+  OBQ11 & TS.OBQ11 & & \\
   \hline
-  OBQ12 & TS.OBQ12 & \\
+  OBQ12 & TS.OBQ12 & & \\
   \hline
 \end{longtable}
 

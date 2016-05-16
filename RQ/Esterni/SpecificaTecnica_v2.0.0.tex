@@ -28,8 +28,8 @@
       \else
       \textbf{Versione} & 2.0.0\\
       \fi
-      \textbf{Redazione} & \multiLineCell[t]{Alberto De Agostini\\Andrea Giacomo Baldan\\Davide Trevisan\\Francesco Agostini\\Giacomo Vanin\\Marco Boseggia}\\
-      \textbf{Verifica} & \multiLineCell[t]{Alberto De Agostini\\Andrea Giacomo Baldan\\Davide Trevisan\\Michael Munaro}\\
+      \textbf{Redazione} & \multiLineCell[t]{Andrea Giacomo Baldan\\Giacomo Vanin\\Marco Boseggia}\\
+      \textbf{Verifica} & \multiLineCell[t]{Alberto De Agostini\\Davide Trevisan\\Michael Munaro}\\
       \textbf{Approvazione} & \multiLineCell[t]{Marco Boseggia}\\
       \textbf{Uso} & Esterno\\
       \textbf{Lista di Distribuzione} & \multiLineCell[t]{ScalateKids\\Prof. Tullio Vardanega\\Prof. Riccardo Cardin}\\
@@ -52,21 +52,23 @@
     \hline
     Versione & Autore & Ruolo & Data & Descrizione \\
     \hline
-    1.4.0 & & & 2016-05-03 & Verifica sezione 4.25 e relative sotto-sezioni\\
+    2.0.0 & Francesco Agostini & Responsabile & 2016-05-16 & Approvazione documento\\
     \hline
-    1.3.1 & & & 2016-05-02 & Incremento sezione 4.25 e relative sotto-sezioni\\
+    1.4.0 & Alberto De Agostini & Verificatore & 2016-05-03 & Verifica sezione 4.25 e relative sotto-sezioni\\
     \hline
-    1.3.0 & & & 2016-04-30 & Verifica sezione 4.24 e relative sotto-sezioni\\
+    1.3.1 & Marco Boseggia & Progettista & 2016-05-02 & Incremento sezione 4.25 e relative sotto-sezioni\\
     \hline
-    1.2.1 & & & 2016-04-29 & Incremento sezione 4.24 e relative sotto-sezioni\\
+    1.3.0 & Davide Trevisan & Verificatore & 2016-04-30 & Verifica sezione 4.24 e relative sotto-sezioni\\
     \hline
-    1.2.0 & & & 2016-04-28 & Verifica sezione 4.23 e relative sotto-sezioni\\
+    1.2.1 & Andrea Giacomo Baldan & Progettista & 2016-04-29 & Incremento sezione 4.24 e relative sotto-sezioni\\
     \hline
-    1.1.0 & & & 2016-04-28 & Verifica sezione 4.22 e sotto-sezione 4.22.4\\
+    1.2.0 & Michael Munaro & Verificatore & 2016-04-28 & Verifica sezione 4.23 e relative sotto-sezioni\\
     \hline
-    1.0.2 & & & 2016-04-28 & Incremento sezione 4.23 e relative sotto-sezioni\\
+    1.1.0 & Davide Trevisan & Verificatore & 2016-04-28 & Verifica sezione 4.22 e sotto-sezione 4.22.4\\
     \hline
-    1.0.1 & & & 2016-04-27 & Incremento sezione Driver 4.22 e sotto-sezione 4.22.4\\
+    1.0.2 & Giacomo Vanin & Progettista & 2016-04-28 & Incremento sezione 4.23 e relative sotto-sezioni\\
+    \hline
+    1.0.1 & Marco Boseggia & Progettista & 2016-04-27 & Incremento sezione Driver 4.22 e sotto-sezione 4.22.4\\
     \hline
     1.0.0 & Marco Boseggia & Responsabile & 2016-04-08 & Approvazione documento\\
     \hline
@@ -258,12 +260,12 @@ e i due termini verranno quindi usati come sinonimi.\\
 
 Macroscopicamente il sistema si suddivide in due componenti principali,
 assimilabili ad un paradigma \gloss{Client}-\gloss{Server}, il sistema ad attori dove risiedono
-la struttura della base di dati ed un \gloss{server} TCP (Transmission Control Protocol)
+la struttura della base di dati ed un \gloss{server} HTTP (Hyper Text Transport Protocol)
 pronto a ricevere comandi dall'esterno rappresentano la componente \gloss{server}, la
 Command Line Interface (\gloss{CLI}) rappresenta la componente \gloss{client} mediante la quale
 è possibile inviare comandi al sistema e ricevere l'output prodotto da essi.
 Essa farà uso della componente \gloss{driver} per comunicare con il sistema lato
-\gloss{server} mediante il protocollo di comunicazione testuale \hyperref[sec:RESP]{RESP}.\\
+\gloss{server} mediante il protocollo di comunicazione REST.
 
 \begin{figure}[H]
   \begin{center}
@@ -291,7 +293,7 @@ generale \textbf{actorbase}.
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/Server.png}
+    \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/Architettura-AltoLivello.png}
     \caption{Diagramma componenti principali}
   \end{center}
 \end{figure}
@@ -319,7 +321,7 @@ Rappresentano le tre macro-componenti del sistema.
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.9\textwidth,keepaspectratio]{RP/Actorsystem.png}
+    \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/Actorsystem.png}
     \caption{Actorsystem, visione generale}
   \end{center}
 \end{figure}
@@ -487,8 +489,8 @@ getter e un meotodo per il confronto con un altro oggetto ActorbaseCollection.
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=1.0\textwidth,keepaspectratio]{RP/Clientactor.png}
-    \caption{Clientactor e interazioni con main e package serialization}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/Clientactor.png}
+    \caption{ACtorsystem: package Clientactor}
   \end{center}
 \end{figure}
 
@@ -616,6 +618,13 @@ Questa classe inoltre si occupa di capire che tipo di richiesta è stata fatta d
 
 \subsection{actorbase::actorsystem::clientactor::messages}
 \label{sec:actorbase::actorsystem::clientactor::messages}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.6\textwidth,keepaspectratio]{RQ/classiDiag/messages-client.png}
+    \caption{Actorsystem: package messages del clientactor}
+  \end{center}
+\end{figure}
 
 \subsubsection{Descrizione}
 
@@ -793,6 +802,13 @@ Questa classe viene utilizzata per effettuare il salvataggio su filesystem del
 \subsection{actorbase::actorsystem::warehouseman::messages}
 \label{sec:actorbase::actorsystem::warehouseman::messages}
 
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.6\textwidth,keepaspectratio]{RQ/classiDiag/messages-ware.png}
+    \caption{Actorsystem: package messages del warehouseman}
+  \end{center}
+\end{figure}
+
 \subsubsection{Descrizione}
 
 \gloss{Package} che racchiude tutti i messaggi che gli attori di tipo
@@ -930,6 +946,13 @@ Questa classe viene utilizzata per gestire le richieste ricevute al
 
 \subsection{actorbase::actorsystem::main::messages}
 \label{sec:actorbase::actorsystem::main::messages}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.6\textwidth,keepaspectratio]{RQ/classiDiag/messages-main.png}
+    \caption{Actorsystem: package messages del main}
+  \end{center}
+\end{figure}
 
 \subsubsection{Descrizione}
 \gloss{Package} che racchiude tutti i messaggi che gli attori di tipo
@@ -1172,6 +1195,13 @@ Questa classe viene utilizzata per tener traccia degli attori di tipo
 \subsection{actorbase::actorsystem::userfinder::messages}
 \label{sec:actorbase::actorsystem::userfinder::messages}
 
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.6\textwidth,keepaspectratio]{RQ/classiDiag/messages-uf.png}
+    \caption{Actorsystem: package messages dello userfinder}
+  \end{center}
+\end{figure}
+
 \subsubsection{Descrizione}
 \gloss{Package} che contiene tutti i messaggi che possono essere ricevuti da
 \hyperref[sec:actorbase::actorsystem::userfinder::Userfinder]{actorbase::actorsystem::userfinder::Userfinder}.
@@ -1330,6 +1360,13 @@ Questa classe viene utilizzata per salvare gli utenti e i loro dati nel \gloss{d
 
 \subsection{actorbase::actorsystem::userkeeper::messages}
 \label{sec:actorbase::actorsystem::userkeeper::messages}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.6\textwidth,keepaspectratio]{RQ/classiDiag/messages-uk.png}
+    \caption{Actorsystem: package messages dello userkeepern}
+  \end{center}
+\end{figure}
 
 \subsubsection{Descrizione}
 
@@ -1519,6 +1556,13 @@ Questa classe viene utilizzata per tener traccia degli attori di tipo
 \subsection{actorbase::actorsystem::storefinder::messages}
 \label{sec:actorbase::actorsystem::storefinder::messages}
 
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.6\textwidth,keepaspectratio]{RQ/classiDiag/messages-sf.png}
+    \caption{Actorsystem: package messages dello storefinder}
+  \end{center}
+\end{figure}
+
 \subsubsection{Descrizione}
 
 \gloss{Package} che contiene tutti i messaggi che possono essere ricevuti da
@@ -1555,7 +1599,7 @@ nella sua struttura dati.
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/ack-main.png}
+    \includegraphics[width=0.1\textwidth,keepaspectratio]{RQ/classiDiag/ack-main.png}
     \caption{Classe actorsystem::storefinder::messages::Ack}
   \end{center}
 \end{figure}
@@ -1715,6 +1759,13 @@ Questa classe viene utilizzata per salvare nel \gloss{database} gli item.
 \subsection{actorbase::actorsystem::storekeeper::messages}
 \label{sec:actorbase::actorsystem::storekeeper::messages}
 
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.6\textwidth,keepaspectratio]{RQ/classiDiag/messages-sk.png}
+    \caption{Actorsystem: package messages dello storekeeper}
+  \end{center}
+\end{figure}
+
 \subsubsection{Descrizione}
 
 \gloss{Package} che contiene tutti i messaggi che possono essere
@@ -1861,7 +1912,7 @@ per il salvataggio dei propri dati su disco.
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.8\textwidth,keepaspectratio]{RP/manager.png}
+    \includegraphics[width=0.8\textwidth,keepaspectratio]{RQ/manager.png}
     \caption{Manager, visione generale del package}
   \end{center}
 \end{figure}
@@ -1906,6 +1957,13 @@ e \hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{Storefinder}.
 
 \subsection{actorbase::actorsystem::manager::messages}
 \label{sec:actorbase::actorsystem::manager::messages}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.6\textwidth,keepaspectratio]{RQ/classiDiag/messages-manager.png}
+    \caption{Actorsystem: package messages del manager}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 \gloss{Package} che contiene tutti i messaggi che possono essere ricevuti
@@ -2597,7 +2655,7 @@ Questa classe viene utilizzata per la rappresentazione dell'aggregazione di
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.7\textwidth,keepaspectratio]{RQ/exceptions.png}
+    \includegraphics[width=0.7\textwidth,keepaspectratio]{RQ/Exceptions.png}
     \caption{Driver: Package exceptions}
   \end{center}
 \end{figure}
@@ -2812,7 +2870,7 @@ Questa componente viene rappresentata usando il \gloss{design pattern}
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/Views.png}
+    \includegraphics[width=0.8\textwidth,keepaspectratio]{RQ/Views.png}
     \caption{CLI, views package, interazioni con controllers e models}
   \end{center}
 \end{figure}
@@ -3008,7 +3066,7 @@ l'esecuzione del comando.
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/Models.png}
+    \includegraphics[width=0.8\textwidth,keepaspectratio]{RQ/Models.png}
     \caption{CLI: package models e interazioni con controllers e views}
   \end{center}
 \end{figure}
