@@ -60,6 +60,7 @@
 \newpage
 \pagenumbering{arabic}
 \section{Summary}
+
 \subsection{Document purpose}
 This document represents the user manual for the \textit{actorbase} application
 and describes in detail every single feature of it. Actorbase is a database that
@@ -67,11 +68,20 @@ comes with two different software modules capable of interacting with it; the
 user can use both these modules, so this document will present them in two
 different sections.
 
-\subsection{References}
+\subsection{Product purpose}
 
-\subsubsection{Normative} % TODO check, translated with wordreference
+The purpose of the project is the realization of a key-value type
+NoSQL\footnote{\label{nosql}} database, massively concurrent oriented to the
+management of heavy load of data by using actor\footnote{A computational entity
+that, in response to a message it receives can send message to other actors,
+create new ones, change his behavior for the next message incoming\label{actor}}
+model.
 
-\subsubsection{Informational} % TODO check, translated with wordreference
+% \subsection{References}
+
+% \subsubsection{Normative} % TODO check, translated with wordreference
+
+% \subsubsection{Informational} % TODO check, translated with wordreference
 
 % TODO parte server: installazione, configurazione, accensione, spegnimento
 
@@ -290,7 +300,7 @@ If the user wants to insert the item in a non existing collection the server
 will automatically create that collection.\\
 \textbf{How to:}
 \begin{itemize}
-\item Type \texttt{insert (<key> -> <value>) to <collection name> o}
+\item Type \texttt{insert ( <key> -> <value> ) to <collection name> o}
 \end{itemize}
 \textbf{Possible errors:} the CLI will answer with self explanatory error messages
 \begin{itemize}
@@ -304,7 +314,7 @@ will automatically create that collection.\\
 The file has to be formatted as specified in \\%TODO mettere link to sezione giusta
 \textbf{How to:}
 \begin{itemize}
-\item Type \texttt{import <nomefile>}
+\item Type \texttt{import <path/to/filename>}
 \end{itemize}
 \textbf{Possible errors:} the CLI will answer with self explanatory error messages
 \begin{itemize}

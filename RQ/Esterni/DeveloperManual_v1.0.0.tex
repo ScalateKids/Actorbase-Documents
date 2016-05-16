@@ -111,15 +111,24 @@
 
 \subsection{Document purpose}
 
-This document aim to describe the procedures and methods to use in order to take
+This document aims to describe the procedures and methods to use in order to take
 advantage of \textbf{Actorbase} features, including installation steps and configuration
 available to users.
 
-\subsection{References}
+\subsection{Product purpose}
 
-\subsubsection{Normative} % TODO check, translated with wordreference
+The purpose of the project is the realization of a key-value type
+NoSQL\footnote{\label{nosql}} database, massively concurrent oriented to the
+management of heavy load of data by using actor\footnote{A computational entity
+that, in response to a message it receives can send message to other actors,
+create new ones, change his behavior for the next message incoming\label{actor}}
+model.
 
-\subsubsection{Informational} % TODO check, translated with wordreference
+% \subsection{References}
+
+% \subsubsection{Normative} % TODO check, translated with wordreference
+
+% \subsubsection{Informational} % TODO check, translated with wordreference
 
 % TODO parte server: installazione, configurazione, accensione, spegnimento
 
@@ -186,7 +195,8 @@ As shown in the image, there is a part of the configuration dedicated to
 distribution of the load between multiple nodes in a cluster\footnote{A set of
 loosely or tightly connected computers that work together, so that they can be
 viewed as a single system\label{cluster}}, \textbf{Actobase} is in fact a
-scale-out system oriented, and it is possible to set all
+scale-out\footnote{Method of adding more resources by adding more nodes to the
+cluster\label{cleout}} system oriented, and it is possible to set all
 cluster\textsuperscript{\ref{cluster}} configurations offered by Akka library.
 
 \subsubsection{Server-side general structure}
@@ -201,10 +211,7 @@ balancing load between multiple nodes as shown below:
   \end{center}
 \end{figure}
 
-For every incoming connection, a dedicated actor\footnote{A computational entity
-that, in response to a message it receives can send message to other actors,
-create new ones, change his behavior for the next message
-incoming\label{actor}}, namely clientactor\footnote{An actor dedicate
+For every incoming connection, a dedicated actor\textsuperscript{\ref{actor}}, namely clientactor\footnote{An actor dedicate
 exclusively to handle incoming request from client connected from outside of the
 system}, is spawned; this one is responsible for all incoming request from the
 client connected, and his main role is to forward these requests directy to
@@ -312,7 +319,7 @@ to the response, it will return an \verb=ActorbaseService=\footnote{Main class,
   contains all collection management methods\label{ActorbaseServices}} or an
 \verb=ActorbaseAdminServices=\footnote{Defined trait, contains some
   administrative functionality as dependancy added to
-  ActorbaseServices\label{AdminService}}. These two objects give the methods to
+  ActorbaseServices\label{AdminServices}}. These two objects give the methods to
 actually make all operations on the database, the main difference is that
 \verb=ActorbaseAdminServices=\textsuperscript{\ref{AdminServices}} allows to do
 some high-level administrative operations on users and
