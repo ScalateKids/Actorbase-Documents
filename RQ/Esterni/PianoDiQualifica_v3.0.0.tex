@@ -828,29 +828,31 @@ La colonna "Stato" nella tabella è lasciata vuota in quanto i test saranno effe
   \hline
   TI.views & Verifica del corretto funzionamento delle procedure di input e output & views &\\
   \hline
-  TI.driver & Test di integrazione finale per client, actorbasedata e serializer & driver &\\
+  TI.driver & Test di integrazione finale per client, data e api & driver &\\
   \hline
   TI.client & Verifica della comunicazione tra client e server e corretto funzionamento dei comandi & client &\\
   \hline
-  TI.serializer & Test di controllo sulla corretta esecuzione delle procedure di \gloss{serializzazione} e \gloss{deserializzazione} secondo il protocollo \gloss{RESP} & serializer &\\
+  TI.data & Test di controllo sulla corretta organizzazione dell'output in strutture navigabili e modificabili & data &\\
   \hline
-  TI.actorbasedata & Verifica della corretta integrazione con le componenti client e serializer & actorbasedata &\\
+  TI.api & Verifica della corretta integrazione con le componenti client e le strutture di creazione richieste \gloss{HTTP} & api &\\
   \hline
   TI.actorsystem & Test di integrazione finale per HTTPserver, storefinder, storekeeper, ninja, manager, userkeeper, main, clientactor, serialization, warehouseman & actorsystem &\\
   \hline
-  TI.serialization & Verifica delle corrette procedure di \gloss{serializzazione} e \gloss{deserializzazione} secondo i protocolli specificati & serialization &\\
+  TI.utils & Verifica delle corrette procedure di organizzazione in strutture navigabili, criptazione e decriptazione dei dati di persistenza su disco & utils & OK\\
   \hline
-  TI.HTTPserver & Test di verifica del corretto funzionamento del server HTTP & HTTPserver &\\
+  TI.HTTPServer & Test di verifica del corretto funzionamento del server HTTP & HTTPserver & OK\\
   \hline
   TI.clientactor & Test di verifica del parsing dei comandi riecvuti dall'esterno e della corretta esecuzione dei messaggi & clientactor &\\
   \hline
-  TI.main & Verifica della corretta esecuzioni dei messaggi dedicati & main &\\
+  TI.main & Verifica della corretta esecuzioni dei messaggi dedicati & main & \\
   \hline
-  TI.storefinder & Verifica della corretta esecuzioni dei messaggi dedicati & storefinder &\\
+  TI.storefinder & Verifica della corretta esecuzioni dei messaggi dedicati & storefinder & OK\\
   \hline
-  TI.storekeeper & Verifica della corretta esecuzioni dei messaggi dedicati & storekeeper &\\
+  TI.storekeeper & Verifica della corretta esecuzioni dei messaggi dedicati & storekeeper & OK\\
   \hline
-  TI.userkeeper & Verifica della corretta esecuzioni dei messaggi dedicati & userkeeper &\\
+  TI.userfinder & Verifica della corretta esecuzione dei messaggi dedicati & userfinder & OK\\
+  \hline
+  TI.userkeeper & Verifica della corretta esecuzioni dei messaggi dedicati & userkeeper & OK\\
   \hline
   TI.manager & Verifica della corretta esecuzioni dei messaggi dedicati & manager &\\
   \hline
@@ -880,15 +882,15 @@ La colonna "Stato" nella tabella è lasciata vuota in quanto i test saranno effe
   \hline
   actorbase::driver::client & TI.client\\
   \hline
-  actorbase::driver::serializer & TI.serializer\\
+  actorbase::driver::client::api & TI.api\\
   \hline
-  actorbase::driver::actorbasedata & TI.actorbasedata\\
+  actorbase::driver::data & TI.data\\
   \hline
   actorbase::actorsystem & TI.actorsystem\\
   \hline
-  actorbase::actorsystem::serialization & TI.serialization\\
+  actorbase::actorsystem::utils & TI.utils\\
   \hline
-  actorbase::actorsystem::HTTPserver & TI.HTTPserver\\
+  actorbase::actorsystem::HTTPServer & TI.HTTPServer\\
   \hline
   actorbase::actorsystem::clientactor & TI.clientactor\\
   \hline
@@ -906,13 +908,18 @@ La colonna "Stato" nella tabella è lasciata vuota in quanto i test saranno effe
   \hline
   actorbase::actorsystem::warehouseman & TI.warehouseman\\
   \hline
+  actorbase::actorsystem::userfinder & TI.userfinder\\
+  \hline
 \end{longtable}
 
 \subsection{test di unità}
+
 \subsubsection{descrizione}
+
 I test di unità servono al test di piccole unità del software associate ad un requisito, nello specifico
 nella tabella che segue viene descritto l'identificativo del test, la descrizione del test, lo stato e il requisito
 a cui fa riferimento
+
 \begin{longtable}[H]{| l | p{10cm} | l | l |}
   \hline
   Test & Descrizione & Stato & Requisito\\

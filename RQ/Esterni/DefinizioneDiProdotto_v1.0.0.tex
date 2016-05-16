@@ -346,7 +346,7 @@ confronto del range delle chiavi e un metodo compare.
 \begin{center}
   \textbf{contains}\\
 \end{center}
-\begin{tabular}{| p{1.5cm} | p{1.5cm} | p{9cm} |}
+\begin{tabular}{| p{1.5cm} | p{1.5cm} | p{14cm} |}
   \hline
   Nome & Tipo & Descrizione\\
   \hline
@@ -1496,7 +1496,7 @@ corrispondenti alla \gloss{collezione} su cui effettuare la ricerca
 e inoltrerà lui la richiesta dell'\gloss{item} con la chiave da cercare.
 
 \subparagraph{Attributi}
-\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+\begin{tabular}{| p{1.5cm} | p{1.5cm} | p{2cm} | p{3.5cm} | p{8.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
@@ -1669,7 +1669,7 @@ riceve questo messaggio provvederà a aggiornare la propria struttura dati
 contenente la mappatura degli \hyperref[sec:actorbase::actorsystem::storefinder::Storefinder]{Storefinder}.
 
 \subparagraph{Attributi}
-\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+\begin{tabular}{| p{2.5cm} | p{1.5cm} | p{2cm} | p{3.5cm} | p{8cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
@@ -1703,13 +1703,13 @@ Quando \hyperref[sec:actorbase::actorsystem::main::Main]{Main}
 riceve questo messaggio provvederà ad inoltrare allo \hyperref[sec:actorbase::actorsystem::userfinder::Userfinder]{Userfinder} l'incremento della \gloss{collezione}.
 
 \subparagraph{Attributi}
-\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{3.5cm} | p{7.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
   collectionName & public & immutable & ActorbaseCollection & Nome della \gloss{collezione} che si vuole incrementare\\
   \hline
-  increment & public & immutable & boolean & indica se deve esser fatto un incremento (true) o un decremento (false)\\
+  increment & public & immutable & boolean & Indica se deve esser fatto un incremento (true) o un decremento (false)\\
   \hline
 \end{tabular}
 
@@ -1925,13 +1925,13 @@ all'attore di tipo \hyperref[sec:actorbase::actorsystem::userkeeper::Userkeeper]
 corrispondente all'utente corretto.
 
 \subparagraph{Attributi}
-\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+\begin{tabular}{| p{2cm} | p{1.5cm} | p{2cm} | p{3.5cm} | p{8cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  username & public & immutabile & String & stringa che rappresenta lo username dell'utente su cui effettuare l'operazione \\
+  username & public & immutabile & String & Stringa che rappresenta lo username dell'utente su cui effettuare l'operazione \\
   \hline
-  write & public & immutable & Boolean & flag che rappresenta i permessi che l'utente ha sulla \gloss{collezione} da rimuovere \\
+  write & public & immutable & Boolean & Flag che rappresenta i permessi che l'utente ha sulla \gloss{collezione} da rimuovere \\
   \hline
   collection & public & immutabile &  \hyperref[sec:actorbase::actorsystem::utils::ActorbaseCollection]{ActorbaseCollection} & Rappresenta la \gloss{collezione} da rimuovere \\
   \hline
@@ -1955,13 +1955,13 @@ Quando l'attore riceve questo messaggio provvederà a inoltrare la richiesta all
 corrispondente all'utente su cui effettuare l'operazione.
 
 \subparagraph{Attributi}
-\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+\begin{tabular}{| p{2cm} | p{1.5cm} | p{2cm} | p{3.5cm} | p{8cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  username & public & immutabile & String & stringa che rappresenta lo username dell'utente a cui aggiungere la \gloss{collezione} \\
+  username & public & immutabile & String & Stringa che rappresenta lo username dell'utente a cui aggiungere la \gloss{collezione} \\
   \hline
-  write & public & immutable & Boolean & flag che rappresenta i permessi che l'utente ha sulla \gloss{collezione} da aggiungere \\
+  write & public & immutable & Boolean & Flag che rappresenta i permessi che l'utente ha sulla \gloss{collezione} da aggiungere \\
   \hline
   collection & public & immutabile &  \hyperref[sec:actorbase::actorsystem::utils::ActorbaseCollection]{ActorbaseCollection} & Rappresenta la \gloss{collezione} da aggiungere \\
   \hline
@@ -1988,7 +1988,7 @@ riceve questo messaggio provvederà ad inoltrare all'attore di tipo
 \hyperref[sec:actorbase::actorsystem::userkeeper::Userkeeper]{actorbase::\allowbreak{}actorsystem::\allowbreak{}userkeeper::\allowbreak{}Userkeeper}.
 
 \subparagraph{Attributi}
-\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+\begin{tabular}{| p{2cm} | p{1.5cm} | p{2cm} | p{3.5cm} | p{8cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
@@ -2064,7 +2064,7 @@ Questa classe viene utilizzata per salvare gli utenti e i loro dati nel \gloss{d
 \end{tabular}
 
 \subparagraph{Metodi}
-\begin{tabular}{| l | l | l | l |}
+\begin{tabular}{| p{3.5cm} | p{1.5cm} | p{2.5cm} | p{10cm} |}
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
@@ -2197,7 +2197,7 @@ dalla lista contenente le \gloss{collezioni} di cui l'utente ha permessi in
 lettura o in scrittura.
 
 \subparagraph{Attributi}
-\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+\begin{tabular}{| p{1.5cm} | p{1.5cm} | p{2cm} | p{3.5cm} | p{8.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
@@ -2232,7 +2232,7 @@ dalla lista contenente le \gloss{collezioni} di cui l'utente ha permessi in
 lettura o in lettura e scrittura.
 
 \subparagraph{Attributi}
-\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+\begin{tabular}{| p{1.5cm} | p{1.5cm} | p{2cm} | p{3.5cm} | p{8.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione \\
   \hline
@@ -2294,7 +2294,7 @@ riceve questo messaggio provvederà ad aggiornare il contatore relativo al numer
 nella \gloss{collezione}.
 
 \subparagraph{Attributi}
-\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+\begin{tabular}{| p{1.5cm} | p{1.5cm} | p{2cm} | p{3.5cm} | p{8.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
@@ -2356,7 +2356,7 @@ Questa classe viene utilizzata per tener traccia degli attori di tipo
 
 \subparagraph{Attributi}
 
-\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+\begin{tabular}{| p{1.5cm} | p{1.5cm} | p{2cm} | p{3.5cm} | p{8.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
@@ -2418,7 +2418,7 @@ particolare aggiornerà i range di chiavi contenuti dagli Storekeeper presenti
 nella sua struttura dati.
 
 \subparagraph{Attributi}
-\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+\begin{tabular}{| p{2cm} | p{1.5cm} | p{2cm} | p{3.5cm} | p{8cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
@@ -2590,7 +2590,7 @@ riceve questo messaggio non farà altro che richiamare il metodo
 \hyperref[sec:actorbase::actorsystem::main::messages::GetItemFromResponse]{GetItemFromResponse} del Main.
 
 \subparagraph{Attributi}
-\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+\begin{tabular}{| p{1.5cm} | p{1.5cm} | p{2cm} | p{3.5cm} | p{8.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
@@ -2621,7 +2621,7 @@ riceve questo messaggio non farà altro che richiamare il metodo
 \hyperref[sec:actorbase::actorsystem::main::messages::UpdateCollectionSize]{UpdateCollectionSize} del Main.
 
 \subparagraph{Attributi}
-\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+\begin{tabular}{| p{1.5cm} | p{1.5cm} | p{2cm} | p{3.5cm} | p{8.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
@@ -2678,7 +2678,7 @@ Questa classe viene utilizzata per salvare nel \gloss{database} gli item.
 
 \subparagraph{Attributi}
 
-\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+\begin{tabular}{| p{2.5cm} | p{1.5cm} | p{2cm} | p{3.5cm} | p{8cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
@@ -3087,7 +3087,7 @@ che dovrà essere diviso. Manderà inoltre un messaggio all'\gloss{attore} di ti
 per aggiornare i suoi riferimenti.
 
 \subparagraph{Attributi}
-\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
+\begin{tabular}{| p{2.5cm} | p{1.5cm} | p{2cm} | p{3.5cm} | p{7.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione \\
   \hline
@@ -3255,7 +3255,7 @@ remoti all'interno del \gloss{database}.
 
 % TODO: Da completare
 
-\begin{tabular}{| p{3cm} | p{1.5cm} | p{3cm} | p{9.5cm} |}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{3.5cm} | p{9cm} |}
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
@@ -3286,7 +3286,7 @@ remoti all'interno del \gloss{database}.
 \begin{center}
   \textbf{changePassword}
 \end{center}
-\begin{tabular}{| p{3cm} | p{3.5cm} | p{8.5cm} |}
+\begin{tabular}{| p{3cm} | p{3.5cm} | p{10.5cm} |}
   \hline
   Nome & Tipo & Descrizione\\
   \hline
@@ -4348,7 +4348,7 @@ navigabilità dei contenuti.
 
 % TODO: Da completare
 
-\begin{tabular}{| p{3cm} | p{1.5cm} | p{2.5cm} | p{10cm} |}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{3.5cm} | p{9cm} |}
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
@@ -4566,7 +4566,7 @@ Questa classe viene utilizzata per la rappresentazione dell'aggregazione di
 
 % TODO: Da completare
 
-\begin{tabular}{| p{3cm} | p{1.5cm} | p{2.5cm} | p{10cm} |}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{3.5cm} | p{9cm} |}
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
@@ -4751,8 +4751,8 @@ Questa classe viene utilizzata dal \gloss{driver} per gestire il caso in cui all
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=1.0\textwidth,keepaspectratio]{RP/CLI.png}
-    \caption{CLI, architettura MVC variante push model}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/CLI.png}
+    \caption{CLI: architettura MVC variante push model}
   \end{center}
 \end{figure}
 
@@ -4778,8 +4778,8 @@ Questa componente viene rappresentata usando il \gloss{design pattern}
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=1.0\textwidth,keepaspectratio]{RP/CLI-view.png}
-    \caption{CLI, views package, interazioni con Controllers e Models}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/Views.png}
+    \caption{CLI: views package, interazioni con controllers e models}
   \end{center}
 \end{figure}
 
@@ -4793,6 +4793,13 @@ comandi.
 
 \paragraph{actorbase::cli::views::PromptProvider}
 \label{sec:actorbase::cli::views::PromptProvider}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/PromptProvider.png}
+    \caption{CLI: interfaccia PromptProvider}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 Interfaccia per la creazione del \gloss{prompt} dei comandi.
@@ -4816,6 +4823,13 @@ Offre un'interfaccia per la creazione di un \gloss{prompt} generico.
 
 \paragraph{actorbase::cli::views::Observer}
 \label{sec:actorbase::cli::views::Observer}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/Observer.png}
+    \caption{CLI: interfaccia Observer}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 Interfaccia per l'implementazione del \gloss{design pattern} \gloss{Observer}
@@ -4857,6 +4871,13 @@ risposta ricevuta dal \gloss{driver}.
 \paragraph{actorbase::cli::views::CommandLoop}
 \label{sec:actorbase::cli::views::CommandLoop}
 
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/CommandLoop.png}
+    \caption{CLI: classe CommandLoop}
+  \end{center}
+\end{figure}
+
 \subparagraph{Descrizione}
 Questa classe verrà utilizzata per leggere i comandi inseriti dall'utente.
 
@@ -4864,7 +4885,7 @@ Questa classe verrà utilizzata per leggere i comandi inseriti dall'utente.
 Viene utilizzata per la lettura dei comandi inseriti dall'utente.
 
 \subparagraph{Attributi}
-\begin{tabular}{| p{2.5cm} | p{1.5cm} | p{2cm} | p{2.5cm} | p{8.5cm} |}
+\begin{tabular}{| p{2.7cm} | p{1.5cm} | p{2cm} | p{2.7cm} | p{8cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
@@ -4893,6 +4914,13 @@ Viene utilizzata per la lettura dei comandi inseriti dall'utente.
 \paragraph{actorbase::cli::views::ActorbaseBanner}
 \label{sec:actorbase::cli::views::ActorbaseBanner}
 
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/ActorbaseBanner.png}
+    \caption{CLI: classe ActorbaseBanner}
+  \end{center}
+\end{figure}
+
 \subparagraph{Descrizione}
 
 Classe per la creazione del \gloss{banner} da mostrare all'avvio della
@@ -4915,6 +4943,13 @@ all'avvio della \gloss{CLI}.
 
 \paragraph{actorbase::cli::views::ActorbasePrompt}
 \label{sec:actorbase::cli::views::ActorbasePrompt}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/ActorbasePrompt.png}
+    \caption{CLI: classe ActorbasePrompt}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 
@@ -4955,6 +4990,13 @@ effettuata.
 
 \paragraph{actorbase::cli::views::ResultViewer}
 \label{sec:actorbase::cli::views::ResultViewer}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/ResultViewer.png}
+    \caption{CLI: classe ResultViewer}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 
@@ -4999,7 +5041,12 @@ ottenuti dal server mediante l'inserimento dei comandi tramite il
 \subsection{actorbase::cli::controllers}
 \label{sec:actorbase::cli::controllers}
 
-% TODO QUA MANCA L'IMMAGINE
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/Controllers.png}
+    \caption{CLI: package Controllers}
+  \end{center}
+\end{figure}
 
 \subsubsection{Descrizione}
 
@@ -5011,6 +5058,13 @@ componente si occupa di passare il comando ricevuto dalla \gloss{view} al
 
 \paragraph{actorbase::cli::controllers::GrammarParser}
 \label{sec:actorbase::cli::controllers::GrammarParser}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/GrammarParser.png}
+    \caption{CLI: package Controllers}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 
@@ -5097,6 +5151,13 @@ l'esecuzione del comando.
 \subsection{actorbase::cli::models}
 \label{sec:actorbase::cli::models}
 
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/CLI-Models.png}
+    \caption{CLI: package Models}
+  \end{center}
+\end{figure}
+
 \subsubsection{Descrizione}
 
 \gloss{Package} per la parte \gloss{model} della \gloss{cli}. Questa
@@ -5109,6 +5170,13 @@ utilizzare il \gloss{command pattern}.
 
 \paragraph{actorbase::cli::models::Command}
 \label{sec:actorbase::cli::models::Command}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/Command.png}
+    \caption{CLI: interfaccia Command}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 
@@ -5157,6 +5225,13 @@ comando.
 
 \paragraph{actorbase::cli::models::Observable (abstract)}
 \label{sec:actorbase::cli::models::Observable}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/Observable.png}
+    \caption{CLI: classe astratta Observable}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 
@@ -5250,6 +5325,13 @@ ha ritornato un risultato.
 \paragraph{actorbase::cli::models::CommandInvoker}
 \label{sec:actorbase::cli::models::CommandInvoker}
 
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/CommandInvoker.png}
+    \caption{CLI: classe CommandInvoker}
+  \end{center}
+\end{figure}
+
 \subparagraph{Descrizione}
 
 Questa classe rappresenta l'\gloss{Invoker} del \gloss{command pattern}. Essa
@@ -5303,6 +5385,13 @@ implementa l'interfaccia \hyperref[sec:actorbase::cli::models::Command]{actorbas
 \paragraph{actorbase::cli::models::ChangePasswordCommand}
 \label{sec:actorbase::cli::models::ChangePasswordCommand}
 
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/ChangePasswordCommand.png}
+    \caption{CLI: classe ChangePasswordCommand}
+  \end{center}
+\end{figure}
+
 \subparagraph{Descrizione}
 
 Classe per il comando di cambiamento password.
@@ -5341,6 +5430,13 @@ Viene utilizzata per chiamare il metodo di
 
 \paragraph{actorbase::cli::models::FindCommand}
 \label{sec:actorbase::cli::models::FindCommand}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/FindCommand.png}
+    \caption{CLI: classe ChangePasswordCommand}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 
@@ -5382,6 +5478,13 @@ dall'utente.
 \paragraph{actorbase::cli::models::HelpCommand}
 \label{sec:actorbase::cli::models::HelpCommand}
 
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/HelpCommand.png}
+    \caption{CLI: classe HelpCommand}
+  \end{center}
+\end{figure}
+
 \subparagraph{Descrizione}
 
 Classe per il comando di aiunto.
@@ -5417,6 +5520,13 @@ Viene utilizzata per chiamare il metodo di
 
 \paragraph{actorbase::cli::models::LogoutCommand}
 \label{sec:actorbase::cli::models::LogoutCommand}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/LogoutCommand.png}
+    \caption{CLI: classe LogoutCommand}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 
@@ -5456,6 +5566,13 @@ Viene utilizzata per chiamare il metodo di
 \paragraph{actorbase::cli::models::ResetPasswordCommand}
 \label{sec:actorbase::cli::models::ResetPasswordCommand}
 
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/ResetPasswordCommand.png}
+    \caption{CLI: classe ResetPasswordCommand}
+  \end{center}
+\end{figure}
+
 \subparagraph{Descrizione}
 
 Classe per il comando di reset della password.
@@ -5494,6 +5611,13 @@ dell'utente specificato in input.
 
 \paragraph{actorbase::cli::models::ListCollectionsCommand}
 \label{sec:actorbase::cli::models::ListCollectionsCommand}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/ListCollectionsCommand.png}
+    \caption{CLI: classe ListCollectionsCommand}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 
@@ -5535,6 +5659,13 @@ nomi di tutte le collezioni presenti nel \gloss{database}.
 \paragraph{actorbase::cli::models::AddContributorCommand}
 \label{sec:actorbase::cli::models::AddContributorCommand}
 
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/AddContributorCommand.png}
+    \caption{CLI: classe AddContributorCommand}
+  \end{center}
+\end{figure}
+
 \subparagraph{Descrizione}
 
 Classe per il comando di aggiunta collaboratore a una \gloss{collezione}.
@@ -5575,6 +5706,13 @@ in input.
 \paragraph{actorbase::cli::models::LoginCommand}
 \label{sec:actorbase::cli::models::LoginCommand}
 
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/LoginCommand.png}
+    \caption{CLI: classe LoginCommand}
+  \end{center}
+\end{figure}
+
 \subparagraph{Descrizione}
 
 Classe per il comando di login.
@@ -5614,6 +5752,13 @@ immesse dall'utente.
 \paragraph{actorbase::cli::models::RemoveCollectionCommand}
 \label{sec:actorbase::cli::models::RemoveCollectionCommand}
 
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/RemoveCollectionCommand.png}
+    \caption{CLI: classe RemoveCollectionCommand}
+  \end{center}
+\end{figure}
+
 \subparagraph{Descrizione}
 
 Classe per il comando di rimozione una \gloss{collezione}.
@@ -5652,6 +5797,13 @@ i parametri specificati in input.
 
 \paragraph{actorbase::cli::models::RemoveContributorCommand}
 \label{sec:actorbase::cli::models::RemoveContributorCommand}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/RemoveContributorCommand.png}
+    \caption{CLI: classe RemoveContributorCommand}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 
@@ -5693,6 +5845,13 @@ specificati in input.
 \paragraph{actorbase::cli::models::RenameCollectionCommand}
 \label{sec:actorbase::cli::models::RenameCollectionCommand}
 
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/RenameCollectionCommand.png}
+    \caption{CLI: classe RenameCollectionCommand}
+  \end{center}
+\end{figure}
+
 \subparagraph{Descrizione}
 
 Classe per il comando rinominazione di una \gloss{collezione}.
@@ -5729,6 +5888,13 @@ Viene utilizzata per chiamare il metodo di \hyperref[sec:actorbase::cli::models:
 
 \paragraph{actorbase::cli::models::AddUserCommand}
 \label{sec:actorbase::cli::models::AddUserCommand}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/AddUserCommand.png}
+    \caption{CLI: classe AddUserCommand}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 Classe per il comando di aggiunta di un utente.
@@ -5768,6 +5934,13 @@ parametri specificati in input.
 \paragraph{actorbase::cli::models::HelpCommand}
 \label{sec:actorbase::cli::models::HelpCommand}
 
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/HelpCommand.png}
+    \caption{CLI: classe HelpCommand}
+  \end{center}
+\end{figure}
+
 \subparagraph{Descrizione}
 Classe per la richiesta di aiuto.
 
@@ -5805,6 +5978,13 @@ parametri immessi dall'utente.
 
 \paragraph{actorbase::cli::models::RemoveItemCommand}
 \label{sec:actorbase::cli::models::RemoveItemCommand}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/RemoveItemCommand.png}
+    \caption{CLI: classe RemoveItemCommand}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 
@@ -5845,6 +6025,13 @@ con i parametri immessi dall'utente.
 \paragraph{actorbase::cli::models::RemoveUserCommand}
 \label{sec:actorbase::cli::models::RemoveUserCommand}
 
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/RemoveUserCommand.png}
+    \caption{CLI: classe RemoveUserCommand}
+  \end{center}
+\end{figure}
+
 \subparagraph{Descrizione}
 
 Classe per il comando di rimozione di un utente.
@@ -5884,6 +6071,13 @@ parametri immessi dall'utente.
 \paragraph{actorbase::cli::models::ImportCommand}
 \label{sec:actorbase::cli::models::ImportCommand}
 
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/ImportCommand.png}
+    \caption{CLI: classe ImportCommand}
+  \end{center}
+\end{figure}
+
 \subparagraph{Descrizione}
 
 Classe per il comando di importazione da un file \gloss{JSON}.
@@ -5922,6 +6116,13 @@ Viene utilizzata per chiamare il metodo di
 \paragraph{actorbase::cli::models::InsertItemCommand}
 \label{sec:actorbase::cli::models::InsertItemCommand}
 
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/InsertItemCommand.png}
+    \caption{CLI: classe InsertItemCommand}
+  \end{center}
+\end{figure}
+
 \subparagraph{Descrizione}
 
 Classe per il comando di inserimento di un \gloss{item} in una
@@ -5959,6 +6160,13 @@ Viene utilizzata per chiamare il metodo di \hyperref[sec:actorbase::cli::models:
 
 \paragraph{actorbase::cli::models::CreateCollectionCommand}
 \label{sec:actorbase::cli::models::CreateCollectionCommand}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/CreateCollectionCommand.png}
+    \caption{CLI: classe CreateCollectionCommand}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 
@@ -5999,6 +6207,13 @@ Viene utilizzata per chiamare il metodo di
 \paragraph{actorbase::cli::models::ExportCommand}
 \label{sec:actorbase::cli::models::ExportCommand}
 
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/ExportCommand.png}
+    \caption{CLI: classe ExportCommand}
+  \end{center}
+\end{figure}
+
 \subparagraph{Descrizione}
 
 Classe per il comando di esportazione in file \gloss{JSON}.
@@ -6037,6 +6252,13 @@ Viene utilizzata per chiamare il metodo di
 
 \paragraph{actorbase::cli::models::CommandReceiver}
 \label{sec:actorbase::cli::models::CommandReceiver}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/CommandReceiver.png}
+    \caption{CLI: classe CommandReceiver}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 

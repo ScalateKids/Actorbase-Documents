@@ -1,6 +1,7 @@
 \documentclass{scalatekids-article}
 \usepackage[official]{eurosym}
 \usepackage[english]{babel}
+\usepackage[bottom]{footmisc}
 \begin{document}
 \lfoot{User Manual 1.0.0}
 \newgeometry{top=3.5cm}
@@ -71,11 +72,14 @@ different sections.
 \subsection{Product purpose}
 
 The purpose of the project is the realization of a key-value type
-NoSQL\footnote{\label{nosql}} database, massively concurrent oriented to the
-management of heavy load of data by using actor\footnote{A computational entity
-that, in response to a message it receives can send message to other actors,
-create new ones, change his behavior for the next message incoming\label{actor}}
-model.
+NoSQL\footnote{A NoSQL database provides a mechanism for storage and retrieval
+of data which is modeled in means other than the tabular relations used in
+relational databases.Key-value (KV) stores use the associative array (also known
+as a map or dictionary) as their fundamental data model.\label{nosql}} database,
+massively concurrent and oriented to the management of heavy load of data by
+using the actor\footnote{A computational entity that, in response to a message
+it receives, can send messages to other actors, create new ones, change its
+behaviour for the next message incoming\label{actor}} model.
 
 % \subsection{References}
 
@@ -437,12 +441,12 @@ This operation could be expensive.\\
 Exporting data from \textbf{Actorbase} generate a well-formatted JSON file, and the same format must be
 used for import data to filesystem, e.g.:
 
-% \begin{figure}[H]
-%   \begin{center}
-%     \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/UserManual/Actorbase-JSON.png}
-%     \caption{JSON well-formatted file}
-%   \end{center}
-% \end{figure}
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/JSONformat.png}
+    \caption{JSON well-formatted file}
+  \end{center}
+\end{figure}
 
 \listoftables
 
