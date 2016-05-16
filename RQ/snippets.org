@@ -50,7 +50,6 @@ res0: List[String] = List("customers")
 scala> client.getCollection("people").insert("keyOne" -> "valueOne", "keyTwo" -> 42)
 res0: com.actorbase.driver.data.ActorbaseCollection
 
-scala> // variant
 scala> client.getCollection("people").insert(ActorbaseObject("obj" -> "inserting with object"))
 res1: com.actorbase.driver.data.ActorbaseCollection
 #+end_src
@@ -70,7 +69,7 @@ res1: com.actorbase.driver.data.ActorbaseObject
 scala> client.getCollection("people").remove("keyOne" -> "valueOne", "keyTwo" -> 42)
 res0: com.actorbase.driver.data.ActorbaseCollection
 
-scala> // variant
+scala>
 scala> client.getCollection("people").remove(ActorbaseObject("obj" -> "inserting with object"))
 res1: com.actorbase.driver.data.ActorbaseCollection
 #+end_src
