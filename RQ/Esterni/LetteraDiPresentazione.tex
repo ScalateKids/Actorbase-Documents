@@ -15,9 +15,9 @@
 \def\vhrulefill#1{\leavevmode\leaders\hrule\@height#1\hfill \kern\z@}
 \makeatother
 
-%----------------------------------------------------------------------------------------
+% ----------------------------------------------------------------------------------------
 %	DOCUMENT MARGINS
-%----------------------------------------------------------------------------------------
+% ----------------------------------------------------------------------------------------
 
 \textwidth 6.75in
 \textheight 9.25in
@@ -27,18 +27,18 @@
 \longindentation 0.50\textwidth
 \parindent 0.4in
 
-%----------------------------------------------------------------------------------------
+% ----------------------------------------------------------------------------------------
 %	SENDER INFORMATION
-%----------------------------------------------------------------------------------------
+% ----------------------------------------------------------------------------------------
 \def\Who{Prof. Tullio Vardanega} % Your name
 \def\What{Alla cortese attenzione del Commitente:} % Your title
 \def\Where{Università degli Studi di Padova} % Your department/institution
 \def\Address{Via Trieste, 63} % Your address
 \def\CityZip{35121 Padova} % Your city, zip code, country, etc
-\def\Department{Dipartimento di Matematica Pura ed Applicata}
-%----------------------------------------------------------------------------------------
+\def\Department{Dipartimento di Matematica}
+% ----------------------------------------------------------------------------------------
 %	HEADER AND FROM ADDRESS STRUCTURE
-%----------------------------------------------------------------------------------------
+% ----------------------------------------------------------------------------------------
 
 \address{
   \includegraphics[width=1in]{sklogo.png} % Include the logo of your institution
@@ -60,13 +60,13 @@
   \vspace{-1in} % Move the letter content up for a more compact look
 }
 
-%----------------------------------------------------------------------------------------
+% ----------------------------------------------------------------------------------------
 %	TO ADDRESS STRUCTURE
-%----------------------------------------------------------------------------------------
+% ----------------------------------------------------------------------------------------
 
 \def\opening#1{\thispagestyle{empty}
   {\centering\fromaddress \vspace{0.6in} \\ % Print the header and from address here, add whitespace to move date down
-    \hspace*{\longindentation}11 Aprile 2016\hspace*{\fill}\par} % Print today's date, remove \today to not display it
+    \hspace*{\longindentation}16 Maggio 2016\hspace*{\fill}\par} % Print today's date, remove \today to not display it
   {\raggedright \toname \\ \toaddress \par} % Print the to name and address
   \vspace{0.4in} % White space after the to address
   \noindent #1 % Print the opening line
@@ -77,14 +77,14 @@
   \def\thefootnote{\arabic{footnote}}
 }
 
-%----------------------------------------------------------------------------------------
+% ----------------------------------------------------------------------------------------
 %	SIGNATURE STRUCTURE
-%----------------------------------------------------------------------------------------
+% ----------------------------------------------------------------------------------------
 
 \signature{
   \begin{center}
     \textit{
-      Giacomo Vanin \\
+      Michael Munaro \\
       Responsabile ScalateKids \\
     }
   \end{center}
@@ -99,19 +99,19 @@
     \vskip 0.45in % Whitespace between the signature text and your name
     \fromsig}} % Print your name and title
 
-%----------------------------------------------------------------------------------------
+% ----------------------------------------------------------------------------------------
 
 \begin{document}
 
-%----------------------------------------------------------------------------------------
+% ----------------------------------------------------------------------------------------
 %	TO ADDRESS
-%----------------------------------------------------------------------------------------
+% ----------------------------------------------------------------------------------------
 
 \begin{letter}{}
 
-  %----------------------------------------------------------------------------------------
+  % ----------------------------------------------------------------------------------------
   %	LETTER CONTENT
-  %----------------------------------------------------------------------------------------
+  % ----------------------------------------------------------------------------------------
 
   \opening{Egregio Prof. Tullio Vardanega,\\}
 
@@ -127,14 +127,13 @@
       Vanin Giacomo & 1026988 & giacomo.vanin92@gmail.com \\
     \end{tabular}
   \end{center}
-  Intende inviarLe i documenti necessari al sostenimento della Revisione di Progettazione in data 2016-04-18.
+  Intende inviarLe i documenti necessari al sostenimento della Revisione di Qualifica in data 2016-05-16.
   Alla presente si allegano, quindi, i seguenti documenti:
   \begin{itemize}
   \item interni
     \begin{itemize}
     \item Norme di Progetto v3.0.0;
     \item Verbali riunioni esterne;
-    \item Verbali riunioni interne.
     \end{itemize}
   \item esterni
     \begin{itemize}
@@ -143,13 +142,15 @@
     \item Piano di Progetto v3.0.0;
     \item Piano di Qualifica v3.0.0;
     \item Specifica Tecnica v2.0.0;
-    \item Definizione di Prodotto v1.0.0.
+    \item Definizione di Prodotto v1.0.0;
+    \item User Manual v.1.0.0;
+    \item Developer Manual v1.0.0.
     \end{itemize}
   \end{itemize}
-  All'interno sono trattati in maniera approfondita i dettagli di progettazione architetturale del prodotto
-  da Lei commissionato denominato \textbf{Actorbase}.\\
+  All'interno sono trattati in maniera approfondita i dettagli di progettazione architetturale, di panificazione e di qualità
+  del prodotto da Lei commissionato denominato \textbf{Actorbase}.\\
   La ringrazio anticipatamente per la Sua attenzione. \\ \\
   \closing{Cordiali saluti,}
-  %----------------------------------------------------------------------------------------
+  % ----------------------------------------------------------------------------------------
 \end{letter}
 \end{document}

@@ -4751,8 +4751,8 @@ Questa classe viene utilizzata dal \gloss{driver} per gestire il caso in cui all
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=1.0\textwidth,keepaspectratio]{RP/CLI.png}
-    \caption{CLI, architettura MVC variante push model}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/CLI.png}
+    \caption{CLI: architettura MVC variante push model}
   \end{center}
 \end{figure}
 
@@ -4778,8 +4778,8 @@ Questa componente viene rappresentata usando il \gloss{design pattern}
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=1.0\textwidth,keepaspectratio]{RP/CLI-view.png}
-    \caption{CLI, views package, interazioni con Controllers e Models}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/Views.png}
+    \caption{CLI: views package, interazioni con controllers e models}
   \end{center}
 \end{figure}
 
@@ -4793,6 +4793,13 @@ comandi.
 
 \paragraph{actorbase::cli::views::PromptProvider}
 \label{sec:actorbase::cli::views::PromptProvider}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/PromptProvider.png}
+    \caption{CLI: interfaccia PromptProvider}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 Interfaccia per la creazione del \gloss{prompt} dei comandi.
@@ -4816,6 +4823,13 @@ Offre un'interfaccia per la creazione di un \gloss{prompt} generico.
 
 \paragraph{actorbase::cli::views::Observer}
 \label{sec:actorbase::cli::views::Observer}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/Observer.png}
+    \caption{CLI: interfaccia Observer}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 Interfaccia per l'implementazione del \gloss{design pattern} \gloss{Observer}
@@ -4857,6 +4871,13 @@ risposta ricevuta dal \gloss{driver}.
 \paragraph{actorbase::cli::views::CommandLoop}
 \label{sec:actorbase::cli::views::CommandLoop}
 
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/CommandLoop.png}
+    \caption{CLI: classe CommandLoop}
+  \end{center}
+\end{figure}
+
 \subparagraph{Descrizione}
 Questa classe verrà utilizzata per leggere i comandi inseriti dall'utente.
 
@@ -4893,6 +4914,13 @@ Viene utilizzata per la lettura dei comandi inseriti dall'utente.
 \paragraph{actorbase::cli::views::ActorbaseBanner}
 \label{sec:actorbase::cli::views::ActorbaseBanner}
 
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/ActorbaseBanner.png}
+    \caption{CLI: classe ActorbaseBanner}
+  \end{center}
+\end{figure}
+
 \subparagraph{Descrizione}
 
 Classe per la creazione del \gloss{banner} da mostrare all'avvio della
@@ -4915,6 +4943,13 @@ all'avvio della \gloss{CLI}.
 
 \paragraph{actorbase::cli::views::ActorbasePrompt}
 \label{sec:actorbase::cli::views::ActorbasePrompt}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/ActorbasePrompt.png}
+    \caption{CLI: classe ActorbasePrompt}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 
