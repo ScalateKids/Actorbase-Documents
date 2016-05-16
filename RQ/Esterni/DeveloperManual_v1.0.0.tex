@@ -19,12 +19,12 @@
     \bgroup
     \def\arraystretch{1.3}
     \begin{tabular}{r|l}
-      \multicolumn{2}{c}{\textbf{Informazioni sul documento}} \\
+      \multicolumn{2}{c}{\textbf{Document Information}} \\
       \hline
       \setbox0=\hbox{0.0.1\unskip}\ifdim\wd0=0pt
       \\
       \else
-      \textbf{Versione} & 1.0.0\\
+      \textbf{Version} & 1.0.0\\
       \fi
       \textbf{Editing} & \multiLineCell[t]{\\}\\
       \textbf{Verification} & \multiLineCell[t]{\\}\\
@@ -50,7 +50,7 @@
     \hline
     Version & Author & Role & Date & Description \\
     \hline
-    1.0.0 & Michael Munaro & Project Manager & 2016-05e-15 & Document approved\\
+    1.0.0 & Michael Munaro & Project Manager & 2016-05-15 & Document approved\\
     \hline
     0.11.0 & & & 2016-05-15 & Verified subsection 2.1.1 - Server-side general structure\\
     \hline
@@ -118,10 +118,10 @@ available to users.
 \subsection{Product purpose}
 
 The purpose of the project is the realization of a key-value type
-NoSQL\footnote{\label{nosql}} database, massively concurrent oriented to the
-management of heavy load of data by using actor\footnote{A computational entity
-that, in response to a message it receives can send message to other actors,
-create new ones, change his behavior for the next message incoming\label{actor}}
+NoSQL\footnote{\label{nosql}} database, massively concurrent and oriented to the
+management of heavy load of data by using the actor\footnote{A computational entity
+that, in response to a message it receives, can send messages to other actors,
+create new ones, change its behaviour for the next message incoming\label{actor}}
 model.
 
 % \subsection{References}
@@ -169,8 +169,8 @@ running and ready to receive commands:
 \item run \verb=actorbasecli.jar= in a second shell\textsuperscript{\ref{shell}}.
 \end{itemize}
 That's really all for a basic usage, and the procedure is the same for
-\textit{Windows} from version 10, \textit{Ubuntu 14.04 LTS} and \textit{OSX - El
-  Capitan}, though it's possible to give \textbf{Actorbase} a custom configuration by
+\textit{Windows} 10, \textit{Ubuntu 14.04 LTS}, \textit{OSX - El
+  Capitan} and following versions, though it's possible to give \textbf{Actorbase} a custom configuration by
 running:
 
 % \begin{figure}[H]
@@ -191,12 +191,12 @@ running:
 
 The \textit{--config=path/to/config.cfg} is optional.
 
-As shown in the image, there is a part of the configuration dedicated to
+As shown in the image, there is a part of the configuration dedicated to the
 distribution of the load between multiple nodes in a cluster\footnote{A set of
 loosely or tightly connected computers that work together, so that they can be
 viewed as a single system\label{cluster}}, \textbf{Actobase} is in fact a
 scale-out\footnote{Method of adding more resources by adding more nodes to the
-cluster\label{cleout}} system oriented, and it is possible to set all
+cluster\label{cleout}} oriented system, and it is possible to set all
 cluster\textsuperscript{\ref{cluster}} configurations offered by Akka library.
 
 \subsubsection{Server-side general structure}
@@ -211,22 +211,22 @@ balancing load between multiple nodes as shown below:
   \end{center}
 \end{figure}
 
-For every incoming connection, a dedicated actor\textsuperscript{\ref{actor}}, namely clientactor\footnote{An actor dedicate
-exclusively to handle incoming request from client connected from outside of the
-system}, is spawned; this one is responsible for all incoming request from the
-client connected, and his main role is to forward these requests directy to
-main\footnote{An actor dedicated to the routing of incoming data to subordinates
-actors and orchestration of the latter\label{main}}
-actors\textsuperscript{\ref{actor}}, equally distributed across the nodes of a
+For every incoming connection a dedicated actor\textsuperscript{\ref{actor}}, named clientactor\footnote{An actor dedicated
+exclusively to handle incoming request from clients connected from outside the
+system}, is spawned; it is responsible for all incoming requests from the
+client that is connected, and his main role is to forward these requests directy to the
+main\footnote{An actor dedicated to the routing of incoming data to subordinated
+actors and to the management of the latter\label{main}}
+actors\textsuperscript{\ref{actor}} equally distributed across the nodes of a
 cluster\textsuperscript{\ref{cluster}}. In this way, with
 main\textsuperscript{\ref{main}} actors\textsuperscript{\ref{actor}} breeding
-their own herarchy of subordinates, all incoming data is spread across the
+their own hierarchy of subordinates, all incoming data is spread across the
 cluster\textsuperscript{\ref{cluster}} network.
 
 \subsubsection{Building from sources}
 
 \textbf{Actorbase} was conceived and developed using SBT (Simple Building Tool) as building and dependencies
-manager tool, this makes compilation and building from sources extremely easy to achieve, just by adding a
+manager tool making the compilation and building from sources extremely easy to achieve just by adding a
 \verb=build.sbt= file inside a Maven-like folder tree:
 
 \textbf{Server side}
@@ -247,25 +247,25 @@ manager tool, this makes compilation and building from sources extremely easy to
 %   \end{center}
 % \end{figure}
 
-As shown in the image, there're some external libraries needed to build the system:
+As shown in the image, there are some external libraries needed to build the system:
 \begin{itemize}
 \item \textbf{Spray:} An open source toolkit for building REST/HTTP-based
   integration layers on top of Scala and Akka; mainly used for the server
   component in order to expose communication API and to
-  Marshall\footnote{Transforming the memory of an object to a data format suitable
+  Marshall\footnote{The act of transforming the memory of an object to a data format suitable
     for storage or transmission, e.g.\ serialization} database contents.
-\item \textbf{scala-pickling:} An automatic serialization framework made for
+\item \textbf{scala-pickling:} An authomatic serialization framework made for
   Scala; mainly used in the driver component in order to serialize and
-  deserialize object in a fast and transparent way;
+  deserialize objects in a fast and transparent way;
 \item \textbf{scalaj-http:} A fairly simple http library for Scala, used in the
-  driver component in order to establish a communication with the server REST API;\
+  driver component in order to establish a communication with the REST API server;\
 \item \textbf{json4s:} Used in the driver component to expose a pretty formatted
   JSON (JavaScript Object Notation) version of the data retrieved from the server;
 \item \textbf{scala-bcrypt:} Scala version of the encryption library Bcrypt,
-  used on the server side for store hashes of sensitive data;
-\item \textbf{Akka:} A toolkit and runtime for building highly concurrent,
-  distributed, and resilient message-driven applications on the JVM;\ the core of
-  the system, of course used in the server-side component.
+  used on the server side to store hashes of sensitive data;
+\item \textbf{Akka:} A toolkit and runtime environment to build highly concurrent,
+  distributed, and resilient message-driven applications on the JVM;\ it is the core of
+  the system and it is used in the server-side component.
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -274,10 +274,17 @@ As shown in the image, there're some external libraries needed to build the syst
 
 \subsection{ActorbaseDriver: Using Actorbase from inside a Scala source}
 
+<<<<<<< HEAD
+Actorbase is essentially an actor\textsuperscript{\ref{actor}} system built upon a server component that
+exposes some API forming a RESTful web service. To facilitate the use from
+inside a Scala source, a driver has been developed in order to allow the
+usage of all features that \textbf{Actorbase} provides.\\
+=======
 Actorbase is essentially an actor\textsuperscript{\ref{actor}} system built upon
 a server component that exposes some API forming a RESTful web service. To
 facilitate the use from inside a Scala source, it has been developed a driver in
 order to allow the usage of all features that \textbf{Actorbase} provides.\\
+>>>>>>> 285139fa5d3f3a3faefb91c9ae32450b851a64fb
 
 \subsubsection{Quick Start: a generic example}
 
@@ -296,14 +303,14 @@ The most common operations include:
   \end{center}
 \end{figure}
 
-These are some of the most common operations that the driver allows to do,
-there's not too much boilerplate\footnote{A section of code that have to be
-  included in many places with little to no alteration.} code, and it's possible
+These are some of the most common operations that the driver allows the user to do,
+there is not too much boilerplate\footnote{A section of code that has to be
+  included in many places with little to no alteration.} code, and it is possible
 to make operations directly on objects representing \textbf{Actorbase}
 collections\footnote{A data-structure constituted by a list of key-value items\label{coll}}
 in a purely OOP (Object Oriented Programming) fashion.\\ As explained in
 the snippet\footnote{A programming term for a small region of reusable code.}
-image, these objects also retain some of the common functional constructs (e.g.
+image these objects also retain some of the common functional constructs (e.g.
 foreach), so it's possible to apply custom functions to every item of the
 collection.
 
@@ -311,21 +318,21 @@ collection.
 
 \paragraph{Authentication}
 
-Althrough in the future perhaps there could be the possibility to make some
+Although in the future there may be the possibility to make some
 operations as an anonymous user, at the current state the only possible action
 that a non-logged-in user can do with \verb=ActorbaseDriver= is the authentication.
-This method send a login request to the server-side of the system and, according
+This method sends a login request to the server-side of the system and, according
 to the response, it will return an \verb=ActorbaseService=\footnote{Main class,
   contains all collection management methods\label{ActorbaseServices}} or an
 \verb=ActorbaseAdminServices=\footnote{Defined trait, contains some
-  administrative functionality as dependancy added to
+  administrative functionality as dependency added to
   ActorbaseServices\label{AdminServices}}. These two objects give the methods to
 actually make all operations on the database, the main difference is that
 \verb=ActorbaseAdminServices=\textsuperscript{\ref{AdminServices}} allows to do
-some high-level administrative operations on users and
+some high-level administrative operations on the users and the
 collections\textsuperscript{\ref{coll}} of the system.\\
 Authentication method could raise \textbf{WrongCredentialExc} exception, in case
-of wrong credentials sent to the server.
+ wrong credentials has been sent to the server.
 
 \paragraph{Profile management}
 
@@ -340,26 +347,26 @@ e.g.:
 % \end{figure}
 This method could raise:
 \begin{itemize}
-\item \textbf{WrongPasswordExc} In case of a wrong current password;
-\item \textbf{WrongNewPasswordExc} In case of a new password that doesn't meet \textbf{Actorbase} password rules.
+\item \textbf{WrongPasswordExc} In case the user made a mistake inserting the current password;
+\item \textbf{WrongNewPasswordExc} In case the new password does not meet the \textbf{Actorbase} password rules.
 \end{itemize}
 
 \subparagraph{Credential rules}
 % TODO: Complete
-Usernames can't be empty string, neither have spaces, every password must
-contain at least one uppercase, one lowercase letter and one number and be at
+Usernames can not be an empty string or have any blank spaces, every password must
+contain at least one uppercase and one lowercase letter, one digit and must be at
 least 8 characters long.
 
 \paragraph{Collections operations}
 
 As previously explained, operations on the collections\textsuperscript{\ref{coll}} can be done in a purely
-OOP way, this mean that all methods that return an \verb=ActorbaseCollection=\footnote{An object representing a collection of the system\label{ABcoll}},
-gives the possibility to call all collection-management methods:
+OOP fashion, this means that all methods that return an \verb=ActorbaseCollection=\footnote{An object representing a collection of the system\label{ABcoll}},
+give the possibility to call all collection-management methods:
 
 \begin{itemize}
 \item \verb=listCollection=, lists all collections\textsuperscript{\ref{coll}}
-  contained in the database, these are collections\textsuperscript{\ref{coll}}
-  owned by the profile of the requester, including contributions ones.
+  contained in the database, these are the collections\textsuperscript{\ref{coll}}
+  owned by the profile of the applicant, including the ones he is a contributor of.
 \item \verb=addCollection= method:\\ Create a new collection\textsuperscript{\ref{coll}} into \textbf{Actorbase}, accepting a \verb=String=
   representing the name of the new collection\textsuperscript{\ref{coll}};
   e.g.:
@@ -371,12 +378,12 @@ gives the possibility to call all collection-management methods:
   % \end{figure}
   Add collection\textsuperscript{\ref{coll}} method could raise:
   \begin{itemize}
-  \item \textbf{CollectionAlreadyExistsExc:} In case of duplicate collection\textsuperscript{\ref{coll}} name into \textbf{Actorbase};
-  \item \textbf{UndefinedCollectionExc:} In case of addition of a new collection\textsuperscript{\ref{coll}} with an empty name.
+  \item \textbf{CollectionAlreadyExistsExc:} In case the name of the collection\textsuperscript{\ref{coll}} is already taken by another collection\textsuperscript{\ref{coll}} in \textbf{Actorbase};
+  \item \textbf{UndefinedCollectionExc:} In case the user tried to insert a new collection\textsuperscript{\ref{coll}} with an empty name.
   \end{itemize}
-\item \verb=insert= methods:\\ These methods come in two variants, first one accepting
-  a vararg\footnote{A sequence of arguments} of key-value tuple, the second
-  accepting an
+\item \verb=insert= methods:\\ These methods come in two variants: the first one accepting
+  a vararg\footnote{A sequence of arguments} of key-value tuple and the second
+  one accepting an
   \verb=ActorbaseObject=\footnote{An object representing a key-value pair inside Actorbase\label{ABobj}} instance;
   e.g.:
   % \begin{figure}[H]
@@ -387,9 +394,9 @@ gives the possibility to call all collection-management methods:
   % \end{figure}
   Insert methods could raise:
   \begin{itemize}
-  \item \textbf{DuplicateKeyExc:} In case of a key already present inside the collection\textsuperscript{\ref{coll}}.
+  \item \textbf{DuplicateKeyExc:} In case of a key is already taken inside the collection\textsuperscript{\ref{coll}}.
   \end{itemize}
-\item \verb=remove= methods:\\ There're two variants of this method too, the usage is
+\item \verb=remove= methods:\\ There are two variants of this method too, the usage is
   analogous to insert, e.g.:
   % \begin{figure}[H]
   %   \begin{center}
@@ -397,8 +404,8 @@ gives the possibility to call all collection-management methods:
   %     \caption{Driver usage: remove methods}
   %   \end{center}
   % \end{figure}
-\item \verb=find= method:\\ This method accept one or more \verb=String= representing
-  keys to be retrieved from the collection\textsuperscript{\ref{coll}}, again the usage is similar to insert and
+\item \verb=find= method:\\ This method accepts one or more \verb=Strings= representing
+  keys to be retrieved from the collection\textsuperscript{\ref{coll}}; once again the usage is similar to the insert and
   remove methods, e.g.:
   % \begin{figure}[H]
   %   \begin{center}
@@ -406,8 +413,8 @@ gives the possibility to call all collection-management methods:
   %     \caption{Driver usage: find method}
   %   \end{center}
   % \end{figure}
-\item \verb=findOne= method:\\ This method accept one \verb=ActorbaseObject=\textsuperscript{\ref{ABobj}} representing
-  a key-value pair to be retrieved from the collection\textsuperscript{\ref{coll}}, again the usage is similar to insert and
+\item \verb=findOne= method:\\ This method accepts one \verb=ActorbaseObject=\textsuperscript{\ref{ABobj}} representing
+  a key-value pair to be retrieved from the collection\textsuperscript{\ref{coll}}; once again the usage is similar to insert and
   remove methods, e.g.:
   % \begin{figure}[H]
   %   \begin{center}
@@ -415,7 +422,7 @@ gives the possibility to call all collection-management methods:
   %     \caption{Driver usage: findOne method}
   %   \end{center}
   % \end{figure}
-\item \verb=drop= methods:\\ Again this method have multiple variants, there's the
+\item \verb=drop= methods:\\ Again this method has multiple variants, there is the
   \verb=dropCollections= that can be used to wipe out all the database, e.g.:
   % \begin{figure}[H]
   %   \begin{center}
@@ -439,10 +446,10 @@ gives the possibility to call all collection-management methods:
   %     \caption{Driver usage: drop method}
   %   \end{center}
   % \end{figure}
-\item printing collections\textsuperscript{\ref{coll}}:\\All object returned by \verb=ActorbaseDriver=
+\item printing collections\textsuperscript{\ref{coll}}:\\All objects returned by \verb=ActorbaseDriver=
   have an override\footnote{Specific implementation of a method in a subclass that
     is already provided by one of its superclasses} to the method \verb=toString=
-  that return a pretty formatted JSON (JavaScript Object Notation) \verb=String=, e.g.:
+  that returns a pretty formatted JSON (JavaScript Object Notation) \verb=String=, e.g.:
   % \begin{figure}[H]
   %   \begin{center}
   %     \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Driver-Printing.png}
@@ -457,7 +464,7 @@ gives the possibility to call all collection-management methods:
 
   %   \end{center}
   % \end{figure}
-\item \verb=importFromFile=, method that allow to import a (possibly) large number of collections\textsuperscript{\ref{coll}}
+\item \verb=importFromFile=, method that allows to import a (possibly) large number of collections\textsuperscript{\ref{coll}}
   directly into \textbf{Actorbase}
   % \begin{figure}[H]
   %   \begin{center}
@@ -468,11 +475,11 @@ gives the possibility to call all collection-management methods:
   % \end{figure}
   This method could raise:
   \begin{itemize}
-  \item \textbf{UndefinedFileExc:} in case of file not found at the given path in the filesystem;
-  \item \textbf{MalformedFileExc:} in case of a file not in JSON format or not valid JSON.
+  \item \textbf{UndefinedFileExc:} in case the file has not been found at the given path in the filesystem;
+  \item \textbf{MalformedFileExc:} in case the file is not in JSON format or it is not a valid JSON.
   \end{itemize}
 
-\item \verb=exportToFile=, method that allow to export one or more collections\textsuperscript{\ref{col}} to a specified path on the filesystem
+\item \verb=exportToFile=, method that allows to export one or more collections\textsuperscript{\ref{col}} to a specified path on the filesystem
   % \begin{figure}[H]
   %   \begin{center}
   %     \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Driver-Export.png}
@@ -484,9 +491,9 @@ gives the possibility to call all collection-management methods:
 
 \subparagraph{Contributor management}
 
-Each user in \textbf{Actorbase} have the possibility to add and remove contributors
-to his collections\textsuperscript{\ref{coll}}, a user can be added with two level of
-permission:
+Each user in \textbf{Actorbase} has the possibility to add and remove contributors
+to his collections\textsuperscript{\ref{coll}}, a user can be added with two levels of
+permissions:
 \begin{itemize}
 \item read, means that a user can only make read operations on the collection\textsuperscript{\ref{coll}} without modifying it;
 \item read-write, means that a user can make read and write operations on the collection\textsuperscript{\ref{coll}}.
@@ -501,7 +508,7 @@ e.g.:
 
 \subparagraph{Administrative operations}
 
-\textbf{Actorbase} expect two kind of users, common an administrator. The last one have
+\textbf{Actorbase} expects two kind of users, common and administrator. The last one has
 some privileges over the others, such as a wider range of collections\textsuperscript{\ref{coll}} (all
 database) with read-write permissions, and capabilities of adding and removing
 users to and from the system, and finally resetting the password of given users.
@@ -514,14 +521,15 @@ users to and from the system, and finally resetting the password of given users.
 Administrative operations could raise some exceptions:
 \begin{itemize}
 \item \textbf{UndefinedUsernameExc:} In case of addition of a new user with an empty username;
+\item \textbf{UsernameNotFoundExc:} In case the username inserted in the remove command is not found.
 \end{itemize}
 
 \paragraph{Failure management}
 
 In addition to all exceptions that could be raised, there is one error that is
 shared by every method and that is in case of a communication error, which can
-be caused by not receiving a response from the server in a predetermined time or
-unreachable destination address during connection, the driver will launch a
+be caused by not receiving a response from the server in a predetermined time or 
+if the destination address is unreachable, the driver will launch a
 timeout connection exception.
 
 \paragraph{Contribute}
@@ -529,7 +537,7 @@ timeout connection exception.
 \subparagraph{Issues}
 
 \textbf{Actorbase} is hosted on github at the url
-\url{https://github.com/ScalateKids} divided into two repositories:
+\url{https://github.com/ScalateKids} divided in two repositories:
 
 \begin{itemize}
 \item\textbf{Server-side}
