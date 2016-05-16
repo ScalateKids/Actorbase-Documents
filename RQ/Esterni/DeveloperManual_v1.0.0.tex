@@ -194,8 +194,9 @@ The \textit{--config=path/to/config.cfg} is optional.
 As shown in the image, there is a part of the configuration dedicated to the
 distribution of the load between multiple nodes in a cluster\footnote{A set of
 loosely or tightly connected computers that work together, so that they can be
-viewed as a single system\label{cluster}} (\textbf{Actobase} is in fact a
-system scale-out oriented) and it is possible to set all
+viewed as a single system\label{cluster}}, \textbf{Actobase} is in fact a
+scale-out\footnote{Method of adding more resources by adding more nodes to the
+cluster\label{cleout}} oriented system, and it is possible to set all
 cluster\textsuperscript{\ref{cluster}} configurations offered by Akka library.
 
 \subsubsection{Server-side general structure}
@@ -273,10 +274,17 @@ As shown in the image, there are some external libraries needed to build the sys
 
 \subsection{ActorbaseDriver: Using Actorbase from inside a Scala source}
 
+<<<<<<< HEAD
 Actorbase is essentially an actor\textsuperscript{\ref{actor}} system built upon a server component that
 exposes some API forming a RESTful web service. To facilitate the use from
 inside a Scala source, a driver has been developed in order to allow the
 usage of all features that \textbf{Actorbase} provides.\\
+=======
+Actorbase is essentially an actor\textsuperscript{\ref{actor}} system built upon
+a server component that exposes some API forming a RESTful web service. To
+facilitate the use from inside a Scala source, it has been developed a driver in
+order to allow the usage of all features that \textbf{Actorbase} provides.\\
+>>>>>>> 285139fa5d3f3a3faefb91c9ae32450b851a64fb
 
 \subsubsection{Quick Start: a generic example}
 
