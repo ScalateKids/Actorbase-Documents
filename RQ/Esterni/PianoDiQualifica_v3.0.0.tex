@@ -934,21 +934,21 @@ a cui fa riferimento
   \hline
   Test & Descrizione & Stato & Requisito\\
   \hline
-  TU.OBF1.1.1.1 & Si verifica che All'interno del singolo \gloss{nodo} dovrà essere implementato l'attore \gloss{HTTPserver} per gestire le connessioni provenienti dall'esterno &   & OBF1.1.1.1   \\
+  TU.OBF1.1.1.1 & Si verifica che All'interno del singolo \gloss{nodo} dovrà essere implementato l'attore \gloss{HTTPserver} per gestire le connessioni provenienti dall'esterno & OK  & OBF1.1.1.1   \\ 
   \hline
-  TU.OBF1.1.1.1.1 & Si verifica che L'attore di tipo \gloss{HTTPserver} dovrà gestire la ricezione del messaggio Bound &   & OBF1.1.1.1.1   \\
+  TU.OBF1.1.1.1.1 & Si verifica che L'attore di tipo \gloss{HTTPserver} dovrà gestire la ricezione del messaggio Bound &   & OBF1.1.1.1.1   \\ 
   \hline
   TU.OBF1.1.1.1.2 & Si verifica che L'attore di tipo \gloss{HTTPserver} dovrà gestire la ricezione del messaggio CommandFailed  &   & OBF1.1.1.1.2   \\
   \hline
   TU.OBF1.1.1.1.3 & Si verifica che L'attore di tipo \gloss{HTTPserver} dovrà gestire la ricezione del messaggio Connected  &   & OBF1.1.1.1.3   \\
   \hline
-  TU.OBF1.1.2 & Si verifica che All'interno del singolo \gloss{nodo} dovrà essere implementato l'attore \gloss{Clientactor} per gestire il ciclo di vita di una connessione dall'esterno  &   & OBF1.1.2   \\
+  TU.OBF1.1.2 & Si verifica che All'interno del singolo \gloss{nodo} dovrà essere implementato l'attore \gloss{Clientactor} per gestire il ciclo di vita di una connessione dall'esterno  & OK  & OBF1.1.2   \\
   \hline
   TU.OBF1.1.2.1 & Si verifica che L'attore di tipo \gloss{Clientactor} dovrà gestire la ricezione del messaggio Response  &   & OBF1.1.2.1   \\
   \hline
   TU.OBF1.1.2.2 & Si verifica che L'attore di tipo \gloss{Clientactor} dovrà gestire la ricezione del messaggio PeerClosed  &   & OBF1.1.2.2   \\
   \hline
-  TU.OBF1.1.2.3 & Si verifica che L'attore di tipo \gloss{Clientactor} dovrà gestire la ricezione del messaggio RESPInput  &   & OBF1.1.2.3   \\
+  TU.OBF1.1.2.3 & Si verifica che L'attore di tipo \gloss{Clientactor} dovrà gestire la ricezione della route per gestire la richiesta  & OK  & OBF1.1.2.3   \\
   \hline
   TU.OBF1.1.2.4 & Si verifica che L'attore di tipo \gloss{Clientactor} dovrà gestire la ricezione del messaggio LoginResponse  &   & OBF1.1.2.4   \\
   \hline
@@ -956,55 +956,55 @@ a cui fa riferimento
   \hline
   TU.OBF1.1.2.6 & Si verifica che L'attore di tipo \gloss{Clientactor} dovrà gestire la ricezione del messaggio UpdateReadCollections  &   & OBF1.1.2.6   \\
   \hline
-  TU.OBF1.1.3 & Si verifica che All'interno del singolo \gloss{nodo} dovrà essere implementato l'attore \gloss{Main} per gestire le richieste provenienti dall'attore \gloss{Clientactor}  &   & OBF1.1.3   \\
+  TU.OBF1.1.3 & Si verifica che All'interno del singolo \gloss{nodo} dovrà essere implementato l'attore \gloss{Main} per gestire le richieste provenienti dall'attore \gloss{Clientactor}  & OK  & OBF1.1.3   \\
   \hline
-  TU.OBF1.1.3.1 & Si verifica che L'attore di tipo \gloss{Main} dovrà gestire la ricezione del messaggio CreateCollection  &   & OBF1.1.3.1   \\
+  TU.OBF1.1.3.1 & Si verifica che L'attore di tipo \gloss{Main} dovrà gestire la ricezione del messaggio CreateCollection  & OK  & OBF1.1.3.1   \\
   \hline
   TU.OBF1.1.3.2 & Si verifica che L'attore di tipo \gloss{Main} dovrà gestire la ricezione del messaggio GetCollection  &   & OBF1.1.3.2   \\
   \hline
-  TU.OBF1.1.3.3 & Si verifica che L'attore di tipo \gloss{Main} dovrà gestire la ricezione del messaggio RemoveCollection  &   & OBF1.1.3.3   \\
+  TU.OBF1.1.3.3 & Si verifica che L'attore di tipo \gloss{Main} dovrà gestire la ricezione del messaggio RemoveCollection  & OK  & OBF1.1.3.3   \\
   \hline
-  TU.OBF1.1.3.4 & Si verifica che L'attore di tipo \gloss{Main} dovrà gestire la ricezione del messaggio GetItemFrom  &   & OBF1.1.3.4   \\
+  TU.OBF1.1.3.4 & Si verifica che L'attore di tipo \gloss{Main} dovrà gestire la ricezione del messaggio GetItemFrom  &  OK & OBF1.1.3.4   \\
   \hline
   TU.OBF1.1.3.5 & Si verifica che L'attore di tipo \gloss{Main} dovrà gestire la ricezione del messaggio AddContributor  &   & OBF1.1.3.5   \\
   \hline
   TU.OBF1.1.3.7 & Si verifica che L'attore di tipo \gloss{Main} dovrà gestire la ricezione del messaggio RemoveContributor  &   & OBF1.1.3.7   \\
   \hline
-  TU.OBF1.1.3.8 & Si verifica che L'attore di tipo \gloss{Main} dovrà gestire la ricezione del messaggio InitUserKeeper  &   & OBF1.1.3.8   \\
+  TU.OBF1.1.3.8 & Si verifica che L'attore di tipo \gloss{Main} dovrà gestire la ricezione del messaggio GetItemFromResponse  & OK  & OBF1.1.3.8   \\
   \hline
-  TU.OBF1.1.3.9 & Si verifica che L'attore di tipo \gloss{Main} dovrà gestire la ricezione di tutti i messaggi dell'attore di tipo \gloss{StoreFinder}  &   & OBF1.1.3.9   \\
+  TU.OBF1.1.3.9 & Si verifica che L'attore di tipo \gloss{Main} dovrà gestire la ricezione del messaggio RemoveItemFrom	  & OK  & OBF1.1.3.9   \\
   \hline
-  TU.OBF1.1.4 & Si verifica che All'interno del singolo nodo dovrà essere implementato l'attore \gloss{Storefinder} per la gestione delle \gloss{collezioni} del \gloss{database}  &   & OBF1.1.4   \\
+  TU.OBF1.1.4 & Si verifica che All'interno del singolo nodo dovrà essere implementato l'attore \gloss{Storefinder} per la gestione delle \gloss{collezioni} del \gloss{database}  & OK  & OBF1.1.4   \\
   \hline
-  TU.OBF1.1.4.1 & Si verifica che L'attore di tipo \gloss{StoreFinder} dovrà gestire la ricezione del messaggio Init  &   & OBF1.1.4.1   \\
+  TU.OBF1.1.4.1 & Si verifica che L'attore di tipo \gloss{StoreFinder} dovrà gestire la ricezione del messaggio UpdateCollectionSize  & OK  & OBF1.1.4.1   \\
   \hline
-  TU.OBF1.1.4.2 & Si verifica che L'attore di tipo \gloss{StoreFinder} dovrà gestire la ricezione del messaggio DuplicateRequestSK  &   & OBF1.1.4.2   \\
+  TU.OBF1.1.4.2 & Si verifica che L'attore di tipo \gloss{StoreFinder} dovrà gestire la ricezione del messaggio DuplicateRequestSK  &  OK & OBF1.1.4.2   \\
   \hline
-  TU.OBF1.1.4.3 & Si verifica che L'attore di tipo \gloss{StoreFinder} dovrà gestire la ricezione del messaggio GetItem  &   & OBF1.1.4.3   \\
+  TU.OBF1.1.4.3 & Si verifica che L'attore di tipo \gloss{StoreFinder} dovrà gestire la ricezione del messaggio GetItem  & OK & OBF1.1.4.3   \\
   \hline
-  TU.OBF1.1.4.4 & Si verifica che L'attore di tipo \gloss{StoreFinder} dovrà gestire la ricezione del messaggio RemoveItem  &   & OBF1.1.4.4   \\
+  TU.OBF1.1.4.4 & Si verifica che L'attore di tipo \gloss{StoreFinder} dovrà gestire la ricezione del messaggio RemoveItem  &  OK & OBF1.1.4.4   \\
   \hline
-  TU.OBF1.1.4.5 & Si verifica che L'attore di tipo \gloss{StoreFinder} dovrà gestire la ricezione del messaggio Insert  &   & OBF1.1.4.5   \\
+  TU.OBF1.1.4.5 & Si verifica che L'attore di tipo \gloss{StoreFinder} dovrà gestire la ricezione del messaggio Insert  & OK  & OBF1.1.4.5   \\
   \hline
-  TU.OBF1.1.5 & Si verifica che All'interno del singolo \gloss{nodo} dovrà essere implementato l'attore \gloss{Storekeeper} per gestire il contenuto delle \gloss{collezioni}  &   & OBF1.1.5    \\
+  TU.OBF1.1.5 & Si verifica che All'interno del singolo \gloss{nodo} dovrà essere implementato l'attore \gloss{Storekeeper} per gestire il contenuto delle \gloss{collezioni}  &  OK & OBF1.1.5    \\
   \hline
-  TU.OBF1.1.5.1 & Si verifica che L'attore di tipo \gloss{StoreKeeper} dovrà gestire la ricezione del messaggio Init  &   & OBF1.1.5.1    \\
+  TU.OBF1.1.5.1 & Si verifica che L'attore di tipo \gloss{StoreKeeper} dovrà gestire la ricezione del messaggio Persist	 & OK & OBF1.1.5.1    \\
   \hline
-  TU.OBF1.1.5.2 & Si verifica che L'attore di tipo \gloss{StoreKeeper} dovrà gestire la ricezione del messaggio GetItem  &   & OBF1.1.5.2    \\
+  TU.OBF1.1.5.2 & Si verifica che L'attore di tipo \gloss{StoreKeeper} dovrà gestire la ricezione del messaggio GetItem  &  OK & OBF1.1.5.2    \\
   \hline
-  TU.OBF1.1.5.3 & Si verifica che L'attore di tipo \gloss{StoreKeeper} dovrà gestire la ricezione del messaggio GetAllItems  &   & OBF1.1.5.3    \\
+  TU.OBF1.1.5.3 & Si verifica che L'attore di tipo \gloss{StoreKeeper} dovrà gestire la ricezione del messaggio GetAllItems  & OK & OBF1.1.5.3    \\
   \hline
-  TU.OBF1.1.5.4 & Si verifica che L'attore di tipo \gloss{StoreKeeper} dovrà gestire la ricezione del messaggio Insert  &   & OBF1.1.5.4    \\
+  TU.OBF1.1.5.4 & Si verifica che L'attore di tipo \gloss{StoreKeeper} dovrà gestire la ricezione del messaggio Insert  & OK & OBF1.1.5.4    \\
   \hline
-  TU.OBF1.1.5.5 & Si verifica che L'attore di tipo \gloss{StoreKeeper} dovrà gestire la ricezione del messaggio RemoveItem  &   & OBF1.1.5.5    \\
+  TU.OBF1.1.5.5 & Si verifica che L'attore di tipo \gloss{StoreKeeper} dovrà gestire la ricezione del messaggio RemoveItem  & OK & OBF1.1.5.5    \\
   \hline
-  TU.OBF1.1.6 & Si verifica che All'interno del singolo \gloss{nodo} dovrà essere implementato l'attore \gloss{Warehouseman} per gestire la persistenza dei dati su disco  &   & OBF1.1.6    \\
+  TU.OBF1.1.6 & Si verifica che All'interno del singolo \gloss{nodo} dovrà essere implementato l'attore \gloss{Warehouseman} per gestire la persistenza dei dati su disco  & OK & OBF1.1.6    \\
   \hline
-  TU.OBF1.1.6.1 & Si verifica che L'attore di tipo \gloss{Warehouseman} dovrà gestire la ricezione del messaggio Init  &   & OBF1.1.6.1    \\
+  TU.OBF1.1.6.1 & Si verifica che L'attore di tipo \gloss{Warehouseman} dovrà gestire la ricezione del messaggio Read  &   & OBF1.1.6.1    \\
   \hline
-  TU.OBF1.1.6.2 & Si verifica che L'attore di tipo \gloss{Warehouseman} dovrà gestire la ricezione del messaggio Save  &   & OBF1.1.6.2    \\
+  TU.OBF1.1.6.2 & Si verifica che L'attore di tipo \gloss{Warehouseman} dovrà gestire la ricezione del messaggio Save  & OK  & OBF1.1.6.2    \\
   \hline
-  TU.OBF1.1.7 & Si verifica che All'interno del singolo \gloss{nodo} dovrà essere implementato l'attore \gloss{Ninja} per gestire la ridondanza dei dati contenuti negli \gloss{Storekeeper}  &   & OBF1.1.7    \\
+  TU.OBF1.1.7 & Si verifica che All'interno del singolo \gloss{nodo} dovrà essere implementato l'attore \gloss{Ninja} per gestire la ridondanza dei dati contenuti negli \gloss{Storekeeper}  &  & OBF1.1.7    \\
   \hline
   TU.OBF1.1.7.1 & Si verifica che L'attore di tipo \gloss{Ninja} dovrà gestire la ricezione del messaggio Update  &   & OBF1.1.7.1    \\
   \hline
@@ -1016,23 +1016,23 @@ a cui fa riferimento
   \hline
   TU.OBF1.1.8.2 & Si verifica che L'attore di tipo \gloss{Manager} dovrà gestire la ricezione del messaggio DuplicateRequestSF  &   & OBF1.1.8.2    \\
   \hline
-  TU.OBF1.1.9 & Si verifica che All'interno del singolo \gloss{nodo} dovrà essere implementato l'attore \gloss{Userkeeper} per gestire gli utenti e i loro permessi sulle \gloss{collezioni}  &   & OBF1.1.9    \\
+  TU.OBF1.1.9 & Si verifica che All'interno del singolo \gloss{nodo} dovrà essere implementato l'attore \gloss{Userkeeper} per gestire gli utenti e i loro permessi sulle \gloss{collezioni}  & OK & OBF1.1.9    \\
   \hline
-  TU.OBF1.1.9.1 & Si verifica che L'attore di tipo \gloss{UserKeeper} dovrà gestire la ricezione del messaggio GetCollections   &   & OBF1.1.9.1    \\
+  TU.OBF1.1.9.1 & Si verifica che L'attore di tipo \gloss{UserKeeper} dovrà gestire la ricezione del messaggio GetCollections   & OK & OBF1.1.9.1    \\
   \hline
-  TU.OBF1.1.9.2 & Si verifica che L'attore di tipo \gloss{UserKeeper} dovrà gestire la ricezione del messaggio GetReadCollections  &   & OBF1.1.9.2    \\
+  TU.OBF1.1.9.2 & Si verifica che L'attore di tipo \gloss{UserKeeper} dovrà gestire la ricezione del messaggio GetReadCollections  & OK & OBF1.1.9.2    \\
   \hline
-  TU.OBF1.1.9.3 & Si verifica che L'attore di tipo \gloss{UserKeeper} dovrà gestire la ricezione del messaggio BindClient  &   & OBF1.1.9.3    \\
+  TU.OBF1.1.9.3 & Si verifica che L'attore di tipo \gloss{UserKeeper} dovrà gestire la ricezione del messaggio BindClient  & OK & OBF1.1.9.3    \\
   \hline
-  TU.OBF1.1.9.4 & Si verifica che L'attore di tipo \gloss{UserKeeper} dovrà gestire la ricezione del messaggio GetPassword  &   & OBF1.1.9.4    \\
+  TU.OBF1.1.9.4 & Si verifica che L'attore di tipo \gloss{UserKeeper} dovrà gestire la ricezione del messaggio GetPassword  & OK & OBF1.1.9.4    \\
   \hline
-  TU.OBF1.1.9.5 & Si verifica che L'attore di tipo \gloss{UserKeeper} dovrà gestire la ricezione del messaggio RemoveCollection  &   & OBF1.1.9.5    \\
+  TU.OBF1.1.9.5 & Si verifica che L'attore di tipo \gloss{UserKeeper} dovrà gestire la ricezione del messaggio RemoveCollection  & OK & OBF1.1.9.5    \\
   \hline
-  TU.OBF1.1.9.6 & Si verifica che L'attore di tipo \gloss{UserKeeper} dovrà gestire la ricezione del messaggio AddCollection  &   & OBF1.1.9.6    \\
+  TU.OBF1.1.9.6 & Si verifica che L'attore di tipo \gloss{UserKeeper} dovrà gestire la ricezione del messaggio AddCollection  & OK & OBF1.1.9.6    \\
   \hline
-  TU.OBF1.1.9.7 & Si verifica che L'attore di tipo \gloss{UserKeeper} dovrà gestire la ricezione del messaggio RemoveReadCollection  &   & OBF1.1.9.7    \\
+  TU.OBF1.1.9.7 & Si verifica che L'attore di tipo \gloss{UserKeeper} dovrà gestire la ricezione del messaggio RemoveReadCollection  & OK  & OBF1.1.9.7    \\
   \hline
-  TU.OBF1.1.9.8 & Si verifica che L'attore di tipo \gloss{UserKeeper} dovrà gestire la ricezione del messaggio AddReadCollection  &   & OBF1.1.9.8    \\
+  TU.OBF1.1.9.8 & Si verifica che L'attore di tipo \gloss{UserKeeper} dovrà gestire la ricezione del messaggio AddReadCollection  & OK & OBF1.1.9.8    \\
   \hline
   TU.OBF1.1.9.9 & Si verifica che L'attore di tipo \gloss{UserKeeper} dovrà gestire la ricezione del messaggio ChangePassword  &   & OBF1.1.9.9    \\
   \hline
