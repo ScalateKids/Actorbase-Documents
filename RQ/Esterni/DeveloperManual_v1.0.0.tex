@@ -173,21 +173,21 @@ That's really all for a basic usage, and the procedure is the same for
   Capitan} and following versions, though it's possible to give \textbf{Actorbase} a custom configuration by
 running:
 
-% \begin{figure}[H]
-%   \begin{center}
-%     \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Actorbase-BuildBin.png}
-%     \caption{Actorbase: build binaries with custom configuration}
-%   \end{center}
-% \end{figure}
+ \begin{figure}[H]
+   \begin{center}
+     \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Actorbase-BuildBin.png}
+     \caption{Actorbase: build binaries with custom configuration}
+   \end{center}
+ \end{figure}
 
 \textbf{Configuration sample}
 
-% \begin{figure}[H]
-%   \begin{center}
-%     \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Actorbase-Config.png}
-%     \caption{Actorbase: configuration sample}
-%   \end{center}
-% \end{figure}
+ \begin{figure}[H]
+   \begin{center}
+     \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Actorbase-Config.png}
+     \caption{Actorbase: configuration sample}
+   \end{center}
+ \end{figure}
 
 The \textit{--config=path/to/config.cfg} is optional.
 
@@ -231,21 +231,21 @@ manager tool making the compilation and building from sources extremely easy to 
 
 \textbf{Server side}
 
-% \begin{figure}[H]
-%   \begin{center}
-%     \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Actorbase-FromSourceSbt.png}
-%     \caption{Actorbase: build.sbt sample to build from sources}
-%   \end{center}
-% \end{figure}
+ \begin{figure}[H]
+   \begin{center}
+     \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Actorbase-FromSourceSbt.png}
+     \caption{Actorbase: build.sbt sample to build from sources}
+   \end{center}
+ \end{figure}
 
 \textbf{CLI}
 
-% \begin{figure}[H]
-%   \begin{center}
-%     \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Actorbase-FromSourceSbtCLI.png}
-%     \caption{Actorbase-CLI: build.sbt sample to build from sources}
-%   \end{center}
-% \end{figure}
+ \begin{figure}[H]
+   \begin{center}
+     \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Actorbase-FromSourceSbtCLI.png}
+     \caption{Actorbase-CLI: build.sbt sample to build from sources}
+   \end{center}
+ \end{figure}
 
 As shown in the image, there are some external libraries needed to build the system:
 \begin{itemize}
@@ -339,12 +339,12 @@ Authentication method could raise \textbf{WrongCredentialExc} exception, in case
 \textit{ActorbaseDriver} provides a method to modify the current password,
 associated to an user profile.
 e.g.:
-% \begin{figure}[H]
-%   \begin{center}
-%     \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Driver-UserManagement.png}
-%     \caption{Driver usage: insertion methods}
-%   \end{center}
-% \end{figure}
+ \begin{figure}[H]
+   \begin{center}
+     \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Driver-UserManagement.png}
+     \caption{Driver usage: insertion methods}
+   \end{center}
+ \end{figure}
 This method could raise:
 \begin{itemize}
 \item \textbf{WrongPasswordExc} In case the user made a mistake inserting the current password;
@@ -370,12 +370,12 @@ give the possibility to call all collection-management methods:
 \item \verb=addCollection= method:\\ Create a new collection\textsuperscript{\ref{coll}} into \textbf{Actorbase}, accepting a \verb=String=
   representing the name of the new collection\textsuperscript{\ref{coll}};
   e.g.:
-  % \begin{figure}[H]
-  %   \begin{center}
-  %     \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Driver-AddCollection.png}
-  %     \caption{Driver usage: add collection  methods}
-  %   \end{center}
-  % \end{figure}
+   \begin{figure}[H]
+     \begin{center}
+       \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Driver-AddCollection.png}
+       \caption{Driver usage: add collection  methods}
+     \end{center}
+   \end{figure}
   Add collection\textsuperscript{\ref{coll}} method could raise:
   \begin{itemize}
   \item \textbf{CollectionAlreadyExistsExc:} In case the name of the collection\textsuperscript{\ref{coll}} is already taken by another collection\textsuperscript{\ref{coll}} in \textbf{Actorbase};
@@ -386,93 +386,91 @@ give the possibility to call all collection-management methods:
   one accepting an
   \verb=ActorbaseObject=\footnote{An object representing a key-value pair inside Actorbase\label{ABobj}} instance;
   e.g.:
-  % \begin{figure}[H]
-  %   \begin{center}
-  %     \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Driver-Insert.png}
-  %     \caption{Driver usage: insertion methods}
-  %   \end{center}
-  % \end{figure}
+   \begin{figure}[H]
+     \begin{center}
+       \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Driver-Insert.png}
+       \caption{Driver usage: insertion methods}
+     \end{center}
+   \end{figure}
   Insert methods could raise:
   \begin{itemize}
   \item \textbf{DuplicateKeyExc:} In case of a key is already taken inside the collection\textsuperscript{\ref{coll}}.
   \end{itemize}
 \item \verb=remove= methods:\\ There are two variants of this method too, the usage is
   analogous to insert, e.g.:
-  % \begin{figure}[H]
-  %   \begin{center}
-  %     \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Driver-Insert2.png}
-  %     \caption{Driver usage: remove methods}
-  %   \end{center}
-  % \end{figure}
+   \begin{figure}[H]
+     \begin{center}
+       \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Driver-Insert2.png}
+       \caption{Driver usage: remove methods}
+     \end{center}
+   \end{figure}
 \item \verb=find= method:\\ This method accepts one or more \verb=Strings= representing
   keys to be retrieved from the collection\textsuperscript{\ref{coll}}; once again the usage is similar to the insert and
   remove methods, e.g.:
-  % \begin{figure}[H]
-  %   \begin{center}
-  %     \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Driver-Find.png}
-  %     \caption{Driver usage: find method}
-  %   \end{center}
-  % \end{figure}
+   \begin{figure}[H]
+     \begin{center}
+       \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Driver-Find.png}
+       \caption{Driver usage: find method}
+     \end{center}
+   \end{figure}
 \item \verb=findOne= method:\\ This method accepts one \verb=ActorbaseObject=\textsuperscript{\ref{ABobj}} representing
   a key-value pair to be retrieved from the collection\textsuperscript{\ref{coll}}; once again the usage is similar to insert and
   remove methods, e.g.:
-  % \begin{figure}[H]
-  %   \begin{center}
-  %     \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Driver-FindOne.png}
-  %     \caption{Driver usage: findOne method}
-  %   \end{center}
-  % \end{figure}
+   \begin{figure}[H]
+     \begin{center}
+       \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Driver-FindOne.png}
+       \caption{Driver usage: findOne method}
+     \end{center}
+   \end{figure}
 \item \verb=drop= methods:\\ Again this method has multiple variants, there is the
   \verb=dropCollections= that can be used to wipe out all the database, e.g.:
-  % \begin{figure}[H]
-  %   \begin{center}
-  %     \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Driver-DropCollections.png}
-  %     \caption{Driver usage: dropCollections method}
-  %   \end{center}
-  % \end{figure}
+   \begin{figure}[H]
+     \begin{center}
+       \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Driver-DropCollections.png}
+       \caption{Driver usage: dropCollections method}
+     \end{center}
+   \end{figure}
   the \verb=drop= inside an \verb=ActorbaseCollection=\textsuperscript{\ref{ABcoll}} object:
-  % \begin{figure}[H]
-  %   \begin{center}
-  %     \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Driver-Drop.png}
-  %     \caption{Driver usage: drop method}
-  %   \end{center}
-  % \end{figure}
+   \begin{figure}[H]
+     \begin{center}
+       \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Driver-Drop.png}
+       \caption{Driver usage: drop method}
+     \end{center}
+   \end{figure}
   and finally \verb=drop= inside an \verb=ActorbaseCollectionMap=\textsuperscript{\ref{abcoll}}, it takes a
   vararg of \verb=String= representing a sequence of collections\textsuperscript{\ref{coll}} to be removed
   e.g.:
-  % \begin{figure}[H]
-  %   \begin{center}
-  %     \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Driver-Drop2.png}
-  %     \caption{Driver usage: drop method}
-  %   \end{center}
-  % \end{figure}
+   \begin{figure}[H]
+     \begin{center}
+       \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Driver-Drop2.png}
+       \caption{Driver usage: drop method}
+     \end{center}
+   \end{figure}
 \item printing collections\textsuperscript{\ref{coll}}:\\All objects returned by \verb=ActorbaseDriver=
   have an override\footnote{Specific implementation of a method in a subclass that
     is already provided by one of its superclasses} to the method \verb=toString=
   that returns a pretty formatted JSON (JavaScript Object Notation) \verb=String=, e.g.:
-  % \begin{figure}[H]
-  %   \begin{center}
-  %     \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Driver-Printing.png}
-  %     \caption{Driver usage: drop method}
-  %   \end{center}
-  % \end{figure}
+   \begin{figure}[H]
+     \begin{center}
+       \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Driver-Printing.png}
+       \caption{Driver usage: drop method}
+     \end{center}
+   \end{figure}
 \item \verb=count= elements\footnote{Key-value pairs} inside a collection\textsuperscript{\ref{coll}} e.g.
-  % \begin{figure}[H]
-  %   \begin{center}
-  %     \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Driver-Counting.png}
-  %     \caption{Driver usage: drop method}
-
-  %   \end{center}
-  % \end{figure}
+   \begin{figure}[H]
+     \begin{center}
+       \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Driver-Counting.png}
+       \caption{Driver usage: drop method}
+    \end{center}
+   \end{figure}
 \item \verb=importFromFile=, method that allows to import a (possibly) large number of collections\textsuperscript{\ref{coll}}
   directly into \textbf{Actorbase}
-  % \begin{figure}[H]
-  %   \begin{center}
-  %     \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Driver-Import.png}
-  %     \caption{Driver usage: import from file method}
-
-  %   \end{center}
-  % \end{figure}
+   \begin{figure}[H]
+     \begin{center}
+       \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Driver-Import.png}
+       \caption{Driver usage: import from file method}
+    \end{center}
+   \end{figure}
   This method could raise:
   \begin{itemize}
   \item \textbf{UndefinedFileExc:} in case the file has not been found at the given path in the filesystem;
@@ -480,13 +478,12 @@ give the possibility to call all collection-management methods:
   \end{itemize}
 
 \item \verb=exportToFile=, method that allows to export one or more collections\textsuperscript{\ref{col}} to a specified path on the filesystem
-  % \begin{figure}[H]
-  %   \begin{center}
-  %     \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Driver-Export.png}
-  %     \caption{Driver usage: export to file method}
-
-  %   \end{center}
-  % \end{figure}
+   \begin{figure}[H]
+     \begin{center}
+       \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Driver-Export.png}
+       \caption{Driver usage: export to file method}
+     \end{center}
+   \end{figure}
 \end{itemize}
 
 \subparagraph{Contributor management}
@@ -499,12 +496,12 @@ permissions:
 \item read-write, means that a user can make read and write operations on the collection\textsuperscript{\ref{coll}}.
 \end{itemize}
 e.g.:
-% \begin{figure}[H]
-%   \begin{center}
-%     \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Driver-Contributor.png}
-%     \caption{Driver usage: drop method}
-%   \end{center}
-% \end{figure}
+ \begin{figure}[H]
+   \begin{center}
+     \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Driver-Contributor.png}
+     \caption{Driver usage: drop method}
+   \end{center}
+ \end{figure}
 
 \subparagraph{Administrative operations}
 
@@ -512,12 +509,12 @@ e.g.:
 some privileges over the others, such as a wider range of collections\textsuperscript{\ref{coll}} (all
 database) with read-write permissions, and capabilities of adding and removing
 users to and from the system, and finally resetting the password of given users.
-% \begin{figure}[H]
-%   \begin{center}
-%     \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Driver-Administrative.png}
-%     \caption{Driver usage: drop method}
-%   \end{center}
-% \end{figure}
+ \begin{figure}[H]
+   \begin{center}
+     \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Driver-Administrative.png}
+     \caption{Driver usage: drop method}
+   \end{center}
+ \end{figure}
 Administrative operations could raise some exceptions:
 \begin{itemize}
 \item \textbf{UndefinedUsernameExc:} In case of addition of a new user with an empty username;
