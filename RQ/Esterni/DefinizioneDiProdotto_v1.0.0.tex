@@ -4991,6 +4991,13 @@ effettuata.
 \paragraph{actorbase::cli::views::ResultViewer}
 \label{sec:actorbase::cli::views::ResultViewer}
 
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/ResultViewer.png}
+    \caption{CLI: classe ResultViewer}
+  \end{center}
+\end{figure}
+
 \subparagraph{Descrizione}
 
 Classe per la gestione e la formattazione in output dei risultati ottenuti
@@ -5034,7 +5041,12 @@ ottenuti dal server mediante l'inserimento dei comandi tramite il
 \subsection{actorbase::cli::controllers}
 \label{sec:actorbase::cli::controllers}
 
-% TODO QUA MANCA L'IMMAGINE
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/CLI-Controllers.png}
+    \caption{CLI: package Controllers}
+  \end{center}
+\end{figure}
 
 \subsubsection{Descrizione}
 
@@ -5046,6 +5058,13 @@ componente si occupa di passare il comando ricevuto dalla \gloss{view} al
 
 \paragraph{actorbase::cli::controllers::GrammarParser}
 \label{sec:actorbase::cli::controllers::GrammarParser}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/GrammarParser.png}
+    \caption{CLI: package Controllers}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 
@@ -5132,6 +5151,13 @@ l'esecuzione del comando.
 \subsection{actorbase::cli::models}
 \label{sec:actorbase::cli::models}
 
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/CLI-Models.png}
+    \caption{CLI: package Models}
+  \end{center}
+\end{figure}
+
 \subsubsection{Descrizione}
 
 \gloss{Package} per la parte \gloss{model} della \gloss{cli}. Questa
@@ -5144,6 +5170,13 @@ utilizzare il \gloss{command pattern}.
 
 \paragraph{actorbase::cli::models::Command}
 \label{sec:actorbase::cli::models::Command}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/Command.png}
+    \caption{CLI: interfaccia Command}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 
@@ -5192,6 +5225,13 @@ comando.
 
 \paragraph{actorbase::cli::models::Observable (abstract)}
 \label{sec:actorbase::cli::models::Observable}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/Observable.png}
+    \caption{CLI: classe astratta Observable}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 
@@ -5285,6 +5325,13 @@ ha ritornato un risultato.
 \paragraph{actorbase::cli::models::CommandInvoker}
 \label{sec:actorbase::cli::models::CommandInvoker}
 
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/CommandInvoker.png}
+    \caption{CLI: classe CommandInvoker}
+  \end{center}
+\end{figure}
+
 \subparagraph{Descrizione}
 
 Questa classe rappresenta l'\gloss{Invoker} del \gloss{command pattern}. Essa
@@ -5338,6 +5385,13 @@ implementa l'interfaccia \hyperref[sec:actorbase::cli::models::Command]{actorbas
 \paragraph{actorbase::cli::models::ChangePasswordCommand}
 \label{sec:actorbase::cli::models::ChangePasswordCommand}
 
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/ChangePasswordCommand.png}
+    \caption{CLI: classe ChangePasswordCommand}
+  \end{center}
+\end{figure}
+
 \subparagraph{Descrizione}
 
 Classe per il comando di cambiamento password.
@@ -5376,6 +5430,13 @@ Viene utilizzata per chiamare il metodo di
 
 \paragraph{actorbase::cli::models::FindCommand}
 \label{sec:actorbase::cli::models::FindCommand}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/FindCommand.png}
+    \caption{CLI: classe ChangePasswordCommand}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 
@@ -5417,6 +5478,13 @@ dall'utente.
 \paragraph{actorbase::cli::models::HelpCommand}
 \label{sec:actorbase::cli::models::HelpCommand}
 
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/HelpCommand.png}
+    \caption{CLI: classe HelpCommand}
+  \end{center}
+\end{figure}
+
 \subparagraph{Descrizione}
 
 Classe per il comando di aiunto.
@@ -5452,6 +5520,13 @@ Viene utilizzata per chiamare il metodo di
 
 \paragraph{actorbase::cli::models::LogoutCommand}
 \label{sec:actorbase::cli::models::LogoutCommand}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/LogoutCommand.png}
+    \caption{CLI: classe LogoutCommand}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 
@@ -5491,6 +5566,13 @@ Viene utilizzata per chiamare il metodo di
 \paragraph{actorbase::cli::models::ResetPasswordCommand}
 \label{sec:actorbase::cli::models::ResetPasswordCommand}
 
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/ResetPasswordCommand.png}
+    \caption{CLI: classe ResetPasswordCommand}
+  \end{center}
+\end{figure}
+
 \subparagraph{Descrizione}
 
 Classe per il comando di reset della password.
@@ -5529,6 +5611,13 @@ dell'utente specificato in input.
 
 \paragraph{actorbase::cli::models::ListCollectionsCommand}
 \label{sec:actorbase::cli::models::ListCollectionsCommand}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/ListCollectionsCommand.png}
+    \caption{CLI: classe ListCollectionsCommand}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 
@@ -5570,6 +5659,13 @@ nomi di tutte le collezioni presenti nel \gloss{database}.
 \paragraph{actorbase::cli::models::AddContributorCommand}
 \label{sec:actorbase::cli::models::AddContributorCommand}
 
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/AddContributorCommand.png}
+    \caption{CLI: classe AddContributorCommand}
+  \end{center}
+\end{figure}
+
 \subparagraph{Descrizione}
 
 Classe per il comando di aggiunta collaboratore a una \gloss{collezione}.
@@ -5610,6 +5706,13 @@ in input.
 \paragraph{actorbase::cli::models::LoginCommand}
 \label{sec:actorbase::cli::models::LoginCommand}
 
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/LoginCommand.png}
+    \caption{CLI: classe LoginCommand}
+  \end{center}
+\end{figure}
+
 \subparagraph{Descrizione}
 
 Classe per il comando di login.
@@ -5649,6 +5752,13 @@ immesse dall'utente.
 \paragraph{actorbase::cli::models::RemoveCollectionCommand}
 \label{sec:actorbase::cli::models::RemoveCollectionCommand}
 
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/RemoveCollectionCommand.png}
+    \caption{CLI: classe RemoveCollectionCommand}
+  \end{center}
+\end{figure}
+
 \subparagraph{Descrizione}
 
 Classe per il comando di rimozione una \gloss{collezione}.
@@ -5687,6 +5797,13 @@ i parametri specificati in input.
 
 \paragraph{actorbase::cli::models::RemoveContributorCommand}
 \label{sec:actorbase::cli::models::RemoveContributorCommand}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/RemoveContributorCommand.png}
+    \caption{CLI: classe RemoveContributorCommand}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 
@@ -5728,6 +5845,13 @@ specificati in input.
 \paragraph{actorbase::cli::models::RenameCollectionCommand}
 \label{sec:actorbase::cli::models::RenameCollectionCommand}
 
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/RenameCollectionCommand.png}
+    \caption{CLI: classe RenameCollectionCommand}
+  \end{center}
+\end{figure}
+
 \subparagraph{Descrizione}
 
 Classe per il comando rinominazione di una \gloss{collezione}.
@@ -5764,6 +5888,13 @@ Viene utilizzata per chiamare il metodo di \hyperref[sec:actorbase::cli::models:
 
 \paragraph{actorbase::cli::models::AddUserCommand}
 \label{sec:actorbase::cli::models::AddUserCommand}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/AddUserCommand.png}
+    \caption{CLI: classe AddUserCommand}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 Classe per il comando di aggiunta di un utente.
@@ -5803,6 +5934,13 @@ parametri specificati in input.
 \paragraph{actorbase::cli::models::HelpCommand}
 \label{sec:actorbase::cli::models::HelpCommand}
 
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/HelpCommand.png}
+    \caption{CLI: classe HelpCommand}
+  \end{center}
+\end{figure}
+
 \subparagraph{Descrizione}
 Classe per la richiesta di aiuto.
 
@@ -5840,6 +5978,13 @@ parametri immessi dall'utente.
 
 \paragraph{actorbase::cli::models::RemoveItemCommand}
 \label{sec:actorbase::cli::models::RemoveItemCommand}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/RemoveItemCommand.png}
+    \caption{CLI: classe RemoveItemCommand}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 
@@ -5880,6 +6025,13 @@ con i parametri immessi dall'utente.
 \paragraph{actorbase::cli::models::RemoveUserCommand}
 \label{sec:actorbase::cli::models::RemoveUserCommand}
 
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/RemoveUserCommand.png}
+    \caption{CLI: classe RemoveUserCommand}
+  \end{center}
+\end{figure}
+
 \subparagraph{Descrizione}
 
 Classe per il comando di rimozione di un utente.
@@ -5919,6 +6071,13 @@ parametri immessi dall'utente.
 \paragraph{actorbase::cli::models::ImportCommand}
 \label{sec:actorbase::cli::models::ImportCommand}
 
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/ImportCommand.png}
+    \caption{CLI: classe ImportCommand}
+  \end{center}
+\end{figure}
+
 \subparagraph{Descrizione}
 
 Classe per il comando di importazione da un file \gloss{JSON}.
@@ -5957,6 +6116,13 @@ Viene utilizzata per chiamare il metodo di
 \paragraph{actorbase::cli::models::InsertItemCommand}
 \label{sec:actorbase::cli::models::InsertItemCommand}
 
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/InsertItemCommand.png}
+    \caption{CLI: classe InsertItemCommand}
+  \end{center}
+\end{figure}
+
 \subparagraph{Descrizione}
 
 Classe per il comando di inserimento di un \gloss{item} in una
@@ -5994,6 +6160,13 @@ Viene utilizzata per chiamare il metodo di \hyperref[sec:actorbase::cli::models:
 
 \paragraph{actorbase::cli::models::CreateCollectionCommand}
 \label{sec:actorbase::cli::models::CreateCollectionCommand}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/CreateCollectionCommand.png}
+    \caption{CLI: classe CreateCollectionCommand}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 
@@ -6034,6 +6207,13 @@ Viene utilizzata per chiamare il metodo di
 \paragraph{actorbase::cli::models::ExportCommand}
 \label{sec:actorbase::cli::models::ExportCommand}
 
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/ExportCommand.png}
+    \caption{CLI: classe ExportCommand}
+  \end{center}
+\end{figure}
+
 \subparagraph{Descrizione}
 
 Classe per il comando di esportazione in file \gloss{JSON}.
@@ -6072,6 +6252,13 @@ Viene utilizzata per chiamare il metodo di
 
 \paragraph{actorbase::cli::models::CommandReceiver}
 \label{sec:actorbase::cli::models::CommandReceiver}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/CommandReceiver.png}
+    \caption{CLI: classe CommandReceiver}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 

@@ -291,7 +291,7 @@ generale \textbf{actorbase}.
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.9\textwidth,keepaspectratio]{RP/Architettura-AltoLivello.png}
+    \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/Server.png}
     \caption{Diagramma componenti principali}
   \end{center}
 \end{figure}
@@ -2782,7 +2782,7 @@ Questa classe viene utilizzata dal \gloss{driver} per gestire il caso in cui all
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=1.0\textwidth,keepaspectratio]{RP/CLI.png}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/CLI.png}
     \caption{CLI, architettura MVC variante push model}
   \end{center}
 \end{figure}
@@ -2812,8 +2812,8 @@ Questa componente viene rappresentata usando il \gloss{design pattern}
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=1.0\textwidth,keepaspectratio]{RP/CLI-view.png}
-    \caption{CLI, views package, interazioni con Controllers e Models}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/Views.png}
+    \caption{CLI, views package, interazioni con controllers e models}
   \end{center}
 \end{figure}
 
@@ -2958,6 +2958,13 @@ ottenuti dal server mediante l'inserimento dei comandi tramite il
 \subsection{actorbase::cli::controllers}
 \label{sec:actorbase::cli::controllers}
 
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/Controllers.png}
+    \caption{CLI: package controllers e interazioni con package models e views}
+  \end{center}
+\end{figure}
+
 \subsubsection{Descrizione}
 
 \gloss{Package} per la parte \gloss{controller} della \gloss{cli}. Questa
@@ -2998,6 +3005,13 @@ l'esecuzione del comando.
 
 \subsection{actorbase::cli::models}
 \label{sec:actorbase::cli::models}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/Models.png}
+    \caption{CLI: package models e interazioni con controllers e views}
+  \end{center}
+\end{figure}
 
 \subsubsection{Descrizione}
 
