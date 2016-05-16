@@ -234,12 +234,12 @@ Questo indice serve per valutare la percentuale di completezza di requisiti obbl
 \item \gloss{range} di accettazione: = 100.
 \end{itemize}
 
-\paragraph{Tempo risposta medio}
-Questo indice serve per valutare il tempo di risposta medio che ha Actorbase per soddisfare le richieste da un generico attore.\\
+\paragraph{Richieste al secondo}
+Questo indice serve per valutare il numero di richieste che il sistema riesce a soddisfare in un secondo.\\
 \textbf{Range accettabili:}
 \begin{itemize}
-\item \gloss{range} ottimale: ; %TODO da mettere questi range
-\item \gloss{range} di accettazaione: .
+\item \gloss{range} ottimale: >30;
+\item \gloss{range} di accettazione: 15-30.
 \end{itemize}
 
 \subsubsection{Metriche per i documenti}
@@ -485,7 +485,7 @@ Nella tabella di seguito sono riportati i valori degli indici di Gulpease per og
 \subsection{Attività di Codifica}
 
 \subsubsection{Budget Variance e Schedule Variance}
-Viene di seguito riportata una tabella contenente i valori per le metriche descritte in sezione \ref{sec:metricheProcesso}.\\ Questa tabella rappresenta un consuntivo calcolato in data primo maggio. Il consuntivo di periodo sarà disponibile nel documento \href{run:./PianoDiProgetto\_v3.0.0.pdf}{Piano di Progetto v3.0.0.}
+Viene di seguito riportata una tabella contenente i valori per le metriche descritte in sezione \ref{sec:metricheProcesso}.\\ Questa tabella rappresenta un consuntivo calcolato in data primo maggio. Il consuntivo di periodo sarà disponibile nel documento \href{run:./PianoDiProgetto\_v3.0.0.pdf}{Piano di Progetto v3.0.0}.
 \begin{center}
   \normalsize
   \begin{tabular}{| c | c | c |}
@@ -504,24 +504,37 @@ Viene di seguito riportata una tabella contenente i valori per le metriche descr
   \end{tabular}
 \end{center}
 
-\subsubsection{Tempo risposta medio} %TODO FARE SIA SPIEGAZ CHE VALORI
-Qui è possibile vedere il tempo di risposta medio che il sistema actorbase
-impiega a rispondere a una serie generica di operazioni.\\
+\subsubsection{Soddisfacimento requisiti obbligatori}
+Attualmente la percentuale di requisiti obbligatori soddisfatti è di: \textbf{80\%}
+Il valore della metrica è al di sotto del range di accettazione, questo è dovuto
+al fatto che il codice non è ancora ultimato. Il gruppo prevede che il range ottimale
+di 100\% al termine del progetto.
+
+\subsubsection{Richieste al secondo}
+Abbiamo effettuato diversi test per misurare questa metrica. Riportiamo una media
+dei valori ottenuti usando lo strumento GNU parallel, come descritto in 
+\href{run:./NormeDiProgetto\_v3.0.0.pdf}{Norme di Progetto v3.0.0}.\\
+Il test prevede l'invio di duemila richieste da cinque processi paralleli
+per un totale di diecimila richieste.\\
+La media ottenuta è di: \textbf{38}.\\
+Questo valore rientra nel range ottimale.
 
 \subsubsection{Documenti}
-Nella tabella di seguito sono riportati i valori degli indici di Gulpease per ogni documento prodotto durante l'\gloss{attività} di codifica. L'esito della verifica dipenderà dal valore di questo indice come descritto nella sezione \ref{par:metricheGulpease}.
+Nella tabella di seguito sono riportati i valori degli indici di Gulpease per ogni documento prodotto durante l'\gloss{attività} di codifica. L'esito della verifica dipenderà dal valore di questo indice come descritto nella sezione \ref{par:metricheGulpease}.t
 \begin{center}
   \begin{tabular}{| c | c | c |}
     \hline
     Documento & Valore indice & Esito\\
     \hline
-    \textit{Definizione di Prodotto v1.0.0} & & Superato\\
-    \textit{Specifica Tecnica v2.0.0} &  & Superato\\
-    \textit{Norme di Progetto v3.0.0} &  & Superato\\
-    \textit{Piano di Progetto v3.0.0} &  & Superato\\
-    \textit{Piano di Qualifica v3.0.0} &  & Superato\\
-    \textit{Analisi dei Requisiti v3.0.0} &  & Superato\\
-    \textit{Glossario v3.0.0} &  & Superato\\ %TODO manuali utente?
+    \textit{Definizione di Prodotto v1.0.0} & 75 & Superato\\
+    \textit{Specifica Tecnica v2.0.0} & 74 & Superato\\
+    \textit{Norme di Progetto v3.0.0} & 61 & Superato\\
+    \textit{Piano di Progetto v3.0.0} & 64 & Superato\\
+    \textit{Piano di Qualifica v3.0.0} & 64 & Superato\\
+    \textit{Analisi dei Requisiti v3.0.0} & 89 & Superato\\
+    \textit{Glossario v3.0.0} & 52 & Superato\\
+    \textit{Developer Manual v1.0.0} & 66 & Superato\\
+    \textit{User Manual v1.0.0} & 68 & Superato\\
     \hline
   \end{tabular}
 \end{center}
@@ -568,17 +581,20 @@ linee di commento, suddivisi per modulo:
     \end{tabular}
   \end{center}
 \end{itemize}
+Come visibile dalle tabelle tutti i valori soddisfano il range ottimale.
+
 \paragraph{Copertura del codice}
-Poichè i test non sono stati ancora implementati, non è possibile al momento valutare la copertura del codice.
+La percentuale di codice coperto da test attualmente è del: \textbf{72\%}.\\
+Questo valore rientra nel range ottimale.
 
 \paragraph{Numero di attributi per classe}
-Di seguito è riportato il numero medio di attributi per classe del codice di actorbase divisi per modulo; sono riportati inoltre le classi che oltrepassano il range ottimale:
+Di seguito è riportato il numero medio di attributi per classe del codice di actorbase divisi per modulo:
 \begin{itemize}
-\item \textbf{CLI}: 1,04, tutte le classi sono all'interno del range ottimale;
-\item \textbf{Driver}: 2,69 tutte le classi sono all'interno del range ottimale a parte la classe status che però è comunque dentro al range di accettazione;
-\item \textbf{Actorsystem}: 2,39 tutte le classi sono all'interno del range ottimale a parte la classe storekeeper che rientra comunque all'interno del range di accettazione.
+\item \textbf{CLI}: 1,04;
+\item \textbf{Driver}: 2,69;
+\item \textbf{Actorsystem}: 2,39.
 \end{itemize}
-Non sono state considerate nella media le classi che non contengono né attributi né metodi propri.
+Come si può notare tutti i valori rientrano nel range di accettazione.
 
 \paragraph{Numero di parametri per metodo}
 Di seguito è riportato il numero medio di parametri per
@@ -586,27 +602,29 @@ metodo del codice di actorbase suddiviso per moduli:
 \begin{itemize}
 \item \textbf{CLI}:0,1;
 \item \textbf{Driver}:0,63;
-\item \textbf{ActorSystem}:0,59;
+\item \textbf{ActorSystem}:0,59.
 \end{itemize}
-Tutti i metodi sono inoltre all'interno del range ottimale.
+Come si può notare tutti i valori rientrano nel range ottimale.
+
 
 \paragraph{Complessità ciclomatica}
 Di seguito è riportata la media della complessità ciclomatica dei vari moduli:
 \begin{itemize}
 \item \textbf{CLI}:2,05;
-\item \textbf{Driver}:1,31.
-\item \textbf{Actorsystem}:2,93;
+\item \textbf{Driver}:1,31;
+\item \textbf{Actorsystem}:2,93.
 \end{itemize}
-
+Come si può notare tutti i valori rientrano nel range ottimale.
 
 \paragraph{Livelli di annidamento}
 In seguito è riportata la media dei livelli di annidamento dei vari moduli:
 \begin{itemize}
 \item \textbf{Cli}:1,78;
 \item \textbf{Driver}:1,56;
-\item \textbf{ActorSystem}:1,83;
+\item \textbf{ActorSystem}:1,83.
 \end{itemize}
-% TODO se possibile calcolarlo veramente, non riesco a trovare un tool.
+Come si può notare tutti i valori rientrano nel range ottimale.
+
 
 \newpage
 
