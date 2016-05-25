@@ -36,7 +36,6 @@
 \end{titlepage}
 \restoregeometry
 \clearpage
-\tableofcontents
 \newpage
 \pagenumbering{arabic}
 \setcounter{page}{1}
@@ -105,6 +104,8 @@
   \end{longtable}
 \end{center}
 
+\newpage
+\tableofcontents
 \newpage
 \glossaryLetter{A}
 \glossDef{Account} Insieme di funzionalità, strumenti e contenuti attribuiti ad un nome utente in determinati contesti operativi, spesso in siti web o per usufruire di determinati servizi su Internet.
@@ -186,7 +187,7 @@ Con tale nome ci si riferisce quindi all'algoritmica che gestisce lo scambio di 
 \glossDef{Byte} è una sequenza di bit (vedi sopra), il cui numero dipende dall'implementazione fisica della macchina sottostante.
 \\
 
-\glossDef{Bytecode, Java} Il Java Bytecode è l'instruction set della JVM (Java Virtual Machine). Ogni bytecode è composto da un byte (in certi casi due) che rappresenta l'istruzione e zero o più byte per il passaggio deo parametri. 
+\glossDef{Bytecode, Java} Il Java Bytecode è l'instruction set della JVM (Java Virtual Machine). Ogni bytecode è composto da un byte (in certi casi due) che rappresenta l'istruzione e zero o più byte per il passaggio deo parametri.
 \\
 
 \glossaryLetter{C}
@@ -213,10 +214,10 @@ Secondo il teorema, un sistema distribuito è in grado di soddisfare al massimo 
 \glossDef{Client} in informatica, indica una componente che accede ai servizi o alle risorse di un'altra componente detta server. In questo contesto si può quindi parlare di client riferendosi all'hardware oppure al software. Esso fa parte dunque dell'architettura logica di rete detta client-server.
 \\
 
-\glossDef{Clientactor} nel contesto del capitolato da noi considerato, con Clientactor si intende un tipo di attore dedicato che regola la connessione da parte di un client esterno. 
+\glossDef{Clientactor} nel contesto del capitolato da noi considerato, con Clientactor si intende un tipo di attore dedicato che regola la connessione da parte di un client esterno.
 \\
 
-\glossDef{Cluster} In informatica un computer cluster, o più semplicemente un cluster (dall'inglese grappolo), è un insieme di computer connessi tra loro tramite una rete telematica. Lo scopo di un cluster è quello di distribuire una elaborazione molto complessa tra i vari computer componenti il cluster. 
+\glossDef{Cluster} In informatica un computer cluster, o più semplicemente un cluster (dall'inglese grappolo), è un insieme di computer connessi tra loro tramite una rete telematica. Lo scopo di un cluster è quello di distribuire una elaborazione molto complessa tra i vari computer componenti il cluster.
 \\
 
 \glossDef{Codice} Testo di un algoritmo di un programma scritto in un linguaggio di programmazione da un programmatore.
@@ -288,7 +289,7 @@ Questi oggetti contengono diversi campi, ognuno dei quali contiene dei dati.
 \\
 
 \glossDef{Diagramma delle classi} Un diagramma delle classi descrive il tipo degli oggetti facenti parte di un sistema e le varie tipologie di relazioni statiche tra di essi.
-I diagrammi delle classi mostrano le proprietà e le operazioni di una classe e i vincoli che si applicano alla classe e alle relazioni tra classi. 
+I diagrammi delle classi mostrano le proprietà e le operazioni di una classe e i vincoli che si applicano alla classe e alle relazioni tra classi.
 \\
 
 \glossDef{Diagramma di attività} Descrive la sequenza delle attività e supporta un comportamento condizionale e parallelo. Particolarmente utile per descrivere \textit{workflow process} e \textit{parallel process}.
@@ -324,7 +325,7 @@ Normalmente da ogni diagramma di attività (vedi sopra) sono derivati uno o più
 \glossaryLetter{F}
 
 \glossDef{Façade} Letteralmente façade significa "facciata", ed infatti nella programmazione ad oggetti indica un oggetto che permette, attraverso un'interfaccia più semplice, l'accesso a sottosistemi che espongono interfacce complesse e molto diverse tra loro, nonché a blocchi di codice complessi.
-L'utilizzo del pattern façade (qui realizzato attraverso la classe Facade) permette di nascondere la complessità dell'operazione. 
+L'utilizzo del pattern façade (qui realizzato attraverso la classe Facade) permette di nascondere la complessità dell'operazione.
 \\
 
 \glossDef{File} In informatica, viene utilizzato per riferirsi a un contenitore di informazioni/dati in formato digitale, tipicamente presenti su un supporto digitale di memorizzazione opportunamente formattato in un determinato file system.
@@ -342,7 +343,7 @@ Un forum può essere di tipo gerarchico e con struttura ad albero in quanto poss
 \\
 
 \glossDef{Framework} Un framework, termine della lingua inglese che può essere tradotto come intelaiatura o struttura, in informatica e specificatamente nello sviluppo software, è un'architettura logica di supporto (spesso un'implementazione logica di un particolare design pattern) su cui un software può essere progettato e realizzato, spesso facilitandone lo sviluppo da parte del programmatore.
-Un framework è definito da un insieme di classi astratte e dalle relazioni tra esse. Istanziare un framework significa fornire un'implementazione delle classi astratte. 
+Un framework è definito da un insieme di classi astratte e dalle relazioni tra esse. Istanziare un framework significa fornire un'implementazione delle classi astratte.
 \\
 
 \glossDef{Funzionale, programmazione} In informatica la programmazione funzionale è un paradigma di programmazione in cui il flusso di esecuzione del programma assume la forma di una serie di valutazioni di funzioni matematiche. Il punto di forza principale di questo paradigma è la mancanza di effetti collaterali (side-effect) delle funzioni, il che comporta una più facile verifica della correttezza e della mancanza di bug del programma e la possibilità di una maggiore ottimizzazione dello stesso.
@@ -405,7 +406,7 @@ L' \textit{Internet delle cose} è vista come una possibile evoluzione dell'uso 
   \\
 
   \glossaryLetter{L}
-  
+
 \glossDef{Leader Election} L'algoritmo "Leader Election" viene eseguito nei sistemi distribuiti per stabilire il coordinatore a cui i processi fanno riferimento per un servizio.
 Se il coordinatore si guasta, l'intero sistema si blocca. Per risolvere il problema, occorre eseguire un algoritmo di elezione in cui i processi ancora attivi eleggono un nuovo coordinatore.
 \\
@@ -415,7 +416,7 @@ Se il coordinatore si guasta, l'intero sistema si blocca. Per risolvere il probl
 
   \glossDef{Link} speciale rimando contenuto all'interno di un ipertesto.
   \\
-  
+
   \glossDef{Load Balancing} tecnica informatica utilizzata nell'ambito dei sistemi informatici che consiste nel distribuire il carico di elaborazione di uno specifico servizio, ad esempio la fornitura di un sito web, tra più server. Si aumentano in questo modo la scalabilità e l'affidabilità dell'architettura nel suo complesso.
   \\
 
@@ -432,7 +433,7 @@ Se il coordinatore si guasta, l'intero sistema si blocca. Per risolvere il probl
 
   \glossDef{Main Actor} nel contesto del capitolato da noi considerato, con main si intende uno storefinder principale che funge da punto di accesso al database.
   \\
-  
+
   \glossDef{Manager} nel contesto del capitolato da noi considerato, con manager si intende un particolare tipo di attore che riceve le richieste di gestione degli attori di tipo storekeeper. In particolare, questi attori sono responsabili della gestione del numero massimo di coppie chiave/valore contenute in un’istanza di storekeeper.
   \\
 
@@ -441,7 +442,7 @@ Se il coordinatore si guasta, l'intero sistema si blocca. Per risolvere il probl
 
   \glossDef{Merge} mescolare, unire.
   \\
-  
+
   \glossDef{Model} vedi \textit{MVC (Model-View-Controller)}.
   \\
 
@@ -451,7 +452,7 @@ Se il coordinatore si guasta, l'intero sistema si blocca. Per risolvere il probl
   \glossDef{Modello relazionale} modello logico di rappresentazione o strutturazione dei dati di un database implementato su sistemi di 'gestione di basi di dati' (DBMS).
   Si basa sulla teoria degli insiemi e sulla logica del primo ordine ed è strutturato intorno al concetto matematico di relazione (detta anche tabella). Per il suo trattamento ci si avvale di strumenti quali il calcolo relazionale e l'algebra relazionale.
   \\
-  
+
   \glossDef{MVC (Model-View-Controller)} in informatica, è un pattern architetturale molto diffuso nello sviluppo di sistemi software, in particolare nell'ambito della programmazione orientata agli oggetti.
   Il pattern è basato sulla separazione dei compiti fra i componenti software che interpretano tre ruoli principali:
   \begin{itemize}
@@ -481,7 +482,7 @@ Se il coordinatore si guasta, l'intero sistema si blocca. Per risolvere il probl
   \glossaryLetter{O}
 
   \glossDef{Observer} L'Observer pattern è un design pattern utilizzato per tenere sotto controllo lo stato di diversi oggetti.
-  È un pattern intuitivamente utilizzato come base architetturale di molti sistemi di gestione di eventi. 
+  È un pattern intuitivamente utilizzato come base architetturale di molti sistemi di gestione di eventi.
   Si basa su uno o più oggetti, chiamati osservatori o observer, che vengono registrati per gestire un evento che potrebbe essere generato dall'oggetto "osservato".
   \\
 
@@ -498,13 +499,13 @@ Se il coordinatore si guasta, l'intero sistema si blocca. Per risolvere il probl
 
   \glossDef{Parsing} Processo che analizza un flusso continuo di dati in ingresso (input) (letti per esempio da un file o una tastiera) in modo da determinare la sua struttura grazie ad una data grammatica formale. Un parser è un programma che esegue questo compito.
   \\
-  
+
   \glossDef{Path} in informatica indica la posizione di file e directory presenti all'interno della gerarchia di un file system. Il concetto di percorso si basa sulla struttura gerarchica (ad albero) del file system
   \\
 
   \glossDef{Payload} In informatica, indica la parte di un flusso di dati che rappresenta il contenuto informativo.
   \\
-  
+
   \glossDef{PDCA} il ciclo di Deming (chiamato anche ciclo di PDCA - "plan–do–check–act") è un modello studiato per il miglioramento continuo della qualità in un'ottica a lungo raggio. Serve per promuovere una cultura della qualità che è tesa al miglioramento continuo dei processi e all'utilizzo ottimale delle risorse. Questo strumento parte dall'assunto che per il raggiungimento del massimo della qualità sia necessaria la costante interazione tra ricerca, progettazione, test, produzione e vendita. Per migliorare la qualità e soddisfare il cliente, le quattro fasi devono ruotare costantemente, tenendo come criterio principale la qualità.
   \\
 
@@ -516,7 +517,7 @@ Se il coordinatore si guasta, l'intero sistema si blocca. Per risolvere il probl
 
   \glossDef{Persistence Actor} attore persistente.
   \\
-  
+
   \glossDef{Persistenza} si riferisce alla caratteristica dei dati di sopravvivere all'esecuzione del programma che li ha creati. Nella programmazione informatica, la persistenza si riferisce in particolare alla possibilità di far sopravvivere delle strutture dati all'esecuzione di un singolo programma. Questa possibilità è raggiunta salvando i dati in uno storage non volatile, come su un file system o su un database (es. applicazioni web).
   \\
 
@@ -526,10 +527,10 @@ Se il coordinatore si guasta, l'intero sistema si blocca. Per risolvere il probl
   \glossDef{Plugin} il plugin in campo informatico è un programma non autonomo che interagisce con un altro programma per ampliarne o estenderne le funzionalità originarie.
   A seconda dei programmi e delle piattaforme software, i plugin possono esser chiamati con sinonimi diversi: add-in, add-on e estensione.
   \\
-  
+
   \glossDef{Programamzione Funzionale} vedi \textit{Funzionale, programmazione}.
   \\
-  
+
   \glossDef{Prompt} in una interfaccia a riga di comando, il prompt è il cursore lampeggiante o evidenziato che indica la posizione nella schermata dove verrà eventualmente scritto il comando impartito dall'utente.
   \\
 
@@ -565,7 +566,7 @@ Se il coordinatore si guasta, l'intero sistema si blocca. Per risolvere il probl
   \glossDef{Refactoring} in ingegneria del software, il refactoring (o code refactoring) è una tecnica per modificare la struttura interna di porzioni di codice senza modificarne il comportamento esterno applicata per migliorare alcune caratteristiche non funzionali del software.
   I vantaggi che il refactoring persegue riguardano in genere un miglioramento della leggibilità della manutenibilità, della riusabilità e dell'estendibilità del codice e la riduzione della sua complessità, eventualmente attraverso l'introduzione a posteriori di design pattern.
   \\
-  
+
   \glossDef{REPL (read–eval–print loop)} è un semplice ambiente interattivo di programmazione informatico che prende singoli input utente(cioè singole espressioni), li valuta, e ritorna il risultato all'utente; un programma scritto in ambiente REPL viene eseguito a tratti.
   \\
 
@@ -574,7 +575,7 @@ Se il coordinatore si guasta, l'intero sistema si blocca. Per risolvere il probl
 
   \glossDef{RESP (REdis Protocol SPecification)} Protocollo utilizzato per la comunicazione tra un client Redis ed un server Redis. Anche se nasce in ambito Redis, può essere utilizzato anche per altri progetti software di tipo client-server.
   \\
-  
+
   \glossDef{Round Robin} in informatica, è uno degli algoritmi utilizzati dallo scheduler di processi.
   In particolare, il tempo disponibile viene diviso in diverse porzioni assegnate a turno ai singoli processi in egual misura, senza distinzioni di priorità e in modo circolare.
   Si tratta di un algoritmo semplice da implementare e evita il rischio di starvation.
@@ -606,13 +607,13 @@ Se il coordinatore si guasta, l'intero sistema si blocca. Per risolvere il probl
 
   \glossDef{Section} comando di \LaTeX\xspace che indica l'inizio di una sezione.
   \\
-  
+
   \glossDef{Serializzazione} Processo per salvare un oggetto in un supporto di memorizzazione lineare (ad esempio, un file o un'area di memoria), o per trasmetterlo su una connessione di rete. La serializzazione può essere in forma binaria o può utilizzare codifiche testuali (ad esempio il formato XML) direttamente leggibili dagli esseri umani.
   \\
 
   \glossDef{Server} in informatica è un componente o sottosistema informatico di elaborazione e gestione del traffico di informazioni che fornisce, a livello logico e fisico, un qualunque tipo di servizio ad altre componenti (tipicamente chiamate clients, cioè clienti) che ne fanno richiesta attraverso una rete di computer, all'interno di un sistema informatico o anche direttamente in locale su un computer.
   \\
-  
+
   \glossDef{Shell} in informatica, è la parte di un sistema operativo che permette agli utenti di interagire con il sistema stesso, impartendo comandi e richiedendo l'avvio di altri programmi.
   La shell può essere di tipo \textit{testuale} (vedi \textit{terminale}) o \textit{grafico}.
   \\
@@ -631,10 +632,10 @@ Se il coordinatore si guasta, l'intero sistema si blocca. Per risolvere il probl
 
   \glossDef{Socket} Un'astrazione software progettata per poter utilizzare delle API standard e condivise per la trasmissione e la ricezione di dati attraverso una rete oppure come meccanismo di IPC.
   \\
-  
+
   \glossDef{Spring} In informatica Spring è un framework open source per lo sviluppo di applicazioni su piattaforma Java.
-  \\  
-  
+  \\
+
   \glossDef{Spring Shell} Shell interattiva che permette di aggiungere dei comandi personalizzati usando un modello di programmazione basato su \textit{Spring}.
   \\
 
@@ -654,10 +655,10 @@ Se il coordinatore si guasta, l'intero sistema si blocca. Per risolvere il probl
 
   \glossDef{Storekeeper} nel contesto del capitolato da noi considerato, con storekeeper si intende un particolare tipo di attore che mantiene fisicamente al proprio interno le coppie chiave-valore.
   \\
-  
+
   \glossDef{Strategy, pattern} Lo strategy pattern è uno dei pattern comportamentali. L'obiettivo di questa architettura è isolare un algoritmo all'interno di un oggetto. Il pattern strategy è utile in quelle situazioni dove sia necessario modificare dinamicamente gli algoritmi utilizzati da un'applicazione. Questo pattern prevede che gli algoritmi siano intercambiabili tra loro (in base ad una qualche condizione) in modo trasparente al client che ne fa uso.
   \\
-  
+
   \glossDef{SV (Schedule Variance)} indica quanto sia in anticipo o in ritardo il progetto rispetto ad una schedulazione fatta a priori
   \\
 
@@ -670,7 +671,7 @@ Se il coordinatore si guasta, l'intero sistema si blocca. Per risolvere il probl
   \glossDef{Task} compito assegnabile ad un singolo componente del gruppo di lavoro che dovrebbe essere ultimato entro un periodo di tempo prefissato o entro una deadline.
   \\
 
-  \glossDef{TCP (Transmission Control Protocol)} Protocollo di rete a pacchetto di livello di trasporto, appartenente alla suite di protocolli Internet, che si occupa di controllo di trasmissione ovvero rendere affidabile la comunicazione dati in rete tra mittente e destinatario. 
+  \glossDef{TCP (Transmission Control Protocol)} Protocollo di rete a pacchetto di livello di trasporto, appartenente alla suite di protocolli Internet, che si occupa di controllo di trasmissione ovvero rendere affidabile la comunicazione dati in rete tra mittente e destinatario.
   \\
 
   \glossDef{tcpserver} Nel contesto del capitolato da noi considerato, con tcpserver si intende un particolare tipo di attore che si mette in ascolto su una porta e delega le connnessioni entranti al clientactor (vedi sopra).
@@ -716,7 +717,7 @@ Se il coordinatore si guasta, l'intero sistema si blocca. Per risolvere il probl
 
   \glossDef{Userkeeper} nel contesto del capitolato da noi considerato, con userkeeper si intende un particolare tipo di attore dedicato alla gestione del profilo utente. Contiene una lista di collezioni e permessi annessi.
   \\
-  
+
   \glossDef{Username(Nome Utente)} in informatica definisce il nome con il quale l'utente viene riconosciuto da un computer, da un programma o da un server.
   \\
 
@@ -729,7 +730,7 @@ Se il coordinatore si guasta, l'intero sistema si blocca. Per risolvere il probl
   \glossDef{Versionamento} Il versionamento (versioning), in informatica, è la gestione di versioni multiple di un insieme di informazioni.
   Gli strumenti software per il controllo versione sono ritenuti molto spesso necessari per la maggior parte dei progetti di sviluppo software.
   \\
-  
+
   \glossDef{View} Le viste sono un elemento utilizzato dalla maggior parte dei DBMS (DataBase Management System). Si tratta, come suggerisce il nome, di "modi di vedere i dati".
 Una vista è rappresentata da una query, il cui risultato può essere utilizzato come se fosse una tabella (o collezione).
   \\
