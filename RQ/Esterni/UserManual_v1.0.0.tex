@@ -3,13 +3,16 @@
 \usepackage[english]{babel}
 \usepackage[bottom]{footmisc}
 \begin{document}
-	\pagestyle{fancy}
-	\fancyhf{}
-	\lhead{
-		\includegraphics[height=1cm, width=1cm, keepaspectratio=true]{ablogoSmall.png} \emph{Actorbase - ScalateKids}}
-	\rhead{
-		\slshape \leftmark
-	}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{
+  \includegraphics[height=1cm, width=1cm, keepaspectratio=true]{ablogoSmall.png} \emph{Actorbase - ScalateKids}}
+\rhead{
+  \slshape \leftmark
+}
+\setlength{\headsep}{1.2cm}
+% pagestyle set to 'n di m'
+\rfoot{\thepage\hspace{1pt}of \pageref{LastPage}}
 \lfoot{User Manual 1.0.0}
 \newgeometry{top=3.5cm}
 \begin{titlepage}
@@ -84,13 +87,13 @@ different sections.
 
 The purpose of the project is the realization of a key-value type
 NoSQL\footnote{A NoSQL database provides a mechanism for storage and retrieval
-of data which is modeled in means other than the tabular relations used in
-relational databases.Key-value (KV) stores use the associative array (also known
-as a map or dictionary) as their fundamental data model.\label{nosql}} database,
+  of data which is modeled in means other than the tabular relations used in
+  relational databases.Key-value (KV) stores use the associative array (also known
+  as a map or dictionary) as their fundamental data model.\label{nosql}} database,
 massively concurrent and oriented to the management of heavy load of data by
 using the actor\footnote{A computational entity that, in response to a message
-it receives, can send messages to other actors, create new ones, change its
-behaviour for the next message incoming\label{actor}} model.
+  it receives, can send messages to other actors, create new ones, change its
+  behaviour for the next message incoming\label{actor}} model.
 
 % \subsection{References}
 
