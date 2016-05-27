@@ -50,6 +50,8 @@
     \hline
     Versione & Autore & Ruolo & Data & Descrizione \\
     \hline
+    3.0.1 & Marco Boseggia & Analista & 2016-05-27 & Aggiornata sezione analisi dei rischi\\ %TODO da fare il riscontro con data futura
+    \hline
     3.0.0 & Francesco Agostini & Responsabile & 2016-05-16 & Approvazione documento\\
     \hline
     2.3.0 & Giacomo Vanin & Verificatore & 2016-05-15 & Verifica consuntivo\\
@@ -235,11 +237,11 @@ Per ogni possibile rischio previsto l'analisi ha fornito i seguenti parametri:
     \hline
     \bf Impatto & \bf Bassa & \bf Media & \bf Alta & \textbf{Molto alta} \\
     \hline
-    \bf Molto Forte & \cellcolor{red!50} & \cellcolor{red!50} & \cellcolor{red!50} Specifica Tecnica &\cellcolor{red!50} \\
+    \bf Molto Forte & \cellcolor{red!50} & \cellcolor{red!50} & \cellcolor{red!50} Definizione di prodotto &\cellcolor{red!50} \\
     \hline
-    \bf Forte & \cellcolor{yellow!50}Guasti hardware & \cellcolor{yellow!50}Stime attività & \cellcolor{red!50} Tecnologia di impiego &\cellcolor{red!50} \\[8pt]
+    \bf Forte & \cellcolor{yellow!50}Guasti hardware & \cellcolor{yellow!50}Specifica Tecnica & \cellcolor{red!50} Tecnologia di impiego &\cellcolor{red!50} \\[8pt]
     \hline
-    \bf Medio & \cellcolor{green!50} Ambiente di lavoro non omogeneo & \cellcolor{yellow!50} &\cellcolor{yellow!50} &\cellcolor{red!50}Inesperienza \\[8pt]
+    \bf Medio & \cellcolor{green!50} Ambiente di lavoro non omogeneo & \cellcolor{yellow!50}Stime attività &\cellcolor{yellow!50} &\cellcolor{red!50}Inesperienza \\[8pt]
     \hline
     \bf Debole & \cellcolor{green!50}Dissensi tra componenti & \cellcolor{green!50} Analisi Requisiti &\cellcolor{yellow!50}Impegni personali &\cellcolor{yellow!50} \\
     \hline
@@ -268,6 +270,7 @@ Per ogni possibile rischio previsto l'analisi ha fornito i seguenti parametri:
     \hline
   \end{tabular}
 \end{table}
+
 \paragraph{Impegni personali}
 \textbf{Categoria}: Logistica\\
 \textbf{Probabilità}: Alta\\
@@ -277,6 +280,7 @@ Per ogni possibile rischio previsto l'analisi ha fornito i seguenti parametri:
 Il gruppo ha inoltre creato alcuni canali di comunicazione remota in modo da poter lavorare quanto più possibile in
 coordinazione reciproca.\\
 \textbf{Riscontro}: Gli impegni personali dei membri del gruppo non hanno comportato ritardi o problemi di nessun genere grazie alle misure di prevenzione scritte in precedenza.\\
+
 \paragraph{Inesperienza}
 \textbf{Categoria}: Competenza tecnica\\
 \textbf{Probabilità}: Alta\\
@@ -297,8 +301,9 @@ i componenti del gruppo, tuttavia l'assenza di un grado di specializzazione tang
 degli strumenti in questione.\\
 \textbf{Contromisure di mitigazione}: Ciascun componente del gruppo avrà il compito di documentarsi costantemente e applicarsi
 nell'uso delle tecnologie del progetto.\\
-\textbf{Riscontro}: Le tecnologie di impiego sono risultate difficili da comprendere inizialmente causando qualche ritardo.
+\textbf{Riscontro}: L'ingresso di nuove tecnologie di impiego ha portato qualche ritardo.
 Tuttavia dopo uno studio da parte dei membri del gruppo sulle tecnologie adottate esse non hanno più causato grandi ritardi.\\
+
 \paragraph{Ambiente di lavoro omogeneo}
 \textbf{Categoria}: Infrastruttura\\
 \textbf{Probabilità}: Alta\\
@@ -310,6 +315,7 @@ insorgere.\\
 \textbf{Contromisure di mitigazione}: Il gruppo ha deciso di risolvere il problema utilizzando una macchina virtuale
 preimpostata per l'utilizzo delle tecnologie inerenti al progetto per l'\gloss{attività} di sviluppo.\\
 \textbf{Riscontro}: Il gruppo si è impegnato molto per l'installazione e l'uso di un ambiente uniforme tra tutti (come da \href{run:../Interni/NormeDiProgetto\_v4.0.0.pdf}{Norme Di Progetto v4.0.0}). Questo impegno è stato premiato non riscontrando mai questo tipo di problema.\\
+
 \paragraph{Guasti hardware}
 \textbf{Categoria}: Infrastruttura\\
 \textbf{Probabilità}: Bassa\\
@@ -319,17 +325,19 @@ questo garantisce un buon grado di controllo, ma allo stesso tempo espone a magg
 \textbf{Contromisure di mitigazione}: Verranno eseguiti dei backup automatici schedulati con periodicità fissa.\\
 \textbf{Riscontro}: 
 Si è verificato in un paio di occasioni questo tipo di problema, fortunatamente guasti ad un computer personale di un membro del gruppo e non al server privato.\\Un computer di un membro del gruppo ha smesso di funzionare. Questo non ha causato grossi disagi poiché questa persona è ricorsa all'uso del laboratorio informatico in Paolotti per la durata del periodo in cui era sprovvisto del suo computer.
+
 \paragraph{Analisi dei requisiti}
 \textbf{Categoria}: Competenza tecnica\\
 \textbf{Probabilità}: Medio\\
 \textbf{Impatto}: Debole\\
 \textbf{Descrizione}: La forte inesperienza del gruppo può portare ad una analisi dei requisiti superficiale o addirittura errata. Questo avrebbe un impatto molto negativo sul progetto.\\Una stesura di requisiti superficiale potrebbe inoltre portare ad una accettazione di requisiti opzionali maggiore di ciò che il gruppo riuscirà a produrre.\\
 \textbf{Contromisure di mitigazione:} Verranno effettuate molte \gloss{attività} di \gloss{Brainstorming} per avere i requisiti più precisi possibili. Per questo scopo verranno inoltre organizzati degli incontri con il \textit{Proponente}.\\
-\textbf{Riscontro}: Dato che questo documento era già stato sottoposto a due revisioni prima dell'inizio di questo ultimo periodo esso non ha causato ritardi.\\
+\textbf{Riscontro}: Dato che questo documento era già stato sottoposto a tre revisioni prima dell'inizio di questo ultimo periodo esso non ha causato ritardi.\\
+
 \paragraph{Stime di attività}
 \textbf{Categoria}: Competenza tecnica\\
 \textbf{Probabilità}: Media\\
-\textbf{Impatto}: Forte\\
+\textbf{Impatto}: Medio\\
 \textbf{Descrizione}: Una cattiva stima delle \gloss{attività} per inesperienza dei membri del gruppo potrebbe portare a forti ritardi rispetto al piano stabilito.\\
 \textbf{Contromisure di mitigazione:} Il \textit{Responsabile} tiene traccia dell'avanzamento delle attività. In tal modo potrà assegnare più persone alle attività che richiedono più tempo del previsto.\\
 \textbf{Riscontro}:
@@ -345,11 +353,19 @@ Le stime delle attività non sono state sempre molto precise, tuttavia attuando 
 
 \paragraph{Specifica tecnica}
 \textbf{Categoria}: Competenza tecnica\\
-\textbf{Probabilità}: Alta\\
-\textbf{Impatto}: Molto forte\\
+\textbf{Probabilità}: Media\\
+\textbf{Impatto}: Forte\\
 \textbf{Descrizione}: La forte inesperienza del gruppo può aver portato ad una progettazione architetturale superficiale o addirittura errata. Questo avrebbe un impatto molto negativo sul progetto.\\Una progettazione errata può portare ingenti ritardi al gruppo, causando la riprogettazione delle componenti errati.\\
 \textbf{Contromisure di mitigazione:} Verranno effettuate molte \gloss{attività} di \gloss{Brainstorming} per cercare di confermare l'architettura. Per questo scopo verranno inoltre organizzati degli incontri con il \textit{Proponente}.\\
-\textbf{Riscontro}: La progettazione di alcune parti del prodotto era, come previsto, molto approssimativa e non soddisfava il \textit{Proponente} questo ha causato dei ritardi in quanto si è dovuto ripensare all'architettura di alcune componenti.\\
+\textbf{Riscontro}: Il documento di specifica tecnica dopo le migliorie dello scorso periodo non ha causato grossi problemi.\\
+
+\paragraph{Definizione di prodotto}
+\textbf{Categoria}: Competenza tecnica\\
+\textbf{Probabilità}: Alta\\
+\textbf{Impatto}: Molto forte\\
+\textbf{Descrizione}: La forte inesperienza del gruppo può aver portato ad una progettazione architetturale delle classi superficiale o addirittura errata. Questo avrebbe un impatto molto negativo sul progetto.\\Una progettazione errata può portare ingenti ritardi al gruppo, causando la riprogettazione delle componenti errati.\\
+\textbf{Contromisure di mitigazione:} Verranno effettuate molte \gloss{attività} di \gloss{Brainstorming} per cercare di confermare l'architettura. Per questo scopo verranno inoltre organizzati degli incontri con il \textit{Proponente}.\\
+\textbf{Riscontro}: Il documento ha dovuto subire forti modifiche per analizzare più approfonditamente le classi, questo ha causato un lieve ritardo nelle attività.\\
 
 \section{Pianificazione}
 \subsection{Suddivisione attività}
