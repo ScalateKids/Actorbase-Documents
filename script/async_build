@@ -17,7 +17,7 @@ my $count :shared = 0;
 our @threads;
 our $total = 0;
 
-my $dir = 'RQ';
+my $dir = 'RA';
 
 print "\e[1m \nBuilding $dir PDF from .tex. Output inside ./build directory.\e[0m\n";
 print "\n";
