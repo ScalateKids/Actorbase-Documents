@@ -231,173 +231,6 @@ rappresentano il \gloss{server}.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\paragraph{KeyRange}
-\label{sec:actorbase::actorsystem::utils::KeyRange}
-
-\begin{figure}[H]
-  \begin{center}
-    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/keyrange.png}
-    \caption{Classe actorsystem::utils::KeyRange}
-  \end{center}
-\end{figure}
-
-\subparagraph{Descrizione}
-Classe atta a modellare un intervallo di chiavi.\\Viene utilizzata da diversi
-attori.
-
-\subparagraph{Utilizzo}
-Viene utilizzata da diversi attori del sistema. Questa classe espone metodi
-getter, un metodo compare e un metodo per controllare se una determinata
-stringa fa parte di questo intervallo di chiavi.
-
-\subparagraph{Realizza}
-\begin{itemize}
-\item trait scala.math.Ordered.orderingToOrdered
-\end{itemize}
-
-\subparagraph{Attributi}
-\begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
-  \hline
-  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
-  \hline
-  minRange & privata & immutabile & String & Rappresenta il limite inferiore delle possibili chiavi di questo range \\
-  \hline
-  maxRange & private & immutabile & String & Rappresenta il limite superiore delle possibili chiavi di questo range \\
-  \hline
-\end{tabular}
-
-\subparagraph{Metodi}
-\begin{tabular}{| p{3cm} | p{1.5cm} | p{3.5cm} | p{9cm} |}
-  \hline
-  Nome & Accesso & Tipo di ritorno & Descrizione\\
-  \hline
-  getMinRange & pubblico & String & Metodo che ritorna il limite minimo del range \\
-  \hline
-  getMaxRange & pubblico & String & Metodo che ritorna il limite massimo del range \\
-  \hline
-  contains & pubblico & Boolean & Metodo che ritorna true se il parametro è una stringa contenuta nel KeyRange, false altrimenti\\
-  \hline
-  toString & pubblico & String & Metodo che ritorna una stringa che contiene un indicazione con il range minimo e massimo del range\\
-  \hline
-  compare & pubblico & Int & Metodo per l'implementazione dell'interfaccia Ordered\\
-  \hline
-\end{tabular}
-
-\subparagraph{Parametri}
-\begin{center}
-  \textbf{contains}\\
-\end{center}
-\begin{tabular}{| l | l | l |}
-  \hline
-  Nome & Tipo & Descrizione\\
-  \hline
-  key & String & Stringa che rappresenta la chiave da controllare se fa parte di questo KeyRange \\
-  \hline
-\end{tabular}
-
-\begin{center}
-  \textbf{compare}\\
-\end{center}
-\begin{tabular}{| l | l | l |}
-  \hline
-  Nome & Tipo & Descrizione\\
-  \hline
-  that & KeyRange & KeyRange da confrontare con l'oggetto this \\
-  \hline
-\end{tabular}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\paragraph{CollectionRange}
-\label{sec:actorbase::actorsystem::utils::CollectionRange}
-
-\begin{figure}[H]
-  \begin{center}
-    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/collectionrange.png}
-    \caption{Classe actorsystem::utils::CollectionRange}
-  \end{center}
-\end{figure}
-
-\subparagraph{Descrizione}
-Classe atta a modellare un intervallo di chiavi di una specifica \gloss{collezione}.
-
-\subparagraph{Utilizzo}
-Viene utilizzata da diversi attori del sistema. Questa classe espone metodi
-getter, un metodo per il confronto della \gloss{collezione}, un meotodo per il
-confronto del range delle chiavi e un metodo compare.
-
-\subparagraph{Realizza}
-\begin{itemize}
-\item trait scala.math.Ordered.orderingToOrdered
-\end{itemize}
-
-\subparagraph{Attributi}
-\begin{tabular}{| p{1.5cm} | p{1.5cm} | p{2cm} | p{3.5cm} | p{8.5cm} |}
-  \hline
-  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
-  \hline
-  collection & privata & mutabile & \hyperref[sec:actorbase::actorsystem::utils::ActorbaseCollection]{ActorbaseCollection} & Rappresenta la \gloss{collezione} rappresentata \\
-  \hline
-  range & private & mutabile & \hyperref[sec:actorbase::actorsystem::utils::KeyRange]{KeyRange} & Rappresenta il range di chiavi della \gloss{collezione} \\
-  \hline
-\end{tabular}
-
-\subparagraph{Metodi}
-\begin{tabular}{| p{3cm} | p{1.5cm} | p{3.5cm} | p{9cm} |}
-  \hline
-  Nome & Accesso & Tipo di ritorno & Descrizione\\
-  \hline
-  getCollection & pubblico & \hyperref[sec:actorbase::actorsystem::utils::ActorbaseCollection]{ActorbaseCollection} & Metodo che ritorna la \gloss{collezione} rappresentata \\
-  \hline
-  getKeyRange & pubblico & \hyperref[sec:actorbase::actorsystem::utils::KeyRange]{KeyRange} & Metodo che ritorna il range di chiavi rappresentato \\
-  \hline
-  contains & pubblico & Boolean & Metodo che ritorna true se il parametro è una stringa contenuta nel KeyRange, false altrimenti\\
-  \hline
-  isSameCollection & pubblico & Boolean & Metodo che ritorna true se il parametro rappresenta la stessa \gloss{collezione} dell'oggetto this, false altrimenti \\
-  \hline
-  compare & pubblico & Int & Metodo per l'implementazione dell'interfaccia Ordered \\
-  \hline
-\end{tabular}
-
-\subparagraph{Parametri}
-\begin{center}
-  \textbf{contains}\\
-\end{center}
-\begin{tabular}{| p{1.5cm} | p{1.5cm} | p{14cm} |}
-  \hline
-  Nome & Tipo & Descrizione\\
-  \hline
-  key & String & Stringa che rappresenta la chiave da controllare se fa parte del KeyRange della \gloss{collezione} rappresentata \\
-  \hline
-\end{tabular}
-
-\subparagraph{Parametri}
-\begin{center}
-  \textbf{isSameCollection}\\
-\end{center}
-\begin{tabular}{| l | l | l |}
-  \hline
-  Nome & Tipo & Descrizione\\
-  \hline
-  that & \hyperref[sec:actorbase::actorsystem::utils::ActorbaseCollection]{ActorbaseCollection} & \gloss{Collezione} da confrontare con la \gloss{collezione} rappresentata dall'oggetto this \\
-  \hline
-\end{tabular}
-
-\begin{center}
-  \textbf{compare}\\
-\end{center}
-\begin{tabular}{| l | l | l |}
-  \hline
-  Nome & Tipo & Descrizione\\
-  \hline
-  that & CollectionRange & CollectionRange da confrontare con l'oggetto this \\
-  \hline
-\end{tabular}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \paragraph{CryptoUtils}
 \label{sec:actorbase::actorsystem::utils::CryptoUtils}
 
@@ -525,7 +358,688 @@ getter e un meotodo per il confronto con un altro oggetto ActorbaseCollection.
   \hline
 \end{tabular}
 
-% TODO di utils manca cryptoutils
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{actorbase::actorsystem::messages}
+\label{sec:actorbase::actorsystem::messages}
+
+% TODO
+%\begin{figure}[H]
+%  \begin{center}
+%    \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/Actorsystem.png}
+%    \caption{Package messages}
+%  \end{center}
+%\end{figure}
+
+\subsubsection{Descrizione}
+
+\gloss{Package} che raggruppa tutti i messaggi del server.
+
+\subsubsection{Package contenuti}
+
+\begin{itemize}
+\item \hyperref[sec:actorbase::actorsystem::messages::authactormessages]{actorbase::actorsystem::messages::authactormessages};
+\item \hyperref[sec:actorbase::actorsystem::messages::clientactormessages]{actorbase::actorsystem::messages::clientactormessages};
+\item \hyperref[sec:actorbase::actorsystem::messages::mainactormessages]{actorbase::actorsystem::messages::mainactormessages};
+\item \hyperref[sec:actorbase::actorsystem::messages::storefindermessages]{actorbase::actorsystem::messages::storefindermessages};
+\item \hyperref[sec:actorbase::actorsystem::messages::storekeepermessages]{actorbase::actorsystem::messages::storekeepermessages};
+\item \hyperref[sec:actorbase::actorsystem::messages::warehousemanmessages]{actorbase::actorsystem::messages::warehousemanmessages};
+\end{itemize}
+
+\subsection{actorbase::actorsystem::messages::authactormessages}
+\label{sec:actorbase::actorsystem::messages::authactormessages}
+
+% TODO img
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/utils.png}
+    \caption{Package actorsystem::messages::authactormessages}
+  \end{center}
+\end{figure}
+
+\subsubsection{Descrizione}
+\gloss{Package} contenente i messaggi processabili dall'attore \hyperref[sec:actorbase::actorsystem::authactor::AuthActor]{AuthActor}.
+
+\subsubsection{Classi}
+
+\paragraph{actorbase::actorsystem::messages::authactormessages::AddCredentials}
+\label{sec:actorbase::actorsystem::messages::authactormessages::AddCredentials}
+
+% TODO img
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/authenticator.png}
+    \caption{Classe AddCredentials}
+  \end{center}
+\end{figure}
+
+\subparagraph{Descrizione}
+Classe che rappresenta una richiesta di aggiunta di credenziali al sistema.\\Implementata utilizzando la specifica funzionalità \textit{case class} di Scala, 
+in modo da poter usufruirne mediante costrutti e algoritmi di 
+\gloss{pattern matching}.
+
+\subparagraph{Utilizzo}
+Questa classe viene utilizzata per mandare una richiesta all'attore 
+\hyperref[sec:actorbase::actorsystem::messages::authactormessages::AuthActor]{AuthActor} 
+di aggiunta di credenziali al sistema
+
+\subparagraph{Attributi}
+\begin{tabular}{| p{1cm} | p{1.5cm} | p{2cm} | p{4cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  username & public & immutabile & String & Rappresenta lo username da aggiungere alle credenziali del sistema \\
+  \hline
+  password & public & immutabile & String & Rappresenta la password da aggiungere abbinata dallo username aggiunto \\
+  \hline
+\end{tabular}
+
+\paragraph{actorbase::actorsystem::messages::authactormessages::UpdateCredentials}
+\label{sec:actorbase::actorsystem::messages::authactormessages::UpdateCredentials}
+
+% TODO img
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/authenticator.png}
+    \caption{Classe UpdateCredentials}
+  \end{center}
+\end{figure}
+
+\subparagraph{Descrizione}
+Classe che rappresenta una richiesta di modifica di password di un utente al sistema.\\Implementata utilizzando la specifica funzionalità \textit{case class} di Scala, 
+in modo da poter usufruirne mediante costrutti e algoritmi di 
+\gloss{pattern matching}.
+
+\subparagraph{Utilizzo}
+Questa classe viene utilizzata per mandare una richiesta all'attore 
+\hyperref[sec:actorbase::actorsystem::messages::authactormessages::AuthActor]{AuthActor} 
+di modifica della password di un utente.
+
+\subparagraph{Attributi}
+\begin{tabular}{| p{1cm} | p{1.5cm} | p{2cm} | p{4cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  username & public & immutabile & String & Rappresenta lo username dell'utente a cui cambiare la password \\
+  \hline
+  password & public & immutabile & String & Rappresenta la vecchia password da cambiare \\
+  \hline
+  newPassword & public & immutabile & String & Rappresenta la nuova password da assegnare all'utente rappresentato dallo username immesso \\
+  \hline
+\end{tabular}
+
+\paragraph{actorbase::actorsystem::messages::authactormessages::RemoveCredentials}
+\label{sec:actorbase::actorsystem::messages::authactormessages::RemoveCredentials}
+
+% TODO img
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/authenticator.png}
+    \caption{Classe RemoveCredentials}
+  \end{center}
+\end{figure}
+
+\subparagraph{Descrizione}
+Classe che rappresenta una richiesta di rimozione di un utente dal sistema.\\Implementata utilizzando la specifica funzionalità \textit{case class} di Scala, 
+in modo da poter usufruirne mediante costrutti e algoritmi di 
+\gloss{pattern matching}.
+
+\subparagraph{Utilizzo}
+Questa classe viene utilizzata per mandare una richiesta all'attore 
+\hyperref[sec:actorbase::actorsystem::messages::authactormessages::AuthActor]{AuthActor} 
+di rimozione di un utente.
+
+\subparagraph{Attributi}
+\begin{tabular}{| p{1cm} | p{1.5cm} | p{2cm} | p{4cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  username & public & immutabile & String & Rappresenta lo username dell'utente da rimuovere dal sistema\\
+  \hline
+\end{tabular}
+
+\paragraph{actorbase::actorsystem::messages::authactormessages::Authenticate}
+\label{sec:actorbase::actorsystem::messages::authactormessages::Authenticate}
+
+% TODO img
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/authenticator.png}
+    \caption{Classe Authenticate}
+  \end{center}
+\end{figure}
+
+\subparagraph{Descrizione}
+Classe che rappresenta una richiesta di login di un utente al sistema.\\Implementata utilizzando la specifica funzionalità \textit{case class} di Scala, 
+in modo da poter usufruirne mediante costrutti e algoritmi di 
+\gloss{pattern matching}.
+
+\subparagraph{Utilizzo}
+Questa classe viene utilizzata per mandare una richiesta all'attore 
+\hyperref[sec:actorbase::actorsystem::messages::authactormessages::AuthActor]{AuthActor} 
+di accesso al sistema. L'attore \hyperref[sec:actorbase::actorsystem::messages::authactormessages::AuthActor]{AuthActor} 
+dovrà controllare se le credenziali immesse dall'utente sono corrette.
+
+\subparagraph{Attributi}
+\begin{tabular}{| p{1cm} | p{1.5cm} | p{2cm} | p{4cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  username & public & immutabile & String & Rappresenta lo username dell'utente che vuole effettuare il login \\
+  \hline
+  password & public & immutabile & String & Rappresenta la password dell'utente che vuole effettuare il login \\
+  \hline
+\end{tabular}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{actorbase::actorsystem::messages::clientactormessages}
+\label{sec:actorbase::actorsystem::messages::clientactormessages}
+
+% TODO img
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/utils.png}
+    \caption{Package actorsystem::messages::clientactormessages}
+  \end{center}
+\end{figure}
+
+\subsubsection{Descrizione}
+\gloss{Package} contenente i messaggi processabili dall'attore \hyperref[sec:actorbase::actorsystem::actors::clientactor::ClientActor]{ClientActor}.
+
+\subsubsection{Classi}
+
+\paragraph{actorbase::actorsystem::messages::clientactormessages::ListResponse}
+\label{sec:actorbase::actorsystem::messages::clientactormessages::ListResponse}
+
+% TODO img
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/authenticator.png}
+    \caption{Classe ListResponse}
+  \end{center}
+\end{figure}
+
+\subparagraph{Descrizione}
+Classe che rappresenta un messaggio utilizzato per consegnare al 
+\hyperref[sec:actorbase::actorsystem::actors::clientactor::ClientActor]{ClientActor} una lista di stringhe, utilizzato per adempiere ad alcune 
+richieste dell'utente.\\Implementata utilizzando la specifica funzionalità \textit{case class} di Scala, 
+in modo da poter usufruirne mediante costrutti e algoritmi di 
+\gloss{pattern matching}.
+
+\subparagraph{Utilizzo}
+Questa classe viene utilizzata per mandare una lista di stringhe all'attore 
+\hyperref[sec:actorbase::actorsystem::actors::clientactor::ClientActor]{ClientActor}. 
+Questo viene utilizzato per adempiere ad alcune richieste dell'utente come 
+la richiesta di lista collezioni.
+
+\subparagraph{Attributi}
+\begin{tabular}{| p{1cm} | p{1.5cm} | p{2cm} | p{4cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  list & public & immutabile & List[String] & Rappresenta una lista di stringhe da restiture all'utente a seguito di una richiesta \\
+  \hline
+\end{tabular}
+
+\paragraph{actorbase::actorsystem::messages::clientactormessages::MapResponse}
+\label{sec:actorbase::actorsystem::messages::clientactormessages::MapResponse}
+
+% TODO img
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/authenticator.png}
+    \caption{Classe MapResponse}
+  \end{center}
+\end{figure}
+
+\subparagraph{Descrizione}
+Classe che rappresenta un messaggio utilizzato per consegnare al 
+\hyperref[sec:actorbase::actorsystem::actors::clientactor::ClientActor]{ClientActor} una collezione dati, utilizzato per adempiere ad alcune 
+richieste dell'utente.\\Implementata utilizzando la specifica funzionalità \textit{case class} di Scala, 
+in modo da poter usufruirne mediante costrutti e algoritmi di 
+\gloss{pattern matching}.
+
+\subparagraph{Utilizzo}
+Questa classe viene utilizzata per mandare una collezione dati all'attore 
+\hyperref[sec:actorbase::actorsystem::actors::clientactor::ClientActor]{ClientActor}. 
+Questo viene utilizzato per adempiere ad alcune richieste dell'utente come 
+la richiesta di restituzione di una collezione.
+
+\subparagraph{Attributi}
+\begin{tabular}{| p{1cm} | p{1.5cm} | p{2cm} | p{4cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  collection & public & immutabile & String & Rappresenta il nome di una collezione\\
+  \hline
+  map & public & immutabile & Map[String, Any] & Rappresenta una struttura dati contenente le coppie chiave valore da restituire all'utente a seguito di una richiesta\\
+  \hline
+\end{tabular}
+
+\paragraph{actorbase::actorsystem::messages::clientactormessages::Response}
+\label{sec:actorbase::actorsystem::messages::clientactormessages::Response}
+
+% TODO img
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/authenticator.png}
+    \caption{Classe Response}
+  \end{center}
+\end{figure}
+
+\subparagraph{Descrizione}
+Classe che rappresenta un messaggio utilizzato per consegnare al 
+\hyperref[sec:actorbase::actorsystem::actors::clientactor::ClientActor]{ClientActor} una stringa, utilizzato per adempiere ad alcune 
+richieste dell'utente.\\Implementata utilizzando la specifica funzionalità \textit{case class} di Scala, 
+in modo da poter usufruirne mediante costrutti e algoritmi di 
+\gloss{pattern matching}.
+
+\subparagraph{Utilizzo}
+Questa classe viene utilizzata per mandare una stringa all'attore 
+\hyperref[sec:actorbase::actorsystem::actors::clientactor::ClientActor]{ClientActor}. 
+Questo viene utilizzato per adempiere ad alcune richieste dell'utente.
+
+\subparagraph{Attributi}
+\begin{tabular}{| p{1cm} | p{1.5cm} | p{2cm} | p{4cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  response & public & immutabile & String & Rappresenta una stringa contenente il messaggio o il valore da restiture all'utente a seguito di una sua richiesta\\
+  \hline
+\end{tabular}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{actorbase::actorsystem::messages::mainmessages}
+\label{sec:actorbase::actorsystem::messages::mainmessages}
+
+% TODO img
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/utils.png}
+    \caption{Package actorsystem::messages::mainactormessages}
+  \end{center}
+\end{figure}
+
+\subsubsection{Descrizione}
+\gloss{Package} contenente i messaggi processabili dall'attore \hyperref[sec:actorbase::actorsystem::actors::main::Main]{Main}.
+
+\subsubsection{Classi}
+
+\paragraph{actorbase::actorsystem::messages::mainmessages::InsertTo}
+\label{sec:actorbase::actorsystem::messages::mainmessages::InsertTo}
+
+% TODO img
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/authenticator.png}
+    \caption{Classe InsertTo}
+  \end{center}
+\end{figure}
+
+\subparagraph{Descrizione}
+Classe che rappresenta un messaggio utilizzato per richiedere al 
+\hyperref[sec:actorbase::actorsystem::actors::main::Main]{Main} l'inserimento di items.\\Implementata utilizzando la specifica funzionalità \textit{case class} di Scala, 
+in modo da poter usufruirne mediante costrutti e algoritmi di 
+\gloss{pattern matching}.
+
+\subparagraph{Utilizzo}
+Questa classe viene utilizzata per mandare una richiesta di inserimento di 
+item all'attore 
+\hyperref[sec:actorbase::actorsystem::actors::main::Main]{Main}.\\Questo attore 
+provvederà ad inoltrare la richiesta al giusto attore \hyperref[sec:actorbase::actorsystem::actors::storefinder::Storefinder]{Storefinder}.
+
+\subparagraph{Attributi}
+\begin{tabular}{| p{1cm} | p{1.5cm} | p{2cm} | p{4cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  collection & public & immutabile & \hyperref[sec:actorbase::actorsystem::utils::ActorbaseCollection]{ActorbaseCollection} & Rappresenta la collezione in cui effettuare l'inserimento \\
+  \hline
+  key & public & immutabile & String & Rappresenta la chiave dell'item da inserire 
+  \hline
+  value & public & immutabile & Array[byte] & Rappresenta il valore dell'item serializzato in array di byte\\
+  \hline
+  update & public & immutabile & Boolean & Rappresenta un flag per scegliere se l'inserimento deve poter sovrascrivere un item già presente con la stessa chiave o meno\\ 
+  \hline
+\end{tabular}
+
+\paragraph{actorbase::actorsystem::messages::mainmessages::GetFrom}
+\label{sec:actorbase::actorsystem::messages::mainmessages::GetFrom}
+
+% TODO img
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/authenticator.png}
+    \caption{Classe GetFrom}
+  \end{center}
+\end{figure}
+
+\subparagraph{Descrizione}
+Classe che rappresenta un messaggio utilizzato per richiedere al 
+\hyperref[sec:actorbase::actorsystem::actors::main::Main]{Main} di ritornare items o collezioni.\\Implementata utilizzando la specifica funzionalità \textit{case class} di Scala, 
+in modo da poter usufruirne mediante costrutti e algoritmi di 
+\gloss{pattern matching}.
+
+\subparagraph{Utilizzo}
+Questa classe viene utilizzata per mandare una richiesta di ritorno di un item o di collezioni all'attore 
+\hyperref[sec:actorbase::actorsystem::actors::main::Main]{Main}.\\Questo attore 
+provvederà ad inoltrare la richiesta al giusto attore \hyperref[sec:actorbase::actorsystem::actors::storefinder::Storefinder]{Storefinder}.\\Il 
+parametro in ingresso \textit{key} determina se l'utente richiede un singolo 
+item o una intera collezione.
+
+\subparagraph{Attributi}
+\begin{tabular}{| p{1cm} | p{1.5cm} | p{2cm} | p{4cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  collection & public & immutabile & \hyperref[sec:actorbase::actorsystem::utils::ActorbaseCollection]{ActorbaseCollection} & Rappresenta la collezione in cui cercare o la collezione da ritornare \\
+  \hline
+  key & public & immutabile & String & Rappresenta la chiave dell'item da cercare\\
+  \hline
+\end{tabular}
+
+% TODO COMPLETE TRANSACTION NON È DESCRITTO GIUSTO CREDO
+\paragraph{actorbase::actorsystem::messages::mainmessages::CompleteTransaction}
+\label{sec:actorbase::actorsystem::messages::mainmessages::CompleteTransaction}
+
+% TODO img
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/authenticator.png}
+    \caption{Classe CompleteTransaction}
+  \end{center}
+\end{figure}
+
+\subparagraph{Descrizione}
+Classe che rappresenta un messaggio utilizzato per mandare pezzi di collezioni 
+all'attore \hyperref[sec:actorbase::actorsystem::actors::main::Main]{Main}.\\Implementata utilizzando la specifica funzionalità \textit{case class} di Scala, 
+in modo da poter usufruirne mediante costrutti e algoritmi di 
+\gloss{pattern matching}.
+
+\subparagraph{Utilizzo}
+Questa classe viene utilizzata per mandare pezzi di collezione all'attore 
+\hyperref[sec:actorbase::actorsystem::actors::main::Main]{Main}.\\Quest'ultimo 
+dovrà aspettare tutti i messaggi \hyperref[sec:actorbase::actorsystem::messages::mainmessages::CompleteTransaction]{CompleteTransaction} necessari per costruire un intera collezione da restituire all'utente.\\Questo messaggio è utilizzato quando un utente richiede una o più intere collezioni.
+
+\subparagraph{Attributi}
+\begin{tabular}{| p{1cm} | p{1.5cm} | p{2cm} | p{4cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  clientRef & public & immutabile & ActorRef & Rappresenta il riferimento all'attore \hyperref[sec:actorbase::actorsystem::actors::clientactor::ClientActor]{ClientActor} che 
+  ha effettuato la richiesta
+  \hline
+  collection & public & immutabile & \hyperref[sec:actorbase::actorsystem::utils::ActorbaseCollection]{ActorbaseCollection} & Rappresenta la collezione di cui fanno parte gli item passati in questo messaggio \\
+  \hline
+  items & public & immutabile & Map[String, Array[Byte]] & Rappresenta una mappa di items, in particolare rappresentano un pezzo della collezione richiesta\\
+  \hline
+\end{tabular}
+
+\paragraph{actorbase::actorsystem::messages::mainmessages::RemoveFrom}
+\label{sec:actorbase::actorsystem::messages::mainmessages::RemoveFrom}
+
+% TODO img
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/authenticator.png}
+    \caption{Classe RemoveFrom}
+  \end{center}
+\end{figure}
+
+\subparagraph{Descrizione}
+Classe che rappresenta un messaggio utilizzato per richiedere la rimozione di 
+item all'attore \hyperref[sec:actorbase::actorsystem::actors::main::Main]{Main}.\\Implementata utilizzando la specifica funzionalità \textit{case class} di Scala, in modo da poter usufruirne mediante costrutti e algoritmi di 
+\gloss{pattern matching}.
+
+\subparagraph{Utilizzo}
+Questa classe viene utilizzata per rimuovere items dal sistema. L'attore 
+\hyperref[sec:actorbase::actorsystem::actors::main::Main]{Main} dovrà aspettare 
+inoltrare la richiesta al giustto attore \hyperref[sec:actorbase::actorsystem::actors::storefinder::Storefinder]{Storefinder}.
+
+\subparagraph{Attributi}
+\begin{tabular}{| p{1cm} | p{1.5cm} | p{2cm} | p{4cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  uuid & public & immutabile & String & Rappresenta l'id della collezione da cui eliminare l'item\\
+  \hline
+  key & public & immutabile & String & Rappresenta la chiave dell'item da eliminare\\
+  \hline
+\end{tabular}
+
+\paragraph{actorbase::actorsystem::messages::mainmessages::AddContributor}
+\label{sec:actorbase::actorsystem::messages::mainmessages::AddContributor}
+
+% TODO img
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/authenticator.png}
+    \caption{Classe AddContributor}
+  \end{center}
+\end{figure}
+
+\subparagraph{Descrizione}
+Classe che rappresenta un messaggio utilizzato per richiedere l'aggiunta di un 
+collaboratore ad una collezione all'attore \hyperref[sec:actorbase::actorsystem::actors::main::Main]{Main}.\\Implementata 
+utilizzando la specifica funzionalità \textit{case class} di Scala, in modo da poter usufruirne mediante costrutti e algoritmi di 
+\gloss{pattern matching}.
+
+\subparagraph{Utilizzo}
+Questa classe viene utilizzata per richiedere l'aggiunta di collaboratori ad 
+una collezione. L'attore 
+\hyperref[sec:actorbase::actorsystem::actors::main::Main]{Main} dovrà aggiungere 
+lo username del collaboratore designato alla collezione richiesta.
+
+\subparagraph{Attributi}
+\begin{tabular}{| p{1cm} | p{1.5cm} | p{2cm} | p{4cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  username & public & immutabile & String & Rappresente lo username del collaboratore da aggiungere alla collezione\\
+  \hline
+  permission & public & immutabile & Enum & Rappresenta il tipo di permessi da assegnare al collaboratore\\
+  \hline
+  uuid & public & immutabile & String & Rappresenta l'id della collezione a cui aggiungere il collaboratore\\
+  \hline
+\end{tabular}
+
+\paragraph{actorbase::actorsystem::messages::mainmessages::RemoveContributor}
+\label{sec:actorbase::actorsystem::messages::mainmessages::RemoveContributor}
+
+% TODO img
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/authenticator.png}
+    \caption{Classe RemoveContributor}
+  \end{center}
+\end{figure}
+
+\subparagraph{Descrizione}
+Classe che rappresenta un messaggio utilizzato per richiedere la rimozione di un 
+collaboratore ad una collezione all'attore \hyperref[sec:actorbase::actorsystem::actors::main::Main]{Main}.\\Implementata 
+utilizzando la specifica funzionalità \textit{case class} di Scala, in modo da poter usufruirne mediante costrutti e algoritmi di 
+\gloss{pattern matching}.
+
+\subparagraph{Utilizzo}
+Questa classe viene utilizzata per richiedere la rimozione di collaboratori ad 
+una collezione. L'attore 
+\hyperref[sec:actorbase::actorsystem::actors::main::Main]{Main} dovrà rimuovere 
+lo username del collaboratore designato alla collezione richiesta.
+
+\subparagraph{Attributi}
+\begin{tabular}{| p{1cm} | p{1.5cm} | p{2cm} | p{4cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  username & public & immutabile & String & Rappresente lo username del collaboratore da rimuovere dalla collezione\\
+  \hline
+  uuid & public & immutabile & String & Rappresenta l'id della collezione da cui rimuovere il collaboratore\\
+  \hline
+\end{tabular}
+
+\paragraph{actorbase::actorsystem::messages::mainmessages::CreateCollection}
+\label{sec:actorbase::actorsystem::messages::mainmessages::CreateCollection}
+
+% TODO img
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/authenticator.png}
+    \caption{Classe CreateCollection}
+  \end{center}
+\end{figure}
+
+\subparagraph{Descrizione}
+Classe che rappresenta un messaggio utilizzato per richiedere la creazione di una collezione all'attore \hyperref[sec:actorbase::actorsystem::actors::main::Main]{Main}.\\Implementata 
+utilizzando la specifica funzionalità \textit{case class} di Scala, in modo da poter usufruirne mediante costrutti e algoritmi di 
+\gloss{pattern matching}.
+
+\subparagraph{Utilizzo}
+Questa classe viene utilizzata per richiedere la creazione di una collezione.\\L'attore 
+\hyperref[sec:actorbase::actorsystem::actors::main::Main]{Main} provvederà a creare la nuova collezione e a creare un attore \hyperref[sec:actorbase::actorsystem::actors::storefinder::Storefinder]{Storefinder} 
+adibito alla gestione di quest'ultima.
+
+\subparagraph{Attributi}
+\begin{tabular}{| p{1cm} | p{1.5cm} | p{2cm} | p{4cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  collection & public & immutabile & \hyperref[sec:actorbase::actorsystem::utils::ActorbaseCollection]{ActorbaseCollection} & Collezione da aggiungere al sistema\\
+  \hline
+\end{tabular}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{actorbase::actorsystem::messages::storefindermessages}
+\label{sec:actorbase::actorsystem::messages::storefindermessages}
+
+% TODO img
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/utils.png}
+    \caption{Package actorsystem::messages::storefindermessages}
+  \end{center}
+\end{figure}
+
+\subsubsection{Descrizione}
+\gloss{Package} contenente i messaggi processabili dall'attore \hyperref[sec:actorbase::actorsystem::actors::storefinder::Storefinder]{Storefinder}.
+
+\subsubsection{Classi}
+
+\paragraph{actorbase::actorsystem::messages::storefinder::GetAllItems}
+\label{sec:actorbase::actorsystem::messages::storefinder::GetAllItems}
+
+% TODO img
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/authenticator.png}
+    \caption{Classe Storefinder}
+  \end{center}
+\end{figure}
+
+\subparagraph{Descrizione}
+Classe che rappresenta un messaggio utilizzato per richiedere allo 
+\hyperref[sec:actorbase::actorsystem::actors::storefinder::Storefinder]{Storefinder} l'inserimento di ritornare tutti gli item mappati dai propri \hyperref[sec:actorbase::actorsystem::actors::storekeeper::Storekeeper]{Storekeeper}.\\Implementata utilizzando la specifica funzionalità \textit{case class} di Scala, 
+in modo da poter usufruirne mediante costrutti e algoritmi di 
+\gloss{pattern matching}.
+
+\subparagraph{Utilizzo}
+Questa classe viene utilizzata per richiedere tutti gli items mappati dallo 
+\hyperref[sec:actorbase::actorsystem::actors::storefinder::Storefinder]{Storefinder}.\\Questo attore provvederà a mandare richieste Get all'attore 
+\hyperref[sec:actorbase::actorsystem::actors::storekeeper::Storekeeper]{Storekeeper}.\\Questo tipo di messaggio è ricevuto quando un utente intende 
+richiedere intere collezioni.
+
+\paragraph{actorbase::actorsystem::messages::storefinder::UpdateCollectionSize}
+\label{sec:actorbase::actorsystem::messages::storefinder::UpdateCollectionSize}
+
+% TODO img
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/authenticator.png}
+    \caption{Classe UpdateCollectionSize}
+  \end{center}
+\end{figure}
+
+\subparagraph{Descrizione}
+Classe che rappresenta un messaggio utilizzato per aggiornare il numero di item 
+contenuti in una collezione.\\Implementata utilizzando la specifica funzionalità \textit{case class} di Scala, 
+in modo da poter usufruirne mediante costrutti e algoritmi di 
+\gloss{pattern matching}.
+
+\subparagraph{Utilizzo}
+Questa classe viene utilizzata per tenere aggiornate le dimensioni delle 
+collezioni quando si inseriscono o rimuovono items da esse.
+
+\subparagraph{Attributi}
+\begin{tabular}{| p{1cm} | p{1.5cm} | p{2cm} | p{4cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  increment & public & immutabile & Boolean & flag che indica se c'è stato un incremento o un decremento nella collezione (true se incremento)\\
+  \hline
+\end{tabular}
+
+\paragraph{actorbase::actorsystem::messages::storefinder::Get}
+\label{sec:actorbase::actorsystem::messages::storefinder::Get}
+
+% TODO img
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/authenticator.png}
+    \caption{Classe Get}
+  \end{center}
+\end{figure}
+
+\subparagraph{Descrizione}
+Classe che rappresenta un messaggio utilizzato per richiedere un item.\\Implementata utilizzando la specifica funzionalità \textit{case class} di Scala, 
+in modo da poter usufruirne mediante costrutti e algoritmi di 
+\gloss{pattern matching}.
+
+\subparagraph{Utilizzo}
+Questa classe viene utilizzata per richiedere un item da restituire 
+all'utente.\\Quando riceve questo messaggio l'attore provvederà a inoltrare la 
+richiesta allo \hyperref[sec:actorbase::actorsystem::actors::storekeeper::Storekeeper]{Storekeeper} esatto.
+
+\subparagraph{Attributi}
+\begin{tabular}{| p{1cm} | p{1.5cm} | p{2cm} | p{4cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  key & public & immutabile & String & Rappresenta la chiave dell'item da restituire\\
+  \hline
+\end{tabular}
+
+\paragraph{actorbase::actorsystem::messages::storefinder::PartialMapTransaction}
+\label{sec:actorbase::actorsystem::messages::storefinder::PartialMapTransaction}
+
+% TODO img
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/authenticator.png}
+    \caption{Classe PartialMapTransaction}
+  \end{center}
+\end{figure}
+
+\subparagraph{Descrizione}
+Classe che rappresenta un messaggio utilizzato per ricevere pezzi di collezione da inviare all'attore \gloss{parent}.\\Implementata utilizzando la specifica funzionalità \textit{case class} di Scala, 
+in modo da poter usufruirne mediante costrutti e algoritmi di 
+\gloss{pattern matching}.
+
+\subparagraph{Utilizzo}
+Questa classe viene utilizzata per ricevere prezzi di collezione a seguito di 
+una richiesta di una intera collezione da parte di un utente.\\Quando riceve questo messaggio l'attore provvederà a inoltrare la mappa di items allo 
+\hyperref[sec:actorbase::actorsystem::actors::main::Main]{Main} parent, il quale provvederà ad assemblare tutta la collezione da restutire all'utente.
+
+\subparagraph{Attributi}
+\begin{tabular}{| p{1cm} | p{1.5cm} | p{2cm} | p{4cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  key & public & immutabile & String & Rappresenta la chiave dell'item da restituire\\
+  \hline
+\end{tabular}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
