@@ -129,14 +129,8 @@ available to users.
 \subsection{Product purpose}
 
 The purpose of the project is the realization of a key-value type
-NoSQL\footnote{A NoSQL database provides a mechanism for storage and retrieval
-  of data which is modeled in means other than the tabular relations used in
-  relational databases.Key-value (KV) stores use the associative array (also known
-  as a map or dictionary) as their fundamental data model.\label{nosql}} database,
-massively concurrent and oriented to the management of heavy load of data by
-using the actor\footnote{A computational entity that, in response to a message
-  it receives, can send messages to other actors, create new ones, change its
-  behaviour for the next message incoming\label{actor}} model.
+\gloss{NoSQL} database, massively concurrent and oriented to the management of heavy load of data by
+using the \gloss{actor} model.
 
 % \subsection{References}
 
@@ -179,8 +173,8 @@ The system is basically constituted of two JAR (Java Archive) shipped with all
 dependencies libraries, there are just a few steps to follow to have the system
 running and ready to receive commands:
 \begin{itemize}
-\item run \verb=actorbase.jar= in a shell\footnote{A command-line interpreter\label{shell}};
-\item run \verb=actorbasecli.jar= in a second shell\textsuperscript{\ref{shell}}.
+\item run \verb=actorbase.jar= in a \gloss{shell};
+\item run \verb=actorbasecli.jar= in a second \gloss{shell}.
 \end{itemize}
 That's really all for a basic usage, and the procedure is the same for
 \textit{Windows} 10, \textit{Ubuntu 14.04 LTS}, \textit{OSX - El
@@ -207,12 +201,9 @@ running:
 The \textit{--config=path/to/config.cfg} is optional.
 
 As shown in the image, there is a part of the configuration dedicated to the
-distribution of the load between multiple nodes in a cluster\footnote{A set of
-  loosely or tightly connected computers that work together, so that they can be
-  viewed as a single system\label{cluster}}, \textbf{Actobase} is in fact a
-scale-out\footnote{Method of adding more resources by adding more nodes to the
-  cluster\label{cleout}} oriented system, and it is possible to set all
-cluster\textsuperscript{\ref{cluster}} configurations offered by Akka library.
+distribution of the load between multiple nodes in a \gloss{cluster}, \textbf{Actobase} is in fact a
+\gloss{scale-out} oriented system, and it is possible to set all
+\gloss{cluster} configurations offered by Akka library.
 
 \newpage
 \textbf{Cluster configuration sample}
@@ -237,17 +228,13 @@ balancing load between multiple nodes as shown below:
   \end{center}
 \end{figure}
 
-For every incoming connection a dedicated actor\textsuperscript{\ref{actor}}, named clientactor\footnote{An actor dedicated
-  exclusively to handle incoming request from clients connected from outside the
-  system}, is spawned; it is responsible for all incoming requests from the
-client that is connected, and his main role is to forward these requests directy to the
-main\footnote{An actor dedicated to the routing of incoming data to subordinated
-  actors and to the management of the latter\label{main}}
-actors\textsuperscript{\ref{actor}} equally distributed across the nodes of a
-cluster\textsuperscript{\ref{cluster}}. In this way, with
-main\textsuperscript{\ref{main}} actors\textsuperscript{\ref{actor}} breeding
+For every incoming connection a dedicated \gloss{actor}, named \gloss{clientactor},
+is spawned; it is responsible for all incoming requests from the
+client that is connected, and his main role is to forward these requests directly to the
+\gloss{main} \gloss{actors} equally distributed across the nodes of a
+\gloss{cluster}. In this way, with \gloss{main} \gloss{actors} breeding
 their own hierarchy of subordinates, all incoming data is spread across the
-cluster\textsuperscript{\ref{cluster}} network.
+\gloss{cluster} network.
 
 \subsubsection{Building from sources}
 
@@ -276,22 +263,21 @@ manager tool making the compilation and building from sources extremely easy to 
 As shown in the image, there are some external libraries needed to build the system:
 \begin{itemize}
 \item \textbf{Spray:} (\url{http://spray.io/}) An open source toolkit for building REST/HTTP-based
-  integration layers on top of Scala and Akka; mainly used for the server
-  component in order to expose communication API and to
-  Marshall\footnote{The act of transforming the memory of an object to a data format suitable
-    for storage or transmission, e.g.\ serialization} database contents.
+integration layers on top of Scala and Akka; mainly used for the server
+component in order to expose communication API and to
+\gloss{Marshall} database contents.
 \item \textbf{scala-pickling:} (\url{http://lampwww.epfl.ch/~hmiller/pickling/}) An authomatic serialization framework made for
-  Scala; mainly used in the driver component in order to serialize and
-  deserialize objects in a fast and transparent way;
+Scala; mainly used in the driver component in order to serialize and
+deserialize objects in a fast and transparent way;
 \item \textbf{scalaj-http:} (\url{https://github.com/scalaj/scalaj-http}) A fairly simple http library for Scala, used in the
-  driver component in order to establish a communication with the REST API server;\
+driver component in order to establish a communication with the REST API server;\
 \item \textbf{json4s:} (\url{http://json4s.org/}) Used in the driver component to expose a pretty formatted
-  JSON (JavaScript Object Notation) version of the data retrieved from the server;
+JSON (JavaScript Object Notation) version of the data retrieved from the server;
 \item \textbf{scala-bcrypt:} (\url{https://github.com/t3hnar/scala-bcrypt}) Scala version of the encryption library Bcrypt,
-  used on the server side to store hashes of sensitive data;
+used on the server side to store hashes of sensitive data;
 \item \textbf{Akka:} (\url{http://akka.io/}) A toolkit and runtime environment to build highly concurrent,
-  distributed, and resilient message-driven applications on the JVM;\ it is the core of
-  the system and it is used in the server-side component.
+distributed, and resilient message-driven applications on the JVM;\ it is the core of
+the system and it is used in the server-side component.
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -300,7 +286,7 @@ As shown in the image, there are some external libraries needed to build the sys
 
 \subsection{ActorbaseDriver: Using Actorbase from inside a Scala source}
 
-Actorbase is essentially an actor\textsuperscript{\ref{actor}} system built upon a server component that
+Actorbase is essentially an \gloss{actor} system built upon a server component that
 exposes some API forming a RESTful web service. To facilitate the use from
 inside a Scala source, a driver has been developed in order to allow the
 usage of all features that \textbf{Actorbase} provides.\\
@@ -323,13 +309,10 @@ The most common operations include:
 \end{figure}
 
 These are some of the most common operations that the driver allows the user to do,
-there is not too much boilerplate\footnote{A section of code that has to be
-  included in many places with little to no alteration.} code, and it is possible
+there is not too much boilerplate code, and it is possible
 to make operations directly on objects representing \textbf{Actorbase}
-collections\footnote{A data-structure constituted by a list of key-value items\label{coll}}
-in a purely OOP (Object Oriented Programming) fashion.\\ As explained in
-the snippet\footnote{A programming term for a small region of reusable code.}
-image these objects also retain some of the common functional constructs (e.g.
+\gloss{collections} in a purely OOP (Object Oriented Programming) fashion.\\
+As explained in the snippet image these objects also retain some of the common functional constructs (e.g.
 foreach), so it's possible to apply custom functions to every item of the
 collection.
 
@@ -341,15 +324,11 @@ Although in the future there may be the possibility to make some
 operations as an anonymous user, at the current state the only possible action
 that a non-logged-in user can do with \verb=ActorbaseDriver= is the authentication.
 This method sends a login request to the server-side of the system and, according
-to the response, it will return an \verb=ActorbaseService=\footnote{Main class,
-  contains all collection management methods\label{ActorbaseServices}} or an
-\verb=ActorbaseAdminServices=\footnote{Defined trait, contains some
-  administrative functionality as dependency added to
-  ActorbaseServices\label{AdminServices}}. These two objects give the methods to
+to the response, it will return an \verb=ActorbaseService= or an
+\verb=ActorbaseAdminServices=. These two objects give the methods to
 actually make all operations on the database, the main difference is that
-\verb=ActorbaseAdminServices=\textsuperscript{\ref{AdminServices}} allows to do
-some high-level administrative operations on the users and the
-collections\textsuperscript{\ref{coll}} of the system.\\
+\verb=ActorbaseAdminServices= allows to do some high-level
+administrative operations on the users and the \gloss{collections} of the system.\\
 Authentication method could raise \textbf{WrongCredentialExc} exception, in case
 wrong credentials has been sent to the server.
 
@@ -378,16 +357,16 @@ least 8 characters long.
 
 \paragraph{Collections operations}
 
-As previously explained, operations on the collections\textsuperscript{\ref{coll}} can be done in a purely
-OOP fashion, this means that all methods that return an \verb=ActorbaseCollection=\footnote{An object representing a collection of the system\label{ABcoll}},
+As previously explained, operations on the \gloss{collections} can be done in a purely
+OOP fashion, this means that all methods that return an \verb=ActorbaseCollection=,
 give the possibility to call all collection-management methods:
 
 \begin{itemize}
-\item \verb=listCollection=, lists all collections\textsuperscript{\ref{coll}}
-  contained in the database, these are the collections\textsuperscript{\ref{coll}}
-  owned by the profile of the applicant, including the ones he is a contributor of.
-\item \verb=addCollection= method:\\ Create a new collection\textsuperscript{\ref{coll}} into \textbf{Actorbase}, accepting a \verb=String=
-  representing the name of the new collection\textsuperscript{\ref{coll}};
+\item \verb=listCollection=, lists all \gloss{collections}
+contained in the database, these are the \gloss{collections}
+owned by the profile of the applicant, including the ones he is a contributor of.
+\item \verb=addCollection= method:\\ Create a new \gloss{collection} into \textbf{Actorbase}, accepting a \verb=String=
+  representing the name of the new \gloss{collection};
   e.g.:
   \begin{figure}[H]
     \begin{center}
@@ -395,15 +374,15 @@ give the possibility to call all collection-management methods:
       \caption{Driver usage: add collection  methods}
     \end{center}
   \end{figure}
-  Add collection\textsuperscript{\ref{coll}} method could raise:
+  Add \gloss{collection} method could raise:
   \begin{itemize}
-  \item \textbf{CollectionAlreadyExistsExc:} In case the name of the collection\textsuperscript{\ref{coll}} is already taken by another collection\textsuperscript{\ref{coll}} in \textbf{Actorbase};
-  \item \textbf{UndefinedCollectionExc:} In case the user tried to insert a new collection\textsuperscript{\ref{coll}} with an empty name.
+  \item \textbf{CollectionAlreadyExistsExc:} In case the name of the \gloss{collection} is already taken by another \gloss{collection} in \textbf{Actorbase};
+  \item \textbf{UndefinedCollectionExc:} In case the user tried to insert a new \gloss{collection} with an empty name.
   \end{itemize}
 \item \verb=insert= methods:\\ These methods come in two variants: the first one accepting
-  a vararg\footnote{A sequence of arguments} of key-value tuple and the second
+  a \gloss{vararg} of key-value tuple and the second
   one accepting an
-  \verb=ActorbaseObject=\footnote{An object representing a key-value pair inside Actorbase\label{ABobj}} instance;
+  \verb=ActorbaseObject= instance;
   e.g.:
   \begin{figure}[H]
     \begin{center}
@@ -419,7 +398,7 @@ give the possibility to call all collection-management methods:
   \end{figure}
   Insert methods could raise:
   \begin{itemize}
-  \item \textbf{DuplicateKeyExc:} In case of a key is already taken inside the collection\textsuperscript{\ref{coll}}.
+  \item \textbf{DuplicateKeyExc:} In case of a key is already taken inside the \gloss{collection}.
   \end{itemize}
 \item \verb=remove= methods:\\ There are two variants of this method too, the usage is
   analogous to insert, e.g.:
@@ -430,7 +409,7 @@ give the possibility to call all collection-management methods:
     \end{center}
   \end{figure}
 \item \verb=find= method:\\ This method accepts one or more \verb=Strings= representing
-  keys to be retrieved from the collection\textsuperscript{\ref{coll}}; once again the usage is similar to the insert and
+  keys to be retrieved from the \gloss{collection}; once again the usage is similar to the insert and
   remove methods, e.g.:
   \begin{figure}[H]
     \begin{center}
@@ -438,8 +417,8 @@ give the possibility to call all collection-management methods:
       \caption{Driver usage: find method}
     \end{center}
   \end{figure}
-\item \verb=findOne= method:\\ This method accepts one \verb=ActorbaseObject=\textsuperscript{\ref{ABobj}} representing
-  a key-value pair to be retrieved from the collection\textsuperscript{\ref{coll}}; once again the usage is similar to insert and
+\item \verb=findOne= method:\\ This method accepts one \verb=ActorbaseObject= representing
+  a key-value pair to be retrieved from the \gloss{collection}; once again the usage is similar to insert and
   remove methods, e.g.:
   \begin{figure}[H]
     \begin{center}
@@ -455,15 +434,15 @@ give the possibility to call all collection-management methods:
       \caption{Driver usage: dropCollections method}
     \end{center}
   \end{figure}
-  the \verb=drop= inside an \verb=ActorbaseCollection=\textsuperscript{\ref{ABcoll}} object:
+  the \verb=drop= inside an \verb=ActorbaseCollection= object:
   \begin{figure}[H]
     \begin{center}
       \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Driver-Drop.png}
       \caption{Driver usage: drop method}
     \end{center}
   \end{figure}
-  and finally \verb=drop= inside an \verb=ActorbaseCollectionMap=\textsuperscript{\ref{abcoll}}, it takes a
-  vararg of \verb=String= representing a sequence of collections\textsuperscript{\ref{coll}} to be removed
+  and finally \verb=drop= inside an \verb=ActorbaseCollectionMap=, it takes a
+  vararg of \verb=String= representing a sequence of \gloss{collections} to be removed
   e.g.:
   \begin{figure}[H]
     \begin{center}
@@ -471,9 +450,8 @@ give the possibility to call all collection-management methods:
       \caption{Driver usage: drop method}
     \end{center}
   \end{figure}
-\item printing collections\textsuperscript{\ref{coll}}:\\All objects returned by \verb=ActorbaseDriver=
-  have an override\footnote{Specific implementation of a method in a subclass that
-    is already provided by one of its superclasses} to the method \verb=toString=
+\item printing \gloss{collections}:\\All objects returned by \verb=ActorbaseDriver=
+  have an \gloss{override} to the method \verb=toString=
   that returns a pretty formatted JSON (JavaScript Object Notation) \verb=String=, e.g.:
   \begin{figure}[H]
     \begin{center}
@@ -488,14 +466,14 @@ give the possibility to call all collection-management methods:
       \caption{Driver usage: printing multiple collections}
     \end{center}
   \end{figure}
-\item \verb=count= elements\footnote{Key-value pairs} inside a collection\textsuperscript{\ref{coll}} e.g.
+\item \verb=count= items inside a \gloss{collection} e.g.
   \begin{figure}[H]
     \begin{center}
       \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Driver-Counting.png}
       \caption{Driver usage: drop method}
     \end{center}
   \end{figure}
-\item \verb=importFromFile=, method that allows to import a (possibly) large number of collections\textsuperscript{\ref{coll}}
+\item \verb=importFromFile=, method that allows to import a (possibly) large number of \gloss{collections}
   directly into \textbf{Actorbase}
   \begin{figure}[H]
     \begin{center}
@@ -509,7 +487,7 @@ give the possibility to call all collection-management methods:
   \item \textbf{MalformedFileExc:} in case the file is not in JSON format or it is not a valid JSON.
   \end{itemize}
 
-\item \verb=exportToFile=, method that allows to export one or more collections\textsuperscript{\ref{col}} to a specified path on the filesystem
+\item \verb=exportToFile=, method that allows to export one or more \gloss{collections} to a specified path on the filesystem
   \begin{figure}[H]
     \begin{center}
       \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Driver-Export.png}
@@ -521,11 +499,10 @@ give the possibility to call all collection-management methods:
 \subparagraph{Contributor management}
 
 Each user in \textbf{Actorbase} has the possibility to add and remove contributors
-to his collections\textsuperscript{\ref{coll}}, a user can be added with two levels of
-permissions:
+to his \gloss{collections}, a user can be added with two levels of permissions:
 \begin{itemize}
-\item read, means that a user can only make read operations on the collection\textsuperscript{\ref{coll}} without modifying it;
-\item read-write, means that a user can make read and write operations on the collection\textsuperscript{\ref{coll}}.
+\item read, means that a user can only make read operations on the \gloss{collection} without modifying it;
+\item read-write, means that a user can make read and write operations on the \gloss{collection}.
 \end{itemize}
 e.g.:
 \begin{figure}[H]
@@ -538,7 +515,7 @@ e.g.:
 \subparagraph{Administrative operations}
 
 \textbf{Actorbase} expects two kind of users, common and administrator. The last one has
-some privileges over the others, such as a wider range of collections\textsuperscript{\ref{coll}} (all
+some privileges over the others, such as a wider range of \gloss{collections} (all
 database) with read-write permissions, and capabilities of adding and removing
 users to and from the system, and finally resetting the password of given users.
 \begin{figure}[H]
@@ -586,4 +563,41 @@ timeout connection exception.
 If you are having issues or strange malfunctions, please let us know at
 \href{mailto:scalatekids@gmail.com}{scalatekids@gmail.com}.
 
+\newpage
+\appendix
+
+\section{Glossary}
+\subsection{A}
+\glossDef{Actor} A computational entity that, in response to a message
+it receives, can send messages to other actors, create new ones, change its
+behaviour for the next message incoming.
+\subsection{B}
+\glossDef{boilerplate} A section of code that has to be
+included in many places with little to no alteration.
+\subsection{C}
+\glossDef{Clientactor} An actor dedicated exclusively to handle
+incoming request from clients connected from outside the system.
+\glossDef{cluster} A set of loosely or tightly connected computers that
+work together, so that they can beviewed as a single system.
+\glossDef{collection} A data-structure constituted by a list of key-value items.
+\subsection{M}
+\glossDef{Main} An actor dedicated to the routing of incoming data to subordinated
+actors and to the management of the latter.
+\glossDef{Marshalling} The act of transforming the memory of an object to a data format suitable
+for storage or transmission, e.g.\ serialization.
+\subsection{N}
+\glossDef{NoSql} A NoSQL database provides a mechanism for storage and retrieval
+of data which is modeled in means other than the tabular relations used in
+relational databases. Key-value (KV) stores use the associative array (also known
+as a map or dictionary) as their fundamental data model.
+\subsection{O}
+\glossDef{Override} Specific implementation of a method in a subclass that
+is already provided by one of its superclasses.
+\subsection{S}
+\glossDef{Scale-out} Method of adding more resources by adding more nodes to the
+cluster.
+\glossDef{Shell} A command-line interpreter.
+\glossDef{Snippet} A programming term for a small region of reusable code.
+\subsection{V}
+\glossDef{Vararg} A sequence of arguments.
 \end{document}
