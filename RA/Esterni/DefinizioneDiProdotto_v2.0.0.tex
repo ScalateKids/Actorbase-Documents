@@ -1037,9 +1037,415 @@ una richiesta di una intera collezione da parte di un utente.\\Quando riceve que
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
+  clientRef & public & immutabile & ActorRef & Rappresenta il riferimento all'attore \hyperref[sec:actorbase::actorsystem::actors::clientactor::ClientActor]{ClientActor} che ha richiesto la collezione\\
+  \hline
+  items & public & immutabile & Map[String, Array[Byte]] & Rappresenta una mappa contenente le coppie chiave valore degli items della collezione da restituire\\
+  \hline
+\end{tabular}
+
+\paragraph{actorbase::actorsystem::messages::storefinder::Remove}
+\label{sec:actorbase::actorsystem::messages::storefinder::Remove}
+
+% TODO img
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/authenticator.png}
+    \caption{Classe Remove}
+  \end{center}
+\end{figure}
+
+\subparagraph{Descrizione}
+Classe che rappresenta un messaggio utilizzato per richiedere la rimozione di un item.\\Implementata utilizzando la specifica funzionalità \textit{case class} di Scala, 
+in modo da poter usufruirne mediante costrutti e algoritmi di 
+\gloss{pattern matching}.
+
+\subparagraph{Utilizzo}
+Questa classe viene utilizzata per richiedere la rimozione di un item dal 
+sistema.\\Quando riceve questo messaggio l'attore provvederà a inoltrare la 
+richiesta allo \hyperref[sec:actorbase::actorsystem::actors::storekeeper::Storekeeper]{Storekeeper} 
+giusto.
+
+\subparagraph{Attributi}
+\begin{tabular}{| p{1cm} | p{1.5cm} | p{2cm} | p{4cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  key & public & immutabile & String & Rappresenta la chiave dell'elemento da rimuovere dalla collezione rappresentata da questo attore\\
+  \hline
+\end{tabular}
+
+\paragraph{actorbase::actorsystem::messages::storefinder::Insert}
+\label{sec:actorbase::actorsystem::messages::storefinder::Insert}
+
+% TODO img
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/authenticator.png}
+    \caption{Classe Insert}
+  \end{center}
+\end{figure}
+
+\subparagraph{Descrizione}
+Classe che rappresenta un messaggio utilizzato per richiedere l'aggiunta di un item.\\Implementata utilizzando la specifica funzionalità \textit{case class} di Scala, 
+in modo da poter usufruirne mediante costrutti e algoritmi di 
+\gloss{pattern matching}.
+
+\subparagraph{Utilizzo}
+Questa classe viene utilizzata per richiedere l'aggiunta di un item dal 
+sistema.\\Quando riceve questo messaggio l'attore provvederà a inoltrare la 
+richiesta allo \hyperref[sec:actorbase::actorsystem::actors::storekeeper::Storekeeper]{Storekeeper} 
+giusto.
+
+\subparagraph{Attributi}
+\begin{tabular}{| p{1cm} | p{1.5cm} | p{2cm} | p{4cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  key & public & immutabile & String & Rappresenta la chiave dell'elemento da aggiungere dalla collezione rappresentata da questo attore\\
+  \hline
+  value & public & immutabile & Array[Byte] & Rappresenta il valore dell'item da inserire sotto forma di array di bytes\\
+  \hline
+  update & public & immutabile & String & Rappresenta un flag che server a scegliere se l'operazione può effettuare sovrascrittura o no (true se l'operazione può sovrascrivere items con la stessa chiave)\\
+  \hline
+\end{tabular}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{actorbase::actorsystem::messages::storekeepermessages}
+\label{sec:actorbase::actorsystem::messages::storekeepermessages}
+
+% TODO img
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/utils.png}
+    \caption{Package actorsystem::messages::storekeepermessages}
+  \end{center}
+\end{figure}
+
+\subsubsection{Descrizione}
+\gloss{Package} contenente i messaggi processabili dall'attore \hyperref[sec:actorbase::actorsystem::actors::storekeeper::Storekeeper]{Storekeeper}.
+
+\subsubsection{Classi}
+
+\paragraph{actorbase::actorsystem::messages::storekeeper::Persist}
+\label{sec:actorbase::actorsystem::messages::storekeeper::Persist}
+
+% TODO img
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/authenticator.png}
+    \caption{Classe Persist}
+  \end{center}
+\end{figure}
+
+\subparagraph{Descrizione}
+Classe che rappresenta un messaggio utilizzato per richiedere allo 
+\hyperref[sec:actorbase::actorsystem::actors::storekeeper::Storekeeper]{Storekeeper} di persistere i dati su disco.\\Implementata utilizzando la specifica funzionalità \textit{case class} di Scala, 
+in modo da poter usufruirne mediante costrutti e algoritmi di 
+\gloss{pattern matching}.
+
+\subparagraph{Utilizzo}
+Questa classe viene utilizzata per richiedere di effettuare persistenza su disco dei dati di questo attore.\\Questo attore provvederà a inoltrare la richiesta 
+all'attore \hyperref[sec:actorbase::actorsystem::actors::warehouseman::Warehouseman]{Warehouseman}.
+
+\paragraph{actorbase::actorsystem::messages::storekeeper::InirMn}
+\label{sec:actorbase::actorsystem::messages::storekeeper::InitMn}
+
+% TODO img
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/authenticator.png}
+    \caption{Classe InitMn}
+  \end{center}
+\end{figure}
+
+\subparagraph{Descrizione}
+Classe che rappresenta un messaggio utilizzato per inizializzare un riferimento ad un attore \hyperref[sec:actorbase::actorsystem::actors::manager::Manager]{Manager}.\\Implementata utilizzando la specifica funzionalità \textit{case class} di Scala, 
+in modo da poter usufruirne mediante costrutti e algoritmi di 
+\gloss{pattern matching}.
+
+\subparagraph{Utilizzo}
+Questa classe viene utilizzata per ricevere un riferimento ad un attore 
+\hyperref[sec:actorbase::actorsystem::actors::manager::Manager]{Manager} 
+Questo messaggio verrà inviato allo \hyperref[sec:actorbase::actorsystem::actors::storekeeper::Storekeeper]{Storekeeper} 
+subito dopo la sua creazione.\\L'attore userà il riferimento al Manager per 
+informarlo quando raggiunge una certa soglia di items.
+
+\subparagraph{Attributi}
+\begin{tabular}{| p{1cm} | p{1.5cm} | p{2cm} | p{4cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  mn & public & immutabile & ActorRef & Rappresenta un riferimento ad un attore \hyperref[sec:actorbase::actorsystem::actors::manager::Manager]{Manager}\\
+  \hline
+\end{tabular}
+
+\paragraph{actorbase::actorsystem::messages::storekeeper::GetAll}
+\label{sec:actorbase::actorsystem::messages::storekeeper::GetAll}
+
+% TODO img
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/authenticator.png}
+    \caption{Classe GetAll}
+  \end{center}
+\end{figure}
+
+\subparagraph{Descrizione}
+Classe che rappresenta un messaggio utilizzato per richiedere tutti gli items 
+contenuti nell'attore.\\Implementata utilizzando la specifica funzionalità \textit{case class} di Scala, 
+in modo da poter usufruirne mediante costrutti e algoritmi di 
+\gloss{pattern matching}.
+
+\subparagraph{Utilizzo}
+Questa classe viene utilizzata per ricevere una richiesta di restituzione di 
+tutti gli items mappati da questo attore.\\Quando questo attore riceve questo 
+messaggio provvederà a inviare tutti gli items contenuti in esso al riferimento 
+all'attore passato come parametro.\\Questo messaggio serve a 
+restituire all'utente intere collezioni.
+
+\subparagraph{Attributi}
+\begin{tabular}{| p{1cm} | p{1.5cm} | p{2cm} | p{4cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  parent & public & immutabile & ActorRef & Rappresenta un riferimento all'attore \hyperref[sec:actorbase::actorsystem::actors::storefinder::Storefinder]{Storefinder} che rappresenta la collezione di cui lo \hyperref[sec:actorbase::actorsystem::actors::storekeeper::Storekeeper]{Storekeeper} fa parte\\
+  \hline
+\end{tabular}
+
+\paragraph{actorbase::actorsystem::messages::storekeeper::GetItem}
+\label{sec:actorbase::actorsystem::messages::storekeeper::GetItem}
+
+% TODO img
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/authenticator.png}
+    \caption{Classe GetItem}
+  \end{center}
+\end{figure}
+
+\subparagraph{Descrizione}
+Classe che rappresenta un messaggio utilizzato per richiedere un item 
+contenuto nell'attore.\\Implementata utilizzando la specifica funzionalità \textit{case class} di Scala, 
+in modo da poter usufruirne mediante costrutti e algoritmi di 
+\gloss{pattern matching}.
+
+\subparagraph{Utilizzo}
+Questa classe viene utilizzata per richiedere la restituzione di un
+item mappato da questo attore.\\Quando questo attore riceve questo 
+messaggio provvederà a inviare l'item richiesto all'attore \hyperref[sec:actorbase::actorsystem::actors::clientactor::ClientActor]{ClientActor} che 
+ha effettuato la richiesta.
+
+\subparagraph{Attributi}
+\begin{tabular}{| p{1cm} | p{1.5cm} | p{2cm} | p{4cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
   key & public & immutabile & String & Rappresenta la chiave dell'item da restituire\\
   \hline
 \end{tabular}
+
+\paragraph{actorbase::actorsystem::messages::storekeeper::InsertItem}
+\label{sec:actorbase::actorsystem::messages::storekeeper::InsertItem}
+
+% TODO img
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/authenticator.png}
+    \caption{Classe InsertItem}
+  \end{center}
+\end{figure}
+
+\subparagraph{Descrizione}
+Classe che rappresenta un messaggio utilizzato per richiedere l'inserimento di 
+un item.\\Implementata utilizzando la specifica funzionalità \textit{case class} di Scala, 
+in modo da poter usufruirne mediante costrutti e algoritmi di 
+\gloss{pattern matching}.
+
+\subparagraph{Utilizzo}
+Questa classe viene utilizzata per richiedere l'inserimento di un item.\\Quando questo attore riceve questo messaggio provvederà ad aggiungere l'item in 
+questione nella propria struttura dati.
+
+\subparagraph{Attributi}
+\begin{tabular}{| p{1cm} | p{1.5cm} | p{2cm} | p{4cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  key & public & immutabile & String & Rappresenta la chiave dell'item da inserire\\
+  \hline
+  value & public & immutabile & Array[Byte] & Rappresenta il valore dell'item in formato array di bytes\\
+  \hline
+  update & public & immutabile & Boolean & Flag per scegliere se l'inserimento può effettuare sovrascrittura o meno (true se può effettuare sovrascrittura)\\
+  \hline
+\end{tabular}
+
+\paragraph{actorbase::actorsystem::messages::storekeeper::RemoveItem}
+\label{sec:actorbase::actorsystem::messages::storekeeper::RemoveItem}
+
+% TODO img
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/authenticator.png}
+    \caption{Classe RemoveItem}
+  \end{center}
+\end{figure}
+
+\subparagraph{Descrizione}
+Classe che rappresenta un messaggio utilizzato per richiedere la rimozione di un 
+item contenuto nell'attore.\\Implementata utilizzando la specifica funzionalità 
+\textit{case class} di Scala, 
+in modo da poter usufruirne mediante costrutti e algoritmi di 
+\gloss{pattern matching}.
+
+\subparagraph{Utilizzo}
+Questa classe viene utilizzata per richiedere la rimozione di un
+item mappato da questo attore.\\Quando questo attore riceve questo 
+messaggio provvederà a rimuovere dalla propria struttura dati l'item con la 
+chiave passata come parametro.
+
+\subparagraph{Attributi}
+\begin{tabular}{| p{1cm} | p{1.5cm} | p{2cm} | p{4cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  key & public & immutabile & String & Rappresenta la chiave dell'item da rimuovere\\
+  \hline
+\end{tabular}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{actorbase::actorsystem::messages::warehousemanmessages}
+\label{sec:actorbase::actorsystem::messages::warehousemanmessages}
+
+% TODO img
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/utils.png}
+    \caption{Package actorsystem::messages::warehousemanmessages}
+  \end{center}
+\end{figure}
+
+\subsubsection{Descrizione}
+\gloss{Package} contenente i messaggi processabili dall'attore \hyperref[sec:actorbase::actorsystem::actors::warehouseman::Warehouseman]{Warehouseman}.
+
+\subsubsection{Classi}
+
+\paragraph{actorbase::actorsystem::messages::warehouseman::Clean}
+\label{sec:actorbase::actorsystem::messages::warehouseman::Clean}
+
+% TODO img
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/authenticator.png}
+    \caption{Classe Clean}
+  \end{center}
+\end{figure}
+
+\subparagraph{Descrizione}
+Classe che rappresenta un messaggio utilizzato per richiedere allo 
+\hyperref[sec:actorbase::actorsystem::actors::warehouseman::Warehouseman]{Warehouseman} di rimuovere i dati rappresentati da esso dal disco.\\Implementata utilizzando la specifica funzionalità \textit{case class} di Scala, 
+in modo da poter usufruirne mediante costrutti e algoritmi di 
+\gloss{pattern matching}.
+
+\subparagraph{Utilizzo}
+Questa classe viene utilizzata per richiedere di rimuovere dal disco tutti i 
+file contenenti dati rappresentati dall'attore in questione.\\Questo messaggio 
+è utilizzato ad esempio quando si rimuove una collezione dal sistema.
+
+\paragraph{actorbase::actorsystem::messages::warehouseman::Init}
+\label{sec:actorbase::actorsystem::messages::warehouseman::Init}
+
+% TODO img
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/authenticator.png}
+    \caption{Classe Init}
+  \end{center}
+\end{figure}
+
+\subparagraph{Descrizione}
+Classe che rappresenta un messaggio utilizzato per inizializzare l'attore.\\Implementata utilizzando la specifica funzionalità \textit{case class} di Scala, 
+in modo da poter usufruirne mediante costrutti e algoritmi di 
+\gloss{pattern matching}.
+
+\subparagraph{Utilizzo}
+Questa classe viene utilizzata per inizializzare l'attore cone le informazioni 
+necessarie come la collezione che rappresenta.\\Questo messaggio viene 
+ricevuto subito dopo la propria creazione in modo da inizializzarlo immediatamente.
+
+\subparagraph{Attributi}
+\begin{tabular}{| p{1cm} | p{1.5cm} | p{2cm} | p{4cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  collection & public & immutabile & String & Rappresenta il nome della collezione che questo attore rappresenta\\
+  \hline
+  owner & public & immutable & String & Rappresenta lo username dell'utente che ha creato la collezione che questo attore rappresenta\\
+  \hline
+\end{tabular}
+
+\paragraph{actorbase::actorsystem::messages::warehouseman::Save}
+\label{sec:actorbase::actorsystem::messages::warehouseman::Save}
+
+% TODO img
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/authenticator.png}
+    \caption{Classe Save}
+  \end{center}
+\end{figure}
+
+\subparagraph{Descrizione}
+Classe che rappresenta un messaggio utilizzato per persistere i dati su disco.\\Implementata utilizzando la specifica funzionalità \textit{case class} di Scala, 
+in modo da poter usufruirne mediante costrutti e algoritmi di 
+\gloss{pattern matching}.
+
+\subparagraph{Utilizzo}
+Questa classe viene utilizzata per richiedere all'attore di persistere dati 
+su disco. Quando l'attore riceve questo messaggio provvederà a salvare su 
+filesystem i dati passati come parametri in file che seguono una gerarchia 
+simile alla gerarchia delle collezioni del sistema.\\I dati salvati su disco 
+devono essere criptati.
+
+\subparagraph{Attributi}
+\begin{tabular}{| p{1cm} | p{1.5cm} | p{2cm} | p{4cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  map & public & immutable & Map[String, Array[Byte]] & Rappresenta una mappa di items da salvare su disco\\
+  \hline
+\end{tabular}
+
+\paragraph{actorbase::actorsystem::messages::warehouseman::Read}
+\label{sec:actorbase::actorsystem::messages::warehouseman::Read}
+
+% TODO img
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/authenticator.png}
+    \caption{Classe Read}
+  \end{center}
+\end{figure}
+
+\subparagraph{Descrizione}
+Classe che rappresenta un messaggio utilizzato per leggere i dati da disco.\\Implementata utilizzando la specifica funzionalità \textit{case class} di Scala, 
+in modo da poter usufruirne mediante costrutti e algoritmi di 
+\gloss{pattern matching}.
+
+\subparagraph{Utilizzo}
+Questa classe viene utilizzata per richiedere all'attore di leggere dati 
+da disco. Quando l'attore riceve questo messaggio provvederà a decriptare, 
+leggere e restituire i dati all'attore richiedente.\\Questo messaggio è usato ad esempio quando il sistema subisce un riavvio per ripopolare la struttura coi dati scritti su disco.
+
+\subparagraph{Attributi}
+\begin{tabular}{| p{1cm} | p{1.5cm} | p{2cm} | p{4cm} | p{8.5cm} |}
+  \hline
+  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+  \hline
+  file & public & immutable & File & Rappresenta un file da cui leggere gli items\\
+  \hline
+\end{tabular}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
