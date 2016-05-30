@@ -86,14 +86,9 @@ different sections.
 \subsection{Product purpose}
 
 The purpose of the project is the realization of a key-value type
-NoSQL\footnote{A NoSQL database provides a mechanism for storage and retrieval
-  of data which is modeled in means other than the tabular relations used in
-  relational databases.Key-value (KV) stores use the associative array (also known
-  as a map or dictionary) as their fundamental data model.\label{nosql}} database,
+\gloss{NoSQL} database,
 massively concurrent and oriented to the management of heavy load of data by
-using the actor\footnote{A computational entity that, in response to a message
-  it receives, can send messages to other actors, create new ones, change its
-  behaviour for the next message incoming\label{actor}} model.
+using the \gloss{actor} model.
 
 % \subsection{References}
 
@@ -160,7 +155,7 @@ The features described are divided by the type of the user.
 \label{sec:everyuser}
 \paragraph{Exit from CLI}
 
-\textbf{Description:} every user can exit from the actorbase\textsuperscript{\ref{actor}} CLI
+\textbf{Description:} every user can exit from the actorbase CLI
 using this procedure.\\
 \textbf{How to:} type \texttt{exit} on the CLI
 
@@ -220,7 +215,7 @@ which parameters it needs.\\
 \paragraph{Create a collection}
 \label{sec:createcollection}
 \textbf{Description:} this feature allows the user to create a
-collection\footnote{A data-structure constituted by a list of key-value items\label{coll}} into the database.\\
+\gloss{collection} into the database.\\
 \textbf{How to:}
 \begin{itemize}
 \item Type \texttt{createCollection <collection name>}
@@ -228,37 +223,37 @@ collection\footnote{A data-structure constituted by a list of key-value items\la
 \end{itemize}
 \textbf{Possible errors:} the CLI will answer with self explanatory error messages
 \begin{itemize}
-\item If the collection\textsuperscript{\ref{coll}} the user wants to create is already in the server the CLI will answer with a message
+\item If the \gloss{collection} the user wants to create is already in the server the CLI will answer with a message
 \end{itemize}
 
 \paragraph{List collections}
 \label{sec:listcollection}
 \textbf{Description:} this feature allows the user to see a list of
-the \textsuperscript{\ref{coll}} he has permission on.\\
+the \gloss{collections} he has permission on.\\
 \textbf{How to:}
 \begin{itemize}
 \item Type \texttt{listCollection}
-\item The CLI will display a list of all the \textsuperscript{\ref{coll}} the user has
+\item The CLI will display a list of all the \gloss{collections} the user has
   permission on
 \end{itemize}
 
 \paragraph{Rename a collection}
 \label{sec:renamecollection}
 \textbf{Description:} this feature allows the user to rename a
-collection\textsuperscript{\ref{coll}} of his own.\\
+\gloss{collection} of his own.\\
 \textbf{How to:}
 \begin{itemize}
 \item Type \texttt{renameCollection <old collection name> to <new collection name>}
 \end{itemize}
 \textbf{Possible errors:} the CLI will answer with self explanatory error messages
 \begin{itemize}
-\item If the old collection\textsuperscript{\ref{coll}} name the user typed correspond with no collection\textsuperscript{\ref{coll}} inside the actorbase server
-\item If the new collection\textsuperscript{\ref{coll}} name the user typed is already taken by a collection\textsuperscript{\ref{coll}} inside the actorbase server
+\item If the old \gloss{collection} name the user typed correspond with no \gloss{collection} inside the actorbase server
+\item If the new \gloss{collection} name the user typed is already taken by a \gloss{collection} inside the actorbase server
 \end{itemize}
 
 \paragraph{Delete a collection}
 \label{sec:deletecollection}
-\textbf{Description:} this feature allows the user to remove a collection\textsuperscript{\ref{coll}} and all the items inside it from the database.\\
+\textbf{Description:} this feature allows the user to remove a \gloss{collection} and all the items inside it from the database.\\
 \textbf{How to:}
 \begin{itemize}
 \item Type \texttt{deleteCollection <collection name>}
@@ -267,43 +262,43 @@ collection\textsuperscript{\ref{coll}} of his own.\\
 \paragraph{Add a contributor to a collection}
 \label{sec:addcontributor}
 \textbf{Description:} this feature allows the user to add a contributor
-to a collection\textsuperscript{\ref{coll}} of his own. The contributor will have the permission to operate on the selected collection\textsuperscript{\ref{coll}} depending on the what permissions the user decide to give him.\\
+to a \gloss{collection} of his own. The contributor will have the permission to operate on the selected \gloss{collection} depending on the what permissions the user decide to give him.\\
 \textbf{How to:}
 \begin{itemize}
 \item Type \texttt{addContributor <username> <permissions> to <collection name>}
 \end{itemize}
 \textbf{Possible errors:} the CLI will answer with self explanatory error messages
 \begin{itemize}
-\item If the collection\textsuperscript{\ref{coll}} the user wants to add the contributor to does not exists on the server or it is not a collection\textsuperscript{\ref{coll}} the user own
+\item If the \gloss{collection} the user wants to add the contributor to does not exists on the server or it is not a \gloss{collection} the user own
 \item If the username the user typed does not correspond with a user registered in actorbase
 \item If the permissions the user typed are not possible permissions
 \end{itemize}
 
 \paragraph{Remove contributor from a collection}
 \label{sec:removecontributor}
-\textbf{Description:} this feature allows the user to remove a contributor from a collection\textsuperscript{\ref{coll}} of his own.\\
+\textbf{Description:} this feature allows the user to remove a contributor from a \gloss{collection} of his own.\\
 \textbf{How to:}
 \begin{itemize}
 \item Type \texttt{removeContributor <username> from <collection name>}
 \end{itemize}
 \textbf{Possible errors:} the CLI will answer with self explanatory error messages
 \begin{itemize}
-\item If the collection\textsuperscript{\ref{coll}} the user wants to remove the contributor from does not exists on the server or it is not a collection\textsuperscript{\ref{coll}} the user owns
+\item If the \gloss{collection} the user wants to remove the contributor from does not exists on the server or it is not a \gloss{collection} the user owns
 \item If the username the user typed does not correspond with a user registered in actorbase
 \end{itemize}
 
 \paragraph{Export one or more collections to file}
 \label{sec:export}
-\textbf{Description:} this feature allows the user to export one or more \textsuperscript{\ref{coll}} he has access to.\\
+\textbf{Description:} this feature allows the user to export one or more \gloss{collections} he has access to.\\
 The filename the user insert can be a relative or absolute path; if the path is not present, the file will be created at the user local work directory.\\
-The collection\textsuperscript{\ref{coll}} list can contain zero or more \textsuperscript{\ref{coll}}' name, if empty it will export all the \textsuperscript{\ref{coll}} the user has access to (possibly resulting in an expensive operation).
+The \gloss{collection} list can contain zero or more \gloss{collections}' name, if empty it will export all the \gloss{collections} the user has access to (possibly resulting in an expensive operation).
 \textbf{How to:}
 \begin{itemize}
 \item Type \texttt{export <collection name1>, <collection name2>, ... , to <filename>}
 \end{itemize}
 \textbf{Possible errors:} the CLI will answer with self explanatory error messages
 \begin{itemize}
-\item If at least one of the \textsuperscript{\ref{coll}}' name the user inserted does not exist on the server
+\item If at least one of the \gloss{collections}' name the user inserted does not exist on the server
 \item If the filename the user inserted contains a path that is not valid
 \end{itemize}
 
@@ -311,25 +306,25 @@ The produced JSON file follow some rules explained in \hyperref[sec:JSONFormat]{
 
 \paragraph{Insert item}
 \label{sec:insertitem}
-\textbf{Description:} this feature allows the user to insert an item in a particular collection\textsuperscript{\ref{coll}}.\\
+\textbf{Description:} this feature allows the user to insert an item in a particular \gloss{collection}.\\
 The last parameter ( o ) can be omitted; if omitted the insert operation will not overwrite existing items with the same key. It will overwrite them otherwise. \\
 The <key> is a String representing the key of the item the user wants to insert.\\
 The <value> can be anything the user wants to insert and it represent the value of the item itself.\\
-If the user wants to insert the item in a non existing collection\textsuperscript{\ref{coll}} the server
-will automatically create that collection\textsuperscript{\ref{coll}}.\\
+If the user wants to insert the item in a non existing \gloss{collection} the server
+will automatically create that \gloss{collection}.\\
 \textbf{How to:}
 \begin{itemize}
 \item Type \texttt{insert ( <key> -> <value> ) to <collection name> o}
 \end{itemize}
 \textbf{Possible errors:} the CLI will answer with self explanatory error messages
 \begin{itemize}
-\item If the collection\textsuperscript{\ref{coll}} the user wants to insert the item in does not exist or user has not permission to write on it
-\item If the user decides to insert an item with an already existing key in that collection\textsuperscript{\ref{coll}} and the overwrite option has not been chosen.
+\item If the \gloss{collection} the user wants to insert the item in does not exist or user has not permission to write on it
+\item If the user decides to insert an item with an already existing key in that \gloss{collection} and the overwrite option has not been chosen.
 \end{itemize}
 
 \paragraph{Import from file}
 \label{sec:import}
-\textbf{Description:} this feature allows the user to insert a list of \textsuperscript{\ref{coll}} and items from a file.\\
+\textbf{Description:} this feature allows the user to insert a list of \gloss{collections} and items from a file.\\
 The file has to be formatted as specified in (see \hyperref[sec:JSONFormat]{JSON format})\\%TODO mettere link to sezione giusta
 \textbf{How to:}
 \begin{itemize}
@@ -339,21 +334,21 @@ The file has to be formatted as specified in (see \hyperref[sec:JSONFormat]{JSON
 \begin{itemize}
 \item If the file is not a JSON file
 \item If the file is not formatted as specified in \hyperref[sec:JSONFormat]{JSON format}%TODO link a sezione
-\item If the file specified the creation of collection\textsuperscript{\ref{coll}} that the user can not create (see \hyperref[sec:createcollection]{create collection})
+\item If the file specified the creation of \gloss{collection} that the user can not create (see \hyperref[sec:createcollection]{create collection})
 \item If the file specified the insertion of items that the user can not insert (see \hyperref[sec:JSONFormat]{JSON format})
 \end{itemize}
 
 \paragraph{Remove item}
 \label{sec:removeitem}
-\textbf{Description:} this feature allows the user to remove an item from a collection\textsuperscript{\ref{coll}}.\\
-<key> represents the key of the item the user wants to remove from the collection\textsuperscript{\ref{coll}}
+\textbf{Description:} this feature allows the user to remove an item from a \gloss{collection}.\\
+<key> represents the key of the item the user wants to remove from the \gloss{collection}.
 \textbf{How to:}
 \begin{itemize}
 \item Type \texttt{remove <key> from <collection name>}
 \end{itemize}
 \textbf{Possible errors:} the CLI will answer with self explanatory error messages
 \begin{itemize}
-\item If the collection\textsuperscript{\ref{coll}} the user typed does not exist in the server or if the user does not have permission to remove items from
+\item If the \gloss{collection} the user typed does not exist in the server or if the user does not have permission to remove items from
 \end{itemize}
 
 \paragraph{Find item}
@@ -361,14 +356,14 @@ The file has to be formatted as specified in (see \hyperref[sec:JSONFormat]{JSON
 \textbf{Description:} this feature allows the user to search for particular items in the database. There are different types of search based on the parameters typed.\\
 
 \subparagraph{Search items in one or more collections}
-\textbf{Description:} this feature lets the user search for an item in one or more \textsuperscript{\ref{coll}}; the user must have the permission to read these \textsuperscript{\ref{coll}}.\\
+\textbf{Description:} this feature lets the user search for an item in one or more \gloss{collections}; the user must have the permission to read these \gloss{collections}.\\
 \textbf{How to:}
 \begin{itemize}
 \item Type \texttt{find <key> from <collection name 1>, <collection name 2>, ... , <collection name N>}
 \end{itemize}
 \textbf{Possible errors:} the CLI will answer with self explanatory error messages
 \begin{itemize}
-\item If at least one of the \textsuperscript{\ref{coll}} does not exist on the server
+\item If at least one of the \gloss{collections} does not exist on the server
 \end{itemize}
 
 \subparagraph{Search items in the entire database}
@@ -379,18 +374,18 @@ The file has to be formatted as specified in (see \hyperref[sec:JSONFormat]{JSON
 \end{itemize}
 
 \subparagraph{Search for all the items of one or more collections}
-\textbf{Description:} this feature lets the user retrieve all the items contained in one or more \textsuperscript{\ref{coll}}.\\
+\textbf{Description:} this feature lets the user retrieve all the items contained in one or more \gloss{collections}.\\
 \textbf{How to:}
 \begin{itemize}
 \item Type \texttt{find from <collection name 1>, <collection name 2>, ... , <collection name N>}
 \end{itemize}
 \textbf{Possible errors:} the CLI will answer with self explanatory error messages
 \begin{itemize}
-\item If at least one of the collection\textsuperscript{\ref{coll}} does not exist on the server or if the user doesn't have access to it
+\item If at least one of the \gloss{collection} does not exist on the server or if the user doesn't have access to it
 \end{itemize}
 
 \subparagraph{Get all database items grouped by collection}
-\textbf{Description:} this feature lets the user to retrieve all the items contained in the section of the database that is visible to him grouped by collection\textsuperscript{\ref{coll}}.\\
+\textbf{Description:} this feature lets the user to retrieve all the items contained in the section of the database that is visible to him grouped by \gloss{collection}.\\
 This operation could be expensive.\\
 \textbf{How to:}
 \begin{itemize}
@@ -461,8 +456,20 @@ used for import data to filesystem, e.g.:
   \end{center}
 \end{figure}
 
-\listoftables
-
 \listoffigures
+
+\section{Glossary}
+\subsection{A}
+  \glossDef{Actor} A computational entity that, in response to a message
+  it receives, can send messages to other actors, create new ones, change its
+  behaviour for the next message incoming\label{actor} \\
+\subsection{C}
+  \glossDef{Collection} A data-structure constituted by a list of key-value items\label{coll} \\
+\subsection{N}
+  \glossDef{NoSql} A NoSQL database provides a mechanism for storage and retrieval
+  of data which is modeled in means other than the tabular relations used in
+  relational databases. Key-value (KV) stores use the associative array (also known
+  as a map or dictionary) as their fundamental data model.\label{nosql}
+
 
 \end{document}
