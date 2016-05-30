@@ -183,7 +183,7 @@ Rappresentano le tre macro-componenti del sistema.
 %%%                       ACTORSYSTEM PARTE                      %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{actorbase::actorsystem} %TODO da fare actorsystem
+\subsection{actorbase::actorsystem}
 \label{sec:actorbase::actorsystem}
 
 \begin{figure}[H]
@@ -201,15 +201,8 @@ rappresentano il \gloss{server}.
 \subsubsection{Package contenuti}
 
 \begin{itemize}
-\item \hyperref[sec:actorbase::actorsystem::actors::clientactor]{actorbase::actorsystem::actors::clientactor};
-\item \hyperref[sec:actorbase::actorsystem::actors::httpserver]{actorbase::actorsystem::actors::httpserver};
-\item \hyperref[sec:actorbase::actorsystem::actors::storefinder]{actorbase::actorsystem::actors::storefinder};
-\item \hyperref[sec:actorbase::actorsystem::actors::storekeeper]{actorbase::actorsystem::actors::storekeeper};
-\item \hyperref[sec:actorbase::actorsystem::actors::userfinder]{actorbase::actorsystem::actors::userfinder};
-\item \hyperref[sec:actorbase::actorsystem::actors::userkeeper]{actorbase::actorsystem::actors::userkeeper};
-\item \hyperref[sec:actorbase::actorsystem::actors::warehouseman]{actorbase::actorsystem::actors::warehouseman};
-\item \hyperref[sec:actorbase::actorsystem::actors::manager]{actorbase::actorsystem::actors::manager};
-\item \hyperref[sec:actorbase::actorsystem::actors::main]{actorbase::actorsystem::actors::main};
+\item \hyperref[sec:actorbase::actorsystem::actors]{actorbase::actorsystem::actors}
+\item \hyperref[sec:actorbase::actorsystem::messages]{actorbase::actorsystem::messages}
 \item \hyperref[sec:actorbase::actorsystem::utils]{actorbase::actorsystem::utils}.
 \end{itemize}
 
@@ -528,6 +521,33 @@ getter e un meotodo per il confronto con un altro oggetto ActorbaseCollection.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{actorbase::actorsystem::actors} %TODO da fare actorsystem
+\label{sec:actorbase::actorsystem::actors}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/Actors.png}
+    \caption{Actorsystem, visione generale}
+  \end{center}
+\end{figure}
+
+\subsubsection{Descrizione}
+
+\gloss{Package} che raggruppa tutti gli attori necessari al funzionamento del database.
+
+\subsubsection{Package contenuti}
+\begin{itemize}
+\item \hyperref[sec:actorbase::actorsystem::actors::clientactor]{actorbase::actorsystem::actors::clientactor};
+\item \hyperref[sec:actorbase::actorsystem::actors::httpserver]{actorbase::actorsystem::actors::httpserver};
+\item \hyperref[sec:actorbase::actorsystem::actors::storefinder]{actorbase::actorsystem::actors::storefinder};
+\item \hyperref[sec:actorbase::actorsystem::actors::storekeeper]{actorbase::actorsystem::actors::storekeeper};
+\item \hyperref[sec:actorbase::actorsystem::actors::userfinder]{actorbase::actorsystem::actors::userfinder};
+\item \hyperref[sec:actorbase::actorsystem::actors::userkeeper]{actorbase::actorsystem::actors::userkeeper};
+\item \hyperref[sec:actorbase::actorsystem::actors::warehouseman]{actorbase::actorsystem::actors::warehouseman};
+\item \hyperref[sec:actorbase::actorsystem::actors::manager]{actorbase::actorsystem::actors::manager};
+\item \hyperref[sec:actorbase::actorsystem::actors::main]{actorbase::actorsystem::actors::main}.
+\end{itemize}
 
 \subsection{actorbase::actorsystem::actors::clientactor}
 \label{sec:actorbase::actorsystem::actors::clientactor}
@@ -4775,7 +4795,7 @@ La componente \hyperref[sec:actorbase::driver::client::Connection]{Connection}
 manda tramite richiesta HTTP al \hyperref[sec:actorbase::actorsystem::actors::clientactor::ClientActor]{ClientActor}
 un payload contenente i dati per eseguire l'operazione scelta dalla \gloss{route}.\\
 Da questo componente parte il messaggio di Insert(key, value, update) ad un \hyperref[sec:actorbase::actorsystem::actors::main::Main]{Main} scelto in base ad una
-politica di \gloss{routing}. Il MainActor manderà un messaggio allo \hyperref[sec:actorbase::actorsystem::actors::storefinder::StoreFinder]{StoreFinder} relativo il quale manderà un messaggio allo \hyperref[sec:actorbase::actorsystem::actors::storekeeper::StoreKeeper]{StoreKeeper} che dovrà salvarsi l'informazione
+politica di \gloss{routing}. Il \hyperref[sec:actorbase::actorsystem::actors::main::Main]{Main} manderà un messaggio allo \hyperref[sec:actorbase::actorsystem::actors::storefinder::StoreFinder]{StoreFinder} relativo il quale manderà un messaggio allo \hyperref[sec:actorbase::actorsystem::actors::storekeeper::StoreKeeper]{StoreKeeper} che dovrà salvarsi l'informazione
 sulla propria mappa.\\
 A questo punto lo Storekeeper manderà un messaggio al \hyperref[sec:actorbase::actorsystem::actors::clientactor::ClientActor]{ClientActor} con la risposta
 (positiva o negativa che sia) il quale risponderà tramite risposta HTTP al \gloss{Driver} con il risultato.
@@ -4794,7 +4814,7 @@ manda tramite richiesta HTTP al \hyperref[sec:actorbase::actorsystem::actors::cl
 un payload contenente i dati per eseguire l'operazione scelta dalla \gloss{route}.\\
 Da questo componente parte il messaggio di Insert(key, value, update) ad un \hyperref[sec:actorbase::actorsystem::actors::main::Main]{Main} scelto in base
 ad una politica di \gloss{routing}.
-Il MainActor manderà un messaggio allo \hyperref[sec:actorbase::actorsystem::actors::storefinder::StoreFinder]{StoreFinder} relativo il quale manderà
+Il \hyperref[sec:actorbase::actorsystem::actors::main::Main]{Main} manderà un messaggio allo \hyperref[sec:actorbase::actorsystem::actors::storefinder::StoreFinder]{StoreFinder} relativo il quale manderà
 un messaggio allo \hyperref[sec:actorbase::actorsystem::actors::storekeeper::StoreKeeper]{StoreKeeper} che essendo pieno manda un
 messaggio DuplicateRequestSK contenente metà della propria mappa e un ActorRef del proprio parent ad un
 \hyperref[sec:actorbase::actorsystem::actors::manager::Manager]{Manager}.\\
