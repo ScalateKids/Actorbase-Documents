@@ -86,14 +86,9 @@ different sections.
 \subsection{Product purpose}
 
 The purpose of the project is the realization of a key-value type
-NoSQL\footnote{A NoSQL database provides a mechanism for storage and retrieval
-  of data which is modeled in means other than the tabular relations used in
-  relational databases.Key-value (KV) stores use the associative array (also known
-  as a map or dictionary) as their fundamental data model.\label{nosql}} database,
+\gloss{NoSQL} database,
 massively concurrent and oriented to the management of heavy load of data by
-using the actor\footnote{A computational entity that, in response to a message
-  it receives, can send messages to other actors, create new ones, change its
-  behaviour for the next message incoming\label{actor}} model.
+using the \gloss{actor} model.
 
 % \subsection{References}
 
@@ -220,7 +215,7 @@ which parameters it needs.\\
 \paragraph{Create a collection}
 \label{sec:createcollection}
 \textbf{Description:} this feature allows the user to create a
-collection\footnote{A data-structure constituted by a list of key-value items\label{coll}} into the database.\\
+\gloss{collection} into the database.\\
 \textbf{How to:}
 \begin{itemize}
 \item Type \texttt{createCollection <collection name>}
@@ -464,5 +459,17 @@ used for import data to filesystem, e.g.:
 \listoftables
 
 \listoffigures
+\glossaryLetter{A}
+  \glossDef{Actor} A computational entity that, in response to a message
+  it receives, can send messages to other actors, create new ones, change its
+  behaviour for the next message incoming\label{actor} \\
+\glossaryLetter{C}
+  \glossDef{collection} A data-structure constituted by a list of key-value items\label{coll} \\
+\glossaryLetter{N}
+  \glossDef{NoSql} A NoSQL database provides a mechanism for storage and retrieval
+  of data which is modeled in means other than the tabular relations used in
+  relational databases.Key-value (KV) stores use the associative array (also known
+  as a map or dictionary) as their fundamental data model.\label{nosql}
+
 
 \end{document}
