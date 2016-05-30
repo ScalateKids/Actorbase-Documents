@@ -358,7 +358,7 @@ getter e un meotodo per il confronto con un altro oggetto ActorbaseCollection.
 \subsection{actorbase::actorsystem::messages}
 \label{sec:actorbase::actorsystem::messages}
 
-% TODO
+% TODO da aggiungere
 %\begin{figure}[H]
 %  \begin{center}
 %    \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/Actorsystem.png}
@@ -375,7 +375,7 @@ getter e un meotodo per il confronto con un altro oggetto ActorbaseCollection.
 \begin{itemize}
 \item \hyperref[sec:actorbase::actorsystem::messages::authactormessages]{actorbase::actorsystem::messages::authactormessages};
 \item \hyperref[sec:actorbase::actorsystem::messages::clientactormessages]{actorbase::actorsystem::messages::clientactormessages};
-\item \hyperref[sec:actorbase::actorsystem::messages::mainactormessages]{actorbase::actorsystem::messages::mainactormessages};
+\item \hyperref[sec:actorbase::actorsystem::messages::mainmessages]{actorbase::actorsystem::messages::mainmessages};
 \item \hyperref[sec:actorbase::actorsystem::messages::storefindermessages]{actorbase::actorsystem::messages::storefindermessages};
 \item \hyperref[sec:actorbase::actorsystem::messages::storekeepermessages]{actorbase::actorsystem::messages::storekeepermessages};
 \item \hyperref[sec:actorbase::actorsystem::messages::warehousemanmessages]{actorbase::actorsystem::messages::warehousemanmessages};
@@ -393,7 +393,7 @@ getter e un meotodo per il confronto con un altro oggetto ActorbaseCollection.
 \end{figure}
 
 \subsubsection{Descrizione}
-\gloss{Package} contenente i messaggi processabili dall'attore \hyperref[sec:actorbase::actorsystem::authactor::AuthActor]{AuthActor}.
+\gloss{Package} contenente i messaggi processabili dall'attore \hyperref[sec:actorbase::actorsystem::actors::authactor::AuthActor]{AuthActor}.
 
 \subsubsection{Classi}
 
@@ -447,7 +447,7 @@ in modo da poter usufruirne mediante costrutti e algoritmi di
 
 \subparagraph{Utilizzo}
 Questa classe viene utilizzata per mandare una richiesta all'attore 
-\hyperref[sec:actorbase::actorsystem::messages::authactormessages::AuthActor]{AuthActor} 
+\hyperref[sec:actorbase::actorsystem::actors::authactormessages::AuthActor]{AuthActor} 
 di modifica della password di un utente.
 
 \subparagraph{Attributi}
@@ -481,7 +481,7 @@ in modo da poter usufruirne mediante costrutti e algoritmi di
 
 \subparagraph{Utilizzo}
 Questa classe viene utilizzata per mandare una richiesta all'attore 
-\hyperref[sec:actorbase::actorsystem::messages::authactormessages::AuthActor]{AuthActor} 
+\hyperref[sec:actorbase::actorsystem::actors::authactor::AuthActor]{AuthActor} 
 di rimozione di un utente.
 
 \subparagraph{Attributi}
@@ -511,8 +511,8 @@ in modo da poter usufruirne mediante costrutti e algoritmi di
 
 \subparagraph{Utilizzo}
 Questa classe viene utilizzata per mandare una richiesta all'attore 
-\hyperref[sec:actorbase::actorsystem::messages::authactormessages::AuthActor]{AuthActor} 
-di accesso al sistema. L'attore \hyperref[sec:actorbase::actorsystem::messages::authactormessages::AuthActor]{AuthActor} 
+\hyperref[sec:actorbase::actorsystem::actors::authactor::AuthActor]{AuthActor} 
+di accesso al sistema. L'attore \hyperref[sec:actorbase::actorsystem::actors::authactor::AuthActor]{AuthActor} 
 dovrà controllare se le credenziali immesse dall'utente sono corrette.
 
 \subparagraph{Attributi}
@@ -692,7 +692,7 @@ provvederà ad inoltrare la richiesta al giusto attore \hyperref[sec:actorbase::
   \hline
   collection & public & immutabile & \hyperref[sec:actorbase::actorsystem::utils::ActorbaseCollection]{ActorbaseCollection} & Rappresenta la collezione in cui effettuare l'inserimento \\
   \hline
-  key & public & immutabile & String & Rappresenta la chiave dell'item da inserire 
+  key & public & immutabile & String & Rappresenta la chiave dell'item da inserire\\
   \hline
   value & public & immutabile & Array[byte] & Rappresenta il valore dell'item serializzato in array di byte\\
   \hline
@@ -764,9 +764,9 @@ dovrà aspettare tutti i messaggi \hyperref[sec:actorbase::actorsystem::messages
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
   clientRef & public & immutabile & ActorRef & Rappresenta il riferimento all'attore \hyperref[sec:actorbase::actorsystem::actors::clientactor::ClientActor]{ClientActor} che 
-  ha effettuato la richiesta
+  ha effettuato la richiesta\\
   \hline
-  collection & public & immutabile & \hyperref[sec:actorbase::actorsystem::utils::ActorbaseCollection]{ActorbaseCollection} & Rappresenta la collezione di cui fanno parte gli item passati in questo messaggio \\
+  collection & public & immutabile & \hyperref[sec:actorbase::actorsystem::utils::ActorbaseCollection]{ActorbaseCollection} & Rappresenta la collezione di cui fanno parte gli item passati in questo messaggio\\
   \hline
   items & public & immutabile & Map[String, Array[Byte]] & Rappresenta una mappa di items, in particolare rappresentano un pezzo della collezione richiesta\\
   \hline
@@ -1445,7 +1445,7 @@ leggere e restituire i dati all'attore richiedente.\\Questo messaggio è usato a
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{actorbase::actorsystem::actors} %TODO da fare actorsystem
+\subsection{actorbase::actorsystem::actors} %TODO apposto sto package?
 \label{sec:actorbase::actorsystem::actors}
 
 \begin{figure}[H]
