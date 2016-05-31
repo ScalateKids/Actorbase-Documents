@@ -4508,13 +4508,13 @@ dall'esecuzione del comando ricevuto in input tramite il \gloss{design
   pattern} \gloss{Observer}.
 
 \subparagraph{Utilizzo}
-
 Viene utilizzata per la gestione e la formattazione in output dei risultati
-ottenuti dal server mediante l'inserimento dei comandi tramite il
-\gloss{design pattern} \gloss{Observer}.
+ottenuti dal server mediante l'aggiornamento ricevuto dalla componente model
+tramite il \gloss{design pattern} \gloss{Observer}. Essa quindi si occupa di
+gestire la visualizzazione dei dati ricevuti dalla classe
+\hyperref[sec:actorbase::cli::models::CommandInvoker]{CommandInvoker}.
 
-\subparagraph{Classi ereditate}
-
+\subparagraph{Realizza}
 \begin{itemize}
 \item \hyperref[sec:actorbase::cli::views::Observer]{actorbase::cli::views::Observer}.
 \end{itemize}
@@ -4578,9 +4578,10 @@ parametri opportuni.
 \subparagraph{Utilizzo}
 
 Viene utilizzata per effettuare il \gloss{parsing} del comando ricevuto da
-\hyperref[sec:actorbase::cli::views::CommandLoop]{actorbase::cli::views::CommandLoop} e, in seguito, chiamare
-\hyperref[sec:actorbase::cli::models::CommandInvoker]{actorbase::cli::models::CommandInvoker} con i parametri corretti per
-l'esecuzione del comando.
+\hyperref[sec:actorbase::cli::views::CommandLoop]{actorbase::cli::views::CommandLoop}.
+Durante questa operazione controlla anche che il comando inserito sia effettivamente
+accettato dal DSL. In seguito chiama la classe \hyperref[sec:actorbase::cli::models::CommandInvoker]{CommandInvoker}
+con i parametri corretti per consentire l'esecuzione del comando.
 
 \subparagraph{Metodi}
 
@@ -4688,7 +4689,7 @@ Interfaccia generica che rappresenta un comando.
 \subparagraph{Utilizzo}
 
 Viene utilizzata per offrire un'interfaccia comune a tutti i comandi.\\Ha un
-riferimento a \hyperref[sec:actorbase::cli::models::CommandReceiver]{actorbase::cli::models::CommandReceiver} per l'esecuzione del
+riferimento a \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} per l'esecuzione del
 comando.
 
 \subparagraph{Realizzata da}
@@ -4725,7 +4726,6 @@ comando.
 \end{tabular}
 
 \subsubsection{Classi}
-
 \paragraph{actorbase::cli::models::Observable (abstract)}
 \label{sec:actorbase::cli::models::Observable}
 
@@ -4737,24 +4737,16 @@ comando.
 \end{figure}
 
 \subparagraph{Descrizione}
-
 Classe astratta che rappresenta l'oggetto osservato nell'ambito del \gloss{design
-  pattern} \gloss{observer}.
+pattern} \gloss{observer}.
 
 \subparagraph{Utilizzo}
 
-Viene utilizzata per notificare la classe \hyperref[sec:actorbase::cli::views::Observer]{actorbase::cli::views::Observer}
+Viene utilizzata per notificare la classe che realizza l'interfaccia \hyperref[sec:actorbase::cli::views::Observer]{Observer}
 quando avviene una modifica al proprio stato, ossia quando il \gloss{driver}
 ha ritornato un risultato.
 
-\subparagraph{Interazioni con altre classi}
-
-\begin{itemize}
-\item \hyperref[sec:actorbase::cli::views::Observer]{actorbase::cli::views::Observer}.
-\end{itemize}
-
 \subparagraph{Realizzata da}
-
 \begin{itemize}
 \item \hyperref[sec:actorbase::cli::models::CommandInvoker]{actorbase::cli::models::CommandInvoker}
 \item \hyperref[sec:actorbase::cli::controllers::GrammarParser]{actorbase::cli::controllers::GrammarParser}
@@ -4843,10 +4835,11 @@ si occupa di eseguire il comando ricevuto dalla componente \gloss{controller}.
 \subparagraph{Utilizzo}
 
 Viene utilizzata per eseguire il comando ricevuto da
-\hyperref[sec:actorbase::cli::controllers::GrammarParser]{actorbase::cli::controllers::GrammarParser} chiamando il metodo opportuno che
-implementa l'interfaccia \hyperref[sec:actorbase::cli::models::Command]{actorbase::cli::models::Command}.
+\hyperref[sec:actorbase::cli::controllers::GrammarParser]{GrammarParser} chiamando il metodo opportuno che
+implementa l'interfaccia \hyperref[sec:actorbase::cli::models::Command]{Command}.
+Quando riceve una risposta si occupa di notificare la classe \hyperref[sec:actorbase::cli::views::ResultViewer]{ResultViewer}.
 
-\subparagraph{Classi ereditate}
+\subparagraph{Realizza}
 
 \begin{itemize}
 \item \hyperref[sec:actorbase::cli::models::Observable]{actorbase::cli::models::Observable}.
@@ -5772,7 +5765,9 @@ l'esecuzione dei comandi o per restituire l'aiuto se richiesto.
 
 Viene utilizzata da \hyperref[sec:actorbase::cli::models::Command]{actorbase::cli::models::Command} per chiamare
 \hyperref[sec:actorbase::driver::client::ActorbaseClient]{actorbase::driver::client::ActorbaseClient} o per ricevere un aiuto da
-visualizzare se richiesto dall'utente.
+visualizzare se richiesto dall'utente. Quando riceve una risposta dal \gloss{driver}, o dopo aver elaborato la richiesta
+di aiuto, manda il risultato delle operazioni a \hyperref[sec:actorbase::cli::models::CommandInvoker]{actorbase::cli::models::CommandInvoker}
+che si occuperà di mandarlo alla parte view.
 
 \subparagraph{Interazioni con altre classi}
 
