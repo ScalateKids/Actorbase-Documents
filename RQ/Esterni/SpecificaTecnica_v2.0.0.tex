@@ -3792,18 +3792,20 @@ utilizzati nel progetto \textbf{Actorbase}.
 % TODO: ricontrollare Singletonnnno
 \subsubsection{Singleton}
 
-\begin{figure}[H]
-  \begin{center}
-    \includegraphics[width=0.3\textwidth, keepaspectratio]{img/RP/Singleton-Connection.png}
-    \caption{Connection Singleton}
-  \end{center}
-\end{figure}
+% \begin{figure}[H]
+%   \begin{center}
+%     \includegraphics[width=0.3\textwidth, keepaspectratio]{img/RP/Singleton-Connection.png}
+%     \caption{Connection Singleton}
+%   \end{center}
+% \end{figure}
 
 \begin{itemize}
 \item \textbf{Scopo:} Viene utilizzato per le classi di cui è preferibile avere un'unica istanza
   durante l'esecuzione dell'applicazione;
-\item \textbf{Utilizzo:} È stato utilizzato una sola volta per la classe di connessione all'interno
-  della componente \gloss{driver}, in modo da offrire un unico punto di accesso al \gloss{server}.
+\item \textbf{Utilizzo:} È stato utilizzato una sola volta per la classe di
+connessione all'interno della componente \gloss{CLI} nella classe
+\verb=CommandReceiver=, in modo da offrire un unico punto di accesso al
+\gloss{server} all'interno dell'interfaccia da linea di comando.
 \end{itemize}
 
 \subsubsection{Builder}
@@ -4609,7 +4611,7 @@ OBV7 & \multiLineCell[t]{actorbase\\}\\
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.3\textwidth, keepaspectratio]{img/designPattern/Builder.png}
+    \includegraphics[width=0.7\textwidth, keepaspectratio]{img/designPattern/Builder.png}
     \caption{Esempio di applicazione del design pattern builder}
   \end{center}
 \end{figure}
