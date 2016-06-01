@@ -257,9 +257,9 @@ Viene utilizzata dall'attore di tipo \gloss{Warehouseman} per il salvataggio e l
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  encrypt & pubblico & Unit & Metodo che si occupa di criptare i dati \\
+  encrypt & pubblico & void & Metodo che si occupa di criptare i dati \\
   \hline
-  decrypt & pubblico & TreeMap[String, Any] & Metodo che si occupa di decriptare i dati \\
+  decrypt & pubblico & Map<String, Object> & Metodo che si occupa di decriptare i dati \\
   \hline
 \end{tabular}
 
@@ -273,7 +273,7 @@ Viene utilizzata dall'attore di tipo \gloss{Warehouseman} per il salvataggio e l
   \hline
   key & String & Stringa che rappresenta la chiave di criptazione \\
   \hline
-  inputData & TreeMap[String, Any] & Mappa che rappresenta i dati che verranno criptati \\
+  inputData & Map<String, Object> & Mappa che rappresenta i dati che verranno criptati \\
   \hline
   outputFile & File & File destinato a contenere i dati criptati \\
   \hline
@@ -608,7 +608,7 @@ la richiesta di restituzione di una collezione.
   \hline
   collection & public & immutabile & String & Rappresenta il nome di una collezione\\
   \hline
-  map & public & immutabile & Map[String, Any] & Rappresenta una struttura dati contenente le coppie chiave valore da restituire all'utente a seguito di una richiesta\\
+  map & public & immutabile & Map<String, Object> & Rappresenta una struttura dati contenente le coppie chiave valore da restituire all'utente a seguito di una richiesta\\
   \hline
 \end{tabular}
 
@@ -768,7 +768,7 @@ dovrà aspettare tutti i messaggi \hyperref[sec:actorbase::actorsystem::messages
   \hline
   collection & public & immutabile & \hyperref[sec:actorbase::actorsystem::utils::ActorbaseCollection]{ActorbaseCollection} & Rappresenta la collezione di cui fanno parte gli item passati in questo messaggio\\
   \hline
-  items & public & immutabile & Map[String, Array[Byte]] & Rappresenta una mappa di items, in particolare rappresentano un pezzo della collezione richiesta\\
+  items & public & immutabile & Map<String, Array[Byte]> & Rappresenta una mappa di items, in particolare rappresentano un pezzo della collezione richiesta\\
   \hline
 \end{tabular}
 
@@ -1033,7 +1033,7 @@ una richiesta di una intera collezione da parte di un utente.\\Quando riceve que
   \hline
   clientRef & public & immutabile & ActorRef & Rappresenta il riferimento all'attore \hyperref[sec:actorbase::actorsystem::actors::clientactor::ClientActor]{ClientActor} che ha richiesto la collezione\\
   \hline
-  items & public & immutabile & Map[String, Array[Byte]] & Rappresenta una mappa contenente le coppie chiave valore degli items della collezione da restituire\\
+  items & public & immutabile & Map<String, Array[Byte]> & Rappresenta una mappa contenente le coppie chiave valore degli items della collezione da restituire\\
   \hline
 \end{tabular}
 
@@ -1406,7 +1406,7 @@ devono essere criptati.
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  map & public & immutable & Map[String, Array[Byte]] & Rappresenta una mappa di items da salvare su disco\\
+  map & public & immutable & Map<String, Array[Byte]> & Rappresenta una mappa di items da salvare su disco\\
   \hline
 \end{tabular}
 
@@ -1932,9 +1932,9 @@ Questa classe viene utilizzata per effettuare il salvataggio su filesystem del
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  receive & pubblico & Unit & Effettua operazioni diverse a seconda del tipo di messaggio ricevuto \\
+  receive & pubblico & void & Effettua operazioni diverse a seconda del tipo di messaggio ricevuto \\
   \hline
-  removeAll & privato & Unit & Rimuove tutti i file all'interno di una cartella, eliminando anche quest'ultima \\
+  removeAll & privato & void & Rimuove tutti i file all'interno di una cartella, eliminando anche quest'ultima \\
   \hline
 \end{tabular}
 
@@ -2000,11 +2000,11 @@ Questa classe viene utilizzata per gestire le richieste ricevute al
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  sfMap & private & mutabile & TreeMap[CollectionRange, ActorRef] & Rappresenta una mappa contenente come chiavi degli oggetti CollectionRange (che a sua volta rappresentano intervalli di chiavi di una specifica \gloss{collezione}) e come valore i riferimenti degli storefinder che mappano quelle chiavi \\
+  sfMap & private & mutabile & Map<CollectionRange, ActorRef> & Rappresenta una mappa contenente come chiavi degli oggetti CollectionRange (che a sua volta rappresentano intervalli di chiavi di una specifica \gloss{collezione}) e come valore i riferimenti degli storefinder che mappano quelle chiavi \\
   \hline
   ufRef & private & immutabile & ActorRef & Rappresenta il riferimento all'attore di tipo Userfinder. Questo serve per poter instradare le richieste più velocemente agli attori Userkeeper \\
   \hline
-  requestMap & private & mutabile & TreeMap[ActorRef, Map[ActorbaseCollection, Map[String, Any]]] & Struttura dati atta a restituire intere collezioni\\
+  requestMap & private & mutabile & Map<ActorRef, Map<ActorbaseCollection, Map<String, Object>>> & Struttura dati atta a restituire intere collezioni\\
   \hline
 \end{tabular}
 
@@ -2150,7 +2150,7 @@ Questa classe viene utilizzata per salvare gli utenti e i loro dati nel \gloss{d
   \hline
   receive & public & Actor.Receive  & Effettua operazioni diverse a seconda del tipo di messaggio ricevuto\\
   \hline
-  updateOwnerOfSK & private &  Unit & Metodo che aggiorna il proprietario di tutti gli \hyperref[sec:actorbase::actorsystem::actors::storekeeper::Storekeeper]{Storekeeper} mappati dallo storefinder\\
+  updateOwnerOfSK & private &  void & Metodo che aggiorna il proprietario di tutti gli \hyperref[sec:actorbase::actorsystem::actors::storekeeper::Storekeeper]{Storekeeper} mappati dallo storefinder\\
   \hline
   waitingForRequests & private & Actor.Receive & Metodo che definisce il tipo di messaggio che l'attore \hyperref[sec:actorbase::actorsystem::actors::storefinder::Storefinder]{Storefinder} può ricevere mentre si trova nello stato waitingForRequests\\
   \hline
@@ -2277,7 +2277,7 @@ Questa classe viene utilizzata per salvare nel \gloss{database} gli item.
   \hline
   parentRef & private & mutabile & ActorRef & Riferimento all'attore di tipo \gloss{Storefinder} che contiene l'attore di tipo \gloss{Storekeeper} \\
   \hline
-  data & private & mutabile & TreeMap [String, Any] & Rappresenta l'insieme di \gloss{item} contenuta nell'attore\\
+  data & private & mutabile & TreeMap [String, Object] & Rappresenta l'insieme di \gloss{item} contenuta nell'attore\\
   \hline
   range & private & mutabile & KeyRange & Rappresenta il range di chiavi contenuta nell'attore\\
   \hline
@@ -2316,7 +2316,7 @@ Questa classe viene utilizzata per salvare nel \gloss{database} gli item.
   \hline
   key & String & Variabile che indica la chiave dell'\gloss{item} da inserire\\
   \hline
-  value & Any & Variabile che indica il valore dell'\gloss{item} da inserire\\
+  value & Object & Variabile che indica il valore dell'\gloss{item} da inserire\\
   \hline
 \end{tabular}
 
@@ -2576,7 +2576,7 @@ le operazioni di lettura e scrittura di queste ultime.
   \hline
   exportToFile & public & Boolean & Metodo da utilizzare per esportare \gloss{collezioni} dal \gloss{server} su \gloss{filesystem}\\
   \hline
-  logout & public & Unit & Effettua il logout dal server\\
+  logout & public & void & Effettua il logout dal server\\
   \hline
 \end{tabular}
 
@@ -2591,7 +2591,7 @@ le operazioni di lettura e scrittura di queste ultime.
   \hline
   collection & String & Rappresenta la \gloss{collezione} a cui effettuare l'inserimento del nuovo \gloss{item}\\
   \hline
-  kv & Tuple2[String, Any] & Rappresenta la coppia chiave-valore da inserire nella \gloss{collezione} specificata, insieme formano il nuovo \gloss{item} da inserire\\
+  kv & Tuple2[String, Object] & Rappresenta la coppia chiave-valore da inserire nella \gloss{collezione} specificata, insieme formano il nuovo \gloss{item} da inserire\\
   \hline
   update & Boolean & Rappresenta un flag di sovrascrittura sull' \gloss{item} da inserire nella \gloss{collezione} specificata\\
   \hline
@@ -2861,7 +2861,7 @@ metodi.
   \hline
   send & public & \hyperref[sec::actorbase::driver::client::api]{Response} & Invia la richiesta al server e riceve la risposta sincronamente\\
   \hline
-  shutdown & public & Unit  & Chiude la connessione con il server\\
+  shutdown & public & void  & Chiude la connessione con il server\\
   \hline
 \end{tabular}
 
@@ -2916,9 +2916,9 @@ o entrambi.
   \hline
   serialize2JSON & public & String & Serializza l'oggetto parametro in formato \gloss{JSON}\\
   \hline
-  deserializeFrom\allowbreak{}ByteArray & public & \gloss{Any} & Deserializza l'\gloss{array} di \gloss{Byte} parametro riportandolo al formato originale\\
+  deserializeFrom\allowbreak{}ByteArray & public & \gloss{Object} & Deserializza l'\gloss{array} di \gloss{Byte} parametro riportandolo al formato originale\\
   \hline
-  deserializeFrom\allowbreak{}JSON & public & \gloss{Any} & Deserializza la stringa \gloss{JSON} parametro riportandola al formato originale\\
+  deserializeFrom\allowbreak{}JSON & public & \gloss{Object} & Deserializza la stringa \gloss{JSON} parametro riportandola al formato originale\\
   \hline
 \end{tabular}
 
@@ -2929,7 +2929,7 @@ o entrambi.
   \hline
   Nome & Tipo & Descrizione\\
   \hline
-  o & \gloss{Any} & L'oggetto generico da serializzare in formato \gloss{array} di \gloss{byte}\\
+  o & \gloss{Object} & L'oggetto generico da serializzare in formato \gloss{array} di \gloss{byte}\\
   \hline
 \end{tabular}\\
 
@@ -2938,7 +2938,7 @@ o entrambi.
   \hline
   Nome & Tipo & Descrizione\\
   \hline
-  o & \gloss{Any} & L'oggetto generico da serializzare in formato \gloss{JSON}\\
+  o & \gloss{Object} & L'oggetto generico da serializzare in formato \gloss{JSON}\\
   \hline
 \end{tabular}\\
 
@@ -3000,7 +3000,7 @@ hanno libertà di implementazione specifica dei metodi.
   \hline
   send & public & \hyperref[sec:actorbase::driver::client::api::Response]{Response} & Invia la richiesta al server e riceve la risposta sincronamente\\
   \hline
-  shutdown & public & Unit  & Chiude la connessione con il server\\
+  shutdown & public & void  & Chiude la connessione con il server\\
   \hline
 \end{tabular}
 
@@ -3338,9 +3338,9 @@ creata mediante il design pattern \gloss{Builder} nella classe
   \hline
   credentials & private & immutabile & \hyperref[sec:actorbase::driver::client::api::Credentials]{Credentials} & Oggetto rappresentante le credenziali di accesso al sistema Actorbase\\
   \hline
-  headers & private & immutabile & Map[String, List[String]] & Rappresenta gli \gloss{header} \gloss{HTTP} da associare alla richiesta\\
+  headers & private & immutabile & Map<String, List<String>> & Rappresenta gli \gloss{header} \gloss{HTTP} da associare alla richiesta\\
   \hline
-  params & private & immutabile &  Map[String, String] & Rappresenta i parametri da allegare alla richiesta \gloss{HTTP}\\
+  params & private & immutabile &  Map<String, String> & Rappresenta i parametri da allegare alla richiesta \gloss{HTTP}\\
   \hline
   body & private & immutabile & Array di Byte & Rappresenta i dati di \gloss{payload} da iniviare sul server\\
   \hline
@@ -3503,9 +3503,9 @@ nella comunicazione con il server.
   \hline
   credentials & private & immutabile & \hyperref[sec:actorbase::driver::client::api::Credentials]{Credentials} & Rappresenta le credenziali di accesso al sistema Actorbase\\
   \hline
-  headers & private & immutabile & Map[String, List[String]] & Rappresenta gli \gloss{header} \gloss{HTTP} da associare alla richiesta\\
+  headers & private & immutabile & Map<String, List<String>> & Rappresenta gli \gloss{header} \gloss{HTTP} da associare alla richiesta\\
   \hline
-  params & private & immutabile &  Map[String, String] & Rappresenta i parametri da allegare alla richiesta \gloss{HTTP}\\
+  params & private & immutabile &  Map<String, String> & Rappresenta i parametri da allegare alla richiesta \gloss{HTTP}\\
   \hline
   body & private & immutabile & Array di Byte & Rappresenta i dati di \gloss{payload} da iniviare sul server\\
   \hline
@@ -3634,7 +3634,7 @@ ricerca, sia generale, sia interna a specifiche \gloss{collezioni}.
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  elems & private & immutabile & \gloss{Map[String, Any]} & Mappa contenente una o più coppie chiave-valore, utile a rappresentare una frazione di una \gloss{collezione}\\
+  elems & private & immutabile & \gloss{Map<String, Object>} & Mappa contenente una o più coppie chiave-valore, utile a rappresentare una frazione di una \gloss{collezione}\\
   \hline
 \end{tabular}
 
@@ -3650,13 +3650,13 @@ ricerca, sia generale, sia interna a specifiche \gloss{collezioni}.
   \hline
   +<T> (overload) & public & \hyperref[sec:actorbase::driver::data::ActorbaseObject]{ActorbaseObject<T>} & Metodo ereditato dall'interfaccia Map di \gloss{Scala}, permette di aggiungere più coppie chiave-valore all'oggetto \hyperref[sec:actorbase::driver::data::ActorbaseObject]{ActorbaseObject<T>}  di tipo String-T generico\\
   \hline
-  - & public & \hyperref[sec:actorbase::driver::data::ActorbaseObject]{ActorbaseObject<Any>} & Metodo ereditato dall'interfaccia Map di \gloss{Scala}, permette di rimuovere una coppie chiave-valore dall'oggetto \hyperref[sec:actorbase::driver::data::ActorbaseObject]{ActorbaseObject<T>}  di tipo String-T generico\\
+  - & public & \hyperref[sec:actorbase::driver::data::ActorbaseObject]{ActorbaseObject<Object>} & Metodo ereditato dall'interfaccia Map di \gloss{Scala}, permette di rimuovere una coppie chiave-valore dall'oggetto \hyperref[sec:actorbase::driver::data::ActorbaseObject]{ActorbaseObject<T>}  di tipo String-T generico\\
   \hline
-  - (overload) & public & \hyperref[sec:actorbase::driver::data::ActorbaseObject]{ActorbaseObject<Any>} & Metodo ereditato dall'interfaccia Map di \gloss{Scala}, permette di rimuovere più coppie chiave-valore dall'oggetto \hyperref[sec:actorbase::driver::data::ActorbaseObject]{ActorbaseObject<T>}  di tipo String-T generico\\
+  - (overload) & public & \hyperref[sec:actorbase::driver::data::ActorbaseObject]{ActorbaseObject<Object>} & Metodo ereditato dall'interfaccia Map di \gloss{Scala}, permette di rimuovere più coppie chiave-valore dall'oggetto \hyperref[sec:actorbase::driver::data::ActorbaseObject]{ActorbaseObject<T>}  di tipo String-T generico\\
   \hline
-  get & public & Any & Metodo ereditato dall'interfaccia Map di \gloss{Scala}, permette di ottenere il valore associato alla chiave specificata nell'oggetto \hyperref[sec:actorbase::driver::data::ActorbaseObject]{ActorbaseObject<T>}  di tipo String-T generico\\
+  get & public & Object & Metodo ereditato dall'interfaccia Map di \gloss{Scala}, permette di ottenere il valore associato alla chiave specificata nell'oggetto \hyperref[sec:actorbase::driver::data::ActorbaseObject]{ActorbaseObject<T>}  di tipo String-T generico\\
   \hline
-  iterator & public & Iterator<(String, Any) & Metodo ereditato dall'interfaccia Map di \gloss{Scala}, permette di ottenere un iteratore all'oggetto \hyperref[sec:actorbase::driver::data::ActorbaseObject]{ActorbaseObject<T>}  di tipo String-Any\\
+  iterator & public & Iterator<(String, Object) & Metodo ereditato dall'interfaccia Map di \gloss{Scala}, permette di ottenere un iteratore all'oggetto \hyperref[sec:actorbase::driver::data::ActorbaseObject]{ActorbaseObject<T>}  di tipo String-Object\\
   \hline
   toString & public & String & Ritorna l'oggetto di tipo ActorbaseObject in formato String\\
   \hline
@@ -3770,7 +3770,7 @@ navigabilità dei contenuti.
   \hline
   collectionName & private & immutabile & String & Nome della \gloss{collezione}\\
   \hline
-  data & private & immutabile & Map[String, Any] & Mappa contenente le coppie chiave-valore della \gloss{collezione}\\
+  data & private & immutabile & Map<String, Object> & Mappa contenente le coppie chiave-valore della \gloss{collezione}\\
   \hline
   conn & private & immutabile & \hyperref[sec:actorbase::driver::Connection]{Connection} & Oggetto che rappresenta i parametri di connessione al \gloss{server}\\
   \hline
@@ -3812,9 +3812,9 @@ navigabilità dei contenuti.
   \hline
   count & public & Int & Conta il numero di coppie chiave-valore che formano la \gloss{collezione}\\
   \hline
-  foreach & public & Unit & Permette di visitare l'intera \gloss{collezione} applicando una funzione ad ogni \gloss{item}\\
+  foreach & public & void & Permette di visitare l'intera \gloss{collezione} applicando una funzione ad ogni \gloss{item}\\
   \hline
-  withFilter & public & FilterMonadic[(String, Any), Map[String, Any]] & Permette di visitare l'intera \gloss{collezione} utilizzando il costrutto for \gloss{Scala}\\
+  withFilter & public & FilterMonadic<(String, Object), Map<String, Object>> & Permette di visitare l'intera \gloss{collezione} utilizzando il costrutto for \gloss{Scala}\\
   \hline
   toString & public & String & Ritorna la \gloss{collezione} in formato String \gloss{JSON}\\
   \hline
@@ -3838,7 +3838,7 @@ navigabilità dei contenuti.
   \hline
   Nome & Tipo & Descrizione\\
   \hline
-  kv & \gloss{vararg} di Tuple2[String, Any] & Rappresenta una sequenza di Tuple2[String, Any] da inserire nella \gloss{collezione}\\
+  kv & \gloss{vararg} di Tuple2[String, Object] & Rappresenta una sequenza di Tuple2[String, Object] da inserire nella \gloss{collezione}\\
   \hline
 \end{tabular}\\
 
@@ -3856,7 +3856,7 @@ navigabilità dei contenuti.
   \hline
   Nome & Tipo & Descrizione\\
   \hline
-  kv & \gloss{vararg} di Tuple2[String, Any] & Rappresenta una sequenza di Tuple2[String, Any] da aggiornare nella \gloss{collezione}\\
+  kv & \gloss{vararg} di Tuple2[String, Object] & Rappresenta una sequenza di Tuple2[String, Object] da aggiornare nella \gloss{collezione}\\
   \hline
 \end{tabular}\\
 
@@ -3979,7 +3979,7 @@ Questa classe viene utilizzata per la rappresentazione dell'aggregazione di
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  data & private & mutabile & TreeMap[String, \hyperref[sec:actorbase::driver::data::ActorbaseCollection]{ActorbaseCollection}] & Mappa che rappresenta un insieme di \hyperref[sec:actorbase::driver::data::ActorbaseCollection]{ActorbaseCollection}\\
+  data & private & mutabile & Map<String, \hyperref[sec:actorbase::driver::data::ActorbaseCollection]{ActorbaseCollection}> & Mappa che rappresenta un insieme di \hyperref[sec:actorbase::driver::data::ActorbaseCollection]{ActorbaseCollection}\\
   \hline
 \end{tabular}
 
@@ -3995,7 +3995,7 @@ Questa classe viene utilizzata per la rappresentazione dell'aggregazione di
   \hline
   drop & public & Boolean & Cancella una o più \gloss{collezione}\\
   \hline
-  foreach & public & Unit & Permette di visitare l'intera \gloss{collezione} di \gloss{collezioni} applicando una funzione ad ogni \gloss{item}\\
+  foreach & public & void & Permette di visitare l'intera \gloss{collezione} di \gloss{collezioni} applicando una funzione ad ogni \gloss{item}\\
   \hline
   toString & public & String & Ritorna la \gloss{collezione} in formato Stringa \gloss{JSON}\\
   \hline
@@ -4335,7 +4335,7 @@ risposta ricevuta dal \gloss{driver}.
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  update & public & Unit & Aggiorna lo stato dell'oggetto di tipo \hyperref[sec:actorbase::cli::views::Observer]{Observer}\\
+  update & public & void & Aggiorna lo stato dell'oggetto di tipo \hyperref[sec:actorbase::cli::views::Observer]{Observer}\\
   \hline
 \end{tabular}
 
@@ -4506,7 +4506,7 @@ gestire la visualizzazione dei dati ricevuti dalla classe
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  update & public & Unit & Aggiorna lo stato della \gloss{view}\\
+  update & public & void & Aggiorna lo stato della \gloss{view}\\
   \hline
 \end{tabular}
 
@@ -4752,15 +4752,15 @@ ha ritornato un risultato.
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  setState & public & Unit & Cambia lo stato con quello in input\\
+  setState & public & void & Cambia lo stato con quello in input\\
   \hline
   getState & public & String & Ritorna lo stato\\
   \hline
-  attach & public & Unit & Aggiunge un observer\\
+  attach & public & void & Aggiunge un observer\\
   \hline
-  detach & public & Unit & Rimuove un observer\\
+  detach & public & void & Rimuove un observer\\
   \hline
-  notifyAllObservers & public & Unit & Notifica tutti gli observers col proprio stato\\
+  notifyAllObservers & public & void & Notifica tutti gli observers col proprio stato\\
   \hline
 \end{tabular}
 
@@ -5759,14 +5759,13 @@ che si occuperà di mandarlo alla parte view.
 \end{itemize}
 
 \subparagraph{Attributi}
-
 \begin{tabular}{| p{2.5cm} | p{1.5cm} | p{2cm} | p{2.5cm} | p{8.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
   actorbaseDriver & public & mutabile & ActorbaseDriver & Istanza di \hyperref[sec:actorbase::driver::]{ActorbaseDriver} usata per l'esecuzione del comandi\\
   \hline
-  params & public & immutabile & Map[Any,Any] & Parametri inseriti dall'utente per l'esecuzione dei comandi\\
+  params & public & immutabile & Map<Object,Object> & Parametri inseriti dall'utente per l'esecuzione dei comandi\\
   \hline
 \end{tabular}
 
