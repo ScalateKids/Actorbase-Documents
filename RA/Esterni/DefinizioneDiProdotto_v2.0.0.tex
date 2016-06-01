@@ -238,7 +238,9 @@ rappresentano il \gloss{server}.
 \end{figure}
 
 \subparagraph{Descrizione}
-Classe atta a criptare e decriptare i dati per il salvataggio e la lettura dei dati su disco.
+Classe atta a criptare e decriptare i dati per il salvataggio e la lettura dei dati su disco, utilizzata
+dagli attori di tipo \hyperref[sec:actorbase::actorsystem::actors::warehouseman::Warehouseman]{Warehouseman},
+permette di impostare il tipo di crittografia da utilizzare.
 
 \subparagraph{Utilizzo}
 Viene utilizzata dall'attore di tipo \gloss{Warehouseman} per il salvataggio e la lettura del database su disco.
@@ -865,7 +867,7 @@ dovrà aspettare tutti i messaggi \hyperref[sec:actorbase::actorsystem::messages
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
   clientRef & privato & immutabile & ActorRef & Rappresenta il riferimento all'attore \hyperref[sec:actorbase::actorsystem::actors::clientactor::ClientActor]{ClientActor} che
-  ha effettuato la richiesta\\
+                                                ha effettuato la richiesta\\
   \hline
   collection & privato & immutabile & \hyperref[sec:actorbase::actorsystem::utils::ActorbaseCollection]{ActorbaseCollection} & Rappresenta la collezione di cui fanno parte gli item passati in questo messaggio\\
   \hline
@@ -1291,11 +1293,11 @@ giusto.
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  key & public & immutabile & String & Rappresenta la chiave dell'elemento da aggiungere dalla collezione rappresentata da questo attore\\
+  key & pubblico & immutabile & String & Rappresenta la chiave dell'elemento da aggiungere dalla collezione rappresentata da questo attore\\
   \hline
-  value & public & immutabile & Array<Byte> & Rappresenta il valore dell'item da inserire sotto forma di array di bytes\\
+  value & pubblico & immutabile & Array<Byte> & Rappresenta il valore dell'item da inserire sotto forma di array di bytes\\
   \hline
-  update & public & immutabile & Boolean & Rappresenta un flag che server a scegliere se l'operazione può effettuare sovrascrittura o no (true se l'operazione può sovrascrivere items con la stessa chiave)\\
+  update & pubblico & immutabile & Boolean & Rappresenta un flag che server a scegliere se l'operazione può effettuare sovrascrittura o no (true se l'operazione può sovrascrivere items con la stessa chiave)\\
   \hline
 \end{tabular}
 
@@ -1379,7 +1381,7 @@ informarlo quando raggiunge una certa soglia di items.
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  mn & public & immutabile & ActorRef & Rappresenta un riferimento ad un attore \hyperref[sec:actorbase::actorsystem::actors::manager::Manager]{Manager}\\
+  mn & pubblico & immutabile & ActorRef & Rappresenta un riferimento ad un attore \hyperref[sec:actorbase::actorsystem::actors::manager::Manager]{Manager}\\
   \hline
 \end{tabular}
 
@@ -1421,7 +1423,7 @@ restituire all'utente intere collezioni.
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  parent & public & immutabile & ActorRef & Rappresenta un riferimento all'attore \hyperref[sec:actorbase::actorsystem::actors::storefinder::Storefinder]{Storefinder} che rappresenta la collezione di cui lo \hyperref[sec:actorbase::actorsystem::actors::storekeeper::Storekeeper]{Storekeeper} fa parte\\
+  parent & pubblico & immutabile & ActorRef & Rappresenta un riferimento all'attore \hyperref[sec:actorbase::actorsystem::actors::storefinder::Storefinder]{Storefinder} che rappresenta la collezione di cui lo \hyperref[sec:actorbase::actorsystem::actors::storekeeper::Storekeeper]{Storekeeper} fa parte\\
   \hline
 \end{tabular}
 
@@ -1462,7 +1464,7 @@ ha effettuato la richiesta.
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  key & public & immutabile & String & Rappresenta la chiave dell'item da restituire\\
+  key & pubblico & immutabile & String & Rappresenta la chiave dell'item da restituire\\
   \hline
 \end{tabular}
 
@@ -1501,11 +1503,11 @@ questione nella propria struttura dati.
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  key & public & immutabile & String & Rappresenta la chiave dell'item da inserire\\
+  key & pubblico & immutabile & String & Rappresenta la chiave dell'item da inserire\\
   \hline
-  value & public & immutabile & Array<Byte> & Rappresenta il valore dell'item in formato array di bytes\\
+  value & pubblico & immutabile & Array<Byte> & Rappresenta il valore dell'item in formato array di bytes\\
   \hline
-  update & public & immutabile & Boolean & Flag per scegliere se l'inserimento può effettuare sovrascrittura o meno (true se può effettuare sovrascrittura)\\
+  update & pubblico & immutabile & Boolean & Flag per scegliere se l'inserimento può effettuare sovrascrittura o meno (true se può effettuare sovrascrittura)\\
   \hline
 \end{tabular}
 
@@ -1799,11 +1801,11 @@ delle credenziali di login.
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  basicUserAuthenticator & public & AuthMagnet[AuthInfo] & Metodo che riceve e controlla tramite metodi interni le credenziali\\
+  basicUserAuthenticator & pubblico & AuthMagnet[AuthInfo] & Metodo che riceve e controlla tramite metodi interni le credenziali\\
   \hline
-  validateUser & public & Option[AuthInfo] & Metodo che controlla che le credenziali siano corrette\\
+  validateUser & pubblico & Option[AuthInfo] & Metodo che controlla che le credenziali siano corrette\\
   \hline
-  authenticator & public & Future[Option[AuthInfo]] & Metodo che restituisce un \gloss{future} che punta alle credenziali dell'utente autenticato\\
+  authenticator & pubblico & Future[Option[AuthInfo]] & Metodo che restituisce un \gloss{future} che punta alle credenziali dell'utente autenticato\\
   \hline
 \end{tabular}
 
@@ -1868,7 +1870,7 @@ delle route che richiedono operazioni su item.
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  ec & public & immutabile & ExecutionContext & Rappresenta il Contesto di esecuzione all'interno del quale è stata creata questa classe \\
+  ec & pubblico & immutabile & ExecutionContext & Rappresenta il Contesto di esecuzione all'interno del quale è stata creata questa classe \\
   \hline
 \end{tabular}
 
@@ -1878,7 +1880,7 @@ delle route che richiedono operazioni su item.
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  items & public & Route & Metodo che interagisce con il server tramite un router basandosi sulla route immessa dall'utente\\
+  items & pubblico & Route & Metodo che interagisce con il server tramite un router basandosi sulla route immessa dall'utente\\
   \hline
 \end{tabular}
 
@@ -1923,7 +1925,7 @@ delle route che richiedono operazioni su utenti.
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  ec & public & immutabile & ExecutionContext & Rappresenta il Contesto di esecuzione all'interno del quale è stata creata questa classe \\
+  ec & pubblico & immutabile & ExecutionContext & Rappresenta il Contesto di esecuzione all'interno del quale è stata creata questa classe \\
   \hline
 \end{tabular}
 
@@ -1933,7 +1935,7 @@ delle route che richiedono operazioni su utenti.
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  users & public & Route & Metodo che interagisce con il server tramite un router basandosi sulla route immessa dall'utente\\
+  users & pubblico & Route & Metodo che interagisce con il server tramite un router basandosi sulla route immessa dall'utente\\
   \hline
 \end{tabular}
 
@@ -1980,7 +1982,7 @@ utilizzando il \gloss{package} \texttt{directives} della libreria
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  ec & public & immutabile & ExecutionContext & Rappresenta il Contesto di esecuzione all'interno del quale è stata creata questa classe \\
+  ec & pubblico & immutabile & ExecutionContext & Rappresenta il Contesto di esecuzione all'interno del quale è stata creata questa classe \\
   \hline
 \end{tabular}
 
@@ -1990,7 +1992,7 @@ utilizzando il \gloss{package} \texttt{directives} della libreria
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  collections & public & Route & Metodo che interagisce con il server tramite un router basandosi sulla route immessa dall'utente\\
+  collections & pubblico & Route & Metodo che interagisce con il server tramite un router basandosi sulla route immessa dall'utente\\
   \hline
 \end{tabular}
 
@@ -2046,13 +2048,13 @@ Questa classe inoltre si occupa di capire che tipo di richiesta è stata fatta d
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  router & public & immutabile & ActorRef & Rappresenta il riferimento di un attore che si occuperà di gestire le richieste verso i vari \gloss{main} \\
+  router & pubblico & immutabile & ActorRef & Rappresenta il riferimento di un attore che si occuperà di gestire le richieste verso i vari \gloss{main} \\
   \hline
-  timeout & public & immutabile & Timeout & Rappresenta il tempo limite oltre il quale se un'operazione non è conclusa viene lanciato un errore di timeout \\
+  timeout & pubblico & immutabile & Timeout & Rappresenta il tempo limite oltre il quale se un'operazione non è conclusa viene lanciato un errore di timeout \\
   \hline
-  collections & private & mutabile & ListBuffer[String] & Rappresenta la lista di collezioni a cui l'utente ha accesso in scrittura e lettura \\
+  collections & privato & mutabile & ListBuffer[String] & Rappresenta la lista di collezioni a cui l'utente ha accesso in scrittura e lettura \\
   \hline
-  readCollections & private & mutabile & ListBuffer[String] & Rappresenta la lista di collezioni a cui l'utente ha accesso in sola lettura \\
+  readCollections & privato & mutabile & ListBuffer[String] & Rappresenta la lista di collezioni a cui l'utente ha accesso in sola lettura \\
   \hline
 \end{tabular}
 
@@ -2062,7 +2064,7 @@ Questa classe inoltre si occupa di capire che tipo di richiesta è stata fatta d
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  receive & public &  & Effettua operazioni diverse a seconda del tipo di messaggio ricevuto\\
+  receive & pubblico &  & Effettua operazioni diverse a seconda del tipo di messaggio ricevuto\\
   \hline
 \end{tabular}
 
@@ -2119,9 +2121,9 @@ caricamento dei certificati forniti e della lista di protocolli di crittografia
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  sslContext & public & SSLContext & metodo implicito per il caricamento dei certificati \gloss{TLS/SSL}\\
+  sslContext & pubblico & SSLContext & metodo implicito per il caricamento dei certificati \gloss{TLS/SSL}\\
   \hline
-  sslEngineProvider & public & ServerSSLEngineProvider & metodo implicito per impostare una \gloss{cipher suite} e una lista di protocolli di crittografia da supportare\\
+  sslEngineProvider & pubblico & ServerSSLEngineProvider & metodo implicito per impostare una \gloss{cipher suite} e una lista di protocolli di crittografia da supportare\\
   \hline
 \end{tabular}
 
@@ -2162,7 +2164,7 @@ per continuare le comunicazioni.
   \hline
   router & privata & immutabile & ActorRef & Rappresenta un riferimento all'attore che si occupa del routing delle richieste agli attori di tipo \hyperref[sec:actorbase::actorsystem::actors::main::Main]{Main} \\
   \hline
-  listenPort & private & immutabile & Int & Rappresenta la porta in cui il server si mette in ascolto \\
+  listenPort & privato & immutabile & Int & Rappresenta la porta in cui il server si mette in ascolto \\
   \hline
 \end{tabular}
 
@@ -2172,7 +2174,7 @@ per continuare le comunicazioni.
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  receive & public &  & Effettua operazioni diverse a seconda del tipo di messaggio ricevuto\\
+  receive & pubblico &  & Effettua operazioni diverse a seconda del tipo di messaggio ricevuto\\
   \hline
 \end{tabular}
 
@@ -2304,11 +2306,11 @@ Questa classe viene utilizzata per gestire le richieste ricevute al
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  sfMap & private & mutabile & Map<CollectionRange, ActorRef> & Rappresenta una mappa contenente come chiavi degli oggetti CollectionRange (che a sua volta rappresentano intervalli di chiavi di una specifica \gloss{collezione}) e come valore i riferimenti degli storefinder che mappano quelle chiavi \\
+  sfMap & privato & mutabile & Map<CollectionRange, ActorRef> & Rappresenta una mappa contenente come chiavi degli oggetti CollectionRange (che a sua volta rappresentano intervalli di chiavi di una specifica \gloss{collezione}) e come valore i riferimenti degli storefinder che mappano quelle chiavi \\
   \hline
-  ufRef & private & immutabile & ActorRef & Rappresenta il riferimento all'attore di tipo Userfinder. Questo serve per poter instradare le richieste più velocemente agli attori Userkeeper \\
+  ufRef & privato & immutabile & ActorRef & Rappresenta il riferimento all'attore di tipo Userfinder. Questo serve per poter instradare le richieste più velocemente agli attori Userkeeper \\
   \hline
-  requestMap & private & mutabile & Map<ActorRef, Map<ActorbaseCollection, Map<String, Object> > > & Struttura dati atta a restituire intere collezioni\\
+  requestMap & privato & mutabile & Map<ActorRef, Map<ActorbaseCollection, Map<String, Object> > > & Struttura dati atta a restituire intere collezioni\\
   \hline
 \end{tabular}
 
@@ -2318,13 +2320,13 @@ Questa classe viene utilizzata per gestire le richieste ricevute al
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  receive & public &  & Effettua operazioni diverse a seconda del tipo di messaggio ricevuto\\
+  receive & pubblico &  & Effettua operazioni diverse a seconda del tipo di messaggio ricevuto\\
   \hline
-  createCollection & private & ActorRef & Metodo utilizzato per creare una \gloss{collezione}, al suo interno il metodo crea uno Storefinder adibito a tale \gloss{collezione}, successivamente aggiorna sfMap. Ritorna il riferimento al nuovo attore creato\\
+  createCollection & privato & ActorRef & Metodo utilizzato per creare una \gloss{collezione}, al suo interno il metodo crea uno Storefinder adibito a tale \gloss{collezione}, successivamente aggiorna sfMap. Ritorna il riferimento al nuovo attore creato\\
   \hline
-  waitingForRequests & private & Actor.Receive & Metodo che definisce il tipo di messaggio che l'attore \hyperref[sec:actorbase::actorsystem::actors::main::Main]{Main} può ricevere mentre si trova nello stato waitingForRequests\\
+  waitingForRequests & privato & Actor.Receive & Metodo che definisce il tipo di messaggio che l'attore \hyperref[sec:actorbase::actorsystem::actors::main::Main]{Main} può ricevere mentre si trova nello stato waitingForRequests\\
   \hline
-  processingRequest & private & Actor.Receive & Metodo che definisce il tipo di messaggio che l'attore \hyperref[sec:actorbase::actorsystem::actors::main::Main]{Main} può ricevere mentre si trova nello stato processingRequest\\
+  processingRequest & privato & Actor.Receive & Metodo che definisce il tipo di messaggio che l'attore \hyperref[sec:actorbase::actorsystem::actors::main::Main]{Main} può ricevere mentre si trova nello stato processingRequest\\
   \hline
 \end{tabular}
 
@@ -2374,7 +2376,7 @@ Questa classe viene utilizzata per tener traccia degli attori di tipo
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  ukMap & private & immutabile & TreeMap [String, ActorRef] & Rappresenta una mappa contenente come chiavi gli username degli utenti e come valori i riferimenti degli userkeeper che li rappresentano \\
+  ukMap & privato & immutabile & TreeMap [String, ActorRef] & Rappresenta una mappa contenente come chiavi gli username degli utenti e come valori i riferimenti degli userkeeper che li rappresentano \\
   \hline
 \end{tabular}
 
@@ -2384,7 +2386,7 @@ Questa classe viene utilizzata per tener traccia degli attori di tipo
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  receive & public &  & Effettua operazioni diverse a seconda del tipo di messaggio ricevuto\\
+  receive & pubblico &  & Effettua operazioni diverse a seconda del tipo di messaggio ricevuto\\
   \hline
 \end{tabular}
 
@@ -2433,17 +2435,17 @@ Questa classe viene utilizzata per salvare gli utenti e i loro dati nel \gloss{d
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  collections & private & mutabile & ListBuffer [ \hyperref[sec:actorbase::actorsystem::utils::ActorbaseCollection]{ActorbaseCollection}] & Rappresenta la lista di collezioni di cui l'utente ha permessi di lettura e scrittura \\
+  collections & privato & mutabile & ListBuffer [ \hyperref[sec:actorbase::actorsystem::utils::ActorbaseCollection]{ActorbaseCollection}] & Rappresenta la lista di collezioni di cui l'utente ha permessi di lettura e scrittura \\
   \hline
-  readCollections & private & mutabile & ListBuffer [ \hyperref[sec:actorbase::actorsystem::utils::ActorbaseCollection]{ActorbaseCollection}] & Rappresenta la lista di collezioni di cui l'utente ha permessi di sola lettura \\
+  readCollections & privato & mutabile & ListBuffer [ \hyperref[sec:actorbase::actorsystem::utils::ActorbaseCollection]{ActorbaseCollection}] & Rappresenta la lista di collezioni di cui l'utente ha permessi di sola lettura \\
   \hline
-  client & private & mutabile & ActorRef & Riferimento all'attore di tipo \gloss{ClientActor}. Questo servirà a velocizzare l'aggiornamento del \gloss{ClientActor} \\
+  client & privato & mutabile & ActorRef & Riferimento all'attore di tipo \gloss{ClientActor}. Questo servirà a velocizzare l'aggiornamento del \gloss{ClientActor} \\
   \hline
-  username & private & mutabile & String & Stringa che rappresenta l'username dell'utente associato a questo Userkeeper \\
+  username & privato & mutabile & String & Stringa che rappresenta l'username dell'utente associato a questo Userkeeper \\
   \hline
-  password & private & mutabile & String & Stringa che rappresenta la password dell'utente associato a questo Userkeeper \\
+  password & privato & mutabile & String & Stringa che rappresenta la password dell'utente associato a questo Userkeeper \\
   \hline
-  uuid & private & immutable & String & Stringa generata casualmente che rappresenta l'id dell'utente associato a questo Userkeeper \\
+  uuid & privato & immutable & String & Stringa generata casualmente che rappresenta l'id dell'utente associato a questo Userkeeper \\
   \hline
 \end{tabular}
 
@@ -2452,13 +2454,13 @@ Questa classe viene utilizzata per salvare gli utenti e i loro dati nel \gloss{d
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  receive & public & Actor.Receive  & Effettua operazioni diverse a seconda del tipo di messaggio ricevuto\\
+  receive & pubblico & Actor.Receive  & Effettua operazioni diverse a seconda del tipo di messaggio ricevuto\\
   \hline
-  updateOwnerOfSK & private &  void & Metodo che aggiorna il proprietario di tutti gli \hyperref[sec:actorbase::actorsystem::actors::storekeeper::Storekeeper]{Storekeeper} mappati dallo storefinder\\
+  updateOwnerOfSK & privato &  void & Metodo che aggiorna il proprietario di tutti gli \hyperref[sec:actorbase::actorsystem::actors::storekeeper::Storekeeper]{Storekeeper} mappati dallo storefinder\\
   \hline
-  waitingForRequests & private & Actor.Receive & Metodo che definisce il tipo di messaggio che l'attore \hyperref[sec:actorbase::actorsystem::actors::storefinder::Storefinder]{Storefinder} può ricevere mentre si trova nello stato waitingForRequests\\
+  waitingForRequests & privato & Actor.Receive & Metodo che definisce il tipo di messaggio che l'attore \hyperref[sec:actorbase::actorsystem::actors::storefinder::Storefinder]{Storefinder} può ricevere mentre si trova nello stato waitingForRequests\\
   \hline
-  processingRequest & private & Actor.Receive & Metodo che definisce il tipo di messaggio che l'attore \hyperref[sec:actorbase::actorsystem::actors::main::storefinder::Storefinder]{Storefinder} può ricevere mentre si trova nello stato processingRequest\\
+  processingRequest & privato & Actor.Receive & Metodo che definisce il tipo di messaggio che l'attore \hyperref[sec:actorbase::actorsystem::actors::main::storefinder::Storefinder]{Storefinder} può ricevere mentre si trova nello stato processingRequest\\
   \hline
 \end{tabular}
 
@@ -2513,13 +2515,13 @@ Questa classe viene utilizzata per tener traccia degli attori di tipo
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  skMap & private & mutabile & TreeMap [KeyRange, ActorRef] & Rappresenta la mappa di attori di tipo storekeeper relativi alla \gloss{collezione} \\
+  skMap & privato & mutabile & TreeMap [KeyRange, ActorRef] & Rappresenta la mappa di attori di tipo storekeeper relativi alla \gloss{collezione} \\
   \hline
-  collection & private & mutabile & actorbaseCollection & Rappresenta il nome della \gloss{collezione} che va a rappresentare\\
+  collection & privato & mutabile & actorbaseCollection & Rappresenta il nome della \gloss{collezione} che va a rappresentare\\
   \hline
-  range & private & mutabile & KeyRange & Rappresenta l'intervallo delle chiavi mappabili nel particolare storefinder\\
+  range & privato & mutabile & KeyRange & Rappresenta l'intervallo delle chiavi mappabili nel particolare storefinder\\
   \hline
-  maxSize & private & immutabile & int & Rappresenta la grandezza massima della \gloss{collezione}\\
+  maxSize & privato & immutabile & int & Rappresenta la grandezza massima della \gloss{collezione}\\
   \hline
 \end{tabular}
 
@@ -2529,7 +2531,7 @@ Questa classe viene utilizzata per tener traccia degli attori di tipo
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  receive & public &  & Effettua operazioni diverse a seconda del tipo di messaggio ricevuto\\
+  receive & pubblico &  & Effettua operazioni diverse a seconda del tipo di messaggio ricevuto\\
   \hline
 \end{tabular}
 
@@ -2579,19 +2581,19 @@ Questa classe viene utilizzata per salvare nel \gloss{database} gli item.
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  parentRef & private & mutabile & ActorRef & Riferimento all'attore di tipo \gloss{Storefinder} che contiene l'attore di tipo \gloss{Storekeeper} \\
+  parentRef & privato & mutabile & ActorRef & Riferimento all'attore di tipo \gloss{Storefinder} che contiene l'attore di tipo \gloss{Storekeeper} \\
   \hline
-  data & private & mutabile & TreeMap [String, Object] & Rappresenta l'insieme di \gloss{item} contenuta nell'attore\\
+  data & privato & mutabile & TreeMap [String, Object] & Rappresenta l'insieme di \gloss{item} contenuta nell'attore\\
   \hline
-  range & private & mutabile & KeyRange & Rappresenta il range di chiavi contenuta nell'attore\\
+  range & privato & mutabile & KeyRange & Rappresenta il range di chiavi contenuta nell'attore\\
   \hline
-  collection & private & immutabile & ActorbaseCollection & Rappresenta la \gloss{collezione} a cui lo \gloss{Storekeeper} appartiene\\
+  collection & privato & immutabile & ActorbaseCollection & Rappresenta la \gloss{collezione} a cui lo \gloss{Storekeeper} appartiene\\
   \hline
-  parentRange & private & mutabile & KeyRange & Rappresenta il range di chiavi contenuta nell'attore di tipo \gloss{Storefinder} che contiene lo \gloss{Storekeeper}\\
+  parentRange & privato & mutabile & KeyRange & Rappresenta il range di chiavi contenuta nell'attore di tipo \gloss{Storefinder} che contiene lo \gloss{Storekeeper}\\
   \hline
-  maxSize & private & immutabile & Int & Rappresenta il numero massimo di \gloss{item} che possono essere contenuti\\
+  maxSize & privato & immutabile & Int & Rappresenta il numero massimo di \gloss{item} che possono essere contenuti\\
   \hline
-  warehouseman & private & immutabile & ActorRef & Rappresenta il \gloss{Warehouseman} responsabile del salvataggio dei dati dello \gloss{Storekeeper}\\
+  warehouseman & privato & immutabile & ActorRef & Rappresenta il \gloss{Warehouseman} responsabile del salvataggio dei dati dello \gloss{Storekeeper}\\
   \hline
 \end{tabular}
 
@@ -2601,9 +2603,9 @@ Questa classe viene utilizzata per salvare nel \gloss{database} gli item.
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  receive & public &  & Effettua operazioni diverse a seconda del tipo di messaggio ricevuto\\
+  receive & pubblico &  & Effettua operazioni diverse a seconda del tipo di messaggio ricevuto\\
   \hline
-  insertOrUpdate & private & & Inserisce un item nella \gloss{collezione}\\
+  insertOrUpdate & privato & & Inserisce un item nella \gloss{collezione}\\
   \hline
 \end{tabular}
 
@@ -2672,7 +2674,7 @@ e \hyperref[sec:actorbase::actorsystem::actors::storefinder::Storefinder]{Storef
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  parentRef & private & immutabile & ActorRef & Riferimento all'attore di tipo \gloss{Storefinder} che l'ha creato\\
+  parentRef & privato & immutabile & ActorRef & Riferimento all'attore di tipo \gloss{Storefinder} che l'ha creato\\
   \hline
 \end{tabular}
 
@@ -2746,9 +2748,9 @@ ai privilegi del proprio profilo nel sistema.
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  address & private & immutabile & String & Rappresenta l'indirizzo del \gloss{server} Actorbase\\
+  address & privato & immutabile & String & Rappresenta l'indirizzo del \gloss{server} Actorbase\\
   \hline
-  port & private & immutabile & Int & Rappresenta la porta esposta dal \gloss{server}\\
+  port & privato & immutabile & Int & Rappresenta la porta esposta dal \gloss{server}\\
   \hline
 \end{tabular}
 
@@ -2760,7 +2762,7 @@ ai privilegi del proprio profilo nel sistema.
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  authenticate & public & \hyperref[sec:actorbase::driver::ActorbaseServices]{ActorbaseServices} & Metodo di autenticazione sul server mediante credenziali\\
+  authenticate & pubblico & \hyperref[sec:actorbase::driver::ActorbaseServices]{ActorbaseServices} & Metodo di autenticazione sul server mediante credenziali\\
   \hline
 \end{tabular}
 
@@ -2836,17 +2838,17 @@ le operazioni di lettura e scrittura di queste ultime.
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  username & private & immutabile & String & Rappresenta lo \gloss{username} dell'utilizzatore del sistema Actorbase\\
+  username & privato & immutabile & String & Rappresenta lo \gloss{username} dell'utilizzatore del sistema Actorbase\\
   \hline
-  password & private & immutabile & String & Rappresenta la password associata allo username dell'utilizzatore del sistema Actorbase\\
+  password & privato & immutabile & String & Rappresenta la password associata allo username dell'utilizzatore del sistema Actorbase\\
   \hline
-  address & private & immutabile & String & Rappresenta l'indirizzo del \gloss{server} Actorbase\\
+  address & privato & immutabile & String & Rappresenta l'indirizzo del \gloss{server} Actorbase\\
   \hline
-  port & private & immutabile & Int & Rappresenta la porta esposta dal \gloss{server}\\
+  port & privato & immutabile & Int & Rappresenta la porta esposta dal \gloss{server}\\
   \hline
-  scheme & private & immutabile & String & Attributo implicito, rappresenta il prefisso \gloss{HTTP} da utilizzare nella connessione e invio comandi al \gloss{server}\\
+  scheme & privato & immutabile & String & Attributo implicito, rappresenta il prefisso \gloss{HTTP} da utilizzare nella connessione e invio comandi al \gloss{server}\\
   \hline
-  connection & private & immutabile & \hyperref[sec:actorbase:driver:Connection]{Connection} & Attributo implicito, rappresenta un oggetto di tipo \hyperref[sec:actorbase:driver:Connection]{Connection} da utilizzare durante l'inivio di comandi al \gloss{server}\\
+  connection & privato & immutabile & \hyperref[sec:actorbase:driver:Connection]{Connection} & Attributo implicito, rappresenta un oggetto di tipo \hyperref[sec:actorbase:driver:Connection]{Connection} da utilizzare durante l'inivio di comandi al \gloss{server}\\
   \hline
 \end{tabular}
 
@@ -2858,31 +2860,31 @@ le operazioni di lettura e scrittura di queste ultime.
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  insertTo & public & void & Metodo utilizzato per l'inserimento di nuovi \gloss{item} direttamente alla \gloss{collezione} specificata senza doverla preventivamente scaricare\\
+  insertTo & pubblico & void & Metodo utilizzato per l'inserimento di nuovi \gloss{item} direttamente alla \gloss{collezione} specificata senza doverla preventivamente scaricare\\
   \hline
-  insertTo<T> (overload) & public & void & Metodo utilizzato per l'inserimento di nuovi \gloss{item} direttamente alla \gloss{collezione} specificata senza doverla preventivamente scaricare\\
+  insertTo<T> (overload) & pubblico & void & Metodo utilizzato per l'inserimento di nuovi \gloss{item} direttamente alla \gloss{collezione} specificata senza doverla preventivamente scaricare\\
   \hline
-  removeFrom<T> & public & \hyperref[sec:actorbase::driver::data::ActorbaseObject]{ActorbaseObject} & Metodo utilizzato per la rimozione di \gloss{item} direttamente dalla \gloss{collezione} specificata senza doverla preventivamente scaricare\\
+  removeFrom<T> & pubblico & \hyperref[sec:actorbase::driver::data::ActorbaseObject]{ActorbaseObject} & Metodo utilizzato per la rimozione di \gloss{item} direttamente dalla \gloss{collezione} specificata senza doverla preventivamente scaricare\\
   \hline
-  find<T> & public & \hyperref[sec:actorbase::driver::data::ActorbaseObject]{ActorbaseObject} & Metodo utilizzato per la ricerca di \gloss{item} direttamente dalle collezioni specificate senza doverle preventivamente scaricare\\
+  find<T> & pubblico & \hyperref[sec:actorbase::driver::data::ActorbaseObject]{ActorbaseObject} & Metodo utilizzato per la ricerca di \gloss{item} direttamente dalle collezioni specificate senza doverle preventivamente scaricare\\
   \hline
-  changePassword & public & void & Metodo utilizzato per la modifica della propria password di profilo \textbf{Actorbase}\\
+  changePassword & pubblico & void & Metodo utilizzato per la modifica della propria password di profilo \textbf{Actorbase}\\
   \hline
-  listCollections & public & List[String] & Ritorna una lista di stringhe, rappresentano i nomi delle collezioni\\
+  listCollections & pubblico & List[String] & Ritorna una lista di stringhe, rappresentano i nomi delle collezioni\\
   \hline
-  getCollections & public & \hyperref[sec:actorbase::driver::data::ActorbaseCollectionMap]{ActorbaseCollection\allowbreak{}Map} & Ritorna un oggetto di tipo \hyperref[sec:actorbase::driver::data::ActorbaseCollectionMap]{ActorbaseCollectionMap}\\
+  getCollections & pubblico & \hyperref[sec:actorbase::driver::data::ActorbaseCollectionMap]{ActorbaseCollection\allowbreak{}Map} & Ritorna un oggetto di tipo \hyperref[sec:actorbase::driver::data::ActorbaseCollectionMap]{ActorbaseCollectionMap}\\
   \hline
-  getCollection & public & \hyperref[sec:actorbase::driver::data::ActorbaseCollection]{ActorbaseCollection} & Ritorna un oggetto di tipo \hyperref[sec:actorbase::driver::data::ActorbaseCollection]{ActorbaseCollection}\\
+  getCollection & pubblico & \hyperref[sec:actorbase::driver::data::ActorbaseCollection]{ActorbaseCollection} & Ritorna un oggetto di tipo \hyperref[sec:actorbase::driver::data::ActorbaseCollection]{ActorbaseCollection}\\
   \hline
-  addCollection & public & \hyperref[sec:actorbase::driver::data::ActorbaseCollection]{ActorbaseCollection} & Ritorna un oggetto di tipo \hyperref[sec:actorbase::driver::data::ActorbaseCollection]{ActorbaseCollection}\\
+  addCollection & pubblico & \hyperref[sec:actorbase::driver::data::ActorbaseCollection]{ActorbaseCollection} & Ritorna un oggetto di tipo \hyperref[sec:actorbase::driver::data::ActorbaseCollection]{ActorbaseCollection}\\
   \hline
-  dropCollection & public & \hyperref[sec:actorbase::driver::data::ActorbaseCollection]{ActorbaseCollection} & Ritorna un oggetto di tipo \hyperref[sec:actorbase::driver::data::ActorbaseCollection]{ActorbaseCollection}\\
+  dropCollection & pubblico & \hyperref[sec:actorbase::driver::data::ActorbaseCollection]{ActorbaseCollection} & Ritorna un oggetto di tipo \hyperref[sec:actorbase::driver::data::ActorbaseCollection]{ActorbaseCollection}\\
   \hline
-  importFromFile & public & void & Metodo da utilizzare per importare \gloss{collezioni} sul \gloss{server} da \gloss{file}\\
+  importFromFile & pubblico & void & Metodo da utilizzare per importare \gloss{collezioni} sul \gloss{server} da \gloss{file}\\
   \hline
-  exportToFile & public & void & Metodo da utilizzare per esportare \gloss{collezioni} dal \gloss{server} su \gloss{filesystem}\\
+  exportToFile & pubblico & void & Metodo da utilizzare per esportare \gloss{collezioni} dal \gloss{server} su \gloss{filesystem}\\
   \hline
-  logout & public & void & Effettua il logout dal server\\
+  logout & pubblico & void & Effettua il logout dal server\\
   \hline
 \end{tabular}
 
@@ -3030,11 +3032,11 @@ scrittura delle \gloss{collezioni}. Funge da iniezione di dipendenze mediante
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  addUSer & public & void & Permette di aggiungere un nuovo utente al sistema\\
+  addUSer & pubblico & void & Permette di aggiungere un nuovo utente al sistema\\
   \hline
-  removeUser & public & void & Permette la rimozione di un utente dal sistema\\
+  removeUser & pubblico & void & Permette la rimozione di un utente dal sistema\\
   \hline
-  resetPassword & public & void & Effettua il \gloss{reset} della password di un utente\\
+  resetPassword & pubblico & void & Effettua il \gloss{reset} della password di un utente\\
   \hline
 \end{tabular}
 
@@ -3098,15 +3100,15 @@ utilizzare nelle classi che necessitano di collegamenti al \gloss{server}.
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  username & public & immutabile & String & Rappresenta lo \gloss{username} dell'utente\\
+  username & pubblico & immutabile & String & Rappresenta lo \gloss{username} dell'utente\\
   \hline
-  password & public & immutabile & String & Rappresenta la password dell'utente\\
+  password & pubblico & immutabile & String & Rappresenta la password dell'utente\\
   \hline
-  permissions & public & immutabile & Boolean & Indica il livello di privilegio del profilo \textbf{Actorbase}, \gloss{true} se amministrativo, altrimento \gloss{false}\\
+  permissions & pubblico & immutabile & Boolean & Indica il livello di privilegio del profilo \textbf{Actorbase}, \gloss{true} se amministrativo, altrimento \gloss{false}\\
   \hline
-  address & public & immutabile & String & Rappresenta l'indirizzo del \gloss{server} \textbf{Actorbase}\\
+  address & pubblico & immutabile & String & Rappresenta l'indirizzo del \gloss{server} \textbf{Actorbase}\\
   \hline
-  port & public & immutabile & Int & Rappresenta la porta esposta dal \gloss{server}\\
+  port & pubblico & immutabile & Int & Rappresenta la porta esposta dal \gloss{server}\\
   \hline
 \end{tabular}
 
@@ -3116,15 +3118,15 @@ utilizzare nelle classi che necessitano di collegamenti al \gloss{server}.
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  username & public & String & Metodo pubblico di accesso in sola lettura all'attributo \gloss{username}\\
+  username & pubblico & String & Metodo pubblico di accesso in sola lettura all'attributo \gloss{username}\\
   \hline
-  password & public & String & Metodo pubblico di accesso in sola lettura all'attributo password\\
+  password & pubblico & String & Metodo pubblico di accesso in sola lettura all'attributo password\\
   \hline
-  permissions & public & Boolean & Metodo pubblico di accesso in sola lettura all'attributo permissions\\
+  permissions & pubblico & Boolean & Metodo pubblico di accesso in sola lettura all'attributo permissions\\
   \hline
-  address & public & String & Metodo pubblico di accesso in sola lettura all'attributo address\\
+  address & pubblico & String & Metodo pubblico di accesso in sola lettura all'attributo address\\
   \hline
-  port & public & Int & Metodo pubblico di accesso in sola lettura all'attributo port\\
+  port & pubblico & Int & Metodo pubblico di accesso in sola lettura all'attributo port\\
   \hline
 \end{tabular}
 
@@ -3184,11 +3186,11 @@ metodi.
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  createClientOptions & public & \gloss{array} di HttpOption & Crea le opzioni di utilizzo del \gloss{client} \gloss{Http}\\
+  createClientOptions & pubblico & \gloss{array} di HttpOption & Crea le opzioni di utilizzo del \gloss{client} \gloss{Http}\\
   \hline
-  send & public & \hyperref[sec::actorbase::driver::client::api]{Response} & Invia la richiesta al server e riceve la risposta sincronamente\\
+  send & pubblico & \hyperref[sec::actorbase::driver::client::api]{Response} & Invia la richiesta al server e riceve la risposta sincronamente\\
   \hline
-  shutdown & public & void  & Chiude la connessione con il server\\
+  shutdown & pubblico & void  & Chiude la connessione con il server\\
   \hline
 \end{tabular}
 
@@ -3239,13 +3241,13 @@ o entrambi.
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  serialize2ByteArray & public & \gloss{array} di \gloss{Byte} & Serializza l'oggetto parametro in formato \gloss{array} di \gloss{Byte}\\
+  serialize2ByteArray & pubblico & \gloss{array} di \gloss{Byte} & Serializza l'oggetto parametro in formato \gloss{array} di \gloss{Byte}\\
   \hline
-  serialize2JSON & public & String & Serializza l'oggetto parametro in formato \gloss{JSON}\\
+  serialize2JSON & pubblico & String & Serializza l'oggetto parametro in formato \gloss{JSON}\\
   \hline
-  deserializeFrom\allowbreak{}ByteArray & public & \gloss{Object} & Deserializza l'\gloss{array} di \gloss{Byte} parametro riportandolo al formato originale\\
+  deserializeFrom\allowbreak{}ByteArray & pubblico & \gloss{Object} & Deserializza l'\gloss{array} di \gloss{Byte} parametro riportandolo al formato originale\\
   \hline
-  deserializeFrom\allowbreak{}JSON & public & \gloss{Object} & Deserializza la stringa \gloss{JSON} parametro riportandola al formato originale\\
+  deserializeFrom\allowbreak{}JSON & pubblico & \gloss{Object} & Deserializza la stringa \gloss{JSON} parametro riportandola al formato originale\\
   \hline
 \end{tabular}
 
@@ -3323,11 +3325,11 @@ hanno libertà di implementazione specifica dei metodi.
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  createClientOptions & public & \gloss{array} di HttpOption & Crea le opzioni di utilizzo del \gloss{client} \gloss{Http} specificandone il protocollo di protezione\\
+  createClientOptions & pubblico & \gloss{array} di HttpOption & Crea le opzioni di utilizzo del \gloss{client} \gloss{Http} specificandone il protocollo di protezione\\
   \hline
-  send & public & \hyperref[sec:actorbase::driver::client::api::Response]{Response} & Invia la richiesta al server e riceve la risposta sincronamente\\
+  send & pubblico & \hyperref[sec:actorbase::driver::client::api::Response]{Response} & Invia la richiesta al server e riceve la risposta sincronamente\\
   \hline
-  shutdown & public & void  & Chiude la connessione con il server\\
+  shutdown & pubblico & void  & Chiude la connessione con il server\\
   \hline
 \end{tabular}
 
@@ -3382,9 +3384,9 @@ necessitano.
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  client & private & immutabile & Http & Oggetto istanziato utilizzando la libreria esterna \gloss{Scalaj} dedicato alla comunicazione \gloss{HTTP} con il server\\
+  client & privato & immutabile & Http & Oggetto istanziato utilizzando la libreria esterna \gloss{Scalaj} dedicato alla comunicazione \gloss{HTTP} con il server\\
   \hline
-  options & private & immutabile & array di HttpOption & Array di opzioni da utilizzare con l'oggetto client, responsabile di settaggi quali livello di protezione della comunicazione e \gloss{timeout} richieste\\
+  options & privato & immutabile & array di HttpOption & Array di opzioni da utilizzare con l'oggetto client, responsabile di settaggi quali livello di protezione della comunicazione e \gloss{timeout} richieste\\
   \hline
 \end{tabular}
 
@@ -3394,11 +3396,11 @@ necessitano.
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  createClientOptions & public & \gloss{array} di HttpOption & Crea le opzioni di utilizzo del \gloss{client} \gloss{Http}\\
+  createClientOptions & pubblico & \gloss{array} di HttpOption & Crea le opzioni di utilizzo del \gloss{client} \gloss{Http}\\
   \hline
-  send & public & \hyperref[sec::actorbase::driver::api::Response]{Response} & Invia la richiesta al server e riceve la risposta sincronamente\\
+  send & pubblico & \hyperref[sec::actorbase::driver::api::Response]{Response} & Invia la richiesta al server e riceve la risposta sincronamente\\
   \hline
-  shutdown & public & void & Chiude la connessione con il server\\
+  shutdown & pubblico & void & Chiude la connessione con il server\\
   \hline
 \end{tabular}
 
@@ -3433,9 +3435,9 @@ Viene estesa dalle classi che necessitano di comunicare con il server.
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  client & public & immutabile & \hyperref[sec:actorbase::driver::ActorbaseClient]{ActorbaseClient} & Ha lo scopo di fornire comunicazione con il server, mediante protocollo \gloss{HTTP}\\
+  client & pubblico & immutabile & \hyperref[sec:actorbase::driver::ActorbaseClient]{ActorbaseClient} & Ha lo scopo di fornire comunicazione con il server, mediante protocollo \gloss{HTTP}\\
   \hline
-  requestBuilder & public & immutabile & \hyperref[sec:actorbase::driver::api::RequestBuilder]{RequestBuilder} & E' utilizzato per costruire le richieste \gloss{REST} da iniviare al server mediante oggetto di tipo \hyperref[sec:actorbase::driver::client::api::Request]{Request}\\
+  requestBuilder & pubblico & immutabile & \hyperref[sec:actorbase::driver::api::RequestBuilder]{RequestBuilder} & E' utilizzato per costruire le richieste \gloss{REST} da iniviare al server mediante oggetto di tipo \hyperref[sec:actorbase::driver::client::api::Request]{Request}\\
   \hline
 \end{tabular}
 
@@ -3659,17 +3661,17 @@ creata mediante il design pattern \gloss{Builder} nella classe
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  method & private & immutabile & \hyperref[sec:actorbase::driver::api::RequestMethod]{RequestMethod} & Indica il tipo di richiesta \gloss{HTTP}\\
+  method & privato & immutabile & \hyperref[sec:actorbase::driver::api::RequestMethod]{RequestMethod} & Indica il tipo di richiesta \gloss{HTTP}\\
   \hline
-  url & private & immutabile & String & Rappresenta l'indirizzo dell'\gloss{API} esposta sul server a cui inviare la richiesta\\
+  url & privato & immutabile & String & Rappresenta l'indirizzo dell'\gloss{API} esposta sul server a cui inviare la richiesta\\
   \hline
-  credentials & private & immutabile & \hyperref[sec:actorbase::driver::client::api::Credentials]{Credentials} & Oggetto rappresentante le credenziali di accesso al sistema Actorbase\\
+  credentials & privato & immutabile & \hyperref[sec:actorbase::driver::client::api::Credentials]{Credentials} & Oggetto rappresentante le credenziali di accesso al sistema Actorbase\\
   \hline
-  headers & private & immutabile & Map<String, List<String> > & Rappresenta gli \gloss{header} \gloss{HTTP} da associare alla richiesta\\
+  headers & privato & immutabile & Map<String, List<String> > & Rappresenta gli \gloss{header} \gloss{HTTP} da associare alla richiesta\\
   \hline
-  params & private & immutabile &  Map<String, String> & Rappresenta i parametri da allegare alla richiesta \gloss{HTTP}\\
+  params & privato & immutabile &  Map<String, String> & Rappresenta i parametri da allegare alla richiesta \gloss{HTTP}\\
   \hline
-  body & private & immutabile & Array di Byte & Rappresenta i dati di \gloss{payload} da iniviare sul server\\
+  body & privato & immutabile & Array di Byte & Rappresenta i dati di \gloss{payload} da iniviare sul server\\
   \hline
 \end{tabular}
 
@@ -3679,17 +3681,17 @@ creata mediante il design pattern \gloss{Builder} nella classe
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  method & public & \hyperref[sec:actorbase::driver::client::api::RequestMethod]{RequestMethod} & Metodo pubblico di accesso in sola lettura all'attributo method\\
+  method & pubblico & \hyperref[sec:actorbase::driver::client::api::RequestMethod]{RequestMethod} & Metodo pubblico di accesso in sola lettura all'attributo method\\
   \hline
-  url & public & String & Metodo pubblico di accesso in sola lettura all'attributo url\\
+  url & pubblico & String & Metodo pubblico di accesso in sola lettura all'attributo url\\
   \hline
-  credentials & public & Credentials & Metodo pubblico di accesso in sola lettura all'attributo credentials\\
+  credentials & pubblico & Credentials & Metodo pubblico di accesso in sola lettura all'attributo credentials\\
   \hline
-  params & public & Map<String, String> & Metodo pubblico di accesso in sola lettura all'attributo params\\
+  params & pubblico & Map<String, String> & Metodo pubblico di accesso in sola lettura all'attributo params\\
   \hline
-  headers & public & Map<String, List<String>> & Metodo pubblico di accesso in sola lettura all'attributo headers\\
+  headers & pubblico & Map<String, List<String>> & Metodo pubblico di accesso in sola lettura all'attributo headers\\
   \hline
-  body & public & Array di byte & Metodo pubblico di accesso in sola lettura all'attributo body\\
+  body & pubblico & Array di byte & Metodo pubblico di accesso in sola lettura all'attributo body\\
   \hline
 \end{tabular}
 
@@ -3722,9 +3724,9 @@ dati stringa, \gloss{username} e password.
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  username & private & immutabile & String & Rappresenta lo \gloss{username} associato all'utente utilizzatore del sistema\\
+  username & privato & immutabile & String & Rappresenta lo \gloss{username} associato all'utente utilizzatore del sistema\\
   \hline
-  password & private & immutabile & String & Rappresenta la password associata allo \gloss{username} dell'utente utilizzatore del sistema\\
+  password & privato & immutabile & String & Rappresenta la password associata allo \gloss{username} dell'utente utilizzatore del sistema\\
   \hline
 \end{tabular}
 
@@ -3734,9 +3736,9 @@ dati stringa, \gloss{username} e password.
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  username & public & String & Metodo pubblico di accesso in sola lettura all'attributo \gloss{username}\\
+  username & pubblico & String & Metodo pubblico di accesso in sola lettura all'attributo \gloss{username}\\
   \hline
-  password & public & String & Metodo pubblico di accesso in sola lettura all'attributo password\\
+  password & pubblico & String & Metodo pubblico di accesso in sola lettura all'attributo password\\
   \hline
 \end{tabular}
 
@@ -3771,9 +3773,9 @@ utilizzare nella comunicazione con il server.
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  status & private & immutabile & Int & Indica il codice di risposta \gloss{HTTP}\\
+  status & privato & immutabile & Int & Indica il codice di risposta \gloss{HTTP}\\
   \hline
-  body & private & immutabile & String & Rappresenta i dati di \gloss{payload} ricevuti dal server\\
+  body & privato & immutabile & String & Rappresenta i dati di \gloss{payload} ricevuti dal server\\
   \hline
 \end{tabular}
 
@@ -3783,9 +3785,9 @@ utilizzare nella comunicazione con il server.
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  status & public & Int & Metodo pubblico di accesso in sola lettura all'attributo status\\
+  status & pubblico & Int & Metodo pubblico di accesso in sola lettura all'attributo status\\
   \hline
-  body & public & String & Metodo pubblico di accesso in sola lettura all'attributo body\\
+  body & pubblico & String & Metodo pubblico di accesso in sola lettura all'attributo body\\
   \hline
 \end{tabular}
 
@@ -3817,19 +3819,19 @@ Viene utilizzata come classe per l'incapsulamento dei codici di ritorno
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  OK & private & immutabile & Int & Indica il codice di risposta \gloss{HTTP} 200\\
+  OK & privato & immutabile & Int & Indica il codice di risposta \gloss{HTTP} 200\\
   \hline
-  Created & private & immutabile & Int & Indica il codice di risposta \gloss{HTTP} 201\\
+  Created & privato & immutabile & Int & Indica il codice di risposta \gloss{HTTP} 201\\
   \hline
-  Accepted & private & immutabile & Int & Indica il codice di risposta \gloss{HTTP} 202\\
+  Accepted & privato & immutabile & Int & Indica il codice di risposta \gloss{HTTP} 202\\
   \hline
-  BadRequest & private & immutabile & Int & Indica il codice di risposta \gloss{HTTP} 400\\
+  BadRequest & privato & immutabile & Int & Indica il codice di risposta \gloss{HTTP} 400\\
   \hline
-  Unauthorized & private & immutabile & Int & Indica il codice di risposta \gloss{HTTP} 401\\
+  Unauthorized & privato & immutabile & Int & Indica il codice di risposta \gloss{HTTP} 401\\
   \hline
-  Forbidden & private & immutabile & Int & Indica il codice di risposta \gloss{HTTP} 403\\
+  Forbidden & privato & immutabile & Int & Indica il codice di risposta \gloss{HTTP} 403\\
   \hline
-  NotFound & private & immutabile & Int & Indica il codice di risposta \gloss{HTTP} 404\\
+  NotFound & privato & immutabile & Int & Indica il codice di risposta \gloss{HTTP} 404\\
   \hline
 \end{tabular}
 
@@ -3868,17 +3870,17 @@ nella comunicazione con il server.
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  method & private & immutabile & \hyperref[sec:actorbase::driver::api::RequestMethod]{RequestMethod} & Indica il tipo di richiesta \gloss{HTTP}\\
+  method & privato & immutabile & \hyperref[sec:actorbase::driver::api::RequestMethod]{RequestMethod} & Indica il tipo di richiesta \gloss{HTTP}\\
   \hline
-  url & private & immutabile & String & Rappresenta l'indirizzo dell'\gloss{API} esposta sul server a cui inviare la richiesta\\
+  url & privato & immutabile & String & Rappresenta l'indirizzo dell'\gloss{API} esposta sul server a cui inviare la richiesta\\
   \hline
-  credentials & private & immutabile & \hyperref[sec:actorbase::driver::client::api::Credentials]{Credentials} & Rappresenta le credenziali di accesso al sistema Actorbase\\
+  credentials & privato & immutabile & \hyperref[sec:actorbase::driver::client::api::Credentials]{Credentials} & Rappresenta le credenziali di accesso al sistema Actorbase\\
   \hline
-  headers & private & immutabile & Map<String, List<String> > & Rappresenta gli \gloss{header} \gloss{HTTP} da associare alla richiesta\\
+  headers & privato & immutabile & Map<String, List<String> > & Rappresenta gli \gloss{header} \gloss{HTTP} da associare alla richiesta\\
   \hline
-  params & private & immutabile &  Map<String, String> & Rappresenta i parametri da allegare alla richiesta \gloss{HTTP}\\
+  params & privato & immutabile &  Map<String, String> & Rappresenta i parametri da allegare alla richiesta \gloss{HTTP}\\
   \hline
-  body & private & immutabile & Array di Byte & Rappresenta i dati di \gloss{payload} da iniviare sul server\\
+  body & privato & immutabile & Array di Byte & Rappresenta i dati di \gloss{payload} da iniviare sul server\\
   \hline
 \end{tabular}
 
@@ -3888,19 +3890,19 @@ nella comunicazione con il server.
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  withMethod & public & \hyperref[sec:actorbase::driver::client::api::RequestMethod]{RequestMethod} & Imposta il metodo di richiesta \gloss{HTTP}\\
+  withMethod & pubblico & \hyperref[sec:actorbase::driver::client::api::RequestMethod]{RequestMethod} & Imposta il metodo di richiesta \gloss{HTTP}\\
   \hline
-  withUrl & public & \hyperref[sec:actorbase::driver::client::api::RequestMethod]{RequestMethod} & Imposta l'indirizzo dell'\gloss{API} esposta sul server\\
+  withUrl & pubblico & \hyperref[sec:actorbase::driver::client::api::RequestMethod]{RequestMethod} & Imposta l'indirizzo dell'\gloss{API} esposta sul server\\
   \hline
-  withCredentials & public & \hyperref[sec:actorbase::driver::client::api::RequestMethod]{RequestMethod} & Imposta le credenziali di accesso al sistema Actorbase da utilizzare nelle richieste \gloss{HTTP}\\
+  withCredentials & pubblico & \hyperref[sec:actorbase::driver::client::api::RequestMethod]{RequestMethod} & Imposta le credenziali di accesso al sistema Actorbase da utilizzare nelle richieste \gloss{HTTP}\\
   \hline
-  withParams & public & \hyperref[sec:actorbase::driver::client::api::RequestMethod]{RequestMethod} & Imposta i parametri da inviare allegati alla richiesta \gloss{HTTP}\\
+  withParams & pubblico & \hyperref[sec:actorbase::driver::client::api::RequestMethod]{RequestMethod} & Imposta i parametri da inviare allegati alla richiesta \gloss{HTTP}\\
   \hline
-  withBody & public & \hyperref[sec:actorbase::driver::client::api::RequestMethod]{RequestMethod} & Imposta il \gloss{payload} da inviare allegato alla richiesta \gloss{HTTP}\\
+  withBody & pubblico & \hyperref[sec:actorbase::driver::client::api::RequestMethod]{RequestMethod} & Imposta il \gloss{payload} da inviare allegato alla richiesta \gloss{HTTP}\\
   \hline
-  addPath & public & \hyperref[sec:actorbase::driver::client::api::RequestMethod]{RequestMethod} & Aggiunge eventuali indirizzi aggiuntivi all'\gloss{url} della richiesta \gloss{HTTP}\\
+  addPath & pubblico & \hyperref[sec:actorbase::driver::client::api::RequestMethod]{RequestMethod} & Aggiunge eventuali indirizzi aggiuntivi all'\gloss{url} della richiesta \gloss{HTTP}\\
   \hline
-  toRequest & public & \hyperref[sec:actorbase::driver::client::api::Request]{Request} & Trasforma l'oggetto riferito da \gloss{this}, in un oggetto di tipo \hyperref[sec:actorbase::driver::client::api::Request]{Request}\\
+  toRequest & pubblico & \hyperref[sec:actorbase::driver::client::api::Request]{Request} & Trasforma l'oggetto riferito da \gloss{this}, in un oggetto di tipo \hyperref[sec:actorbase::driver::client::api::Request]{Request}\\
   \hline
 \end{tabular}
 
@@ -4005,7 +4007,7 @@ ricerca, sia generale, sia interna a specifiche \gloss{collezioni}.
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  elems & private & immutabile & \gloss{Map<String, Object>} & Mappa contenente una o più coppie chiave-valore, utile a rappresentare una frazione di una \gloss{collezione}\\
+  elems & privato & immutabile & \gloss{Map<String, Object>} & Mappa contenente una o più coppie chiave-valore, utile a rappresentare una frazione di una \gloss{collezione}\\
   \hline
 \end{tabular}
 
@@ -4015,21 +4017,21 @@ ricerca, sia generale, sia interna a specifiche \gloss{collezioni}.
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  as<T> & public & T & Metodo con tipo generico, permette di ottenere il valore associato alla chiave parametro del tipo specificato come tipo generico T\\
+  as<T> & pubblico & T & Metodo con tipo generico, permette di ottenere il valore associato alla chiave parametro del tipo specificato come tipo generico T\\
   \hline
-  +<T> & public & \hyperref[sec:actorbase::driver::data::ActorbaseObject]{ActorbaseObject<T>} & Metodo ereditato dall'interfaccia Map di \gloss{Scala}, permette di aggiungere una coppia chiave-valore all'oggetto \hyperref[sec:actorbase::driver::data::ActorbaseObject]{ActorbaseObject<T>}  di tipo String-T generico\\
+  +<T> & pubblico & \hyperref[sec:actorbase::driver::data::ActorbaseObject]{ActorbaseObject<T>} & Metodo ereditato dall'interfaccia Map di \gloss{Scala}, permette di aggiungere una coppia chiave-valore all'oggetto \hyperref[sec:actorbase::driver::data::ActorbaseObject]{ActorbaseObject<T>}  di tipo String-T generico\\
   \hline
-  +<T> (overload) & public & \hyperref[sec:actorbase::driver::data::ActorbaseObject]{ActorbaseObject<T>} & Metodo ereditato dall'interfaccia Map di \gloss{Scala}, permette di aggiungere più coppie chiave-valore all'oggetto \hyperref[sec:actorbase::driver::data::ActorbaseObject]{ActorbaseObject<T>}  di tipo String-T generico\\
+  +<T> (overload) & pubblico & \hyperref[sec:actorbase::driver::data::ActorbaseObject]{ActorbaseObject<T>} & Metodo ereditato dall'interfaccia Map di \gloss{Scala}, permette di aggiungere più coppie chiave-valore all'oggetto \hyperref[sec:actorbase::driver::data::ActorbaseObject]{ActorbaseObject<T>}  di tipo String-T generico\\
   \hline
-  - & public & \hyperref[sec:actorbase::driver::data::ActorbaseObject]{ActorbaseObject<Object>} & Metodo ereditato dall'interfaccia Map di \gloss{Scala}, permette di rimuovere una coppie chiave-valore dall'oggetto \hyperref[sec:actorbase::driver::data::ActorbaseObject]{ActorbaseObject<T>}  di tipo String-T generico\\
+  - & pubblico & \hyperref[sec:actorbase::driver::data::ActorbaseObject]{ActorbaseObject<Object>} & Metodo ereditato dall'interfaccia Map di \gloss{Scala}, permette di rimuovere una coppie chiave-valore dall'oggetto \hyperref[sec:actorbase::driver::data::ActorbaseObject]{ActorbaseObject<T>}  di tipo String-T generico\\
   \hline
-  - (overload) & public & \hyperref[sec:actorbase::driver::data::ActorbaseObject]{ActorbaseObject<Object>} & Metodo ereditato dall'interfaccia Map di \gloss{Scala}, permette di rimuovere più coppie chiave-valore dall'oggetto \hyperref[sec:actorbase::driver::data::ActorbaseObject]{ActorbaseObject<T>}  di tipo String-T generico\\
+  - (overload) & pubblico & \hyperref[sec:actorbase::driver::data::ActorbaseObject]{ActorbaseObject<Object>} & Metodo ereditato dall'interfaccia Map di \gloss{Scala}, permette di rimuovere più coppie chiave-valore dall'oggetto \hyperref[sec:actorbase::driver::data::ActorbaseObject]{ActorbaseObject<T>}  di tipo String-T generico\\
   \hline
-  get & public & Object & Metodo ereditato dall'interfaccia Map di \gloss{Scala}, permette di ottenere il valore associato alla chiave specificata nell'oggetto \hyperref[sec:actorbase::driver::data::ActorbaseObject]{ActorbaseObject<T>}  di tipo String-T generico\\
+  get & pubblico & Object & Metodo ereditato dall'interfaccia Map di \gloss{Scala}, permette di ottenere il valore associato alla chiave specificata nell'oggetto \hyperref[sec:actorbase::driver::data::ActorbaseObject]{ActorbaseObject<T>}  di tipo String-T generico\\
   \hline
-  iterator & public & Iterator<(String, Object) & Metodo ereditato dall'interfaccia Map di \gloss{Scala}, permette di ottenere un iteratore all'oggetto \hyperref[sec:actorbase::driver::data::ActorbaseObject]{ActorbaseObject<T>}  di tipo String-Object\\
+  iterator & pubblico & Iterator<(String, Object) & Metodo ereditato dall'interfaccia Map di \gloss{Scala}, permette di ottenere un iteratore all'oggetto \hyperref[sec:actorbase::driver::data::ActorbaseObject]{ActorbaseObject<T>}  di tipo String-Object\\
   \hline
-  toString & public & String & Ritorna l'oggetto di tipo ActorbaseObject in formato String\\
+  toString & pubblico & String & Ritorna l'oggetto di tipo ActorbaseObject in formato String\\
   \hline
 \end{tabular}
 
@@ -4137,13 +4139,13 @@ navigabilità dei contenuti.
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  owner & private & immutabile & String & Creatore della \gloss{collezione}\\
+  owner & privato & immutabile & String & Creatore della \gloss{collezione}\\
   \hline
-  collectionName & private & immutabile & String & Nome della \gloss{collezione}\\
+  collectionName & privato & immutabile & String & Nome della \gloss{collezione}\\
   \hline
-  data & private & immutabile & Map<String, Object> & Mappa contenente le coppie chiave-valore della \gloss{collezione}\\
+  data & privato & immutabile & Map<String, Object> & Mappa contenente le coppie chiave-valore della \gloss{collezione}\\
   \hline
-  conn & private & immutabile & \hyperref[sec:actorbase::driver::Connection]{Connection} & Oggetto che rappresenta i parametri di connessione al \gloss{server}\\
+  conn & privato & immutabile & \hyperref[sec:actorbase::driver::Connection]{Connection} & Oggetto che rappresenta i parametri di connessione al \gloss{server}\\
   \hline
 \end{tabular}
 
@@ -4155,47 +4157,47 @@ navigabilità dei contenuti.
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  owner & public & String & Metodo pubblico di accesso in sola lettura dell'attributo owner\\
+  owner & pubblico & String & Metodo pubblico di accesso in sola lettura dell'attributo owner\\
   \hline
-  collectionName & public & String & Metodo pubblico di accesso in sola lettura dell'attributo collectionName\\
+  collectionName & pubblico & String & Metodo pubblico di accesso in sola lettura dell'attributo collectionName\\
   \hline
-  data & public & String & Metodo pubblico di accesso in sola lettura dell'attributo data\\
+  data & pubblico & String & Metodo pubblico di accesso in sola lettura dell'attributo data\\
   \hline
-  conn & public & \hyperref[sec:actorbase::driver::Connection]{Connection} & Metodo pubblico di accesso in sola lettura dell'attributo conn\\
+  conn & pubblico & \hyperref[sec:actorbase::driver::Connection]{Connection} & Metodo pubblico di accesso in sola lettura dell'attributo conn\\
   \hline
-  rename & public & void & Rinomina la \gloss{collezione}\\
+  rename & pubblico & void & Rinomina la \gloss{collezione}\\
   \hline
-  insert & public & \hyperref[sec::actorbase::driver::data::ActorbaseCollection]{ActorbaseColletion} & Inserisce una o più coppie chiave-valore all'interno di Actorbase\\
+  insert & pubblico & \hyperref[sec::actorbase::driver::data::ActorbaseCollection]{ActorbaseColletion} & Inserisce una o più coppie chiave-valore all'interno di Actorbase\\
   \hline
-  insert (overload) & public & \hyperref[sec::actorbase::driver::data::ActorbaseCollection]{ActorbaseColletion} & Inserisce un'oggetto di tipo \hyperref[sec:actorbase::driver::data::ActorbaseObject]{ActorbaseObject<T>} all'interno della \gloss{collezione}\\
+  insert (overload) & pubblico & \hyperref[sec::actorbase::driver::data::ActorbaseCollection]{ActorbaseColletion} & Inserisce un'oggetto di tipo \hyperref[sec:actorbase::driver::data::ActorbaseObject]{ActorbaseObject<T>} all'interno della \gloss{collezione}\\
   \hline
-  update & public & \hyperref[sec::actorbase::driver::data::ActorbaseCollection]{ActorbaseColletion} & Aggiorna la coppia chiave-valore all'interno della \gloss{collezione}\\
+  update & pubblico & \hyperref[sec::actorbase::driver::data::ActorbaseCollection]{ActorbaseColletion} & Aggiorna la coppia chiave-valore all'interno della \gloss{collezione}\\
   \hline
-  remove & public & \hyperref[sec:actorbase::driver::data::ActorbaseCollection]{ActorbaseCollection} & Rimuove una o più coppie chiave-valore dalla \gloss{collezione}\\
+  remove & pubblico & \hyperref[sec:actorbase::driver::data::ActorbaseCollection]{ActorbaseCollection} & Rimuove una o più coppie chiave-valore dalla \gloss{collezione}\\
   \hline
-  remove<T> (overload) & public & \hyperref[sec:actorbase::driver::data::ActorbaseObject]{ActorbaseObject} & Rimuove una coppia chiave-valore dalla \gloss{collezione}\\
+  remove<T> (overload) & pubblico & \hyperref[sec:actorbase::driver::data::ActorbaseObject]{ActorbaseObject} & Rimuove una coppia chiave-valore dalla \gloss{collezione}\\
   \hline
-  find<T> & public & \hyperref[sec:actorbase::driver::data::ActorbaseObject]{ActorbaseObject<T>} & Cerca tutte le coppie-chiave valore nella \gloss{collezione} restituendo un'instanza \hyperref[sec:actorbase::driver::data::ActorbaseObject]{ActorbaseObject<T>}\\
+  find<T> & pubblico & \hyperref[sec:actorbase::driver::data::ActorbaseObject]{ActorbaseObject<T>} & Cerca tutte le coppie-chiave valore nella \gloss{collezione} restituendo un'instanza \hyperref[sec:actorbase::driver::data::ActorbaseObject]{ActorbaseObject<T>}\\
   \hline
-  find<T> (overload) & public & \hyperref[sec:actorbase::driver::data::ActorbaseObject]{ActorbaseObject<T>} & Cerca uno o più coppie-chiave valore nella \gloss{collezione}\\
+  find<T> (overload) & pubblico & \hyperref[sec:actorbase::driver::data::ActorbaseObject]{ActorbaseObject<T>} & Cerca uno o più coppie-chiave valore nella \gloss{collezione}\\
   \hline
-  findOne<T> & public & \hyperref[sec:actorbase::driver::data::ActorbaseObject]{ActorbaseObject<T>} & Cerca una coppia chiave-valore nella \gloss{collezione}\\
+  findOne<T> & pubblico & \hyperref[sec:actorbase::driver::data::ActorbaseObject]{ActorbaseObject<T>} & Cerca una coppia chiave-valore nella \gloss{collezione}\\
   \hline
-  addContributor & public & void & Aggiunge un \gloss{collaboratore} alla \gloss{collezione}\\
+  addContributor & pubblico & void & Aggiunge un \gloss{collaboratore} alla \gloss{collezione}\\
   \hline
-  removeContributor & public & void & Rimuove un \gloss{collaborator} dalla \gloss{collezione}\\
+  removeContributor & pubblico & void & Rimuove un \gloss{collaborator} dalla \gloss{collezione}\\
   \hline
-  drop & public & void & Cancella la \gloss{collezione}\\
+  drop & pubblico & void & Cancella la \gloss{collezione}\\
   \hline
-  export & public & void & Esporta la \gloss{collezione} su \gloss{filesystem} al percorso specificato\\
+  export & pubblico & void & Esporta la \gloss{collezione} su \gloss{filesystem} al percorso specificato\\
   \hline
-  count & public & Int & Conta il numero di coppie chiave-valore che formano la \gloss{collezione}\\
+  count & pubblico & Int & Conta il numero di coppie chiave-valore che formano la \gloss{collezione}\\
   \hline
-  foreach & public & void & Permette di visitare l'intera \gloss{collezione} applicando una funzione ad ogni \gloss{item}\\
+  foreach & pubblico & void & Permette di visitare l'intera \gloss{collezione} applicando una funzione ad ogni \gloss{item}\\
   \hline
-  withFilter & public & FilterMonadic<(String, Object), Map<String, Object> > & Permette di visitare l'intera \gloss{collezione} utilizzando il costrutto for \gloss{Scala}\\
+  withFilter & pubblico & FilterMonadic<(String, Object), Map<String, Object> > & Permette di visitare l'intera \gloss{collezione} utilizzando il costrutto for \gloss{Scala}\\
   \hline
-  toString & public & String & Ritorna la \gloss{collezione} in formato String \gloss{JSON}\\
+  toString & pubblico & String & Ritorna la \gloss{collezione} in formato String \gloss{JSON}\\
   \hline
 \end{tabular}
 
@@ -4358,7 +4360,7 @@ Questa classe viene utilizzata per la rappresentazione dell'aggregazione di
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  data & private & mutabile & Map<String, \hyperref[sec:actorbase::driver::data::ActorbaseCollection]{ActorbaseCollection}> & Mappa che rappresenta un insieme di \hyperref[sec:actorbase::driver::data::ActorbaseCollection]{ActorbaseCollection}\\
+  data & privato & mutabile & Map<String, \hyperref[sec:actorbase::driver::data::ActorbaseCollection]{ActorbaseCollection}> & Mappa che rappresenta un insieme di \hyperref[sec:actorbase::driver::data::ActorbaseCollection]{ActorbaseCollection}\\
   \hline
 \end{tabular}
 
@@ -4370,17 +4372,17 @@ Questa classe viene utilizzata per la rappresentazione dell'aggregazione di
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  find & public & \hyperref[sec:actorbase::driver::data::ActorbaseCollection]{ActorbaseCollect\allowbreak{}ion} & Cerca uno o più coppie-chiave valore nelle \gloss{collezioni}\\
+  find & pubblico & \hyperref[sec:actorbase::driver::data::ActorbaseCollection]{ActorbaseCollect\allowbreak{}ion} & Cerca uno o più coppie-chiave valore nelle \gloss{collezioni}\\
   \hline
-  drop & public & \hyperref[sec:actorbase::driver::data::ActorbaseCollection]{ActorbaseCollect\allowbreak{}ion} & Cancella una o più \gloss{collezioni}\\
+  drop & pubblico & \hyperref[sec:actorbase::driver::data::ActorbaseCollection]{ActorbaseCollect\allowbreak{}ion} & Cancella una o più \gloss{collezioni}\\
   \hline
-  count & public & Int & Ritorna il numero di \gloss{collezioni} contenute nell'oggetto \hyperref[sec:actorbase::driver::data::ActorbaseCollectionMap]{ActorbaseCollectionMap}\\
+  count & pubblico & Int & Ritorna il numero di \gloss{collezioni} contenute nell'oggetto \hyperref[sec:actorbase::driver::data::ActorbaseCollectionMap]{ActorbaseCollectionMap}\\
   \hline
-  foreach & public & void & Permette di visitare l'intera \gloss{collezione} di \gloss{collezioni} applicando una funzione ad ogni \gloss{item}\\
+  foreach & pubblico & void & Permette di visitare l'intera \gloss{collezione} di \gloss{collezioni} applicando una funzione ad ogni \gloss{item}\\
   \hline
-  withFilter & public & FilterMonadic<(String, \hyperref[sec:actorbase::driver::data::ActorbaseCollection]{ActorbaseCollection}), Map<String,  \hyperref[sec:actorbase::driver::data::ActorbaseCollection]{ActorbaseCollection}>> & Permette di visitare l'intero oggetto e applicare funzioni alle coppie chiave-valore\\
+  withFilter & pubblico & FilterMonadic<(String, \hyperref[sec:actorbase::driver::data::ActorbaseCollection]{ActorbaseCollection}), Map<String,  \hyperref[sec:actorbase::driver::data::ActorbaseCollection]{ActorbaseCollection}>> & Permette di visitare l'intero oggetto e applicare funzioni alle coppie chiave-valore\\
   \hline
-  toString & public & String & Ritorna la \gloss{collezione} in formato Stringa \gloss{JSON}\\
+  toString & pubblico & String & Ritorna la \gloss{collezione} in formato Stringa \gloss{JSON}\\
   \hline
 \end{tabular}
 
@@ -4685,7 +4687,7 @@ Offre un'interfaccia per la creazione di un \gloss{prompt} generico.
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  getPrompt & public & String & Ritorna la stringa che rappresenta il \gloss{prompt}.\\
+  getPrompt & pubblico & String & Ritorna la stringa che rappresenta il \gloss{prompt}.\\
   \hline
 \end{tabular}
 
@@ -4718,7 +4720,7 @@ risposta ricevuta dal \gloss{driver}.
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  update & public & void & Aggiorna lo stato dell'oggetto di tipo \hyperref[sec:actorbase::cli::views::Observer]{Observer}\\
+  update & pubblico & void & Aggiorna lo stato dell'oggetto di tipo \hyperref[sec:actorbase::cli::views::Observer]{Observer}\\
   \hline
 \end{tabular}
 
@@ -4757,25 +4759,25 @@ Viene utilizzata per la lettura dei comandi inseriti dall'utente.
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  loop & private & immutabile & Boolean & Rappresenta la condizione di uscita dal ciclo di lettura dei comandi\\
+  loop & privato & immutabile & Boolean & Rappresenta la condizione di uscita dal ciclo di lettura dei comandi\\
   \hline
-  commandInvoker & private & immutabile & \hyperref[sec:actorbase::cli::models::CommandInvoker]{CommandInvoker} & Rappresenta il riferimento al model\\
+  commandInvoker & privato & immutabile & \hyperref[sec:actorbase::cli::models::CommandInvoker]{CommandInvoker} & Rappresenta il riferimento al model\\
   \hline
-  view & private & immutabile & ResultViewer & Rappresenta il riferimento alla view\\
+  view & privato & immutabile & ResultViewer & Rappresenta il riferimento alla view\\
   \hline
-  grammarParser & private & immutabile & GrammarParser & Rappresenta il riferimento al controller\\
+  grammarParser & privato & immutabile & GrammarParser & Rappresenta il riferimento al controller\\
   \hline
-  reader & private & immutabile & ConsoleReader & Rappresenta il reader per console appplication \\
+  reader & privato & immutabile & ConsoleReader & Rappresenta il reader per console appplication \\
   \hline
-  history & private & immutabile & FileHistory & Rappresenta il file contenente la storia dei comandi\\
+  history & privato & immutabile & FileHistory & Rappresenta il file contenente la storia dei comandi\\
   \hline
-  prompt & private & immutabile & ActorbasePrompt & Rappresenta il prompt di Actorbase\\
+  prompt & privato & immutabile & ActorbasePrompt & Rappresenta il prompt di Actorbase\\
   \hline
-  banner & private & immutabile & ActorbaseBanner & Rappresenta il banner di Actorbase\\
+  banner & privato & immutabile & ActorbaseBanner & Rappresenta il banner di Actorbase\\
   \hline
-  completers & private & mutabile & List di String & Lista di stringhe che serve per suggerire i completamenti\\
+  completers & privato & mutabile & List di String & Lista di stringhe che serve per suggerire i completamenti\\
   \hline
-  out & private & immutabile & PrintWriter & Oggetto di tipo PrintWriter\\
+  out & privato & immutabile & PrintWriter & Oggetto di tipo PrintWriter\\
   \hline
 \end{tabular}
 
@@ -4805,7 +4807,7 @@ all'avvio della \gloss{CLI}.
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  getBanner & public & String & Crea il banner e lo ritorna come stringa\\
+  getBanner & pubblico & String & Crea il banner e lo ritorna come stringa\\
   \hline
 \end{tabular}
 
@@ -4842,7 +4844,7 @@ effettuata.
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  getPrompt & public & String & Ritorna la stringa che rappresenta il \gloss{prompt} di actorbase\\
+  getPrompt & pubblico & String & Ritorna la stringa che rappresenta il \gloss{prompt} di actorbase\\
   \hline
 \end{tabular}
 
@@ -4852,7 +4854,7 @@ effettuata.
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  os & private & immutabile & String & Oggetto che rappresenta il nome del sistema\\
+  os & privato & immutabile & String & Oggetto che rappresenta il nome del sistema\\
   \hline
 \end{tabular}
 
@@ -4889,7 +4891,7 @@ gestire la visualizzazione dei dati ricevuti dalla classe
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  update & public & void & Aggiorna lo stato della \gloss{view}\\
+  update & pubblico & void & Aggiorna lo stato della \gloss{view}\\
   \hline
 \end{tabular}
 
@@ -4954,33 +4956,33 @@ con i parametri corretti per consentire l'esecuzione del comando.
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  authManagementCommand & public & Parser di \hyperref[sec:actorbase::cli::models::Command]{Command} & Fa il parsing del comando di autenticazione e istanzia il \hyperref[sec:actorbase::cli::models::LoginCommand]{LoginCommand} o il \hyperref[sec:actorbase::cli::models::LogoutCommand]{LogoutCommand} dedicato a seconda del caso\\
+  authManagementCommand & pubblico & Parser di \hyperref[sec:actorbase::cli::models::Command]{Command} & Fa il parsing del comando di autenticazione e istanzia il \hyperref[sec:actorbase::cli::models::LoginCommand]{LoginCommand} o il \hyperref[sec:actorbase::cli::models::LogoutCommand]{LogoutCommand} dedicato a seconda del caso\\
   \hline
-  changePasswordCommand & public & Parser di \hyperref[sec:actorbase::cli::models::Command]{Command} & Fa il parsing del comando di cambio password e istanzia il \hyperref[sec:actorbase::cli::models::ChangePasswordCommand]{ChangePasswordCommand}\\
+  changePasswordCommand & pubblico & Parser di \hyperref[sec:actorbase::cli::models::Command]{Command} & Fa il parsing del comando di cambio password e istanzia il \hyperref[sec:actorbase::cli::models::ChangePasswordCommand]{ChangePasswordCommand}\\
   \hline
-  helpCommand & public & Parser di \hyperref[sec:actorbase::cli::models::Command]{Command} & Fa il parsing del comando di aiuto e istanzia l'\hyperref[sec:actorbase::cli::models::HelpCommand]{HelpCommand}\\
+  helpCommand & pubblico & Parser di \hyperref[sec:actorbase::cli::models::Command]{Command} & Fa il parsing del comando di aiuto e istanzia l'\hyperref[sec:actorbase::cli::models::HelpCommand]{HelpCommand}\\
   \hline
-  collectionManagementCommand & public & Parser di \hyperref[sec:actorbase::cli::models::Command]{Command} & Fa il parsing del comando di gestione delle collezioni e istanzia il \hyperref[sec:actorbase::cli::models::CreateCollectionCommand]{CreateCollectionCommand}, il \hyperref[sec:actorbase::cli::models::RemoveCollectionCommand]{RemoveCollectionCommand}, il \hyperref[sec:actorbase::cli::models::ListCollectionsCommand]{ListCollectionsCommand} o il \hyperref[sec:actorbase::cli::models::RenameCollectionCommand]{RenameCollectionCommand} a seconda del caso\\
+  collectionManagementCommand & pubblico & Parser di \hyperref[sec:actorbase::cli::models::Command]{Command} & Fa il parsing del comando di gestione delle collezioni e istanzia il \hyperref[sec:actorbase::cli::models::CreateCollectionCommand]{CreateCollectionCommand}, il \hyperref[sec:actorbase::cli::models::RemoveCollectionCommand]{RemoveCollectionCommand}, il \hyperref[sec:actorbase::cli::models::ListCollectionsCommand]{ListCollectionsCommand} o il \hyperref[sec:actorbase::cli::models::RenameCollectionCommand]{RenameCollectionCommand} a seconda del caso\\
   \hline
-  addContributorCommand & public & Parser di \hyperref[sec:actorbase::cli::models::Command]{Command} & Fa il parsing del comando di aggiunta collaboratore e istanzia l'\hyperref[sec:actorbase::cli::models::AddContributorCommand]{AddContributorCommand}\\
+  addContributorCommand & pubblico & Parser di \hyperref[sec:actorbase::cli::models::Command]{Command} & Fa il parsing del comando di aggiunta collaboratore e istanzia l'\hyperref[sec:actorbase::cli::models::AddContributorCommand]{AddContributorCommand}\\
   \hline
-  removeContributorCommand & public & Parser di \hyperref[sec:actorbase::cli::models::Command]{Command} &
-                                                                                                          Fa il parsing del comando di rimozione collaboratore e istanzia il \hyperref[sec:actorbase::cli::models::RemoveContributorCommand]{RemoveContributorCommand}\\
+  removeContributorCommand & pubblico & Parser di \hyperref[sec:actorbase::cli::models::Command]{Command} &
+                                                                                                            Fa il parsing del comando di rimozione collaboratore e istanzia il \hyperref[sec:actorbase::cli::models::RemoveContributorCommand]{RemoveContributorCommand}\\
   \hline
-  importExportCommand & public & Parser di \hyperref[sec:actorbase::cli::models::Command]{Command} & Fa il parsing del comando di import/export e istanzia l'\hyperref[sec:actorbase::cli::models::ImportCommand]{ImportCommand} o l'\hyperref[sec:actorbase::cli::models::ExportCommand]{ExportCommand} a seconda del caso\\
+  importExportCommand & pubblico & Parser di \hyperref[sec:actorbase::cli::models::Command]{Command} & Fa il parsing del comando di import/export e istanzia l'\hyperref[sec:actorbase::cli::models::ImportCommand]{ImportCommand} o l'\hyperref[sec:actorbase::cli::models::ExportCommand]{ExportCommand} a seconda del caso\\
   \hline
-  insertItemCommand & public & Parser di \hyperref[sec:actorbase::cli::models::Command]{Command} & Fa il parsing del comando di inserimento item e istanzia l'\hyperref[sec:actorbase::cli::models::InsertItemCommand]{InsertItemCommand}\\
+  insertItemCommand & pubblico & Parser di \hyperref[sec:actorbase::cli::models::Command]{Command} & Fa il parsing del comando di inserimento item e istanzia l'\hyperref[sec:actorbase::cli::models::InsertItemCommand]{InsertItemCommand}\\
   \hline
-  removeItemCommand & public & Parser di \hyperref[sec:actorbase::cli::models::Command]{Command} &
-                                                                                                   Fa il parsing del comando di rimozione item e istanzia il \hyperref[sec:actorbase::cli::models::RemoveItemCommand]{RemoveItemCommand}\\
+  removeItemCommand & pubblico & Parser di \hyperref[sec:actorbase::cli::models::Command]{Command} &
+                                                                                                     Fa il parsing del comando di rimozione item e istanzia il \hyperref[sec:actorbase::cli::models::RemoveItemCommand]{RemoveItemCommand}\\
   \hline
-  findCommand & public & Parser di \hyperref[sec:actorbase::cli::models::Command]{Command} & Fa il parsing del comando di ricerca e istanzia il \hyperref[sec:actorbase::cli::models::FindCommand]{FindCommand}\\
+  findCommand & pubblico & Parser di \hyperref[sec:actorbase::cli::models::Command]{Command} & Fa il parsing del comando di ricerca e istanzia il \hyperref[sec:actorbase::cli::models::FindCommand]{FindCommand}\\
   \hline
-  userManagementCommand & public & Parser di \hyperref[sec:actorbase::cli::models::Command]{Command} & Fa il parsing del comando di gestione utente e istanzia l'\hyperref[sec:actorbase::cli::models::AddUserCommand]{AddUserCommand}, il \hyperref[sec:actorbase::cli::models::RemoveUserCommand]{RemoveUserCommand} o il \hyperref[sec:actorbase::cli::models::ResetPasswordCommand]{ResetPasswordCommand} a seconda del caso\\
+  userManagementCommand & pubblico & Parser di \hyperref[sec:actorbase::cli::models::Command]{Command} & Fa il parsing del comando di gestione utente e istanzia l'\hyperref[sec:actorbase::cli::models::AddUserCommand]{AddUserCommand}, il \hyperref[sec:actorbase::cli::models::RemoveUserCommand]{RemoveUserCommand} o il \hyperref[sec:actorbase::cli::models::ResetPasswordCommand]{ResetPasswordCommand} a seconda del caso\\
   \hline
-  commandList & public & Parser di \hyperref[sec:actorbase::cli::models::Command]{Command} & Racchiude tutti i possibili metodi di parsing\\
+  commandList & pubblico & Parser di \hyperref[sec:actorbase::cli::models::Command]{Command} & Racchiude tutti i possibili metodi di parsing\\
   \hline
-  parseInput & public & Boolean & Metodo dedicato alla cattura dell'input a cui fare il parsing\\
+  parseInput & pubblico & Boolean & Metodo dedicato alla cattura dell'input a cui fare il parsing\\
   \hline
 \end{tabular}
 
@@ -5003,17 +5005,17 @@ con i parametri corretti per consentire l'esecuzione del comando.
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  types & private & immutabile & Parser[String] & Rappresenta i tipi accettati dalla shell\\
+  types & privato & immutabile & Parser[String] & Rappresenta i tipi accettati dalla shell\\
   \hline
-  permissions & private & immutabile & Parser[String] & Rappresenta i permessi accettati dalla shell\\
+  permissions & privato & immutabile & Parser[String] & Rappresenta i permessi accettati dalla shell\\
   \hline
-  quotedString & private & immutabile & Parser[String] & Rappresenta le Quoted String accettate dalla shell\\
+  quotedString & privato & immutabile & Parser[String] & Rappresenta le Quoted String accettate dalla shell\\
   \hline
-  literalString & private & immutabile & Parser[String] & Rappresenta le Stringhe letterali accettate dalla shell\\
+  literalString & privato & immutabile & Parser[String] & Rappresenta le Stringhe letterali accettate dalla shell\\
   \hline
-  listString & private & immutabile & Parser[String] & Rappresenta le ListString accettate dalla shell\\
+  listString & privato & immutabile & Parser[String] & Rappresenta le ListString accettate dalla shell\\
   \hline
-  keyString & private & immutabile & Parser[String] & Rappresenta le keyString accettate dalla shell\\
+  keyString & privato & immutabile & Parser[String] & Rappresenta le keyString accettate dalla shell\\
   \hline
 \end{tabular}
 
@@ -5086,7 +5088,7 @@ comando.
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  execute & public & String & Esegue il comando\\
+  execute & pubblico & String & Esegue il comando\\
   \hline
 \end{tabular}
 
@@ -5123,9 +5125,9 @@ ha ritornato un risultato.
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  observers & private & mutabile & ListBuffer[Observer] & Lista di oggetti che osservano questa classe\\
+  observers & privato & mutabile & ListBuffer[Observer] & Lista di oggetti che osservano questa classe\\
   \hline
-  state & private & mutabile & String & Stato dell'oggetto\\
+  state & privato & mutabile & String & Stato dell'oggetto\\
   \hline
 \end{tabular}
 
@@ -5135,15 +5137,15 @@ ha ritornato un risultato.
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  setState & public & void & Cambia lo stato con quello in input\\
+  setState & pubblico & void & Cambia lo stato con quello in input\\
   \hline
-  getState & public & String & Ritorna lo stato\\
+  getState & pubblico & String & Ritorna lo stato\\
   \hline
-  attach & public & void & Aggiunge un observer\\
+  attach & pubblico & void & Aggiunge un observer\\
   \hline
-  detach & public & void & Rimuove un observer\\
+  detach & pubblico & void & Rimuove un observer\\
   \hline
-  notifyAllObservers & public & void & Notifica tutti gli observers col proprio stato\\
+  notifyAllObservers & pubblico & void & Notifica tutti gli observers col proprio stato\\
   \hline
 \end{tabular}
 
@@ -5216,7 +5218,7 @@ Quando riceve una risposta si occupa di notificare la classe \hyperref[sec:actor
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  history & private & mutabile & List[Command] & Una lista contenente la history dei comandi inseriti\\
+  history & privato & mutabile & List[Command] & Una lista contenente la history dei comandi inseriti\\
   \hline
 \end{tabular}
 
@@ -5226,7 +5228,7 @@ Quando riceve una risposta si occupa di notificare la classe \hyperref[sec:actor
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  storeAndExecute & public & String & Immagazzina il comando nella history e provvede alla sua esecuzione\\
+  storeAndExecute & pubblico & String & Immagazzina il comando nella history e provvede alla sua esecuzione\\
   \hline
 \end{tabular}
 
@@ -5274,7 +5276,7 @@ Viene utilizzata per chiamare il metodo di
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  receiver & public & immutabile & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Oggetto per l'esecuzione del comando\\
+  receiver & pubblico & immutabile & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Oggetto per l'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -5284,7 +5286,7 @@ Viene utilizzata per chiamare il metodo di
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  execute & public & String & Provvede all'esecuzione del comando\\
+  execute & pubblico & String & Provvede all'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -5321,7 +5323,7 @@ dall'utente.
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  receiver & public & immutabile & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Oggetto per l'esecuzione del comando \\
+  receiver & pubblico & immutabile & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Oggetto per l'esecuzione del comando \\
   \hline
 \end{tabular}
 
@@ -5331,7 +5333,7 @@ dall'utente.
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  execute & public & String & Provvede all'esecuzione del comando\\
+  execute & pubblico & String & Provvede all'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -5365,7 +5367,7 @@ Viene utilizzata per chiamare il metodo di
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  receiver & public & immutabile & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Oggetto per l'esecuzione del comando \\
+  receiver & pubblico & immutabile & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Oggetto per l'esecuzione del comando \\
   \hline
 \end{tabular}
 
@@ -5375,7 +5377,7 @@ Viene utilizzata per chiamare il metodo di
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  execute & public & String & Provvede all'esecuzione del comando\\
+  execute & pubblico & String & Provvede all'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -5410,7 +5412,7 @@ Viene utilizzata per chiamare il metodo di
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  receiver & public & immutabile & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Oggetto per l'esecuzione del comando\\
+  receiver & pubblico & immutabile & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Oggetto per l'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -5420,7 +5422,7 @@ Viene utilizzata per chiamare il metodo di
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  execute & public & String & Provvede all'esecuzione del comando\\
+  execute & pubblico & String & Provvede all'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -5456,7 +5458,7 @@ dell'utente specificato in input.
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  receiver & public & immutabile & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Oggetto per l'esecuzione del comando\\
+  receiver & pubblico & immutabile & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Oggetto per l'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -5466,7 +5468,7 @@ dell'utente specificato in input.
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  execute & public & String & Provvede all'esecuzione del comando\\
+  execute & pubblico & String & Provvede all'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -5503,7 +5505,7 @@ nomi di tutte le collezioni presenti nel \gloss{database}.
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  receiver & public & immutabile & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Oggetto per l'esecuzione del comando\\
+  receiver & pubblico & immutabile & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Oggetto per l'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -5513,7 +5515,7 @@ nomi di tutte le collezioni presenti nel \gloss{database}.
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  execute & public & String & Provvede all'esecuzione del comando\\
+  execute & pubblico & String & Provvede all'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -5550,7 +5552,7 @@ in input.
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  receiver & public & immutabile & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Oggetto per l'esecuzione del comando\\
+  receiver & pubblico & immutabile & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Oggetto per l'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -5560,7 +5562,7 @@ in input.
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  execute & public & String & Provvede all'esecuzione del comando\\
+  execute & pubblico & String & Provvede all'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -5596,7 +5598,7 @@ immesse dall'utente.
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  receiver & public & immutabile & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Oggetto per l'esecuzione del comando\\
+  receiver & pubblico & immutabile & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Oggetto per l'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -5606,7 +5608,7 @@ immesse dall'utente.
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  execute & public & String & Provvede all'esecuzione del comando\\
+  execute & pubblico & String & Provvede all'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -5642,7 +5644,7 @@ i parametri specificati in input.
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  receiver & public & immutabile & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Oggetto per l'esecuzione del comando\\
+  receiver & pubblico & immutabile & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Oggetto per l'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -5652,7 +5654,7 @@ i parametri specificati in input.
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  execute & public & String & Provvede all'esecuzione del comando\\
+  execute & pubblico & String & Provvede all'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -5689,7 +5691,7 @@ specificati in input.
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  receiver & public & immutabile & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Oggetto per l'esecuzione del comando\\
+  receiver & pubblico & immutabile & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Oggetto per l'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -5699,7 +5701,7 @@ specificati in input.
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  execute & public & String & Provvede all'esecuzione del comando\\
+  execute & pubblico & String & Provvede all'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -5733,7 +5735,7 @@ Viene utilizzata per chiamare il metodo di \hyperref[sec:actorbase::cli::models:
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  receiver & public & immutabile & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Oggetto per l'esecuzione del comando\\
+  receiver & pubblico & immutabile & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Oggetto per l'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -5743,7 +5745,7 @@ Viene utilizzata per chiamare il metodo di \hyperref[sec:actorbase::cli::models:
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  execute & public & String & Provvede all'esecuzione del comando\\
+  execute & pubblico & String & Provvede all'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -5778,7 +5780,7 @@ parametri specificati in input.
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  receiver & public & immutabile & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Oggetto per l'esecuzione del comando\\
+  receiver & pubblico & immutabile & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Oggetto per l'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -5788,7 +5790,7 @@ parametri specificati in input.
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  execute & public & String & Provvede all'esecuzione del comando\\
+  execute & pubblico & String & Provvede all'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -5823,7 +5825,7 @@ parametri immessi dall'utente.
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  receiver & public & immutabile & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Oggetto per l'esecuzione del comando\\
+  receiver & pubblico & immutabile & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Oggetto per l'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -5833,7 +5835,7 @@ parametri immessi dall'utente.
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  execute & public & String & Provvede all'esecuzione del comando\\
+  execute & pubblico & String & Provvede all'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -5869,7 +5871,7 @@ con i parametri immessi dall'utente.
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  receiver & public & immutabile & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Oggetto per l'esecuzione del comando\\
+  receiver & pubblico & immutabile & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Oggetto per l'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -5879,7 +5881,7 @@ con i parametri immessi dall'utente.
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  execute & public & String & Provvede all'esecuzione del comando\\
+  execute & pubblico & String & Provvede all'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -5915,7 +5917,7 @@ parametri immessi dall'utente.
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  receiver & public & immutabile & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Oggetto per l'esecuzione del comando\\
+  receiver & pubblico & immutabile & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Oggetto per l'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -5925,7 +5927,7 @@ parametri immessi dall'utente.
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  execute & public & String & Provvede all'esecuzione del comando\\
+  execute & pubblico & String & Provvede all'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -5960,7 +5962,7 @@ Viene utilizzata per chiamare il metodo di
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  receiver & public & immutabile & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Oggetto per l'esecuzione del comando\\
+  receiver & pubblico & immutabile & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Oggetto per l'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -5970,7 +5972,7 @@ Viene utilizzata per chiamare il metodo di
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  execute & public & String & Provvede all'esecuzione del comando\\
+  execute & pubblico & String & Provvede all'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -6005,7 +6007,7 @@ Viene utilizzata per chiamare il metodo di \hyperref[sec:actorbase::cli::models:
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  receiver & public & immutabile & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Oggetto per l'esecuzione del comando\\
+  receiver & pubblico & immutabile & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Oggetto per l'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -6015,7 +6017,7 @@ Viene utilizzata per chiamare il metodo di \hyperref[sec:actorbase::cli::models:
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  execute & public & String & Provvede all'esecuzione del comando\\
+  execute & pubblico & String & Provvede all'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -6051,7 +6053,7 @@ Viene utilizzata per chiamare il metodo di
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  receiver & public & immutabile & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Oggetto per l'esecuzione del comando\\
+  receiver & pubblico & immutabile & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Oggetto per l'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -6061,7 +6063,7 @@ Viene utilizzata per chiamare il metodo di
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  execute & public & String & Provvede all'esecuzione del comando\\
+  execute & pubblico & String & Provvede all'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -6097,7 +6099,7 @@ Viene utilizzata per chiamare il metodo di
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  receiver & public & immutabile & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Oggetto per l'esecuzione del comando\\
+  receiver & pubblico & immutabile & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Oggetto per l'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -6107,7 +6109,7 @@ Viene utilizzata per chiamare il metodo di
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  execute & public & String & Provvede all'esecuzione del comando\\
+  execute & pubblico & String & Provvede all'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -6146,9 +6148,9 @@ che si occuperà di mandarlo alla parte view.
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  actorbaseDriver & public & mutabile & ActorbaseDriver & Istanza di \hyperref[sec:actorbase::driver::]{ActorbaseDriver} usata per l'esecuzione del comandi\\
+  actorbaseDriver & pubblico & mutabile & ActorbaseDriver & Istanza di \hyperref[sec:actorbase::driver::]{ActorbaseDriver} usata per l'esecuzione del comandi\\
   \hline
-  params & public & immutabile & Map<Object,Object> & Parametri inseriti dall'utente per l'esecuzione dei comandi\\
+  params & pubblico & immutabile & Map<Object,Object> & Parametri inseriti dall'utente per l'esecuzione dei comandi\\
   \hline
 \end{tabular}
 
@@ -6158,39 +6160,39 @@ che si occuperà di mandarlo alla parte view.
   \hline
   Nome & Accesso & Ritorno & Descrizione\\
   \hline
-  insert & public & String & Metodo per richiamare il comando di inserimento del driver\\
+  insert & pubblico & String & Metodo per richiamare il comando di inserimento del driver\\
   \hline
-  removeItem & public & String & Metodo per richiamare il comando di rimozione Item del driver\\
+  removeItem & pubblico & String & Metodo per richiamare il comando di rimozione Item del driver\\
   \hline
-  export & public & String & Metodo per richiamare il comando di esportazione su file del driver\\
+  export & pubblico & String & Metodo per richiamare il comando di esportazione su file del driver\\
   \hline
-  login & public & String & Metodo per richiamare il comando di login del driver\\
+  login & pubblico & String & Metodo per richiamare il comando di login del driver\\
   \hline
-  logout & public & String & Metodo per richiamare il comando di logout del driver\\
+  logout & pubblico & String & Metodo per richiamare il comando di logout del driver\\
   \hline
-  find & public & String & Metodo per richiamare il comando di ricerca di items del driver\\
+  find & pubblico & String & Metodo per richiamare il comando di ricerca di items del driver\\
   \hline
-  help & public & String & Metodo per il comando di aiuto\\
+  help & pubblico & String & Metodo per il comando di aiuto\\
   \hline
-  createCollection & public & String & Metodo per richiamare il comando di creazione \gloss{collezione} del driver\\
+  createCollection & pubblico & String & Metodo per richiamare il comando di creazione \gloss{collezione} del driver\\
   \hline
-  listCollections & public & String & Metodo per richiamare il metodo di lista collezioni del driver\\
+  listCollections & pubblico & String & Metodo per richiamare il metodo di lista collezioni del driver\\
   \hline
-  renameCollection & public & String & Metodo per richiamare il metodo di rinomina \gloss{collezione} del driver\\
+  renameCollection & pubblico & String & Metodo per richiamare il metodo di rinomina \gloss{collezione} del driver\\
   \hline
-  deleteCollection & public & String & Metodo per richiamare il metodo di rimozione \gloss{collezione} del driver\\
+  deleteCollection & pubblico & String & Metodo per richiamare il metodo di rimozione \gloss{collezione} del driver\\
   \hline
-  addContributor & public & String & Metodo per richiamare il metodo di aggiunta collaboratore del driver\\
+  addContributor & pubblico & String & Metodo per richiamare il metodo di aggiunta collaboratore del driver\\
   \hline
-  removeContributor & public & String & Metodo per richiamare il metodo di rimozione collaboratore del driver\\
+  removeContributor & pubblico & String & Metodo per richiamare il metodo di rimozione collaboratore del driver\\
   \hline
-  changePassword & public & String & Metodo per richiamare il metodo di cambio password del driver\\
+  changePassword & pubblico & String & Metodo per richiamare il metodo di cambio password del driver\\
   \hline
-  addUser & public & String & Metodo per richiamare il metodo di aggiunta utente del driver\\
+  addUser & pubblico & String & Metodo per richiamare il metodo di aggiunta utente del driver\\
   \hline
-  removeUser & public & String & Metodo per richiamare il metodo di rimozione utente del driver\\
+  removeUser & pubblico & String & Metodo per richiamare il metodo di rimozione utente del driver\\
   \hline
-  resetPassword & public & String & Metodo per richiamare il metodo di reset password del driver\\
+  resetPassword & pubblico & String & Metodo per richiamare il metodo di reset password del driver\\
   \hline
 \end{tabular}
 
