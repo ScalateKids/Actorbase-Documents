@@ -409,13 +409,13 @@ getter e un meotodo per il confronto con un altro oggetto ActorbaseCollection.
 \end{figure}
 
 \subparagraph{Descrizione}
-Classe che rappresenta una richiesta di aggiunta di credenziali al sistema.\\Implementata utilizzando la specifica funzionalità \textit{case class} di Scala, 
-in modo da poter usufruirne mediante costrutti e algoritmi di 
+Classe che rappresenta una richiesta di aggiunta di credenziali al sistema.\\Implementata utilizzando la specifica funzionalità \textit{case class} di Scala,
+in modo da poter usufruirne mediante costrutti e algoritmi di
 \gloss{pattern matching}.
 
 \subparagraph{Utilizzo}
-Questa classe viene utilizzata per mandare una richiesta all'attore 
-\hyperref[sec:actorbase::actorsystem::messages::authactormessages::AuthActor]{AuthActor} 
+Questa classe viene utilizzata per mandare una richiesta all'attore
+\hyperref[sec:actorbase::actorsystem::messages::authactormessages::AuthActor]{AuthActor}
 di aggiunta di credenziali al sistema
 
 \subparagraph{Attributi}
@@ -441,13 +441,13 @@ di aggiunta di credenziali al sistema
 \end{figure}
 
 \subparagraph{Descrizione}
-Classe che rappresenta una richiesta di modifica di password di un utente al sistema.\\Implementata utilizzando la specifica funzionalità \textit{case class} di Scala, 
-in modo da poter usufruirne mediante costrutti e algoritmi di 
+Classe che rappresenta una richiesta di modifica di password di un utente al sistema.\\Implementata utilizzando la specifica funzionalità \textit{case class} di Scala,
+in modo da poter usufruirne mediante costrutti e algoritmi di
 \gloss{pattern matching}.
 
 \subparagraph{Utilizzo}
-Questa classe viene utilizzata per mandare una richiesta all'attore 
-\hyperref[sec:actorbase::actorsystem::actors::authactormessages::AuthActor]{AuthActor} 
+Questa classe viene utilizzata per mandare una richiesta all'attore
+\hyperref[sec:actorbase::actorsystem::actors::authactormessages::AuthActor]{AuthActor}
 di modifica della password di un utente.
 
 \subparagraph{Attributi}
@@ -475,13 +475,13 @@ di modifica della password di un utente.
 \end{figure}
 
 \subparagraph{Descrizione}
-Classe che rappresenta una richiesta di rimozione di un utente dal sistema.\\Implementata utilizzando la specifica funzionalità \textit{case class} di Scala, 
-in modo da poter usufruirne mediante costrutti e algoritmi di 
+Classe che rappresenta una richiesta di rimozione di un utente dal sistema.\\Implementata utilizzando la specifica funzionalità \textit{case class} di Scala,
+in modo da poter usufruirne mediante costrutti e algoritmi di
 \gloss{pattern matching}.
 
 \subparagraph{Utilizzo}
-Questa classe viene utilizzata per mandare una richiesta all'attore 
-\hyperref[sec:actorbase::actorsystem::actors::authactor::AuthActor]{AuthActor} 
+Questa classe viene utilizzata per mandare una richiesta all'attore
+\hyperref[sec:actorbase::actorsystem::actors::authactor::AuthActor]{AuthActor}
 di rimozione di un utente.
 
 \subparagraph{Attributi}
@@ -505,14 +505,14 @@ di rimozione di un utente.
 \end{figure}
 
 \subparagraph{Descrizione}
-Classe che rappresenta una richiesta di login di un utente al sistema.\\Implementata utilizzando la specifica funzionalità \textit{case class} di Scala, 
-in modo da poter usufruirne mediante costrutti e algoritmi di 
+Classe che rappresenta una richiesta di login di un utente al sistema.\\Implementata utilizzando la specifica funzionalità \textit{case class} di Scala,
+in modo da poter usufruirne mediante costrutti e algoritmi di
 \gloss{pattern matching}.
 
 \subparagraph{Utilizzo}
-Questa classe viene utilizzata per mandare una richiesta all'attore 
-\hyperref[sec:actorbase::actorsystem::actors::authactor::AuthActor]{AuthActor} 
-di accesso al sistema. L'attore \hyperref[sec:actorbase::actorsystem::actors::authactor::AuthActor]{AuthActor} 
+Questa classe viene utilizzata per mandare una richiesta all'attore
+\hyperref[sec:actorbase::actorsystem::actors::authactor::AuthActor]{AuthActor}
+di accesso al sistema. L'attore \hyperref[sec:actorbase::actorsystem::actors::authactor::AuthActor]{AuthActor}
 dovrà controllare se le credenziali immesse dall'utente sono corrette.
 
 \subparagraph{Attributi}
@@ -556,16 +556,16 @@ dovrà controllare se le credenziali immesse dall'utente sono corrette.
 \end{figure}
 
 \subparagraph{Descrizione}
-Classe che rappresenta un messaggio utilizzato per consegnare al 
-\hyperref[sec:actorbase::actorsystem::actors::clientactor::ClientActor]{ClientActor} una lista di stringhe, utilizzato per adempiere ad alcune 
-richieste dell'utente.\\Implementata utilizzando la specifica funzionalità \textit{case class} di Scala, 
-in modo da poter usufruirne mediante costrutti e algoritmi di 
+Classe che rappresenta un messaggio utilizzato per consegnare al
+\hyperref[sec:actorbase::actorsystem::actors::clientactor::ClientActor]{ClientActor} una lista di stringhe, utilizzato per adempiere ad alcune
+richieste dell'utente.\\Implementata utilizzando la specifica funzionalità \textit{case class} di Scala,
+in modo da poter usufruirne mediante costrutti e algoritmi di
 \gloss{pattern matching}.
 
 \subparagraph{Utilizzo}
-Questa classe viene utilizzata per mandare una lista di stringhe all'attore 
-\hyperref[sec:actorbase::actorsystem::actors::clientactor::ClientActor]{ClientActor}. 
-Questo viene utilizzato per adempiere ad alcune richieste dell'utente come 
+Questa classe viene utilizzata per mandare una lista di stringhe all'attore
+\hyperref[sec:actorbase::actorsystem::actors::clientactor::ClientActor]{ClientActor}.
+Questo viene utilizzato per adempiere ad alcune richieste dell'utente come
 la richiesta di lista collezioni.
 
 \subparagraph{Attributi}
@@ -589,16 +589,16 @@ la richiesta di lista collezioni.
 \end{figure}
 
 \subparagraph{Descrizione}
-Classe che rappresenta un messaggio utilizzato per consegnare al 
-\hyperref[sec:actorbase::actorsystem::actors::clientactor::ClientActor]{ClientActor} una collezione dati, utilizzato per adempiere ad alcune 
-richieste dell'utente.\\Implementata utilizzando la specifica funzionalità \textit{case class} di Scala, 
-in modo da poter usufruirne mediante costrutti e algoritmi di 
+Classe che rappresenta un messaggio utilizzato per consegnare al
+\hyperref[sec:actorbase::actorsystem::actors::clientactor::ClientActor]{ClientActor} una collezione dati, utilizzato per adempiere ad alcune
+richieste dell'utente.\\Implementata utilizzando la specifica funzionalità \textit{case class} di Scala,
+in modo da poter usufruirne mediante costrutti e algoritmi di
 \gloss{pattern matching}.
 
 \subparagraph{Utilizzo}
-Questa classe viene utilizzata per mandare una collezione dati all'attore 
-\hyperref[sec:actorbase::actorsystem::actors::clientactor::ClientActor]{ClientActor}. 
-Questo viene utilizzato per adempiere ad alcune richieste dell'utente come 
+Questa classe viene utilizzata per mandare una collezione dati all'attore
+\hyperref[sec:actorbase::actorsystem::actors::clientactor::ClientActor]{ClientActor}.
+Questo viene utilizzato per adempiere ad alcune richieste dell'utente come
 la richiesta di restituzione di una collezione.
 
 \subparagraph{Attributi}
@@ -624,15 +624,15 @@ la richiesta di restituzione di una collezione.
 \end{figure}
 
 \subparagraph{Descrizione}
-Classe che rappresenta un messaggio utilizzato per consegnare al 
-\hyperref[sec:actorbase::actorsystem::actors::clientactor::ClientActor]{ClientActor} una stringa, utilizzato per adempiere ad alcune 
-richieste dell'utente.\\Implementata utilizzando la specifica funzionalità \textit{case class} di Scala, 
-in modo da poter usufruirne mediante costrutti e algoritmi di 
+Classe che rappresenta un messaggio utilizzato per consegnare al
+\hyperref[sec:actorbase::actorsystem::actors::clientactor::ClientActor]{ClientActor} una stringa, utilizzato per adempiere ad alcune
+richieste dell'utente.\\Implementata utilizzando la specifica funzionalità \textit{case class} di Scala,
+in modo da poter usufruirne mediante costrutti e algoritmi di
 \gloss{pattern matching}.
 
 \subparagraph{Utilizzo}
-Questa classe viene utilizzata per mandare una stringa all'attore 
-\hyperref[sec:actorbase::actorsystem::actors::clientactor::ClientActor]{ClientActor}. 
+Questa classe viene utilizzata per mandare una stringa all'attore
+\hyperref[sec:actorbase::actorsystem::actors::clientactor::ClientActor]{ClientActor}.
 Questo viene utilizzato per adempiere ad alcune richieste dell'utente.
 
 \subparagraph{Attributi}
@@ -674,15 +674,15 @@ Questo viene utilizzato per adempiere ad alcune richieste dell'utente.
 \end{figure}
 
 \subparagraph{Descrizione}
-Classe che rappresenta un messaggio utilizzato per richiedere al 
-\hyperref[sec:actorbase::actorsystem::actors::main::Main]{Main} l'inserimento di items.\\Implementata utilizzando la specifica funzionalità \textit{case class} di Scala, 
-in modo da poter usufruirne mediante costrutti e algoritmi di 
+Classe che rappresenta un messaggio utilizzato per richiedere al
+\hyperref[sec:actorbase::actorsystem::actors::main::Main]{Main} l'inserimento di items.\\Implementata utilizzando la specifica funzionalità \textit{case class} di Scala,
+in modo da poter usufruirne mediante costrutti e algoritmi di
 \gloss{pattern matching}.
 
 \subparagraph{Utilizzo}
-Questa classe viene utilizzata per mandare una richiesta di inserimento di 
-item all'attore 
-\hyperref[sec:actorbase::actorsystem::actors::main::Main]{Main}.\\Questo attore 
+Questa classe viene utilizzata per mandare una richiesta di inserimento di
+item all'attore
+\hyperref[sec:actorbase::actorsystem::actors::main::Main]{Main}.\\Questo attore
 provvederà ad inoltrare la richiesta al giusto attore \hyperref[sec:actorbase::actorsystem::actors::storefinder::Storefinder]{Storefinder}.
 
 \subparagraph{Attributi}
@@ -696,7 +696,7 @@ provvederà ad inoltrare la richiesta al giusto attore \hyperref[sec:actorbase::
   \hline
   value & public & immutabile & Array[byte] & Rappresenta il valore dell'item serializzato in array di byte\\
   \hline
-  update & public & immutabile & Boolean & Rappresenta un flag per scegliere se l'inserimento deve poter sovrascrivere un item già presente con la stessa chiave o meno\\ 
+  update & public & immutabile & Boolean & Rappresenta un flag per scegliere se l'inserimento deve poter sovrascrivere un item già presente con la stessa chiave o meno\\
   \hline
 \end{tabular}
 
@@ -712,16 +712,16 @@ provvederà ad inoltrare la richiesta al giusto attore \hyperref[sec:actorbase::
 \end{figure}
 
 \subparagraph{Descrizione}
-Classe che rappresenta un messaggio utilizzato per richiedere al 
-\hyperref[sec:actorbase::actorsystem::actors::main::Main]{Main} di ritornare items o collezioni.\\Implementata utilizzando la specifica funzionalità \textit{case class} di Scala, 
-in modo da poter usufruirne mediante costrutti e algoritmi di 
+Classe che rappresenta un messaggio utilizzato per richiedere al
+\hyperref[sec:actorbase::actorsystem::actors::main::Main]{Main} di ritornare items o collezioni.\\Implementata utilizzando la specifica funzionalità \textit{case class} di Scala,
+in modo da poter usufruirne mediante costrutti e algoritmi di
 \gloss{pattern matching}.
 
 \subparagraph{Utilizzo}
-Questa classe viene utilizzata per mandare una richiesta di ritorno di un item o di collezioni all'attore 
-\hyperref[sec:actorbase::actorsystem::actors::main::Main]{Main}.\\Questo attore 
-provvederà ad inoltrare la richiesta al giusto attore \hyperref[sec:actorbase::actorsystem::actors::storefinder::Storefinder]{Storefinder}.\\Il 
-parametro in ingresso \textit{key} determina se l'utente richiede un singolo 
+Questa classe viene utilizzata per mandare una richiesta di ritorno di un item o di collezioni all'attore
+\hyperref[sec:actorbase::actorsystem::actors::main::Main]{Main}.\\Questo attore
+provvederà ad inoltrare la richiesta al giusto attore \hyperref[sec:actorbase::actorsystem::actors::storefinder::Storefinder]{Storefinder}.\\Il
+parametro in ingresso \textit{key} determina se l'utente richiede un singolo
 item o una intera collezione.
 
 \subparagraph{Attributi}
@@ -748,14 +748,14 @@ item o una intera collezione.
 \end{figure}
 
 \subparagraph{Descrizione}
-Classe che rappresenta un messaggio utilizzato per mandare pezzi di collezioni 
-all'attore \hyperref[sec:actorbase::actorsystem::actors::main::Main]{Main}.\\Implementata utilizzando la specifica funzionalità \textit{case class} di Scala, 
-in modo da poter usufruirne mediante costrutti e algoritmi di 
+Classe che rappresenta un messaggio utilizzato per mandare pezzi di collezioni
+all'attore \hyperref[sec:actorbase::actorsystem::actors::main::Main]{Main}.\\Implementata utilizzando la specifica funzionalità \textit{case class} di Scala,
+in modo da poter usufruirne mediante costrutti e algoritmi di
 \gloss{pattern matching}.
 
 \subparagraph{Utilizzo}
-Questa classe viene utilizzata per mandare pezzi di collezione all'attore 
-\hyperref[sec:actorbase::actorsystem::actors::main::Main]{Main}.\\Quest'ultimo 
+Questa classe viene utilizzata per mandare pezzi di collezione all'attore
+\hyperref[sec:actorbase::actorsystem::actors::main::Main]{Main}.\\Quest'ultimo
 dovrà aspettare tutti i messaggi \hyperref[sec:actorbase::actorsystem::messages::mainmessages::CompleteTransaction]{CompleteTransaction} necessari per costruire un intera collezione da restituire all'utente.\\Questo messaggio è utilizzato quando un utente richiede una o più intere collezioni.
 
 \subparagraph{Attributi}
@@ -763,7 +763,7 @@ dovrà aspettare tutti i messaggi \hyperref[sec:actorbase::actorsystem::messages
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  clientRef & public & immutabile & ActorRef & Rappresenta il riferimento all'attore \hyperref[sec:actorbase::actorsystem::actors::clientactor::ClientActor]{ClientActor} che 
+  clientRef & public & immutabile & ActorRef & Rappresenta il riferimento all'attore \hyperref[sec:actorbase::actorsystem::actors::clientactor::ClientActor]{ClientActor} che
   ha effettuato la richiesta\\
   \hline
   collection & public & immutabile & \hyperref[sec:actorbase::actorsystem::utils::ActorbaseCollection]{ActorbaseCollection} & Rappresenta la collezione di cui fanno parte gli item passati in questo messaggio\\
@@ -784,13 +784,13 @@ dovrà aspettare tutti i messaggi \hyperref[sec:actorbase::actorsystem::messages
 \end{figure}
 
 \subparagraph{Descrizione}
-Classe che rappresenta un messaggio utilizzato per richiedere la rimozione di 
-item all'attore \hyperref[sec:actorbase::actorsystem::actors::main::Main]{Main}.\\Implementata utilizzando la specifica funzionalità \textit{case class} di Scala, in modo da poter usufruirne mediante costrutti e algoritmi di 
+Classe che rappresenta un messaggio utilizzato per richiedere la rimozione di
+item all'attore \hyperref[sec:actorbase::actorsystem::actors::main::Main]{Main}.\\Implementata utilizzando la specifica funzionalità \textit{case class} di Scala, in modo da poter usufruirne mediante costrutti e algoritmi di
 \gloss{pattern matching}.
 
 \subparagraph{Utilizzo}
-Questa classe viene utilizzata per rimuovere items dal sistema. L'attore 
-\hyperref[sec:actorbase::actorsystem::actors::main::Main]{Main} dovrà aspettare 
+Questa classe viene utilizzata per rimuovere items dal sistema. L'attore
+\hyperref[sec:actorbase::actorsystem::actors::main::Main]{Main} dovrà aspettare
 inoltrare la richiesta al giustto attore \hyperref[sec:actorbase::actorsystem::actors::storefinder::Storefinder]{Storefinder}.
 
 \subparagraph{Attributi}
@@ -816,15 +816,15 @@ inoltrare la richiesta al giustto attore \hyperref[sec:actorbase::actorsystem::a
 \end{figure}
 
 \subparagraph{Descrizione}
-Classe che rappresenta un messaggio utilizzato per richiedere l'aggiunta di un 
-collaboratore ad una collezione all'attore \hyperref[sec:actorbase::actorsystem::actors::main::Main]{Main}.\\Implementata 
-utilizzando la specifica funzionalità \textit{case class} di Scala, in modo da poter usufruirne mediante costrutti e algoritmi di 
+Classe che rappresenta un messaggio utilizzato per richiedere l'aggiunta di un
+collaboratore ad una collezione all'attore \hyperref[sec:actorbase::actorsystem::actors::main::Main]{Main}.\\Implementata
+utilizzando la specifica funzionalità \textit{case class} di Scala, in modo da poter usufruirne mediante costrutti e algoritmi di
 \gloss{pattern matching}.
 
 \subparagraph{Utilizzo}
-Questa classe viene utilizzata per richiedere l'aggiunta di collaboratori ad 
-una collezione. L'attore 
-\hyperref[sec:actorbase::actorsystem::actors::main::Main]{Main} dovrà aggiungere 
+Questa classe viene utilizzata per richiedere l'aggiunta di collaboratori ad
+una collezione. L'attore
+\hyperref[sec:actorbase::actorsystem::actors::main::Main]{Main} dovrà aggiungere
 lo username del collaboratore designato alla collezione richiesta.
 
 \subparagraph{Attributi}
@@ -852,15 +852,15 @@ lo username del collaboratore designato alla collezione richiesta.
 \end{figure}
 
 \subparagraph{Descrizione}
-Classe che rappresenta un messaggio utilizzato per richiedere la rimozione di un 
-collaboratore ad una collezione all'attore \hyperref[sec:actorbase::actorsystem::actors::main::Main]{Main}.\\Implementata 
-utilizzando la specifica funzionalità \textit{case class} di Scala, in modo da poter usufruirne mediante costrutti e algoritmi di 
+Classe che rappresenta un messaggio utilizzato per richiedere la rimozione di un
+collaboratore ad una collezione all'attore \hyperref[sec:actorbase::actorsystem::actors::main::Main]{Main}.\\Implementata
+utilizzando la specifica funzionalità \textit{case class} di Scala, in modo da poter usufruirne mediante costrutti e algoritmi di
 \gloss{pattern matching}.
 
 \subparagraph{Utilizzo}
-Questa classe viene utilizzata per richiedere la rimozione di collaboratori ad 
-una collezione. L'attore 
-\hyperref[sec:actorbase::actorsystem::actors::main::Main]{Main} dovrà rimuovere 
+Questa classe viene utilizzata per richiedere la rimozione di collaboratori ad
+una collezione. L'attore
+\hyperref[sec:actorbase::actorsystem::actors::main::Main]{Main} dovrà rimuovere
 lo username del collaboratore designato alla collezione richiesta.
 
 \subparagraph{Attributi}
@@ -886,13 +886,13 @@ lo username del collaboratore designato alla collezione richiesta.
 \end{figure}
 
 \subparagraph{Descrizione}
-Classe che rappresenta un messaggio utilizzato per richiedere la creazione di una collezione all'attore \hyperref[sec:actorbase::actorsystem::actors::main::Main]{Main}.\\Implementata 
-utilizzando la specifica funzionalità \textit{case class} di Scala, in modo da poter usufruirne mediante costrutti e algoritmi di 
+Classe che rappresenta un messaggio utilizzato per richiedere la creazione di una collezione all'attore \hyperref[sec:actorbase::actorsystem::actors::main::Main]{Main}.\\Implementata
+utilizzando la specifica funzionalità \textit{case class} di Scala, in modo da poter usufruirne mediante costrutti e algoritmi di
 \gloss{pattern matching}.
 
 \subparagraph{Utilizzo}
-Questa classe viene utilizzata per richiedere la creazione di una collezione.\\L'attore 
-\hyperref[sec:actorbase::actorsystem::actors::main::Main]{Main} provvederà a creare la nuova collezione e a creare un attore \hyperref[sec:actorbase::actorsystem::actors::storefinder::Storefinder]{Storefinder} 
+Questa classe viene utilizzata per richiedere la creazione di una collezione.\\L'attore
+\hyperref[sec:actorbase::actorsystem::actors::main::Main]{Main} provvederà a creare la nuova collezione e a creare un attore \hyperref[sec:actorbase::actorsystem::actors::storefinder::Storefinder]{Storefinder}
 adibito alla gestione di quest'ultima.
 
 \subparagraph{Attributi}
@@ -934,15 +934,15 @@ adibito alla gestione di quest'ultima.
 \end{figure}
 
 \subparagraph{Descrizione}
-Classe che rappresenta un messaggio utilizzato per richiedere allo 
-\hyperref[sec:actorbase::actorsystem::actors::storefinder::Storefinder]{Storefinder} l'inserimento di ritornare tutti gli item mappati dai propri \hyperref[sec:actorbase::actorsystem::actors::storekeeper::Storekeeper]{Storekeeper}.\\Implementata utilizzando la specifica funzionalità \textit{case class} di Scala, 
-in modo da poter usufruirne mediante costrutti e algoritmi di 
+Classe che rappresenta un messaggio utilizzato per richiedere allo
+\hyperref[sec:actorbase::actorsystem::actors::storefinder::Storefinder]{Storefinder} l'inserimento di ritornare tutti gli item mappati dai propri \hyperref[sec:actorbase::actorsystem::actors::storekeeper::Storekeeper]{Storekeeper}.\\Implementata utilizzando la specifica funzionalità \textit{case class} di Scala,
+in modo da poter usufruirne mediante costrutti e algoritmi di
 \gloss{pattern matching}.
 
 \subparagraph{Utilizzo}
-Questa classe viene utilizzata per richiedere tutti gli items mappati dallo 
-\hyperref[sec:actorbase::actorsystem::actors::storefinder::Storefinder]{Storefinder}.\\Questo attore provvederà a mandare richieste Get all'attore 
-\hyperref[sec:actorbase::actorsystem::actors::storekeeper::Storekeeper]{Storekeeper}.\\Questo tipo di messaggio è ricevuto quando un utente intende 
+Questa classe viene utilizzata per richiedere tutti gli items mappati dallo
+\hyperref[sec:actorbase::actorsystem::actors::storefinder::Storefinder]{Storefinder}.\\Questo attore provvederà a mandare richieste Get all'attore
+\hyperref[sec:actorbase::actorsystem::actors::storekeeper::Storekeeper]{Storekeeper}.\\Questo tipo di messaggio è ricevuto quando un utente intende
 richiedere intere collezioni.
 
 \paragraph{actorbase::actorsystem::messages::storefinder::UpdateCollectionSize}
@@ -957,13 +957,13 @@ richiedere intere collezioni.
 \end{figure}
 
 \subparagraph{Descrizione}
-Classe che rappresenta un messaggio utilizzato per aggiornare il numero di item 
-contenuti in una collezione.\\Implementata utilizzando la specifica funzionalità \textit{case class} di Scala, 
-in modo da poter usufruirne mediante costrutti e algoritmi di 
+Classe che rappresenta un messaggio utilizzato per aggiornare il numero di item
+contenuti in una collezione.\\Implementata utilizzando la specifica funzionalità \textit{case class} di Scala,
+in modo da poter usufruirne mediante costrutti e algoritmi di
 \gloss{pattern matching}.
 
 \subparagraph{Utilizzo}
-Questa classe viene utilizzata per tenere aggiornate le dimensioni delle 
+Questa classe viene utilizzata per tenere aggiornate le dimensioni delle
 collezioni quando si inseriscono o rimuovono items da esse.
 
 \subparagraph{Attributi}
@@ -987,13 +987,13 @@ collezioni quando si inseriscono o rimuovono items da esse.
 \end{figure}
 
 \subparagraph{Descrizione}
-Classe che rappresenta un messaggio utilizzato per richiedere un item.\\Implementata utilizzando la specifica funzionalità \textit{case class} di Scala, 
-in modo da poter usufruirne mediante costrutti e algoritmi di 
+Classe che rappresenta un messaggio utilizzato per richiedere un item.\\Implementata utilizzando la specifica funzionalità \textit{case class} di Scala,
+in modo da poter usufruirne mediante costrutti e algoritmi di
 \gloss{pattern matching}.
 
 \subparagraph{Utilizzo}
-Questa classe viene utilizzata per richiedere un item da restituire 
-all'utente.\\Quando riceve questo messaggio l'attore provvederà a inoltrare la 
+Questa classe viene utilizzata per richiedere un item da restituire
+all'utente.\\Quando riceve questo messaggio l'attore provvederà a inoltrare la
 richiesta allo \hyperref[sec:actorbase::actorsystem::actors::storekeeper::Storekeeper]{Storekeeper} esatto.
 
 \subparagraph{Attributi}
@@ -1017,13 +1017,13 @@ richiesta allo \hyperref[sec:actorbase::actorsystem::actors::storekeeper::Storek
 \end{figure}
 
 \subparagraph{Descrizione}
-Classe che rappresenta un messaggio utilizzato per ricevere pezzi di collezione da inviare all'attore \gloss{parent}.\\Implementata utilizzando la specifica funzionalità \textit{case class} di Scala, 
-in modo da poter usufruirne mediante costrutti e algoritmi di 
+Classe che rappresenta un messaggio utilizzato per ricevere pezzi di collezione da inviare all'attore \gloss{parent}.\\Implementata utilizzando la specifica funzionalità \textit{case class} di Scala,
+in modo da poter usufruirne mediante costrutti e algoritmi di
 \gloss{pattern matching}.
 
 \subparagraph{Utilizzo}
-Questa classe viene utilizzata per ricevere prezzi di collezione a seguito di 
-una richiesta di una intera collezione da parte di un utente.\\Quando riceve questo messaggio l'attore provvederà a inoltrare la mappa di items allo 
+Questa classe viene utilizzata per ricevere prezzi di collezione a seguito di
+una richiesta di una intera collezione da parte di un utente.\\Quando riceve questo messaggio l'attore provvederà a inoltrare la mappa di items allo
 \hyperref[sec:actorbase::actorsystem::actors::main::Main]{Main} parent, il quale provvederà ad assemblare tutta la collezione da restutire all'utente.
 
 \subparagraph{Attributi}
@@ -1049,14 +1049,14 @@ una richiesta di una intera collezione da parte di un utente.\\Quando riceve que
 \end{figure}
 
 \subparagraph{Descrizione}
-Classe che rappresenta un messaggio utilizzato per richiedere la rimozione di un item.\\Implementata utilizzando la specifica funzionalità \textit{case class} di Scala, 
-in modo da poter usufruirne mediante costrutti e algoritmi di 
+Classe che rappresenta un messaggio utilizzato per richiedere la rimozione di un item.\\Implementata utilizzando la specifica funzionalità \textit{case class} di Scala,
+in modo da poter usufruirne mediante costrutti e algoritmi di
 \gloss{pattern matching}.
 
 \subparagraph{Utilizzo}
-Questa classe viene utilizzata per richiedere la rimozione di un item dal 
-sistema.\\Quando riceve questo messaggio l'attore provvederà a inoltrare la 
-richiesta allo \hyperref[sec:actorbase::actorsystem::actors::storekeeper::Storekeeper]{Storekeeper} 
+Questa classe viene utilizzata per richiedere la rimozione di un item dal
+sistema.\\Quando riceve questo messaggio l'attore provvederà a inoltrare la
+richiesta allo \hyperref[sec:actorbase::actorsystem::actors::storekeeper::Storekeeper]{Storekeeper}
 giusto.
 
 \subparagraph{Attributi}
@@ -1080,14 +1080,14 @@ giusto.
 \end{figure}
 
 \subparagraph{Descrizione}
-Classe che rappresenta un messaggio utilizzato per richiedere l'aggiunta di un item.\\Implementata utilizzando la specifica funzionalità \textit{case class} di Scala, 
-in modo da poter usufruirne mediante costrutti e algoritmi di 
+Classe che rappresenta un messaggio utilizzato per richiedere l'aggiunta di un item.\\Implementata utilizzando la specifica funzionalità \textit{case class} di Scala,
+in modo da poter usufruirne mediante costrutti e algoritmi di
 \gloss{pattern matching}.
 
 \subparagraph{Utilizzo}
-Questa classe viene utilizzata per richiedere l'aggiunta di un item dal 
-sistema.\\Quando riceve questo messaggio l'attore provvederà a inoltrare la 
-richiesta allo \hyperref[sec:actorbase::actorsystem::actors::storekeeper::Storekeeper]{Storekeeper} 
+Questa classe viene utilizzata per richiedere l'aggiunta di un item dal
+sistema.\\Quando riceve questo messaggio l'attore provvederà a inoltrare la
+richiesta allo \hyperref[sec:actorbase::actorsystem::actors::storekeeper::Storekeeper]{Storekeeper}
 giusto.
 
 \subparagraph{Attributi}
@@ -1133,13 +1133,13 @@ giusto.
 \end{figure}
 
 \subparagraph{Descrizione}
-Classe che rappresenta un messaggio utilizzato per richiedere allo 
-\hyperref[sec:actorbase::actorsystem::actors::storekeeper::Storekeeper]{Storekeeper} di persistere i dati su disco.\\Implementata utilizzando la specifica funzionalità \textit{case class} di Scala, 
-in modo da poter usufruirne mediante costrutti e algoritmi di 
+Classe che rappresenta un messaggio utilizzato per richiedere allo
+\hyperref[sec:actorbase::actorsystem::actors::storekeeper::Storekeeper]{Storekeeper} di persistere i dati su disco.\\Implementata utilizzando la specifica funzionalità \textit{case class} di Scala,
+in modo da poter usufruirne mediante costrutti e algoritmi di
 \gloss{pattern matching}.
 
 \subparagraph{Utilizzo}
-Questa classe viene utilizzata per richiedere di effettuare persistenza su disco dei dati di questo attore.\\Questo attore provvederà a inoltrare la richiesta 
+Questa classe viene utilizzata per richiedere di effettuare persistenza su disco dei dati di questo attore.\\Questo attore provvederà a inoltrare la richiesta
 all'attore \hyperref[sec:actorbase::actorsystem::actors::warehouseman::Warehouseman]{Warehouseman}.
 
 \paragraph{actorbase::actorsystem::messages::storekeeper::InirMn}
@@ -1154,15 +1154,15 @@ all'attore \hyperref[sec:actorbase::actorsystem::actors::warehouseman::Warehouse
 \end{figure}
 
 \subparagraph{Descrizione}
-Classe che rappresenta un messaggio utilizzato per inizializzare un riferimento ad un attore \hyperref[sec:actorbase::actorsystem::actors::manager::Manager]{Manager}.\\Implementata utilizzando la specifica funzionalità \textit{case class} di Scala, 
-in modo da poter usufruirne mediante costrutti e algoritmi di 
+Classe che rappresenta un messaggio utilizzato per inizializzare un riferimento ad un attore \hyperref[sec:actorbase::actorsystem::actors::manager::Manager]{Manager}.\\Implementata utilizzando la specifica funzionalità \textit{case class} di Scala,
+in modo da poter usufruirne mediante costrutti e algoritmi di
 \gloss{pattern matching}.
 
 \subparagraph{Utilizzo}
-Questa classe viene utilizzata per ricevere un riferimento ad un attore 
-\hyperref[sec:actorbase::actorsystem::actors::manager::Manager]{Manager} 
-Questo messaggio verrà inviato allo \hyperref[sec:actorbase::actorsystem::actors::storekeeper::Storekeeper]{Storekeeper} 
-subito dopo la sua creazione.\\L'attore userà il riferimento al Manager per 
+Questa classe viene utilizzata per ricevere un riferimento ad un attore
+\hyperref[sec:actorbase::actorsystem::actors::manager::Manager]{Manager}
+Questo messaggio verrà inviato allo \hyperref[sec:actorbase::actorsystem::actors::storekeeper::Storekeeper]{Storekeeper}
+subito dopo la sua creazione.\\L'attore userà il riferimento al Manager per
 informarlo quando raggiunge una certa soglia di items.
 
 \subparagraph{Attributi}
@@ -1186,16 +1186,16 @@ informarlo quando raggiunge una certa soglia di items.
 \end{figure}
 
 \subparagraph{Descrizione}
-Classe che rappresenta un messaggio utilizzato per richiedere tutti gli items 
-contenuti nell'attore.\\Implementata utilizzando la specifica funzionalità \textit{case class} di Scala, 
-in modo da poter usufruirne mediante costrutti e algoritmi di 
+Classe che rappresenta un messaggio utilizzato per richiedere tutti gli items
+contenuti nell'attore.\\Implementata utilizzando la specifica funzionalità \textit{case class} di Scala,
+in modo da poter usufruirne mediante costrutti e algoritmi di
 \gloss{pattern matching}.
 
 \subparagraph{Utilizzo}
-Questa classe viene utilizzata per ricevere una richiesta di restituzione di 
-tutti gli items mappati da questo attore.\\Quando questo attore riceve questo 
-messaggio provvederà a inviare tutti gli items contenuti in esso al riferimento 
-all'attore passato come parametro.\\Questo messaggio serve a 
+Questa classe viene utilizzata per ricevere una richiesta di restituzione di
+tutti gli items mappati da questo attore.\\Quando questo attore riceve questo
+messaggio provvederà a inviare tutti gli items contenuti in esso al riferimento
+all'attore passato come parametro.\\Questo messaggio serve a
 restituire all'utente intere collezioni.
 
 \subparagraph{Attributi}
@@ -1219,15 +1219,15 @@ restituire all'utente intere collezioni.
 \end{figure}
 
 \subparagraph{Descrizione}
-Classe che rappresenta un messaggio utilizzato per richiedere un item 
-contenuto nell'attore.\\Implementata utilizzando la specifica funzionalità \textit{case class} di Scala, 
-in modo da poter usufruirne mediante costrutti e algoritmi di 
+Classe che rappresenta un messaggio utilizzato per richiedere un item
+contenuto nell'attore.\\Implementata utilizzando la specifica funzionalità \textit{case class} di Scala,
+in modo da poter usufruirne mediante costrutti e algoritmi di
 \gloss{pattern matching}.
 
 \subparagraph{Utilizzo}
 Questa classe viene utilizzata per richiedere la restituzione di un
-item mappato da questo attore.\\Quando questo attore riceve questo 
-messaggio provvederà a inviare l'item richiesto all'attore \hyperref[sec:actorbase::actorsystem::actors::clientactor::ClientActor]{ClientActor} che 
+item mappato da questo attore.\\Quando questo attore riceve questo
+messaggio provvederà a inviare l'item richiesto all'attore \hyperref[sec:actorbase::actorsystem::actors::clientactor::ClientActor]{ClientActor} che
 ha effettuato la richiesta.
 
 \subparagraph{Attributi}
@@ -1251,13 +1251,13 @@ ha effettuato la richiesta.
 \end{figure}
 
 \subparagraph{Descrizione}
-Classe che rappresenta un messaggio utilizzato per richiedere l'inserimento di 
-un item.\\Implementata utilizzando la specifica funzionalità \textit{case class} di Scala, 
-in modo da poter usufruirne mediante costrutti e algoritmi di 
+Classe che rappresenta un messaggio utilizzato per richiedere l'inserimento di
+un item.\\Implementata utilizzando la specifica funzionalità \textit{case class} di Scala,
+in modo da poter usufruirne mediante costrutti e algoritmi di
 \gloss{pattern matching}.
 
 \subparagraph{Utilizzo}
-Questa classe viene utilizzata per richiedere l'inserimento di un item.\\Quando questo attore riceve questo messaggio provvederà ad aggiungere l'item in 
+Questa classe viene utilizzata per richiedere l'inserimento di un item.\\Quando questo attore riceve questo messaggio provvederà ad aggiungere l'item in
 questione nella propria struttura dati.
 
 \subparagraph{Attributi}
@@ -1285,16 +1285,16 @@ questione nella propria struttura dati.
 \end{figure}
 
 \subparagraph{Descrizione}
-Classe che rappresenta un messaggio utilizzato per richiedere la rimozione di un 
-item contenuto nell'attore.\\Implementata utilizzando la specifica funzionalità 
-\textit{case class} di Scala, 
-in modo da poter usufruirne mediante costrutti e algoritmi di 
+Classe che rappresenta un messaggio utilizzato per richiedere la rimozione di un
+item contenuto nell'attore.\\Implementata utilizzando la specifica funzionalità
+\textit{case class} di Scala,
+in modo da poter usufruirne mediante costrutti e algoritmi di
 \gloss{pattern matching}.
 
 \subparagraph{Utilizzo}
 Questa classe viene utilizzata per richiedere la rimozione di un
-item mappato da questo attore.\\Quando questo attore riceve questo 
-messaggio provvederà a rimuovere dalla propria struttura dati l'item con la 
+item mappato da questo attore.\\Quando questo attore riceve questo
+messaggio provvederà a rimuovere dalla propria struttura dati l'item con la
 chiave passata come parametro.
 
 \subparagraph{Attributi}
@@ -1336,14 +1336,14 @@ chiave passata come parametro.
 \end{figure}
 
 \subparagraph{Descrizione}
-Classe che rappresenta un messaggio utilizzato per richiedere allo 
-\hyperref[sec:actorbase::actorsystem::actors::warehouseman::Warehouseman]{Warehouseman} di rimuovere i dati rappresentati da esso dal disco.\\Implementata utilizzando la specifica funzionalità \textit{case class} di Scala, 
-in modo da poter usufruirne mediante costrutti e algoritmi di 
+Classe che rappresenta un messaggio utilizzato per richiedere allo
+\hyperref[sec:actorbase::actorsystem::actors::warehouseman::Warehouseman]{Warehouseman} di rimuovere i dati rappresentati da esso dal disco.\\Implementata utilizzando la specifica funzionalità \textit{case class} di Scala,
+in modo da poter usufruirne mediante costrutti e algoritmi di
 \gloss{pattern matching}.
 
 \subparagraph{Utilizzo}
-Questa classe viene utilizzata per richiedere di rimuovere dal disco tutti i 
-file contenenti dati rappresentati dall'attore in questione.\\Questo messaggio 
+Questa classe viene utilizzata per richiedere di rimuovere dal disco tutti i
+file contenenti dati rappresentati dall'attore in questione.\\Questo messaggio
 è utilizzato ad esempio quando si rimuove una collezione dal sistema.
 
 \paragraph{actorbase::actorsystem::messages::warehouseman::Init}
@@ -1358,13 +1358,13 @@ file contenenti dati rappresentati dall'attore in questione.\\Questo messaggio
 \end{figure}
 
 \subparagraph{Descrizione}
-Classe che rappresenta un messaggio utilizzato per inizializzare l'attore.\\Implementata utilizzando la specifica funzionalità \textit{case class} di Scala, 
-in modo da poter usufruirne mediante costrutti e algoritmi di 
+Classe che rappresenta un messaggio utilizzato per inizializzare l'attore.\\Implementata utilizzando la specifica funzionalità \textit{case class} di Scala,
+in modo da poter usufruirne mediante costrutti e algoritmi di
 \gloss{pattern matching}.
 
 \subparagraph{Utilizzo}
-Questa classe viene utilizzata per inizializzare l'attore cone le informazioni 
-necessarie come la collezione che rappresenta.\\Questo messaggio viene 
+Questa classe viene utilizzata per inizializzare l'attore cone le informazioni
+necessarie come la collezione che rappresenta.\\Questo messaggio viene
 ricevuto subito dopo la propria creazione in modo da inizializzarlo immediatamente.
 
 \subparagraph{Attributi}
@@ -1390,15 +1390,15 @@ ricevuto subito dopo la propria creazione in modo da inizializzarlo immediatamen
 \end{figure}
 
 \subparagraph{Descrizione}
-Classe che rappresenta un messaggio utilizzato per persistere i dati su disco.\\Implementata utilizzando la specifica funzionalità \textit{case class} di Scala, 
-in modo da poter usufruirne mediante costrutti e algoritmi di 
+Classe che rappresenta un messaggio utilizzato per persistere i dati su disco.\\Implementata utilizzando la specifica funzionalità \textit{case class} di Scala,
+in modo da poter usufruirne mediante costrutti e algoritmi di
 \gloss{pattern matching}.
 
 \subparagraph{Utilizzo}
-Questa classe viene utilizzata per richiedere all'attore di persistere dati 
-su disco. Quando l'attore riceve questo messaggio provvederà a salvare su 
-filesystem i dati passati come parametri in file che seguono una gerarchia 
-simile alla gerarchia delle collezioni del sistema.\\I dati salvati su disco 
+Questa classe viene utilizzata per richiedere all'attore di persistere dati
+su disco. Quando l'attore riceve questo messaggio provvederà a salvare su
+filesystem i dati passati come parametri in file che seguono una gerarchia
+simile alla gerarchia delle collezioni del sistema.\\I dati salvati su disco
 devono essere criptati.
 
 \subparagraph{Attributi}
@@ -1422,13 +1422,13 @@ devono essere criptati.
 \end{figure}
 
 \subparagraph{Descrizione}
-Classe che rappresenta un messaggio utilizzato per leggere i dati da disco.\\Implementata utilizzando la specifica funzionalità \textit{case class} di Scala, 
-in modo da poter usufruirne mediante costrutti e algoritmi di 
+Classe che rappresenta un messaggio utilizzato per leggere i dati da disco.\\Implementata utilizzando la specifica funzionalità \textit{case class} di Scala,
+in modo da poter usufruirne mediante costrutti e algoritmi di
 \gloss{pattern matching}.
 
 \subparagraph{Utilizzo}
-Questa classe viene utilizzata per richiedere all'attore di leggere dati 
-da disco. Quando l'attore riceve questo messaggio provvederà a decriptare, 
+Questa classe viene utilizzata per richiedere all'attore di leggere dati
+da disco. Quando l'attore riceve questo messaggio provvederà a decriptare,
 leggere e restituire i dati all'attore richiedente.\\Questo messaggio è usato ad esempio quando il sistema subisce un riavvio per ripopolare la struttura coi dati scritti su disco.
 
 \subparagraph{Attributi}
@@ -1678,12 +1678,16 @@ delle route che richiedono operazioni su utenti.
 
 \subparagraph{Descrizione}
 
-Classe astratta usata per analizzare le route che richiedono operazioni su collezioni.
+Classe astratta usata per analizzare le route che richiedono operazioni su
+\gloss{collezioni}. Rappresenta la codifica dell'interfaccia \gloss{REST} da
+esporre all'esterno.
 
 \subparagraph{Utilizzo}
 
 Questa classe viene usata dalla classe che la realizza per effettuare l'analisi
-delle route che richiedono operazioni su collezioni.
+delle route che richiedono operazioni su \gloss{collezioni}, implementata
+utilizzando il \gloss{package} \texttt{directives} della libreria
+\texttt{Spray}.
 
 \subparagraph{Attributi}
 \begin{tabular}{| p{2cm} | p{1.5cm} | p{2cm} | p{3cm} | p{8.5cm} |}
@@ -1793,6 +1797,48 @@ Questa classe inoltre si occupa di capire che tipo di richiesta è stata fatta d
 \subsubsection{Descrizione}
 \gloss{Package} per l'\gloss{attore} con cui si interfaccerà il \gloss{driver} per la connessione iniziale.
 
+\subsubsection{Interfacce}
+
+\paragraph{actorbase::actorsystem::actors::httpserver::SslConfiguration}
+\label{sec:actorbase::actorsystem::actors::httpserver::SslConfiguration}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/sslconfiguration.png}
+    \caption{Classe actorsystem::actors::httpserver::SslConfiguration}
+  \end{center}
+\end{figure}
+
+\subparagraph{Descrizione}
+
+Interfaccia che delinea il comportamento del motore di crittografia da
+utilizzare in caso di avvio del sistema con crittografia \gloss{SSL/TLS}
+attivata, mediante la gestione di protocolli di cifratura e certificati.
+
+\subparagraph{Utilizzo}
+
+Definisce il comportamento del motore di crittografia da applicare alla classe
+che si occupa di ricezione e invio dati, da e verso l'esterno, trattandosi in
+\textbf{Actorbase} di un \gloss{server} \gloss{HTTP}, la classe designata alla
+realizzazione di questa interfaccia è
+\hyperref[sec:actorbase::actorsystem::actors::httpserver::HTTPServer]{HTTPServer}.\\
+L'interfaccia dà una definizione \gloss{default} di due metodi impliciti,
+sslContext e sslEngineProvider i quali si occupano rispettivamente del
+caricamento dei certificati forniti e della lista di protocolli di crittografia
+(SSL, TLSv1, TLSv1.1..etc) e cifrari da utilizzare nella comunicazione.
+
+\subparagraph{Metodi}
+
+\begin{tabular}{| l | l | l | l |}
+  \hline
+  Nome & Accesso & Tipo di ritorno & Descrizione\\
+  \hline
+  sslContext & public & SSLContext & metodo implicito per il caricamento dei certificati \gloss{TLS/SSL}\\
+  \hline
+  sslEngineProvider & public & ServerSSLEngineProvider & metodo implicito per impostare una \gloss{cipher suite} e una lista di protocolli di crittografia da supportare\\
+  \hline
+\end{tabular}
+
 \subsubsection{Classi}
 
 \paragraph{actorbase::actorsystem::actors::httpserver::HTTPServer}
@@ -1807,7 +1853,8 @@ Questa classe inoltre si occupa di capire che tipo di richiesta è stata fatta d
 
 \subparagraph{Descrizione}
 Classe che rappresenta l'\gloss{attore} con cui si interfaccia il \gloss{driver} per
-istanziare la connessione.
+istanziare la connessione. Si occupa di accettare richieste di tipo \gloss{HTTP} e
+rispondere in formato \gloss{JSON} alle richieste esterne.
 
 \subparagraph{Utilizzo}
 
@@ -1840,35 +1887,6 @@ per continuare le comunicazioni.
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
   receive & public &  & Effettua operazioni diverse a seconda del tipo di messaggio ricevuto\\
-  \hline
-\end{tabular}
-
-\paragraph{actorbase::actorsystem::actors::httpserver::SslConfiguration}
-\label{sec:actorbase::actorsystem::actors::httpserver::SslConfiguration}
-
-\begin{figure}[H]
-  \begin{center}
-    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/classiDiag/sslconfiguration.png}
-    \caption{Classe actorsystem::actors::httpserver::SslConfiguration}
-  \end{center}
-\end{figure}
-
-\subparagraph{Descrizione}
-Classe che contiene metodi di utilità per applicare algoritmi di crittografia
-SSL.
-
-\subparagraph{Utilizzo}
-Questa classe verrà utilizzata per applicare la crittografia SSL.
-
-\subparagraph{Metodi}
-
-\begin{tabular}{| l | l | l | l |}
-  \hline
-  Nome & Accesso & Tipo di ritorno & Descrizione\\
-  \hline
-  sslContext & public & SSLContext & metodo per impostare le opzioni per SSL\\
-  \hline
-  sslEngineProvider & public & ServerSSLEngineProvider & metodo per impostare una \gloss{cipher suite}\\
   \hline
 \end{tabular}
 
