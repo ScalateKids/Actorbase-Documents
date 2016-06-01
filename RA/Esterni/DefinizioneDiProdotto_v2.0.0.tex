@@ -419,13 +419,24 @@ Questa classe viene utilizzata per mandare una richiesta all'attore
 di aggiunta di credenziali al sistema
 
 \subparagraph{Attributi}
-\begin{tabular}{| p{1cm} | p{1.5cm} | p{2cm} | p{4cm} | p{8.5cm} |}
+\begin{tabular}{| p{2cm} | p{1.5cm} | p{2cm} | p{3cm} | p{8.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  username & public & immutabile & String & Rappresenta lo username da aggiungere alle credenziali del sistema \\
+  username & privato & immutabile & String & Rappresenta lo username da aggiungere alle credenziali del sistema \\
   \hline
-  password & public & immutabile & String & Rappresenta la password da aggiungere abbinata dallo username aggiunto \\
+  password & privato & immutabile & String & Rappresenta la password da aggiungere abbinata dallo username aggiunto \\
+  \hline
+\end{tabular}
+
+\subparagraph{Metodi}
+\begin{tabular}{| l | l | l | l |}
+  \hline
+  Nome & Accesso & Tipo di ritorno & Descrizione\\
+  \hline
+  username & pubblico & String & Metodo che ritorna l'attributo username\\
+  \hline
+  password & pubblico & String & Metodo che ritorna l'attributo password\\
   \hline
 \end{tabular}
 
@@ -451,15 +462,28 @@ Questa classe viene utilizzata per mandare una richiesta all'attore
 di modifica della password di un utente.
 
 \subparagraph{Attributi}
-\begin{tabular}{| p{1cm} | p{1.5cm} | p{2cm} | p{4cm} | p{8.5cm} |}
+\begin{tabular}{| p{2cm} | p{1.5cm} | p{2cm} | p{3cm} | p{8.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  username & public & immutabile & String & Rappresenta lo username dell'utente a cui cambiare la password \\
+  username & privato & immutabile & String & Rappresenta lo username dell'utente a cui cambiare la password \\
   \hline
-  password & public & immutabile & String & Rappresenta la vecchia password da cambiare \\
+  password & privato & immutabile & String & Rappresenta la vecchia password da cambiare \\
   \hline
-  newPassword & public & immutabile & String & Rappresenta la nuova password da assegnare all'utente rappresentato dallo username immesso \\
+  newPassword & privato & immutabile & String & Rappresenta la nuova password da assegnare all'utente rappresentato dallo username immesso \\
+  \hline
+\end{tabular}
+
+\subparagraph{Metodi}
+\begin{tabular}{| l | l | l | l |}
+  \hline
+  Nome & Accesso & Tipo di ritorno & Descrizione\\
+  \hline
+  username & pubblico & String & Metodo che ritorna l'attributo username\\
+  \hline
+  password & pubblico & String & Metodo che ritorna l'attributo password\\
+  \hline
+  newPassword & pubblico & String & Metodo che ritorna l'attributo newPassword\\
   \hline
 \end{tabular}
 
@@ -485,11 +509,20 @@ Questa classe viene utilizzata per mandare una richiesta all'attore
 di rimozione di un utente.
 
 \subparagraph{Attributi}
-\begin{tabular}{| p{1cm} | p{1.5cm} | p{2cm} | p{4cm} | p{8.5cm} |}
+\begin{tabular}{| p{2cm} | p{1.5cm} | p{2cm} | p{3cm} | p{8.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  username & public & immutabile & String & Rappresenta lo username dell'utente da rimuovere dal sistema\\
+  username & privato & immutabile & String & Rappresenta lo username dell'utente da rimuovere dal sistema\\
+  \hline
+\end{tabular}
+
+\subparagraph{Metodi}
+\begin{tabular}{| l | l | l | l |}
+  \hline
+  Nome & Accesso & Tipo di ritorno & Descrizione\\
+  \hline
+  username & pubblico & String & Metodo che ritorna l'attributo username\\
   \hline
 \end{tabular}
 
@@ -516,13 +549,24 @@ di accesso al sistema. L'attore \hyperref[sec:actorbase::actorsystem::actors::au
 dovrà controllare se le credenziali immesse dall'utente sono corrette.
 
 \subparagraph{Attributi}
-\begin{tabular}{| p{1cm} | p{1.5cm} | p{2cm} | p{4cm} | p{8.5cm} |}
+\begin{tabular}{| p{2cm} | p{1.5cm} | p{2cm} | p{3cm} | p{8.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  username & public & immutabile & String & Rappresenta lo username dell'utente che vuole effettuare il login \\
+  username & privato & immutabile & String & Rappresenta lo username dell'utente che vuole effettuare il login \\
   \hline
-  password & public & immutabile & String & Rappresenta la password dell'utente che vuole effettuare il login \\
+  password & privato & immutabile & String & Rappresenta la password dell'utente che vuole effettuare il login \\
+  \hline
+\end{tabular}
+
+\subparagraph{Metodi}
+\begin{tabular}{| l | l | l | l |}
+  \hline
+  Nome & Accesso & Tipo di ritorno & Descrizione\\
+  \hline
+  username & pubblico & String & Metodo che ritorna l'attributo username\\
+  \hline
+  password & pubblico & String & Metodo che ritorna l'attributo password\\
   \hline
 \end{tabular}
 
@@ -569,11 +613,20 @@ Questo viene utilizzato per adempiere ad alcune richieste dell'utente come
 la richiesta di lista collezioni.
 
 \subparagraph{Attributi}
-\begin{tabular}{| p{1cm} | p{1.5cm} | p{2cm} | p{4cm} | p{8.5cm} |}
+\begin{tabular}{| p{2cm} | p{1.5cm} | p{2cm} | p{3cm} | p{8.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  list & public & immutabile & List[String] & Rappresenta una lista di stringhe da restiture all'utente a seguito di una richiesta \\
+  list & privato & immutabile & List<String> & Rappresenta una lista di stringhe da restiture all'utente a seguito di una richiesta \\
+  \hline
+\end{tabular}
+
+\subparagraph{Metodi}
+\begin{tabular}{| l | l | l | l |}
+  \hline
+  Nome & Accesso & Tipo di ritorno & Descrizione\\
+  \hline
+  list & pubblico & List<String> & Metodo che ritorna l'attributo list\\
   \hline
 \end{tabular}
 
@@ -602,13 +655,24 @@ Questo viene utilizzato per adempiere ad alcune richieste dell'utente come
 la richiesta di restituzione di una collezione.
 
 \subparagraph{Attributi}
-\begin{tabular}{| p{1cm} | p{1.5cm} | p{2cm} | p{4cm} | p{8.5cm} |}
+\begin{tabular}{| p{2cm} | p{1.5cm} | p{2cm} | p{3cm} | p{8.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  collection & public & immutabile & String & Rappresenta il nome di una collezione\\
+  collection & privato & immutabile & String & Rappresenta il nome di una collezione\\
   \hline
-  map & public & immutabile & Map<String, Object> & Rappresenta una struttura dati contenente le coppie chiave valore da restituire all'utente a seguito di una richiesta\\
+  map & privato & immutabile & Map<String, Object> & Rappresenta una struttura dati contenente le coppie chiave valore da restituire all'utente a seguito di una richiesta\\
+  \hline
+\end{tabular}
+
+\subparagraph{Metodi}
+\begin{tabular}{| l | l | l | l |}
+  \hline
+  Nome & Accesso & Tipo di ritorno & Descrizione\\
+  \hline
+  collection & pubblico & String & Metodo che ritorna l'attributo collection\\
+  \hline
+  map & pubblico & Map<String, Object> & Metodo che ritorna l'attributo map\\
   \hline
 \end{tabular}
 
@@ -636,11 +700,20 @@ Questa classe viene utilizzata per mandare una stringa all'attore
 Questo viene utilizzato per adempiere ad alcune richieste dell'utente.
 
 \subparagraph{Attributi}
-\begin{tabular}{| p{1cm} | p{1.5cm} | p{2cm} | p{4cm} | p{8.5cm} |}
+\begin{tabular}{| p{2cm} | p{1.5cm} | p{2cm} | p{3cm} | p{8.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  response & public & immutabile & String & Rappresenta una stringa contenente il messaggio o il valore da restiture all'utente a seguito di una sua richiesta\\
+  response & privato & immutabile & Array<Byte> & Rappresenta una stringa contenente il messaggio o il valore da restiture all'utente a seguito di una sua richiesta\\
+  \hline
+\end{tabular}
+
+\subparagraph{Metodi}
+\begin{tabular}{| l | l | l | l |}
+  \hline
+  Nome & Accesso & Tipo di ritorno & Descrizione\\
+  \hline
+  response & pubblico & Array<Byte> & Metodo che ritorna l'attributo response\\
   \hline
 \end{tabular}
 
@@ -686,17 +759,32 @@ item all'attore
 provvederà ad inoltrare la richiesta al giusto attore \hyperref[sec:actorbase::actorsystem::actors::storefinder::Storefinder]{Storefinder}.
 
 \subparagraph{Attributi}
-\begin{tabular}{| p{1cm} | p{1.5cm} | p{2cm} | p{4cm} | p{8.5cm} |}
+\begin{tabular}{| p{2cm} | p{1.5cm} | p{2cm} | p{3cm} | p{8.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  collection & public & immutabile & \hyperref[sec:actorbase::actorsystem::utils::ActorbaseCollection]{ActorbaseCollection} & Rappresenta la collezione in cui effettuare l'inserimento \\
+  collection & privato & immutabile & \hyperref[sec:actorbase::actorsystem::utils::ActorbaseCollection]{ActorbaseCollection} & Rappresenta la collezione in cui effettuare l'inserimento \\
   \hline
-  key & public & immutabile & String & Rappresenta la chiave dell'item da inserire\\
+  key & privato & immutabile & String & Rappresenta la chiave dell'item da inserire\\
   \hline
-  value & public & immutabile & Array[byte] & Rappresenta il valore dell'item serializzato in array di byte\\
+  value & privato & immutabile & Array<Byte> & Rappresenta il valore dell'item serializzato in array di byte\\
   \hline
-  update & public & immutabile & Boolean & Rappresenta un flag per scegliere se l'inserimento deve poter sovrascrivere un item già presente con la stessa chiave o meno\\
+  update & privato & immutabile & Boolean & Rappresenta un flag per scegliere se l'inserimento deve poter sovrascrivere un item già presente con la stessa chiave o meno\\
+  \hline
+\end{tabular}
+
+\subparagraph{Metodi}
+\begin{tabular}{| l | l | l | l |}
+  \hline
+  Nome & Accesso & Tipo di ritorno & Descrizione\\
+  \hline
+  collection & pubblico & \hyperref[sec:actorbase::actorsystem::utils::ActorbaseCollection]{ActorbaseCollection} & Metodo che ritorna l'attributo collection\\
+  \hline
+  key & pubblico & String & Metodo che ritorna l'attributo key\\
+  \hline
+  value & pubblico & Array<Byte> & Metodo che ritorna l'attributo key\\
+  \hline
+  update & pubblico & Boolean & Metodo che ritorna l'attributo key\\
   \hline
 \end{tabular}
 
@@ -725,13 +813,24 @@ parametro in ingresso \textit{key} determina se l'utente richiede un singolo
 item o una intera collezione.
 
 \subparagraph{Attributi}
-\begin{tabular}{| p{1cm} | p{1.5cm} | p{2cm} | p{4cm} | p{8.5cm} |}
+\begin{tabular}{| p{2cm} | p{1.5cm} | p{2cm} | p{3cm} | p{8.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  collection & public & immutabile & \hyperref[sec:actorbase::actorsystem::utils::ActorbaseCollection]{ActorbaseCollection} & Rappresenta la collezione in cui cercare o la collezione da ritornare \\
+  collection & privato & immutabile & \hyperref[sec:actorbase::actorsystem::utils::ActorbaseCollection]{ActorbaseCollection} & Rappresenta la collezione in cui cercare o la collezione da ritornare \\
   \hline
-  key & public & immutabile & String & Rappresenta la chiave dell'item da cercare\\
+  key & privato & immutabile & String & Rappresenta la chiave dell'item da cercare\\
+  \hline
+\end{tabular}
+
+\subparagraph{Metodi}
+\begin{tabular}{| l | l | l | l |}
+  \hline
+  Nome & Accesso & Tipo di ritorno & Descrizione\\
+  \hline
+  collection & pubblico & \hyperref[sec:actorbase::actorsystem::utils::ActorbaseCollection]{ActorbaseCollection} & Metodo che ritorna l'attributo collection\\
+  \hline
+  key & pubblico & String & Metodo che ritorna l'attributo key\\
   \hline
 \end{tabular}
 
@@ -759,16 +858,29 @@ Questa classe viene utilizzata per mandare pezzi di collezione all'attore
 dovrà aspettare tutti i messaggi \hyperref[sec:actorbase::actorsystem::messages::mainmessages::CompleteTransaction]{CompleteTransaction} necessari per costruire un intera collezione da restituire all'utente.\\Questo messaggio è utilizzato quando un utente richiede una o più intere collezioni.
 
 \subparagraph{Attributi}
-\begin{tabular}{| p{1cm} | p{1.5cm} | p{2cm} | p{4cm} | p{8.5cm} |}
+\begin{tabular}{| p{2cm} | p{1.5cm} | p{2cm} | p{3cm} | p{8.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  clientRef & public & immutabile & ActorRef & Rappresenta il riferimento all'attore \hyperref[sec:actorbase::actorsystem::actors::clientactor::ClientActor]{ClientActor} che
+  clientRef & privato & immutabile & ActorRef & Rappresenta il riferimento all'attore \hyperref[sec:actorbase::actorsystem::actors::clientactor::ClientActor]{ClientActor} che
   ha effettuato la richiesta\\
   \hline
-  collection & public & immutabile & \hyperref[sec:actorbase::actorsystem::utils::ActorbaseCollection]{ActorbaseCollection} & Rappresenta la collezione di cui fanno parte gli item passati in questo messaggio\\
+  collection & privato & immutabile & \hyperref[sec:actorbase::actorsystem::utils::ActorbaseCollection]{ActorbaseCollection} & Rappresenta la collezione di cui fanno parte gli item passati in questo messaggio\\
   \hline
-  items & public & immutabile & Map<String, Array[Byte]> & Rappresenta una mappa di items, in particolare rappresentano un pezzo della collezione richiesta\\
+  items & privato & immutabile & Map<String, Array<Byte> > & Rappresenta una mappa di items, in particolare rappresentano un pezzo della collezione richiesta\\
+  \hline
+\end{tabular}
+
+\subparagraph{Metodi}
+\begin{tabular}{| l | l | l | l |}
+  \hline
+  Nome & Accesso & Tipo di ritorno & Descrizione\\
+  \hline
+  clientRef & pubblico & ActorRef & Metodo che ritorna l'attributo clientRef\\
+  \hline
+  collection & pubblico & \hyperref[sec:actorbase::actorsystem::utils::ActorbaseCollection]{ActorbaseCollection} & Metodo che ritorna l'attributo collection\\
+  \hline
+  items & pubblico & Map<String, Array<Byte> > & Metodo che ritorna l'attributo key\\
   \hline
 \end{tabular}
 
@@ -794,13 +906,24 @@ Questa classe viene utilizzata per rimuovere items dal sistema. L'attore
 inoltrare la richiesta al giustto attore \hyperref[sec:actorbase::actorsystem::actors::storefinder::Storefinder]{Storefinder}.
 
 \subparagraph{Attributi}
-\begin{tabular}{| p{1cm} | p{1.5cm} | p{2cm} | p{4cm} | p{8.5cm} |}
+\begin{tabular}{| p{2cm} | p{1.5cm} | p{2cm} | p{3cm} | p{8.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  uuid & public & immutabile & String & Rappresenta l'id della collezione da cui eliminare l'item\\
+  uuid & privato & immutabile & String & Rappresenta l'id della collezione da cui eliminare l'item\\
   \hline
-  key & public & immutabile & String & Rappresenta la chiave dell'item da eliminare\\
+  key & privato & immutabile & String & Rappresenta la chiave dell'item da eliminare\\
+  \hline
+\end{tabular}
+
+\subparagraph{Metodi}
+\begin{tabular}{| l | l | l | l |}
+  \hline
+  Nome & Accesso & Tipo di ritorno & Descrizione\\
+  \hline
+  uuid & pubblico & String & Metodo che ritorna l'attributo uuid\\
+  \hline
+  key & pubblico & String & Metodo che ritorna l'attributo key\\
   \hline
 \end{tabular}
 
@@ -828,15 +951,28 @@ una collezione. L'attore
 lo username del collaboratore designato alla collezione richiesta.
 
 \subparagraph{Attributi}
-\begin{tabular}{| p{1cm} | p{1.5cm} | p{2cm} | p{4cm} | p{8.5cm} |}
+\begin{tabular}{| p{2cm} | p{1.5cm} | p{2cm} | p{3cm} | p{8.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  username & public & immutabile & String & Rappresente lo username del collaboratore da aggiungere alla collezione\\
+  username & privato & immutabile & String & Rappresente lo username del collaboratore da aggiungere alla collezione\\
   \hline
-  permission & public & immutabile & Enum & Rappresenta il tipo di permessi da assegnare al collaboratore\\
+  permission & privato & immutabile & Enum & Rappresenta il tipo di permessi da assegnare al collaboratore\\
   \hline
-  uuid & public & immutabile & String & Rappresenta l'id della collezione a cui aggiungere il collaboratore\\
+  uuid & privato & immutabile & String & Rappresenta l'id della collezione a cui aggiungere il collaboratore\\
+  \hline
+\end{tabular}
+
+\subparagraph{Metodi}
+\begin{tabular}{| l | l | l | l |}
+  \hline
+  Nome & Accesso & Tipo di ritorno & Descrizione\\
+  \hline
+  username & pubblico & String & Metodo che ritorna l'attributo username\\
+  \hline
+  permission & pubblico & Enum & Metodo che ritorna l'attributo permission\\
+  \hline
+  uuid & pubblico & String & Metodo che ritorna l'attributo uuid\\
   \hline
 \end{tabular}
 
@@ -864,13 +1000,24 @@ una collezione. L'attore
 lo username del collaboratore designato alla collezione richiesta.
 
 \subparagraph{Attributi}
-\begin{tabular}{| p{1cm} | p{1.5cm} | p{2cm} | p{4cm} | p{8.5cm} |}
+\begin{tabular}{| p{2cm} | p{1.5cm} | p{2cm} | p{3cm} | p{8.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  username & public & immutabile & String & Rappresente lo username del collaboratore da rimuovere dalla collezione\\
+  username & privato & immutabile & String & Rappresente lo username del collaboratore da rimuovere dalla collezione\\
   \hline
-  uuid & public & immutabile & String & Rappresenta l'id della collezione da cui rimuovere il collaboratore\\
+  uuid & privato & immutabile & String & Rappresenta l'id della collezione da cui rimuovere il collaboratore\\
+  \hline
+\end{tabular}
+
+\subparagraph{Metodi}
+\begin{tabular}{| l | l | l | l |}
+  \hline
+  Nome & Accesso & Tipo di ritorno & Descrizione\\
+  \hline
+  username & pubblico & String & Metodo che ritorna l'attributo username\\
+  \hline
+  uuid & pubblico & String & Metodo che ritorna l'attributo uuid\\
   \hline
 \end{tabular}
 
@@ -896,11 +1043,20 @@ Questa classe viene utilizzata per richiedere la creazione di una collezione.\\L
 adibito alla gestione di quest'ultima.
 
 \subparagraph{Attributi}
-\begin{tabular}{| p{1cm} | p{1.5cm} | p{2cm} | p{4cm} | p{8.5cm} |}
+\begin{tabular}{| p{2cm} | p{1.5cm} | p{2cm} | p{3cm} | p{8.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  collection & public & immutabile & \hyperref[sec:actorbase::actorsystem::utils::ActorbaseCollection]{ActorbaseCollection} & Collezione da aggiungere al sistema\\
+  collection & privato & immutabile & \hyperref[sec:actorbase::actorsystem::utils::ActorbaseCollection]{ActorbaseCollection} & Collezione da aggiungere al sistema\\
+  \hline
+\end{tabular}
+
+\subparagraph{Metodi}
+\begin{tabular}{| l | l | l | l |}
+  \hline
+  Nome & Accesso & Tipo di ritorno & Descrizione\\
+  \hline
+  collection & pubblico & \hyperref[sec:actorbase::actorsystem::utils::ActorbaseCollection]{ActorbaseCollection} & Metodo che ritorna l'attributo collection\\
   \hline
 \end{tabular}
 
@@ -967,11 +1123,20 @@ Questa classe viene utilizzata per tenere aggiornate le dimensioni delle
 collezioni quando si inseriscono o rimuovono items da esse.
 
 \subparagraph{Attributi}
-\begin{tabular}{| p{1cm} | p{1.5cm} | p{2cm} | p{4cm} | p{8.5cm} |}
+\begin{tabular}{| p{2cm} | p{1.5cm} | p{2cm} | p{3cm} | p{8.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  increment & public & immutabile & Boolean & flag che indica se c'è stato un incremento o un decremento nella collezione (true se incremento)\\
+  increment & privato & immutabile & Boolean & flag che indica se c'è stato un incremento o un decremento nella collezione (true se incremento)\\
+  \hline
+\end{tabular}
+
+\subparagraph{Metodi}
+\begin{tabular}{| l | l | l | l |}
+  \hline
+  Nome & Accesso & Tipo di ritorno & Descrizione\\
+  \hline
+  increment & pubblico & Boolean & Metodo che ritorna l'attributo increment\\
   \hline
 \end{tabular}
 
@@ -997,11 +1162,20 @@ all'utente.\\Quando riceve questo messaggio l'attore provvederà a inoltrare la
 richiesta allo \hyperref[sec:actorbase::actorsystem::actors::storekeeper::Storekeeper]{Storekeeper} esatto.
 
 \subparagraph{Attributi}
-\begin{tabular}{| p{1cm} | p{1.5cm} | p{2cm} | p{4cm} | p{8.5cm} |}
+\begin{tabular}{| p{2cm} | p{1.5cm} | p{2cm} | p{3cm} | p{8.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  key & public & immutabile & String & Rappresenta la chiave dell'item da restituire\\
+  key & privato & immutabile & String & Rappresenta la chiave dell'item da restituire\\
+  \hline
+\end{tabular}
+
+\subparagraph{Metodi}
+\begin{tabular}{| l | l | l | l |}
+  \hline
+  Nome & Accesso & Tipo di ritorno & Descrizione\\
+  \hline
+  key & pubblico & String & Metodo che ritorna l'attributo key\\
   \hline
 \end{tabular}
 
@@ -1027,13 +1201,24 @@ una richiesta di una intera collezione da parte di un utente.\\Quando riceve que
 \hyperref[sec:actorbase::actorsystem::actors::main::Main]{Main} parent, il quale provvederà ad assemblare tutta la collezione da restutire all'utente.
 
 \subparagraph{Attributi}
-\begin{tabular}{| p{1cm} | p{1.5cm} | p{2cm} | p{4cm} | p{8.5cm} |}
+\begin{tabular}{| p{2cm} | p{1.5cm} | p{2cm} | p{3cm} | p{8.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  clientRef & public & immutabile & ActorRef & Rappresenta il riferimento all'attore \hyperref[sec:actorbase::actorsystem::actors::clientactor::ClientActor]{ClientActor} che ha richiesto la collezione\\
+  clientRef & privato & immutabile & ActorRef & Rappresenta il riferimento all'attore \hyperref[sec:actorbase::actorsystem::actors::clientactor::ClientActor]{ClientActor} che ha richiesto la collezione\\
   \hline
-  items & public & immutabile & Map<String, Array[Byte]> & Rappresenta una mappa contenente le coppie chiave valore degli items della collezione da restituire\\
+  items & privato & immutabile & Map<String, Array<Byte> > & Rappresenta una mappa contenente le coppie chiave valore degli items della collezione da restituire\\
+  \hline
+\end{tabular}
+
+\subparagraph{Metodi}
+\begin{tabular}{| l | l | l | l |}
+  \hline
+  Nome & Accesso & Tipo di ritorno & Descrizione\\
+  \hline
+  clientRef & pubblico & ActorRef & Metodo che ritorna l'attributo clientRef\\
+  \hline
+  items & pubblico & Map<String, Array<Byte> > & Metodo che ritorna l'attributo items\\
   \hline
 \end{tabular}
 
@@ -1060,11 +1245,20 @@ richiesta allo \hyperref[sec:actorbase::actorsystem::actors::storekeeper::Storek
 giusto.
 
 \subparagraph{Attributi}
-\begin{tabular}{| p{1cm} | p{1.5cm} | p{2cm} | p{4cm} | p{8.5cm} |}
+\begin{tabular}{| p{2cm} | p{1.5cm} | p{2cm} | p{3cm} | p{8.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  key & public & immutabile & String & Rappresenta la chiave dell'elemento da rimuovere dalla collezione rappresentata da questo attore\\
+  key & privato & immutabile & String & Rappresenta la chiave dell'elemento da rimuovere dalla collezione rappresentata da questo attore\\
+  \hline
+\end{tabular}
+
+\subparagraph{Metodi}
+\begin{tabular}{| l | l | l | l |}
+  \hline
+  Nome & Accesso & Tipo di ritorno & Descrizione\\
+  \hline
+  key & pubblico & String & Metodo che ritorna l'attributo key\\
   \hline
 \end{tabular}
 
@@ -1091,15 +1285,28 @@ richiesta allo \hyperref[sec:actorbase::actorsystem::actors::storekeeper::Storek
 giusto.
 
 \subparagraph{Attributi}
-\begin{tabular}{| p{1cm} | p{1.5cm} | p{2cm} | p{4cm} | p{8.5cm} |}
+\begin{tabular}{| p{2cm} | p{1.5cm} | p{2cm} | p{3cm} | p{8.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
   key & public & immutabile & String & Rappresenta la chiave dell'elemento da aggiungere dalla collezione rappresentata da questo attore\\
   \hline
-  value & public & immutabile & Array[Byte] & Rappresenta il valore dell'item da inserire sotto forma di array di bytes\\
+  value & public & immutabile & Array<Byte> & Rappresenta il valore dell'item da inserire sotto forma di array di bytes\\
   \hline
-  update & public & immutabile & String & Rappresenta un flag che server a scegliere se l'operazione può effettuare sovrascrittura o no (true se l'operazione può sovrascrivere items con la stessa chiave)\\
+  update & public & immutabile & Boolean & Rappresenta un flag che server a scegliere se l'operazione può effettuare sovrascrittura o no (true se l'operazione può sovrascrivere items con la stessa chiave)\\
+  \hline
+\end{tabular}
+
+\subparagraph{Metodi}
+\begin{tabular}{| l | l | l | l |}
+  \hline
+  Nome & Accesso & Tipo di ritorno & Descrizione\\
+  \hline
+  key & pubblico & String & Metodo che ritorna l'attributo key\\
+  \hline
+  value & pubblico & Array<Byte> & Metodo che ritorna l'attributo value\\
+  \hline
+  update & pubblico & Boolean & Metodo che ritorna l'attributo update\\
   \hline
 \end{tabular}
 
@@ -1166,11 +1373,20 @@ subito dopo la sua creazione.\\L'attore userà il riferimento al Manager per
 informarlo quando raggiunge una certa soglia di items.
 
 \subparagraph{Attributi}
-\begin{tabular}{| p{1cm} | p{1.5cm} | p{2cm} | p{4cm} | p{8.5cm} |}
+\begin{tabular}{| p{2cm} | p{1.5cm} | p{2cm} | p{3cm} | p{8.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
   mn & public & immutabile & ActorRef & Rappresenta un riferimento ad un attore \hyperref[sec:actorbase::actorsystem::actors::manager::Manager]{Manager}\\
+  \hline
+\end{tabular}
+
+\subparagraph{Metodi}
+\begin{tabular}{| l | l | l | l |}
+  \hline
+  Nome & Accesso & Tipo di ritorno & Descrizione\\
+  \hline
+  man & pubblico & ActorRef & Metodo che ritorna l'attributo mn\\
   \hline
 \end{tabular}
 
@@ -1199,11 +1415,20 @@ all'attore passato come parametro.\\Questo messaggio serve a
 restituire all'utente intere collezioni.
 
 \subparagraph{Attributi}
-\begin{tabular}{| p{1cm} | p{1.5cm} | p{2cm} | p{4cm} | p{8.5cm} |}
+\begin{tabular}{| p{2cm} | p{1.5cm} | p{2cm} | p{3cm} | p{8.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
   parent & public & immutabile & ActorRef & Rappresenta un riferimento all'attore \hyperref[sec:actorbase::actorsystem::actors::storefinder::Storefinder]{Storefinder} che rappresenta la collezione di cui lo \hyperref[sec:actorbase::actorsystem::actors::storekeeper::Storekeeper]{Storekeeper} fa parte\\
+  \hline
+\end{tabular}
+
+\subparagraph{Metodi}
+\begin{tabular}{| l | l | l | l |}
+  \hline
+  Nome & Accesso & Tipo di ritorno & Descrizione\\
+  \hline
+  parent & pubblico & ActorRef & Metodo che ritorna l'attributo parent\\
   \hline
 \end{tabular}
 
@@ -1231,11 +1456,20 @@ messaggio provvederà a inviare l'item richiesto all'attore \hyperref[sec:actorb
 ha effettuato la richiesta.
 
 \subparagraph{Attributi}
-\begin{tabular}{| p{1cm} | p{1.5cm} | p{2cm} | p{4cm} | p{8.5cm} |}
+\begin{tabular}{| p{2cm} | p{1.5cm} | p{2cm} | p{3cm} | p{8.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
   key & public & immutabile & String & Rappresenta la chiave dell'item da restituire\\
+  \hline
+\end{tabular}
+
+\subparagraph{Metodi}
+\begin{tabular}{| l | l | l | l |}
+  \hline
+  Nome & Accesso & Tipo di ritorno & Descrizione\\
+  \hline
+  key & pubblico & String & Metodo che ritorna l'attributo key\\
   \hline
 \end{tabular}
 
@@ -1261,15 +1495,28 @@ Questa classe viene utilizzata per richiedere l'inserimento di un item.\\Quando 
 questione nella propria struttura dati.
 
 \subparagraph{Attributi}
-\begin{tabular}{| p{1cm} | p{1.5cm} | p{2cm} | p{4cm} | p{8.5cm} |}
+\begin{tabular}{| p{2cm} | p{1.5cm} | p{2cm} | p{3cm} | p{8.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
   key & public & immutabile & String & Rappresenta la chiave dell'item da inserire\\
   \hline
-  value & public & immutabile & Array[Byte] & Rappresenta il valore dell'item in formato array di bytes\\
+  value & public & immutabile & Array<Byte> & Rappresenta il valore dell'item in formato array di bytes\\
   \hline
   update & public & immutabile & Boolean & Flag per scegliere se l'inserimento può effettuare sovrascrittura o meno (true se può effettuare sovrascrittura)\\
+  \hline
+\end{tabular}
+
+\subparagraph{Metodi}
+\begin{tabular}{| l | l | l | l |}
+  \hline
+  Nome & Accesso & Tipo di ritorno & Descrizione\\
+  \hline
+  key & pubblico & String & Metodo che ritorna l'attributo key\\
+  \hline
+  value & pubblico & Array<Byte> & Metodo che ritorna l'attributo value\\
+  \hline
+  update & pubblico & Boolean & Metodo che ritorna l'attributo update\\
   \hline
 \end{tabular}
 
@@ -1298,11 +1545,20 @@ messaggio provvederà a rimuovere dalla propria struttura dati l'item con la
 chiave passata come parametro.
 
 \subparagraph{Attributi}
-\begin{tabular}{| p{1cm} | p{1.5cm} | p{2cm} | p{4cm} | p{8.5cm} |}
+\begin{tabular}{| p{2cm} | p{1.5cm} | p{2cm} | p{3cm} | p{8.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  key & public & immutabile & String & Rappresenta la chiave dell'item da rimuovere\\
+  key & privato & immutabile & String & Rappresenta la chiave dell'item da rimuovere\\
+  \hline
+\end{tabular}
+
+\subparagraph{Metodi}
+\begin{tabular}{| l | l | l | l |}
+  \hline
+  Nome & Accesso & Tipo di ritorno & Descrizione\\
+  \hline
+  key & pubblico & String & Metodo che ritorna l'attributo key\\
   \hline
 \end{tabular}
 
@@ -1368,13 +1624,24 @@ necessarie come la collezione che rappresenta.\\Questo messaggio viene
 ricevuto subito dopo la propria creazione in modo da inizializzarlo immediatamente.
 
 \subparagraph{Attributi}
-\begin{tabular}{| p{1cm} | p{1.5cm} | p{2cm} | p{4cm} | p{8.5cm} |}
+\begin{tabular}{| p{2cm} | p{1.5cm} | p{2cm} | p{3cm} | p{8.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  collection & public & immutabile & String & Rappresenta il nome della collezione che questo attore rappresenta\\
+  collection & privato & immutabile & String & Rappresenta il nome della collezione che questo attore rappresenta\\
   \hline
-  owner & public & immutable & String & Rappresenta lo username dell'utente che ha creato la collezione che questo attore rappresenta\\
+  owner & privato & immutable & String & Rappresenta lo username dell'utente che ha creato la collezione che questo attore rappresenta\\
+  \hline
+\end{tabular}
+
+\subparagraph{Metodi}
+\begin{tabular}{| l | l | l | l |}
+  \hline
+  Nome & Accesso & Tipo di ritorno & Descrizione\\
+  \hline
+  collection & pubblico & String & Metodo che ritorna l'attributo collection\\
+  \hline
+  owner & pubblico & String & Metodo che ritorna l'attributo owner\\
   \hline
 \end{tabular}
 
@@ -1402,11 +1669,20 @@ simile alla gerarchia delle collezioni del sistema.\\I dati salvati su disco
 devono essere criptati.
 
 \subparagraph{Attributi}
-\begin{tabular}{| p{1cm} | p{1.5cm} | p{2cm} | p{4cm} | p{8.5cm} |}
+\begin{tabular}{| p{2cm} | p{1.5cm} | p{2cm} | p{3cm} | p{8.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  map & public & immutable & Map<String, Array[Byte]> & Rappresenta una mappa di items da salvare su disco\\
+  map & privato & immutable & Map<String, Array<Byte> > & Rappresenta una mappa di items da salvare su disco\\
+  \hline
+\end{tabular}
+
+\subparagraph{Metodi}
+\begin{tabular}{| l | l | l | l |}
+  \hline
+  Nome & Accesso & Tipo di ritorno & Descrizione\\
+  \hline
+  map & pubblico & Map<String, Array<Byte> > & Metodo che ritorna l'attributo map\\
   \hline
 \end{tabular}
 
@@ -1432,14 +1708,22 @@ da disco. Quando l'attore riceve questo messaggio provvederà a decriptare,
 leggere e restituire i dati all'attore richiedente.\\Questo messaggio è usato ad esempio quando il sistema subisce un riavvio per ripopolare la struttura coi dati scritti su disco.
 
 \subparagraph{Attributi}
-\begin{tabular}{| p{1cm} | p{1.5cm} | p{2cm} | p{4cm} | p{8.5cm} |}
+\begin{tabular}{| p{2cm} | p{1.5cm} | p{2cm} | p{3cm} | p{8.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  file & public & immutable & File & Rappresenta un file da cui leggere gli items\\
+  file & privato & immutable & File & Rappresenta un file da cui leggere gli items\\
   \hline
 \end{tabular}
 
+\subparagraph{Metodi}
+\begin{tabular}{| l | l | l | l |}
+  \hline
+  Nome & Accesso & Tipo di ritorno & Descrizione\\
+  \hline
+  file & pubblico & File & Metodo che ritorna l'attributo file\\
+  \hline
+\end{tabular}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -2022,7 +2306,7 @@ Questa classe viene utilizzata per gestire le richieste ricevute al
   \hline
   ufRef & private & immutabile & ActorRef & Rappresenta il riferimento all'attore di tipo Userfinder. Questo serve per poter instradare le richieste più velocemente agli attori Userkeeper \\
   \hline
-  requestMap & private & mutabile & Map<ActorRef, Map<ActorbaseCollection, Map<String, Object>>> & Struttura dati atta a restituire intere collezioni\\
+  requestMap & private & mutabile & Map<ActorRef, Map<ActorbaseCollection, Map<String, Object> > > & Struttura dati atta a restituire intere collezioni\\
   \hline
 \end{tabular}
 
@@ -3356,7 +3640,7 @@ creata mediante il design pattern \gloss{Builder} nella classe
   \hline
   credentials & private & immutabile & \hyperref[sec:actorbase::driver::client::api::Credentials]{Credentials} & Oggetto rappresentante le credenziali di accesso al sistema Actorbase\\
   \hline
-  headers & private & immutabile & Map<String, List<String>> & Rappresenta gli \gloss{header} \gloss{HTTP} da associare alla richiesta\\
+  headers & private & immutabile & Map<String, List<String> > & Rappresenta gli \gloss{header} \gloss{HTTP} da associare alla richiesta\\
   \hline
   params & private & immutabile &  Map<String, String> & Rappresenta i parametri da allegare alla richiesta \gloss{HTTP}\\
   \hline
@@ -3521,7 +3805,7 @@ nella comunicazione con il server.
   \hline
   credentials & private & immutabile & \hyperref[sec:actorbase::driver::client::api::Credentials]{Credentials} & Rappresenta le credenziali di accesso al sistema Actorbase\\
   \hline
-  headers & private & immutabile & Map<String, List<String>> & Rappresenta gli \gloss{header} \gloss{HTTP} da associare alla richiesta\\
+  headers & private & immutabile & Map<String, List<String> > & Rappresenta gli \gloss{header} \gloss{HTTP} da associare alla richiesta\\
   \hline
   params & private & immutabile &  Map<String, String> & Rappresenta i parametri da allegare alla richiesta \gloss{HTTP}\\
   \hline
@@ -3832,7 +4116,7 @@ navigabilità dei contenuti.
   \hline
   foreach & public & void & Permette di visitare l'intera \gloss{collezione} applicando una funzione ad ogni \gloss{item}\\
   \hline
-  withFilter & public & FilterMonadic<(String, Object), Map<String, Object>> & Permette di visitare l'intera \gloss{collezione} utilizzando il costrutto for \gloss{Scala}\\
+  withFilter & public & FilterMonadic<(String, Object), Map<String, Object> > & Permette di visitare l'intera \gloss{collezione} utilizzando il costrutto for \gloss{Scala}\\
   \hline
   toString & public & String & Ritorna la \gloss{collezione} in formato String \gloss{JSON}\\
   \hline
