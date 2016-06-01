@@ -183,7 +183,7 @@ La componente principale rappresentata dal package globale \textbf{actorbase}.
 Rappresentano le tre macro-componenti del sistema.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%                       ACTORSYSTEM PARTE                      %%%
+%%% ACTORSYSTEM PARTE                      %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{actorbase::actorsystem}
@@ -361,12 +361,12 @@ getter e un meotodo per il confronto con un altro oggetto ActorbaseCollection.
 \label{sec:actorbase::actorsystem::messages}
 
 % TODO da aggiungere
-%\begin{figure}[H]
-%  \begin{center}
-%    \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/Actorsystem.png}
-%    \caption{Package messages}
-%  \end{center}
-%\end{figure}
+% \begin{figure}[H]
+%   \begin{center}
+%     \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/Actorsystem.png}
+%     \caption{Package messages}
+%   \end{center}
+% \end{figure}
 
 \subsubsection{Descrizione}
 
@@ -2858,13 +2858,15 @@ le operazioni di lettura e scrittura di queste ultime.
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  insertTo & public & Boolean & Metodo utilizzato per l'inserimento di nuovi \gloss{item} direttamente alla \gloss{collezione} specificata senza doverla preventivamente scaricare\\
+  insertTo & public & void & Metodo utilizzato per l'inserimento di nuovi \gloss{item} direttamente alla \gloss{collezione} specificata senza doverla preventivamente scaricare\\
   \hline
-  removeFrom & public & \hyperref[sec:actorbase::driver::data::ActorbaseObject]{ActorbaseObject} & Metodo utilizzato per la rimozione di \gloss{item} direttamente dalla \gloss{collezione} specificata senza doverla preventivamente scaricare\\
+  insertTo<T> (overload) & public & void & Metodo utilizzato per l'inserimento di nuovi \gloss{item} direttamente alla \gloss{collezione} specificata senza doverla preventivamente scaricare\\
   \hline
-  find & public & \hyperref[sec:actorbase::driver::data::ActorbaseObject]{ActorbaseObject} & Metodo utilizzato per la ricerca di \gloss{item} direttamente dalle collezioni specificate senza doverle preventivamente scaricare\\
+  removeFrom<T> & public & \hyperref[sec:actorbase::driver::data::ActorbaseObject]{ActorbaseObject} & Metodo utilizzato per la rimozione di \gloss{item} direttamente dalla \gloss{collezione} specificata senza doverla preventivamente scaricare\\
   \hline
-  changePassword & public & Boolean & Metodo utilizzato per la modifica della propria password di profilo \textbf{Actorbase}\\
+  find<T> & public & \hyperref[sec:actorbase::driver::data::ActorbaseObject]{ActorbaseObject} & Metodo utilizzato per la ricerca di \gloss{item} direttamente dalle collezioni specificate senza doverle preventivamente scaricare\\
+  \hline
+  changePassword & public & void & Metodo utilizzato per la modifica della propria password di profilo \textbf{Actorbase}\\
   \hline
   listCollections & public & List[String] & Ritorna una lista di stringhe, rappresentano i nomi delle collezioni\\
   \hline
@@ -2876,9 +2878,9 @@ le operazioni di lettura e scrittura di queste ultime.
   \hline
   dropCollection & public & \hyperref[sec:actorbase::driver::data::ActorbaseCollection]{ActorbaseCollection} & Ritorna un oggetto di tipo \hyperref[sec:actorbase::driver::data::ActorbaseCollection]{ActorbaseCollection}\\
   \hline
-  importFromFile & public & Boolean & Metodo da utilizzare per importare \gloss{collezioni} sul \gloss{server} da \gloss{file}\\
+  importFromFile & public & void & Metodo da utilizzare per importare \gloss{collezioni} sul \gloss{server} da \gloss{file}\\
   \hline
-  exportToFile & public & Boolean & Metodo da utilizzare per esportare \gloss{collezioni} dal \gloss{server} su \gloss{filesystem}\\
+  exportToFile & public & void & Metodo da utilizzare per esportare \gloss{collezioni} dal \gloss{server} su \gloss{filesystem}\\
   \hline
   logout & public & void & Effettua il logout dal server\\
   \hline
@@ -2895,13 +2897,13 @@ le operazioni di lettura e scrittura di queste ultime.
   \hline
   collection & String & Rappresenta la \gloss{collezione} a cui effettuare l'inserimento del nuovo \gloss{item}\\
   \hline
-  kv & Tuple2[String, Object] & Rappresenta la coppia chiave-valore da inserire nella \gloss{collezione} specificata, insieme formano il nuovo \gloss{item} da inserire\\
+  kv & \gloss{vararg} di Tuple2<String, Object> & Rappresenta la coppia chiave-valore da inserire nella \gloss{collezione} specificata, insieme formano il nuovo \gloss{item} da inserire\\
   \hline
   update & Boolean & Rappresenta un flag di sovrascrittura sull' \gloss{item} da inserire nella \gloss{collezione} specificata\\
   \hline
 \end{tabular}\\
 
-\textbf{insertTo (overload)}\\ \\
+\textbf{insertTo<T> (overload)}\\ \\
 \begin{tabular}{| p{3cm} | p{3.5cm} | p{10.5cm} |}
   \hline
   Nome & Tipo & Descrizione\\
@@ -2914,7 +2916,7 @@ le operazioni di lettura e scrittura di queste ultime.
   \hline
 \end{tabular}\\
 
-\textbf{removeFrom}\\ \\
+\textbf{removeFrom<T>}\\ \\
 \begin{tabular}{| p{3cm} | p{3.5cm} | p{10.5cm} |}
   \hline
   Nome & Tipo & Descrizione\\
@@ -2925,7 +2927,7 @@ le operazioni di lettura e scrittura di queste ultime.
   \hline
 \end{tabular}\\
 
-\textbf{find}\\ \\
+\textbf{find<T>}\\ \\
 \begin{tabular}{| p{3cm} | p{3.5cm} | p{10.5cm} |}
   \hline
   Nome & Tipo & Descrizione\\
@@ -2999,9 +3001,11 @@ le operazioni di lettura e scrittura di queste ultime.
 
 \subparagraph{Descrizione}
 
-Classe astratta contenente alcuni metodi di utilità esclusivamente amministrativa, utilizzata
-come dipendenza da iniettare alla classe \hyperref[sec:actorbase::driver::ActorbaseServices]{ActorbaseServices} qualora
-avvenisse un'autenticazione mediante la classe \hyperref[sec:actorbase::driver::ActorbaseDriver]{ActorbaseDriver} utilizzando
+Classe astratta contenente alcuni metodi di utilità esclusivamente
+amministrativa, utilizzata come dipendenza da iniettare alla classe
+\hyperref[sec:actorbase::driver::ActorbaseServices]{ActorbaseServices} qualora
+avvenisse un'autenticazione mediante la classe
+\hyperref[sec:actorbase::driver::ActorbaseDriver]{ActorbaseDriver} utilizzando
 un profilo amministrativo.
 
 \subparagraph{Utilizzo}
@@ -3026,11 +3030,11 @@ scrittura delle \gloss{collezioni}. Funge da iniezione di dipendenze mediante
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  addUSer & public & Boolean & Permette di aggiungere un nuovo utente al sistema\\
+  addUSer & public & void & Permette di aggiungere un nuovo utente al sistema\\
   \hline
-  removeUser & public & Boolean & Permette la rimozione di un utente dal sistema\\
+  removeUser & public & void & Permette la rimozione di un utente dal sistema\\
   \hline
-  resetPassword & public & Boolean & Effettua il \gloss{reset} della password di un utente\\
+  resetPassword & public & void & Effettua il \gloss{reset} della password di un utente\\
   \hline
 \end{tabular}
 
@@ -3098,11 +3102,29 @@ utilizzare nelle classi che necessitano di collegamenti al \gloss{server}.
   \hline
   password & public & immutabile & String & Rappresenta la password dell'utente\\
   \hline
-  administrator & public & immutabile & Boolean & Indica il livello di privilegio del profilo \textbf{Actorbase}, \gloss{true} se amministrativo, altrimento \gloss{false}\\
+  permissions & public & immutabile & Boolean & Indica il livello di privilegio del profilo \textbf{Actorbase}, \gloss{true} se amministrativo, altrimento \gloss{false}\\
   \hline
   address & public & immutabile & String & Rappresenta l'indirizzo del \gloss{server} \textbf{Actorbase}\\
   \hline
   port & public & immutabile & Int & Rappresenta la porta esposta dal \gloss{server}\\
+  \hline
+\end{tabular}
+
+\subparagraph{Metodi}
+
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2.5cm} | p{10cm} |}
+  \hline
+  Nome & Accesso & Tipo di ritorno & Descrizione\\
+  \hline
+  username & public & String & Metodo pubblico di accesso in sola lettura all'attributo \gloss{username}\\
+  \hline
+  password & public & String & Metodo pubblico di accesso in sola lettura all'attributo password\\
+  \hline
+  permissions & public & Boolean & Metodo pubblico di accesso in sola lettura all'attributo permissions\\
+  \hline
+  address & public & String & Metodo pubblico di accesso in sola lettura all'attributo address\\
+  \hline
+  port & public & Int & Metodo pubblico di accesso in sola lettura all'attributo port\\
   \hline
 \end{tabular}
 
@@ -3135,7 +3157,8 @@ che con la componente \gloss{server} del sistema.
 
 \subparagraph{Descrizione}
 
-Interfaccia che rappresenta il comportamento di un client atto alla connessione con un server.
+Interfaccia che rappresenta il comportamento di un client atto alla connessione
+con un server.
 
 \subparagraph{Utilizzo}
 
@@ -3375,7 +3398,7 @@ necessitano.
   \hline
   send & public & \hyperref[sec::actorbase::driver::api::Response]{Response} & Invia la richiesta al server e riceve la risposta sincronamente\\
   \hline
-  shutdown & public &  & Chiude la connessione con il server\\
+  shutdown & public & void & Chiude la connessione con il server\\
   \hline
 \end{tabular}
 
@@ -3650,17 +3673,37 @@ creata mediante il design pattern \gloss{Builder} nella classe
   \hline
 \end{tabular}
 
+\subparagraph{Metodi}
+
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2.5cm} | p{10cm} |}
+  \hline
+  Nome & Accesso & Tipo di ritorno & Descrizione\\
+  \hline
+  method & public & \hyperref[sec:actorbase::driver::client::api::RequestMethod]{RequestMethod} & Metodo pubblico di accesso in sola lettura all'attributo method\\
+  \hline
+  url & public & String & Metodo pubblico di accesso in sola lettura all'attributo url\\
+  \hline
+  credentials & public & Credentials & Metodo pubblico di accesso in sola lettura all'attributo credentials\\
+  \hline
+  params & public & Map<String, String> & Metodo pubblico di accesso in sola lettura all'attributo params\\
+  \hline
+  headers & public & Map<String, List<String>> & Metodo pubblico di accesso in sola lettura all'attributo headers\\
+  \hline
+  body & public & Array di byte & Metodo pubblico di accesso in sola lettura all'attributo body\\
+  \hline
+\end{tabular}
+
 % FINE REQUEST
 
 \paragraph{Credentials}
 \label{sec:actorbase::driver::client::api::Credentials}
 % TODO: da inserire immagine
-% \begin{figure}[H]
-%   \begin{center}
-%     \includegraphics[width=0.3\textwidth,keepaspectratio]{RQ/Credentials.png}
-%     \caption{Driver: Classe request}
-%   \end{center}
-% \end{figure}
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.3\textwidth,keepaspectratio]{RA/Credentials.png}
+    \caption{Driver: Classe request}
+  \end{center}
+\end{figure}
 
 \subparagraph{Descrizione}
 
@@ -3682,6 +3725,18 @@ dati stringa, \gloss{username} e password.
   username & private & immutabile & String & Rappresenta lo \gloss{username} associato all'utente utilizzatore del sistema\\
   \hline
   password & private & immutabile & String & Rappresenta la password associata allo \gloss{username} dell'utente utilizzatore del sistema\\
+  \hline
+\end{tabular}
+
+\subparagraph{Metodi}
+
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2.5cm} | p{10cm} |}
+  \hline
+  Nome & Accesso & Tipo di ritorno & Descrizione\\
+  \hline
+  username & public & String & Metodo pubblico di accesso in sola lettura all'attributo \gloss{username}\\
+  \hline
+  password & public & String & Metodo pubblico di accesso in sola lettura all'attributo password\\
   \hline
 \end{tabular}
 
@@ -3719,6 +3774,18 @@ utilizzare nella comunicazione con il server.
   status & private & immutabile & Int & Indica il codice di risposta \gloss{HTTP}\\
   \hline
   body & private & immutabile & String & Rappresenta i dati di \gloss{payload} ricevuti dal server\\
+  \hline
+\end{tabular}
+
+\subparagraph{Metodi}
+
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{2.5cm} | p{10cm} |}
+  \hline
+  Nome & Accesso & Tipo di ritorno & Descrizione\\
+  \hline
+  status & public & Int & Metodo pubblico di accesso in sola lettura all'attributo status\\
+  \hline
+  body & public & String & Metodo pubblico di accesso in sola lettura all'attributo body\\
   \hline
 \end{tabular}
 
@@ -3862,7 +3929,7 @@ nella comunicazione con il server.
   \hline
   Nome & Tipo & Descrizione\\
   \hline
-  params & array di Tuple2[String, String] & Rappresenta i parametri da allegare alle richieste \gloss{HTTP}\\
+  params & array di Tuple2<String, String> & Rappresenta i parametri da allegare alle richieste \gloss{HTTP}\\
   \hline
 \end{tabular}\\
 
@@ -3982,7 +4049,7 @@ ricerca, sia generale, sia interna a specifiche \gloss{collezioni}.
   \hline
   Nome & Tipo & Descrizione\\
   \hline
-  kv & \gloss{Tuple2[String, T]} & Coppia chiave-valore, rappresenta un generico oggetto del \gloss{database}\\
+  kv & \gloss{Tuple2<String, T>} & Coppia chiave-valore, rappresenta un generico oggetto del \gloss{database}\\
   \hline
 \end{tabular}\\
 
@@ -3991,11 +4058,11 @@ ricerca, sia generale, sia interna a specifiche \gloss{collezioni}.
   \hline
   Nome & Tipo & Descrizione\\
   \hline
-  elem1 & \gloss{Tuple2[String, T]} & Coppia chiave-valore, rappresenta un generico oggetto del \gloss{database}\\
+  elem1 & \gloss{Tuple2<String, T>} & Coppia chiave-valore, rappresenta un generico oggetto del \gloss{database}\\
   \hline
-  elem2 & \gloss{Tuple2[String, T]} & Coppia chiave-valore, rappresenta un generico oggetto del \gloss{database}\\
+  elem2 & \gloss{Tuple2<String, T>} & Coppia chiave-valore, rappresenta un generico oggetto del \gloss{database}\\
   \hline
-  elemss & \gloss{vararg} di \gloss{Tuple2[String, T]} & Rappresenta una o più coppie chiave-valore, formano \gloss{item} del \gloss{database}\\
+  elemss & \gloss{vararg} di \gloss{Tuple2<String, T>} & Rappresenta una o più coppie chiave-valore, formano \gloss{item} del \gloss{database}\\
   \hline
 \end{tabular}\\
 
@@ -4088,7 +4155,15 @@ navigabilità dei contenuti.
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  rename & public & Boolean & Rinomina la \gloss{collezione}\\
+  owner & public & String & Metodo pubblico di accesso in sola lettura dell'attributo owner\\
+  \hline
+  collectionName & public & String & Metodo pubblico di accesso in sola lettura dell'attributo collectionName\\
+  \hline
+  data & public & String & Metodo pubblico di accesso in sola lettura dell'attributo data\\
+  \hline
+  conn & public & \hyperref[sec:actorbase::driver::Connection]{Connection} & Metodo pubblico di accesso in sola lettura dell'attributo conn\\
+  \hline
+  rename & public & void & Rinomina la \gloss{collezione}\\
   \hline
   insert & public & \hyperref[sec::actorbase::driver::data::ActorbaseCollection]{ActorbaseColletion} & Inserisce una o più coppie chiave-valore all'interno di Actorbase\\
   \hline
@@ -4100,19 +4175,19 @@ navigabilità dei contenuti.
   \hline
   remove<T> (overload) & public & \hyperref[sec:actorbase::driver::data::ActorbaseObject]{ActorbaseObject} & Rimuove una coppia chiave-valore dalla \gloss{collezione}\\
   \hline
-  find<T> & public & \hyperref[sec:actorbase::driver::data::ActorbaseCollection]{ActorbaseCollection} & Cerca tutte le coppie-chiave valore nella \gloss{collezione} restituendo un'instanza \hyperref[sec:actorbase::driver::data::ActorbaseObject]{ActorbaseObject<T>}\\
+  find<T> & public & \hyperref[sec:actorbase::driver::data::ActorbaseObject]{ActorbaseObject<T>} & Cerca tutte le coppie-chiave valore nella \gloss{collezione} restituendo un'instanza \hyperref[sec:actorbase::driver::data::ActorbaseObject]{ActorbaseObject<T>}\\
   \hline
-  find<T> (overload) & public & \hyperref[sec:actorbase::driver::data::ActorbaseCollection]{ActorbaseCollection} & Cerca uno o più coppie-chiave valore nella \gloss{collezione}\\
+  find<T> (overload) & public & \hyperref[sec:actorbase::driver::data::ActorbaseObject]{ActorbaseObject<T>} & Cerca uno o più coppie-chiave valore nella \gloss{collezione}\\
   \hline
-  findOne<T> & public & \hyperref[sec:actorbase::driver::data::ActorbaseObject]{ActorbaseObject} & Cerca una coppia chiave-valore nella \gloss{collezione}\\
+  findOne<T> & public & \hyperref[sec:actorbase::driver::data::ActorbaseObject]{ActorbaseObject<T>} & Cerca una coppia chiave-valore nella \gloss{collezione}\\
   \hline
-  addContributor & public & Boolean & Aggiunge un \gloss{collaboratore} alla \gloss{collezione}\\
+  addContributor & public & void & Aggiunge un \gloss{collaboratore} alla \gloss{collezione}\\
   \hline
-  removeContributor & public & Boolean & Rimuove un \gloss{collaborator} dalla \gloss{collezione}\\
+  removeContributor & public & void & Rimuove un \gloss{collaborator} dalla \gloss{collezione}\\
   \hline
-  drop & public & Boolean & Cancella la \gloss{collezione}\\
+  drop & public & void & Cancella la \gloss{collezione}\\
   \hline
-  export & public & Boolean & Esporta la \gloss{collezione} su \gloss{filesystem} al percorso specificato\\
+  export & public & void & Esporta la \gloss{collezione} su \gloss{filesystem} al percorso specificato\\
   \hline
   count & public & Int & Conta il numero di coppie chiave-valore che formano la \gloss{collezione}\\
   \hline
@@ -4142,7 +4217,7 @@ navigabilità dei contenuti.
   \hline
   Nome & Tipo & Descrizione\\
   \hline
-  kv & \gloss{vararg} di Tuple2[String, Object] & Rappresenta una sequenza di Tuple2[String, Object] da inserire nella \gloss{collezione}\\
+  kv & \gloss{vararg} di Tuple2<String, Object> & Rappresenta una sequenza di Tuple2<String, Object> da inserire nella \gloss{collezione}\\
   \hline
 \end{tabular}\\
 
@@ -4151,7 +4226,7 @@ navigabilità dei contenuti.
   \hline
   Nome & Tipo & Descrizione\\
   \hline
-  kv & \hyperref[sec:actorbase::driver::data::ActorbaseObject]{ActorbaseObject} & Rappresenta un oggetto del sistema Actorbase da inserire nel sistema\\
+  kv & \hyperref[sec:actorbase::driver::data::ActorbaseObject]{ActorbaseObject<T>} & Rappresenta un oggetto del sistema Actorbase da inserire nel sistema\\
   \hline
 \end{tabular}\\
 
@@ -4160,7 +4235,7 @@ navigabilità dei contenuti.
   \hline
   Nome & Tipo & Descrizione\\
   \hline
-  kv & \gloss{vararg} di Tuple2[String, Object] & Rappresenta una sequenza di Tuple2[String, Object] da aggiornare nella \gloss{collezione}\\
+  kv & \gloss{vararg} di Tuple2<String, Object> & Rappresenta una sequenza di Tuple2<String, Object> da aggiornare nella \gloss{collezione}\\
   \hline
 \end{tabular}\\
 
@@ -4297,9 +4372,13 @@ Questa classe viene utilizzata per la rappresentazione dell'aggregazione di
   \hline
   find & public & \hyperref[sec:actorbase::driver::data::ActorbaseCollection]{ActorbaseCollect\allowbreak{}ion} & Cerca uno o più coppie-chiave valore nelle \gloss{collezioni}\\
   \hline
-  drop & public & Boolean & Cancella una o più \gloss{collezione}\\
+  drop & public & \hyperref[sec:actorbase::driver::data::ActorbaseCollection]{ActorbaseCollect\allowbreak{}ion} & Cancella una o più \gloss{collezioni}\\
+  \hline
+  count & public & Int & Ritorna il numero di \gloss{collezioni} contenute nell'oggetto \hyperref[sec:actorbase::driver::data::ActorbaseCollectionMap]{ActorbaseCollectionMap}\\
   \hline
   foreach & public & void & Permette di visitare l'intera \gloss{collezione} di \gloss{collezioni} applicando una funzione ad ogni \gloss{item}\\
+  \hline
+  withFilter & public & FilterMonadic<(String, \hyperref[sec:actorbase::driver::data::ActorbaseCollection]{ActorbaseCollection}), Map<String,  \hyperref[sec:actorbase::driver::data::ActorbaseCollection]{ActorbaseCollection}>> & Permette di visitare l'intero oggetto e applicare funzioni alle coppie chiave-valore\\
   \hline
   toString & public & String & Ritorna la \gloss{collezione} in formato Stringa \gloss{JSON}\\
   \hline
@@ -4532,7 +4611,7 @@ Questa classe viene utilizzata dal \gloss{driver} per gestire il caso in cui all
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%                           CLI PARTE                              %
+% CLI PARTE                              %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{actorbase::cli}
@@ -5024,7 +5103,7 @@ comando.
 
 \subparagraph{Descrizione}
 Classe astratta che rappresenta l'oggetto osservato nell'ambito del \gloss{design
-pattern} \gloss{observer}.
+  pattern} \gloss{observer}.
 
 \subparagraph{Utilizzo}
 
