@@ -420,7 +420,7 @@ in modo da poter usufruirne mediante costrutti e algoritmi di
 \subparagraph{Utilizzo}
 Questa classe viene utilizzata per mandare una richiesta all'attore
 \hyperref[sec:actorbase::actorsystem::messages::authactormessages::AuthActor]{AuthActor}
-di aggiunta di credenziali al sistema
+di aggiunta di credenziali al sistema.
 
 \subparagraph{Attributi}
 \begin{tabular}{| p{2cm} | p{1.5cm} | p{2cm} | p{3cm} | p{8.5cm} |}
@@ -1356,7 +1356,7 @@ in modo da poter usufruirne mediante costrutti e algoritmi di
 Questa classe viene utilizzata per richiedere di effettuare persistenza su disco dei dati di questo attore.\\Questo attore provvederà a inoltrare la richiesta
 all'attore \hyperref[sec:actorbase::actorsystem::actors::warehouseman::Warehouseman]{Warehouseman}.
 
-\paragraph{actorbase::actorsystem::messages::storekeeper::InirMn}
+\paragraph{actorbase::actorsystem::messages::storekeeper::InitMn}
 \label{sec:actorbase::actorsystem::messages::storekeeper::InitMn}
 
 % TODO img
@@ -2411,7 +2411,7 @@ Questa classe viene utilizzata per tener traccia degli attori di tipo
 Classe che rappresenta un \gloss{attore} di tipo \gloss{Userkeeper}.
 
 \subsubsection{Classi}
-
+% TODO: da controllare
 \paragraph{actorbase::actorsystem::actors::userkeeper::Userkeeper}
 \label{sec:actorbase::actorsystem::actors::userkeeper::Userkeeper}
 
@@ -2659,7 +2659,10 @@ Questa classe viene utilizzata per salvare nel \gloss{database} gli item.
 \end{figure}
 
 \subparagraph{Descrizione}
-Classe che rappresenta un \gloss{attore} di tipo \gloss{Manager}.
+Classe che rappresenta un \gloss{attore} di tipo \gloss{Manager}, dedicato al
+tracciamento delle coppie-chiave valore dei vari
+\hyperref[sec::actorbase::actorsystem::actors::storekeeper::Storekeeper]{Storekeeper}
+e all'eventuale redistribuzione del carico degli \gloss{attori} sotto sforzo.
 
 \subparagraph{Utilizzo}
 Questa classe viene utilizzata per gestire le richieste di divisione di attori di tipo
@@ -2677,7 +2680,21 @@ e \hyperref[sec:actorbase::actorsystem::actors::storefinder::Storefinder]{Storef
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  parentRef & privato & immutabile & ActorRef & Riferimento all'attore di tipo \gloss{Storefinder} che l'ha creato\\
+  collection & privato & immutabile & String & Nome della collezione di riferimento la creazione di eventuali nuovi \hyperref[sec:actorbase::actorsystem::actors::storekeeper::Storekeeper]{Storekeeper}\\
+  \hline
+  owner & privato & immutabile & String & Nome dell'autore della collezione di riferimento per la creazione di eventuali nuovi \hyperref[sec:actorbase::actorsystem::actors::storekeeper::Storekeeper]{Storekeeper}\\
+  \hline
+  router & privato & immutabile & ActorRef & Riferimento all'attore di tipo \hyperref[sec::actorbase::actorsystem::actors::storekeeper::Storekeeper]{Storekeeper} responsabile della gestione e dell'instradamento dei messaggi verso la \gloss{pool} di attori \hyperref[sec::actorbase::actorsystem::actors::storekeeper::Storekeeper]{Storekeeper} dedicati al salvataggio delle coppie chiave-valore\\
+  \hline
+\end{tabular}
+
+\subparagraph{Metodi}
+
+\begin{tabular}{| l | l | l | l |}
+  \hline
+  Nome & Accesso & Tipo di ritorno & Descrizione\\
+  \hline
+  receive & pubblico &  & Effettua operazioni diverse a seconda del tipo di messaggio ricevuto\\
   \hline
 \end{tabular}
 
