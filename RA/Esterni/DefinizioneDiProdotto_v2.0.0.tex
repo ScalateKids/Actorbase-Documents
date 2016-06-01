@@ -4969,15 +4969,13 @@ con i parametri corretti per consentire l'esecuzione del comando.
   \hline
   addContributorCommand & pubblico & Parser di \hyperref[sec:actorbase::cli::models::Command]{Command} & Fa il parsing del comando di aggiunta collaboratore e istanzia l'\hyperref[sec:actorbase::cli::models::AddContributorCommand]{AddContributorCommand}\\
   \hline
-  removeContributorCommand & pubblico & Parser di \hyperref[sec:actorbase::cli::models::Command]{Command} &
-                                                                                                            Fa il parsing del comando di rimozione collaboratore e istanzia il \hyperref[sec:actorbase::cli::models::RemoveContributorCommand]{RemoveContributorCommand}\\
+  removeContributorCommand & pubblico & Parser di \hyperref[sec:actorbase::cli::models::Command]{Command} & Fa il parsing del comando di rimozione collaboratore e istanzia il \hyperref[sec:actorbase::cli::models::RemoveContributorCommand]{RemoveContributorCommand}\\
   \hline
   importExportCommand & pubblico & Parser di \hyperref[sec:actorbase::cli::models::Command]{Command} & Fa il parsing del comando di import/export e istanzia l'\hyperref[sec:actorbase::cli::models::ImportCommand]{ImportCommand} o l'\hyperref[sec:actorbase::cli::models::ExportCommand]{ExportCommand} a seconda del caso\\
   \hline
   insertItemCommand & pubblico & Parser di \hyperref[sec:actorbase::cli::models::Command]{Command} & Fa il parsing del comando di inserimento item e istanzia l'\hyperref[sec:actorbase::cli::models::InsertItemCommand]{InsertItemCommand}\\
   \hline
-  removeItemCommand & pubblico & Parser di \hyperref[sec:actorbase::cli::models::Command]{Command} &
-                                                                                                     Fa il parsing del comando di rimozione item e istanzia il \hyperref[sec:actorbase::cli::models::RemoveItemCommand]{RemoveItemCommand}\\
+  removeItemCommand & pubblico & Parser di \hyperref[sec:actorbase::cli::models::Command]{Command} & Fa il parsing del comando di rimozione item e istanzia il \hyperref[sec:actorbase::cli::models::RemoveItemCommand]{RemoveItemCommand}\\
   \hline
   findCommand & pubblico & Parser di \hyperref[sec:actorbase::cli::models::Command]{Command} & Fa il parsing del comando di ricerca e istanzia il \hyperref[sec:actorbase::cli::models::FindCommand]{FindCommand}\\
   \hline
@@ -4986,6 +4984,18 @@ con i parametri corretti per consentire l'esecuzione del comando.
   commandList & pubblico & Parser di \hyperref[sec:actorbase::cli::models::Command]{Command} & Racchiude tutti i possibili metodi di parsing\\
   \hline
   parseInput & pubblico & Boolean & Metodo dedicato alla cattura dell'input a cui fare il parsing\\
+  \hline
+  types & pubblico & Parser di Stringa & Ritorna l'attributo types\\
+  \hline
+  permissions & pubblico & Parser di Stringa & Ritorna l'attributo permissions\\
+  \hline
+  quotedString & pubblico & Parser di Stringa & Ritorna l'attributo quotedString\\
+  \hline
+  literalString & pubblico & Parser di Stringa & Ritorna l'attributo literalString\\
+  \hline
+  listString & pubblico & Parser di Stringa & Ritorna l'attributo listString\\
+  \hline
+  keyString & pubblico & Parser di Stringa & Ritorna l'attributo keyString\\
   \hline
 \end{tabular}
 
@@ -5008,17 +5018,17 @@ con i parametri corretti per consentire l'esecuzione del comando.
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  types & privato & immutabile & Parser[String] & Rappresenta i tipi accettati dalla shell\\
+  types & privato & immutabile & Parser<String> & Rappresenta i tipi accettati dalla shell\\
   \hline
-  permissions & privato & immutabile & Parser[String] & Rappresenta i permessi accettati dalla shell\\
+  permissions & privato & immutabile & Parser<String> & Rappresenta i permessi accettati dalla shell\\
   \hline
-  quotedString & privato & immutabile & Parser[String] & Rappresenta le Quoted String accettate dalla shell\\
+  quotedString & privato & immutabile & Parser<String> & Rappresenta le Quoted String accettate dalla shell\\
   \hline
-  literalString & privato & immutabile & Parser[String] & Rappresenta le Stringhe letterali accettate dalla shell\\
+  literalString & privato & immutabile & Parser<String> & Rappresenta le Stringhe letterali accettate dalla shell\\
   \hline
-  listString & privato & immutabile & Parser[String] & Rappresenta le ListString accettate dalla shell\\
+  listString & privato & immutabile & Parser<String> & Rappresenta le ListString accettate dalla shell\\
   \hline
-  keyString & privato & immutabile & Parser[String] & Rappresenta le keyString accettate dalla shell\\
+  keyString & privato & immutabile & Parser<String> & Rappresenta le keyString accettate dalla shell\\
   \hline
 \end{tabular}
 
