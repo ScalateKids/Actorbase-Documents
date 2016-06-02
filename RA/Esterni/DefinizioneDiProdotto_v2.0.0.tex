@@ -5248,7 +5248,7 @@ Quando riceve una risposta si occupa di notificare la classe \hyperref[sec:actor
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  history & privato & mutabile & List[Command] & Una lista contenente la history dei comandi inseriti\\
+  history & privato & mutabile & List<Command> & Una lista contenente la history dei comandi inseriti\\
   \hline
 \end{tabular}
 
@@ -5259,6 +5259,8 @@ Quando riceve una risposta si occupa di notificare la classe \hyperref[sec:actor
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
   storeAndExecute & pubblico & String & Immagazzina il comando nella history e provvede alla sua esecuzione\\
+  \hline
+  history & pubblico & List<Command> & Ritorna l'attributo history\\
   \hline
 \end{tabular}
 
@@ -5306,7 +5308,7 @@ Viene utilizzata per chiamare il metodo di
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  receiver & pubblico & immutabile & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Oggetto per l'esecuzione del comando\\
+  receiver & privato & mutabile & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Oggetto per l'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -5317,6 +5319,8 @@ Viene utilizzata per chiamare il metodo di
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
   execute & pubblico & String & Provvede all'esecuzione del comando\\
+  \hline
+  receiver & pubblico & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Ritorna l'attributo receiver
   \hline
 \end{tabular}
 
@@ -5353,7 +5357,7 @@ dall'utente.
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  receiver & pubblico & immutabile & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Oggetto per l'esecuzione del comando \\
+  receiver & privato & mutabile & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Oggetto per l'esecuzione del comando \\
   \hline
 \end{tabular}
 
@@ -5364,6 +5368,8 @@ dall'utente.
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
   execute & pubblico & String & Provvede all'esecuzione del comando\\
+  \hline
+  receiver & pubblico & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Ritorna l'attributo receiver
   \hline
 \end{tabular}
 
@@ -5397,7 +5403,7 @@ Viene utilizzata per chiamare il metodo di
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  receiver & pubblico & immutabile & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Oggetto per l'esecuzione del comando \\
+  receiver & privato & mutabile & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Oggetto per l'esecuzione del comando \\
   \hline
 \end{tabular}
 
@@ -5408,6 +5414,8 @@ Viene utilizzata per chiamare il metodo di
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
   execute & pubblico & String & Provvede all'esecuzione del comando\\
+  \hline
+  receiver & pubblico & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Ritorna l'attributo receiver
   \hline
 \end{tabular}
 
@@ -5442,7 +5450,7 @@ Viene utilizzata per chiamare il metodo di
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  receiver & pubblico & immutabile & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Oggetto per l'esecuzione del comando\\
+  receiver & privato & mutabile & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Oggetto per l'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -5453,6 +5461,8 @@ Viene utilizzata per chiamare il metodo di
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
   execute & pubblico & String & Provvede all'esecuzione del comando\\
+  \hline
+  receiver & pubblico & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Ritorna l'attributo receiver
   \hline
 \end{tabular}
 
@@ -5488,7 +5498,7 @@ dell'utente specificato in input.
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  receiver & pubblico & immutabile & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Oggetto per l'esecuzione del comando\\
+  receiver & privato & mutabile & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Oggetto per l'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -5499,6 +5509,8 @@ dell'utente specificato in input.
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
   execute & pubblico & String & Provvede all'esecuzione del comando\\
+  \hline
+  receiver & pubblico & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Ritorna l'attributo receiver
   \hline
 \end{tabular}
 
@@ -5535,7 +5547,7 @@ nomi di tutte le collezioni presenti nel \gloss{database}.
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  receiver & pubblico & immutabile & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Oggetto per l'esecuzione del comando\\
+  receiver & privato & mutabile & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Oggetto per l'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -5546,6 +5558,8 @@ nomi di tutte le collezioni presenti nel \gloss{database}.
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
   execute & pubblico & String & Provvede all'esecuzione del comando\\
+  \hline
+  receiver & pubblico & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Ritorna l'attributo receiver
   \hline
 \end{tabular}
 
@@ -5582,7 +5596,7 @@ in input.
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  receiver & pubblico & immutabile & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Oggetto per l'esecuzione del comando\\
+  receiver & privato & mutabile & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Oggetto per l'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -5593,6 +5607,8 @@ in input.
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
   execute & pubblico & String & Provvede all'esecuzione del comando\\
+  \hline
+  receiver & pubblico & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Ritorna l'attributo receiver
   \hline
 \end{tabular}
 
@@ -5628,7 +5644,7 @@ immesse dall'utente.
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  receiver & pubblico & immutabile & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Oggetto per l'esecuzione del comando\\
+  receiver & privato & mutabile & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Oggetto per l'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -5639,6 +5655,8 @@ immesse dall'utente.
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
   execute & pubblico & String & Provvede all'esecuzione del comando\\
+  \hline
+  receiver & pubblico & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Ritorna l'attributo receiver
   \hline
 \end{tabular}
 
@@ -5674,7 +5692,7 @@ i parametri specificati in input.
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  receiver & pubblico & immutabile & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Oggetto per l'esecuzione del comando\\
+  receiver & privato & mutabile & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Oggetto per l'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -5685,6 +5703,8 @@ i parametri specificati in input.
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
   execute & pubblico & String & Provvede all'esecuzione del comando\\
+  \hline
+  receiver & pubblico & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Ritorna l'attributo receiver
   \hline
 \end{tabular}
 
@@ -5721,7 +5741,7 @@ specificati in input.
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  receiver & pubblico & immutabile & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Oggetto per l'esecuzione del comando\\
+  receiver & privato & mutabile & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Oggetto per l'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -5732,6 +5752,8 @@ specificati in input.
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
   execute & pubblico & String & Provvede all'esecuzione del comando\\
+  \hline
+  receiver & pubblico & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Ritorna l'attributo receiver
   \hline
 \end{tabular}
 
@@ -5765,7 +5787,7 @@ Viene utilizzata per chiamare il metodo di \hyperref[sec:actorbase::cli::models:
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  receiver & pubblico & immutabile & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Oggetto per l'esecuzione del comando\\
+  receiver & privato & mutabile & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Oggetto per l'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -5776,6 +5798,8 @@ Viene utilizzata per chiamare il metodo di \hyperref[sec:actorbase::cli::models:
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
   execute & pubblico & String & Provvede all'esecuzione del comando\\
+  \hline
+  receiver & pubblico & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Ritorna l'attributo receiver
   \hline
 \end{tabular}
 
@@ -5810,7 +5834,7 @@ parametri specificati in input.
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  receiver & pubblico & immutabile & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Oggetto per l'esecuzione del comando\\
+  receiver & privato & mutabile & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Oggetto per l'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -5822,50 +5846,7 @@ parametri specificati in input.
   \hline
   execute & pubblico & String & Provvede all'esecuzione del comando\\
   \hline
-\end{tabular}
-
-\paragraph{actorbase::cli::models::HelpCommand}
-\label{sec:actorbase::cli::models::HelpCommand}
-
-\begin{figure}[H]
-  \begin{center}
-    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/HelpCommand.png}
-    \caption{CLI: classe HelpCommand}
-  \end{center}
-\end{figure}
-
-\subparagraph{Descrizione}
-Classe per la richiesta di aiuto.
-
-\subparagraph{Utilizzo}
-
-Viene utilizzata per chiamare il metodo di
-\hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} per la richiesta di aiuto con i
-parametri immessi dall'utente.
-
-\subparagraph{Classi ereditate}
-
-\begin{itemize}
-\item \hyperref[sec:actorbase::cli::models::Command]{actorbase::cli::models::Command}.
-\end{itemize}
-
-\subparagraph{Attributi}
-
-\begin{tabular}{| p{1cm} | p{1.5cm} | p{2cm} | p{4cm} | p{8.5cm} |}
-  \hline
-  Nome & Accesso & Mutabilità & Tipo & Descrizione\\
-  \hline
-  receiver & pubblico & immutabile & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Oggetto per l'esecuzione del comando\\
-  \hline
-\end{tabular}
-
-\subparagraph{Metodi}
-
-\begin{tabular}{| l | l | l | l |}
-  \hline
-  Nome & Accesso & Tipo di ritorno & Descrizione\\
-  \hline
-  execute & pubblico & String & Provvede all'esecuzione del comando\\
+  receiver & pubblico & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Ritorna l'attributo receiver
   \hline
 \end{tabular}
 
@@ -5901,7 +5882,7 @@ con i parametri immessi dall'utente.
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  receiver & pubblico & immutabile & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Oggetto per l'esecuzione del comando\\
+  receiver & privato & mutabile & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Oggetto per l'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -5912,6 +5893,8 @@ con i parametri immessi dall'utente.
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
   execute & pubblico & String & Provvede all'esecuzione del comando\\
+  \hline
+  receiver & pubblico & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Ritorna l'attributo receiver
   \hline
 \end{tabular}
 
@@ -5947,7 +5930,7 @@ parametri immessi dall'utente.
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  receiver & pubblico & immutabile & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Oggetto per l'esecuzione del comando\\
+  receiver & privato & mutabile & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Oggetto per l'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -5958,6 +5941,8 @@ parametri immessi dall'utente.
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
   execute & pubblico & String & Provvede all'esecuzione del comando\\
+  \hline
+  receiver & pubblico & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Ritorna l'attributo receiver
   \hline
 \end{tabular}
 
@@ -5992,7 +5977,7 @@ Viene utilizzata per chiamare il metodo di
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  receiver & pubblico & immutabile & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Oggetto per l'esecuzione del comando\\
+  receiver & privato & mutabile & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Oggetto per l'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -6003,6 +5988,8 @@ Viene utilizzata per chiamare il metodo di
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
   execute & pubblico & String & Provvede all'esecuzione del comando\\
+  \hline
+  receiver & pubblico & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Ritorna l'attributo receiver
   \hline
 \end{tabular}
 
@@ -6037,7 +6024,7 @@ Viene utilizzata per chiamare il metodo di \hyperref[sec:actorbase::cli::models:
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  receiver & pubblico & immutabile & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Oggetto per l'esecuzione del comando\\
+  receiver & privato & mutabile & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Oggetto per l'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -6048,6 +6035,8 @@ Viene utilizzata per chiamare il metodo di \hyperref[sec:actorbase::cli::models:
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
   execute & pubblico & String & Provvede all'esecuzione del comando\\
+  \hline
+  receiver & pubblico & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Ritorna l'attributo receiver
   \hline
 \end{tabular}
 
@@ -6083,7 +6072,7 @@ Viene utilizzata per chiamare il metodo di
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  receiver & pubblico & immutabile & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Oggetto per l'esecuzione del comando\\
+  receiver & privato & mutabile & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Oggetto per l'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -6094,6 +6083,8 @@ Viene utilizzata per chiamare il metodo di
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
   execute & pubblico & String & Provvede all'esecuzione del comando\\
+  \hline
+  receiver & pubblico & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Ritorna l'attributo receiver
   \hline
 \end{tabular}
 
@@ -6129,7 +6120,7 @@ Viene utilizzata per chiamare il metodo di
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  receiver & pubblico & immutabile & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Oggetto per l'esecuzione del comando\\
+  receiver & privato & mutabile & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Oggetto per l'esecuzione del comando\\
   \hline
 \end{tabular}
 
@@ -6140,6 +6131,8 @@ Viene utilizzata per chiamare il metodo di
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
   execute & pubblico & String & Provvede all'esecuzione del comando\\
+  \hline
+  receiver & pubblico & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Ritorna l'attributo receiver
   \hline
 \end{tabular}
 
@@ -6178,9 +6171,9 @@ che si occuperà di mandarlo alla parte view.
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  actorbaseDriver & pubblico & mutabile & ActorbaseDriver & Istanza di \hyperref[sec:actorbase::driver::]{ActorbaseDriver} usata per l'esecuzione del comandi\\
+  actorbaseDriver & privato & mutabile & ActorbaseDriver & Istanza di \hyperref[sec:actorbase::driver::]{ActorbaseDriver} usata per l'esecuzione del comandi\\
   \hline
-  params & pubblico & immutabile & Map<Object,Object> & Parametri inseriti dall'utente per l'esecuzione dei comandi\\
+  params & privato & mutabile & Map<Object,Object> & Parametri inseriti dall'utente per l'esecuzione dei comandi\\
   \hline
 \end{tabular}
 
@@ -6223,6 +6216,10 @@ che si occuperà di mandarlo alla parte view.
   removeUser & pubblico & String & Metodo per richiamare il metodo di rimozione utente del driver\\
   \hline
   resetPassword & pubblico & String & Metodo per richiamare il metodo di reset password del driver\\
+  \hline
+  actorbaseDriver & pubblico & ActorbaseDriver & Ritorna l'attributo actorbaseDriver\\
+  \hline
+  params & pubblico & Map<Object,Object> & Ritorna l'attributo params\\
   \hline
 \end{tabular}
 
