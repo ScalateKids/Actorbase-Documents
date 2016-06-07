@@ -2772,7 +2772,7 @@ e scrittura del contenuto del \gloss{database}.
 
 Classe principale della componente \gloss{driver}, rappresenta l'interfaccia di
 connessione e autenticazione con il \gloss{server}. Funge da oggetto
-\gloss{factory}, è possibile infatti ottenere un' istanza della classe
+\gloss{factory}: è possibile infatti ottenere un' istanza della classe
 \hyperref[sec:actorbase::driver::ActorbaseServices]{ActorbaseServices}
 utilizzabile per interrogare e inviare comandi al sistema lato \gloss{server}.
 
@@ -2828,24 +2828,6 @@ ai privilegi del proprio profilo nel sistema.
   username & String & Rappresenta lo \gloss{username} dell'utente\\
   \hline
   password & String & Rappresenta la password dell'utente\\
-  \hline
-\end{tabular}\\
-
-\textbf{getCollection}\\ \\
-\begin{tabular}{| p{3cm} | p{3.5cm} | p{8.5cm} |}
-  \hline
-  Nome & Tipo & Descrizione\\
-  \hline
-  collectionName & String & Rappresenta il nome della \gloss{collezione} da richiedere al server\\
-  \hline
-\end{tabular}\\
-
-\textbf{addCollection}\\ \\
-\begin{tabular}{| p{3cm} | p{3.5cm} | p{8.5cm} |}
-  \hline
-  Nome & Tipo & Descrizione\\
-  \hline
-  collectionName & String & Rappresenta il nome della \gloss{collezione} da richiedere al server\\
   \hline
 \end{tabular}\\
 
@@ -4705,7 +4687,7 @@ Questa componente viene rappresentata usando il \gloss{design pattern}
 \subsubsection{Descrizione}
 
 \gloss{Package} per la parte \gloss{view} della \gloss{cli}. Questa componente
-gestisce l'output e offre l'interfaccia tramite cui l'utente può inserire i
+gestisce l'output ricevuto dal driver e offre l'interfaccia tramite cui l'utente può inserire i
 comandi.
 
 \subsubsection{Interfacce}
@@ -4756,7 +4738,7 @@ che permette di aggiornare la \gloss{view} ad ogni risposta della componente
 \gloss{driver}.
 
 \subparagraph{Utilizzo}
-Offre un'interfaccia per permettere di aggiornare la \gloss{view} ad ogni
+Offre un'interfaccia per permettere di aggiornare l'output della componente \gloss{view} ad ogni
 risposta ricevuta dal \gloss{driver}.
 
 \subparagraph{Realizzata da}
@@ -4801,7 +4783,9 @@ risposta ricevuta dal \gloss{driver}.
 Questa classe verrà utilizzata per leggere i comandi inseriti dall'utente.
 
 \subparagraph{Utilizzo}
-Viene utilizzata per la lettura dei comandi inseriti dall'utente.
+Viene utilizzata per la lettura dei comandi inseriti dall'utente. Una volta inserito il comando
+da parte dell'utente quest'ultimo viene inviato a \hyperref[sec:actorbase::cli::controllers::GrammarParser]{GrammarParser}
+che si occuperà del parsing e dell'analisi del comando.
 
 \subparagraph{Attributi}
 \begin{tabular}{| p{2.7cm} | p{1.5cm} | p{2cm} | p{2.7cm} | p{8cm} |}
@@ -4816,7 +4800,7 @@ Viene utilizzata per la lettura dei comandi inseriti dall'utente.
   \hline
   grammarParser & privato & immutabile & GrammarParser & Rappresenta il riferimento al controller\\
   \hline
-  reader & privato & immutabile & ConsoleReader & Rappresenta il reader per console appplication \\
+  reader & privato & immutabile & ConsoleReader & Rappresenta il reader per console application \\
   \hline
   history & privato & immutabile & FileHistory & Rappresenta il file contenente la storia dei comandi\\
   \hline
@@ -4921,7 +4905,7 @@ effettuata.
 
 Classe per la gestione e la formattazione in output dei risultati ottenuti
 dall'esecuzione del comando ricevuto in input tramite il \gloss{design
-  pattern} \gloss{Observer}.
+pattern} \gloss{Observer}.
 
 \subparagraph{Utilizzo}
 Viene utilizzata per la gestione e la formattazione in output dei risultati
@@ -5170,7 +5154,7 @@ Classe astratta che rappresenta l'oggetto osservato nell'ambito del \gloss{desig
 
 Viene utilizzata per notificare la classe che realizza l'interfaccia \hyperref[sec:actorbase::cli::views::Observer]{Observer}
 quando avviene una modifica al proprio stato, ossia quando il \gloss{driver}
-ha ritornato un risultato.
+ha restituito un risultato.
 
 \subparagraph{Realizzata da}
 \begin{itemize}
@@ -5263,7 +5247,8 @@ si occupa di eseguire il comando ricevuto dalla componente \gloss{controller}.
 Viene utilizzata per eseguire il comando ricevuto da
 \hyperref[sec:actorbase::cli::controllers::GrammarParser]{GrammarParser} chiamando il metodo opportuno che
 implementa l'interfaccia \hyperref[sec:actorbase::cli::models::Command]{Command}.
-Quando riceve una risposta si occupa di notificare la classe \hyperref[sec:actorbase::cli::views::ResultViewer]{ResultViewer}.
+Quando riceve una risposta si occupa di notificare la classe \hyperref[sec:actorbase::cli::views::ResultViewer]{ResultViewer}
+affinchè quest'ultima possa procedere con la visualizzazione del risultato in output.
 
 \subparagraph{Realizza}
 
@@ -6184,8 +6169,8 @@ l'esecuzione dei comandi o per restituire l'aiuto se richiesto.
 Viene utilizzata da \hyperref[sec:actorbase::cli::models::Command]{actorbase::cli::models::Command} per chiamare
 \hyperref[sec:actorbase::driver::client::ActorbaseClient]{actorbase::driver::client::ActorbaseClient} o per ricevere un aiuto da
 visualizzare se richiesto dall'utente. Quando riceve una risposta dal \gloss{driver}, o dopo aver elaborato la richiesta
-di aiuto, manda il risultato delle operazioni a \hyperref[sec:actorbase::cli::models::CommandInvoker]{actorbase::cli::models::CommandInvoker}
-che si occuperà di mandarlo alla parte view.
+di aiuto, si occupa di mandare il risultato delle operazioni a \hyperref[sec:actorbase::cli::models::CommandInvoker]{actorbase::cli::models::CommandInvoker}
+che si occuperà di mandarlo alla parte view sfruttando il \gloss{design pattern} \gloss{Observer}.
 
 \subparagraph{Interazioni con altre classi}
 
