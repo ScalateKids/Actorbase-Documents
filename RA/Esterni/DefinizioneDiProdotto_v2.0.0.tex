@@ -1401,10 +1401,11 @@ in modo da poter usufruirne mediante costrutti e algoritmi di
 
 \subparagraph{Utilizzo}
 Questa classe viene utilizzata per ricevere un riferimento ad un attore
-\hyperref[sec:actorbase::actorsystem::actors::manager::Manager]{Manager}
+\hyperref[sec:actorbase::actorsystem::actors::manager::Manager]{Manager}.
 Questo messaggio verrà inviato allo \hyperref[sec:actorbase::actorsystem::actors::storekeeper::Storekeeper]{Storekeeper}
-subito dopo la sua creazione.\\L'attore userà il riferimento al Manager per
-informarlo quando raggiunge una certa soglia di items.
+subito dopo la sua creazione.\\L'attore userà il riferimento al \hyperref[sec:actorbase::actorsystem::actors::manager::Manager]{Manager} per
+informarlo quando raggiunge una certa soglia di items. Il \hyperref[sec:actorbase::actorsystem::actors::manager::Manager]{Manager} creerà altri 
+\hyperref[sec:actorbase::actorsystem::actors::storekeeper::Storekeeper]{Storekeeper} per distribuire il carico.
 
 \subparagraph{Attributi}
 \begin{tabular}{| p{2cm} | p{1.5cm} | p{2cm} | p{3cm} | p{8.5cm} |}
@@ -1526,7 +1527,9 @@ in modo da poter usufruirne mediante costrutti e algoritmi di
 
 \subparagraph{Utilizzo}
 Questa classe viene utilizzata per richiedere l'inserimento di un item.\\Quando questo attore riceve questo messaggio provvederà ad aggiungere l'item in
-questione nella propria struttura dati.
+questione nella propria struttura dati.\\L'inserimento può avvenire con 
+sovrascrittura o senza a seconda del valore dell'attributo update passato nel 
+messaggio.
 
 \subparagraph{Attributi}
 \begin{tabular}{| p{2cm} | p{1.5cm} | p{2cm} | p{3cm} | p{8.5cm} |}
@@ -1699,8 +1702,7 @@ in modo da poter usufruirne mediante costrutti e algoritmi di
 Questa classe viene utilizzata per richiedere all'attore di persistere dati
 su disco. Quando l'attore riceve questo messaggio provvederà a salvare su
 filesystem i dati passati come parametri in file che seguono una gerarchia
-simile alla gerarchia delle collezioni del sistema.\\I dati salvati su disco
-devono essere criptati.
+simile alla gerarchia delle collezioni del sistema.\\I dati salvati vengono prima cryptati tramite l'ausilio della classe \hyperref[sec:actorbase::actorsystem::utils::CryptoUtils]{CryptoUtils}
 
 \subparagraph{Attributi}
 \begin{tabular}{| p{2cm} | p{1.5cm} | p{2cm} | p{3cm} | p{8.5cm} |}
