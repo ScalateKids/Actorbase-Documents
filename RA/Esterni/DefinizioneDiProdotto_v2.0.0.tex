@@ -53,6 +53,18 @@
     \hline
     Versione & Autore & Ruolo & Data & Descrizione \\
     \hline
+    2.0.0 & Davide Trevsan & Responsabile & 2016-06-09 & Approvazione documento\\
+    \hline
+    1.3.0 & Michael Munaro & Verificatore & 2016-06-06 & Verifica miglioramento sezioni driver\\
+    \hline
+    1.2.1 & Marco Boseggia & Progettista & 2016-06-05 & Miglioramento delle descrizioni e spiegazioni di tutte le classi delle sezioni riguardanti package driver (da sezione 3. a sezione )\\%TODO AGGIUNGERE SEZIONE DI FINE 
+    \hline
+    1.2.0 & Francesco Agostini & Verificatore & 2016-06-05 & Verifica miglioramento sezioni driver\\
+    \hline
+    1.1.1 & Andrea Baldan & Progettista & 2016-06-04 & Miglioramento delle descrizioni e spiegazioni di tutte le classi delle sezioni riguardanti package driver (da sezione 3. a sezione )\\%TODO AGGIUNGERE SEZIONE DI FINE 
+    \hline
+    1.1.0 & Michael Munaro & Verificatore & 2016-06-03 & Verifica miglioramento sezioni server\\
+    \hline
     1.0.2 & Alberto De Agostini & Progettista & 2016-06-03 & Miglioramento delle descrizioni e spiegazioni di tutte le classi delle sezioni riguardanti package server (da sezione 3.1 a sezione )\\%TODO AGGIUNGERE SEZIONE DI FINE SERVER
     \hline
     1.0.1 & Alberto De Agostini & Progettista & 2016-05-30 & Modifica degli attributi immutabili con aggiunta di metodi Getter in tutto il documento come richiesto in post RQ\\
@@ -872,15 +884,17 @@ in modo da poter usufruirne mediante costrutti e algoritmi di
 \subparagraph{Utilizzo}
 Questa classe viene utilizzata per mandare pezzi di collezione all'attore
 \hyperref[sec:actorbase::actorsystem::actors::main::Main]{Main}.\\Quest'ultimo
-dovrà aspettare tutti i messaggi \hyperref[sec:actorbase::actorsystem::messages::mainmessages::CompleteTransaction]{CompleteTransaction} necessari per costruire un intera collezione da restituire all'utente.\\Questo messaggio è utilizzato quando un utente richiede una o più intere collezioni.
+dovrà aspettare tutti i messaggi 
+\hyperref[sec:actorbase::actorsystem::messages::mainmessages::CompleteTransaction]{CompleteTransaction} 
+necessari per costruire un intera collezione da restituire all'utente.\\Questo 
+messaggio è utilizzato quando un utente richiede un intera collezione.
 
 \subparagraph{Attributi}
 \begin{tabular}{| p{2cm} | p{1.5cm} | p{2cm} | p{3cm} | p{8.5cm} |}
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  clientRef & privato & immutabile & ActorRef & Rappresenta il riferimento all'attore \hyperref[sec:actorbase::actorsystem::actors::clientactor::ClientActor]{ClientActor} che
-                                                ha effettuato la richiesta\\
+  clientRef & privato & immutabile & ActorRef & Rappresenta il riferimento all'attore \hyperref[sec:actorbase::actorsystem::actors::clientactor::ClientActor]{ClientActor} che ha effettuato la richiesta di ritorno collezione\\
   \hline
   collection & privato & immutabile & \hyperref[sec:actorbase::actorsystem::utils::ActorbaseCollection]{ActorbaseCollection} & Rappresenta la collezione di cui fanno parte gli item passati in questo messaggio\\
   \hline
@@ -919,8 +933,8 @@ item all'attore \hyperref[sec:actorbase::actorsystem::actors::main::Main]{Main}.
 
 \subparagraph{Utilizzo}
 Questa classe viene utilizzata per rimuovere items dal sistema. L'attore
-\hyperref[sec:actorbase::actorsystem::actors::main::Main]{Main} dovrà aspettare
-inoltrare la richiesta al giustto attore \hyperref[sec:actorbase::actorsystem::actors::storefinder::Storefinder]{Storefinder}.
+\hyperref[sec:actorbase::actorsystem::actors::main::Main]{Main} dovrà
+inoltrare la richiesta al giusto attore \hyperref[sec:actorbase::actorsystem::actors::storefinder::Storefinder]{Storefinder}, ovvero colui che rappresenta la collezione in cui effettuare l'operazione.
 
 \subparagraph{Attributi}
 \begin{tabular}{| p{2cm} | p{1.5cm} | p{2cm} | p{3cm} | p{8.5cm} |}
@@ -957,7 +971,7 @@ inoltrare la richiesta al giustto attore \hyperref[sec:actorbase::actorsystem::a
 
 \subparagraph{Descrizione}
 Classe che rappresenta un messaggio utilizzato per richiedere l'aggiunta di un
-collaboratore ad una collezione all'attore \hyperref[sec:actorbase::actorsystem::actors::main::Main]{Main}.\\Implementata
+collaboratore ad una \gloss{collezione} all'attore \hyperref[sec:actorbase::actorsystem::actors::main::Main]{Main}.\\Implementata
 utilizzando la specifica funzionalità \textit{case class} di Scala, in modo da poter usufruirne mediante costrutti e algoritmi di
 \gloss{pattern matching}.
 
@@ -1108,13 +1122,13 @@ adibito alla gestione di quest'ultima.
 
 \subparagraph{Descrizione}
 Classe che rappresenta un messaggio utilizzato per richiedere allo
-\hyperref[sec:actorbase::actorsystem::actors::storefinder::Storefinder]{Storefinder} l'inserimento di ritornare tutti gli item mappati dai propri \hyperref[sec:actorbase::actorsystem::actors::storekeeper::Storekeeper]{Storekeeper}.\\Implementata utilizzando la specifica funzionalità \textit{case class} di Scala,
+\hyperref[sec:actorbase::actorsystem::actors::storefinder::Storefinder]{Storefinder} di ritornare tutti gli item mappati dai propri \hyperref[sec:actorbase::actorsystem::actors::storekeeper::Storekeeper]{Storekeeper}.\\Implementata utilizzando la specifica funzionalità \textit{case class} di Scala,
 in modo da poter usufruirne mediante costrutti e algoritmi di
 \gloss{pattern matching}.
 
 \subparagraph{Utilizzo}
 Questa classe viene utilizzata per richiedere tutti gli items mappati dallo
-\hyperref[sec:actorbase::actorsystem::actors::storefinder::Storefinder]{Storefinder}.\\Questo attore provvederà a mandare richieste Get all'attore
+\hyperref[sec:actorbase::actorsystem::actors::storefinder::Storefinder]{Storefinder}.\\Questo attore provvederà a mandare richieste Get agli attori 
 \hyperref[sec:actorbase::actorsystem::actors::storekeeper::Storekeeper]{Storekeeper}.\\Questo tipo di messaggio è ricevuto quando un utente intende
 richiedere intere collezioni.
 
@@ -1176,7 +1190,7 @@ in modo da poter usufruirne mediante costrutti e algoritmi di
 \subparagraph{Utilizzo}
 Questa classe viene utilizzata per richiedere un item da restituire
 all'utente.\\Quando riceve questo messaggio l'attore provvederà a inoltrare la
-richiesta allo \hyperref[sec:actorbase::actorsystem::actors::storekeeper::Storekeeper]{Storekeeper} esatto.
+richiesta allo \hyperref[sec:actorbase::actorsystem::actors::storekeeper::Storekeeper]{Storekeeper} esatto, ovvero colui che contiene l'item mappato dalla chiave inserita.
 
 \subparagraph{Attributi}
 \begin{tabular}{| p{2cm} | p{1.5cm} | p{2cm} | p{3cm} | p{8.5cm} |}
@@ -2055,7 +2069,7 @@ Questa classe inoltre si occupa di capire che tipo di richiesta è stata fatta d
 \item akka::actor::Actor;
 \item \hyperref[com::actorbase::actorsystem::actors::clientactor::Authenticator]{com::actorbase::actorsystem::actors::clientactor::Authenticator};
 \item \hyperref[com::actorbase::actorsystem::actors::clientactor::CollectionApi]{com::actorbase::actorsystem::actors::clientactor::CollectionApi};
-\item \hyperref[com::actorbase::actorsystem::actors::clientactor::RestApi]{com::actorbase::actorsystem::actors::clientactor::RestApi};.
+\item \hyperref[com::actorbase::actorsystem::actors::clientactor::RestApi]{com::actorbase::actorsystem::actors::clientactor::RestApi}.
 
 \end{itemize}
 
