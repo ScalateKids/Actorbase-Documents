@@ -53,6 +53,8 @@
     \hline
     Versione & Autore & Ruolo & Data & Descrizione \\
     \hline
+    1.0.2 & Alberto De Agostini & Progettista & 2016-06-03 & Miglioramento delle descrizioni e spiegazioni di tutte le classi delle sezioni riguardanti package server (da sezione 3.1 a sezione )\\%TODO AGGIUNGERE SEZIONE DI FINE SERVER
+    \hline
     1.0.1 & Alberto De Agostini & Progettista & 2016-05-30 & Modifica degli attributi immutabili con aggiunta di metodi Getter in tutto il documento come richiesto in post RQ\\
     \hline
     1.0.0 & Michael Munaro & Responsabile & 2016-05-14 & Approvazione documento\\
@@ -268,9 +270,8 @@ Viene utilizzata dall'attore di tipo \gloss{Warehouseman} per il salvataggio e l
 \end{tabular}
 
 \subparagraph{Parametri}
-\begin{center}
-  \textbf{encrypt}\\
-\end{center}
+
+\textbf{encrypt}\\
 \begin{tabular}{| l | l | l |}
   \hline
   Nome & Tipo & Descrizione\\
@@ -283,9 +284,7 @@ Viene utilizzata dall'attore di tipo \gloss{Warehouseman} per il salvataggio e l
   \hline
 \end{tabular}
 
-\begin{center}
-  \textbf{decrypt}\\
-\end{center}
+\textbf{decrypt}\\
 \begin{tabular}{| l | l | l |}
   \hline
   Nome & Tipo & Descrizione\\
@@ -314,7 +313,8 @@ Classe atta a modellare una \gloss{collezione} del sistema actorbase.
 
 \subparagraph{Utilizzo}
 Viene utilizzata da diversi attori del sistema. Questa classe espone metodi
-getter e un meotodo per il confronto con un altro oggetto ActorbaseCollection.
+getter, metodi per aumentare e diminuire la dimensione della collezione 
+e un metodo per il confronto con un altro oggetto di questo tipo.
 
 \subparagraph{Realizza}
 \begin{itemize}
@@ -333,7 +333,7 @@ getter e un meotodo per il confronto con un altro oggetto ActorbaseCollection.
 \end{tabular}
 
 \subparagraph{Metodi}
-\begin{tabular}{| l | l | l | l |}
+\begin{tabular}{| p{3cm} | p{2cm} | p{3cm} | p{9cm} |}
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
@@ -341,13 +341,19 @@ getter e un meotodo per il confronto con un altro oggetto ActorbaseCollection.
   \hline
   getOwner & pubblico & String & Metodo che ritorna lo username dell'utente che ha creato la \gloss{collezione} \\
   \hline
-  compare & pubblico & Int & Metodo per l'implementazione dell'interfaccia Ordered.\\
+  getSize & pubblico & Int & Metodo che ritorna la dimensione della \gloss{collezione} rappresentata\\
+  \hline
+  getUuid & pubblico & String & Metodo che ritorna lo uuid della collezione. Questo rappresenta una stringa per identificare univocamente diverse \gloss{collezioni}\\
+  \hline
+  incrementSize & pubblico & Void & Metodo che incrementa di una unità la size della \gloss{collezione}. Usato quando si effettua un inserimento di un item \\
+  \hline
+  decrementSize & pubblico & Void & Metodo che decrementa di una unità la size della \gloss{collezione}. Usato quando si effettua una rimozione di un item \\
+  \hline
+  compare & pubblico & Int & Metodo per l'implementazione dell'interfaccia Ordered. Permette di confrontare più oggetti ActorbaseCollection per capire se rappresentano la stessa collezione\\
   \hline
 \end{tabular}
 
-\begin{center}
-  \textbf{compare}\\
-\end{center}
+\textbf{compare}\\
 \begin{tabular}{| l | l | l |}
   \hline
   Nome & Tipo & Descrizione\\
@@ -752,15 +758,22 @@ Questo viene utilizzato per adempiere ad alcune richieste dell'utente.
 
 \subparagraph{Descrizione}
 Classe che rappresenta un messaggio utilizzato per richiedere al
-\hyperref[sec:actorbase::actorsystem::actors::main::Main]{Main} l'inserimento di items.\\Implementata utilizzando la specifica funzionalità \textit{case class} di Scala,
+\hyperref[sec:actorbase::actorsystem::actors::main::Main]{Main} l'inserimento 
+di un item.\\Implementata utilizzando la specifica funzionalità 
+\textit{case class} di Scala,
 in modo da poter usufruirne mediante costrutti e algoritmi di
 \gloss{pattern matching}.
 
 \subparagraph{Utilizzo}
-Questa classe viene utilizzata per mandare una richiesta di inserimento di
+Questa classe viene utilizzata per mandare una richiesta di inserimento di un
 item all'attore
 \hyperref[sec:actorbase::actorsystem::actors::main::Main]{Main}.\\Questo attore
-provvederà ad inoltrare la richiesta al giusto attore \hyperref[sec:actorbase::actorsystem::actors::storefinder::Storefinder]{Storefinder}.
+provvederà ad inoltrare la richiesta al giusto attore 
+\hyperref[sec:actorbase::actorsystem::actors::storefinder::Storefinder]{Storefinder} che 
+rappresenta la \gloss{collezione} in cui inserire l'item. Se non è presente la 
+collezione in cui inserire l'item questa verrà creata instanziando un nuovo 
+attore 
+\hyperref[sec:actorbase::actorsystem::actors::storefinder::Storefinder]{Storefinder}, infine verrà inoltrata la richiesta di inserimento a quest'ultimo .
 
 \subparagraph{Attributi}
 \begin{tabular}{| p{2cm} | p{1.5cm} | p{2cm} | p{3cm} | p{8.5cm} |}
@@ -786,9 +799,9 @@ provvederà ad inoltrare la richiesta al giusto attore \hyperref[sec:actorbase::
   \hline
   key & pubblico & String & Metodo che ritorna l'attributo key\\
   \hline
-  value & pubblico & Array<Byte> & Metodo che ritorna l'attributo key\\
+  value & pubblico & Array<Byte> & Metodo che ritorna l'attributo value\\
   \hline
-  update & pubblico & Boolean & Metodo che ritorna l'attributo key\\
+  update & pubblico & Boolean & Metodo che ritorna l'attributo update\\
   \hline
 \end{tabular}
 
@@ -810,7 +823,7 @@ in modo da poter usufruirne mediante costrutti e algoritmi di
 \gloss{pattern matching}.
 
 \subparagraph{Utilizzo}
-Questa classe viene utilizzata per mandare una richiesta di ritorno di un item o di collezioni all'attore
+Questa classe viene utilizzata per mandare una richiesta di ritorno di un item o di una collezione all'attore
 \hyperref[sec:actorbase::actorsystem::actors::main::Main]{Main}.\\Questo attore
 provvederà ad inoltrare la richiesta al giusto attore \hyperref[sec:actorbase::actorsystem::actors::storefinder::Storefinder]{Storefinder}.\\Il
 parametro in ingresso \textit{key} determina se l'utente richiede un singolo
@@ -5320,7 +5333,7 @@ Viene utilizzata per chiamare il metodo di
   \hline
   execute & pubblico & String & Provvede all'esecuzione del comando\\
   \hline
-  receiver & pubblico & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Ritorna l'attributo receiver
+  receiver & pubblico & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Ritorna l'attributo receiver\\
   \hline
 \end{tabular}
 
@@ -5369,7 +5382,7 @@ dall'utente.
   \hline
   execute & pubblico & String & Provvede all'esecuzione del comando\\
   \hline
-  receiver & pubblico & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Ritorna l'attributo receiver
+  receiver & pubblico & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Ritorna l'attributo receiver\\
   \hline
 \end{tabular}
 
@@ -5415,7 +5428,7 @@ Viene utilizzata per chiamare il metodo di
   \hline
   execute & pubblico & String & Provvede all'esecuzione del comando\\
   \hline
-  receiver & pubblico & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Ritorna l'attributo receiver
+  receiver & pubblico & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Ritorna l'attributo receiver\\
   \hline
 \end{tabular}
 
@@ -5462,7 +5475,7 @@ Viene utilizzata per chiamare il metodo di
   \hline
   execute & pubblico & String & Provvede all'esecuzione del comando\\
   \hline
-  receiver & pubblico & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Ritorna l'attributo receiver
+  receiver & pubblico & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Ritorna l'attributo receiver\\
   \hline
 \end{tabular}
 
@@ -5510,7 +5523,7 @@ dell'utente specificato in input.
   \hline
   execute & pubblico & String & Provvede all'esecuzione del comando\\
   \hline
-  receiver & pubblico & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Ritorna l'attributo receiver
+  receiver & pubblico & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Ritorna l'attributo receiver\\
   \hline
 \end{tabular}
 
@@ -5559,7 +5572,7 @@ nomi di tutte le collezioni presenti nel \gloss{database}.
   \hline
   execute & pubblico & String & Provvede all'esecuzione del comando\\
   \hline
-  receiver & pubblico & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Ritorna l'attributo receiver
+  receiver & pubblico & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Ritorna l'attributo receiver\\
   \hline
 \end{tabular}
 
@@ -5608,7 +5621,7 @@ in input.
   \hline
   execute & pubblico & String & Provvede all'esecuzione del comando\\
   \hline
-  receiver & pubblico & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Ritorna l'attributo receiver
+  receiver & pubblico & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Ritorna l'attributo receiver\\
   \hline
 \end{tabular}
 
@@ -5656,7 +5669,7 @@ immesse dall'utente.
   \hline
   execute & pubblico & String & Provvede all'esecuzione del comando\\
   \hline
-  receiver & pubblico & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Ritorna l'attributo receiver
+  receiver & pubblico & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Ritorna l'attributo receiver\\
   \hline
 \end{tabular}
 
@@ -5704,7 +5717,7 @@ i parametri specificati in input.
   \hline
   execute & pubblico & String & Provvede all'esecuzione del comando\\
   \hline
-  receiver & pubblico & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Ritorna l'attributo receiver
+  receiver & pubblico & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Ritorna l'attributo receiver\\
   \hline
 \end{tabular}
 
@@ -5753,7 +5766,7 @@ specificati in input.
   \hline
   execute & pubblico & String & Provvede all'esecuzione del comando\\
   \hline
-  receiver & pubblico & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Ritorna l'attributo receiver
+  receiver & pubblico & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Ritorna l'attributo receiver\\
   \hline
 \end{tabular}
 
@@ -5799,7 +5812,7 @@ Viene utilizzata per chiamare il metodo di \hyperref[sec:actorbase::cli::models:
   \hline
   execute & pubblico & String & Provvede all'esecuzione del comando\\
   \hline
-  receiver & pubblico & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Ritorna l'attributo receiver
+  receiver & pubblico & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Ritorna l'attributo receiver\\
   \hline
 \end{tabular}
 
@@ -5846,7 +5859,7 @@ parametri specificati in input.
   \hline
   execute & pubblico & String & Provvede all'esecuzione del comando\\
   \hline
-  receiver & pubblico & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Ritorna l'attributo receiver
+  receiver & pubblico & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Ritorna l'attributo receiver\\
   \hline
 \end{tabular}
 
@@ -5894,7 +5907,7 @@ con i parametri immessi dall'utente.
   \hline
   execute & pubblico & String & Provvede all'esecuzione del comando\\
   \hline
-  receiver & pubblico & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Ritorna l'attributo receiver
+  receiver & pubblico & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Ritorna l'attributo receiver\\
   \hline
 \end{tabular}
 
@@ -5927,7 +5940,6 @@ parametri immessi dall'utente.
 \subparagraph{Attributi}
 
 \begin{tabular}{| p{1cm} | p{1.5cm} | p{2cm} | p{4cm} | p{8.5cm} |}
-  \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
   receiver & privato & mutabile & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Oggetto per l'esecuzione del comando\\
@@ -5942,7 +5954,7 @@ parametri immessi dall'utente.
   \hline
   execute & pubblico & String & Provvede all'esecuzione del comando\\
   \hline
-  receiver & pubblico & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Ritorna l'attributo receiver
+  receiver & pubblico & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Ritorna l'attributo receiver\\
   \hline
 \end{tabular}
 
@@ -5989,7 +6001,7 @@ Viene utilizzata per chiamare il metodo di
   \hline
   execute & pubblico & String & Provvede all'esecuzione del comando\\
   \hline
-  receiver & pubblico & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Ritorna l'attributo receiver
+  receiver & pubblico & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Ritorna l'attributo receiver\\
   \hline
 \end{tabular}
 
@@ -6036,7 +6048,7 @@ Viene utilizzata per chiamare il metodo di \hyperref[sec:actorbase::cli::models:
   \hline
   execute & pubblico & String & Provvede all'esecuzione del comando\\
   \hline
-  receiver & pubblico & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Ritorna l'attributo receiver
+  receiver & pubblico & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Ritorna l'attributo receiver\\
   \hline
 \end{tabular}
 
@@ -6084,7 +6096,7 @@ Viene utilizzata per chiamare il metodo di
   \hline
   execute & pubblico & String & Provvede all'esecuzione del comando\\
   \hline
-  receiver & pubblico & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Ritorna l'attributo receiver
+  receiver & pubblico & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Ritorna l'attributo receiver\\
   \hline
 \end{tabular}
 
@@ -6132,7 +6144,7 @@ Viene utilizzata per chiamare il metodo di
   \hline
   execute & pubblico & String & Provvede all'esecuzione del comando\\
   \hline
-  receiver & pubblico & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Ritorna l'attributo receiver
+  receiver & pubblico & \hyperref[sec:actorbase::cli::models::CommandReceiver]{CommandReceiver} & Ritorna l'attributo receiver\\
   \hline
 \end{tabular}
 
