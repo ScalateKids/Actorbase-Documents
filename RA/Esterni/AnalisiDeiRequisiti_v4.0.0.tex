@@ -49,6 +49,8 @@
     \hline
     Versione & Autore & Ruolo & Data & Descrizione \\
     \hline
+    3.1.1 & Alberto De Agostini & 2016-06-01 & Aggiornamento vincoli password nelle sezioni 3.45, 3.46\\
+    \hline
     3.1.0 & Marco Boseggia & Verificatore & 2016-05-27 & Verifica modifiche apportate\\
     \hline
     3.0.1 & Alberto De Agostini & Analista & 2016-05-27 & Apportate modifiche post RP (immagine in sezione 3.50 e numeramento sezione 4)\\
@@ -1444,7 +1446,9 @@ L'attore ha appena avviato la \gloss{CLI}, risulta essere non autenticato e ha g
 \textbf{Precondizioni:} Il server è in ascolto, l'attore ha inserito la propria password attuale, la nuova password e la conferma. Il sistema non accetta la nuova password in quanto non conforme ai
 vincoli imposti. I vincoli imposti dal sistema sono:
 \begin{itemize}
-\item Lunghezza password minima di 8 caratteri.
+\item Lunghezza password minima di 8 caratteri;
+\item Almeno un carattere numerico;
+\item Almeno una lettera minuscola e una maiuscola.
 \end{itemize}
 \textbf{Scenario principale:}
 \begin{itemize}
@@ -1460,6 +1464,8 @@ vincoli imposti. I vincoli imposti dal sistema sono:
 vincoli imposti. I vincoli imposti sulla conferma password dal sistema sono:
 \begin{itemize}
 \item Lunghezza password minima di 8 caratteri;
+\item Almeno un carattere numerico;
+\item Almeno una lettera minuscola e una maiuscola.
 \item La password da confermare deve corrispondere alla password inserita in UC1.6.2.
 \end{itemize}
 \textbf{Scenario principale:}
