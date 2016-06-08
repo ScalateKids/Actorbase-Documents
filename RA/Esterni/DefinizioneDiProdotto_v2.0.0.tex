@@ -567,14 +567,16 @@ riguardanti \gloss{collezioni}.
 \end{figure}
 
 \subparagraph{Descrizione}
-Classe che rappresenta una richiesta di aggiunta di credenziali al sistema.\\Implementata utilizzando la specifica funzionalità \textit{case class} di Scala,
-in modo da poter usufruirne mediante costrutti e algoritmi di
+Classe che rappresenta una richiesta di aggiunta di credenziali al
+sistema.\\Implementata utilizzando la specifica funzionalità \textit{case class}
+di \gloss{Scala}, in modo da poter usufruirne mediante costrutti e algoritmi di
 \gloss{pattern matching}.
 
 \subparagraph{Utilizzo}
-Questa classe viene utilizzata per mandare una richiesta all'attore
+Questa classe viene utilizzata per mandare una richiesta all'\gloss{attore}
 \hyperref[sec:actorbase::actorsystem::messages::authactormessages::AuthActor]{AuthActor}
-di aggiunta di credenziali al sistema.
+di aggiunta di credenziali al sistema, all'interno del metodo \textit{Receive} che la utilizza
+avviene inoltre il controllo della password, in modo che rispetti i vincoli imposti dal sistema.
 
 \subparagraph{Attributi}
 \begin{tabular}{| p{2cm} | p{1.5cm} | p{2cm} | p{3cm} | p{8.5cm} |}
@@ -592,9 +594,9 @@ di aggiunta di credenziali al sistema.
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  username & pubblico & String & Metodo che ritorna l'attributo username\\
+  username & pubblico & String & Metodo che ritorna l'attributo \gloss{username}\\
   \hline
-  password & pubblico & String & Metodo che ritorna l'attributo password\\
+  password & pubblico & String & Metodo che ritorna l'attributo \gloss{password}\\
   \hline
 \end{tabular}
 
@@ -610,8 +612,9 @@ di aggiunta di credenziali al sistema.
 \end{figure}
 
 \subparagraph{Descrizione}
-Classe che rappresenta una richiesta di modifica di password di un utente al sistema.\\Implementata utilizzando la specifica funzionalità \textit{case class} di Scala,
-in modo da poter usufruirne mediante costrutti e algoritmi di
+Classe che rappresenta una richiesta di modifica di password di un utente al
+sistema.\\Implementata utilizzando la specifica funzionalità \textit{case class}
+di \gloss{Scala}, in modo da poter usufruirne mediante costrutti e algoritmi di
 \gloss{pattern matching}.
 
 \subparagraph{Utilizzo}
@@ -624,11 +627,11 @@ di modifica della password di un utente.
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  username & privato & immutabile & String & Rappresenta lo username dell'utente a cui cambiare la password \\
+  username & privato & immutabile & String & Rappresenta lo \gloss{username} dell'utente a cui cambiare la \gloss{password} \\
   \hline
-  password & privato & immutabile & String & Rappresenta la vecchia password da cambiare \\
+  password & privato & immutabile & String & Rappresenta la vecchia \gloss{password} da cambiare \\
   \hline
-  newPassword & privato & immutabile & String & Rappresenta la nuova password da assegnare all'utente rappresentato dallo username immesso \\
+  newPassword & privato & immutabile & String & Rappresenta la nuova password da assegnare all'utente rappresentato dallo \gloss{username} immesso \\
   \hline
 \end{tabular}
 
@@ -657,12 +660,13 @@ di modifica della password di un utente.
 \end{figure}
 
 \subparagraph{Descrizione}
-Classe che rappresenta una richiesta di rimozione di un utente dal sistema.\\Implementata utilizzando la specifica funzionalità \textit{case class} di Scala,
-in modo da poter usufruirne mediante costrutti e algoritmi di
+Classe che rappresenta una richiesta di rimozione di un utente dal
+sistema.\\Implementata utilizzando la specifica funzionalità \textit{case class}
+di \gloss{Scala}, in modo da poter usufruirne mediante costrutti e algoritmi di
 \gloss{pattern matching}.
 
 \subparagraph{Utilizzo}
-Questa classe viene utilizzata per mandare una richiesta all'attore
+Questa classe viene utilizzata per mandare una richiesta all'\gloss{attore}
 \hyperref[sec:actorbase::actorsystem::actors::authactor::AuthActor]{AuthActor}
 di rimozione di un utente.
 
@@ -1218,7 +1222,7 @@ inoltrare la richiesta al giusto attore \hyperref[sec:actorbase::actorsystem::ac
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  uuid & privato & immutabile & String & Rappresenta l'id della collezione da cui eliminare l'item\\
+  uuid & privato & immutabile & String & Rappresenta l'id della collezione da cui eliminare l'\gloss{item}\\
   \hline
   key & privato & immutabile & String & Rappresenta la chiave dell'item da eliminare\\
   \hline
@@ -1263,11 +1267,11 @@ lo username del collaboratore designato alla collezione richiesta.
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  username & privato & immutabile & String & Rappresente lo username del collaboratore da aggiungere alla collezione\\
+  username & privato & immutabile & String & Rappresente lo \gloss{username} del \gloss{collaboratore} da aggiungere alla \gloss{collezione}\\
   \hline
-  permission & privato & immutabile & Enum & Rappresenta il tipo di permessi da assegnare al collaboratore\\
+  permission & privato & immutabile & Enum & Rappresenta il tipo di permessi da assegnare al \gloss{collaboratore}\\
   \hline
-  uuid & privato & immutabile & String & Rappresenta l'id della collezione a cui aggiungere il collaboratore\\
+  uuid & privato & immutabile & String & Rappresenta l'id della \gloss{collezione} a cui aggiungere il \gloss{collaboratore}\\
   \hline
 \end{tabular}
 
