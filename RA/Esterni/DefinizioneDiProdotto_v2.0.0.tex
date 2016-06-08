@@ -345,9 +345,9 @@ Viene utilizzata dall'attore di tipo \gloss{Warehouseman} per il salvataggio e l
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  Algorithm & pubblica & immutabile & String & Rappresenta l'agoritmo usato per la criptazione \\
+  Algorithm & privato & immutabile & String & Rappresenta l'agoritmo usato per la criptazione \\
   \hline
-  Transformation & pubblica & immutabile & String & Rappresenta la trasformazione per ottenere il cifrario usato per la criptazione \\
+  Transformation & privato & immutabile & String & Rappresenta la trasformazione per ottenere il cifrario usato per la criptazione \\
   \hline
 \end{tabular}
 
@@ -2506,7 +2506,7 @@ per continuare le comunicazioni.
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  router & privata & immutabile & ActorRef & Rappresenta un riferimento all'attore che si occupa del routing delle richieste agli attori di tipo \hyperref[sec:actorbase::actorsystem::actors::main::Main]{Main} \\
+  router & privato & immutabile & ActorRef & Rappresenta un riferimento all'attore che si occupa del routing delle richieste agli attori di tipo \hyperref[sec:actorbase::actorsystem::actors::main::Main]{Main} \\
   \hline
   address & privato & immutabile & String & Rappresenta l'indirizzo del \gloss{server} su cui aprire il \gloss{socket} di ascolto\\
   \hline
