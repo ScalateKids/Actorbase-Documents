@@ -6845,14 +6845,25 @@ l'esito dell'operazione.\\
 \end{figure}
 
 
+
+
+
+
 \section{Tracciamento}
 
-\section{Tracciamento Componenti-Requisiti}
-\begin{longtable}[H]{|p{5.5cm}|p{5.5cm}|}
+
+
+
+
+
+
+
+\section{Tracciamento Classi-Requisiti}
+\begin{longtable}[H]{|p{10cm}|p{7cm}|}
 \hline
-\textbf{Componente} & \textbf{Requisiti}\\
+\textbf{Classi} & \textbf{Requisiti}\\
 \hline
-actorbase::actorsystem::authactor::AuthActor & \multiLineCell[t]{OBF1.1.10.1\\OBF1.1.10.1.1\\OBF1.1.10.2\\OBF1.1.10.2.1\\OBF1.1.10.2.3\\OBF1.1.10.2.3.1\\OBF1.1.10.2.4\\OBF1.1.10.2.5\\OBF1.1.10.2.5.1\\OBF1.1.10.2.5.2\\OBF1.1.10.2.6\\OBF1.1.10.2.7\\OBF1.1.10.3\\OBF1.1.10.3.2\\OBF1.1.10.5\\OBF1.1.10.5.1\\OBF1.1.10.7\\OBF1.1.10.7.1\\OBF1.1.10.7.3\\}\\
+actorbase::actorsystem::authactor::AuthActor & \multiLineCell[t]{OBF1.1.10.1 OBF1.1.10.1.1\\OBF1.1.10.2 OBF1.1.10.2.1\\OBF1.1.10.2.3 OBF1.1.10.2.3.1\\OBF1.1.10.2.4 OBF1.1.10.2.5\\OBF1.1.10.2.5.1 OBF1.1.10.2.5.2\\OBF1.1.10.2.6 OBF1.1.10.2.7\\OBF1.1.10.3 OBF1.1.10.3.2\\OBF1.1.10.5 OBF1.1.10.5.1\\OBF1.1.10.7 OBF1.1.10.7.1\\OBF1.1.10.7.3}\\
 \hline
 actorbase::actorsystem::authactor::messages::AddCollectionTo & \multiLineCell[t]{OBF1.1.9.5\\}\\
 \hline
@@ -6870,23 +6881,23 @@ actorbase::actorsystem::authactor::messages::UpdateCredentials & \multiLineCell[
 \hline
 actorbase::actorsystem::clientactor::Authenticator & \multiLineCell[t]{OBF1.1.10.1\\OBF1.1.10.1.1\\}\\
 \hline
-actorbase::actorsystem::clientactor::Clientactor & \multiLineCell[t]{OBF1.1.10\\OBF1.1.10.1\\OBF1.1.10.1.1\\OBF1.1.10.2\\OBF1.1.10.2.1\\OBF1.1.10.2.1.1\\OBF1.1.10.2.2\\OBF1.1.10.2.3\\OBF1.1.10.2.3.1\\OBF1.1.10.2.3.2\\OBF1.1.10.2.4\\OBF1.1.10.2.4.1\\OBF1.1.10.2.5\\OBF1.1.10.2.5.1\\OBF1.1.10.2.5.2\\OBF1.1.10.2.5.3\\OBF1.1.10.2.5.4\\OBF1.1.10.2.6\\OBF1.1.10.2.6.1\\OBF1.1.10.2.7\\OBF1.1.10.3\\OBF1.1.10.3.1\\OBF1.1.10.3.2\\OBF1.1.10.3.3\\OBF1.1.10.3.4\\OBF1.1.10.3.5\\OBF1.1.10.4\\OBF1.1.10.5\\OBF1.1.10.5.1\\OBF1.1.10.6\\OBF1.1.10.7\\OBF1.1.10.7.1\\OBF1.1.10.7.1.1\\OBF1.1.10.7.2\\OBF1.1.10.7.2.1\\OBF1.1.10.7.3\\OBF1.1.10.7.3.1\\OBF1.1.2\\}\\
+actorbase::actorsystem::clientactor::Clientactor & \multiLineCell[t]{OBF1.1.10 OBF1.1.10.1\\OBF1.1.10.1.1 OBF1.1.10.2\\OBF1.1.10.2.1 OBF1.1.10.2.1.1\\OBF1.1.10.2.2 OBF1.1.10.2.3\\OBF1.1.10.2.3.1 OBF1.1.10.2.3.2\\OBF1.1.10.2.4 OBF1.1.10.2.4.1\\OBF1.1.10.2.5 OBF1.1.10.2.5.1\\OBF1.1.10.2.5.2 OBF1.1.10.2.5.3\\OBF1.1.10.2.5.4 OBF1.1.10.2.6\\OBF1.1.10.2.6.1 OBF1.1.10.2.7\\OBF1.1.10.3 OBF1.1.10.3.1\\OBF1.1.10.3.2 OBF1.1.10.3.3\\OBF1.1.10.3.4 OBF1.1.10.3.5\\OBF1.1.10.4 OBF1.1.10.5\\OBF1.1.10.5.1 OBF1.1.10.6\\OBF1.1.10.7 OBF1.1.10.7.1\\OBF1.1.10.7.1.1 OBF1.1.10.7.2\\OBF1.1.10.7.2.1 OBF1.1.10.7.3\\OBF1.1.10.7.3.1 OBF1.1.2\\}\\
 \hline
 actorbase::actorsystem::clientactor::CollectionApi & \multiLineCell[t]{OBF1.1.10.2\\}\\
 \hline
-actorbase::actorsystem::clientactor::ItemApi & \multiLineCell[t]{OBF1.1.10.3\\OBF1.1.10.4\\}\\
+actorbase::actorsystem::clientactor::ItemApi & \multiLineCell[t]{OBF1.1.10.3 OBF1.1.10.4\\}\\
 \hline
-actorbase::actorsystem::clientactor::UserApi & \multiLineCell[t]{OBF1.1.10.1\\OBF1.1.10.5\\OBF1.1.10.6\\OBF1.1.10.7\\}\\
+actorbase::actorsystem::clientactor::UserApi & \multiLineCell[t]{OBF1.1.10.1 OBF1.1.10.5\\OBF1.1.10.6 OBF1.1.10.7\\}\\
 \hline
 actorbase::actorsystem::clientactor::messages::MapResponse & \multiLineCell[t]{OBF1.1.2.2\\}\\
 \hline
 actorbase::actorsystem::clientactor::messages::Response & \multiLineCell[t]{OBF1.1.2.1\\}\\
 \hline
-actorbase::actorsystem::httpserver::Httpserver & \multiLineCell[t]{OBF1.1\\OBF1.1.1\\OBF1.1.1.1\\OBF1.1.10\\}\\
+actorbase::actorsystem::httpserver::Httpserver & \multiLineCell[t]{OBF1.1 OBF1.1.1\\OBF1.1.1.1 OBF1.1.10\\}\\
 \hline
-actorbase::actorsystem::httpserver::SslConfiguration & \multiLineCell[t]{OBF1.1\\OBF1.1.1\\}\\
+actorbase::actorsystem::httpserver::SslConfiguration & \multiLineCell[t]{OBF1.1 OBF1.1.1\\}\\
 \hline
-actorbase::actorsystem::main::Main & \multiLineCell[t]{OBF1.1.10.1\\OBF1.1.10.2\\OBF1.1.10.2.1\\OBF1.1.10.2.1.1\\OBF1.1.10.2.3\\OBF1.1.10.2.4\\OBF1.1.10.2.5\\OBF1.1.10.2.5.1\\OBF1.1.10.2.5.2\\OBF1.1.10.2.6\\OBF1.1.10.2.7\\OBF1.1.10.3\\OBF1.1.10.3.1\\OBF1.1.10.3.2\\OBF1.1.10.3.3\\OBF1.1.10.3.4\\OBF1.1.10.4\\OBF1.1.10.5\\OBF1.1.10.7\\OBF1.1.10.7.1\\OBF1.1.10.7.2\\OBF1.1.10.7.2.1\\OBF1.1.10.7.3\\OBF1.1.10.7.3.1\\OBF1.1.3\\}\\
+actorbase::actorsystem::main::Main & \multiLineCell[t]{OBF1.1.10.1 OBF1.1.10.2\\OBF1.1.10.2.1 OBF1.1.10.2.1.1\\OBF1.1.10.2.3 OBF1.1.10.2.4\\OBF1.1.10.2.5 OBF1.1.10.2.5.1\\OBF1.1.10.2.5.2 OBF1.1.10.2.6\\OBF1.1.10.2.7 OBF1.1.10.3\\OBF1.1.10.3.1 OBF1.1.10.3.2\\OBF1.1.10.3.3 OBF1.1.10.3.4\\OBF1.1.10.4 OBF1.1.10.5\\OBF1.1.10.7 OBF1.1.10.7.1\\OBF1.1.10.7.2 OBF1.1.10.7.2.1\\OBF1.1.10.7.3 OBF1.1.10.7.3.1\\OBF1.1.3}\\
 \hline
 actorbase::actorsystem::main::messages::AddContributor & \multiLineCell[t]{OBF1.1.3.5\\}\\
 \hline
@@ -6900,11 +6911,11 @@ actorbase::actorsystem::main::messages::RemoveContributor & \multiLineCell[t]{OB
 \hline
 actorbase::actorsystem::main::messages::RemoveItemFrom & \multiLineCell[t]{OBF1.1.3.9\\}\\
 \hline
-actorbase::actorsystem::manager::Manager & \multiLineCell[t]{DEF1.1.8\\OBF1.1.10.3\\OBF1.1.10.3.1\\}\\
+actorbase::actorsystem::manager::Manager & \multiLineCell[t]{DEF1.1.8 OBF1.1.10.3\\OBF1.1.10.3.1\\}\\
 \hline
 actorbase::actorsystem::manager::messages::DuplicationRequestSK & \multiLineCell[t]{DEF1.1.8.1\\}\\
 \hline
-actorbase::actorsystem::storefinder::Storefinder & \multiLineCell[t]{OBF1.1.10.1\\OBF1.1.10.2\\OBF1.1.10.2.1\\OBF1.1.10.2.3\\OBF1.1.10.2.4\\OBF1.1.10.2.5\\OBF1.1.10.2.5.1\\OBF1.1.10.2.5.2\\OBF1.1.10.2.5.4\\OBF1.1.10.2.6\\OBF1.1.10.2.7\\OBF1.1.10.3\\OBF1.1.10.3.1\\OBF1.1.10.3.3\\OBF1.1.10.3.4\\OBF1.1.10.4\\OBF1.1.10.5\\OBF1.1.10.7\\OBF1.1.10.7.1\\OBF1.1.10.7.2\\OBF1.1.10.7.2.1\\OBF1.1.10.7.3\\OBF1.1.10.7.3.1\\OBF1.1.4\\}\\
+actorbase::actorsystem::storefinder::Storefinder & \multiLineCell[t]{OBF1.1.10.1 OBF1.1.10.2\\OBF1.1.10.2.1 OBF1.1.10.2.3\\OBF1.1.10.2.4 OBF1.1.10.2.5\\OBF1.1.10.2.5.1 OBF1.1.10.2.5.2\\OBF1.1.10.2.5.4 OBF1.1.10.2.6\\OBF1.1.10.2.7 OBF1.1.10.3\\OBF1.1.10.3.1 OBF1.1.10.3.3\\OBF1.1.10.3.4 OBF1.1.10.4\\OBF1.1.10.5 OBF1.1.10.7\\OBF1.1.10.7.1 OBF1.1.10.7.2\\OBF1.1.10.7.2.1 OBF1.1.10.7.3\\OBF1.1.10.7.3.1 OBF1.1.4\\}\\
 \hline
 actorbase::actorsystem::storefinder::messages::GetAllItems & \multiLineCell[t]{OBF1.1.4.6\\}\\
 \hline
@@ -6918,7 +6929,7 @@ actorbase::actorsystem::storefinder::messages::RemoveItem & \multiLineCell[t]{OB
 \hline
 actorbase::actorsystem::storefinder::messages::UpdateCollectionSize & \multiLineCell[t]{OBF1.1.4.1\\}\\
 \hline
-actorbase::actorsystem::storekeeper::Storekeeper & \multiLineCell[t]{DEF1.1.7\\OBF1.1.10.2\\OBF1.1.10.2.1\\OBF1.1.10.2.4\\OBF1.1.10.2.5\\OBF1.1.10.2.5.1\\OBF1.1.10.2.5.2\\OBF1.1.10.2.6\\OBF1.1.10.2.7\\OBF1.1.10.3\\OBF1.1.10.3.1\\OBF1.1.10.3.3\\OBF1.1.10.3.4\\OBF1.1.10.4\\OBF1.1.5\\}\\
+actorbase::actorsystem::storekeeper::Storekeeper & \multiLineCell[t]{DEF1.1.7 OBF1.1.10.2\\OBF1.1.10.2.1 OBF1.1.10.2.4\\OBF1.1.10.2.5 OBF1.1.10.2.5.1\\OBF1.1.10.2.5.2 OBF1.1.10.2.6\\OBF1.1.10.2.7 OBF1.1.10.3\\OBF1.1.10.3.1 OBF1.1.10.3.3\\OBF1.1.10.3.4 OBF1.1.10.4\\OBF1.1.5}\\
 \hline
 actorbase::actorsystem::storekeeper::messages::GetAllItems & \multiLineCell[t]{OBF1.1.5.3\\}\\
 \hline
@@ -6930,11 +6941,11 @@ actorbase::actorsystem::storekeeper::messages::Persist & \multiLineCell[t]{OBF1.
 \hline
 actorbase::actorsystem::storekeeper::messages::RemoveItem & \multiLineCell[t]{OBF1.1.5.5\\}\\
 \hline
-actorbase::actorsystem::utils::ActorbaseCollection & \multiLineCell[t]{DEF1.1.7\\OBF1.1.2\\OBF1.1.3\\OBF1.1.4\\OBF1.1.5\\}\\
+actorbase::actorsystem::utils::ActorbaseCollection & \multiLineCell[t]{DEF1.1.7 OBF1.1.2\\OBF1.1.3 OBF1.1.4\\OBF1.1.5}\\
 \hline
 actorbase::actorsystem::utils::CryptoUtils & \multiLineCell[t]{OBF1.1.6\\}\\
 \hline
-actorbase::actorsystem::warehouseman::Warehouseman & \multiLineCell[t]{OBF1.1.10.2\\OBF1.1.10.2.4\\OBF1.1.10.2.5\\OBF1.1.10.2.5.1\\OBF1.1.10.2.5.2\\OBF1.1.10.2.6\\OBF1.1.10.2.7\\OBF1.1.10.3\\OBF1.1.10.3.1\\OBF1.1.10.3.4\\OBF1.1.6\\}\\
+actorbase::actorsystem::warehouseman::Warehouseman & \multiLineCell[t]{OBF1.1.10.2 OBF1.1.10.2.4\\OBF1.1.10.2.5 OBF1.1.10.2.5.1\\OBF1.1.10.2.5.2 OBF1.1.10.2.6\\OBF1.1.10.2.7 OBF1.1.10.3\\OBF1.1.10.3.1 OBF1.1.10.3.4\\OBF1.1.6}\\
 \hline
 actorbase::actorsystem::warehouseman::messages::Clean & \multiLineCell[t]{OBF1.1.6.3\\}\\
 \hline
@@ -6942,7 +6953,7 @@ actorbase::actorsystem::warehouseman::messages::Read & \multiLineCell[t]{OBF1.1.
 \hline
 actorbase::actorsystem::warehouseman::messages::Save & \multiLineCell[t]{OBF1.1.6.2\\}\\
 \hline
-actorbase::cli::controllers::GrammarParser & \multiLineCell[t]{DEF2.1.2.7\\DEF2.1.3.1.2\\DEF2.1.4\\DEF2.1.5\\OBF2.1\\OBF2.1.1\\OBF2.1.2\\OBF2.1.2.1\\OBF2.1.2.2\\OBF2.1.2.3\\OBF2.1.2.4\\OBF2.1.2.5\\OBF2.1.2.6\\OBF2.1.3\\OBF2.1.3.1\\OBF2.1.3.1.1\\OBF2.1.6\\OBF2.1.7\\OBF2.1.8\\OBF2.1.9\\OBF2.1.9.1\\OBF2.1.9.2\\OBF2.1.9.3\\}\\
+actorbase::cli::controllers::GrammarParser & \multiLineCell[t]{DEF2.1.2.7 DEF2.1.3.1.2\\DEF2.1.4 DEF2.1.5\\OBF2.1 OBF2.1.1\\OBF2.1.2 OBF2.1.2.1\\OBF2.1.2.2 OBF2.1.2.3\\OBF2.1.2.4 OBF2.1.2.5\\OBF2.1.2.6 OBF2.1.3\\OBF2.1.3.1 OBF2.1.3.1.1\\OBF2.1.6 OBF2.1.7\\OBF2.1.8 OBF2.1.9\\OBF2.1.9.1 OBF2.1.9.2\\OBF2.1.9.3}\\
 \hline
 actorbase::cli::models::AddContributorCommand & \multiLineCell[t]{OBF2.1.2.5\\}\\
 \hline
@@ -6950,11 +6961,11 @@ actorbase::cli::models::AddUserCommand & \multiLineCell[t]{OBF2.1.9.1\\}\\
 \hline
 actorbase::cli::models::ChangePasswordCommand & \multiLineCell[t]{OBF2.1.7\\}\\
 \hline
-actorbase::cli::models::Command & \multiLineCell[t]{DEF2.1.2.7\\DEF2.1.3.1.2\\OBF2.1.1\\OBF2.1.2\\OBF2.1.2.1\\OBF2.1.2.2\\OBF2.1.2.3\\OBF2.1.2.4\\OBF2.1.2.5\\OBF2.1.2.6\\OBF2.1.3\\OBF2.1.3.1\\OBF2.1.6\\OBF2.1.7\\OBF2.1.8\\OBF2.1.9\\OBF2.1.9.1\\OBF2.1.9.2\\OBF2.1.9.3\\}\\
+actorbase::cli::models::Command & \multiLineCell[t]{DEF2.1.2.7 DEF2.1.3.1.2\\OBF2.1.1 OBF2.1.2\\OBF2.1.2.1 OBF2.1.2.2\\OBF2.1.2.3 OBF2.1.2.4\\OBF2.1.2.5 OBF2.1.2.6\\OBF2.1.3 OBF2.1.3.1\\OBF2.1.6 OBF2.1.7\\OBF2.1.8 OBF2.1.9\\OBF2.1.9.1 OBF2.1.9.2\\OBF2.1.9.3}\\
 \hline
-actorbase::cli::models::CommandInvoker & \multiLineCell[t]{OBF2.1.2.10\\OBF2.1.2.11\\OBF2.1.2.12\\OBF2.1.2.13\\OBF2.1.2.14\\OBF2.1.2.8\\OBF2.1.2.9\\OBF2.1.3.4\\OBF2.1.3.5\\OBF2.1.7.4\\OBF2.1.7.5\\OBF2.1.7.6\\OBF2.1.9.4\\OBF2.1.9.5\\OBF2.1.9.6\\}\\
+actorbase::cli::models::CommandInvoker & \multiLineCell[t]{OBF2.1.2.10 OBF2.1.2.11\\OBF2.1.2.12 OBF2.1.2.13\\OBF2.1.2.14 OBF2.1.2.8\\OBF2.1.2.9 OBF2.1.3.4\\OBF2.1.3.5 OBF2.1.7.4\\OBF2.1.7.5 OBF2.1.7.6\\OBF2.1.9.4 OBF2.1.9.5\\OBF2.1.9.6}\\
 \hline
-actorbase::cli::models::CommandReceiver & \multiLineCell[t]{DEF2.1.2.7\\DEF2.1.3.2\\DEF2.1.3.3\\DEF2.1.4\\DEF2.1.5\\OBF2.1.1\\OBF2.1.2\\OBF2.1.2.1\\OBF2.1.2.2\\OBF2.1.2.3\\OBF2.1.2.4\\OBF2.1.2.5\\OBF2.1.2.6\\OBF2.1.3\\OBF2.1.3.1\\OBF2.1.6\\OBF2.1.7\\OBF2.1.8\\OBF2.1.9\\OBF2.1.9.1\\OBF2.1.9.2\\OBF2.1.9.3\\}\\
+actorbase::cli::models::CommandReceiver & \multiLineCell[t]{DEF2.1.2.7 DEF2.1.3.2\\DEF2.1.3.3 DEF2.1.4\\DEF2.1.5 OBF2.1.1\\OBF2.1.2 OBF2.1.2.1\\OBF2.1.2.2 OBF2.1.2.3\\OBF2.1.2.4 OBF2.1.2.5\\OBF2.1.2.6 OBF2.1.3\\OBF2.1.3.1 OBF2.1.6\\OBF2.1.7 OBF2.1.8\\OBF2.1.9 OBF2.1.9.1\\OBF2.1.9.2 OBF2.1.9.3\\}\\
 \hline
 actorbase::cli::models::CreateCollectionCommand & \multiLineCell[t]{OBF2.1.2.1\\}\\
 \hline
@@ -6962,7 +6973,7 @@ actorbase::cli::models::ExportCommand & \multiLineCell[t]{DEF2.1.2.7\\}\\
 \hline
 actorbase::cli::models::FindCommand & \multiLineCell[t]{OBF2.1.6\\}\\
 \hline
-actorbase::cli::models::HelpCommand & \multiLineCell[t]{DEF2.1.4\\DEF2.1.5\\}\\
+actorbase::cli::models::HelpCommand & \multiLineCell[t]{DEF2.1.4 DEF2.1.5\\}\\
 \hline
 actorbase::cli::models::ImportCommand & \multiLineCell[t]{DEF2.1.3.1.2\\}\\
 \hline
@@ -6974,7 +6985,7 @@ actorbase::cli::models::LoginCommand & \multiLineCell[t]{OBF2.1.1\\}\\
 \hline
 actorbase::cli::models::LogoutCommand & \multiLineCell[t]{OBF2.1.1\\}\\
 \hline
-actorbase::cli::models::Observable & \multiLineCell[t]{OBF2.1.2.10\\OBF2.1.2.11\\OBF2.1.2.12\\OBF2.1.2.13\\OBF2.1.2.14\\OBF2.1.2.8\\OBF2.1.2.9\\OBF2.1.3.4\\OBF2.1.3.5\\OBF2.1.7.4\\OBF2.1.7.5\\OBF2.1.7.6\\OBF2.1.9.4\\OBF2.1.9.5\\OBF2.1.9.6\\}\\
+actorbase::cli::models::Observable & \multiLineCell[t]{OBF2.1.2.10 OBF2.1.2.11\\OBF2.1.2.12 OBF2.1.2.13\\OBF2.1.2.14 OBF2.1.2.8\\OBF2.1.2.9 OBF2.1.3.4\\OBF2.1.3.5 OBF2.1.7.4\\OBF2.1.7.5 OBF2.1.7.6\\OBF2.1.9.4 OBF2.1.9.5\\OBF2.1.9.6}\\
 \hline
 actorbase::cli::models::RemoveCollectionCommand & \multiLineCell[t]{OBF2.1.2.3\\}\\
 \hline
@@ -6988,19 +6999,19 @@ actorbase::cli::models::RenameCollectionCommand & \multiLineCell[t]{OBF2.1.2.4\\
 \hline
 actorbase::cli::models::ResetPasswordCommand & \multiLineCell[t]{OBF2.1.9.3\\}\\
 \hline
-actorbase::cli::views::CommandLoop & \multiLineCell[t]{DEF2.1.2.7\\DEF2.1.2.7.1\\DEF2.1.2.7.2\\DEF2.1.3.1.2\\DEF2.1.3.1.2.1\\DEF2.1.4\\DEF2.1.5\\DEF2.1.5.1\\OBF2\\OBF2.1\\OBF2.1.1\\OBF2.1.1.1\\OBF2.1.1.2\\OBF2.1.1.3\\OBF2.1.2\\OBF2.1.2.1\\OBF2.1.2.1.1\\OBF2.1.2.2\\OBF2.1.2.3\\OBF2.1.2.3.1\\OBF2.1.2.4\\OBF2.1.2.4.1\\OBF2.1.2.4.2\\OBF2.1.2.5\\OBF2.1.2.5.1\\OBF2.1.2.5.2\\OBF2.1.2.5.3\\OBF2.1.2.6\\OBF2.1.2.6.1\\OBF2.1.2.6.2\\OBF2.1.3\\OBF2.1.3.1\\OBF2.1.3.1.1\\OBF2.1.3.1.1.1\\OBF2.1.3.1.1.2\\OBF2.1.3.1.1.3\\OBF2.1.3.1.1.4\\OBF2.1.3.1.1.5\\OBF2.1.3.6\\OBF2.1.3.6.1\\OBF2.1.3.6.2\\OBF2.1.6\\OBF2.1.6.1\\OBF2.1.6.2\\OBF2.1.7\\OBF2.1.7.1\\OBF2.1.7.2\\OBF2.1.7.3\\OBF2.1.8\\OBF2.1.9\\OBF2.1.9.1\\OBF2.1.9.1.1\\OBF2.1.9.1.2\\OBF2.1.9.2\\OBF2.1.9.2.1\\OBF2.1.9.2.2\\OBF2.1.9.3\\OBF2.1.9.3.1\\OBF2.1.9.3.2\\}\\
+actorbase::cli::views::CommandLoop & \multiLineCell[t]{DEF2.1.2.7 DEF2.1.2.7.1\\DEF2.1.2.7.2 DEF2.1.3.1.2\\DEF2.1.3.1.2.1 DEF2.1.4\\DEF2.1.5 DEF2.1.5.1\\OBF2 OBF2.1\\OBF2.1.1 OBF2.1.1.1\\OBF2.1.1.2 OBF2.1.1.3\\OBF2.1.2 OBF2.1.2.1\\OBF2.1.2.1.1 OBF2.1.2.2\\OBF2.1.2.3 OBF2.1.2.3.1\\OBF2.1.2.4 OBF2.1.2.4.1\\OBF2.1.2.4.2 OBF2.1.2.5\\OBF2.1.2.5.1 OBF2.1.2.5.2\\OBF2.1.2.5.3 OBF2.1.2.6\\OBF2.1.2.6.1 OBF2.1.2.6.2\\OBF2.1.3 OBF2.1.3.1\\OBF2.1.3.1.1 OBF2.1.3.1.1.1\\OBF2.1.3.1.1.2 OBF2.1.3.1.1.3\\OBF2.1.3.1.1.4 OBF2.1.3.1.1.5\\OBF2.1.3.6 OBF2.1.3.6.1\\OBF2.1.3.6.2 OBF2.1.6\\OBF2.1.6.1O BF2.1.6.2\\OBF2.1.7 OBF2.1.7.1\\OBF2.1.7.2 OBF2.1.7.3\\OBF2.1.8 OBF2.1.9\\OBF2.1.9.1 OBF2.1.9.1.1\\OBF2.1.9.1.2 OBF2.1.9.2\\OBF2.1.9.2.1 OBF2.1.9.2.2\\OBF2.1.9.3 OBF2.1.9.3.1\\OBF2.1.9.3.2}\\
 \hline
-actorbase::cli::views::ResultViewer & \multiLineCell[t]{OBF2.1.2.10\\OBF2.1.2.11\\OBF2.1.2.12\\OBF2.1.2.13\\OBF2.1.2.14\\OBF2.1.2.8\\OBF2.1.2.9\\OBF2.1.3.4\\OBF2.1.3.5\\OBF2.1.7.4\\OBF2.1.7.5\\OBF2.1.7.6\\OBF2.1.9.4\\OBF2.1.9.5\\OBF2.1.9.6\\}\\
+actorbase::cli::views::ResultViewer & \multiLineCell[t]{OBF2.1.2.10 OBF2.1.2.11\\OBF2.1.2.12 OBF2.1.2.13\\OBF2.1.2.14 OBF2.1.2.8\\OBF2.1.2.9 OBF2.1.3.4\\OBF2.1.3.5 OBF2.1.7.4\\OBF2.1.7.5 OBF2.1.7.6\\OBF2.1.9.4 OBF2.1.9.5\\OBF2.1.9.6}\\
 \hline
-actorbase::driver::ActorbaseAdminServices & \multiLineCell[t]{DEF3.2\\DEF3.2.1\\DEF3.2.1.1\\DEF3.2.1.2\\DEF3.2.2\\DEF3.2.3\\DEF3.2.3.1\\DEF3.2.7\\DEF3.2.7.1\\DEF3.2.7.2\\DEF3.2.7.3\\DEF3.5\\DEF3.6\\DEF3.6.1\\DEF3.6.1.1\\DEF3.6.2\\DEF3.6.2.1\\DEF3.6.3\\DEF3.6.3.1\\DEF3.6.4\\DEF3.6.5\\DEF3.6.6\\DEF3.7\\DEF3.7.1\\DEF3.7.2\\DEF3.7.3\\DEF3.7.4\\DEF3.8\\DEF3.8.1\\DEF3.8.2\\DEF3.8.3\\}\\
+actorbase::driver::ActorbaseAdminServices & \multiLineCell[t]{DEF3.2 DEF3.2.1\\DEF3.2.1.1 DEF3.2.1.2\\DEF3.2.2 DEF3.2.3\\DEF3.2.3.1 DEF3.2.7\\DEF3.2.7.1 DEF3.2.7.2\\DEF3.2.7.3 DEF3.5\\DEF3.6 DEF3.6.1\\DEF3.6.1.1 DEF3.6.2\\DEF3.6.2.1 DEF3.6.3\\DEF3.6.3.1 DEF3.6.4\\DEF3.6.5 DEF3.6.6\\DEF3.7\\DEF3.7.1 DEF3.7.2\\DEF3.7.3 DEF3.7.4\\DEF3.8 DEF3.8.1\\DEF3.8.2 DEF3.8.3\\}\\
 \hline
-actorbase::driver::ActorbaseDriver & \multiLineCell[t]{DEF3.1\\DEF3.1.1\\DEF3.1.2\\DEF3.1.3\\}\\
+actorbase::driver::ActorbaseDriver & \multiLineCell[t]{DEF3.1 DEF3.1.1\\DEF3.1.2 DEF3.1.3\\}\\
 \hline
-actorbase::driver::ActorbaseServices & \multiLineCell[t]{DEF3.2\\DEF3.2.1\\DEF3.2.1.1\\DEF3.2.1.2\\DEF3.2.2\\DEF3.2.3\\DEF3.2.3.1\\DEF3.2.7\\DEF3.2.7.1\\DEF3.2.7.2\\DEF3.2.7.3\\DEF3.5\\DEF3.7\\DEF3.7.1\\DEF3.7.2\\DEF3.7.3\\DEF3.7.4\\DEF3.8\\DEF3.8.1\\DEF3.8.2\\DEF3.8.3\\}\\
+actorbase::driver::ActorbaseServices & \multiLineCell[t]{DEF3.2 DEF3.2.1\\DEF3.2.1.1 DEF3.2.1.2\\DEF3.2.2 DEF3.2.3\\DEF3.2.3.1 DEF3.2.7\\DEF3.2.7.1 DEF3.2.7.2\\DEF3.2.7.3 DEF3.5\\DEF3.7 DEF3.7.1\\DEF3.7.2 DEF3.7.3\\DEF3.7.4 DEF3.8\\DEF3.8.1 DEF3.8.2\\DEF3.8.3}\\
 \hline
-actorbase::driver::Connector & \multiLineCell[t]{DEF3.2\\DEF3.2.1\\DEF3.2.1.1\\DEF3.2.1.2\\DEF3.2.2\\DEF3.2.3\\DEF3.2.3.1\\DEF3.2.3.2\\DEF3.2.4\\DEF3.2.4.1\\DEF3.2.4.2\\DEF3.2.4.3\\DEF3.2.4.4\\DEF3.2.5\\DEF3.2.5.1\\DEF3.2.5.2\\DEF3.2.5.3\\DEF3.2.5.4\\DEF3.2.5.5\\DEF3.2.6\\DEF3.2.6.1\\DEF3.2.6.2\\DEF3.2.6.3\\DEF3.2.7\\DEF3.2.7.1\\DEF3.2.7.2\\DEF3.2.7.3\\DEF3.3\\DEF3.3.1\\DEF3.3.1.1\\DEF3.3.1.1.1\\DEF3.3.1.1.2\\DEF3.3.1.1.3\\DEF3.3.1.1.4\\DEF3.3.1.2\\DEF3.3.1.2.1\\DEF3.3.1.2.2\\DEF3.3.1.2.3\\DEF3.3.1.4\\DEF3.3.2\\DEF3.3.2.1\\DEF3.3.2.2\\DEF3.3.2.3\\DEF3.4\\DEF3.4.1\\DEF3.4.2\\DEF3.5\\DEF3.6\\DEF3.6.1\\DEF3.6.1.1\\DEF3.6.2\\DEF3.6.2.1\\DEF3.6.3\\DEF3.6.3.1\\DEF3.6.4\\DEF3.6.5\\DEF3.6.6\\DEF3.7\\DEF3.7.1\\DEF3.7.2\\DEF3.7.3\\DEF3.7.4\\}\\
+actorbase::driver::Connector & \multiLineCell[t]{DEF3.2 DEF3.2.1\\DEF3.2.1.1 DEF3.2.1.2 DEF3.2.2\\DEF3.2.3 DEF3.2.3.1\\DEF3.2.3.2 DEF3.2.4\\DEF3.2.4.1 DEF3.2.4.2\\DEF3.2.4.3 DEF3.2.4.4\\DEF3.2.5 DEF3.2.5.1\\DEF3.2.5.2 DEF3.2.5.3\\DEF3.2.5.4 DEF3.2.5.5\\DEF3.2.6 DEF3.2.6.1\\DEF3.2.6.2 DEF3.2.6.3\\DEF3.2.7 DEF3.2.7.1\\DEF3.2.7.2 DEF3.2.7.3\\DEF3.3 DEF3.3.1\\DEF3.3.1.1 DEF3.3.1.1.1\\DEF3.3.1.1.2 DEF3.3.1.1.3\\DEF3.3.1.1.4 DEF3.3.1.2\\DEF3.3.1.2.1 DEF3.3.1.2.2\\DEF3.3.1.2.3 DEF3.3.1.4\\DEF3.3.2 DEF3.3.2.1\\DEF3.3.2.2 DEF3.3.2.3\\DEF3.4 DEF3.4.1\\DEF3.4.2 DEF3.5\\DEF3.6 DEF3.6.1\\DEF3.6.1.1 DEF3.6.2\\DEF3.6.2.1 DEF3.6.3\\DEF3.6.3.1 DEF3.6.4\\DEF3.6.5 DEF3.6.6\\DEF3.7 DEF3.7.1\\DEF3.7.2 DEF3.7.3\\DEF3.7.4}\\
 \hline
-actorbase::driver::client::ActorbaseClient & \multiLineCell[t]{DEF3.1\\DEF3.1.1\\DEF3.1.2\\DEF3.1.3\\DEF3.2\\DEF3.2.1\\DEF3.2.1.1\\DEF3.2.1.2\\DEF3.2.2\\DEF3.2.3\\DEF3.2.3.1\\DEF3.2.3.2\\DEF3.2.4\\DEF3.2.4.1\\DEF3.2.4.2\\DEF3.2.4.3\\DEF3.2.4.4\\DEF3.2.5\\DEF3.2.5.1\\DEF3.2.5.2\\DEF3.2.5.3\\DEF3.2.5.4\\DEF3.2.5.5\\DEF3.2.6\\DEF3.2.6.1\\DEF3.2.6.2\\DEF3.2.6.3\\DEF3.2.7\\DEF3.2.7.1\\DEF3.2.7.2\\DEF3.2.7.3\\DEF3.3\\DEF3.3.1\\DEF3.3.1.1\\DEF3.3.1.1.1\\DEF3.3.1.1.2\\DEF3.3.1.1.3\\DEF3.3.1.1.4\\DEF3.3.1.2\\DEF3.3.1.2.1\\DEF3.3.1.2.2\\DEF3.3.1.2.3\\DEF3.3.1.4\\DEF3.3.2\\DEF3.3.2.1\\DEF3.3.2.2\\DEF3.3.2.3\\DEF3.4\\DEF3.4.1\\DEF3.4.2\\DEF3.5\\DEF3.6\\DEF3.6.1\\DEF3.6.1.1\\DEF3.6.2\\DEF3.6.2.1\\DEF3.6.3\\DEF3.6.3.1\\DEF3.6.4\\DEF3.6.5\\DEF3.6.6\\DEF3.7\\DEF3.7.1\\DEF3.7.2\\DEF3.7.3\\DEF3.7.4\\DEF3.8\\DEF3.8.1\\DEF3.8.2\\DEF3.8.3\\}\\
+actorbase::driver::client::ActorbaseClient & \multiLineCell[t]{DEF3.1 DEF3.1.1\\DEF3.1.2 DEF3.1.3\\DEF3.2 DEF3.2.1\\DEF3.2.1.1 DEF3.2.1.2\\DEF3.2.2 DEF3.2.3\\DEF3.2.3.1 DEF3.2.3.2\\DEF3.2.4 DEF3.2.4.1\\DEF3.2.4.2 DEF3.2.4.3\\DEF3.2.4.4 DEF3.2.5\\DEF3.2.5.1\\DEF3.2.5.2\\DEF3.2.5.3\\DEF3.2.5.4\\DEF3.2.5.5\\DEF3.2.6\\DEF3.2.6.1\\DEF3.2.6.2\\DEF3.2.6.3\\DEF3.2.7\\DEF3.2.7.1\\DEF3.2.7.2\\DEF3.2.7.3\\DEF3.3\\DEF3.3.1\\DEF3.3.1.1\\DEF3.3.1.1.1\\DEF3.3.1.1.2\\DEF3.3.1.1.3\\DEF3.3.1.1.4\\DEF3.3.1.2\\DEF3.3.1.2.1\\DEF3.3.1.2.2\\DEF3.3.1.2.3\\DEF3.3.1.4\\DEF3.3.2\\DEF3.3.2.1\\DEF3.3.2.2\\DEF3.3.2.3\\DEF3.4\\DEF3.4.1\\DEF3.4.2\\DEF3.5\\DEF3.6\\DEF3.6.1\\DEF3.6.1.1\\DEF3.6.2\\DEF3.6.2.1\\DEF3.6.3\\DEF3.6.3.1\\DEF3.6.4\\DEF3.6.5\\DEF3.6.6\\DEF3.7\\DEF3.7.1\\DEF3.7.2\\DEF3.7.3\\DEF3.7.4\\DEF3.8\\DEF3.8.1\\DEF3.8.2\\DEF3.8.3\\}\\
 \hline
 actorbase::driver::client::Client & \multiLineCell[t]{DEF3.1\\DEF3.1.1\\DEF3.1.2\\DEF3.1.3\\DEF3.2\\DEF3.2.1\\DEF3.2.1.1\\DEF3.2.1.2\\DEF3.2.2\\DEF3.2.3\\DEF3.2.3.1\\DEF3.2.3.2\\DEF3.2.4\\DEF3.2.4.1\\DEF3.2.4.2\\DEF3.2.4.3\\DEF3.2.4.4\\DEF3.2.5\\DEF3.2.5.1\\DEF3.2.5.2\\DEF3.2.5.3\\DEF3.2.5.4\\DEF3.2.5.5\\DEF3.2.6\\DEF3.2.6.1\\DEF3.2.6.2\\DEF3.2.6.3\\DEF3.2.7\\DEF3.2.7.1\\DEF3.2.7.2\\DEF3.2.7.3\\DEF3.3\\DEF3.3.1\\DEF3.3.1.1\\DEF3.3.1.1.1\\DEF3.3.1.1.2\\DEF3.3.1.1.3\\DEF3.3.1.1.4\\DEF3.3.1.2\\DEF3.3.1.2.1\\DEF3.3.1.2.2\\DEF3.3.1.2.3\\DEF3.3.1.4\\DEF3.3.2\\DEF3.3.2.1\\DEF3.3.2.2\\DEF3.3.2.3\\DEF3.4\\DEF3.4.1\\DEF3.4.2\\DEF3.5\\DEF3.6\\DEF3.6.1\\DEF3.6.1.1\\DEF3.6.2\\DEF3.6.2.1\\DEF3.6.3\\DEF3.6.3.1\\DEF3.6.4\\DEF3.6.5\\DEF3.6.6\\DEF3.7\\DEF3.7.1\\DEF3.7.2\\DEF3.7.3\\DEF3.7.4\\DEF3.8\\DEF3.8.1\\DEF3.8.2\\DEF3.8.3\\}\\
 \hline
@@ -7038,504 +7049,463 @@ actorbase::driver::data::CollectionMap & \multiLineCell[t]{DEF3.2\\DEF3.2.1\\DEF
 
 
 
-\section{Tracciamento Requisiti-Componenti}
-\begin{longtable}[H]{|p{5.5cm}|p{5.5cm}|}
+
+
+
+
+
+\section{Tracciamento Requisiti-Classi}
+\begin{longtable}[H]{|p{5cm}|p{12cm}|}
 \hline
-\textbf{Requisito} & \textbf{Componenti}\\
+\textbf{Requisito} & \textbf{Classi}\\
 \hline
-DEF1.1.7 & \multiLineCell[t]{actorbase::actorsystem::storekeeper::Storekeeper\\actorbase::actorsystem::utils::ActorbaseCollection\\actorbase::actorsystem::ninja\\actorbase::actorsystem::utils\\}\\
+DEF1.1.7 & \multiLineCell[t]{actorbase::actorsystem::storekeeper::Storekeeper\\actorbase::actorsystem::utils::ActorbaseCollection\\}\\
 \hline
-DEF1.1.7.1 & \multiLineCell[t]{actorbase::actorsystem::ninja::messages\\}\\
+DEF1.1.8 & \multiLineCell[t]{actorbase::actorsystem::manager::Manager\\}\\
 \hline
-DEF1.1.7.2 & \multiLineCell[t]{actorbase::actorsystem::ninja::messages\\}\\
+DEF1.1.8.1 & \multiLineCell[t]{actorbase::actorsystem::manager::messages::DuplicationRequestSK\\}\\
 \hline
-DEF1.1.8 & \multiLineCell[t]{actorbase::actorsystem::manager::Manager\\actorbase::actorsystem::manager\\}\\
+DEF2.1.2.7 & \multiLineCell[t]{actorbase::cli::controllers::GrammarParser\\actorbase::cli::models::Command\\actorbase::cli::models::CommandReceiver\\actorbase::cli::models::ExportCommand\\actorbase::cli::views::CommandLoop\\actorbase::cli::controllers\\}\\
 \hline
-DEF1.1.8.1 & \multiLineCell[t]{actorbase::actorsystem::manager::messages::DuplicationRequestSK\\actorbase::actorsystem::manager::messages\\}\\
+DEF2.1.2.7.1 & \multiLineCell[t]{actorbase::cli::views::CommandLoop\\}\\
 \hline
-DEF2.1.2.7 & \multiLineCell[t]{actorbase::cli::controllers::GrammarParser\\actorbase::cli::models::Command\\actorbase::cli::models::CommandReceiver\\actorbase::cli::models::ExportCommand\\actorbase::cli::views::CommandLoop\\actorbase::cli::controllers\\actorbase::cli::models\\actorbase::cli::views\\}\\
+DEF2.1.2.7.2 & \multiLineCell[t]{actorbase::cli::views::CommandLoop\\}\\
 \hline
-DEF2.1.2.7.1 & \multiLineCell[t]{actorbase::cli::views::CommandLoop\\actorbase::cli::models\\actorbase::cli::views\\}\\
+DEF2.1.3.1.2 & \multiLineCell[t]{actorbase::cli::controllers::GrammarParser\\actorbase::cli::models::Command\\actorbase::cli::models::ImportCommand\\actorbase::cli::views::CommandLoop\\actorbase::cli::controllers\\}\\
 \hline
-DEF2.1.2.7.2 & \multiLineCell[t]{actorbase::cli::views::CommandLoop\\actorbase::cli::views\\}\\
+DEF2.1.3.1.2.1 & \multiLineCell[t]{actorbase::cli::views::CommandLoop\\}\\
 \hline
-DEF2.1.3.1.2 & \multiLineCell[t]{actorbase::cli::controllers::GrammarParser\\actorbase::cli::models::Command\\actorbase::cli::models::ImportCommand\\actorbase::cli::views::CommandLoop\\actorbase::cli::controllers\\actorbase::cli::models\\actorbase::cli::views\\}\\
+DEF2.1.3.2 & \multiLineCell[t]{actorbase::cli::models::CommandReceiver\\}\\
 \hline
-DEF2.1.3.1.2.1 & \multiLineCell[t]{actorbase::cli::views::CommandLoop\\actorbase::cli::models\\actorbase::cli::views\\}\\
+DEF2.1.3.3 & \multiLineCell[t]{actorbase::cli::models::CommandReceiver\\}\\
 \hline
-DEF2.1.3.2 & \multiLineCell[t]{actorbase::cli::models::CommandReceiver\\actorbase::cli::views\\}\\
+DEF2.1.4 & \multiLineCell[t]{actorbase::cli::controllers::GrammarParser\\actorbase::cli::models::CommandReceiver\\actorbase::cli::models::HelpCommand\\actorbase::cli::views::CommandLoop\\actorbase::cli::controllers\\}\\
 \hline
-DEF2.1.3.3 & \multiLineCell[t]{actorbase::cli::models::CommandReceiver\\actorbase::cli::views\\}\\
+DEF2.1.5 & \multiLineCell[t]{actorbase::cli::controllers::GrammarParser\\actorbase::cli::models::CommandReceiver\\actorbase::cli::models::HelpCommand\\actorbase::cli::views::CommandLoop\\actorbase::cli::controllers\\}\\
 \hline
-DEF2.1.4 & \multiLineCell[t]{actorbase::cli::controllers::GrammarParser\\actorbase::cli::models::CommandReceiver\\actorbase::cli::models::HelpCommand\\actorbase::cli::views::CommandLoop\\actorbase::cli::controllers\\actorbase::cli::models\\actorbase::cli::views\\}\\
+DEF2.1.5.1 & \multiLineCell[t]{actorbase::cli::views::CommandLoop\\}\\
 \hline
-DEF2.1.5 & \multiLineCell[t]{actorbase::cli::controllers::GrammarParser\\actorbase::cli::models::CommandReceiver\\actorbase::cli::models::HelpCommand\\actorbase::cli::views::CommandLoop\\actorbase::cli::controllers\\actorbase::cli::models\\actorbase::cli::views\\}\\
+DEF3.1 & \multiLineCell[t]{actorbase::driver::ActorbaseDriver\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::Credentials\\actorbase::driver::client::api::POST\\actorbase::driver::client::api::Request\\actorbase::driver::client::api::RequestMethod\\}\\
 \hline
-DEF2.1.5.1 & \multiLineCell[t]{actorbase::cli::views::CommandLoop\\actorbase::cli::models\\actorbase::cli::views\\}\\
+DEF3.1.1 & \multiLineCell[t]{actorbase::driver::ActorbaseDriver\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::POST\\}\\
 \hline
-DEF3 & \multiLineCell[t]{actorbase\\actorbase::driver\\}\\
+DEF3.1.2 & \multiLineCell[t]{actorbase::driver::ActorbaseDriver\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::POST\\}\\
 \hline
-DEF3.1 & \multiLineCell[t]{actorbase::driver::ActorbaseDriver\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::Credentials\\actorbase::driver::client::api::POST\\actorbase::driver::client::api::Request\\actorbase::driver::client::api::RequestMethod\\actorbase::driver::client\\actorbase::driver::client::api\\}\\
+DEF3.1.3 & \multiLineCell[t]{actorbase::driver::ActorbaseDriver\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::Response\\actorbase::driver::client::api::Status\\}\\
 \hline
-DEF3.1.1 & \multiLineCell[t]{actorbase::driver::ActorbaseDriver\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::POST\\actorbase::driver::client\\actorbase::driver::client::api\\}\\
+DEF3.2 & \multiLineCell[t]{actorbase::driver::ActorbaseAdminServices\\actorbase::driver::ActorbaseServices\\actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::Credentials\\actorbase::driver::client::api::DELETE\\actorbase::driver::client::api::GET\\actorbase::driver::client::api::POST\\actorbase::driver::client::api::PUT\\actorbase::driver::client::api::Request\\actorbase::driver::client::api::RequestMethod\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::CollectionMap\\}\\
 \hline
-DEF3.1.2 & \multiLineCell[t]{actorbase::driver::ActorbaseDriver\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::POST\\actorbase::cli::views::Observer\\actorbase::driver::client\\actorbase::driver::client::api\\}\\
+DEF3.2.1 & \multiLineCell[t]{actorbase::driver::ActorbaseAdminServices\\actorbase::driver::ActorbaseServices\\actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::Credentials\\actorbase::driver::client::api::POST\\actorbase::driver::client::api::Request\\actorbase::driver::client::api::RequestMethod\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::CollectionMap\\}\\
 \hline
-DEF3.1.3 & \multiLineCell[t]{actorbase::driver::ActorbaseDriver\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::Response\\actorbase::driver::client::api::Status\\actorbase::cli::views::Observer\\actorbase::driver::client\\actorbase::driver::exceptions\\}\\
+DEF3.2.1.1 & \multiLineCell[t]{actorbase::driver::ActorbaseAdminServices\\actorbase::driver::ActorbaseServices\\actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::POST\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::CollectionMap\\}\\
 \hline
-DEF3.2 & \multiLineCell[t]{actorbase::driver::ActorbaseAdminServices\\actorbase::driver::ActorbaseServices\\actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::Credentials\\actorbase::driver::client::api::DELETE\\actorbase::driver::client::api::GET\\actorbase::driver::client::api::POST\\actorbase::driver::client::api::PUT\\actorbase::driver::client::api::Request\\actorbase::driver::client::api::RequestMethod\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::CollectionMap\\actorbase::driver::client\\actorbase::driver::client::api\\actorbase::driver::data\\}\\
+DEF3.2.1.2 & \multiLineCell[t]{actorbase::driver::ActorbaseAdminServices\\actorbase::driver::ActorbaseServices\\actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::Response\\actorbase::driver::client::api::Status\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::CollectionMap\\}\\
 \hline
-DEF3.2.1 & \multiLineCell[t]{actorbase::driver::ActorbaseAdminServices\\actorbase::driver::ActorbaseServices\\actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::Credentials\\actorbase::driver::client::api::POST\\actorbase::driver::client::api::Request\\actorbase::driver::client::api::RequestMethod\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::CollectionMap\\actorbase::driver::client\\actorbase::driver::client::api\\actorbase::driver::data\\}\\
+DEF3.2.2 & \multiLineCell[t]{actorbase::driver::ActorbaseAdminServices\\actorbase::driver::ActorbaseServices\\actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::Credentials\\actorbase::driver::client::api::GET\\actorbase::driver::client::api::POST\\actorbase::driver::client::api::Request\\actorbase::driver::client::api::RequestMethod\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::CollectionMap\\}\\
 \hline
-DEF3.2.1.1 & \multiLineCell[t]{actorbase::driver::ActorbaseAdminServices\\actorbase::driver::ActorbaseServices\\actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::POST\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::CollectionMap\\actorbase::driver::client\\actorbase::driver::client::api\\actorbase::driver::data\\}\\
+DEF3.2.3 & \multiLineCell[t]{actorbase::driver::ActorbaseAdminServices\\actorbase::driver::ActorbaseServices\\actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::Credentials\\actorbase::driver::client::api::DELETE\\actorbase::driver::client::api::POST\\actorbase::driver::client::api::Request\\actorbase::driver::client::api::RequestMethod\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::CollectionMap\\}\\
 \hline
-DEF3.2.1.2 & \multiLineCell[t]{actorbase::driver::ActorbaseAdminServices\\actorbase::driver::ActorbaseServices\\actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::Response\\actorbase::driver::client::api::Status\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::CollectionMap\\actorbase::driver::client\\actorbase::driver::data\\actorbase::driver::exceptions\\}\\
+DEF3.2.3.1 & \multiLineCell[t]{actorbase::driver::ActorbaseAdminServices\\actorbase::driver::ActorbaseServices\\actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::DELETE\\actorbase::driver::client::api::POST\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::CollectionMap\\}\\
 \hline
-DEF3.2.2 & \multiLineCell[t]{actorbase::driver::ActorbaseAdminServices\\actorbase::driver::ActorbaseServices\\actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::Credentials\\actorbase::driver::client::api::GET\\actorbase::driver::client::api::POST\\actorbase::driver::client::api::Request\\actorbase::driver::client::api::RequestMethod\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::CollectionMap\\actorbase::driver::client\\actorbase::driver::client::api\\}\\
+DEF3.2.3.2 & \multiLineCell[t]{actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::Response\\actorbase::driver::client::api::Status\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::CollectionMap\\}\\
 \hline
-DEF3.2.3 & \multiLineCell[t]{actorbase::driver::ActorbaseAdminServices\\actorbase::driver::ActorbaseServices\\actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::Credentials\\actorbase::driver::client::api::DELETE\\actorbase::driver::client::api::POST\\actorbase::driver::client::api::Request\\actorbase::driver::client::api::RequestMethod\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::CollectionMap\\actorbase::driver::client\\actorbase::driver::client::api\\actorbase::driver::data\\}\\
+DEF3.2.4 & \multiLineCell[t]{actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::Credentials\\actorbase::driver::client::api::POST\\actorbase::driver::client::api::PUT\\actorbase::driver::client::api::Request\\actorbase::driver::client::api::RequestMethod\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::CollectionMap\\}\\
 \hline
-DEF3.2.3.1 & \multiLineCell[t]{actorbase::driver::ActorbaseAdminServices\\actorbase::driver::ActorbaseServices\\actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::DELETE\\actorbase::driver::client::api::POST\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::CollectionMap\\actorbase::driver::client\\actorbase::driver::client::api\\actorbase::driver::data\\}\\
+DEF3.2.4.1 & \multiLineCell[t]{actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::POST\\actorbase::driver::client::api::PUT\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::CollectionMap\\}\\
 \hline
-DEF3.2.3.2 & \multiLineCell[t]{actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::Response\\actorbase::driver::client::api::Status\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::CollectionMap\\actorbase::driver::client\\actorbase::driver::exceptions\\}\\
+DEF3.2.4.2 & \multiLineCell[t]{actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::POST\\actorbase::driver::client::api::PUT\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::CollectionMap\\}\\
 \hline
-DEF3.2.4 & \multiLineCell[t]{actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::Credentials\\actorbase::driver::client::api::POST\\actorbase::driver::client::api::PUT\\actorbase::driver::client::api::Request\\actorbase::driver::client::api::RequestMethod\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::CollectionMap\\actorbase::driver::client\\actorbase::driver::client::api\\actorbase::driver::data\\}\\
+DEF3.2.4.3 & \multiLineCell[t]{actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::Response\\actorbase::driver::client::api::Status\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::CollectionMap\\}\\
 \hline
-DEF3.2.4.1 & \multiLineCell[t]{actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::POST\\actorbase::driver::client::api::PUT\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::CollectionMap\\actorbase::driver::client\\actorbase::driver::client::api\\actorbase::driver::data\\}\\
+DEF3.2.4.4 & \multiLineCell[t]{actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::Response\\actorbase::driver::client::api::Status\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::CollectionMap\\}\\
 \hline
-DEF3.2.4.2 & \multiLineCell[t]{actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::POST\\actorbase::driver::client::api::PUT\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::CollectionMap\\actorbase::driver::client\\actorbase::driver::client::api\\actorbase::driver::data\\}\\
+DEF3.2.5 & \multiLineCell[t]{actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::Credentials\\actorbase::driver::client::api::POST\\actorbase::driver::client::api::Request\\actorbase::driver::client::api::RequestMethod\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::CollectionMap\\}\\
 \hline
-DEF3.2.4.3 & \multiLineCell[t]{actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::Response\\actorbase::driver::client::api::Status\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::CollectionMap\\actorbase::driver::client\\actorbase::driver::data\\actorbase::driver::exceptions\\}\\
+DEF3.2.5.1 & \multiLineCell[t]{actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::POST\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::CollectionMap\\}\\
 \hline
-DEF3.2.4.4 & \multiLineCell[t]{actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::Response\\actorbase::driver::client::api::Status\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::CollectionMap\\actorbase::driver::client\\actorbase::driver::data\\actorbase::driver::exceptions\\}\\
+DEF3.2.5.2 & \multiLineCell[t]{actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::POST\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::CollectionMap\\}\\
 \hline
-DEF3.2.5 & \multiLineCell[t]{actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::Credentials\\actorbase::driver::client::api::POST\\actorbase::driver::client::api::Request\\actorbase::driver::client::api::RequestMethod\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::CollectionMap\\actorbase::driver::client\\actorbase::driver::client::api\\actorbase::driver::data\\}\\
+DEF3.2.5.3 & \multiLineCell[t]{actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::Response\\actorbase::driver::client::api::Status\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::CollectionMap\\}\\
 \hline
-DEF3.2.5.1 & \multiLineCell[t]{actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::POST\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::CollectionMap\\actorbase::driver::client\\actorbase::driver::client::api\\actorbase::driver::data\\}\\
+DEF3.2.5.4 & \multiLineCell[t]{actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::Response\\actorbase::driver::client::api::Status\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::CollectionMap\\}\\
 \hline
-DEF3.2.5.2 & \multiLineCell[t]{actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::POST\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::CollectionMap\\actorbase::driver::client\\actorbase::driver::client::api\\actorbase::driver::data\\}\\
+DEF3.2.5.5 & \multiLineCell[t]{actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::POST\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::CollectionMap\\}\\
 \hline
-DEF3.2.5.3 & \multiLineCell[t]{actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::Response\\actorbase::driver::client::api::Status\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::CollectionMap\\actorbase::driver::client\\actorbase::driver::data\\actorbase::driver::exceptions\\}\\
+DEF3.2.6 & \multiLineCell[t]{actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::Credentials\\actorbase::driver::client::api::POST\\actorbase::driver::client::api::Request\\actorbase::driver::client::api::RequestMethod\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::CollectionMap\\}\\
 \hline
-DEF3.2.5.4 & \multiLineCell[t]{actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::Response\\actorbase::driver::client::api::Status\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::CollectionMap\\actorbase::driver::client\\actorbase::driver::data\\actorbase::driver::exceptions\\}\\
+DEF3.2.6.1 & \multiLineCell[t]{actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::POST\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::CollectionMap\\}\\
 \hline
-DEF3.2.5.5 & \multiLineCell[t]{actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::POST\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::CollectionMap\\actorbase::driver::client\\actorbase::driver::client::api\\actorbase::driver::data\\}\\
+DEF3.2.6.2 & \multiLineCell[t]{actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::POST\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::CollectionMap\\}\\
 \hline
-DEF3.2.6 & \multiLineCell[t]{actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::Credentials\\actorbase::driver::client::api::POST\\actorbase::driver::client::api::Request\\actorbase::driver::client::api::RequestMethod\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::CollectionMap\\actorbase::driver::client\\actorbase::driver::client::api\\actorbase::driver::data\\}\\
+DEF3.2.6.3 & \multiLineCell[t]{actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::Response\\actorbase::driver::client::api::Status\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::CollectionMap\\}\\
 \hline
-DEF3.2.6.1 & \multiLineCell[t]{actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::POST\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::CollectionMap\\actorbase::driver::client\\actorbase::driver::client::api\\actorbase::driver::data\\}\\
+DEF3.2.7 & \multiLineCell[t]{actorbase::driver::ActorbaseAdminServices\\actorbase::driver::ActorbaseServices\\actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::Credentials\\actorbase::driver::client::api::GET\\actorbase::driver::client::api::POST\\actorbase::driver::client::api::Request\\actorbase::driver::client::api::RequestMethod\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::CollectionMap\\}\\
 \hline
-DEF3.2.6.2 & \multiLineCell[t]{actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::POST\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::CollectionMap\\actorbase::driver::client\\actorbase::driver::client::api\\actorbase::driver::data\\}\\
+DEF3.2.7.1 & \multiLineCell[t]{actorbase::driver::ActorbaseAdminServices\\actorbase::driver::ActorbaseServices\\actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::GET\\actorbase::driver::client::api::POST\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::CollectionMap\\}\\
 \hline
-DEF3.2.6.3 & \multiLineCell[t]{actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::Response\\actorbase::driver::client::api::Status\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::CollectionMap\\actorbase::driver::client\\actorbase::driver::data\\actorbase::driver::exceptions\\}\\
+DEF3.2.7.2 & \multiLineCell[t]{actorbase::driver::ActorbaseAdminServices\\actorbase::driver::ActorbaseServices\\actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::GET\\actorbase::driver::client::api::POST\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::CollectionMap\\}\\
 \hline
-DEF3.2.7 & \multiLineCell[t]{actorbase::driver::ActorbaseAdminServices\\actorbase::driver::ActorbaseServices\\actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::Credentials\\actorbase::driver::client::api::GET\\actorbase::driver::client::api::POST\\actorbase::driver::client::api::Request\\actorbase::driver::client::api::RequestMethod\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::CollectionMap\\actorbase::driver::client\\actorbase::driver::client::api\\}\\
+DEF3.2.7.3 & \multiLineCell[t]{actorbase::driver::ActorbaseAdminServices\\actorbase::driver::ActorbaseServices\\actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::GET\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::CollectionMap\\}\\
 \hline
-DEF3.2.7.1 & \multiLineCell[t]{actorbase::driver::ActorbaseAdminServices\\actorbase::driver::ActorbaseServices\\actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::GET\\actorbase::driver::client::api::POST\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::CollectionMap\\actorbase::driver::client\\actorbase::driver::client::api\\}\\
+DEF3.3 & \multiLineCell[t]{actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::Credentials\\actorbase::driver::client::api::DELETE\\actorbase::driver::client::api::POST\\actorbase::driver::client::api::Request\\actorbase::driver::client::api::RequestMethod\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::ActorbaseObject\\actorbase::driver::data::CollectionMap\\}\\
 \hline
-DEF3.2.7.2 & \multiLineCell[t]{actorbase::driver::ActorbaseAdminServices\\actorbase::driver::ActorbaseServices\\actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::GET\\actorbase::driver::client::api::POST\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::CollectionMap\\actorbase::driver::client\\actorbase::driver::client::api\\}\\
+DEF3.3.1 & \multiLineCell[t]{actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::Credentials\\actorbase::driver::client::api::POST\\actorbase::driver::client::api::Request\\actorbase::driver::client::api::RequestMethod\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::ActorbaseObject\\actorbase::driver::data::CollectionMap\\}\\
 \hline
-DEF3.2.7.3 & \multiLineCell[t]{actorbase::driver::ActorbaseAdminServices\\actorbase::driver::ActorbaseServices\\actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::GET\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::CollectionMap\\actorbase::driver::client\\actorbase::driver::client::api\\}\\
+DEF3.3.1.1 & \multiLineCell[t]{actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::POST\\actorbase::driver::client::api::Request\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::ActorbaseObject\\actorbase::driver::data::CollectionMap\\}\\
 \hline
-DEF3.3 & \multiLineCell[t]{actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::Credentials\\actorbase::driver::client::api::DELETE\\actorbase::driver::client::api::POST\\actorbase::driver::client::api::Request\\actorbase::driver::client::api::RequestMethod\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::ActorbaseObject\\actorbase::driver::data::CollectionMap\\actorbase::driver::client\\actorbase::driver::client::api\\actorbase::driver::data\\}\\
+DEF3.3.1.1.1 & \multiLineCell[t]{actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::POST\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::CollectionMap\\}\\
 \hline
-DEF3.3.1 & \multiLineCell[t]{actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::Credentials\\actorbase::driver::client::api::POST\\actorbase::driver::client::api::Request\\actorbase::driver::client::api::RequestMethod\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::ActorbaseObject\\actorbase::driver::data::CollectionMap\\actorbase::driver::client\\actorbase::driver::client::api\\actorbase::driver::data\\}\\
+DEF3.3.1.1.2 & \multiLineCell[t]{actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::POST\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::ActorbaseObject\\actorbase::driver::data::CollectionMap\\}\\
 \hline
-DEF3.3.1.1 & \multiLineCell[t]{actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::POST\\actorbase::driver::client::api::Request\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::ActorbaseObject\\actorbase::driver::data::CollectionMap\\actorbase::driver::client\\actorbase::driver::client::api\\actorbase::driver::data\\}\\
+DEF3.3.1.1.3 & \multiLineCell[t]{actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::POST\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::ActorbaseObject\\actorbase::driver::data::CollectionMap\\}\\
 \hline
-DEF3.3.1.1.1 & \multiLineCell[t]{actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::POST\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::CollectionMap\\actorbase::driver::client\\actorbase::driver::client::api\\actorbase::driver::data\\}\\
+DEF3.3.1.1.4 & \multiLineCell[t]{actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::POST\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::CollectionMap\\}\\
 \hline
-DEF3.3.1.1.2 & \multiLineCell[t]{actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::POST\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::ActorbaseObject\\actorbase::driver::data::CollectionMap\\actorbase::driver::client\\actorbase::driver::client::api\\actorbase::driver::data\\}\\
+DEF3.3.1.2 & \multiLineCell[t]{actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::POST\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::CollectionMap\\}\\
 \hline
-DEF3.3.1.1.3 & \multiLineCell[t]{actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::POST\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::ActorbaseObject\\actorbase::driver::data::CollectionMap\\actorbase::driver::client\\actorbase::driver::client::api\\actorbase::driver::data\\}\\
+DEF3.3.1.2.1 & \multiLineCell[t]{actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::POST\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::CollectionMap\\}\\
 \hline
-DEF3.3.1.1.4 & \multiLineCell[t]{actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::POST\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::CollectionMap\\actorbase::driver::client\\actorbase::driver::client::api\\actorbase::driver::data\\}\\
+DEF3.3.1.2.2 & \multiLineCell[t]{actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::Response\\actorbase::driver::client::api::Status\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::CollectionMap\\}\\
 \hline
-DEF3.3.1.2 & \multiLineCell[t]{actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::POST\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::CollectionMap\\actorbase::driver::client\\actorbase::driver::client::api\\}\\
+DEF3.3.1.2.3 & \multiLineCell[t]{actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::Response\\actorbase::driver::client::api::Status\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::CollectionMap\\}\\
 \hline
-DEF3.3.1.2.1 & \multiLineCell[t]{actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::POST\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::CollectionMap\\actorbase::driver::client\\actorbase::driver::client::api\\}\\
+DEF3.3.1.4 & \multiLineCell[t]{actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::Response\\actorbase::driver::client::api::Status\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::CollectionMap\\}\\
 \hline
-DEF3.3.1.2.2 & \multiLineCell[t]{actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::Response\\actorbase::driver::client::api::Status\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::CollectionMap\\actorbase::driver::client\\actorbase::driver::exceptions\\}\\
+DEF3.3.2 & \multiLineCell[t]{actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::Credentials\\actorbase::driver::client::api::DELETE\\actorbase::driver::client::api::POST\\actorbase::driver::client::api::Request\\actorbase::driver::client::api::RequestMethod\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::CollectionMap\\}\\
 \hline
-DEF3.3.1.2.3 & \multiLineCell[t]{actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::Response\\actorbase::driver::client::api::Status\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::CollectionMap\\actorbase::driver::client\\actorbase::driver::exceptions\\}\\
+DEF3.3.2.1 & \multiLineCell[t]{actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::DELETE\\actorbase::driver::client::api::POST\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::CollectionMap\\}\\
 \hline
-DEF3.3.1.4 & \multiLineCell[t]{actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::Response\\actorbase::driver::client::api::Status\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::CollectionMap\\actorbase::driver::client\\actorbase::driver::data\\actorbase::driver::exceptions\\}\\
+DEF3.3.2.2 & \multiLineCell[t]{actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::DELETE\\actorbase::driver::client::api::POST\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::CollectionMap\\}\\
 \hline
-DEF3.3.2 & \multiLineCell[t]{actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::Credentials\\actorbase::driver::client::api::DELETE\\actorbase::driver::client::api::POST\\actorbase::driver::client::api::Request\\actorbase::driver::client::api::RequestMethod\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::CollectionMap\\actorbase::driver::client\\actorbase::driver::client::api\\actorbase::driver::data\\}\\
+DEF3.3.2.3 & \multiLineCell[t]{actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::Response\\actorbase::driver::client::api::Status\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::CollectionMap\\}\\
 \hline
-DEF3.3.2.1 & \multiLineCell[t]{actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::DELETE\\actorbase::driver::client::api::POST\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::CollectionMap\\actorbase::driver::client\\actorbase::driver::client::api\\actorbase::driver::data\\}\\
+DEF3.4 & \multiLineCell[t]{actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::Credentials\\actorbase::driver::client::api::GET\\actorbase::driver::client::api::POST\\actorbase::driver::client::api::Request\\actorbase::driver::client::api::RequestMethod\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::CollectionMap\\}\\
 \hline
-DEF3.3.2.2 & \multiLineCell[t]{actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::DELETE\\actorbase::driver::client::api::POST\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::CollectionMap\\actorbase::driver::client\\actorbase::driver::client::api\\actorbase::driver::data\\}\\
+DEF3.4.1 & \multiLineCell[t]{actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::POST\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::CollectionMap\\}\\
 \hline
-DEF3.3.2.3 & \multiLineCell[t]{actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::Response\\actorbase::driver::client::api::Status\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::CollectionMap\\actorbase::driver::client\\actorbase::driver::data\\actorbase::driver::exceptions\\}\\
+DEF3.4.2 & \multiLineCell[t]{actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::POST\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::CollectionMap\\}\\
 \hline
-DEF3.4 & \multiLineCell[t]{actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::Credentials\\actorbase::driver::client::api::GET\\actorbase::driver::client::api::POST\\actorbase::driver::client::api::Request\\actorbase::driver::client::api::RequestMethod\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::CollectionMap\\actorbase::driver::client\\actorbase::driver::client::api\\actorbase::driver::data\\}\\
+DEF3.5 & \multiLineCell[t]{actorbase::driver::ActorbaseAdminServices\\actorbase::driver::ActorbaseServices\\actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::Credentials\\actorbase::driver::client::api::GET\\actorbase::driver::client::api::Request\\actorbase::driver::client::api::RequestMethod\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::CollectionMap\\}\\
 \hline
-DEF3.4.1 & \multiLineCell[t]{actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::POST\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::CollectionMap\\actorbase::driver::client\\actorbase::driver::client::api\\actorbase::driver::data\\}\\
+DEF3.6 & \multiLineCell[t]{actorbase::driver::ActorbaseAdminServices\\actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::Credentials\\actorbase::driver::client::api::POST\\actorbase::driver::client::api::Request\\actorbase::driver::client::api::RequestMethod\\}\\
 \hline
-DEF3.4.2 & \multiLineCell[t]{actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::POST\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::CollectionMap\\actorbase::driver::client\\actorbase::driver::client::api\\actorbase::driver::data\\}\\
+DEF3.6.1 & \multiLineCell[t]{actorbase::driver::ActorbaseAdminServices\\actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::POST\\}\\
 \hline
-DEF3.5 & \multiLineCell[t]{actorbase::driver::ActorbaseAdminServices\\actorbase::driver::ActorbaseServices\\actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::Credentials\\actorbase::driver::client::api::GET\\actorbase::driver::client::api::Request\\actorbase::driver::client::api::RequestMethod\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::CollectionMap\\actorbase::driver::client\\actorbase::driver::client::api\\}\\
+DEF3.6.1.1 & \multiLineCell[t]{actorbase::driver::ActorbaseAdminServices\\actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::POST\\}\\
 \hline
-DEF3.6 & \multiLineCell[t]{actorbase::driver::ActorbaseAdminServices\\actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::Credentials\\actorbase::driver::client::api::POST\\actorbase::driver::client::api::Request\\actorbase::driver::client::api::RequestMethod\\actorbase::driver::client\\actorbase::driver::client::api\\}\\
+DEF3.6.2 & \multiLineCell[t]{actorbase::driver::ActorbaseAdminServices\\actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::POST\\}\\
 \hline
-DEF3.6.1 & \multiLineCell[t]{actorbase::driver::ActorbaseAdminServices\\actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::POST\\actorbase::driver::client\\actorbase::driver::client::api\\}\\
+DEF3.6.2.1 & \multiLineCell[t]{actorbase::driver::ActorbaseAdminServices\\actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::POST\\}\\
 \hline
-DEF3.6.1.1 & \multiLineCell[t]{actorbase::driver::ActorbaseAdminServices\\actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::POST\\actorbase::driver::client\\actorbase::driver::client::api\\}\\
+DEF3.6.3 & \multiLineCell[t]{actorbase::driver::ActorbaseAdminServices\\actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::POST\\}\\
 \hline
-DEF3.6.2 & \multiLineCell[t]{actorbase::driver::ActorbaseAdminServices\\actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::POST\\actorbase::driver::client\\actorbase::driver::client::api\\}\\
+DEF3.6.3.1 & \multiLineCell[t]{actorbase::driver::ActorbaseAdminServices\\actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::POST\\}\\
 \hline
-DEF3.6.2.1 & \multiLineCell[t]{actorbase::driver::ActorbaseAdminServices\\actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::POST\\actorbase::driver::client\\actorbase::driver::client::api\\}\\
+DEF3.6.4 & \multiLineCell[t]{actorbase::driver::ActorbaseAdminServices\\actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::Response\\actorbase::driver::client::api::Status\\}\\
 \hline
-DEF3.6.3 & \multiLineCell[t]{actorbase::driver::ActorbaseAdminServices\\actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::POST\\actorbase::driver::client\\actorbase::driver::client::api\\}\\
+DEF3.6.5 & \multiLineCell[t]{actorbase::driver::ActorbaseAdminServices\\actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::Response\\actorbase::driver::client::api::Status\\}\\
 \hline
-DEF3.6.3.1 & \multiLineCell[t]{actorbase::driver::ActorbaseAdminServices\\actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::POST\\actorbase::driver::client\\actorbase::driver::client::api\\}\\
+DEF3.6.6 & \multiLineCell[t]{actorbase::driver::ActorbaseAdminServices\\actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::Response\\actorbase::driver::client::api::Status\\}\\
 \hline
-DEF3.6.4 & \multiLineCell[t]{actorbase::driver::ActorbaseAdminServices\\actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::Response\\actorbase::driver::client::api::Status\\actorbase::driver::client\\actorbase::driver::exceptions\\}\\
+DEF3.7 & \multiLineCell[t]{actorbase::driver::ActorbaseAdminServices\\actorbase::driver::ActorbaseServices\\actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::Credentials\\actorbase::driver::client::api::POST\\actorbase::driver::client::api::PUT\\actorbase::driver::client::api::Request\\actorbase::driver::client::api::RequestMethod\\}\\
 \hline
-DEF3.6.5 & \multiLineCell[t]{actorbase::driver::ActorbaseAdminServices\\actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::Response\\actorbase::driver::client::api::Status\\actorbase::driver::client\\actorbase::driver::exceptions\\}\\
+DEF3.7.1 & \multiLineCell[t]{actorbase::driver::ActorbaseAdminServices\\actorbase::driver::ActorbaseServices\\actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::POST\\actorbase::driver::client::api::PUT\\}\\
 \hline
-DEF3.6.6 & \multiLineCell[t]{actorbase::driver::ActorbaseAdminServices\\actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::Response\\actorbase::driver::client::api::Status\\actorbase::driver::client\\actorbase::driver::exceptions\\}\\
+DEF3.7.2 & \multiLineCell[t]{actorbase::driver::ActorbaseAdminServices\\actorbase::driver::ActorbaseServices\\actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::POST\\actorbase::driver::client::api::PUT\\}\\
 \hline
-DEF3.7 & \multiLineCell[t]{actorbase::driver::ActorbaseAdminServices\\actorbase::driver::ActorbaseServices\\actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::Credentials\\actorbase::driver::client::api::POST\\actorbase::driver::client::api::PUT\\actorbase::driver::client::api::Request\\actorbase::driver::client::api::RequestMethod\\actorbase::driver::client\\actorbase::driver::client::api\\}\\
+DEF3.7.3 & \multiLineCell[t]{actorbase::driver::ActorbaseAdminServices\\actorbase::driver::ActorbaseServices\\actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::Response\\actorbase::driver::client::api::Status\\}\\
 \hline
-DEF3.7.1 & \multiLineCell[t]{actorbase::driver::ActorbaseAdminServices\\actorbase::driver::ActorbaseServices\\actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::POST\\actorbase::driver::client::api::PUT\\actorbase::driver::client\\actorbase::driver::client::api\\}\\
+DEF3.7.4 & \multiLineCell[t]{actorbase::driver::ActorbaseAdminServices\\actorbase::driver::ActorbaseServices\\actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::Response\\actorbase::driver::client::api::Status\\}\\
 \hline
-DEF3.7.2 & \multiLineCell[t]{actorbase::driver::ActorbaseAdminServices\\actorbase::driver::ActorbaseServices\\actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::POST\\actorbase::driver::client::api::PUT\\actorbase::driver::client\\actorbase::driver::client::api\\}\\
+DEF3.8 & \multiLineCell[t]{actorbase::driver::ActorbaseAdminServices\\actorbase::driver::ActorbaseServices\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::Response\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::ActorbaseObject\\actorbase::driver::data::CollectionMap\\}\\
 \hline
-DEF3.7.3 & \multiLineCell[t]{actorbase::driver::ActorbaseAdminServices\\actorbase::driver::ActorbaseServices\\actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::Response\\actorbase::driver::client::api::Status\\actorbase::driver::client\\actorbase::driver::exceptions\\}\\
+DEF3.8.1 & \multiLineCell[t]{actorbase::driver::ActorbaseAdminServices\\actorbase::driver::ActorbaseServices\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::Response\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::CollectionMap\\}\\
 \hline
-DEF3.7.4 & \multiLineCell[t]{actorbase::driver::ActorbaseAdminServices\\actorbase::driver::ActorbaseServices\\actorbase::driver::Connector\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::Response\\actorbase::driver::client::api::Status\\actorbase::driver::client\\actorbase::driver::exceptions\\}\\
+DEF3.8.2 & \multiLineCell[t]{actorbase::driver::ActorbaseAdminServices\\actorbase::driver::ActorbaseServices\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::Response\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::CollectionMap\\}\\
 \hline
-DEF3.8 & \multiLineCell[t]{actorbase::driver::ActorbaseAdminServices\\actorbase::driver::ActorbaseServices\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::Response\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::ActorbaseObject\\actorbase::driver::data::CollectionMap\\actorbase::driver::client\\actorbase::driver::data\\}\\
+DEF3.8.3 & \multiLineCell[t]{actorbase::driver::ActorbaseAdminServices\\actorbase::driver::ActorbaseServices\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::Response\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::ActorbaseObject\\actorbase::driver::data::CollectionMap\\}\\
 \hline
-DEF3.8.1 & \multiLineCell[t]{actorbase::driver::ActorbaseAdminServices\\actorbase::driver::ActorbaseServices\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::Response\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::CollectionMap\\actorbase::driver::client\\actorbase::driver::data\\}\\
+OBF1.1 & \multiLineCell[t]{actorbase::actorsystem::httpserver::Httpserver\\actorbase::actorsystem::httpserver::SslConfiguration\\}\\
 \hline
-DEF3.8.2 & \multiLineCell[t]{actorbase::driver::ActorbaseAdminServices\\actorbase::driver::ActorbaseServices\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::Response\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::CollectionMap\\actorbase::driver::client\\actorbase::driver::data\\}\\
+OBF1.1.1 & \multiLineCell[t]{actorbase::actorsystem::httpserver::Httpserver\\actorbase::actorsystem::httpserver::SslConfiguration\\}\\
 \hline
-DEF3.8.3 & \multiLineCell[t]{actorbase::driver::ActorbaseAdminServices\\actorbase::driver::ActorbaseServices\\actorbase::driver::client::ActorbaseClient\\actorbase::driver::client::Client\\actorbase::driver::client::Connector\\actorbase::driver::client::SSLClient\\actorbase::driver::client::Serializer\\actorbase::driver::client::api::Response\\actorbase::driver::data::ActorbaseCollection\\actorbase::driver::data::ActorbaseObject\\actorbase::driver::data::CollectionMap\\actorbase::driver::client\\actorbase::driver::data\\}\\
+OBF1.1.1.1 & \multiLineCell[t]{actorbase::actorsystem::httpserver::Httpserver\\}\\
 \hline
-DEV8 & \multiLineCell[t]{actorbase\\}\\
+OBF1.1.10 & \multiLineCell[t]{actorbase::actorsystem::clientactor::Clientactor\\actorbase::actorsystem::httpserver::Httpserver\\}\\
 \hline
-DEV9 & \multiLineCell[t]{actorbase\\}\\
+OBF1.1.10.1 & \multiLineCell[t]{actorbase::actorsystem::authactor::AuthActor\\actorbase::actorsystem::clientactor::Authenticator\\actorbase::actorsystem::clientactor::Clientactor\\actorbase::actorsystem::clientactor::UserApi\\actorbase::actorsystem::main::Main\\actorbase::actorsystem::storefinder::Storefinder\\}\\
 \hline
-OBF1 & \multiLineCell[t]{actorbase\\actorbase::actorsystem\\}\\
+OBF1.1.10.1.1 & \multiLineCell[t]{actorbase::actorsystem::authactor::AuthActor\\actorbase::actorsystem::clientactor::Authenticator\\actorbase::actorsystem::clientactor::Clientactor\\}\\
 \hline
-OBF1.1 & \multiLineCell[t]{actorbase::actorsystem::httpserver::Httpserver\\actorbase::actorsystem::httpserver::SslConfiguration\\actorbase::actorsystem::httpserver\\}\\
+OBF1.1.10.2 & \multiLineCell[t]{actorbase::actorsystem::authactor::AuthActor\\actorbase::actorsystem::clientactor::Clientactor\\actorbase::actorsystem::clientactor::CollectionApi\\actorbase::actorsystem::main::Main\\actorbase::actorsystem::storefinder::Storefinder\\actorbase::actorsystem::storekeeper::Storekeeper\\actorbase::actorsystem::warehouseman::Warehouseman\\}\\
 \hline
-OBF1.1.1 & \multiLineCell[t]{actorbase::actorsystem::httpserver::Httpserver\\actorbase::actorsystem::httpserver::SslConfiguration\\actorbase::actorsystem::httpserver\\}\\
+OBF1.1.10.2.1 & \multiLineCell[t]{actorbase::actorsystem::authactor::AuthActor\\actorbase::actorsystem::clientactor::Clientactor\\actorbase::actorsystem::main::Main\\actorbase::actorsystem::storefinder::Storefinder\\actorbase::actorsystem::storekeeper::Storekeeper\\}\\
 \hline
-OBF1.1.1.1 & \multiLineCell[t]{actorbase::actorsystem::httpserver::Httpserver\\actorbase::actorsystem::httpserver\\}\\
+OBF1.1.10.2.1.1 & \multiLineCell[t]{actorbase::actorsystem::clientactor::Clientactor\\actorbase::actorsystem::main::Main\\actorbase::actorsystem::clientactor\\}\\
 \hline
-OBF1.1.1.1.1 & \multiLineCell[t]{actorbase::actorsystem::httpserver::messages\\}\\
+OBF1.1.10.2.2 & \multiLineCell[t]{actorbase::actorsystem::clientactor::Clientactor\\}\\
 \hline
-OBF1.1.10 & \multiLineCell[t]{actorbase::actorsystem::clientactor::Clientactor\\actorbase::actorsystem::httpserver::Httpserver\\actorbase::actorsystem::clientactor\\actorbase::actorsystem::httpserver\\}\\
+OBF1.1.10.2.3 & \multiLineCell[t]{actorbase::actorsystem::authactor::AuthActor\\actorbase::actorsystem::clientactor::Clientactor\\actorbase::actorsystem::main::Main\\actorbase::actorsystem::storefinder::Storefinder\\}\\
 \hline
-OBF1.1.10.1 & \multiLineCell[t]{actorbase::actorsystem::authactor::AuthActor\\actorbase::actorsystem::clientactor::Authenticator\\actorbase::actorsystem::clientactor::Clientactor\\actorbase::actorsystem::clientactor::UserApi\\actorbase::actorsystem::main::Main\\actorbase::actorsystem::storefinder::Storefinder\\actorbase::actorsystem::authactor\\actorbase::actorsystem::clientactor\\actorbase::actorsystem::main\\actorbase::actorsystem::storefinder\\}\\
+OBF1.1.10.2.3.1 & \multiLineCell[t]{actorbase::actorsystem::authactor::AuthActor\\actorbase::actorsystem::clientactor::Clientactor\\}\\
 \hline
-OBF1.1.10.1.1 & \multiLineCell[t]{actorbase::actorsystem::authactor::AuthActor\\actorbase::actorsystem::clientactor::Authenticator\\actorbase::actorsystem::clientactor::Clientactor\\actorbase::actorsystem::authactor\\actorbase::actorsystem::clientactor\\}\\
+OBF1.1.10.2.3.2 & \multiLineCell[t]{actorbase::actorsystem::clientactor::Clientactor\\}\\
 \hline
-OBF1.1.10.2 & \multiLineCell[t]{actorbase::actorsystem::authactor::AuthActor\\actorbase::actorsystem::clientactor::Clientactor\\actorbase::actorsystem::clientactor::CollectionApi\\actorbase::actorsystem::main::Main\\actorbase::actorsystem::storefinder::Storefinder\\actorbase::actorsystem::storekeeper::Storekeeper\\actorbase::actorsystem::warehouseman::Warehouseman\\actorbase::actorsystem::authactor\\actorbase::actorsystem::clientactor\\actorbase::actorsystem::main\\actorbase::actorsystem::ninja\\actorbase::actorsystem::storefinder\\actorbase::actorsystem::storekeeper\\actorbase::actorsystem::warehouseman\\}\\
+OBF1.1.10.2.4 & \multiLineCell[t]{actorbase::actorsystem::authactor::AuthActor\\actorbase::actorsystem::clientactor::Clientactor\\actorbase::actorsystem::main::Main\\actorbase::actorsystem::storefinder::Storefinder\\actorbase::actorsystem::storekeeper::Storekeeper\\actorbase::actorsystem::warehouseman::Warehouseman\\}\\
 \hline
-OBF1.1.10.2.1 & \multiLineCell[t]{actorbase::actorsystem::authactor::AuthActor\\actorbase::actorsystem::clientactor::Clientactor\\actorbase::actorsystem::main::Main\\actorbase::actorsystem::storefinder::Storefinder\\actorbase::actorsystem::storekeeper::Storekeeper\\actorbase::actorsystem::authactor\\actorbase::actorsystem::clientactor\\actorbase::actorsystem::main\\actorbase::actorsystem::storefinder\\actorbase::actorsystem::storekeeper\\}\\
+OBF1.1.10.2.4.1 & \multiLineCell[t]{actorbase::actorsystem::clientactor::Clientactor\\}\\
 \hline
-OBF1.1.10.2.1.1 & \multiLineCell[t]{actorbase::actorsystem::clientactor::Clientactor\\actorbase::actorsystem::main::Main\\actorbase::actorsystem::clientactor\\actorbase::actorsystem::main\\}\\
+OBF1.1.10.2.5 & \multiLineCell[t]{actorbase::actorsystem::authactor::AuthActor\\actorbase::actorsystem::clientactor::Clientactor\\actorbase::actorsystem::main::Main\\actorbase::actorsystem::storefinder::Storefinder\\actorbase::actorsystem::storekeeper::Storekeeper\\actorbase::actorsystem::warehouseman::Warehouseman\\}\\
 \hline
-OBF1.1.10.2.2 & \multiLineCell[t]{actorbase::actorsystem::clientactor::Clientactor\\actorbase::actorsystem::clientactor\\}\\
+OBF1.1.10.2.5.1 & \multiLineCell[t]{actorbase::actorsystem::authactor::AuthActor\\actorbase::actorsystem::clientactor::Clientactor\\actorbase::actorsystem::main::Main\\actorbase::actorsystem::storefinder::Storefinder\\actorbase::actorsystem::storekeeper::Storekeeper\\actorbase::actorsystem::warehouseman::Warehouseman\\}\\
 \hline
-OBF1.1.10.2.3 & \multiLineCell[t]{actorbase::actorsystem::authactor::AuthActor\\actorbase::actorsystem::clientactor::Clientactor\\actorbase::actorsystem::main::Main\\actorbase::actorsystem::storefinder::Storefinder\\actorbase::actorsystem::authactor\\actorbase::actorsystem::clientactor\\actorbase::actorsystem::main\\actorbase::actorsystem::storefinder\\}\\
+OBF1.1.10.2.5.2 & \multiLineCell[t]{actorbase::actorsystem::authactor::AuthActor\\actorbase::actorsystem::clientactor::Clientactor\\actorbase::actorsystem::main::Main\\actorbase::actorsystem::storefinder::Storefinder\\actorbase::actorsystem::storekeeper::Storekeeper\\actorbase::actorsystem::warehouseman::Warehouseman\\}\\
 \hline
-OBF1.1.10.2.3.1 & \multiLineCell[t]{actorbase::actorsystem::authactor::AuthActor\\actorbase::actorsystem::clientactor::Clientactor\\actorbase::actorsystem::authactor\\actorbase::actorsystem::clientactor\\}\\
+OBF1.1.10.2.5.3 & \multiLineCell[t]{actorbase::actorsystem::clientactor::Clientactor\\}\\
 \hline
-OBF1.1.10.2.3.2 & \multiLineCell[t]{actorbase::actorsystem::clientactor::Clientactor\\actorbase::actorsystem::clientactor\\}\\
+OBF1.1.10.2.5.4 & \multiLineCell[t]{actorbase::actorsystem::clientactor::Clientactor\\actorbase::actorsystem::storefinder::Storefinder\\}\\
 \hline
-OBF1.1.10.2.4 & \multiLineCell[t]{actorbase::actorsystem::authactor::AuthActor\\actorbase::actorsystem::clientactor::Clientactor\\actorbase::actorsystem::main::Main\\actorbase::actorsystem::storefinder::Storefinder\\actorbase::actorsystem::storekeeper::Storekeeper\\actorbase::actorsystem::warehouseman::Warehouseman\\actorbase::actorsystem::authactor\\actorbase::actorsystem::clientactor\\actorbase::actorsystem::main\\actorbase::actorsystem::ninja\\actorbase::actorsystem::storefinder\\actorbase::actorsystem::storekeeper\\actorbase::actorsystem::warehouseman\\}\\
+OBF1.1.10.2.6 & \multiLineCell[t]{actorbase::actorsystem::authactor::AuthActor\\actorbase::actorsystem::clientactor::Clientactor\\actorbase::actorsystem::main::Main\\actorbase::actorsystem::storefinder::Storefinder\\actorbase::actorsystem::storekeeper::Storekeeper\\actorbase::actorsystem::warehouseman::Warehouseman\\}\\
 \hline
-OBF1.1.10.2.4.1 & \multiLineCell[t]{actorbase::actorsystem::clientactor::Clientactor\\actorbase::actorsystem::clientactor\\}\\
+OBF1.1.10.2.6.1 & \multiLineCell[t]{actorbase::actorsystem::clientactor::Clientactor\\}\\
 \hline
-OBF1.1.10.2.5 & \multiLineCell[t]{actorbase::actorsystem::authactor::AuthActor\\actorbase::actorsystem::clientactor::Clientactor\\actorbase::actorsystem::main::Main\\actorbase::actorsystem::storefinder::Storefinder\\actorbase::actorsystem::storekeeper::Storekeeper\\actorbase::actorsystem::warehouseman::Warehouseman\\actorbase::actorsystem::authactor\\actorbase::actorsystem::clientactor\\actorbase::actorsystem::main\\actorbase::actorsystem::ninja\\actorbase::actorsystem::storefinder\\actorbase::actorsystem::storekeeper\\actorbase::actorsystem::warehouseman\\}\\
+OBF1.1.10.2.7 & \multiLineCell[t]{actorbase::actorsystem::authactor::AuthActor\\actorbase::actorsystem::clientactor::Clientactor\\actorbase::actorsystem::main::Main\\actorbase::actorsystem::storefinder::Storefinder\\actorbase::actorsystem::storekeeper::Storekeeper\\actorbase::actorsystem::warehouseman::Warehouseman\\}\\
 \hline
-OBF1.1.10.2.5.1 & \multiLineCell[t]{actorbase::actorsystem::authactor::AuthActor\\actorbase::actorsystem::clientactor::Clientactor\\actorbase::actorsystem::main::Main\\actorbase::actorsystem::storefinder::Storefinder\\actorbase::actorsystem::storekeeper::Storekeeper\\actorbase::actorsystem::warehouseman::Warehouseman\\actorbase::actorsystem::authactor\\actorbase::actorsystem::clientactor\\actorbase::actorsystem::main\\actorbase::actorsystem::ninja\\actorbase::actorsystem::storefinder\\actorbase::actorsystem::storekeeper\\actorbase::actorsystem::warehouseman\\}\\
+OBF1.1.10.3 & \multiLineCell[t]{actorbase::actorsystem::authactor::AuthActor\\actorbase::actorsystem::clientactor::Clientactor\\actorbase::actorsystem::clientactor::ItemApi\\actorbase::actorsystem::main::Main\\actorbase::actorsystem::manager::Manager\\actorbase::actorsystem::storefinder::Storefinder\\actorbase::actorsystem::storekeeper::Storekeeper\\actorbase::actorsystem::warehouseman::Warehouseman\\}\\
 \hline
-OBF1.1.10.2.5.2 & \multiLineCell[t]{actorbase::actorsystem::authactor::AuthActor\\actorbase::actorsystem::clientactor::Clientactor\\actorbase::actorsystem::main::Main\\actorbase::actorsystem::storefinder::Storefinder\\actorbase::actorsystem::storekeeper::Storekeeper\\actorbase::actorsystem::warehouseman::Warehouseman\\actorbase::actorsystem::authactor\\actorbase::actorsystem::clientactor\\actorbase::actorsystem::main\\actorbase::actorsystem::ninja\\actorbase::actorsystem::storefinder\\actorbase::actorsystem::storekeeper\\actorbase::actorsystem::warehouseman\\}\\
+OBF1.1.10.3.1 & \multiLineCell[t]{actorbase::actorsystem::clientactor::Clientactor\\actorbase::actorsystem::main::Main\\actorbase::actorsystem::manager::Manager\\actorbase::actorsystem::storefinder::Storefinder\\actorbase::actorsystem::storekeeper::Storekeeper\\actorbase::actorsystem::warehouseman::Warehouseman\\}\\
 \hline
-OBF1.1.10.2.5.3 & \multiLineCell[t]{actorbase::actorsystem::clientactor::Clientactor\\actorbase::actorsystem::clientactor\\}\\
+OBF1.1.10.3.2 & \multiLineCell[t]{actorbase::actorsystem::authactor::AuthActor\\actorbase::actorsystem::clientactor::Clientactor\\actorbase::actorsystem::main::Main\\actorbase::actorsystem::authactor\\}\\
 \hline
-OBF1.1.10.2.5.4 & \multiLineCell[t]{actorbase::actorsystem::clientactor::Clientactor\\actorbase::actorsystem::storefinder::Storefinder\\actorbase::actorsystem::clientactor\\actorbase::actorsystem::storefinder\\}\\
+OBF1.1.10.3.3 & \multiLineCell[t]{actorbase::actorsystem::clientactor::Clientactor\\actorbase::actorsystem::main::Main\\actorbase::actorsystem::storefinder::Storefinder\\actorbase::actorsystem::storekeeper::Storekeeper\\}\\
 \hline
-OBF1.1.10.2.6 & \multiLineCell[t]{actorbase::actorsystem::authactor::AuthActor\\actorbase::actorsystem::clientactor::Clientactor\\actorbase::actorsystem::main::Main\\actorbase::actorsystem::storefinder::Storefinder\\actorbase::actorsystem::storekeeper::Storekeeper\\actorbase::actorsystem::warehouseman::Warehouseman\\actorbase::actorsystem::authactor\\actorbase::actorsystem::clientactor\\actorbase::actorsystem::main\\actorbase::actorsystem::ninja\\actorbase::actorsystem::storefinder\\actorbase::actorsystem::storekeeper\\actorbase::actorsystem::warehouseman\\}\\
+OBF1.1.10.3.4 & \multiLineCell[t]{actorbase::actorsystem::clientactor::Clientactor\\actorbase::actorsystem::main::Main\\actorbase::actorsystem::storefinder::Storefinder\\actorbase::actorsystem::storekeeper::Storekeeper\\actorbase::actorsystem::warehouseman::Warehouseman\\}\\
 \hline
-OBF1.1.10.2.6.1 & \multiLineCell[t]{actorbase::actorsystem::clientactor::Clientactor\\actorbase::actorsystem::clientactor\\}\\
+OBF1.1.10.3.5 & \multiLineCell[t]{actorbase::actorsystem::clientactor::Clientactor\\}\\
 \hline
-OBF1.1.10.2.7 & \multiLineCell[t]{actorbase::actorsystem::authactor::AuthActor\\actorbase::actorsystem::clientactor::Clientactor\\actorbase::actorsystem::main::Main\\actorbase::actorsystem::storefinder::Storefinder\\actorbase::actorsystem::storekeeper::Storekeeper\\actorbase::actorsystem::warehouseman::Warehouseman\\actorbase::actorsystem::authactor\\actorbase::actorsystem::clientactor\\actorbase::actorsystem::main\\actorbase::actorsystem::ninja\\actorbase::actorsystem::storefinder\\actorbase::actorsystem::storekeeper\\actorbase::actorsystem::warehouseman\\}\\
+OBF1.1.10.4 & \multiLineCell[t]{actorbase::actorsystem::clientactor::Clientactor\\actorbase::actorsystem::clientactor::ItemApi\\actorbase::actorsystem::main::Main\\actorbase::actorsystem::storefinder::Storefinder\\actorbase::actorsystem::storekeeper::Storekeeper\\}\\
 \hline
-OBF1.1.10.3 & \multiLineCell[t]{actorbase::actorsystem::authactor::AuthActor\\actorbase::actorsystem::clientactor::Clientactor\\actorbase::actorsystem::clientactor::ItemApi\\actorbase::actorsystem::main::Main\\actorbase::actorsystem::manager::Manager\\actorbase::actorsystem::storefinder::Storefinder\\actorbase::actorsystem::storekeeper::Storekeeper\\actorbase::actorsystem::warehouseman::Warehouseman\\actorbase::actorsystem::authactor\\actorbase::actorsystem::clientactor\\actorbase::actorsystem::main\\actorbase::actorsystem::manager\\actorbase::actorsystem::ninja\\actorbase::actorsystem::storefinder\\actorbase::actorsystem::storekeeper\\actorbase::actorsystem::warehouseman\\}\\
+OBF1.1.10.5 & \multiLineCell[t]{actorbase::actorsystem::authactor::AuthActor\\actorbase::actorsystem::clientactor::Clientactor\\actorbase::actorsystem::clientactor::UserApi\\actorbase::actorsystem::main::Main\\actorbase::actorsystem::storefinder::Storefinder\\}\\
 \hline
-OBF1.1.10.3.1 & \multiLineCell[t]{actorbase::actorsystem::clientactor::Clientactor\\actorbase::actorsystem::main::Main\\actorbase::actorsystem::manager::Manager\\actorbase::actorsystem::storefinder::Storefinder\\actorbase::actorsystem::storekeeper::Storekeeper\\actorbase::actorsystem::warehouseman::Warehouseman\\actorbase::actorsystem::clientactor\\actorbase::actorsystem::main\\actorbase::actorsystem::manager\\actorbase::actorsystem::ninja\\actorbase::actorsystem::storefinder\\actorbase::actorsystem::storekeeper\\actorbase::actorsystem::warehouseman\\}\\
+OBF1.1.10.5.1 & \multiLineCell[t]{actorbase::actorsystem::authactor::AuthActor\\actorbase::actorsystem::clientactor::Clientactor\\}\\
 \hline
-OBF1.1.10.3.2 & \multiLineCell[t]{actorbase::actorsystem::authactor::AuthActor\\actorbase::actorsystem::clientactor::Clientactor\\actorbase::actorsystem::main::Main\\actorbase::actorsystem::authactor\\actorbase::actorsystem::clientactor\\actorbase::actorsystem::main\\}\\
+OBF1.1.10.6 & \multiLineCell[t]{actorbase::actorsystem::clientactor::Clientactor\\actorbase::actorsystem::clientactor::UserApi\\}\\
 \hline
-OBF1.1.10.3.3 & \multiLineCell[t]{actorbase::actorsystem::clientactor::Clientactor\\actorbase::actorsystem::main::Main\\actorbase::actorsystem::storefinder::Storefinder\\actorbase::actorsystem::storekeeper::Storekeeper\\actorbase::actorsystem::clientactor\\actorbase::actorsystem::main\\actorbase::actorsystem::storefinder\\actorbase::actorsystem::storekeeper\\}\\
+OBF1.1.10.7 & \multiLineCell[t]{actorbase::actorsystem::authactor::AuthActor\\actorbase::actorsystem::clientactor::Clientactor\\actorbase::actorsystem::clientactor::UserApi\\actorbase::actorsystem::main::Main\\actorbase::actorsystem::storefinder::Storefinder\\}\\
 \hline
-OBF1.1.10.3.4 & \multiLineCell[t]{actorbase::actorsystem::clientactor::Clientactor\\actorbase::actorsystem::main::Main\\actorbase::actorsystem::storefinder::Storefinder\\actorbase::actorsystem::storekeeper::Storekeeper\\actorbase::actorsystem::warehouseman::Warehouseman\\actorbase::actorsystem::clientactor\\actorbase::actorsystem::main\\actorbase::actorsystem::ninja\\actorbase::actorsystem::storefinder\\actorbase::actorsystem::storekeeper\\actorbase::actorsystem::warehouseman\\}\\
+OBF1.1.10.7.1 & \multiLineCell[t]{actorbase::actorsystem::authactor::AuthActor\\actorbase::actorsystem::clientactor::Clientactor\\actorbase::actorsystem::main::Main\\actorbase::actorsystem::storefinder::Storefinder\\}\\
 \hline
-OBF1.1.10.3.5 & \multiLineCell[t]{actorbase::actorsystem::clientactor::Clientactor\\actorbase::actorsystem::clientactor\\}\\
+OBF1.1.10.7.1.1 & \multiLineCell[t]{actorbase::actorsystem::clientactor::Clientactor\\}\\
 \hline
-OBF1.1.10.4 & \multiLineCell[t]{actorbase::actorsystem::clientactor::Clientactor\\actorbase::actorsystem::clientactor::ItemApi\\actorbase::actorsystem::main::Main\\actorbase::actorsystem::storefinder::Storefinder\\actorbase::actorsystem::storekeeper::Storekeeper\\actorbase::actorsystem::clientactor\\actorbase::actorsystem::main\\actorbase::actorsystem::storefinder\\actorbase::actorsystem::storekeeper\\}\\
+OBF1.1.10.7.2 & \multiLineCell[t]{actorbase::actorsystem::clientactor::Clientactor\\actorbase::actorsystem::main::Main\\actorbase::actorsystem::storefinder::Storefinder\\}\\
 \hline
-OBF1.1.10.5 & \multiLineCell[t]{actorbase::actorsystem::authactor::AuthActor\\actorbase::actorsystem::clientactor::Clientactor\\actorbase::actorsystem::clientactor::UserApi\\actorbase::actorsystem::main::Main\\actorbase::actorsystem::storefinder::Storefinder\\actorbase::actorsystem::authactor\\actorbase::actorsystem::clientactor\\actorbase::actorsystem::main\\actorbase::actorsystem::storefinder\\}\\
+OBF1.1.10.7.2.1 & \multiLineCell[t]{actorbase::actorsystem::clientactor::Clientactor\\actorbase::actorsystem::main::Main\\actorbase::actorsystem::storefinder::Storefinder\\}\\
 \hline
-OBF1.1.10.5.1 & \multiLineCell[t]{actorbase::actorsystem::authactor::AuthActor\\actorbase::actorsystem::clientactor::Clientactor\\actorbase::actorsystem::authactor\\actorbase::actorsystem::clientactor\\}\\
+OBF1.1.10.7.3 & \multiLineCell[t]{actorbase::actorsystem::authactor::AuthActor\\actorbase::actorsystem::clientactor::Clientactor\\actorbase::actorsystem::main::Main\\actorbase::actorsystem::storefinder::Storefinder\\}\\
 \hline
-OBF1.1.10.6 & \multiLineCell[t]{actorbase::actorsystem::clientactor::Clientactor\\actorbase::actorsystem::clientactor::UserApi\\actorbase::actorsystem::clientactor\\}\\
+OBF1.1.10.7.3.1 & \multiLineCell[t]{actorbase::actorsystem::clientactor::Clientactor\\actorbase::actorsystem::main::Main\\actorbase::actorsystem::storefinder::Storefinder\\}\\
 \hline
-OBF1.1.10.7 & \multiLineCell[t]{actorbase::actorsystem::authactor::AuthActor\\actorbase::actorsystem::clientactor::Clientactor\\actorbase::actorsystem::clientactor::UserApi\\actorbase::actorsystem::main::Main\\actorbase::actorsystem::storefinder::Storefinder\\actorbase::actorsystem::authactor\\actorbase::actorsystem::clientactor\\actorbase::actorsystem::main\\actorbase::actorsystem::storefinder\\}\\
+OBF1.1.2 & \multiLineCell[t]{actorbase::actorsystem::clientactor::Clientactor\\actorbase::actorsystem::utils::ActorbaseCollection\\}\\
 \hline
-OBF1.1.10.7.1 & \multiLineCell[t]{actorbase::actorsystem::authactor::AuthActor\\actorbase::actorsystem::clientactor::Clientactor\\actorbase::actorsystem::main::Main\\actorbase::actorsystem::storefinder::Storefinder\\actorbase::actorsystem::authactor\\actorbase::actorsystem::clientactor\\actorbase::actorsystem::main\\actorbase::actorsystem::storefinder\\}\\
+OBF1.1.2.1 & \multiLineCell[t]{actorbase::actorsystem::clientactor::messages::Response\\}\\
 \hline
-OBF1.1.10.7.1.1 & \multiLineCell[t]{actorbase::actorsystem::clientactor::Clientactor\\actorbase::actorsystem::clientactor\\}\\
+OBF1.1.2.2 & \multiLineCell[t]{actorbase::actorsystem::clientactor::messages::MapResponse\\}\\
 \hline
-OBF1.1.10.7.2 & \multiLineCell[t]{actorbase::actorsystem::clientactor::Clientactor\\actorbase::actorsystem::main::Main\\actorbase::actorsystem::storefinder::Storefinder\\actorbase::actorsystem::clientactor\\actorbase::actorsystem::main\\actorbase::actorsystem::storefinder\\}\\
+OBF1.1.3 & \multiLineCell[t]{actorbase::actorsystem::main::Main\\actorbase::actorsystem::utils::ActorbaseCollection\\}\\
 \hline
-OBF1.1.10.7.2.1 & \multiLineCell[t]{actorbase::actorsystem::clientactor::Clientactor\\actorbase::actorsystem::main::Main\\actorbase::actorsystem::storefinder::Storefinder\\actorbase::actorsystem::clientactor\\actorbase::actorsystem::main\\actorbase::actorsystem::storefinder\\}\\
+OBF1.1.3.1 & \multiLineCell[t]{actorbase::actorsystem::main::messages::CreateCollection\\}\\
 \hline
-OBF1.1.10.7.3 & \multiLineCell[t]{actorbase::actorsystem::authactor::AuthActor\\actorbase::actorsystem::clientactor::Clientactor\\actorbase::actorsystem::main::Main\\actorbase::actorsystem::storefinder::Storefinder\\actorbase::actorsystem::authactor\\actorbase::actorsystem::clientactor\\actorbase::actorsystem::main\\actorbase::actorsystem::storefinder\\}\\
+OBF1.1.3.4 & \multiLineCell[t]{actorbase::actorsystem::main::messages::GetItemFrom\\}\\
 \hline
-OBF1.1.10.7.3.1 & \multiLineCell[t]{actorbase::actorsystem::clientactor::Clientactor\\actorbase::actorsystem::main::Main\\actorbase::actorsystem::storefinder::Storefinder\\actorbase::actorsystem::clientactor\\actorbase::actorsystem::main\\actorbase::actorsystem::storefinder\\}\\
+OBF1.1.3.5 & \multiLineCell[t]{actorbase::actorsystem::main::messages::AddContributor\\}\\
 \hline
-OBF1.1.2 & \multiLineCell[t]{actorbase::actorsystem::clientactor::Clientactor\\actorbase::actorsystem::utils::ActorbaseCollection\\actorbase::actorsystem::clientactor\\actorbase::actorsystem::utils\\}\\
+OBF1.1.3.7 & \multiLineCell[t]{actorbase::actorsystem::main::messages::RemoveContributor\\}\\
 \hline
-OBF1.1.2.1 & \multiLineCell[t]{actorbase::actorsystem::clientactor::messages::Response\\actorbase::actorsystem::clientactor::messages\\}\\
+OBF1.1.3.8 & \multiLineCell[t]{actorbase::actorsystem::main::messages::CompleteTransaction\\}\\
 \hline
-OBF1.1.2.2 & \multiLineCell[t]{actorbase::actorsystem::clientactor::messages::MapResponse\\actorbase::actorsystem::clientactor::messages\\}\\
+OBF1.1.3.9 & \multiLineCell[t]{actorbase::actorsystem::main::messages::RemoveItemFrom\\}\\
 \hline
-OBF1.1.3 & \multiLineCell[t]{actorbase::actorsystem::main::Main\\actorbase::actorsystem::utils::ActorbaseCollection\\actorbase::actorsystem::main\\actorbase::actorsystem::utils\\}\\
+OBF1.1.4 & \multiLineCell[t]{actorbase::actorsystem::storefinder::Storefinder\\actorbase::actorsystem::utils::ActorbaseCollection\\}\\
 \hline
-OBF1.1.3.1 & \multiLineCell[t]{actorbase::actorsystem::main::messages::CreateCollection\\actorbase::actorsystem::main::messages\\}\\
+OBF1.1.4.1 & \multiLineCell[t]{actorbase::actorsystem::storefinder::messages::UpdateCollectionSize\\}\\
 \hline
-OBF1.1.3.10 & \multiLineCell[t]{actorbase::actorsystem::main::messages\\}\\
+OBF1.1.4.3 & \multiLineCell[t]{actorbase::actorsystem::storefinder::messages::GetItem\\}\\
 \hline
-OBF1.1.3.4 & \multiLineCell[t]{actorbase::actorsystem::main::messages::GetItemFrom\\actorbase::actorsystem::main::messages\\}\\
+OBF1.1.4.4 & \multiLineCell[t]{actorbase::actorsystem::storefinder::messages::RemoveItem\\}\\
 \hline
-OBF1.1.3.5 & \multiLineCell[t]{actorbase::actorsystem::main::messages::AddContributor\\actorbase::actorsystem::main::messages\\}\\
+OBF1.1.4.5 & \multiLineCell[t]{actorbase::actorsystem::storefinder::messages::Insert\\}\\
 \hline
-OBF1.1.3.7 & \multiLineCell[t]{actorbase::actorsystem::main::messages::RemoveContributor\\actorbase::actorsystem::main::messages\\}\\
+OBF1.1.4.6 & \multiLineCell[t]{actorbase::actorsystem::storefinder::messages::GetAllItems\\}\\
 \hline
-OBF1.1.3.8 & \multiLineCell[t]{actorbase::actorsystem::main::messages::CompleteTransaction\\actorbase::actorsystem::main::messages\\}\\
+OBF1.1.4.7 & \multiLineCell[t]{actorbase::actorsystem::storefinder::messages::PartialMapTransaction\\}\\
 \hline
-OBF1.1.3.9 & \multiLineCell[t]{actorbase::actorsystem::main::messages::RemoveItemFrom\\actorbase::actorsystem::main::messages\\}\\
+OBF1.1.5 & \multiLineCell[t]{actorbase::actorsystem::storekeeper::Storekeeper\\actorbase::actorsystem::utils::ActorbaseCollection\\}\\
 \hline
-OBF1.1.4 & \multiLineCell[t]{actorbase::actorsystem::storefinder::Storefinder\\actorbase::actorsystem::utils::ActorbaseCollection\\actorbase::actorsystem::storefinder\\actorbase::actorsystem::utils\\}\\
+OBF1.1.5.1 & \multiLineCell[t]{actorbase::actorsystem::storekeeper::messages::Persist\\}\\
 \hline
-OBF1.1.4.1 & \multiLineCell[t]{actorbase::actorsystem::storefinder::messages::UpdateCollectionSize\\actorbase::actorsystem::storefinder::messages\\}\\
+OBF1.1.5.2 & \multiLineCell[t]{actorbase::actorsystem::storekeeper::messages::GetItem\\}\\
 \hline
-OBF1.1.4.3 & \multiLineCell[t]{actorbase::actorsystem::storefinder::messages::GetItem\\actorbase::actorsystem::storefinder::messages\\}\\
+OBF1.1.5.3 & \multiLineCell[t]{actorbase::actorsystem::storekeeper::messages::GetAllItems\\}\\
 \hline
-OBF1.1.4.4 & \multiLineCell[t]{actorbase::actorsystem::storefinder::messages::RemoveItem\\actorbase::actorsystem::storefinder::messages\\}\\
+OBF1.1.5.4 & \multiLineCell[t]{actorbase::actorsystem::storekeeper::messages::Insert\\}\\
 \hline
-OBF1.1.4.5 & \multiLineCell[t]{actorbase::actorsystem::storefinder::messages::Insert\\actorbase::actorsystem::storefinder::messages\\}\\
+OBF1.1.5.5 & \multiLineCell[t]{actorbase::actorsystem::storekeeper::messages::RemoveItem\\}\\
 \hline
-OBF1.1.4.6 & \multiLineCell[t]{actorbase::actorsystem::storefinder::messages::GetAllItems\\actorbase::actorsystem::storefinder::messages\\}\\
+OBF1.1.6 & \multiLineCell[t]{actorbase::actorsystem::utils::CryptoUtils\\actorbase::actorsystem::warehouseman::Warehouseman\\}\\
 \hline
-OBF1.1.4.7 & \multiLineCell[t]{actorbase::actorsystem::storefinder::messages::PartialMapTransaction\\actorbase::actorsystem::storefinder::messages\\}\\
+OBF1.1.6.1 & \multiLineCell[t]{actorbase::actorsystem::warehouseman::messages::Read\\}\\
 \hline
-OBF1.1.5 & \multiLineCell[t]{actorbase::actorsystem::storekeeper::Storekeeper\\actorbase::actorsystem::utils::ActorbaseCollection\\actorbase::actorsystem::storekeeper\\actorbase::actorsystem::utils\\}\\
+OBF1.1.6.2 & \multiLineCell[t]{actorbase::actorsystem::warehouseman::messages::Save\\}\\
 \hline
-OBF1.1.5.1 & \multiLineCell[t]{actorbase::actorsystem::storekeeper::messages::Persist\\actorbase::actorsystem::storekeeper::messages\\}\\
+OBF1.1.6.3 & \multiLineCell[t]{actorbase::actorsystem::warehouseman::messages::Clean\\}\\
 \hline
-OBF1.1.5.2 & \multiLineCell[t]{actorbase::actorsystem::storekeeper::messages::GetItem\\actorbase::actorsystem::storekeeper::messages\\}\\
+OBF1.1.9.1 & \multiLineCell[t]{actorbase::actorsystem::authactor::messages::AddCredentials\\}\\
 \hline
-OBF1.1.5.3 & \multiLineCell[t]{actorbase::actorsystem::storekeeper::messages::GetAllItems\\actorbase::actorsystem::storekeeper::messages\\}\\
+OBF1.1.9.2 & \multiLineCell[t]{actorbase::actorsystem::authactor::messages::UpdateCredentials\\}\\
 \hline
-OBF1.1.5.4 & \multiLineCell[t]{actorbase::actorsystem::storekeeper::messages::Insert\\actorbase::actorsystem::storekeeper::messages\\}\\
+OBF1.1.9.3 & \multiLineCell[t]{actorbase::actorsystem::authactor::messages::RemoveCredentials\\}\\
 \hline
-OBF1.1.5.5 & \multiLineCell[t]{actorbase::actorsystem::storekeeper::messages::RemoveItem\\actorbase::actorsystem::storekeeper::messages\\}\\
+OBF1.1.9.4 & \multiLineCell[t]{actorbase::actorsystem::authactor::messages::Authenticate\\}\\
 \hline
-OBF1.1.5.6 & \multiLineCell[t]{actorbase::actorsystem::storekeeper::messages\\}\\
+OBF1.1.9.5 & \multiLineCell[t]{actorbase::actorsystem::authactor::messages::AddCollectionTo\\}\\
 \hline
-OBF1.1.5.7 & \multiLineCell[t]{actorbase::actorsystem::storekeeper::messages\\}\\
+OBF1.1.9.6 & \multiLineCell[t]{actorbase::actorsystem::authactor::messages::RemoveCollectionFrom\\}\\
 \hline
-OBF1.1.6 & \multiLineCell[t]{actorbase::actorsystem::utils::CryptoUtils\\actorbase::actorsystem::warehouseman::Warehouseman\\actorbase::actorsystem::utils\\actorbase::actorsystem::warehouseman\\}\\
+OBF1.1.9.7 & \multiLineCell[t]{actorbase::actorsystem::authactor::messages::ListCollectionsOf\\}\\
 \hline
-OBF1.1.6.1 & \multiLineCell[t]{actorbase::actorsystem::warehouseman::messages::Read\\actorbase::actorsystem::warehouseman::messages\\}\\
-\hline
-OBF1.1.6.2 & \multiLineCell[t]{actorbase::actorsystem::warehouseman::messages::Save\\actorbase::actorsystem::warehouseman::messages\\}\\
-\hline
-OBF1.1.6.3 & \multiLineCell[t]{actorbase::actorsystem::warehouseman::messages::Clean\\actorbase::actorsystem::warehouseman::messages\\}\\
-\hline
-OBF1.1.9.1 & \multiLineCell[t]{actorbase::actorsystem::authactor::messages::AddCredentials\\actorbase::actorsystem::authactor::messages\\}\\
-\hline
-OBF1.1.9.2 & \multiLineCell[t]{actorbase::actorsystem::authactor::messages::UpdateCredentials\\actorbase::actorsystem::authactor::messages\\}\\
-\hline
-OBF1.1.9.3 & \multiLineCell[t]{actorbase::actorsystem::authactor::messages::RemoveCredentials\\actorbase::actorsystem::authactor::messages\\}\\
-\hline
-OBF1.1.9.4 & \multiLineCell[t]{actorbase::actorsystem::authactor::messages::Authenticate\\actorbase::actorsystem::authactor::messages\\}\\
-\hline
-OBF1.1.9.5 & \multiLineCell[t]{actorbase::actorsystem::authactor::messages::AddCollectionTo\\actorbase::actorsystem::authactor::messages\\}\\
-\hline
-OBF1.1.9.6 & \multiLineCell[t]{actorbase::actorsystem::authactor::messages::RemoveCollectionFrom\\actorbase::actorsystem::authactor::messages\\}\\
-\hline
-OBF1.1.9.7 & \multiLineCell[t]{actorbase::actorsystem::authactor::messages::ListCollectionsOf\\actorbase::actorsystem::authactor::messages\\}\\
-\hline
-OBF2 & \multiLineCell[t]{actorbase::cli::views::CommandLoop\\actorbase\\actorbase::cli\\actorbase::cli::views\\}\\
+OBF2 & \multiLineCell[t]{actorbase::cli::views::CommandLoop\\actorbase\\}\\
 \hline
 OBF2.1 & \multiLineCell[t]{actorbase::cli::controllers::GrammarParser\\actorbase::cli::views::CommandLoop\\actorbase::cli::controllers\\}\\
 \hline
-OBF2.1.1 & \multiLineCell[t]{actorbase::cli::controllers::GrammarParser\\actorbase::cli::models::Command\\actorbase::cli::models::CommandReceiver\\actorbase::cli::models::LoginCommand\\actorbase::cli::models::LogoutCommand\\actorbase::cli::views::CommandLoop\\actorbase::cli::controllers\\actorbase::cli::models\\actorbase::cli::views\\}\\
+OBF2.1.1 & \multiLineCell[t]{actorbase::cli::controllers::GrammarParser\\actorbase::cli::models::Command\\actorbase::cli::models::CommandReceiver\\actorbase::cli::models::LoginCommand\\actorbase::cli::models::LogoutCommand\\actorbase::cli::views::CommandLoop\\actorbase::cli::controllers\\}\\
 \hline
-OBF2.1.1.1 & \multiLineCell[t]{actorbase::cli::views::CommandLoop\\actorbase::cli::models\\actorbase::cli::views\\}\\
+OBF2.1.1.1 & \multiLineCell[t]{actorbase::cli::views::CommandLoop\\}\\
 \hline
-OBF2.1.1.2 & \multiLineCell[t]{actorbase::cli::views::CommandLoop\\actorbase::cli::models\\actorbase::cli::views\\}\\
+OBF2.1.1.2 & \multiLineCell[t]{actorbase::cli::views::CommandLoop\\}\\
 \hline
-OBF2.1.1.3 & \multiLineCell[t]{actorbase::cli::views::CommandLoop\\actorbase::cli::views\\}\\
+OBF2.1.1.3 & \multiLineCell[t]{actorbase::cli::views::CommandLoop\\}\\
 \hline
-OBF2.1.2 & \multiLineCell[t]{actorbase::cli::controllers::GrammarParser\\actorbase::cli::models::Command\\actorbase::cli::models::CommandReceiver\\actorbase::cli::views::CommandLoop\\actorbase::cli::controllers\\actorbase::cli::models\\actorbase::cli::views\\}\\
+OBF2.1.2 & \multiLineCell[t]{actorbase::cli::controllers::GrammarParser\\actorbase::cli::models::Command\\actorbase::cli::models::CommandReceiver\\actorbase::cli::views::CommandLoop\\actorbase::cli::controllers\\}\\
 \hline
-OBF2.1.2.1 & \multiLineCell[t]{actorbase::cli::controllers::GrammarParser\\actorbase::cli::models::Command\\actorbase::cli::models::CommandReceiver\\actorbase::cli::models::CreateCollectionCommand\\actorbase::cli::views::CommandLoop\\actorbase::cli::controllers\\actorbase::cli::models\\actorbase::cli::views\\}\\
+OBF2.1.2.1 & \multiLineCell[t]{actorbase::cli::controllers::GrammarParser\\actorbase::cli::models::Command\\actorbase::cli::models::CommandReceiver\\actorbase::cli::models::CreateCollectionCommand\\actorbase::cli::views::CommandLoop\\actorbase::cli::controllers\\}\\
 \hline
-OBF2.1.2.1.1 & \multiLineCell[t]{actorbase::cli::views::CommandLoop\\actorbase::cli::models\\actorbase::cli::views\\}\\
+OBF2.1.2.1.1 & \multiLineCell[t]{actorbase::cli::views::CommandLoop\\}\\
 \hline
-OBF2.1.2.10 & \multiLineCell[t]{actorbase::cli::models::CommandInvoker\\actorbase::cli::models::Observable\\actorbase::cli::views::ResultViewer\\actorbase::cli::views\\actorbase::cli::views::Observer\\}\\
+OBF2.1.2.10 & \multiLineCell[t]{actorbase::cli::models::CommandInvoker\\actorbase::cli::models::Observable\\actorbase::cli::views::ResultViewer\\actorbase::cli::views\\}\\
 \hline
-OBF2.1.2.11 & \multiLineCell[t]{actorbase::cli::models::CommandInvoker\\actorbase::cli::models::Observable\\actorbase::cli::views::ResultViewer\\actorbase::cli::views\\actorbase::cli::views::Observer\\}\\
+OBF2.1.2.11 & \multiLineCell[t]{actorbase::cli::models::CommandInvoker\\actorbase::cli::models::Observable\\actorbase::cli::views::ResultViewer\\actorbase::cli::views\\}\\
 \hline
-OBF2.1.2.12 & \multiLineCell[t]{actorbase::cli::models::CommandInvoker\\actorbase::cli::models::Observable\\actorbase::cli::views::ResultViewer\\actorbase::cli::views\\actorbase::cli::views::Observer\\}\\
+OBF2.1.2.12 & \multiLineCell[t]{actorbase::cli::models::CommandInvoker\\actorbase::cli::models::Observable\\actorbase::cli::views::ResultViewer\\actorbase::cli::views\\}\\
 \hline
-OBF2.1.2.13 & \multiLineCell[t]{actorbase::cli::models::CommandInvoker\\actorbase::cli::models::Observable\\actorbase::cli::views::ResultViewer\\actorbase::cli::views\\actorbase::cli::views::Observer\\}\\
+OBF2.1.2.13 & \multiLineCell[t]{actorbase::cli::models::CommandInvoker\\actorbase::cli::models::Observable\\actorbase::cli::views::ResultViewer\\actorbase::cli::views\\}\\
 \hline
-OBF2.1.2.14 & \multiLineCell[t]{actorbase::cli::models::CommandInvoker\\actorbase::cli::models::Observable\\actorbase::cli::views::ResultViewer\\actorbase::cli::views\\actorbase::cli::views::Observer\\}\\
+OBF2.1.2.14 & \multiLineCell[t]{actorbase::cli::models::CommandInvoker\\actorbase::cli::models::Observable\\actorbase::cli::views::ResultViewer\\actorbase::cli::views\\}\\
 \hline
-OBF2.1.2.2 & \multiLineCell[t]{actorbase::cli::controllers::GrammarParser\\actorbase::cli::models::Command\\actorbase::cli::models::CommandReceiver\\actorbase::cli::models::ListCollectionCommand\\actorbase::cli::views::CommandLoop\\actorbase::cli::controllers\\actorbase::cli::models\\actorbase::cli::views\\}\\
+OBF2.1.2.2 & \multiLineCell[t]{actorbase::cli::controllers::GrammarParser\\actorbase::cli::models::Command\\actorbase::cli::models::CommandReceiver\\actorbase::cli::models::ListCollectionCommand\\actorbase::cli::views::CommandLoop\\actorbase::cli::controllers\\}\\
 \hline
-OBF2.1.2.3 & \multiLineCell[t]{actorbase::cli::controllers::GrammarParser\\actorbase::cli::models::Command\\actorbase::cli::models::CommandReceiver\\actorbase::cli::models::RemoveCollectionCommand\\actorbase::cli::views::CommandLoop\\actorbase::cli::controllers\\actorbase::cli::models\\actorbase::cli::views\\}\\
+OBF2.1.2.3 & \multiLineCell[t]{actorbase::cli::controllers::GrammarParser\\actorbase::cli::models::Command\\actorbase::cli::models::CommandReceiver\\actorbase::cli::models::RemoveCollectionCommand\\actorbase::cli::views::CommandLoop\\actorbase::cli::controllers\\}\\
 \hline
-OBF2.1.2.3.1 & \multiLineCell[t]{actorbase::cli::views::CommandLoop\\actorbase::cli::models\\actorbase::cli::views\\}\\
+OBF2.1.2.3.1 & \multiLineCell[t]{actorbase::cli::views::CommandLoop\\}\\
 \hline
-OBF2.1.2.4 & \multiLineCell[t]{actorbase::cli::controllers::GrammarParser\\actorbase::cli::models::Command\\actorbase::cli::models::CommandReceiver\\actorbase::cli::models::RenameCollectionCommand\\actorbase::cli::views::CommandLoop\\actorbase::cli::controllers\\actorbase::cli::models\\actorbase::cli::views\\}\\
+OBF2.1.2.4 & \multiLineCell[t]{actorbase::cli::controllers::GrammarParser\\actorbase::cli::models::Command\\actorbase::cli::models::CommandReceiver\\actorbase::cli::models::RenameCollectionCommand\\actorbase::cli::views::CommandLoop\\actorbase::cli::controllers\\}\\
 \hline
-OBF2.1.2.4.1 & \multiLineCell[t]{actorbase::cli::views::CommandLoop\\actorbase::cli::models\\actorbase::cli::views\\}\\
+OBF2.1.2.4.1 & \multiLineCell[t]{actorbase::cli::views::CommandLoop\\}\\
 \hline
-OBF2.1.2.4.2 & \multiLineCell[t]{actorbase::cli::views::CommandLoop\\actorbase::cli::models\\actorbase::cli::views\\}\\
+OBF2.1.2.4.2 & \multiLineCell[t]{actorbase::cli::views::CommandLoop\\}\\
 \hline
-OBF2.1.2.5 & \multiLineCell[t]{actorbase::cli::controllers::GrammarParser\\actorbase::cli::models::AddContributorCommand\\actorbase::cli::models::Command\\actorbase::cli::models::CommandReceiver\\actorbase::cli::views::CommandLoop\\actorbase::cli::controllers\\actorbase::cli::models\\actorbase::cli::views\\}\\
+OBF2.1.2.5 & \multiLineCell[t]{actorbase::cli::controllers::GrammarParser\\actorbase::cli::models::AddContributorCommand\\actorbase::cli::models::Command\\actorbase::cli::models::CommandReceiver\\actorbase::cli::views::CommandLoop\\actorbase::cli::controllers\\}\\
 \hline
-OBF2.1.2.5.1 & \multiLineCell[t]{actorbase::cli::views::CommandLoop\\actorbase::cli::models\\actorbase::cli::views\\}\\
+OBF2.1.2.5.1 & \multiLineCell[t]{actorbase::cli::views::CommandLoop\\}\\
 \hline
-OBF2.1.2.5.2 & \multiLineCell[t]{actorbase::cli::views::CommandLoop\\actorbase::cli::models\\actorbase::cli::views\\}\\
+OBF2.1.2.5.2 & \multiLineCell[t]{actorbase::cli::views::CommandLoop\\}\\
 \hline
-OBF2.1.2.5.3 & \multiLineCell[t]{actorbase::cli::views::CommandLoop\\actorbase::cli::models\\actorbase::cli::views\\}\\
+OBF2.1.2.5.3 & \multiLineCell[t]{actorbase::cli::views::CommandLoop\\}\\
 \hline
-OBF2.1.2.6 & \multiLineCell[t]{actorbase::cli::controllers::GrammarParser\\actorbase::cli::models::Command\\actorbase::cli::models::CommandReceiver\\actorbase::cli::models::RemoveContributorCommand\\actorbase::cli::views::CommandLoop\\actorbase::cli::controllers\\actorbase::cli::models\\actorbase::cli::views\\}\\
+OBF2.1.2.6 & \multiLineCell[t]{actorbase::cli::controllers::GrammarParser\\actorbase::cli::models::Command\\actorbase::cli::models::CommandReceiver\\actorbase::cli::models::RemoveContributorCommand\\actorbase::cli::views::CommandLoop\\actorbase::cli::controllers\\}\\
 \hline
-OBF2.1.2.6.1 & \multiLineCell[t]{actorbase::cli::views::CommandLoop\\actorbase::cli::models\\actorbase::cli::views\\}\\
+OBF2.1.2.6.1 & \multiLineCell[t]{actorbase::cli::views::CommandLoop\\}\\
 \hline
-OBF2.1.2.6.2 & \multiLineCell[t]{actorbase::cli::views::CommandLoop\\actorbase::cli::models\\actorbase::cli::views\\}\\
+OBF2.1.2.6.2 & \multiLineCell[t]{actorbase::cli::views::CommandLoop\\}\\
 \hline
-OBF2.1.2.8 & \multiLineCell[t]{actorbase::cli::models::CommandInvoker\\actorbase::cli::models::Observable\\actorbase::cli::views::ResultViewer\\actorbase::cli::models\\actorbase::cli::views\\actorbase::cli::views::Observer\\}\\
+OBF2.1.2.8 & \multiLineCell[t]{actorbase::cli::models::CommandInvoker\\actorbase::cli::models::Observable\\actorbase::cli::views::ResultViewer\\actorbase::cli::models\\}\\
 \hline
-OBF2.1.2.9 & \multiLineCell[t]{actorbase::cli::models::CommandInvoker\\actorbase::cli::models::Observable\\actorbase::cli::views::ResultViewer\\actorbase::cli::views\\actorbase::cli::views::Observer\\}\\
+OBF2.1.2.9 & \multiLineCell[t]{actorbase::cli::models::CommandInvoker\\actorbase::cli::models::Observable\\actorbase::cli::views::ResultViewer\\actorbase::cli::views\\}\\
 \hline
-OBF2.1.3 & \multiLineCell[t]{actorbase::cli::controllers::GrammarParser\\actorbase::cli::models::Command\\actorbase::cli::models::CommandReceiver\\actorbase::cli::views::CommandLoop\\actorbase::cli::controllers\\actorbase::cli::models\\actorbase::cli::views\\}\\
+OBF2.1.3 & \multiLineCell[t]{actorbase::cli::controllers::GrammarParser\\actorbase::cli::models::Command\\actorbase::cli::models::CommandReceiver\\actorbase::cli::views::CommandLoop\\actorbase::cli::controllers\\}\\
 \hline
-OBF2.1.3.1 & \multiLineCell[t]{actorbase::cli::controllers::GrammarParser\\actorbase::cli::models::Command\\actorbase::cli::models::CommandReceiver\\actorbase::cli::models::InsertItemCommand\\actorbase::cli::views::CommandLoop\\actorbase::cli::controllers\\actorbase::cli::models\\actorbase::cli::views\\}\\
+OBF2.1.3.1 & \multiLineCell[t]{actorbase::cli::controllers::GrammarParser\\actorbase::cli::models::Command\\actorbase::cli::models::CommandReceiver\\actorbase::cli::models::InsertItemCommand\\actorbase::cli::views::CommandLoop\\actorbase::cli::controllers\\}\\
 \hline
-OBF2.1.3.1.1 & \multiLineCell[t]{actorbase::cli::controllers::GrammarParser\\actorbase::cli::views::CommandLoop\\actorbase::cli::controllers\\actorbase::cli::models\\actorbase::cli::views\\}\\
+OBF2.1.3.1.1 & \multiLineCell[t]{actorbase::cli::controllers::GrammarParser\\actorbase::cli::views::CommandLoop\\actorbase::cli::controllers\\}\\
 \hline
-OBF2.1.3.1.1.1 & \multiLineCell[t]{actorbase::cli::views::CommandLoop\\actorbase::cli::models\\actorbase::cli::views\\}\\
+OBF2.1.3.1.1.1 & \multiLineCell[t]{actorbase::cli::views::CommandLoop\\}\\
 \hline
-OBF2.1.3.1.1.2 & \multiLineCell[t]{actorbase::cli::views::CommandLoop\\actorbase::cli::models\\actorbase::cli::views\\}\\
+OBF2.1.3.1.1.2 & \multiLineCell[t]{actorbase::cli::views::CommandLoop\\}\\
 \hline
-OBF2.1.3.1.1.3 & \multiLineCell[t]{actorbase::cli::views::CommandLoop\\actorbase::cli::models\\actorbase::cli::views\\}\\
+OBF2.1.3.1.1.3 & \multiLineCell[t]{actorbase::cli::views::CommandLoop\\}\\
 \hline
-OBF2.1.3.1.1.4 & \multiLineCell[t]{actorbase::cli::views::CommandLoop\\actorbase::cli::models\\actorbase::cli::views\\}\\
+OBF2.1.3.1.1.4 & \multiLineCell[t]{actorbase::cli::views::CommandLoop\\}\\
 \hline
-OBF2.1.3.1.1.5 & \multiLineCell[t]{actorbase::cli::views::CommandLoop\\actorbase::cli::models\\actorbase::cli::views\\}\\
+OBF2.1.3.1.1.5 & \multiLineCell[t]{actorbase::cli::views::CommandLoop\\}\\
 \hline
-OBF2.1.3.4 & \multiLineCell[t]{actorbase::cli::models::CommandInvoker\\actorbase::cli::models::Observable\\actorbase::cli::views::ResultViewer\\actorbase::cli::views\\actorbase::cli::views::Observer\\}\\
+OBF2.1.3.4 & \multiLineCell[t]{actorbase::cli::models::CommandInvoker\\actorbase::cli::models::Observable\\actorbase::cli::views::ResultViewer\\actorbase::cli::views\\}\\
 \hline
-OBF2.1.3.5 & \multiLineCell[t]{actorbase::cli::models::CommandInvoker\\actorbase::cli::models::Observable\\actorbase::cli::views::ResultViewer\\actorbase::cli::views\\actorbase::cli::views::Observer\\}\\
+OBF2.1.3.5 & \multiLineCell[t]{actorbase::cli::models::CommandInvoker\\actorbase::cli::models::Observable\\actorbase::cli::views::ResultViewer\\actorbase::cli::views\\}\\
 \hline
-OBF2.1.3.6 & \multiLineCell[t]{actorbase::cli::models::RemoveItemCommand\\actorbase::cli::views::CommandLoop\\actorbase::cli::models\\actorbase::cli::views\\}\\
+OBF2.1.3.6 & \multiLineCell[t]{actorbase::cli::models::RemoveItemCommand\\actorbase::cli::views::CommandLoop\\}\\
 \hline
-OBF2.1.3.6.1 & \multiLineCell[t]{actorbase::cli::views::CommandLoop\\actorbase::cli::views\\}\\
+OBF2.1.3.6.1 & \multiLineCell[t]{actorbase::cli::views::CommandLoop\\}\\
 \hline
-OBF2.1.3.6.2 & \multiLineCell[t]{actorbase::cli::views::CommandLoop\\actorbase::cli::views\\}\\
+OBF2.1.3.6.2 & \multiLineCell[t]{actorbase::cli::views::CommandLoop\\}\\
 \hline
-OBF2.1.6 & \multiLineCell[t]{actorbase::cli::controllers::GrammarParser\\actorbase::cli::models::Command\\actorbase::cli::models::CommandReceiver\\actorbase::cli::models::FindCommand\\actorbase::cli::views::CommandLoop\\actorbase::cli::controllers\\actorbase::cli::models\\actorbase::cli::views\\}\\
+OBF2.1.6 & \multiLineCell[t]{actorbase::cli::controllers::GrammarParser\\actorbase::cli::models::Command\\actorbase::cli::models::CommandReceiver\\actorbase::cli::models::FindCommand\\actorbase::cli::views::CommandLoop\\actorbase::cli::controllers\\}\\
 \hline
-OBF2.1.6.1 & \multiLineCell[t]{actorbase::cli::views::CommandLoop\\actorbase::cli::models\\actorbase::cli::views\\}\\
+OBF2.1.6.1 & \multiLineCell[t]{actorbase::cli::views::CommandLoop\\}\\
 \hline
-OBF2.1.6.2 & \multiLineCell[t]{actorbase::cli::views::CommandLoop\\actorbase::cli::models\\actorbase::cli::views\\}\\
+OBF2.1.6.2 & \multiLineCell[t]{actorbase::cli::views::CommandLoop\\}\\
 \hline
-OBF2.1.7 & \multiLineCell[t]{actorbase::cli::controllers::GrammarParser\\actorbase::cli::models::ChangePasswordCommand\\actorbase::cli::models::Command\\actorbase::cli::models::CommandReceiver\\actorbase::cli::views::CommandLoop\\actorbase::cli::controllers\\actorbase::cli::models\\actorbase::cli::views\\}\\
+OBF2.1.7 & \multiLineCell[t]{actorbase::cli::controllers::GrammarParser\\actorbase::cli::models::ChangePasswordCommand\\actorbase::cli::models::Command\\actorbase::cli::models::CommandReceiver\\actorbase::cli::views::CommandLoop\\actorbase::cli::controllers\\}\\
 \hline
-OBF2.1.7.1 & \multiLineCell[t]{actorbase::cli::views::CommandLoop\\actorbase::cli::models\\actorbase::cli::views\\}\\
+OBF2.1.7.1 & \multiLineCell[t]{actorbase::cli::views::CommandLoop\\}\\
 \hline
-OBF2.1.7.2 & \multiLineCell[t]{actorbase::cli::views::CommandLoop\\actorbase::cli::models\\actorbase::cli::views\\}\\
+OBF2.1.7.2 & \multiLineCell[t]{actorbase::cli::views::CommandLoop\\}\\
 \hline
-OBF2.1.7.3 & \multiLineCell[t]{actorbase::cli::views::CommandLoop\\actorbase::cli::models\\actorbase::cli::views\\}\\
+OBF2.1.7.3 & \multiLineCell[t]{actorbase::cli::views::CommandLoop\\}\\
 \hline
-OBF2.1.7.4 & \multiLineCell[t]{actorbase::cli::models::CommandInvoker\\actorbase::cli::models::Observable\\actorbase::cli::views::ResultViewer\\actorbase::cli::views\\actorbase::cli::views::Observer\\}\\
+OBF2.1.7.4 & \multiLineCell[t]{actorbase::cli::models::CommandInvoker\\actorbase::cli::models::Observable\\actorbase::cli::views::ResultViewer\\actorbase::cli::views\\}\\
 \hline
-OBF2.1.7.5 & \multiLineCell[t]{actorbase::cli::models::CommandInvoker\\actorbase::cli::models::Observable\\actorbase::cli::views::ResultViewer\\actorbase::cli::views\\actorbase::cli::views::Observer\\}\\
+OBF2.1.7.5 & \multiLineCell[t]{actorbase::cli::models::CommandInvoker\\actorbase::cli::models::Observable\\actorbase::cli::views::ResultViewer\\actorbase::cli::views\\}\\
 \hline
-OBF2.1.7.6 & \multiLineCell[t]{actorbase::cli::models::CommandInvoker\\actorbase::cli::models::Observable\\actorbase::cli::views::ResultViewer\\actorbase::cli::views\\actorbase::cli::views::Observer\\}\\
+OBF2.1.7.6 & \multiLineCell[t]{actorbase::cli::models::CommandInvoker\\actorbase::cli::models::Observable\\actorbase::cli::views::ResultViewer\\actorbase::cli::views\\}\\
 \hline
-OBF2.1.8 & \multiLineCell[t]{actorbase::cli::controllers::GrammarParser\\actorbase::cli::models::Command\\actorbase::cli::models::CommandReceiver\\actorbase::cli::views::CommandLoop\\actorbase::cli::controllers\\actorbase::cli::models\\actorbase::cli::views\\}\\
+OBF2.1.8 & \multiLineCell[t]{actorbase::cli::controllers::GrammarParser\\actorbase::cli::models::Command\\actorbase::cli::models::CommandReceiver\\actorbase::cli::views::CommandLoop\\actorbase::cli::controllers\\}\\
 \hline
-OBF2.1.9 & \multiLineCell[t]{actorbase::cli::controllers::GrammarParser\\actorbase::cli::models::Command\\actorbase::cli::models::CommandReceiver\\actorbase::cli::views::CommandLoop\\actorbase::cli::controllers\\actorbase::cli::models\\actorbase::cli::views\\}\\
+OBF2.1.9 & \multiLineCell[t]{actorbase::cli::controllers::GrammarParser\\actorbase::cli::models::Command\\actorbase::cli::models::CommandReceiver\\actorbase::cli::views::CommandLoop\\actorbase::cli::controllers\\}\\
 \hline
-OBF2.1.9.1 & \multiLineCell[t]{actorbase::cli::controllers::GrammarParser\\actorbase::cli::models::AddUserCommand\\actorbase::cli::models::Command\\actorbase::cli::models::CommandReceiver\\actorbase::cli::views::CommandLoop\\actorbase::cli::controllers\\actorbase::cli::models\\actorbase::cli::views\\}\\
+OBF2.1.9.1 & \multiLineCell[t]{actorbase::cli::controllers::GrammarParser\\actorbase::cli::models::AddUserCommand\\actorbase::cli::models::Command\\actorbase::cli::models::CommandReceiver\\actorbase::cli::views::CommandLoop\\actorbase::cli::controllers\\}\\
 \hline
-OBF2.1.9.1.1 & \multiLineCell[t]{actorbase::cli::views::CommandLoop\\actorbase::cli::models\\actorbase::cli::views\\}\\
+OBF2.1.9.1.1 & \multiLineCell[t]{actorbase::cli::views::CommandLoop\\}\\
 \hline
-OBF2.1.9.1.2 & \multiLineCell[t]{actorbase::cli::views::CommandLoop\\actorbase::cli::models\\actorbase::cli::views\\}\\
+OBF2.1.9.1.2 & \multiLineCell[t]{actorbase::cli::views::CommandLoop\\}\\
 \hline
-OBF2.1.9.2 & \multiLineCell[t]{actorbase::cli::controllers::GrammarParser\\actorbase::cli::models::Command\\actorbase::cli::models::CommandReceiver\\actorbase::cli::models::RemoveUserCommand\\actorbase::cli::views::CommandLoop\\actorbase::cli::controllers\\actorbase::cli::models\\actorbase::cli::views\\}\\
+OBF2.1.9.2 & \multiLineCell[t]{actorbase::cli::controllers::GrammarParser\\actorbase::cli::models::Command\\actorbase::cli::models::CommandReceiver\\actorbase::cli::models::RemoveUserCommand\\actorbase::cli::views::CommandLoop\\actorbase::cli::controllers\\}\\
 \hline
-OBF2.1.9.2.1 & \multiLineCell[t]{actorbase::cli::views::CommandLoop\\actorbase::cli::models\\actorbase::cli::views\\}\\
+OBF2.1.9.2.1 & \multiLineCell[t]{actorbase::cli::views::CommandLoop\\}\\
 \hline
-OBF2.1.9.2.2 & \multiLineCell[t]{actorbase::cli::views::CommandLoop\\actorbase::cli::models\\actorbase::cli::views\\}\\
+OBF2.1.9.2.2 & \multiLineCell[t]{actorbase::cli::views::CommandLoop\\}\\
 \hline
-OBF2.1.9.3 & \multiLineCell[t]{actorbase::cli::controllers::GrammarParser\\actorbase::cli::models::Command\\actorbase::cli::models::CommandReceiver\\actorbase::cli::models::ResetPasswordCommand\\actorbase::cli::views::CommandLoop\\actorbase::cli::controllers\\actorbase::cli::models\\actorbase::cli::views\\}\\
+OBF2.1.9.3 & \multiLineCell[t]{actorbase::cli::controllers::GrammarParser\\actorbase::cli::models::Command\\actorbase::cli::models::CommandReceiver\\actorbase::cli::models::ResetPasswordCommand\\actorbase::cli::views::CommandLoop\\actorbase::cli::controllers\\}\\
 \hline
-OBF2.1.9.3.1 & \multiLineCell[t]{actorbase::cli::views::CommandLoop\\actorbase::cli::models\\actorbase::cli::views\\}\\
+OBF2.1.9.3.1 & \multiLineCell[t]{actorbase::cli::views::CommandLoop\\}\\
 \hline
-OBF2.1.9.3.2 & \multiLineCell[t]{actorbase::cli::views::CommandLoop\\actorbase::cli::models\\actorbase::cli::views\\}\\
+OBF2.1.9.3.2 & \multiLineCell[t]{actorbase::cli::views::CommandLoop\\}\\
 \hline
-OBF2.1.9.4 & \multiLineCell[t]{actorbase::cli::models::CommandInvoker\\actorbase::cli::models::Observable\\actorbase::cli::views::ResultViewer\\actorbase::cli::views\\actorbase::cli::views::Observer\\}\\
+OBF2.1.9.4 & \multiLineCell[t]{actorbase::cli::models::CommandInvoker\\actorbase::cli::models::Observable\\actorbase::cli::views::ResultViewer\\actorbase::cli::views\\}\\
 \hline
-OBF2.1.9.5 & \multiLineCell[t]{actorbase::cli::models::CommandInvoker\\actorbase::cli::models::Observable\\actorbase::cli::views::ResultViewer\\actorbase::cli::views\\actorbase::cli::views::Observer\\}\\
+OBF2.1.9.5 & \multiLineCell[t]{actorbase::cli::models::CommandInvoker\\actorbase::cli::models::Observable\\actorbase::cli::views::ResultViewer\\actorbase::cli::views\\}\\
 \hline
-OBF2.1.9.6 & \multiLineCell[t]{actorbase::cli::models::CommandInvoker\\actorbase::cli::models::Observable\\actorbase::cli::views::ResultViewer\\actorbase::cli::views\\actorbase::cli::views::Observer\\}\\
-\hline
-OBQ12 & \multiLineCell[t]{actorbase\\}\\
-\hline
-OBV4 & \multiLineCell[t]{actorbase\\}\\
-\hline
-OBV5 & \multiLineCell[t]{actorbase\\}\\
-\hline
-OBV6 & \multiLineCell[t]{actorbase\\}\\
-\hline
-OBV7 & \multiLineCell[t]{actorbase\\}\\
+OBF2.1.9.6 & \multiLineCell[t]{actorbase::cli::models::CommandInvoker\\actorbase::cli::models::Observable\\actorbase::cli::views::ResultViewer\\actorbase::cli::views\\}\\
 \hline
 \end{longtable}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 \newpage
