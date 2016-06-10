@@ -178,7 +178,7 @@ generale \textbf{actorbase}.
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=0.9\textwidth,keepaspectratio]{RP/Architettura-AltoLivello.png}
-    \caption{Diagramma componenti principali}
+    \caption{Diagramma componenti principali: Server, Driver e CLI}
   \end{center}
 \end{figure}
 
@@ -205,8 +205,8 @@ Rappresentano le tre macro-componenti del sistema.
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.9\textwidth,keepaspectratio]{RA/Actorsystem.png}
-    \caption{Actorsystem, visione generale}
+    \includegraphics[width=1.1\textwidth,keepaspectratio]{RA/Actorsystem.png}
+    \caption{\gloss{Package} actorsystem, visione generale}
   \end{center}
 \end{figure}
 
@@ -228,7 +228,7 @@ rappresentano il \gloss{server}.
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=1.0\textwidth,keepaspectratio]{RA/utils.png}
+    \includegraphics[width=0.8\textwidth,keepaspectratio]{RA/utils.png}
     \caption{Package actorsystem::utils}
   \end{center}
 \end{figure}
@@ -243,8 +243,8 @@ rappresentano il \gloss{server}.
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.5\textwidth,keepaspectratio]{RA/permissions.png}
-    \caption{Actorsystem, visione generale}
+    \includegraphics[width=0.2\textwidth,keepaspectratio]{RA/permissions.png}
+    \caption{Classe actorsystem::utils::Permissions}
   \end{center}
 \end{figure}
 
@@ -275,8 +275,8 @@ da applicare ai \gloss{collaboratori}.
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.5\textwidth,keepaspectratio]{RA/readWrite.png}
-    \caption{Actorsystem, visione generale}
+    \includegraphics[width=0.2\textwidth,keepaspectratio]{RA/readWrite.png}
+    \caption{Classe actorsystem::utils::Read}
   \end{center}
 \end{figure}
 
@@ -301,8 +301,8 @@ Viene utilizzata per rappresentare i tipi di permessi di sola lettura sulle
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.5\textwidth,keepaspectratio]{RA/read.png}
-    \caption{Actorsystem, visione generale}
+    \includegraphics[width=0.2\textwidth,keepaspectratio]{RA/read.png}
+    \caption{Classe actorsystem::utils::ReadWrite}
   \end{center}
 \end{figure}
 
@@ -327,7 +327,7 @@ scrittura sulle \gloss{collezioni} da applicare ai \gloss{collaboratori}.
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.5\textwidth,keepaspectratio]{RA/cryptoutils.png}
+    \includegraphics[width=0.4\textwidth,keepaspectratio]{RA/cryptoutils.png}
     \caption{Classe actorsystem::utils::CryptoUtils}
   \end{center}
 \end{figure}
@@ -420,7 +420,7 @@ Viene utilizzata dall'attore di tipo \gloss{Warehouseman} per il salvataggio e l
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.5\textwidth,keepaspectratio]{RA/actorbaseCollectionUtils.png}
+    \includegraphics[width=0.4\textwidth,keepaspectratio]{RA/actorbaseCollectionUtils.png}
     \caption{Classe actorsystem::utils::ActorbaseCollection}
   \end{center}
 \end{figure}
@@ -519,8 +519,8 @@ riguardanti \gloss{collezioni}.
 % TODO da aggiungere
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.9\textwidth,keepaspectratio]{RA/messages.png}
-    \caption{Package messages}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RA/messages.png}
+    \caption{\gloss{Package} messages}
   \end{center}
 \end{figure}
 
@@ -545,7 +545,7 @@ riguardanti \gloss{collezioni}.
 % TODO img
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.7\textwidth,keepaspectratio]{RA/authactormessages.png}
+    \includegraphics[width=0.6\textwidth,keepaspectratio]{RA/authactormessages.png}
     \caption{Package actorsystem::messages::authactormessages}
   \end{center}
 \end{figure}
@@ -561,7 +561,7 @@ riguardanti \gloss{collezioni}.
 % TODO img
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.5\textwidth,keepaspectratio]{RA/addCredentials.png}
+    \includegraphics[width=0.3\textwidth,keepaspectratio]{RA/addCredentials.png}
     \caption{Classe AddCredentials}
   \end{center}
 \end{figure}
@@ -590,7 +590,7 @@ avviene inoltre il controllo della password, in modo che rispetti i vincoli impo
 \end{tabular}
 
 \subparagraph{Metodi}
-\begin{tabular}{| l | l | l | l |}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{3.5cm} | p{9cm} |}
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
@@ -606,7 +606,7 @@ avviene inoltre il controllo della password, in modo che rispetti i vincoli impo
 % TODO img
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.5\textwidth,keepaspectratio]{RA/updateCredentials.png}
+    \includegraphics[width=0.3\textwidth,keepaspectratio]{RA/updateCredentials.png}
     \caption{Classe UpdateCredentials}
   \end{center}
 \end{figure}
@@ -636,7 +636,7 @@ di modifica della password di un utente.
 \end{tabular}
 
 \subparagraph{Metodi}
-\begin{tabular}{| l | l | l | l |}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{3.5cm} | p{9cm} |}
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
@@ -654,7 +654,7 @@ di modifica della password di un utente.
 % TODO img
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.5\textwidth,keepaspectratio]{RA/removeCredentials.png}
+    \includegraphics[width=0.3\textwidth,keepaspectratio]{RA/removeCredentials.png}
     \caption{Classe RemoveCredentials}
   \end{center}
 \end{figure}
@@ -680,7 +680,7 @@ di rimozione di un utente.
 \end{tabular}
 
 \subparagraph{Metodi}
-\begin{tabular}{| l | l | l | l |}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{3.5cm} | p{9cm} |}
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
@@ -694,7 +694,7 @@ di rimozione di un utente.
 % TODO img
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.5\textwidth,keepaspectratio]{RA/Authenticate.png}
+    \includegraphics[width=0.3\textwidth,keepaspectratio]{RA/Authenticate.png}
     \caption{Classe Authenticate}
   \end{center}
 \end{figure}
@@ -722,7 +722,7 @@ dovrà controllare se le credenziali immesse dall'utente sono corrette.
 \end{tabular}
 
 \subparagraph{Metodi}
-\begin{tabular}{| l | l | l | l |}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{3.5cm} | p{9cm} |}
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
@@ -738,7 +738,7 @@ dovrà controllare se le credenziali immesse dall'utente sono corrette.
 % TODO img
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.5\textwidth,keepaspectratio]{RA/addCollectionTo.png}
+    \includegraphics[width=0.3\textwidth,keepaspectratio]{RA/addCollectionTo.png}
     \caption{Classe AddCollectionTo}
   \end{center}
 \end{figure}
@@ -770,7 +770,7 @@ presente associata all'utente stesso.
 \end{tabular}
 
 \subparagraph{Metodi}
-\begin{tabular}{| l | l | l | l |}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{3.5cm} | p{9cm} |}
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
@@ -786,8 +786,8 @@ presente associata all'utente stesso.
 % TODO img
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.5\textwidth,keepaspectratio]{RA/removeCollectionFrom.png}
-    \caption{Classe AddCollectionTo}
+    \includegraphics[width=0.3\textwidth,keepaspectratio]{RA/removeCollectionFrom.png}
+    \caption{Classe RemoveCollectionFrom}
   \end{center}
 \end{figure}
 
@@ -819,7 +819,7 @@ presente e associata all'utente stesso.
 \end{tabular}
 
 \subparagraph{Metodi}
-\begin{tabular}{| l | l | l | l |}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{3.5cm} | p{9cm} |}
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
@@ -835,8 +835,8 @@ presente e associata all'utente stesso.
 % TODO img
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.5\textwidth,keepaspectratio]{RA/ListCollectionsOf.png}
-    \caption{Classe AddCollectionTo}
+    \includegraphics[width=0.3\textwidth,keepaspectratio]{RA/ListCollectionsOf.png}
+    \caption{Classe ListCollectionsOf}
   \end{center}
 \end{figure}
 
@@ -864,7 +864,7 @@ dovrà controllare che l'utente specificato sia presente nel sistema.
 \end{tabular}
 
 \subparagraph{Metodi}
-\begin{tabular}{| l | l | l | l |}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{3.5cm} | p{9cm} |}
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
@@ -880,7 +880,7 @@ dovrà controllare che l'utente specificato sia presente nel sistema.
 % TODO img
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=1.0\textwidth,keepaspectratio]{RA/clientactormessages.png}
+    \includegraphics[width=0.7\textwidth,keepaspectratio]{RA/clientactormessages.png}
     \caption{Package actorsystem::messages::clientactormessages}
   \end{center}
 \end{figure}
@@ -896,7 +896,7 @@ dovrà controllare che l'utente specificato sia presente nel sistema.
 % TODO img
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.5\textwidth,keepaspectratio]{RA/listResponse.png}
+    \includegraphics[width=0.3\textwidth,keepaspectratio]{RA/listResponse.png}
     \caption{Classe ListResponse}
   \end{center}
 \end{figure}
@@ -924,7 +924,7 @@ la richiesta di lista collezioni.
 \end{tabular}
 
 \subparagraph{Metodi}
-\begin{tabular}{| l | l | l | l |}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{3.5cm} | p{9cm} |}
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
@@ -938,7 +938,7 @@ la richiesta di lista collezioni.
 % TODO img
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.5\textwidth,keepaspectratio]{RA/mapResponse.png}
+    \includegraphics[width=0.3\textwidth,keepaspectratio]{RA/mapResponse.png}
     \caption{Classe MapResponse}
   \end{center}
 \end{figure}
@@ -968,7 +968,7 @@ la richiesta di restituzione di una collezione.
 \end{tabular}
 
 \subparagraph{Metodi}
-\begin{tabular}{| l | l | l | l |}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{3.5cm} | p{9cm} |}
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
@@ -984,7 +984,7 @@ la richiesta di restituzione di una collezione.
 % TODO img
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.5\textwidth,keepaspectratio]{RA/response.png}
+    \includegraphics[width=0.3\textwidth,keepaspectratio]{RA/response.png}
     \caption{Classe Response}
   \end{center}
 \end{figure}
@@ -1011,7 +1011,7 @@ Questo viene utilizzato per adempiere ad alcune richieste dell'utente.
 \end{tabular}
 
 \subparagraph{Metodi}
-\begin{tabular}{| l | l | l | l |}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{3.5cm} | p{9cm} |}
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
@@ -1027,7 +1027,7 @@ Questo viene utilizzato per adempiere ad alcune richieste dell'utente.
 % TODO img
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=1.0\textwidth,keepaspectratio]{RA/mainmessages.png}
+    \includegraphics[width=0.9\textwidth,keepaspectratio]{RA/mainmessages.png}
     \caption{Package actorsystem::messages::mainactormessages}
   \end{center}
 \end{figure}
@@ -1043,7 +1043,7 @@ Questo viene utilizzato per adempiere ad alcune richieste dell'utente.
 % TODO img
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.5\textwidth,keepaspectratio]{RA/insertTo.png}
+    \includegraphics[width=0.3\textwidth,keepaspectratio]{RA/insertTo.png}
     \caption{Classe InsertTo}
   \end{center}
 \end{figure}
@@ -1084,7 +1084,7 @@ infine verrà inoltrata la richiesta di inserimento a quest'ultimo.
 \end{tabular}
 
 \subparagraph{Metodi}
-\begin{tabular}{| l | l | l | l |}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{3.5cm} | p{9cm} |}
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
@@ -1104,7 +1104,7 @@ infine verrà inoltrata la richiesta di inserimento a quest'ultimo.
 % TODO img
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.5\textwidth,keepaspectratio]{RA/getFrom.png}
+    \includegraphics[width=0.3\textwidth,keepaspectratio]{RA/getFrom.png}
     \caption{Classe GetFrom}
   \end{center}
 \end{figure}
@@ -1134,7 +1134,7 @@ item o una intera collezione.
 \end{tabular}
 
 \subparagraph{Metodi}
-\begin{tabular}{| l | l | l | l |}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{3.5cm} | p{9cm} |}
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
@@ -1151,7 +1151,7 @@ item o una intera collezione.
 % TODO img
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.5\textwidth,keepaspectratio]{RA/completeTransaction.png}
+    \includegraphics[width=0.3\textwidth,keepaspectratio]{RA/completeTransaction.png}
     \caption{Classe CompleteTransaction}
   \end{center}
 \end{figure}
@@ -1184,7 +1184,7 @@ messaggio è utilizzato quando un utente richiede un intera collezione.
 \end{tabular}
 
 \subparagraph{Metodi}
-\begin{tabular}{| l | l | l | l |}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{3.5cm} | p{9cm} |}
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
@@ -1202,7 +1202,7 @@ messaggio è utilizzato quando un utente richiede un intera collezione.
 % TODO img
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.5\textwidth,keepaspectratio]{RA/removeFrom.png}
+    \includegraphics[width=0.3\textwidth,keepaspectratio]{RA/removeFrom.png}
     \caption{Classe RemoveFrom}
   \end{center}
 \end{figure}
@@ -1229,7 +1229,7 @@ inoltrare la richiesta al giusto attore \hyperref[sec:actorbase::actorsystem::ac
 \end{tabular}
 
 \subparagraph{Metodi}
-\begin{tabular}{| l | l | l | l |}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{3.5cm} | p{9cm} |}
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
@@ -1245,7 +1245,7 @@ inoltrare la richiesta al giusto attore \hyperref[sec:actorbase::actorsystem::ac
 % TODO img
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.5\textwidth,keepaspectratio]{RA/addContributor.png}
+    \includegraphics[width=0.3\textwidth,keepaspectratio]{RA/addContributor.png}
     \caption{Classe AddContributor}
   \end{center}
 \end{figure}
@@ -1276,7 +1276,7 @@ lo username del collaboratore designato alla collezione richiesta.
 \end{tabular}
 
 \subparagraph{Metodi}
-\begin{tabular}{| l | l | l | l |}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{3.5cm} | p{9cm} |}
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
@@ -1294,7 +1294,7 @@ lo username del collaboratore designato alla collezione richiesta.
 % TODO img
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.5\textwidth,keepaspectratio]{RA/removeContributore.png}
+    \includegraphics[width=0.3\textwidth,keepaspectratio]{RA/removeContributor.png}
     \caption{Classe RemoveContributor}
   \end{center}
 \end{figure}
@@ -1323,7 +1323,7 @@ lo username del collaboratore designato alla collezione richiesta.
 \end{tabular}
 
 \subparagraph{Metodi}
-\begin{tabular}{| l | l | l | l |}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{3.5cm} | p{9cm} |}
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
@@ -1339,7 +1339,7 @@ lo username del collaboratore designato alla collezione richiesta.
 % TODO img
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.5\textwidth,keepaspectratio]{RA/createCollection.png}
+    \includegraphics[width=0.3\textwidth,keepaspectratio]{RA/createCollection.png}
     \caption{Classe CreateCollection}
   \end{center}
 \end{figure}
@@ -1364,7 +1364,7 @@ adibito alla gestione di quest'ultima.
 \end{tabular}
 
 \subparagraph{Metodi}
-\begin{tabular}{| l | l | l | l |}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{3.5cm} | p{9cm} |}
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
@@ -1380,7 +1380,7 @@ adibito alla gestione di quest'ultima.
 % TODO img
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=1.0\textwidth,keepaspectratio]{RA/storefindermessages.png}
+    \includegraphics[width=0.7\textwidth,keepaspectratio]{RA/storefindermessages.png}
     \caption{Package actorsystem::messages::storefindermessages}
   \end{center}
 \end{figure}
@@ -1396,7 +1396,7 @@ adibito alla gestione di quest'ultima.
 % TODO img
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.5\textwidth,keepaspectratio]{RA/getAllItems.png}
+    \includegraphics[width=0.3\textwidth,keepaspectratio]{RA/getAllItems.png}
     \caption{Classe Storefinder}
   \end{center}
 \end{figure}
@@ -1419,7 +1419,7 @@ richiedere intere collezioni.
 % TODO img
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.5\textwidth,keepaspectratio]{RA/updateCollectionSize.png}
+    \includegraphics[width=0.3\textwidth,keepaspectratio]{RA/updateCollectionSize.png}
     \caption{Classe UpdateCollectionSize}
   \end{center}
 \end{figure}
@@ -1444,7 +1444,7 @@ collezioni quando si inseriscono o rimuovono items da esse.
 \end{tabular}
 
 \subparagraph{Metodi}
-\begin{tabular}{| l | l | l | l |}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{3.5cm} | p{9cm} |}
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
@@ -1458,7 +1458,7 @@ collezioni quando si inseriscono o rimuovono items da esse.
 % TODO img
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.5\textwidth,keepaspectratio]{RA/getSF.png}
+    \includegraphics[width=0.3\textwidth,keepaspectratio]{RA/getSF.png}
     \caption{Classe Get}
   \end{center}
 \end{figure}
@@ -1483,7 +1483,7 @@ richiesta allo \hyperref[sec:actorbase::actorsystem::actors::storekeeper::Storek
 \end{tabular}
 
 \subparagraph{Metodi}
-\begin{tabular}{| l | l | l | l |}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{3.5cm} | p{9cm} |}
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
@@ -1497,7 +1497,7 @@ richiesta allo \hyperref[sec:actorbase::actorsystem::actors::storekeeper::Storek
 % TODO img
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.5\textwidth,keepaspectratio]{RA/partialMapTransaction.png}
+    \includegraphics[width=0.3\textwidth,keepaspectratio]{RA/partialMapTransaction.png}
     \caption{Classe PartialMapTransaction}
   \end{center}
 \end{figure}
@@ -1524,7 +1524,7 @@ una richiesta di una intera collezione da parte di un utente.\\Quando riceve que
 \end{tabular}
 
 \subparagraph{Metodi}
-\begin{tabular}{| l | l | l | l |}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{3.5cm} | p{9cm} |}
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
@@ -1540,7 +1540,7 @@ una richiesta di una intera collezione da parte di un utente.\\Quando riceve que
 % TODO img
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.5\textwidth,keepaspectratio]{RA/remove.png}
+    \includegraphics[width=0.3\textwidth,keepaspectratio]{RA/remove.png}
     \caption{Classe Remove}
   \end{center}
 \end{figure}
@@ -1566,7 +1566,7 @@ giusto.
 \end{tabular}
 
 \subparagraph{Metodi}
-\begin{tabular}{| l | l | l | l |}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{3.5cm} | p{9cm} |}
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
@@ -1580,7 +1580,7 @@ giusto.
 % TODO img
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.5\textwidth,keepaspectratio]{RA/insert.png}
+    \includegraphics[width=0.3\textwidth,keepaspectratio]{RA/insert.png}
     \caption{Classe Insert}
   \end{center}
 \end{figure}
@@ -1613,7 +1613,7 @@ giusto.
 \end{tabular}
 
 \subparagraph{Metodi}
-\begin{tabular}{| l | l | l | l |}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{3.5cm} | p{9cm} |}
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
@@ -1633,7 +1633,7 @@ giusto.
 % TODO img
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=1.0\textwidth,keepaspectratio]{RA/storekeepermessages.png}
+    \includegraphics[width=0.6\textwidth,keepaspectratio]{RA/storekeepermessages.png}
     \caption{Package actorsystem::messages::storekeepermessages}
   \end{center}
 \end{figure}
@@ -1649,7 +1649,7 @@ giusto.
 % TODO img
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.5\textwidth,keepaspectratio]{RA/persist.png}
+    \includegraphics[width=0.3\textwidth,keepaspectratio]{RA/persist.png}
     \caption{Classe Persist}
   \end{center}
 \end{figure}
@@ -1670,7 +1670,7 @@ all'attore \hyperref[sec:actorbase::actorsystem::actors::warehouseman::Warehouse
 % TODO img
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.5\textwidth,keepaspectratio]{RA/InitMn.png}
+    \includegraphics[width=0.3\textwidth,keepaspectratio]{RA/InitMn.png}
     \caption{Classe InitMn}
   \end{center}
 \end{figure}
@@ -1698,7 +1698,7 @@ informarlo quando raggiunge una certa soglia di items. Il \hyperref[sec:actorbas
 \end{tabular}
 
 \subparagraph{Metodi}
-\begin{tabular}{| l | l | l | l |}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{3.5cm} | p{9cm} |}
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
@@ -1712,7 +1712,7 @@ informarlo quando raggiunge una certa soglia di items. Il \hyperref[sec:actorbas
 % TODO img
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.5\textwidth,keepaspectratio]{RA/getAll.png}
+    \includegraphics[width=0.3\textwidth,keepaspectratio]{RA/getAll.png}
     \caption{Classe GetAll}
   \end{center}
 \end{figure}
@@ -1740,7 +1740,7 @@ restituire all'utente intere collezioni.
 \end{tabular}
 
 \subparagraph{Metodi}
-\begin{tabular}{| l | l | l | l |}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{3.5cm} | p{9cm} |}
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
@@ -1754,7 +1754,7 @@ restituire all'utente intere collezioni.
 % TODO img
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.5\textwidth,keepaspectratio]{RA/getItem.png}
+    \includegraphics[width=0.3\textwidth,keepaspectratio]{RA/getItem.png}
     \caption{Classe GetItem}
   \end{center}
 \end{figure}
@@ -1781,7 +1781,7 @@ ha effettuato la richiesta.
 \end{tabular}
 
 \subparagraph{Metodi}
-\begin{tabular}{| l | l | l | l |}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{3.5cm} | p{9cm} |}
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
@@ -1795,7 +1795,7 @@ ha effettuato la richiesta.
 % TODO img
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.5\textwidth,keepaspectratio]{RA/insertItem.png}
+    \includegraphics[width=0.3\textwidth,keepaspectratio]{RA/insertItem.png}
     \caption{Classe InsertItem}
   \end{center}
 \end{figure}
@@ -1826,7 +1826,7 @@ messaggio.
 \end{tabular}
 
 \subparagraph{Metodi}
-\begin{tabular}{| l | l | l | l |}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{3.5cm} | p{9cm} |}
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
@@ -1844,7 +1844,7 @@ messaggio.
 % TODO img
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.5\textwidth,keepaspectratio]{RA/removeItem.png}
+    \includegraphics[width=0.3\textwidth,keepaspectratio]{RA/removeItem.png}
     \caption{Classe RemoveItem}
   \end{center}
 \end{figure}
@@ -1872,7 +1872,7 @@ chiave passata come parametro.
 \end{tabular}
 
 \subparagraph{Metodi}
-\begin{tabular}{| l | l | l | l |}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{3.5cm} | p{9cm} |}
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
@@ -1888,7 +1888,7 @@ chiave passata come parametro.
 % TODO img
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=1.0\textwidth,keepaspectratio]{RA/warehousemanmessages.png}
+    \includegraphics[width=0.8\textwidth,keepaspectratio]{RA/warehousemanmessages.png}
     \caption{Package actorsystem::messages::warehousemanmessages}
   \end{center}
 \end{figure}
@@ -1904,7 +1904,7 @@ chiave passata come parametro.
 % TODO img
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.5\textwidth,keepaspectratio]{RA/clean.png}
+    \includegraphics[width=0.3\textwidth,keepaspectratio]{RA/clean.png}
     \caption{Classe Clean}
   \end{center}
 \end{figure}
@@ -1926,7 +1926,7 @@ file contenenti dati rappresentati dall'attore in questione.\\Questo messaggio
 % TODO img
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.5\textwidth,keepaspectratio]{RA/init.png}
+    \includegraphics[width=0.3\textwidth,keepaspectratio]{RA/init.png}
     \caption{Classe Init}
   \end{center}
 \end{figure}
@@ -1953,7 +1953,7 @@ ricevuto subito dopo la propria creazione in modo da inizializzarlo immediatamen
 \end{tabular}
 
 \subparagraph{Metodi}
-\begin{tabular}{| l | l | l | l |}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{3.5cm} | p{9cm} |}
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
@@ -1969,7 +1969,7 @@ ricevuto subito dopo la propria creazione in modo da inizializzarlo immediatamen
 % TODO img
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.5\textwidth,keepaspectratio]{RA/save.png}
+    \includegraphics[width=0.3\textwidth,keepaspectratio]{RA/save.png}
     \caption{Classe Save}
   \end{center}
 \end{figure}
@@ -1995,7 +1995,7 @@ simile alla gerarchia delle collezioni del sistema.\\I dati salvati vengono prim
 \end{tabular}
 
 \subparagraph{Metodi}
-\begin{tabular}{| l | l | l | l |}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{3.5cm} | p{9cm} |}
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
@@ -2009,7 +2009,7 @@ simile alla gerarchia delle collezioni del sistema.\\I dati salvati vengono prim
 % TODO img
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.5\textwidth,keepaspectratio]{RA/read.png}
+    \includegraphics[width=0.3\textwidth,keepaspectratio]{RA/read.png}
     \caption{Classe Read}
   \end{center}
 \end{figure}
@@ -2034,7 +2034,7 @@ leggere e restituire i dati all'attore richiedente.\\Questo messaggio è usato a
 \end{tabular}
 
 \subparagraph{Metodi}
-\begin{tabular}{| l | l | l | l |}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{3.5cm} | p{9cm} |}
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
@@ -2052,7 +2052,7 @@ leggere e restituire i dati all'attore richiedente.\\Questo messaggio è usato a
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.9\textwidth,keepaspectratio]{RA/Actors.png}
+    \includegraphics[width=0.8\textwidth,keepaspectratio]{RA/Actors.png}
     \caption{Actorsystem, visione generale}
   \end{center}
 \end{figure}
@@ -2078,7 +2078,7 @@ leggere e restituire i dati all'attore richiedente.\\Questo messaggio è usato a
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.9\textwidth,keepaspectratio]{RA/clientactor.png}
+    \includegraphics[width=0.7\textwidth,keepaspectratio]{RA/clientactor.png}
     \caption{Clientactor e interazioni con main}
   \end{center}
 \end{figure}
@@ -2214,7 +2214,7 @@ tipo
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.5\textwidth,keepaspectratio]{RA/user.png}
+    \includegraphics[width=0.3\textwidth,keepaspectratio]{RA/user.png}
     \caption{Classe actorsystem::actors::clientactor::UserApi}
   \end{center}
 \end{figure}
@@ -2257,7 +2257,7 @@ oggetto di tipo \hyperref[sec:actorbase::actorsystem::actors::clientactor::AuthI
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.5\textwidth,keepaspectratio]{RA/authInfo.png}
+    \includegraphics[width=0.3\textwidth,keepaspectratio]{RA/authInfo.png}
     \caption{Classe actorsystem::actors::clientactor::UserApi}
   \end{center}
 \end{figure}
@@ -2302,7 +2302,7 @@ dell'\hyperref[sec:actorbase::actorsystem::actors::clientactor::Authenticator]{A
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.5\textwidth,keepaspectratio]{RA/collectionAPI.png}
+    \includegraphics[width=0.4\textwidth,keepaspectratio]{RA/collectionAPI.png}
     \caption{Classe actorsystem::actors::clientactor::CollectionApi}
   \end{center}
 \end{figure}
@@ -2357,7 +2357,7 @@ utilizzando il \gloss{package} \texttt{directives} della libreria
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.5\textwidth,keepaspectratio]{RA/clientactor.png}
+    \includegraphics[width=0.3\textwidth,keepaspectratio]{RA/clientactor.png}
     \caption{Classe actorsystem::actors::clientactor::ClientActor}
   \end{center}
 \end{figure}
@@ -2402,7 +2402,7 @@ dal \gloss{driver} basandosi sulla route di quest'ultima.
 
 \subparagraph{Metodi}
 
-\begin{tabular}{| l | l | l | l |}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{3.5cm} | p{9cm} |}
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
@@ -2461,12 +2461,12 @@ caricamento dei certificati forniti e della lista di protocolli di crittografia
 
 \subparagraph{Realizzata da}
 \begin{itemize}
-\item \hyperref[sec:actorbase::actorsystem::httpserver::HTTPServer].
+\item \hyperref[sec:actorbase::actorsystem::httpserver::HTTPServer]{actorbase::actorsystem::httpserver::HTTPServer}.
 \end{itemize}
 
 \subparagraph{Metodi}
 
-\begin{tabular}{| l | l | l | l |}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{3.5cm} | p{9cm} |}
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
@@ -2525,7 +2525,7 @@ per continuare le comunicazioni.
 
 \subparagraph{Metodi}
 
-\begin{tabular}{| l | l | l | l |}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{3.5cm} | p{9cm} |}
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
@@ -2544,7 +2544,7 @@ per continuare le comunicazioni.
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=1.0\textwidth,keepaspectratio]{RA/warehousemanPackage.png}
+    \includegraphics[width=0.4\textwidth,keepaspectratio]{RA/warehousemanPackage.png}
     \caption{Package actorsystem::actors::warehouseman}
   \end{center}
 \end{figure}
@@ -2561,7 +2561,7 @@ per continuare le comunicazioni.
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.5\textwidth,keepaspectratio]{RA/Warehouseman.png}
+    \includegraphics[width=0.4\textwidth,keepaspectratio]{RA/Warehouseman.png}
     \caption{Classe actorsystem::actors::warehouseman::Warehouseman}
   \end{center}
 \end{figure}
@@ -2603,7 +2603,7 @@ salvataggio del proprio contenuto.
 \end{tabular}
 
 \subparagraph{Metodi}
-\begin{tabular}{| l | l | l | l |}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{3.5cm} | p{9cm} |}
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
@@ -2623,7 +2623,7 @@ salvataggio del proprio contenuto.
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.9\textwidth,keepaspectratio]{RA/mainPackage.png}
+    \includegraphics[width=0.7\textwidth,keepaspectratio]{RA/mainPackage.png}
     \caption{Package dell'attore di tipo Main}
   \end{center}
 \end{figure}
@@ -2640,7 +2640,7 @@ richieste al \gloss{server}, inoltrandole agli \gloss{attori} di tipo
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.5\textwidth,keepaspectratio]{RA/Main.png}
+    \includegraphics[width=0.4\textwidth,keepaspectratio]{RA/Main.png}
     \caption{Classe actorsystem::actors::main::Main}
   \end{center}
 \end{figure}
@@ -2711,7 +2711,7 @@ all'utilizzatore.
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.9\textwidth,keepaspectratio]{RA/authactorPackage.png}
+    \includegraphics[width=0.4\textwidth,keepaspectratio]{RA/authactorPackage.png}
     \caption{Userkeeper, visione generale del package}
   \end{center}
 \end{figure}
@@ -2788,8 +2788,8 @@ di contribuzione dell'utente stesso.
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.5\textwidth,keepaspectratio]{RA/Profile.png}
-    \caption{Classe actorsystem::actors::userkeeper::Userkeeper}
+    \includegraphics[width=0.4\textwidth,keepaspectratio]{RA/Profile.png}
+    \caption{Classe actorsystem::actors::authactor::AuthActor}
   \end{center}
 \end{figure}
 
@@ -2889,7 +2889,7 @@ accedibili all'utente.
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.9\textwidth,keepaspectratio]{RA/storefinderPackage.png}
+    \includegraphics[width=0.6\textwidth,keepaspectratio]{RA/storefinderPackage.png}
     \caption{Storefinder, visione generale del package}
   \end{center}
 \end{figure}
@@ -2952,7 +2952,7 @@ e si occupa inoltre di distribuire il carico di questi ultimi su più
 
 \subparagraph{Metodi}
 
-\begin{tabular}{| l | l | l | l |}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{3.5cm} | p{9cm} |}
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
@@ -2969,7 +2969,7 @@ e si occupa inoltre di distribuire il carico di questi ultimi su più
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.8\textwidth,keepaspectratio]{RA/storekeeperPackage.png}
+    \includegraphics[width=0.7\textwidth,keepaspectratio]{RA/storekeeperPackage.png}
     \caption{Storekeeper, visione generale del package}
   \end{center}
 \end{figure}
@@ -2984,7 +2984,7 @@ e si occupa inoltre di distribuire il carico di questi ultimi su più
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.6\textwidth,keepaspectratio]{RA/storekeeper.png}
+    \includegraphics[width=0.4\textwidth,keepaspectratio]{RA/Storekeeper.png}
     \caption{Classe actorsystem::actors::storekeeper::Storekeeper}
   \end{center}
 \end{figure}
@@ -3044,7 +3044,7 @@ di eventuali \gloss{Storekeeper} extra da parte del
 
 \subparagraph{Metodi}
 
-\begin{tabular}{| l | l | l | l |}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{3.5cm} | p{9cm} |}
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
@@ -3082,7 +3082,7 @@ di eventuali \gloss{Storekeeper} extra da parte del
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.8\textwidth,keepaspectratio]{RA/managerPackage.png}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RA/managerPackage.png}
     \caption{Manager, visione generale del package}
   \end{center}
 \end{figure}
@@ -3142,7 +3142,7 @@ da aggiungere al \gloss{router} dedicato.
 
 \subparagraph{Metodi}
 
-\begin{tabular}{| l | l | l | l |}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{3.5cm} | p{9cm} |}
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
@@ -3159,7 +3159,7 @@ da aggiungere al \gloss{router} dedicato.
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=1.1\textwidth,keepaspectratio]{RQ/Driver-RQ.png}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/Driver-RQ.png}
     \caption{Driver: Architettura generale}
   \end{center}
 \end{figure}
@@ -3186,7 +3186,7 @@ e scrittura del contenuto del \gloss{database}.
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/ActorbaseDriver.png}
+    \includegraphics[width=0.8\textwidth,keepaspectratio]{RQ/ActorbaseDriver.png}
     \caption{Driver: Classe ActorbaseDriver}
   \end{center}
 \end{figure}
@@ -3450,7 +3450,7 @@ le operazioni di lettura e scrittura di queste ultime.
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.7\textwidth,keepaspectratio]{RQ/ActorbaseAdminServices.png}
+    \includegraphics[width=0.6\textwidth,keepaspectratio]{RQ/ActorbaseAdminServices.png}
     \caption{Driver: Classe ActorbaseAdminServices}
   \end{center}
 \end{figure}
@@ -3589,7 +3589,7 @@ utilizzare nelle classi che necessitano di collegamenti al \gloss{server}.
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=1.1\textwidth,keepaspectratio]{RQ/Client.png}
+    \includegraphics[width=1.0\textwidth,keepaspectratio]{RQ/Client.png}
     \caption{Driver: Client}
   \end{center}
 \end{figure}
@@ -3606,7 +3606,7 @@ che con la componente \gloss{server} del sistema.
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/ClientInterface.png}
+    \includegraphics[width=0.4\textwidth,keepaspectratio]{RQ/ClientInterface.png}
     \caption{Driver: Client interface}
   \end{center}
 \end{figure}
@@ -3750,7 +3750,7 @@ o entrambi.
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.6\textwidth,keepaspectratio]{RQ/SSLClient.png}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/SSLClient.png}
     \caption{Driver: Classe SSLClient}
   \end{center}
 \end{figure}
@@ -3803,7 +3803,7 @@ hanno libertà di implementazione specifica dei metodi.
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.6\textwidth,keepaspectratio]{RQ/ActorbaseClient.png}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/ActorbaseClient.png}
     \caption{Driver: Classe ActorbaseClient}
   \end{center}
 \end{figure}
@@ -3865,7 +3865,7 @@ necessitano.
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.6\textwidth,keepaspectratio]{RQ/Connector.png}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/Connector.png}
     \caption{Driver: Classe astratta Connector}
   \end{center}
 \end{figure}
@@ -3933,7 +3933,7 @@ protocollo \gloss{HTTP}.
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.3\textwidth,keepaspectratio]{RQ/RequestMethod.png}
+    \includegraphics[width=0.2\textwidth,keepaspectratio]{RQ/RequestMethod.png}
     \caption{Driver: RequestMethod interface}
   \end{center}
 \end{figure}
@@ -3966,7 +3966,7 @@ Viene utilizzata come classe padre per l'implementazione delle richieste
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.2\textwidth,keepaspectratio]{RQ/Get.png}
+    \includegraphics[width=0.1\textwidth,keepaspectratio]{RQ/Get.png}
     \caption{Driver: Oggetto rappresentante richiesta get}
   \end{center}
 \end{figure}
@@ -3996,7 +3996,7 @@ di tipo \gloss{GET} da utilizzare nella comunicazione con il server.
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.2\textwidth,keepaspectratio]{RQ/Post.png}
+    \includegraphics[width=0.1\textwidth,keepaspectratio]{RQ/Post.png}
     \caption{Driver: Oggetto rappresentante richiesta post}
   \end{center}
 \end{figure}
@@ -4026,7 +4026,7 @@ di tipo \gloss{POST} da utilizzare nella comunicazione con il server.
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.2\textwidth,keepaspectratio]{RQ/Put.png}
+    \includegraphics[width=0.1\textwidth,keepaspectratio]{RQ/Put.png}
     \caption{Driver: Oggetto rappresentante richiesta Put}
   \end{center}
 \end{figure}
@@ -4056,7 +4056,7 @@ di tipo \gloss{PUT} da utilizzare nella comunicazione con il server.
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.2\textwidth,keepaspectratio]{RQ/Delete.png}
+    \includegraphics[width=0.1\textwidth,keepaspectratio]{RQ/Delete.png}
     \caption{Driver: Oggetto rappresentante richiesta Delete}
   \end{center}
 \end{figure}
@@ -5137,7 +5137,7 @@ Offre un'interfaccia per la creazione di un \gloss{prompt} generico.
 \end{itemize}
 
 \subparagraph{Metodi}
-\begin{tabular}{| l | l | l | l |}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{3.5cm} | p{9cm} |}
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
@@ -5170,7 +5170,7 @@ risposta ricevuta dal \gloss{driver}.
 \end{itemize}
 
 \subparagraph{Metodi}
-\begin{tabular}{| l | l | l | l |}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{3.5cm} | p{9cm} |}
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
@@ -5259,7 +5259,7 @@ all'avvio della \gloss{CLI}.
 
 \subparagraph{Metodi}
 
-\begin{tabular}{| l | l | l | l |}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{3.5cm} | p{9cm} |}
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
@@ -5296,7 +5296,7 @@ effettuata.
 
 \subparagraph{Metodi}
 
-\begin{tabular}{| l | l | l | l |}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{3.5cm} | p{9cm} |}
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
@@ -5343,7 +5343,7 @@ gestire la visualizzazione dei dati ricevuti dalla classe
 \end{itemize}
 
 \subparagraph{Metodi}
-\begin{tabular}{| l | l | l | l |}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{3.5cm} | p{9cm} |}
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
@@ -5548,7 +5548,7 @@ comando.
 
 \subparagraph{Metodi}
 
-\begin{tabular}{| l | l | l | l |}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{3.5cm} | p{9cm} |}
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
@@ -5597,7 +5597,7 @@ ha restituito un risultato.
 
 \subparagraph{Metodi}
 
-\begin{tabular}{| l | l | l | l |}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{3.5cm} | p{9cm} |}
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
@@ -5683,7 +5683,7 @@ affinchè quest'ultima possa procedere con la visualizzazione del risultato in o
 
 \subparagraph{Metodi}
 
-\begin{tabular}{| l | l | l | l |}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{3.5cm} | p{9cm} |}
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
@@ -5741,7 +5741,7 @@ Viene utilizzata per chiamare il metodo di
 
 \subparagraph{Metodi}
 
-\begin{tabular}{| l | l | l | l |}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{3.5cm} | p{9cm} |}
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
@@ -5790,7 +5790,7 @@ dall'utente.
 
 \subparagraph{Metodi}
 
-\begin{tabular}{| l | l | l | l |}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{3.5cm} | p{9cm} |}
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
@@ -5836,7 +5836,7 @@ Viene utilizzata per chiamare il metodo di
 
 \subparagraph{Metodi}
 
-\begin{tabular}{| l | l | l | l |}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{3.5cm} | p{9cm} |}
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
@@ -5883,7 +5883,7 @@ Viene utilizzata per chiamare il metodo di
 
 \subparagraph{Metodi}
 
-\begin{tabular}{| l | l | l | l |}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{3.5cm} | p{9cm} |}
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
@@ -5931,7 +5931,7 @@ dell'utente specificato in input.
 
 \subparagraph{Metodi}
 
-\begin{tabular}{| l | l | l | l |}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{3.5cm} | p{9cm} |}
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
@@ -5980,7 +5980,7 @@ nomi di tutte le collezioni presenti nel \gloss{database}.
 
 \subparagraph{Metodi}
 
-\begin{tabular}{| l | l | l | l |}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{3.5cm} | p{9cm} |}
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
@@ -6029,7 +6029,7 @@ in input.
 
 \subparagraph{Metodi}
 
-\begin{tabular}{| l | l | l | l |}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{3.5cm} | p{9cm} |}
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
@@ -6077,7 +6077,7 @@ immesse dall'utente.
 
 \subparagraph{Metodi}
 
-\begin{tabular}{| l | l | l | l |}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{3.5cm} | p{9cm} |}
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
@@ -6125,7 +6125,7 @@ i parametri specificati in input.
 
 \subparagraph{Metodi}
 
-\begin{tabular}{| l | l | l | l |}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{3.5cm} | p{9cm} |}
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
@@ -6174,7 +6174,7 @@ specificati in input.
 
 \subparagraph{Metodi}
 
-\begin{tabular}{| l | l | l | l |}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{3.5cm} | p{9cm} |}
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
@@ -6220,7 +6220,7 @@ Viene utilizzata per chiamare il metodo di \hyperref[sec:actorbase::cli::models:
 
 \subparagraph{Metodi}
 
-\begin{tabular}{| l | l | l | l |}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{3.5cm} | p{9cm} |}
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
@@ -6267,7 +6267,7 @@ parametri specificati in input.
 
 \subparagraph{Metodi}
 
-\begin{tabular}{| l | l | l | l |}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{3.5cm} | p{9cm} |}
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
@@ -6315,7 +6315,7 @@ con i parametri immessi dall'utente.
 
 \subparagraph{Metodi}
 
-\begin{tabular}{| l | l | l | l |}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{3.5cm} | p{9cm} |}
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
@@ -6362,7 +6362,7 @@ parametri immessi dall'utente.
 
 \subparagraph{Metodi}
 
-\begin{tabular}{| l | l | l | l |}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{3.5cm} | p{9cm} |}
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
@@ -6409,7 +6409,7 @@ Viene utilizzata per chiamare il metodo di
 
 \subparagraph{Metodi}
 
-\begin{tabular}{| l | l | l | l |}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{3.5cm} | p{9cm} |}
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
@@ -6456,7 +6456,7 @@ Viene utilizzata per chiamare il metodo di \hyperref[sec:actorbase::cli::models:
 
 \subparagraph{Metodi}
 
-\begin{tabular}{| l | l | l | l |}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{3.5cm} | p{9cm} |}
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
@@ -6504,7 +6504,7 @@ Viene utilizzata per chiamare il metodo di
 
 \subparagraph{Metodi}
 
-\begin{tabular}{| l | l | l | l |}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{3.5cm} | p{9cm} |}
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
@@ -6552,7 +6552,7 @@ Viene utilizzata per chiamare il metodo di
 
 \subparagraph{Metodi}
 
-\begin{tabular}{| l | l | l | l |}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{3.5cm} | p{9cm} |}
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
@@ -6605,7 +6605,7 @@ che si occuperà di mandarlo alla parte view sfruttando il \gloss{design pattern
 
 \subparagraph{Metodi}
 
-\begin{tabular}{| l | l | l | l |}
+\begin{tabular}{| p{3cm} | p{1.5cm} | p{3.5cm} | p{9cm} |}
   \hline
   Nome & Accesso & Ritorno & Descrizione\\
   \hline
