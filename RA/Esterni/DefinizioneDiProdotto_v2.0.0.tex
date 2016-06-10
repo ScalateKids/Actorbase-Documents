@@ -6670,8 +6670,8 @@ comando inserito dall'utente.\\Il \gloss{Driver} provvederà a tradurre il
 comando coi relativi parametri immessi dall'utente in una richiesta HTTP
 e la invierà al server. Il server provvederà a fare le elaborazioni richieste attraverso l'uso
 degli attori e quando queste saranno finite risponderà al \gloss{Driver}
-tramite risposta HTTP il quale provvederà a trasformarla in uno
-\hyperref[sec:driver::actorbasedata::ActorbaseCollectionMap]{ActorbaseCollectionMap} e lo
+tramite risposta HTTP il quale provvederà a trasformarla in una
+\hyperref[sec:actorbase::driver::client::api::Response]{Response} e lo
 restituirà al suo utilizzatore.
 \begin{figure}[H]
   \begin{center}
@@ -6683,7 +6683,7 @@ restituirà al suo utilizzatore.
 \subsection{Inserimento di un Item}
 
 Questo diagramma rappresenta l'interazione tra le componenti nel caso di una richiesta di inserimento di un \gloss{item}.\\
-La componente \hyperref[sec:actorbase::driver::client::Connection]{Connection}
+La componente \hyperref[sec:actorbase::driver::ActorbaseDriver]{ActorbaseDriver}
 manda tramite richiesta HTTP al \hyperref[sec:actorbase::actorsystem::actors::clientactor::ClientActor]{ClientActor}
 un payload contenente i dati per eseguire l'operazione scelta dalla \gloss{route}.\\
 Da questo componente parte il messaggio di Insert(key, value, update) ad un \hyperref[sec:actorbase::actorsystem::actors::main::Main]{Main} scelto in base ad una
@@ -6701,18 +6701,16 @@ A questo punto lo Storekeeper manderà un messaggio al \hyperref[sec:actorbase::
 \subsection{Inserimento di un Item con Storekeeper pieno}
 
 Questo diagramma rappresenta l'interazione tra le componenti nel caso di una richiesta di inserimento di un \gloss{item}.\\
-La componente \hyperref[sec:actorbase::driver::client::Connection]{Connection}
+La componente \hyperref[sec:actorbase::driver::ActorbaseDriver]{ActorbaseDriver}
 manda tramite richiesta HTTP al \hyperref[sec:actorbase::actorsystem::actors::clientactor::ClientActor]{ClientActor}
 un payload contenente i dati per eseguire l'operazione scelta dalla \gloss{route}.\\
 Da questo componente parte il messaggio di Insert(key, value, update) ad un \hyperref[sec:actorbase::actorsystem::actors::main::Main]{Main} scelto in base
 ad una politica di \gloss{routing}.
 Il \hyperref[sec:actorbase::actorsystem::actors::main::Main]{Main} manderà un messaggio allo \hyperref[sec:actorbase::actorsystem::actors::storefinder::Storefinder]{Storefinder} relativo il quale manderà
 un messaggio allo \hyperref[sec:actorbase::actorsystem::actors::storekeeper::StoreKeeper]{StoreKeeper} che essendo pieno manda un
-messaggio DuplicateRequestSK contenente metà della propria mappa e un ActorRef del proprio parent ad un
+messaggio \hyperref[sec:actorbase::actorsystem::messages::managermessages::OneMore]{OneMore} ad un
 \hyperref[sec:actorbase::actorsystem::actors::manager::Manager]{Manager}.\\
-Il Manager inoltra il messaggio DuplicateRequestSK al parent dello Storekeeper precedentemente coinvolto.
-Questo \hyperref[sec:actorbase::actorsystem::actors::storefinder::Storefinder]{Storefinder} infine creerà un nuovo
-\hyperref[sec:actorbase::actorsystem::actors::storekeeper::Storekeeper]{Storekeeper} con il pezzo di mappa ricevuto.\\
+Il Manager provvede a creare un nuovo attore \hyperref[sec:actorbase::actorsystem::actors::storekeeper::StoreKeeper]{StoreKeeper} e provvederà ad inizializzarlo tramite messaggio \hyperref[sec:actorbase::actorsystem::messages::storekeepermessages::InitMn]{InitMn}.\\
 A questo punto il nuovo Storekeeper manderà un messaggio al \hyperref[sec:actorbase::actorsystem::actors::clientactor::ClientActor]{ClientActor} con
 la risposta (positiva o negativa che sia) il quale risponderà tramite risposta HTTP al \gloss{Driver} con il risultato.
 \begin{figure}[H]
@@ -6725,18 +6723,15 @@ la risposta (positiva o negativa che sia) il quale risponderà tramite risposta 
 \subsection{Autenticazione}
 
 Questo diagramma rappresenta l'interazione tra le componenti nel caso di una richiesta di autenticazione di un utente.\\
-La componente \hyperref[sec:actorbase::driver::client::Connection]{Connection}
+La componente \hyperref[sec:actorbase::driver::ActorbaseDriver]{ActorbaseDriver}
 manda tramite richiesta di autenticazione HTTP al \hyperref[sec:actorbase::actorsystem::actors::clientactor::ClientActor]{ClientActor}.\\
-Da questo componente parte il messaggio di GetItemFrom(UsersCollection, Username) ad un \hyperref[sec:actorbase::actorsystem::actors::main::Main]{Main}
-scelto in base ad una politica di \gloss{routing}.
-Il \hyperref[sec:actorbase::actorsystem::actors::main::Main]{Main} manderà un messaggio allo \hyperref[sec:actorbase::actorsystem::actors::userfinder::Userfinder]{Userfinder}
-relativo il quale manderà un messaggio getPassword(username) allo \hyperref[sec:actorbase::actorsystem::actors::userkeeper::UserKeeper]{UserKeeper}.
-Quest'ultimo risponderà al \hyperref[sec:actorbase::actorsystem::actors::clientactor::ClientActor]{ClientActor} con un messaggio
-loginResponse contenente la password relativa allo username richiesto.\\
-Il \hyperref[sec:actorbase::actorsystem::actors::clientactor::ClientActor]{ClientActor} eseguirà un confronto tra la password immessa dall'utente
-e la password ritornata dallo \hyperref[sec:actorbase::actorsystem::actors::userkeeper::UserKeeper]{UserKeeper}.
-In caso positivo cambierà il proprio stato e risponderà al \gloss{Driver} con un messaggio che indica un esito positivo.
-In caso negativo resterà nello stato attuale e manderà un messaggio al \gloss{Driver} che indica un esito negativo.
+Da questo componente parte il messaggio \hyperref[sec:actorbase::actorsystem::messages::authactormessages::Authenticate]{Authenticate} contenente le credenziali inserite rivolto verso l'attore \hyperref[sec:actorbase::actorsystem::actors::authactor::AuthActor]{AuthActor}.\\
+Questo attore controllerà le credenziali inserite per vedere se corrispondono 
+ad un utente registrato al sistema e risponderà al \hyperref[sec:actorbase::actorsystem::actors::clientactor::ClientActor]{ClientActor} 
+tramite messaggio \hyperref[sec:actorbase::actorsystem::messages::clientactormessages::Response]{Response} 
+avvisando se l'autenticazione ha avuto successo o meno. Quest'ultimo attore 
+risponderà al software richiedente attraverso una risposta HTTP indicando 
+l'esito dell'operazione.
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=0.9\textwidth, keepaspectratio]{img/diagrammiSequenza/esempioAuth.png}
@@ -6748,7 +6743,7 @@ In caso negativo resterà nello stato attuale e manderà un messaggio al \gloss{
 
 Questo diagramma rappresenta l'interazione tra le componenti nel caso venga
 effettuato un salvataggio dei dati su filesystem.\\
-La componente \hyperref[sec:actorbase::driver::client::Connection]{Connection}
+La componente \hyperref[sec:actorbase::driver::ActorbaseDriver]{ActorbaseDriver}
 manda tramite richiesta HTTP al \hyperref[sec:actorbase::actorsystem::actors::clientactor::ClientActor]{ClientActor}.\\
 Da questo componente parte il messaggio di Insert(key, value, update) ad un \hyperref[sec:actorbase::actorsystem::actors::main::Main]{Main} scelto in base ad una
 politica di \gloss{routing}. Il \hyperref[sec:actorbase::actorsystem::actors::main::Main]{Main} manderà un messaggio allo
@@ -6770,61 +6765,25 @@ tramite un parametro di configurazione del sistema.\\
   \end{center}
 \end{figure}
 
-\subsection{Aggiornamento di un attore ninja}
-
-Questo diagramma rappresenta l'interazione tra le componenti nel caso venga
-effettuato un aggiornamento dei dati su un \gloss{attore} Ninja.\\
-La componente \hyperref[sec:actorbase::driver::client::Connection]{Connection}
-manda tramite richiesta HTTP al \hyperref[sec:actorbase::actorsystem::actors::clientactor::ClientActor]{ClientActor}.\\
-Da questo componente parte il messaggio di Insert(key, value, update) ad un \hyperref[sec:actorbase::actorsystem::actors::main::Main]{Main}
-scelto in base ad una politica di \gloss{routing}.\\
-Il \hyperref[sec:actorbase::actorsystem::actors::main::Main]{Main} manderà un messaggio allo
-\hyperref[sec:actorbase::actorsystem::actors::storefinder::Storefinder]{Storefinder} relativo il quale manderà un messaggio
-allo \hyperref[sec:actorbase::actorsystem::actors::storekeeper::Storekeeper]{StoreKeeper} che dovrà salvarsi l'informazione sulla propria mappa.\\
-A questo punto lo \hyperref[sec:actorbase::actorsystem::actors::storekeeper::Storekeeper]{StoreKeeper} manderà un messaggio al Ninja di tipo
-Update contenente la struttura dati aggiornata e successivamente manderà un messaggio al
-\hyperref[sec:actorbase::actorsystem::actors::clientactor::ClientActor]{ClientActor} con la risposta (positiva o negativa che sia)
-il quale risponderà sempre tramite HTTP al \gloss{Driver} con il risultato.
-Nel frattempo l'\gloss{attore} di tipo Ninja eseguirà un aggiornamento della propria struttura dati.\\
-Si noti che la frequenza di aggiornamento degli attori di tipo ninja sarà
-specificata tramite un parametro di configurazione del sistema.
-\begin{figure}[H]
-  \begin{center}
-    \includegraphics[width=0.9\textwidth, keepaspectratio]{img/diagrammiSequenza/esempioNinja.png}
-    \caption{Diagramma di sequenza - Aggiornamento di un attore ninja}
-  \end{center}
-\end{figure}
-
 \subsection{Aggiunta collaboratore (in sola lettura)}
 
 Questo diagramma rappresenta l'interazione tra le componenti nel caso di una richiesta di autenticazione di un utente.\\
-La componente \hyperref[sec:actorbase::driver::client::Connection]{Connection}
+La componente \hyperref[sec:actorbase::driver::ActorbaseDriver]{ActorbaseDriver}
 manda tramite richiesta HTTP al \hyperref[sec:actorbase::actorsystem::actors::clientactor::ClientActor]{ClientActor}.\\
 Da questo componente parte il messaggio di addContributor(collection, permission, username) ad un
 \hyperref[sec:actorbase::actorsystem::actors::main::Main]{Main} scelto in base ad una
-politica di \gloss{routing}. Il \hyperref[sec:actorbase::actorsystem::actors::main::Main]{Main} manderà un messaggio allo
-\hyperref[sec:actorbase::actorsystem::actors::userfinder]{Userfinder}
-relativo il quale manderà un messaggio addReadCollection(collection) allo
-\hyperref[sec:actorbase::actorsystem::actors::userkeeper::Userkeeper]{Userkeeper}.
-Quest'ultimo dovrà aggiungere alla mappa delle collezioni di cui l'utente
-relativo ha accesso in sola lettura la \gloss{collezione} inviatagli.
-Poi manderà al \hyperref[sec:actorbase::actorsystem::actors::clientactor::ClientActor]{ClientActor} un messaggio UpdateReadCollections(collection)
-contenente la \gloss{collezione} da aggiungere.\\
-Il \hyperref[sec:actorbase::actorsystem::actors::clientactor::ClientActor]{ClientActor} effettuerà l'aggiornamento e risponderà al \gloss{Driver}
-con un messaggio che indica un esito positivo. In caso negativo resterà nello
-stato attuale e manderà un messaggio al \gloss{Driver} che indica un esito
-negativo.\\ Nel caso di aggiunta di un collaboratore con permessi di lettura e scrittura
-l'interazione tra gli attori è la stessa con differenza di qualche messaggio
-specifico.\\
+politica di \gloss{routing}.\\Il \hyperref[sec:actorbase::actorsystem::actors::main::Main]{Main} provvederà ad aggiornare 
+le proprie strutture dati per riflettere l'aggiornamento richiesto. Quando avrà 
+finito risponderà all'attore richiedente con un messaggio \hyperref[sec:actorbase::actorsystem::messages::clientactormessages::Response]{Response} 
+avvisando se l'operazione ha avuto successo o meno. Quest'ultimo attore 
+risponderà al software richiedente attraverso una risposta HTTP indicando 
+l'esito dell'operazione.\\
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=0.9\textwidth, keepaspectratio]{img/diagrammiSequenza/esempioAddContributor.png}
     \caption{Diagramma di sequenza - aggiunta collaboratore}
   \end{center}
 \end{figure}
-
-
-
 
 
 \section{Tracciamento}
