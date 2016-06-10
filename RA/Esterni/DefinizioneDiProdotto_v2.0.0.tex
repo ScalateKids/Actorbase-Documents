@@ -243,7 +243,7 @@ rappresentano il \gloss{server}.
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.5\textwidth,keepaspectratio]{RA/permissionReadWrite.png}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RA/permissions.png}
     \caption{Actorsystem, visione generale}
   \end{center}
 \end{figure}
@@ -275,7 +275,7 @@ da applicare ai \gloss{collaboratori}.
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.5\textwidth,keepaspectratio]{RA/permissionsReadWrite.png}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RA/readWrite.png}
     \caption{Actorsystem, visione generale}
   \end{center}
 \end{figure}
@@ -301,7 +301,7 @@ Viene utilizzata per rappresentare i tipi di permessi di sola lettura sulle
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.5\textwidth,keepaspectratio]{RA/permissionsReadWrite.png}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RA/read.png}
     \caption{Actorsystem, visione generale}
   \end{center}
 \end{figure}
@@ -506,7 +506,7 @@ riguardanti \gloss{collezioni}.
   \hline
   Nome & Tipo & Descrizione\\
   \hline
-  that & ActorbaseCollection & ActorbaseCollection da confrontare con l'oggetto this \\
+  that & \hyperref[sec:actorbase::actorsystem::utils::ActorbaseCollection]{ActorbaseCollection} & \hyperref[sec:actorbase::actorsystem::utils::ActorbaseCollection]{ActorbaseCollection} da confrontare con l'oggetto this \\
   \hline
 \end{tabular}\\
 
@@ -526,7 +526,7 @@ riguardanti \gloss{collezioni}.
 
 \subsubsection{Descrizione}
 
-\gloss{Package} che raggruppa tutti i messaggi del server.
+\gloss{Package} che raggruppa tutti i messaggi del \gloss{server}.
 
 \subsubsection{Package contenuti}
 
@@ -2177,37 +2177,37 @@ tipo
 
 % \subparagraph{Attributi}
 % \begin{tabular}{| p{1cm} | p{1.5cm} | p{2cm} | p{4cm} | p{8.5cm} |}
-%   \hline
-%   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
-%   \hline
-%   ec & pubblico & immutabile & ExecutionContext & Rappresenta il Contesto di esecuzione all'interno del quale è stata creata questa classe \\
-%   \hline
-% \end{tabular}
+    %     \hline
+    %     Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+    %     \hline
+    %     ec & pubblico & immutabile & ExecutionContext & Rappresenta il Contesto di esecuzione all'interno del quale è stata creata questa classe \\
+    %     \hline
+    %   \end{tabular}
 
-% \subparagraph{Metodi}
+    %     \subparagraph{Metodi}
 
-% \begin{tabular}{| p{2.5cm} | p{2.5cm} | p{2.5cm} | p{9.5cm} |}
-%   \hline
-%   Nome & Accesso & Tipo di ritorno & Descrizione\\
-%   \hline
-%   items & pubblico & Route & Metodo che interagisce con il server tramite un router basandosi sulla route immessa dall'utente\\
-%   \hline
-% \end{tabular}
+    %     \begin{tabular}{| p{2.5cm} | p{2.5cm} | p{2.5cm} | p{9.5cm} |}
+    %     \hline
+    %     Nome & Accesso & Tipo di ritorno & Descrizione\\
+    %     \hline
+    %     items & pubblico & Route & Metodo che interagisce con il server tramite un router basandosi sulla route immessa dall'utente\\
+    %     \hline
+    %   \end{tabular}
 
-% \subparagraph{Parametri}
+    %     \subparagraph{Parametri}
 
-% \textbf{items}\\ \\
-% \begin{tabular}{| p{2.5cm} | p{2.5cm} | p{12cm} |}
-%   \hline
-%   Nome & Tipo & Descrizione\\
-%   \hline
-%   owner & String & Proprietario della \gloss{collezione} su cui si vuole operare\\
-%   \hline
-%   router & ActorRef & Riferimento dell'attore che si occuperà di comunicare con un attore \gloss{main} per effettuare le operazioni richieste\\
-%   \hline
-%   collectionName & String & Nome della \gloss{collezione} su cui si vuole operare\\
-%   \hline
-% \end{tabular}\\
+    %     \textbf{items}\\ \\
+    %     \begin{tabular}{| p{2.5cm} | p{2.5cm} | p{12cm} |}
+    %     \hline
+    %     Nome & Tipo & Descrizione\\
+    %     \hline
+    %     owner & String & Proprietario della \gloss{collezione} su cui si vuole operare\\
+    %     \hline
+    %     router & ActorRef & Riferimento dell'attore che si occuperà di comunicare con un attore \gloss{main} per effettuare le operazioni richieste\\
+    %     \hline
+    %     collectionName & String & Nome della \gloss{collezione} su cui si vuole operare\\
+    %     \hline
+    %   \end{tabular}\\
 
 \paragraph{actorbase::actorsystem::actors::clientactor::User}
 \label{sec:actorbase::actorsystem::actors::clientactor::User}
@@ -2722,7 +2722,7 @@ contiene tutte le classi di utilità da utilizzare nei processi di autenticazion
 e gestione degli utenti del sistema.
 
 \subsubsection{Classi}
-% TODO: da controllare
+    %     TODO: da controllare
 \paragraph{actorbase::actorsystem::actors::authactor::AuthActor}
 \label{sec:actorbase::actorsystem::actors::authactor::AuthActor}
 
@@ -3214,7 +3214,7 @@ ai privilegi del proprio profilo nel sistema.
 
 \subparagraph{Attributi}
 
-% TODO: Da completare
+    %     TODO: Da completare
 
 \begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
   \hline
@@ -3228,7 +3228,7 @@ ai privilegi del proprio profilo nel sistema.
 
 \subparagraph{Metodi}
 
-% TODO: Da completare
+    %     TODO: Da completare
 
 \begin{tabular}{| p{3cm} | p{1.5cm} | p{3cm} | p{10cm} |}
   \hline
@@ -3240,9 +3240,9 @@ ai privilegi del proprio profilo nel sistema.
 
 \subparagraph{Parametri}
 
-% TODO: Da completare
+    %     TODO: Da completare
 
-% \ding{228}
+    %     \ding{228}
 \textbf{authenticate}\\ \\
 \begin{tabular}{| p{3cm} | p{3.5cm} | p{8.5cm} |}
   \hline
@@ -3308,7 +3308,7 @@ le operazioni di lettura e scrittura di queste ultime.
 
 \subparagraph{Metodi}
 
-% TODO: Da completare
+    %     TODO: Da completare
 
 \begin{tabular}{| p{3cm} | p{1.5cm} | p{3.5cm} | p{9cm} |}
   \hline
@@ -3344,7 +3344,7 @@ le operazioni di lettura e scrittura di queste ultime.
 
 \subparagraph{Parametri}
 
-% TODO: Da completare
+    %     TODO: Da completare
 
 \textbf{insertTo}\\ \\
 \begin{tabular}{| p{3cm} | p{3.5cm} | p{10.5cm} |}
@@ -3443,7 +3443,7 @@ le operazioni di lettura e scrittura di queste ultime.
   \hline
 \end{tabular}\\
 
-% FINE ACTORBASEDRIVER
+    %     FINE ACTORBASEDRIVER
 
 \paragraph{ActorbaseAdminServices (abstract)}
 \label{sec:actorbase::driver::ActorbaseAdminServices}
@@ -3480,7 +3480,7 @@ scrittura delle \gloss{collezioni}. Funge da iniezione di dipendenze mediante
 
 \subparagraph{Metodi}
 
-% TODO: Da completare
+    %     TODO: Da completare
 
 \begin{tabular}{| p{3cm} | p{1.5cm} | p{2.5cm} | p{10cm} |}
   \hline
@@ -3496,7 +3496,7 @@ scrittura delle \gloss{collezioni}. Funge da iniezione di dipendenze mediante
 
 \subparagraph{Parametri}
 
-% TODO: Da completare
+    %     TODO: Da completare
 
 \textbf{addUser}\\ \\
 \begin{tabular}{| p{3cm} | p{3.5cm} | p{8.5cm} |}
@@ -3525,7 +3525,7 @@ scrittura delle \gloss{collezioni}. Funge da iniezione di dipendenze mediante
   \hline
 \end{tabular}\\
 
-% FINE ACTORBASEADMINSERVICES
+    %     FINE ACTORBASEADMINSERVICES
 
 \paragraph{Connection}
 \label{sec:actorbase::driver::Connection}
@@ -3684,7 +3684,7 @@ serializzazione e deserializzazione in formato \gloss{JSON} o \gloss{array} di b
 o entrambi.
 
 \subparagraph{Ereditata da}
-% TODO controllare eventuali altre eredità
+    %     TODO controllare eventuali altre eredità
 \begin{itemize}
 \item \hyperref[sec:actorbase::driver::client::Connector]{actorbase::driver::client::Connector}.
 \end{itemize}
@@ -3743,7 +3743,7 @@ o entrambi.
   \hline
 \end{tabular}\\
 
-% FINE SERIALIZER
+    %     FINE SERIALIZER
 
 \paragraph{SSLClient (abstract)}
 \label{sec:actorbase::driver::client::SSLClient}
@@ -3858,7 +3858,7 @@ necessitano.
   \hline
 \end{tabular}
 
-% FINE ACTORBASECLIENT
+    %     FINE ACTORBASECLIENT
 
 \paragraph{Connector (abstract)}
 \label{sec:actorbase::driver::client::Connector}
@@ -3905,9 +3905,9 @@ Viene estesa dalle classi che necessitano di comunicare con il server.
 \item \hyperref[sec:actorbase::driver::client::Connector]{actorbase::driver::client::Connector}.
 \end{itemize}
 
-% FINE CONNECTOR
+    %     FINE CONNECTOR
 
-% INIZIO PACKAGE ACTORBASE::DRIVER::CLIENT::API
+    %     INIZIO PACKAGE ACTORBASE::DRIVER::CLIENT::API
 
 \subsection{actorbase::driver::client::api}
 \label{sec:actorbase::driver::client::api}
@@ -3959,7 +3959,7 @@ Viene utilizzata come classe padre per l'implementazione delle richieste
 \item \hyperref[sec:actorbase::driver::client::api::DELETE]{actorbase::driver::client::api::DELETE}
 \end{itemize}
 
-% FINE REQUEST METHOD
+    %     FINE REQUEST METHOD
 
 \paragraph{GET}
 \label{sec:actorbase::driver::client::api::GET}
@@ -3989,7 +3989,7 @@ di tipo \gloss{GET} da utilizzare nella comunicazione con il server.
 \item \hyperref[sec:actorbase::driver::client::api::RequestMethod]{actorbase::driver::client::api::RequestMethod}
 \end{itemize}
 
-% FINE GET
+    %     FINE GET
 
 \paragraph{POST}
 \label{sec:actorbase::driver::client::api::POST}
@@ -4019,7 +4019,7 @@ di tipo \gloss{POST} da utilizzare nella comunicazione con il server.
 \item \hyperref[sec:actorbase::driver::client::api::RequestMethod]{actorbase::driver::client::api::RequestMethod}
 \end{itemize}
 
-% FINE POST
+    %     FINE POST
 
 \paragraph{PUT}
 \label{sec:actorbase::driver::client::api::PUT}
@@ -4049,7 +4049,7 @@ di tipo \gloss{PUT} da utilizzare nella comunicazione con il server.
 \item \hyperref[sec:actorbase::driver::client::api::RequestMethod]{actorbase::driver::client::api::RequestMethod}
 \end{itemize}
 
-% FINE PUT
+    %     FINE PUT
 
 \paragraph{DELETE}
 \label{sec:actorbase::driver::client::api::DELETE}
@@ -4079,7 +4079,7 @@ di tipo \gloss{DELETE} da utilizzare nella comunicazione con il server.
 \item \hyperref[sec:actorbase::driver::client::api::RequestMethod]{actorbase::driver::client::api::RequestMethod}
 \end{itemize}
 
-% FINE DELETE
+    %     FINE DELETE
 
 \paragraph{Request}
 \label{sec:actorbase::driver::client::api::Request}
@@ -4149,11 +4149,11 @@ creata mediante il design pattern \gloss{Builder} nella classe
   \hline
 \end{tabular}
 
-% FINE REQUEST
+    %     FINE REQUEST
 
 \paragraph{Credentials}
 \label{sec:actorbase::driver::client::api::Credentials}
-% TODO: da inserire immagine
+    %     TODO: da inserire immagine
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=0.3\textwidth,keepaspectratio]{RQ/Credentials.png}
@@ -4245,7 +4245,7 @@ utilizzare nella comunicazione con il server.
   \hline
 \end{tabular}
 
-% FINE RESPONSE
+    %     FINE RESPONSE
 
 \paragraph{Status}
 \label{sec:actorbase::driver::client::api::Status}
@@ -4289,7 +4289,7 @@ Viene utilizzata come classe per l'incapsulamento dei codici di ritorno
   \hline
 \end{tabular}
 
-% FINE STATUS
+    %     FINE STATUS
 
 \paragraph{RequestBuilder}
 \label{sec:actorbase::driver::client::api::RequestBuilder}
@@ -4407,7 +4407,7 @@ nella comunicazione con il server.
   \hline
 \end{tabular}\\
 
-% SONO QUI 04/05 6:07 P.M.
+    %     SONO QUI 04/05 6:07 P.M.
 
 \subsection{actorbase::driver::data}
 \label{sec:actorbase::driver::data}
@@ -4553,7 +4553,7 @@ ricerca, sia generale, sia interna a specifiche \gloss{collezioni}.
   \hline
 \end{tabular}\\
 
-% FINE ACTORBASEOBJECT
+    %     FINE ACTORBASEOBJECT
 
 \paragraph{actorbase::driver::data::ActorbaseCollection}
 \label{sec:actorbase::driver::data::ActorbaseCollection}
@@ -4605,7 +4605,7 @@ navigabilità dei contenuti.
 
 \subparagraph{Metodi}
 
-% TODO: Da completare
+    %     TODO: Da completare
 
 \begin{tabular}{| p{3cm} | p{1.5cm} | p{3.5cm} | p{9cm} |}
   \hline
@@ -4657,7 +4657,7 @@ navigabilità dei contenuti.
 
 \subparagraph{Parametri}
 
-% TODO: Da completare
+    %     TODO: Da completare
 
 \textbf{rename}\\ \\
 \begin{tabular}{| p{3cm} | p{3.5cm} | p{8.5cm} |}
@@ -4780,7 +4780,7 @@ navigabilità dei contenuti.
   \hline
 \end{tabular}\\
 
-% TODO ACTORBASECOLLECTION
+    %     TODO ACTORBASECOLLECTION
 
 \paragraph{actorbase::driver::data::ActorbaseCollectionMap}
 \label{sec:actorbase::driver::data::ActorbaseCollectionMap}
@@ -4820,7 +4820,7 @@ Questa classe viene utilizzata per la rappresentazione dell'aggregazione di
 
 \subparagraph{Metodi}
 
-% TODO: Da completare
+    %     TODO: Da completare
 
 \begin{tabular}{| p{3cm} | p{1.5cm} | p{3.5cm} | p{9cm} |}
   \hline
@@ -4842,7 +4842,7 @@ Questa classe viene utilizzata per la rappresentazione dell'aggregazione di
 
 \subparagraph{Parametri}
 
-% TODO: Da completare
+    %     TODO: Da completare
 
 \textbf{find}\\ \\
 \begin{tabular}{| p{3cm} | p{3.5cm} | p{8.5cm} |}
@@ -4871,7 +4871,7 @@ Questa classe viene utilizzata per la rappresentazione dell'aggregazione di
   \hline
 \end{tabular}\\
 
-% FINITO ACTORBASECOLLECTIONMAP
+    %     FINITO ACTORBASECOLLECTIONMAP
 
 \subsection{actorbase::driver::exceptions}
 \label{sec:actorbase::driver::exceptions}
@@ -5067,8 +5067,8 @@ Questa classe viene utilizzata dal \gloss{driver} per gestire il caso in cui all
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% CLI PARTE                              %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %     CLI PARTE                              %
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{actorbase::cli}
 \label{sec:actorbase::cli}
@@ -7574,8 +7574,8 @@ specifico.\\
 \appendix
 \label{sec:appendice}
 
-% \newpage
-% \listoftables
+    %     \newpage
+    %     \listoftables
 \newpage
 \listoffigures
 \end{document}
