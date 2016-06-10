@@ -541,7 +541,7 @@ riguardanti \gloss{collezioni}.
 \item \hyperref[sec:actorbase::actorsystem::messages::storefindermessages]{actorbase::actorsystem::messages::storefindermessages};
 \item \hyperref[sec:actorbase::actorsystem::messages::storekeepermessages]{actorbase::actorsystem::messages::storekeepermessages};
 \item \hyperref[sec:actorbase::actorsystem::messages::warehousemanmessages]{actorbase::actorsystem::messages::warehousemanmessages};
-  \item \hyperref[sec:actorbase::actorsystem::messages::warehousemanmessages]{actorbase::actorsystem::messages::manangermessages}.
+\item \hyperref[sec:actorbase::actorsystem::messages::warehousemanmessages]{actorbase::actorsystem::messages::manangermessages}.
 \end{itemize}
 
 \subsection{actorbase::actorsystem::messages::authactormessages}
@@ -1033,7 +1033,7 @@ Questo viene utilizzato per adempiere ad alcune richieste dell'utente.
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=0.9\textwidth,keepaspectratio]{RA/mainmessages.png}
-    \caption{Package actorsystem::messages::mainactormessages}
+    \caption{Package actorsystem::messages::mainmessages}
   \end{center}
 \end{figure}
 
@@ -1561,7 +1561,7 @@ provvederà ad assemblare tutta la \gloss{collezione} da restutire all'utente.
 \subparagraph{Descrizione}
 Classe che rappresenta un messaggio utilizzato per richiedere la rimozione di un
 \gloss{item}.\\Implementata utilizzando la specifica funzionalità \textit{case
-class} di Scala, in modo da poter usufruirne mediante costrutti e algoritmi di
+  class} di Scala, in modo da poter usufruirne mediante costrutti e algoritmi di
 \gloss{pattern matching}.
 
 \subparagraph{Utilizzo}
@@ -2062,7 +2062,7 @@ leggere e restituire i dati all'attore richiedente.\\Questo messaggio è usato a
 % TODO img
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.8\textwidth,keepaspectratio]{RA/managermessages.png}
+    \includegraphics[width=0.4\textwidth,keepaspectratio]{RA/managermessages.png}
     \caption{Package actorsystem::messages::managermessages}
   \end{center}
 \end{figure}
@@ -2113,7 +2113,7 @@ in modo da redistribuire il carico in ingresso.
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=0.8\textwidth,keepaspectratio]{RA/Actors.png}
-    \caption{Actorsystem, visione generale}
+    \caption{\gloss{Package} actors, visione generale}
   \end{center}
 \end{figure}
 
@@ -2138,8 +2138,8 @@ in modo da redistribuire il carico in ingresso.
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.7\textwidth,keepaspectratio]{RA/clientactor.png}
-    \caption{Clientactor e interazioni con main}
+    \includegraphics[width=0.7\textwidth,keepaspectratio]{RA/clientactorPackage.png}
+    \caption{\gloss{Package} Clientactor e interazioni con Main}
   \end{center}
 \end{figure}
 
@@ -2237,37 +2237,37 @@ tipo
 
 % \subparagraph{Attributi}
 % \begin{tabular}{| p{1cm} | p{1.5cm} | p{2cm} | p{4cm} | p{8.5cm} |}
-    %     \hline
-    %     Nome & Accesso & Mutabilità & Tipo & Descrizione\\
-    %     \hline
-    %     ec & pubblico & immutabile & ExecutionContext & Rappresenta il Contesto di esecuzione all'interno del quale è stata creata questa classe \\
-    %     \hline
-    %   \end{tabular}
+%   \hline
+%   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
+%   \hline
+%   ec & pubblico & immutabile & ExecutionContext & Rappresenta il Contesto di esecuzione all'interno del quale è stata creata questa classe \\
+%   \hline
+% \end{tabular}
 
-    %     \subparagraph{Metodi}
+% \subparagraph{Metodi}
 
-    %     \begin{tabular}{| p{2.5cm} | p{2.5cm} | p{2.5cm} | p{9.5cm} |}
-    %     \hline
-    %     Nome & Accesso & Tipo di ritorno & Descrizione\\
-    %     \hline
-    %     items & pubblico & Route & Metodo che interagisce con il server tramite un router basandosi sulla route immessa dall'utente\\
-    %     \hline
-    %   \end{tabular}
+% \begin{tabular}{| p{2.5cm} | p{2.5cm} | p{2.5cm} | p{9.5cm} |}
+%   \hline
+%   Nome & Accesso & Tipo di ritorno & Descrizione\\
+%   \hline
+%   items & pubblico & Route & Metodo che interagisce con il server tramite un router basandosi sulla route immessa dall'utente\\
+%   \hline
+% \end{tabular}
 
-    %     \subparagraph{Parametri}
+% \subparagraph{Parametri}
 
-    %     \textbf{items}\\ \\
-    %     \begin{tabular}{| p{2.5cm} | p{2.5cm} | p{12cm} |}
-    %     \hline
-    %     Nome & Tipo & Descrizione\\
-    %     \hline
-    %     owner & String & Proprietario della \gloss{collezione} su cui si vuole operare\\
-    %     \hline
-    %     router & ActorRef & Riferimento dell'attore che si occuperà di comunicare con un attore \gloss{main} per effettuare le operazioni richieste\\
-    %     \hline
-    %     collectionName & String & Nome della \gloss{collezione} su cui si vuole operare\\
-    %     \hline
-    %   \end{tabular}\\
+% \textbf{items}\\ \\
+% \begin{tabular}{| p{2.5cm} | p{2.5cm} | p{12cm} |}
+%   \hline
+%   Nome & Tipo & Descrizione\\
+%   \hline
+%   owner & String & Proprietario della \gloss{collezione} su cui si vuole operare\\
+%   \hline
+%   router & ActorRef & Riferimento dell'attore che si occuperà di comunicare con un attore \gloss{main} per effettuare le operazioni richieste\\
+%   \hline
+%   collectionName & String & Nome della \gloss{collezione} su cui si vuole operare\\
+%   \hline
+% \end{tabular}\\
 
 \paragraph{actorbase::actorsystem::actors::clientactor::User}
 \label{sec:actorbase::actorsystem::actors::clientactor::User}
@@ -2275,7 +2275,7 @@ tipo
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=0.3\textwidth,keepaspectratio]{RA/user.png}
-    \caption{Classe actorsystem::actors::clientactor::UserApi}
+    \caption{Classe actorsystem::actors::clientactor::User}
   \end{center}
 \end{figure}
 
@@ -2318,7 +2318,7 @@ oggetto di tipo \hyperref[sec:actorbase::actorsystem::actors::clientactor::AuthI
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=0.3\textwidth,keepaspectratio]{RA/authInfo.png}
-    \caption{Classe actorsystem::actors::clientactor::UserApi}
+    \caption{Classe actorsystem::actors::clientactor::AuthInfo}
   \end{center}
 \end{figure}
 
@@ -2491,8 +2491,8 @@ dal \gloss{driver} basandosi sulla route di quest'ultima.
 
 \subsubsection{Interfacce}
 
-\paragraph{actorbase::actorsystem::actors::httpserver::SslConfiguration}
-\label{sec:actorbase::actorsystem::actors::httpserver::SslConfiguration}
+\paragraph{actorbase::actorsystem::actors::httpserver::SSLConfiguration}
+\label{sec:actorbase::actorsystem::actors::httpserver::SSLConfiguration}
 
 \begin{figure}[H]
   \begin{center}
@@ -2734,7 +2734,7 @@ all'utilizzatore.
 \subparagraph{Classi ereditate}
 \begin{itemize}
 \item akka::actor::Actor;
-\item akka::actor::ActorLoggin.
+\item akka::actor::ActorLogging.
 \end{itemize}
 
 \subparagraph{Attributi}
@@ -3273,7 +3273,7 @@ ai privilegi del proprio profilo nel sistema.
 
 \subparagraph{Attributi}
 
-    %     TODO: Da completare
+% TODO: Da completare
 
 \begin{tabular}{| p{3cm} | p{1.5cm} | p{2cm} | p{2cm} | p{8.5cm} |}
   \hline
@@ -3287,7 +3287,7 @@ ai privilegi del proprio profilo nel sistema.
 
 \subparagraph{Metodi}
 
-    %     TODO: Da completare
+% TODO: Da completare
 
 \begin{tabular}{| p{3cm} | p{1.5cm} | p{3cm} | p{10cm} |}
   \hline
@@ -3299,9 +3299,9 @@ ai privilegi del proprio profilo nel sistema.
 
 \subparagraph{Parametri}
 
-    %     TODO: Da completare
+% TODO: Da completare
 
-    %     \ding{228}
+% \ding{228}
 \textbf{authenticate}\\ \\
 \begin{tabular}{| p{3cm} | p{3.5cm} | p{8.5cm} |}
   \hline
@@ -3367,7 +3367,7 @@ le operazioni di lettura e scrittura di queste ultime.
 
 \subparagraph{Metodi}
 
-    %     TODO: Da completare
+% TODO: Da completare
 
 \begin{tabular}{| p{3cm} | p{1.5cm} | p{3.5cm} | p{9cm} |}
   \hline
@@ -3403,7 +3403,7 @@ le operazioni di lettura e scrittura di queste ultime.
 
 \subparagraph{Parametri}
 
-    %     TODO: Da completare
+% TODO: Da completare
 
 \textbf{insertTo}\\ \\
 \begin{tabular}{| p{3cm} | p{3.5cm} | p{10.5cm} |}
@@ -3502,7 +3502,7 @@ le operazioni di lettura e scrittura di queste ultime.
   \hline
 \end{tabular}\\
 
-    %     FINE ACTORBASEDRIVER
+% FINE ACTORBASEDRIVER
 
 \paragraph{ActorbaseAdminServices (abstract)}
 \label{sec:actorbase::driver::ActorbaseAdminServices}
@@ -3539,7 +3539,7 @@ scrittura delle \gloss{collezioni}. Funge da iniezione di dipendenze mediante
 
 \subparagraph{Metodi}
 
-    %     TODO: Da completare
+% TODO: Da completare
 
 \begin{tabular}{| p{3cm} | p{1.5cm} | p{2.5cm} | p{10cm} |}
   \hline
@@ -3555,7 +3555,7 @@ scrittura delle \gloss{collezioni}. Funge da iniezione di dipendenze mediante
 
 \subparagraph{Parametri}
 
-    %     TODO: Da completare
+% TODO: Da completare
 
 \textbf{addUser}\\ \\
 \begin{tabular}{| p{3cm} | p{3.5cm} | p{8.5cm} |}
@@ -3584,14 +3584,14 @@ scrittura delle \gloss{collezioni}. Funge da iniezione di dipendenze mediante
   \hline
 \end{tabular}\\
 
-    %     FINE ACTORBASEADMINSERVICES
+% FINE ACTORBASEADMINSERVICES
 
 \paragraph{Connection}
 \label{sec:actorbase::driver::Connection}
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.4\textwidth,keepaspectratio]{RQ/Connection.png}
+    \includegraphics[width=0.3\textwidth,keepaspectratio]{RQ/Connection.png}
     \caption{Driver: Classe Connection}
   \end{center}
 \end{figure}
@@ -3743,7 +3743,7 @@ serializzazione e deserializzazione in formato \gloss{JSON} o \gloss{array} di b
 o entrambi.
 
 \subparagraph{Ereditata da}
-    %     TODO controllare eventuali altre eredità
+% TODO controllare eventuali altre eredità
 \begin{itemize}
 \item \hyperref[sec:actorbase::driver::client::Connector]{actorbase::driver::client::Connector}.
 \end{itemize}
@@ -3802,7 +3802,7 @@ o entrambi.
   \hline
 \end{tabular}\\
 
-    %     FINE SERIALIZER
+% FINE SERIALIZER
 
 \paragraph{SSLClient (abstract)}
 \label{sec:actorbase::driver::client::SSLClient}
@@ -3917,7 +3917,7 @@ necessitano.
   \hline
 \end{tabular}
 
-    %     FINE ACTORBASECLIENT
+% FINE ACTORBASECLIENT
 
 \paragraph{Connector (abstract)}
 \label{sec:actorbase::driver::client::Connector}
@@ -3964,9 +3964,9 @@ Viene estesa dalle classi che necessitano di comunicare con il server.
 \item \hyperref[sec:actorbase::driver::client::Connector]{actorbase::driver::client::Connector}.
 \end{itemize}
 
-    %     FINE CONNECTOR
+% FINE CONNECTOR
 
-    %     INIZIO PACKAGE ACTORBASE::DRIVER::CLIENT::API
+% INIZIO PACKAGE ACTORBASE::DRIVER::CLIENT::API
 
 \subsection{actorbase::driver::client::api}
 \label{sec:actorbase::driver::client::api}
@@ -4018,7 +4018,7 @@ Viene utilizzata come classe padre per l'implementazione delle richieste
 \item \hyperref[sec:actorbase::driver::client::api::DELETE]{actorbase::driver::client::api::DELETE}
 \end{itemize}
 
-    %     FINE REQUEST METHOD
+% FINE REQUEST METHOD
 
 \paragraph{GET}
 \label{sec:actorbase::driver::client::api::GET}
@@ -4048,7 +4048,7 @@ di tipo \gloss{GET} da utilizzare nella comunicazione con il server.
 \item \hyperref[sec:actorbase::driver::client::api::RequestMethod]{actorbase::driver::client::api::RequestMethod}
 \end{itemize}
 
-    %     FINE GET
+% FINE GET
 
 \paragraph{POST}
 \label{sec:actorbase::driver::client::api::POST}
@@ -4078,7 +4078,7 @@ di tipo \gloss{POST} da utilizzare nella comunicazione con il server.
 \item \hyperref[sec:actorbase::driver::client::api::RequestMethod]{actorbase::driver::client::api::RequestMethod}
 \end{itemize}
 
-    %     FINE POST
+% FINE POST
 
 \paragraph{PUT}
 \label{sec:actorbase::driver::client::api::PUT}
@@ -4108,7 +4108,7 @@ di tipo \gloss{PUT} da utilizzare nella comunicazione con il server.
 \item \hyperref[sec:actorbase::driver::client::api::RequestMethod]{actorbase::driver::client::api::RequestMethod}
 \end{itemize}
 
-    %     FINE PUT
+% FINE PUT
 
 \paragraph{DELETE}
 \label{sec:actorbase::driver::client::api::DELETE}
@@ -4138,7 +4138,7 @@ di tipo \gloss{DELETE} da utilizzare nella comunicazione con il server.
 \item \hyperref[sec:actorbase::driver::client::api::RequestMethod]{actorbase::driver::client::api::RequestMethod}
 \end{itemize}
 
-    %     FINE DELETE
+% FINE DELETE
 
 \paragraph{Request}
 \label{sec:actorbase::driver::client::api::Request}
@@ -4208,11 +4208,11 @@ creata mediante il design pattern \gloss{Builder} nella classe
   \hline
 \end{tabular}
 
-    %     FINE REQUEST
+% FINE REQUEST
 
 \paragraph{Credentials}
 \label{sec:actorbase::driver::client::api::Credentials}
-    %     TODO: da inserire immagine
+% TODO: da inserire immagine
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=0.3\textwidth,keepaspectratio]{RQ/Credentials.png}
@@ -4260,7 +4260,7 @@ dati stringa, \gloss{username} e password.
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.3\textwidth,keepaspectratio]{RQ/Response.png}
+    \includegraphics[width=0.2\textwidth,keepaspectratio]{RQ/Response.png}
     \caption{Driver: Classe response}
   \end{center}
 \end{figure}
@@ -4304,14 +4304,14 @@ utilizzare nella comunicazione con il server.
   \hline
 \end{tabular}
 
-    %     FINE RESPONSE
+% FINE RESPONSE
 
 \paragraph{Status}
 \label{sec:actorbase::driver::client::api::Status}
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.3\textwidth,keepaspectratio]{RQ/Status.png}
+    \includegraphics[width=0.2\textwidth,keepaspectratio]{RQ/Status.png}
     \caption{Driver: Classe response}
   \end{center}
 \end{figure}
@@ -4348,14 +4348,14 @@ Viene utilizzata come classe per l'incapsulamento dei codici di ritorno
   \hline
 \end{tabular}
 
-    %     FINE STATUS
+% FINE STATUS
 
 \paragraph{RequestBuilder}
 \label{sec:actorbase::driver::client::api::RequestBuilder}
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.7\textwidth,keepaspectratio]{RQ/RequestBuilder.png}
+    \includegraphics[width=0.6\textwidth,keepaspectratio]{RQ/RequestBuilder.png}
     \caption{Driver: Classe RequestBuilder}
   \end{center}
 \end{figure}
@@ -4466,7 +4466,7 @@ nella comunicazione con il server.
   \hline
 \end{tabular}\\
 
-    %     SONO QUI 04/05 6:07 P.M.
+% SONO QUI 04/05 6:07 P.M.
 
 \subsection{actorbase::driver::data}
 \label{sec:actorbase::driver::data}
@@ -4526,7 +4526,7 @@ ricerca, sia generale, sia interna a specifiche \gloss{collezioni}.
 
 \subparagraph{Metodi}
 
-\begin{tabular}{| p{2.5cm} | p{1.5cm} | p{3cm} | p{10cm} |}
+\begin{tabular}{| p{2.5cm} | p{1.5cm} | p{3.5cm} | p{9.5cm} |}
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
@@ -4536,9 +4536,9 @@ ricerca, sia generale, sia interna a specifiche \gloss{collezioni}.
   \hline
   +<T> (overload) & pubblico & \hyperref[sec:actorbase::driver::data::ActorbaseObject]{ActorbaseObject<T>} & Metodo ereditato dall'interfaccia Map di \gloss{Scala}, permette di aggiungere più coppie chiave-valore all'oggetto \hyperref[sec:actorbase::driver::data::ActorbaseObject]{ActorbaseObject<T>}  di tipo String-T generico\\
   \hline
-  - & pubblico & \hyperref[sec:actorbase::driver::data::ActorbaseObject]{ActorbaseObject<Object>} & Metodo ereditato dall'interfaccia Map di \gloss{Scala}, permette di rimuovere una coppie chiave-valore dall'oggetto \hyperref[sec:actorbase::driver::data::ActorbaseObject]{ActorbaseObject<T>}  di tipo String-T generico\\
+  - & pubblico & \hyperref[sec:actorbase::driver::data::ActorbaseObject]{ActorbaseObject\allowbreak{}<Object>} & Metodo ereditato dall'interfaccia Map di \gloss{Scala}, permette di rimuovere una coppie chiave-valore dall'oggetto \hyperref[sec:actorbase::driver::data::ActorbaseObject]{ActorbaseObject<T>}  di tipo String-T generico\\
   \hline
-  - (overload) & pubblico & \hyperref[sec:actorbase::driver::data::ActorbaseObject]{ActorbaseObject<Object>} & Metodo ereditato dall'interfaccia Map di \gloss{Scala}, permette di rimuovere più coppie chiave-valore dall'oggetto \hyperref[sec:actorbase::driver::data::ActorbaseObject]{ActorbaseObject<T>}  di tipo String-T generico\\
+  - (overload) & pubblico & \hyperref[sec:actorbase::driver::data::ActorbaseObject]{ActorbaseObject\allowbreak{}<Object>} & Metodo ereditato dall'interfaccia Map di \gloss{Scala}, permette di rimuovere più coppie chiave-valore dall'oggetto \hyperref[sec:actorbase::driver::data::ActorbaseObject]{ActorbaseObject<T>}  di tipo String-T generico\\
   \hline
   get & pubblico & Object & Metodo ereditato dall'interfaccia Map di \gloss{Scala}, permette di ottenere il valore associato alla chiave specificata nell'oggetto \hyperref[sec:actorbase::driver::data::ActorbaseObject]{ActorbaseObject<T>}  di tipo String-T generico\\
   \hline
@@ -4612,7 +4612,7 @@ ricerca, sia generale, sia interna a specifiche \gloss{collezioni}.
   \hline
 \end{tabular}\\
 
-    %     FINE ACTORBASEOBJECT
+% FINE ACTORBASEOBJECT
 
 \paragraph{actorbase::driver::data::ActorbaseCollection}
 \label{sec:actorbase::driver::data::ActorbaseCollection}
@@ -4664,7 +4664,7 @@ navigabilità dei contenuti.
 
 \subparagraph{Metodi}
 
-    %     TODO: Da completare
+% TODO: Da completare
 
 \begin{tabular}{| p{3cm} | p{1.5cm} | p{3.5cm} | p{9cm} |}
   \hline
@@ -4716,7 +4716,7 @@ navigabilità dei contenuti.
 
 \subparagraph{Parametri}
 
-    %     TODO: Da completare
+% TODO: Da completare
 
 \textbf{rename}\\ \\
 \begin{tabular}{| p{3cm} | p{3.5cm} | p{8.5cm} |}
@@ -4839,14 +4839,14 @@ navigabilità dei contenuti.
   \hline
 \end{tabular}\\
 
-    %     TODO ACTORBASECOLLECTION
+% TODO ACTORBASECOLLECTION
 
 \paragraph{actorbase::driver::data::ActorbaseCollectionMap}
 \label{sec:actorbase::driver::data::ActorbaseCollectionMap}
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.7\textwidth,keepaspectratio]{RQ/ActorbaseCollectionMap.png}
+    \includegraphics[width=0.8\textwidth,keepaspectratio]{RQ/ActorbaseCollectionMap.png}
     \caption{Driver: Classe ActorbaseCollectionMap}
   \end{center}
 \end{figure}
@@ -4879,7 +4879,7 @@ Questa classe viene utilizzata per la rappresentazione dell'aggregazione di
 
 \subparagraph{Metodi}
 
-    %     TODO: Da completare
+% TODO: Da completare
 
 \begin{tabular}{| p{3cm} | p{1.5cm} | p{3.5cm} | p{9cm} |}
   \hline
@@ -4901,7 +4901,7 @@ Questa classe viene utilizzata per la rappresentazione dell'aggregazione di
 
 \subparagraph{Parametri}
 
-    %     TODO: Da completare
+% TODO: Da completare
 
 \textbf{find}\\ \\
 \begin{tabular}{| p{3cm} | p{3.5cm} | p{8.5cm} |}
@@ -4930,14 +4930,14 @@ Questa classe viene utilizzata per la rappresentazione dell'aggregazione di
   \hline
 \end{tabular}\\
 
-    %     FINITO ACTORBASECOLLECTIONMAP
+% FINITO ACTORBASECOLLECTIONMAP
 
 \subsection{actorbase::driver::exceptions}
 \label{sec:actorbase::driver::exceptions}
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.8\textwidth,keepaspectratio]{RQ/Exceptions.png}
+    \includegraphics[width=0.7\textwidth,keepaspectratio]{RQ/Exceptions.png}
     \caption{Driver:Package exceptions}
   \end{center}
 \end{figure}
@@ -4957,7 +4957,7 @@ Questa classe viene utilizzata per la rappresentazione dell'aggregazione di
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.4\textwidth,keepaspectratio]{RQ/WrongCredentialExc.png}
+    \includegraphics[width=0.3\textwidth,keepaspectratio]{RQ/WrongCredentialExc.png}
     \caption{Driver: class WrongCredentialExc}
   \end{center}
 \end{figure}
@@ -4975,7 +4975,7 @@ Questa classe viene utilizzata dal \gloss{driver} per gestire errori nelle crede
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.4\textwidth,keepaspectratio]{RQ/WrongPasswordExc.png}
+    \includegraphics[width=0.3\textwidth,keepaspectratio]{RQ/WrongPasswordExc.png}
     \caption{Driver: class WrongPasswordExc}
   \end{center}
 \end{figure}
@@ -4992,7 +4992,7 @@ Questa classe viene utilizzata dal \gloss{driver} per gestire il caso in cui all
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.4\textwidth,keepaspectratio]{RQ/WrongNewPasswordExc.png}
+    \includegraphics[width=0.3\textwidth,keepaspectratio]{RQ/WrongNewPasswordExc.png}
     \caption{Driver: class WrongNewPasswordExc}
   \end{center}
 \end{figure}
@@ -5009,7 +5009,7 @@ Questa classe viene utilizzata dal \gloss{driver} per gestire il caso in cui all
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.4\textwidth,keepaspectratio]{RQ/CollectionAlreadyExistsExc.png}
+    \includegraphics[width=0.3\textwidth,keepaspectratio]{RQ/CollectionAlreadyExistsExc.png}
     \caption{Driver: class CollectionAlreadyExistsExc}
   \end{center}
 \end{figure}
@@ -5026,7 +5026,7 @@ Questa classe viene utilizzata dal \gloss{driver} per gestire il caso in cui all
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.4\textwidth,keepaspectratio]{RQ/UndefinedCollectionExc.png}
+    \includegraphics[width=0.3\textwidth,keepaspectratio]{RQ/UndefinedCollectionExc.png}
     \caption{Driver: class UndefinedCollectionExc}
   \end{center}
 \end{figure}
@@ -5043,7 +5043,7 @@ Questa classe viene utilizzata dal \gloss{driver} per gestire il caso in cui all
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.4\textwidth,keepaspectratio]{RQ/UndefinedUsernameExc.png}
+    \includegraphics[width=0.3\textwidth,keepaspectratio]{RQ/UndefinedUsernameExc.png}
     \caption{Driver: class UndefinedUsernameExc}
   \end{center}
 \end{figure}
@@ -5060,7 +5060,7 @@ Questa classe viene utilizzata dal \gloss{driver} per gestire il caso in cui all
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.4\textwidth,keepaspectratio]{RQ/UsernameAlreadyExistsExc.png}
+    \includegraphics[width=0.3\textwidth,keepaspectratio]{RQ/UsernameAlreadyExistsExc.png}
     \caption{Driver: class UsernameAlreadyExistsExc}
   \end{center}
 \end{figure}
@@ -5077,7 +5077,7 @@ Questa classe viene utilizzata dal \gloss{driver} per gestire il caso in cui all
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.4\textwidth,keepaspectratio]{RQ/DuplicateKeyExc.png}
+    \includegraphics[width=0.3\textwidth,keepaspectratio]{RQ/DuplicateKeyExc.png}
     \caption{Driver: class DuplicateKeyExc}
   \end{center}
 \end{figure}
@@ -5094,7 +5094,7 @@ Questa classe viene utilizzata dal \gloss{driver} per gestire il caso in cui all
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.4\textwidth,keepaspectratio]{RQ/UndefinedFileExc.png}
+    \includegraphics[width=0.3\textwidth,keepaspectratio]{RQ/UndefinedFileExc.png}
     \caption{Driver: class UndefinedFileExc}
   \end{center}
 \end{figure}
@@ -5111,7 +5111,7 @@ Questa classe viene utilizzata dal \gloss{driver} per gestire il caso in cui all
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.4\textwidth,keepaspectratio]{RQ/MalformedFileExc.png}
+    \includegraphics[width=0.3\textwidth,keepaspectratio]{RQ/MalformedFileExc.png}
     \caption{Driver: class MalformedFileExc}
   \end{center}
 \end{figure}
@@ -5126,8 +5126,8 @@ Questa classe viene utilizzata dal \gloss{driver} per gestire il caso in cui all
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %     CLI PARTE                              %
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CLI PARTE                              %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{actorbase::cli}
 \label{sec:actorbase::cli}
@@ -5161,7 +5161,7 @@ Questa componente viene rappresentata usando il \gloss{design pattern}
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.7\textwidth,keepaspectratio]{RQ/Views.png}
+    \includegraphics[width=0.8\textwidth,keepaspectratio]{RQ/Views.png}
     \caption{CLI: views package, interazioni con controllers e models}
   \end{center}
 \end{figure}
@@ -5179,7 +5179,7 @@ comandi.
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.4\textwidth,keepaspectratio]{RQ/PromptProvider.png}
+    \includegraphics[width=0.3\textwidth,keepaspectratio]{RQ/PromptProvider.png}
     \caption{CLI: interfaccia PromptProvider}
   \end{center}
 \end{figure}
@@ -5209,7 +5209,7 @@ Offre un'interfaccia per la creazione di un \gloss{prompt} generico.
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.4\textwidth,keepaspectratio]{RQ/Observer.png}
+    \includegraphics[width=0.3\textwidth,keepaspectratio]{RQ/Observer.png}
     \caption{CLI: interfaccia Observer}
   \end{center}
 \end{figure}
@@ -5256,7 +5256,7 @@ risposta ricevuta dal \gloss{driver}.
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.4\textwidth,keepaspectratio]{RQ/CommandLoop.png}
+    \includegraphics[width=0.3\textwidth,keepaspectratio]{RQ/CommandLoop.png}
     \caption{CLI: classe CommandLoop}
   \end{center}
 \end{figure}
@@ -5301,7 +5301,7 @@ che si occuperà del parsing e dell'analisi del comando.
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.4\textwidth,keepaspectratio]{RQ/ActorbaseBanner.png}
+    \includegraphics[width=0.2\textwidth,keepaspectratio]{RQ/ActorbaseBanner.png}
     \caption{CLI: classe ActorbaseBanner}
   \end{center}
 \end{figure}
@@ -5331,7 +5331,7 @@ all'avvio della \gloss{CLI}.
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.4\textwidth,keepaspectratio]{RQ/ActorbasePrompt.png}
+    \includegraphics[width=0.2\textwidth,keepaspectratio]{RQ/ActorbasePrompt.png}
     \caption{CLI: classe ActorbasePrompt}
   \end{center}
 \end{figure}
@@ -5378,7 +5378,7 @@ effettuata.
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/ResultViewer.png}
+    \includegraphics[width=0.3\textwidth,keepaspectratio]{RQ/ResultViewer.png}
     \caption{CLI: classe ResultViewer}
   \end{center}
 \end{figure}
@@ -5444,7 +5444,7 @@ componente si occupa di passare il comando ricevuto dalla \gloss{view} al
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.8\textwidth,keepaspectratio]{RQ/GrammarParser.png}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/GrammarParser.png}
     \caption{CLI: package Controllers}
   \end{center}
 \end{figure}
@@ -5486,7 +5486,7 @@ con i parametri corretti per consentire l'esecuzione del comando.
 
 \subparagraph{Metodi}
 
-\begin{tabular}{| p{5.5cm} | p{1.5cm} | p{2cm} | p{7.5cm} |}
+\begin{longtable}{| p{5.5cm} | p{1.5cm} | p{2cm} | p{7.5cm} |}
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
@@ -5528,7 +5528,7 @@ con i parametri corretti per consentire l'esecuzione del comando.
   \hline
   keyString & pubblico & Parser di Stringa & Ritorna l'attributo keyString\\
   \hline
-\end{tabular}
+\end{longtable}
 
 \subparagraph{Parametri}
 
@@ -5567,7 +5567,7 @@ utilizzare il \gloss{command pattern}.
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.4\textwidth,keepaspectratio]{RQ/Command.png}
+    \includegraphics[width=0.3\textwidth,keepaspectratio]{RQ/Command.png}
     \caption{CLI: interfaccia Command}
   \end{center}
 \end{figure}
@@ -5621,7 +5621,7 @@ comando.
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.6\textwidth,keepaspectratio]{RQ/Observable.png}
+    \includegraphics[width=0.4\textwidth,keepaspectratio]{RQ/Observable.png}
     \caption{CLI: classe astratta Observable}
   \end{center}
 \end{figure}
@@ -5706,7 +5706,7 @@ ha restituito un risultato.
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/CommandInvoker.png}
+    \includegraphics[width=0.4\textwidth,keepaspectratio]{RQ/CommandInvoker.png}
     \caption{CLI: classe CommandInvoker}
   \end{center}
 \end{figure}
@@ -5768,7 +5768,7 @@ affinchè quest'ultima possa procedere con la visualizzazione del risultato in o
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/ChangePasswordCommand.png}
+    \includegraphics[width=0.4\textwidth,keepaspectratio]{RQ/ChangePasswordCommand.png}
     \caption{CLI: classe ChangePasswordCommand}
   \end{center}
 \end{figure}
@@ -5816,7 +5816,7 @@ Viene utilizzata per chiamare il metodo di
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/FindCommand.png}
+    \includegraphics[width=0.4\textwidth,keepaspectratio]{RQ/FindCommand.png}
     \caption{CLI: classe ChangePasswordCommand}
   \end{center}
 \end{figure}
@@ -5865,7 +5865,7 @@ dall'utente.
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/HelpCommand.png}
+    \includegraphics[width=0.4\textwidth,keepaspectratio]{RQ/HelpCommand.png}
     \caption{CLI: classe HelpCommand}
   \end{center}
 \end{figure}
@@ -5910,7 +5910,7 @@ Viene utilizzata per chiamare il metodo di
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/LogoutCommand.png}
+    \includegraphics[width=0.4\textwidth,keepaspectratio]{RQ/LogoutCommand.png}
     \caption{CLI: classe LogoutCommand}
   \end{center}
 \end{figure}
@@ -5957,7 +5957,7 @@ Viene utilizzata per chiamare il metodo di
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/ResetPasswordCommand.png}
+    \includegraphics[width=0.4\textwidth,keepaspectratio]{RQ/ResetPasswordCommand.png}
     \caption{CLI: classe ResetPasswordCommand}
   \end{center}
 \end{figure}
@@ -6005,7 +6005,7 @@ dell'utente specificato in input.
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/ListCollectionsCommand.png}
+    \includegraphics[width=0.4\textwidth,keepaspectratio]{RQ/ListCollectionsCommand.png}
     \caption{CLI: classe ListCollectionsCommand}
   \end{center}
 \end{figure}
@@ -6054,7 +6054,7 @@ nomi di tutte le collezioni presenti nel \gloss{database}.
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/AddContributorCommand.png}
+    \includegraphics[width=0.4\textwidth,keepaspectratio]{RQ/AddContributorCommand.png}
     \caption{CLI: classe AddContributorCommand}
   \end{center}
 \end{figure}
@@ -6103,7 +6103,7 @@ in input.
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/LoginCommand.png}
+    \includegraphics[width=0.4\textwidth,keepaspectratio]{RQ/LoginCommand.png}
     \caption{CLI: classe LoginCommand}
   \end{center}
 \end{figure}
@@ -6151,7 +6151,7 @@ immesse dall'utente.
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/RemoveCollectionCommand.png}
+    \includegraphics[width=0.4\textwidth,keepaspectratio]{RQ/RemoveCollectionCommand.png}
     \caption{CLI: classe RemoveCollectionCommand}
   \end{center}
 \end{figure}
@@ -6199,7 +6199,7 @@ i parametri specificati in input.
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/RemoveContributorCommand.png}
+    \includegraphics[width=0.4\textwidth,keepaspectratio]{RQ/RemoveContributorCommand.png}
     \caption{CLI: classe RemoveContributorCommand}
   \end{center}
 \end{figure}
@@ -6248,7 +6248,7 @@ specificati in input.
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/RenameCollectionCommand.png}
+    \includegraphics[width=0.4\textwidth,keepaspectratio]{RQ/RenameCollectionCommand.png}
     \caption{CLI: classe RenameCollectionCommand}
   \end{center}
 \end{figure}
@@ -6294,7 +6294,7 @@ Viene utilizzata per chiamare il metodo di \hyperref[sec:actorbase::cli::models:
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/AddUserCommand.png}
+    \includegraphics[width=0.4\textwidth,keepaspectratio]{RQ/AddUserCommand.png}
     \caption{CLI: classe AddUserCommand}
   \end{center}
 \end{figure}
@@ -6341,7 +6341,7 @@ parametri specificati in input.
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/RemoveItemCommand.png}
+    \includegraphics[width=0.4\textwidth,keepaspectratio]{RQ/RemoveItemCommand.png}
     \caption{CLI: classe RemoveItemCommand}
   \end{center}
 \end{figure}
@@ -6389,7 +6389,7 @@ con i parametri immessi dall'utente.
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/RemoveUserCommand.png}
+    \includegraphics[width=0.4\textwidth,keepaspectratio]{RQ/RemoveUserCommand.png}
     \caption{CLI: classe RemoveUserCommand}
   \end{center}
 \end{figure}
@@ -6436,7 +6436,7 @@ parametri immessi dall'utente.
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/ImportCommand.png}
+    \includegraphics[width=0.4\textwidth,keepaspectratio]{RQ/ImportCommand.png}
     \caption{CLI: classe ImportCommand}
   \end{center}
 \end{figure}
@@ -6483,7 +6483,7 @@ Viene utilizzata per chiamare il metodo di
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/InsertItemCommand.png}
+    \includegraphics[width=0.4\textwidth,keepaspectratio]{RQ/InsertItemCommand.png}
     \caption{CLI: classe InsertItemCommand}
   \end{center}
 \end{figure}
@@ -6530,7 +6530,7 @@ Viene utilizzata per chiamare il metodo di \hyperref[sec:actorbase::cli::models:
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/CreateCollectionCommand.png}
+    \includegraphics[width=0.4\textwidth,keepaspectratio]{RQ/CreateCollectionCommand.png}
     \caption{CLI: classe CreateCollectionCommand}
   \end{center}
 \end{figure}
@@ -6578,7 +6578,7 @@ Viene utilizzata per chiamare il metodo di
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/ExportCommand.png}
+    \includegraphics[width=0.4\textwidth,keepaspectratio]{RQ/ExportCommand.png}
     \caption{CLI: classe ExportCommand}
   \end{center}
 \end{figure}
@@ -6626,7 +6626,7 @@ Viene utilizzata per chiamare il metodo di
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/CommandReceiver.png}
+    \includegraphics[width=0.4\textwidth,keepaspectratio]{RQ/CommandReceiver.png}
     \caption{CLI: classe CommandReceiver}
   \end{center}
 \end{figure}
@@ -7592,8 +7592,8 @@ l'esito dell'operazione.\\
 \appendix
 \label{sec:appendice}
 
-    %     \newpage
-    %     \listoftables
+% \newpage
+% \listoftables
 \newpage
 \listoffigures
 \end{document}
