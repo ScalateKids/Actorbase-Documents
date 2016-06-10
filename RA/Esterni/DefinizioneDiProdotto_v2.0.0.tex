@@ -145,7 +145,7 @@ implementativi in modo da fornire una struttura dettagliata ai
   Libreria per la gestione di richieste \gloss{HTTP}(HyperText Transfert Protocol) in modo asincrono, basata sul modello ad
   attori offerto dalla libreria Akka. \url{http://spray.io/}
 \item\textbf{REST\ -\ Representational State Transfer:} Architettura software
-  per sistemmi di \gloss{ipertesto} distribuiti, rappresenta un sistema di
+  per sistemi di \gloss{ipertesto} distribuiti, rappresenta un sistema di
   localizzazione e richiesta risorse \gloss{stateless}, poggia su \gloss{HTTP}
   come protocollo di comunicazione \url{https://en.wikipedia.org/wiki/Representational_state_transfer}
 \end{itemize}
@@ -159,7 +159,7 @@ Gli standard di progettazione architetturale sono definiti nella
 \textit{Specifica Tecnica v4.0.0}.
 
 \subsection{Standard di documentazione del codice}
-Gli standard per la scrittura della documentazione del codice sono definit nel
+Gli standard per la scrittura della documentazione del codice sono definiti nel
 documento \textit{Norme di Progetto v4.0.0}.
 
 \subsection{Standard di programmazione}
@@ -349,7 +349,7 @@ Viene utilizzata dall'attore di tipo \gloss{Warehouseman} per il salvataggio e l
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  Algorithm & privato & immutabile & String & Rappresenta l'agoritmo usato per la criptazione \\
+  Algorithm & privato & immutabile & String & Rappresenta l'algoritmo usato per la criptazione \\
   \hline
   Transformation & privato & immutabile & String & Rappresenta la trasformazione per ottenere il cifrario usato per la criptazione \\
   \hline
@@ -360,7 +360,7 @@ Viene utilizzata dall'attore di tipo \gloss{Warehouseman} per il salvataggio e l
   \hline
   Nome & Accesso & Tipo di ritorno & Descrizione\\
   \hline
-  anyToBytes & pubblico & \gloss{Array} di \gloss{byte} & Metodo utilizzato per trasformare un oggetto qualsisi in un \gloss{array} di \gloss{byte}\\
+  anyToBytes & pubblico & \gloss{Array} di \gloss{byte} & Metodo utilizzato per trasformare un oggetto qualsiasi in un \gloss{array} di \gloss{byte}\\
   \hline
   bytesToAny & pubblico & Object & Metodo utilizzato per riportare allo stato originale un oggetto rappresentato in forma \gloss{array} di \gloss{byte}\\
   \hline
@@ -924,7 +924,7 @@ la richiesta di lista collezioni.
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  list & privato & immutabile & List<String> & Rappresenta una lista di stringhe da restiture all'utente a seguito di una richiesta \\
+  list & privato & immutabile & List<String> & Rappresenta una lista di stringhe da restituire all'utente a seguito di una richiesta \\
   \hline
 \end{tabular}
 
@@ -1011,7 +1011,7 @@ Questo viene utilizzato per adempiere ad alcune richieste dell'utente.
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  response & privato & immutabile & Array<Byte> & Rappresenta una stringa contenente il messaggio o il valore da restiture all'utente a seguito di una sua richiesta\\
+  response & privato & immutabile & Array<Byte> & Rappresenta una stringa contenente il messaggio o il valore da restituire all'utente a seguito di una sua richiesta\\
   \hline
 \end{tabular}
 
@@ -1068,7 +1068,7 @@ item all'attore
 provvederà ad inoltrare la richiesta al giusto attore
 \hyperref[sec:actorbase::actorsystem::actors::storefinder::Storefinder]{Storefinder}
 che rappresenta la \gloss{collezione} in cui inserire l'item. Se non è presente
-la collezione in cui inserire l'item questa verrà creata instanziando un nuovo
+la collezione in cui inserire l'item questa verrà creata istanziando un nuovo
 attore
 \hyperref[sec:actorbase::actorsystem::actors::storefinder::Storefinder]{Storefinder},
 infine verrà inoltrata la richiesta di inserimento a quest'ultimo.
@@ -1163,7 +1163,7 @@ item o una intera collezione.
 
 \subparagraph{Descrizione}
 Classe che rappresenta un messaggio utilizzato per assemblare parti di
-\gloss{collezioni} provenienti dagi \gloss{attori} di tipo
+\gloss{collezioni} provenienti dagli \gloss{attori} di tipo
 \hyperref[sec:actorbase::actorsystem::actors::storekeeper::Storekeeper]{Storekeeper}
 verso l'\gloss{attore}
 \hyperref[sec:actorbase::actorsystem::actors::main::Main]{Main}.\\Implementata
@@ -1276,7 +1276,7 @@ lo username del collaboratore designato alla collezione richiesta.
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  username & privato & immutabile & String & Rappresente lo \gloss{username} del \gloss{collaboratore} da aggiungere alla \gloss{collezione}\\
+  username & privato & immutabile & String & Rappresenta lo \gloss{username} del \gloss{collaboratore} da aggiungere alla \gloss{collezione}\\
   \hline
   permission & privato & immutabile & Enum & Rappresenta il tipo di permessi da assegnare al \gloss{collaboratore}\\
   \hline
@@ -1325,7 +1325,7 @@ lo username del collaboratore designato alla collezione richiesta.
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  username & privato & immutabile & String & Rappresente lo username del collaboratore da rimuovere dalla collezione\\
+  username & privato & immutabile & String & Rappresenta lo username del collaboratore da rimuovere dalla collezione\\
   \hline
   uuid & privato & immutabile & String & Rappresenta l'id della collezione da cui rimuovere il collaboratore\\
   \hline
@@ -1523,7 +1523,7 @@ seguito di una richiesta di un' intera \gloss{collezione} da parte di un
 utente.\\Quando riceve questo messaggio l'\gloss{attore} provvederà a inoltrare
 la mappa di \gloss{item} all'\gloss{attore}
 \hyperref[sec:actorbase::actorsystem::actors::main::Main]{Main}, il quale
-provvederà ad assemblare tutta la \gloss{collezione} da restutire all'utente.
+provvederà ad assemblare tutta la \gloss{collezione} da restituire all'utente.
 
 \subparagraph{Attributi}
 \begin{tabular}{| p{2cm} | p{1.5cm} | p{2cm} | p{3cm} | p{8.5cm} |}
@@ -1951,7 +1951,7 @@ in modo da poter usufruirne mediante costrutti e algoritmi di
 \gloss{pattern matching}.
 
 \subparagraph{Utilizzo}
-Questa classe viene utilizzata per inizializzare l'attore cone le informazioni
+Questa classe viene utilizzata per inizializzare l'attore con le informazioni
 necessarie come la collezione che rappresenta.\\Questo messaggio viene
 ricevuto subito dopo la propria creazione in modo da inizializzarlo immediatamente.
 
@@ -1997,7 +1997,7 @@ in modo da poter usufruirne mediante costrutti e algoritmi di
 Questa classe viene utilizzata per richiedere all'attore di persistere dati
 su disco. Quando l'attore riceve questo messaggio provvederà a salvare su
 filesystem i dati passati come parametri in file che seguono una gerarchia
-simile alla gerarchia delle collezioni del sistema.\\I dati salvati vengono prima cryptati tramite l'ausilio della classe \hyperref[sec:actorbase::actorsystem::utils::CryptoUtils]{CryptoUtils}
+simile alla gerarchia delle collezioni del sistema.\\I dati salvati vengono prima criptati tramite l'ausilio della classe \hyperref[sec:actorbase::actorsystem::utils::CryptoUtils]{CryptoUtils}
 
 \subparagraph{Attributi}
 \begin{tabular}{| p{2cm} | p{1.5cm} | p{2cm} | p{3cm} | p{8.5cm} |}
@@ -2353,7 +2353,7 @@ dell'\hyperref[sec:actorbase::actorsystem::actors::clientactor::Authenticator]{A
   \hline
   user & pubblico & \hyperref[sec:actorbase::actorsystem::actors::clientactor::User]{User} & Metodo di accesso in sola lettura all'attributo user\\
   \hline
-  hasAdmin\allowbreak{}Permissions & pubblic & Boolean & Metodo di verifica dei privilegi amministrativi dell'utente autenticato\\
+  hasAdmin\allowbreak{}Permissions & pubblico & Boolean & Metodo di verifica dei privilegi amministrativi dell'utente autenticato\\
   \hline
 \end{tabular}
 
@@ -2742,9 +2742,9 @@ all'utilizzatore.
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  sfMap & privato & mutabile & Map<CollectionRange, ActorRef> & Rappresenta una mappa contenente come chiavi degli oggetti CollectionRange (che a sua volta rappresentano intervalli di chiavi di una specifica \gloss{collezione}) e come valore i riferimenti degli storefinder che mappano quelle chiavi \\
+  sfMap & privato & mutabile & Map<\hyperref[sec:actorbase::actorsystem::utils::ActorbaseCollection]{ActorbaseCollection}, ActorRef> & Rappresenta una mappa contenente come chiavi degli oggetti \hyperref[sec:actorbase::actorsystem::utils::ActorbaseCollection]{ActorbaseCollection} e come valore i riferimenti degli \hyperref[sec:actorbase::actorsystem::actors::Storefinder]{Storefinder} che mappano quelle chiavi \\
   \hline
-  requestMap & privato & mutabile & Map<ActorRef, Map<ActorbaseCollection, Map<String, Object> > > & Struttura dati atta a restituire intere collezioni\\
+  requestMap & privato & mutabile & Map<ActorRef, Map<\hyperref[sec:actorbase::actorsystem::utils::ActorbaseCollection]{ActorbaseCollection}, Map<String, Object> > > & Struttura dati atta a restituire intere collezioni\\
   \hline
 \end{tabular}
 
@@ -2870,9 +2870,9 @@ accedibili all'utente.
   \hline
   Nome & Accesso & Mutabilità & Tipo & Descrizione\\
   \hline
-  username & privato & immutabile & String & Rappresente lo \gloss{username} dell'utente\\
+  username & privato & immutabile & String & Rappresenta lo \gloss{username} dell'utente\\
   \hline
-  password & privato & immutabile & String & Rappresente la \gloss{password} associata all'utente\\
+  password & privato & immutabile & String & Rappresenta la \gloss{password} associata all'utente\\
   \hline
   collections & privato & mutabile & \gloss{Set} di \hyperref[sec:actorbase::actorsystem::utils::ActorbaseCollection]{ActorbaseCollection} & Rappresenta un insieme di \gloss{collezioni} accedibili all'utente, senza distinzione tra permessi di sola lettura o lettura e scrittura\\
   \hline
@@ -2889,9 +2889,9 @@ accedibili all'utente.
   \hline
   getCollections & pubblico & \gloss{Set} di \hyperref[sec:actorbase::actorsystem::utils::ActorbaseCollection]{ActorbaseCollection}\\
   \hline
-  addCollection & pubblico & void & Aggiunge un'oggetto di tipo \hyperref[sec:actorbase::actorsystem::utils::ActorbaseCollection]{ActorbaseCollection} al \gloss{Set} dell'utente\\
+  addCollection & pubblico & void & Aggiunge un oggetto di tipo \hyperref[sec:actorbase::actorsystem::utils::ActorbaseCollection]{ActorbaseCollection} al \gloss{Set} dell'utente\\
   \hline
-  removeCollection & pubblico & void & Rimuove un'oggetto di tipo \hyperref[sec:actorbase::actorsystem::utils::ActorbaseCollection]{ActorbaseCollection} dal \gloss{Set} dell'utente\\
+  removeCollection & pubblico & void & Rimuove un oggetto di tipo \hyperref[sec:actorbase::actorsystem::utils::ActorbaseCollection]{ActorbaseCollection} dal \gloss{Set} dell'utente\\
   \hline
   contains & pubblico & Boolean & Controlla l'appartenenza di un oggetto di tipo \hyperref[sec:actorbase::actorsystem::utils::ActorbaseCollection]{ActorbaseCollection} al \gloss{Set} dell'utente\\
   \hline
@@ -4682,7 +4682,7 @@ navigabilità dei contenuti.
   \hline
   insert & pubblico & \hyperref[sec::actorbase::driver::data::ActorbaseCollection]{ActorbaseColletion} & Inserisce una o più coppie chiave-valore all'interno di Actorbase\\
   \hline
-  insert (overload) & pubblico & \hyperref[sec::actorbase::driver::data::ActorbaseCollection]{ActorbaseColletion} & Inserisce un'oggetto di tipo \hyperref[sec:actorbase::driver::data::ActorbaseObject]{ActorbaseObject<T>} all'interno della \gloss{collezione}\\
+  insert (overload) & pubblico & \hyperref[sec::actorbase::driver::data::ActorbaseCollection]{ActorbaseColletion} & Inserisce un oggetto di tipo \hyperref[sec:actorbase::driver::data::ActorbaseObject]{ActorbaseObject<T>} all'interno della \gloss{collezione}\\
   \hline
   update & pubblico & \hyperref[sec::actorbase::driver::data::ActorbaseCollection]{ActorbaseColletion} & Aggiorna la coppia chiave-valore all'interno della \gloss{collezione}\\
   \hline
@@ -4806,7 +4806,7 @@ navigabilità dei contenuti.
   \hline
   Nome & Tipo & Descrizione\\
   \hline
-  username & String & Rappresenta lo \gloss{username} dell'utente da rimuove ai collaboratori della \gloss{collezione}\\
+  username & String & Rappresenta lo \gloss{username} dell'utente da rimuove ai \gloss{collaboratori} della \gloss{collezione}\\
   \hline
   write & Boolean & Rappresenta il \gloss{flag} dei permessi in scrittura\\
   \hline
@@ -5722,7 +5722,7 @@ Viene utilizzata per eseguire il comando ricevuto da
 \hyperref[sec:actorbase::cli::controllers::GrammarParser]{GrammarParser} chiamando il metodo opportuno che
 implementa l'interfaccia \hyperref[sec:actorbase::cli::models::Command]{Command}.
 Quando riceve una risposta si occupa di notificare la classe \hyperref[sec:actorbase::cli::views::ResultViewer]{ResultViewer}
-affinchè quest'ultima possa procedere con la visualizzazione del risultato in output.
+affinché quest'ultima possa procedere con la visualizzazione del risultato in output.
 
 \subparagraph{Realizza}
 
@@ -5872,7 +5872,7 @@ dall'utente.
 
 \subparagraph{Descrizione}
 
-Classe per il comando di aiunto.
+Classe per il comando di aiuto.
 
 \subparagraph{Utilizzo}
 Viene utilizzata per chiamare il metodo di
@@ -6785,11 +6785,11 @@ Questo diagramma rappresenta l'interazione tra le componenti nel caso di una ric
 La componente \hyperref[sec:actorbase::driver::ActorbaseDriver]{ActorbaseDriver}
 manda tramite richiesta di autenticazione HTTP al \hyperref[sec:actorbase::actorsystem::actors::clientactor::ClientActor]{ClientActor}.\\
 Da questo componente parte il messaggio \hyperref[sec:actorbase::actorsystem::messages::authactormessages::Authenticate]{Authenticate} contenente le credenziali inserite rivolto verso l'attore \hyperref[sec:actorbase::actorsystem::actors::authactor::AuthActor]{AuthActor}.\\
-Questo attore controllerà le credenziali inserite per vedere se corrispondono 
-ad un utente registrato al sistema e risponderà al \hyperref[sec:actorbase::actorsystem::actors::clientactor::ClientActor]{ClientActor} 
-tramite messaggio \hyperref[sec:actorbase::actorsystem::messages::clientactormessages::Response]{Response} 
-avvisando se l'autenticazione ha avuto successo o meno. Quest'ultimo attore 
-risponderà al software richiedente attraverso una risposta HTTP indicando 
+Questo attore controllerà le credenziali inserite per vedere se corrispondono
+ad un utente registrato al sistema e risponderà al \hyperref[sec:actorbase::actorsystem::actors::clientactor::ClientActor]{ClientActor}
+tramite messaggio \hyperref[sec:actorbase::actorsystem::messages::clientactormessages::Response]{Response}
+avvisando se l'autenticazione ha avuto successo o meno. Quest'ultimo attore
+risponderà al software richiedente attraverso una risposta HTTP indicando
 l'esito dell'operazione.
 \begin{figure}[H]
   \begin{center}
@@ -6813,7 +6813,7 @@ A questo punto lo \hyperref[sec:actorbase::actorsystem::actors::storekeeper::Sto
 successivamente manderà un messaggio al \hyperref[sec:actorbase::actorsystem::actors::clientactor::ClientActor]{ClientActor} con la risposta
 (positiva o negativa che sia) il quale risponderà sempre tramite risposta HTTP al \gloss{Driver} con il risultato.\\
 Nel frattempo l'\gloss{attore} di tipo \hyperref[sec:actorbase::actorsystem::actors::warehouseman::Warehouseman]{Warehouseman} eseguirà un salvataggio
-su disco dei propri dati previa \gloss{cryptazione}.\\
+su disco dei propri dati previa \gloss{criptazione}.\\
 Si noti che la frequenza con cui gli attori di tipo \hyperref[sec:actorbase::actorsystem::actors::warehouseman::Warehouseman]{Warehouseman} eseguiranno
 l'aggiornamento delle proprie strutture dati e il salvataggio sarà specificato
 tramite un parametro di configurazione del sistema.\\
@@ -6831,11 +6831,11 @@ La componente \hyperref[sec:actorbase::driver::ActorbaseDriver]{ActorbaseDriver}
 manda tramite richiesta HTTP al \hyperref[sec:actorbase::actorsystem::actors::clientactor::ClientActor]{ClientActor}.\\
 Da questo componente parte il messaggio di addContributor(collection, permission, username) ad un
 \hyperref[sec:actorbase::actorsystem::actors::main::Main]{Main} scelto in base ad una
-politica di \gloss{routing}.\\Il \hyperref[sec:actorbase::actorsystem::actors::main::Main]{Main} provvederà ad aggiornare 
-le proprie strutture dati per riflettere l'aggiornamento richiesto. Quando avrà 
-finito risponderà all'attore richiedente con un messaggio \hyperref[sec:actorbase::actorsystem::messages::clientactormessages::Response]{Response} 
-avvisando se l'operazione ha avuto successo o meno. Quest'ultimo attore 
-risponderà al software richiedente attraverso una risposta HTTP indicando 
+politica di \gloss{routing}.\\Il \hyperref[sec:actorbase::actorsystem::actors::main::Main]{Main} provvederà ad aggiornare
+le proprie strutture dati per riflettere l'aggiornamento richiesto. Quando avrà
+finito risponderà all'attore richiedente con un messaggio \hyperref[sec:actorbase::actorsystem::messages::clientactormessages::Response]{Response}
+avvisando se l'operazione ha avuto successo o meno. Quest'ultimo attore
+risponderà al software richiedente attraverso una risposta HTTP indicando
 l'esito dell'operazione.\\
 \begin{figure}[H]
   \begin{center}
