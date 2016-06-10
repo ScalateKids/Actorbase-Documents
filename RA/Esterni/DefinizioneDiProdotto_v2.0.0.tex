@@ -541,6 +541,7 @@ riguardanti \gloss{collezioni}.
 \item \hyperref[sec:actorbase::actorsystem::messages::storefindermessages]{actorbase::actorsystem::messages::storefindermessages};
 \item \hyperref[sec:actorbase::actorsystem::messages::storekeepermessages]{actorbase::actorsystem::messages::storekeepermessages};
 \item \hyperref[sec:actorbase::actorsystem::messages::warehousemanmessages]{actorbase::actorsystem::messages::warehousemanmessages};
+  \item \hyperref[sec:actorbase::actorsystem::messages::warehousemanmessages]{actorbase::actorsystem::messages::manangermessages}.
 \end{itemize}
 
 \subsection{actorbase::actorsystem::messages::authactormessages}
@@ -1161,18 +1162,22 @@ item o una intera collezione.
 \end{figure}
 
 \subparagraph{Descrizione}
-Classe che rappresenta un messaggio utilizzato per mandare pezzi di collezioni
-all'attore \hyperref[sec:actorbase::actorsystem::actors::main::Main]{Main}.\\Implementata utilizzando la specifica funzionalità \textit{case class} di Scala,
-in modo da poter usufruirne mediante costrutti e algoritmi di
-\gloss{pattern matching}.
+Classe che rappresenta un messaggio utilizzato per assemblare parti di
+\gloss{collezioni} provenienti dagi \gloss{attori} di tipo
+\hyperref[sec:actorbase::actorsystem::actors::storekeeper::Storekeeper]{Storekeeper}
+verso l'\gloss{attore}
+\hyperref[sec:actorbase::actorsystem::actors::main::Main]{Main}.\\Implementata
+utilizzando la specifica funzionalità \textit{case class} di Scala, in modo da
+poter usufruirne mediante costrutti e algoritmi di \gloss{pattern matching}.
 
 \subparagraph{Utilizzo}
-Questa classe viene utilizzata per mandare pezzi di collezione all'attore
+Questa classe viene utilizzata per assemblare le parti di \gloss{collezione} provenienti dagli \gloss{attori}
+di tipo \hyperref[sec:actorbase::actorsystem::actors::storekeeper::Storekeeper]{Storekeeper} verso l'\gloss{attore}
 \hyperref[sec:actorbase::actorsystem::actors::main::Main]{Main}.\\Quest'ultimo
-dovrà aspettare tutti i messaggi
+dovrà attendere tutti i messaggi
 \hyperref[sec:actorbase::actorsystem::messages::mainmessages::CompleteTransaction]{CompleteTransaction}
-necessari per costruire un intera collezione da restituire all'utente.\\Questo
-messaggio è utilizzato quando un utente richiede un intera collezione.
+necessari per costruire un intera \gloss{collezione} da restituire all'utente.\\Questo
+messaggio è utilizzato quando un utente richiede un intera \gloss{collezione}.
 
 \subparagraph{Attributi}
 \begin{tabular}{| p{2cm} | p{1.5cm} | p{2cm} | p{3cm} | p{8.5cm} |}
@@ -1507,14 +1512,18 @@ richiesta allo \hyperref[sec:actorbase::actorsystem::actors::storekeeper::Storek
 \end{figure}
 
 \subparagraph{Descrizione}
-Classe che rappresenta un messaggio utilizzato per ricevere pezzi di collezione da inviare all'attore \gloss{parent}.\\Implementata utilizzando la specifica funzionalità \textit{case class} di Scala,
-in modo da poter usufruirne mediante costrutti e algoritmi di
-\gloss{pattern matching}.
+Classe che rappresenta un messaggio utilizzato per ricevere parti di \gloss{collezione}
+da inviare all'attore \gloss{parent}.\\Implementata utilizzando la specifica
+funzionalità \textit{case class} di Scala, in modo da poter usufruirne mediante
+costrutti e algoritmi di \gloss{pattern matching}.
 
 \subparagraph{Utilizzo}
-Questa classe viene utilizzata per ricevere prezzi di collezione a seguito di
-una richiesta di una intera collezione da parte di un utente.\\Quando riceve questo messaggio l'attore provvederà a inoltrare la mappa di items allo
-\hyperref[sec:actorbase::actorsystem::actors::main::Main]{Main} parent, il quale provvederà ad assemblare tutta la collezione da restutire all'utente.
+Questa classe viene utilizzata per ricevere parti di \gloss{collezione} a
+seguito di una richiesta di un' intera \gloss{collezione} da parte di un
+utente.\\Quando riceve questo messaggio l'\gloss{attore} provvederà a inoltrare
+la mappa di \gloss{item} all'\gloss{attore}
+\hyperref[sec:actorbase::actorsystem::actors::main::Main]{Main}, il quale
+provvederà ad assemblare tutta la \gloss{collezione} da restutire all'utente.
 
 \subparagraph{Attributi}
 \begin{tabular}{| p{2cm} | p{1.5cm} | p{2cm} | p{3cm} | p{8.5cm} |}
@@ -1523,7 +1532,7 @@ una richiesta di una intera collezione da parte di un utente.\\Quando riceve que
   \hline
   clientRef & privato & immutabile & ActorRef & Rappresenta il riferimento all'attore \hyperref[sec:actorbase::actorsystem::actors::clientactor::ClientActor]{ClientActor} che ha richiesto la collezione\\
   \hline
-  items & privato & immutabile & Map<String, Array<Byte> > & Rappresenta una mappa contenente le coppie chiave valore degli items della collezione da restituire\\
+  items & privato & immutabile & Map<String, Array<Byte> > & Rappresenta una mappa contenente le coppie chiave valore degli \gloss{item} della \gloss{collezione} da restituire\\
   \hline
 \end{tabular}
 
@@ -1550,12 +1559,13 @@ una richiesta di una intera collezione da parte di un utente.\\Quando riceve que
 \end{figure}
 
 \subparagraph{Descrizione}
-Classe che rappresenta un messaggio utilizzato per richiedere la rimozione di un item.\\Implementata utilizzando la specifica funzionalità \textit{case class} di Scala,
-in modo da poter usufruirne mediante costrutti e algoritmi di
+Classe che rappresenta un messaggio utilizzato per richiedere la rimozione di un
+\gloss{item}.\\Implementata utilizzando la specifica funzionalità \textit{case
+class} di Scala, in modo da poter usufruirne mediante costrutti e algoritmi di
 \gloss{pattern matching}.
 
 \subparagraph{Utilizzo}
-Questa classe viene utilizzata per richiedere la rimozione di un item dal
+Questa classe viene utilizzata per richiedere la rimozione di un \gloss{item} dal
 sistema.\\Quando riceve questo messaggio l'attore provvederà a inoltrare la
 richiesta allo \hyperref[sec:actorbase::actorsystem::actors::storekeeper::Storekeeper]{Storekeeper}
 giusto.
@@ -2045,6 +2055,52 @@ leggere e restituire i dati all'attore richiedente.\\Questo messaggio è usato a
   file & pubblico & File & Metodo che ritorna l'attributo file\\
   \hline
 \end{tabular}
+
+\subsection{actorbase::actorsystem::messages::managermessages}
+\label{sec:actorbase::actorsystem::messages::managermessages}
+
+% TODO img
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.8\textwidth,keepaspectratio]{RA/managermessages.png}
+    \caption{Package actorsystem::messages::managermessages}
+  \end{center}
+\end{figure}
+
+\subsubsection{Descrizione}
+\gloss{Package} contenente i messaggi processabili dall'attore
+\hyperref[sec:actorbase::actorsystem::actors::manager::Manager]{Manager}.
+
+\subsubsection{Classi}
+
+\paragraph{actorbase::actorsystem::messages::managermessages::OneMore}
+
+% TODO img
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.3\textwidth,keepaspectratio]{RA/oneMore.png}
+    \caption{Classe OneMore}
+  \end{center}
+\end{figure}
+
+\subparagraph{Descrizione}
+Classe che rappresenta un messaggio utilizzato per alleggerire il carico in
+ingresso degli \gloss{attori} di tipo
+\hyperref[sec:actorbase::actorsystem::actors::storekeeper::Storekeeper]{Storekeeper},
+creandone di nuovi e aggiungendoli alla \gloss{pool} dell'\gloss{attore} di tipo
+\hyperref[sec:actorbase::actorsystem::actors::storefinder::Storefinder]{Storefinder}
+che li coordina.
+
+\subparagraph{Utilizzo}
+Viene utilizzato dagli \gloss{attori} di tipo
+\hyperref[sec:actorbase::actorsystem::actors::Storekeeper]{Storekeeper} per
+notificare il superamento della soglia di coppie chiave-valore impostata da
+configurazione, che determina quindi un sovraccarico dell'\gloss{attore} in
+questione.\\ Il messaggio si occupa dunque di generare nuovi \gloss{attori} di
+tipo
+\hyperref[sec:actorbase::actorsystem::actors::storekeeper::Storekeeper]{Storekeeper}
+in modo da redistribuire il carico in ingresso.
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
