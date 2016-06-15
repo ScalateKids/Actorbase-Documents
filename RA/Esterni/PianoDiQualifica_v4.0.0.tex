@@ -598,10 +598,19 @@ linee di commento, suddivisi per modulo:
 
 Inoltre Tutti i rapporti commento su codice dei singoli file soddisfano il range ottimale.
 
-\paragraph{Copertura del codice(non aggiornato)}
-La percentuale di codice coperto da test attualmente è del: \textbf{72\%}.\\
-Questo valore rientra nel range ottimale.
-
+\paragraph{Copertura del codice}
+viene riportata la dei test espressa in percentuale con a fianco il rapporto coperte/totali. Si fa presente che la maggior parte del codice non coperto da test è composto da metodi banali( si pensi ai getter o setter). Nel caso del  modulo driver è stato riportato il risultato del solo package client, in quanto gli altri package falsavano pesantemente la metrica per i motivi sopra citati.
+	\begin{center}
+		\begin{tabular}{| c | c | c | c |}
+			\hline
+		Modulo & \% delle classi & \% dei metodi & \% delle linee righe \\
+			\hline
+			\textbf{Cli} & 89\%(98/116) & 69\%(149/214) & 67\%(245/363) \\
+			\textbf{Driver} &  67\%(19/28) & 47\%(50/105) & 62\%(63/101)\\
+			\textbf{Actorsystem} & boh & boh & boh\\
+			\hline
+		\end{tabular}
+		
 \paragraph{Numero di attributi per classe(non aggiornato)}
 Di seguito è riportato il numero medio di attributi per classe del codice di actorbase divisi per modulo:
 \begin{itemize}
