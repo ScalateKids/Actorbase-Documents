@@ -669,25 +669,25 @@ test di sistema, la seconda descrive tutti i test dei requisiti ritenuti meritev
     \hline
     TS.OBF1.1.1 & Viene verificato che il singolo \gloss{nodo} dovrà fornire un server per ricevere comandi dall'esterno e inviare risposte & OK & OBF1.1.1\\
     \hline
-    TS.OBF1.1.10.1 & Viene verificato che il sistema ad attori dovrà permettere di autenticarsi dall'esterno mediante interazioni tra \gloss{Clientactor}, \gloss{Mainactor}, \gloss{Storefinder} e \gloss{Userkeeper} & OK & OBF1.1.10.1\\
+    TS.OBF1.1.10.1 & Viene verificato che il sistema ad attori dovrà permettere di autenticarsi dall'esterno mediante interazioni tra \gloss{Clientactor}, \gloss{Mainactor}, \gloss{Storefinder} e \gloss{AuthActor} & OK & OBF1.1.10.1\\
     \hline
-    TS.OBF1.1.10.2.1 & Viene verificato che il sistema ad attori dovrà permettere di creare \gloss{collezioni} mediante l'interazione tra \gloss{Clientactor}, \gloss{Mainactor}, \gloss{Storefinder}, \gloss{Storekeeper} e \gloss{Userkeeper} & OK & OBF1.1.10.2.1\\
+    TS.OBF1.1.10.2.1 & Viene verificato che il sistema ad attori dovrà permettere di creare \gloss{collezioni} mediante l'interazione tra \gloss{Clientactor}, \gloss{Mainactor}, \gloss{Storefinder}, \gloss{Storekeeper} e \gloss{AuthActor} & OK & OBF1.1.10.2.1\\
     \hline
     TS.OBF1.1.10.2.2 & Viene verificato che il sistema ad attori dovrà permettere di visualizzare una lista delle \gloss{collezioni} mediante l'interazione con \gloss{Clientactor} & OK & OBF1.1.10.2.2\\
     \hline
-    TS.OBF1.1.10.2.3 & Viene verificato che il sistema ad attori dovrà permettere di modificare il nome delle \gloss{collezioni} mediante l'interazione tra \gloss{Clientactor}, \gloss{Mainactor}, \gloss{Storefinder} e \gloss{Userkeeper} & & OBF1.1.10.2.3\\
+    TS.OBF1.1.10.2.3 & Viene verificato che il sistema ad attori dovrà permettere di modificare il nome delle \gloss{collezioni} mediante l'interazione tra \gloss{Clientactor}, \gloss{Mainactor}, \gloss{Storefinder} e \gloss{AuthActor} & & OBF1.1.10.2.3\\
     \hline
-    TS.OBF1.1.10.2.4 & Viene verificato che il sistema ad attori dovrà permettere di cancellare \gloss{collezioni} mediante l'interazione tra \gloss{Clientactor}, \gloss{Mainactor}, \gloss{Storefinder}, \gloss{Storekeeper}, \gloss{Userkeeper} e \gloss{Ninja} & OK & OBF1.1.10.2.4\\
+    TS.OBF1.1.10.2.4 & Viene verificato che il sistema ad attori dovrà permettere di cancellare \gloss{collezioni} mediante l'interazione tra \gloss{Clientactor}, \gloss{Mainactor}, \gloss{Storefinder}, \gloss{Storekeeper}, \gloss{AuthActor} e \gloss{Ninja} & OK & OBF1.1.10.2.4\\
     \hline
     TS.OBF1.1.10.2.5 & Viene verificato che il sistema ad attori dovrà permettere di aggiungere collaboratori a \gloss{collezioni} & & OBF1.1.10.2.5\\
     \hline
-    TS.OBF1.1.10.2.6 & Viene verificato che il sistema ad attori dovrà permettere di rimuovere collaboratori da \gloss{collezioni} mediante l'interazione tra \gloss{Clientactor}, \gloss{Mainactor}, \gloss{Storefinder}, \gloss{Storekeeper}, \gloss{Userkeeper} e \gloss{Ninja} & & OBF1.1.10.2.6\\
+    TS.OBF1.1.10.2.6 & Viene verificato che il sistema ad attori dovrà permettere di rimuovere collaboratori da \gloss{collezioni} mediante l'interazione tra \gloss{Clientactor}, \gloss{Mainactor}, \gloss{Storefinder}, \gloss{Storekeeper}, \gloss{AuthActor} e \gloss{Ninja} & & OBF1.1.10.2.6\\
     \hline
-    TS.OBF1.1.10.2.7 & Viene verificato che il sistema ad attori dovrà permettere di esportare \gloss{collezioni} mediante l'interazione tra \gloss{Clientactor}, \gloss{Mainactor}, \gloss{Storefinder}, \gloss{Storekeeper}, \gloss{Userkeeper} e \gloss{Ninja} & & OBF1.1.10.2.7\\
+    TS.OBF1.1.10.2.7 & Viene verificato che il sistema ad attori dovrà permettere di esportare \gloss{collezioni} mediante l'interazione tra \gloss{Clientactor}, \gloss{Mainactor}, \gloss{Storefinder}, \gloss{Storekeeper}, \gloss{AuthActor} e \gloss{Ninja} & & OBF1.1.10.2.7\\
     \hline
     TS.OBF1.1.10.3.1 & Viene verificato che il sistema ad attori dovrà permettere di inserire \gloss{item} mediante l'interazione tra \gloss{Clientactor}, \gloss{Mainactor}, \gloss{Storefinder}, \gloss{Storekeeper}, \gloss{Ninja} e \gloss{Manager} & OK & OBF1.1.10.3.1\\
     \hline
-    TS.OBF1.1.10.3.2 & Viene verificato che il sistema ad attori dovrà permettere di creare una \gloss{collezione} nel caso di inserimento \gloss{item} a \gloss{collezione} inesistente mediante interazioni tra \gloss{Clientactor}, \gloss{Mainactor} e \gloss{Userkeeper} & OK & OBF1.1.10.3.2\\
+    TS.OBF1.1.10.3.2 & Viene verificato che il sistema ad attori dovrà permettere di creare una \gloss{collezione} nel caso di inserimento \gloss{item} a \gloss{collezione} inesistente mediante interazioni tra \gloss{Clientactor}, \gloss{Mainactor} e \gloss{AuthActor} & OK & OBF1.1.10.3.2\\
     \hline
     TS.OBF1.1.10.3.3 & Viene verificato che il sistema ad attori dovrà inviare un messaggio d'errore verso l'esterno nel caso in cui la chiave dell'\gloss{item} da inserire senza sovrascrittura sia già presente, mediante interazioni tra \gloss{Clientactor}, \gloss{Mainactor}, \gloss{Storefinder} e \gloss{Storekeeper} & OK & OBF1.1.10.3.3\\
     \hline
@@ -697,15 +697,15 @@ test di sistema, la seconda descrive tutti i test dei requisiti ritenuti meritev
     \hline
     TS.OBF1.1.10.4 & Viene verificato che il sistema ad attori dovrà permettere di ricercare \gloss{item} tra \gloss{collezioni} mediante interazioni tra \gloss{Clientactor}, \gloss{Main}, \gloss{Storefinder} e \gloss{Storekeeper} & OK & OBF1.1.10.4\\
     \hline
-    TS.OBF1.1.10.5 & Viene verificato che il sistema ad attori dovrà permettere di modificare la password utente di uno \gloss{username} mediante interazioni tra \gloss{Clientactor}, \gloss{Main}, \gloss{Storefinder}, \gloss{Userkeeper} & & OBF1.1.10.5\\
+    TS.OBF1.1.10.5 & Viene verificato che il sistema ad attori dovrà permettere di modificare la password utente di uno \gloss{username} mediante interazioni tra \gloss{Clientactor}, \gloss{Main}, \gloss{Storefinder}, \gloss{AuthActor} & & OBF1.1.10.5\\
     \hline
     TS.OBF1.1.10.6 & Viene verificato che il sistema ad attori dovrà permettere la disconnessione di client esterni mediante interazioni con \gloss{Clientactor} & OK & OBF1.1.10.6\\
     \hline
-    TS.OBF1.1.10.7.1 & Viene verificato che il sistema ad attori dovrà permettere di aggiungere nuovi utenti all'interno del \gloss{database} mediante interazioni tra \gloss{Clientactor},\gloss{Main}, \gloss{Storefinder} e \gloss{Userkeeper} & OK & OBF1.1.10.7.1\\
+    TS.OBF1.1.10.7.1 & Viene verificato che il sistema ad attori dovrà permettere di aggiungere nuovi utenti all'interno del \gloss{database} mediante interazioni tra \gloss{Clientactor},\gloss{Main}, \gloss{Storefinder} e \gloss{AuthActor} & OK & OBF1.1.10.7.1\\
     \hline
     TS.OBF1.1.10.7.2 & Viene verificato che il sistema ad attori dovrà permettere la rimozione di un utente dal \gloss{database} mediante interazioni tra \gloss{Clientactor}, \gloss{Main}, \gloss{Storefinder} & & OBF1.1.10.7.2\\
     \hline
-    TS.OBF1.1.10.7.3 & Viene verificato che il sistema ad attori dovrà permettere di effettuare un reset della password di un utente mediante interazioni tra \gloss{Clientactor}, \gloss{Main}, \gloss{Storefinder}, \gloss{Userkeeper} & & OBF1.1.10.7.3\\
+    TS.OBF1.1.10.7.3 & Viene verificato che il sistema ad attori dovrà permettere di effettuare un reset della password di un utente mediante interazioni tra \gloss{Clientactor}, \gloss{Main}, \gloss{Storefinder}, \gloss{AuthActor} & & OBF1.1.10.7.3\\
     \hline
     TS.OBF2 & Viene verificato che il sistema dovrà fornire una \gloss{console} per inviare comandi al server (CLI) & OK & OBF2\\
     \hline
@@ -867,7 +867,7 @@ test.
   \hline
   TI.api & Verifica della corretta integrazione con le componenti client e le strutture di creazione richieste \gloss{HTTP} & api & OK\\
   \hline
-  TI.actorsystem & Test di integrazione finale per HTTPserver, storefinder, storekeeper, ninja, manager, userkeeper, main, clientactor, warehouseman & actorsystem &\\
+  TI.actorsystem & Test di integrazione finale per HTTPserver, storefinder, storekeeper, ninja, manager, AuthActor, main, clientactor, warehouseman & actorsystem &\\
   \hline
   TI.utils & Verifica delle corrette procedure di organizzazione in strutture navigabili, criptazione e decriptazione dei dati di persistenza su disco & utils & OK\\
   \hline
@@ -881,9 +881,7 @@ test.
   \hline
   TI.storekeeper & Verifica della corretta esecuzioni dei messaggi dedicati & storekeeper & OK\\
   \hline
-  TI.userfinder & Verifica della corretta esecuzione dei messaggi dedicati & userfinder & OK\\
-  \hline
-  TI.userkeeper & Verifica della corretta esecuzioni dei messaggi dedicati & userkeeper & OK\\
+  TI.AuthActor & Verifica della corretta esecuzioni dei messaggi dedicati & AuthActor & OK\\
   \hline
   TI.manager & Verifica della corretta esecuzioni dei messaggi dedicati & manager &\\
   \hline
@@ -931,15 +929,13 @@ test.
   \hline
   actorbase::actorsystem::storekeeper & TI.storekeeper\\
   \hline
-  actorbase::actorsystem::userkeeper & TI.userkeeper\\
+  actorbase::actorsystem::AuthActor & TI.AuthActor\\
   \hline
   actorbase::actorsystem::manager & TI.manager\\
   \hline
   actorbase::actorsystem::ninja & TI.ninja\\
   \hline
   actorbase::actorsystem::warehouseman & TI.warehouseman\\
-  \hline
-  actorbase::actorsystem::userfinder & TI.userfinder\\
   \hline
 \end{longtable}
 
