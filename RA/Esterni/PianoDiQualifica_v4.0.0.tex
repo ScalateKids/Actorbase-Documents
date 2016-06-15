@@ -752,12 +752,12 @@ viene riportata la dei test espressa in percentuale con a fianco il rapporto cop
 		\hline
 	\end{tabular}
 	Il gruppo stima che il 15-20\% del codice non banale non sia coperto da test. Tutti i valori rientrano comunque nel range di accettazione.
-	
+	%TODO da la copertura di Actorsystem
 	\paragraph{Numero di attributi per classe}
 	Di seguito è riportato il numero medio di attributi per classe del codice di actorbase divisi per modulo. Da notare che nella media non sono state considerate eventuali classi prive di attributi.
 	\begin{itemize}
-		\item \textbf{CLI}: 1,04 massimo:;
-		\item \textbf{Driver}: 2,69 massimo:;
+		\item \textbf{CLI}: 3,67 massimo:10 (in CommandLoop); da notare che il dato è stato calcolando non considerando i vari comandi, che per ovvi motivi falsavano al ribasso il dato; rientrano comunque tutti nel range ottimale.
+		\item \textbf{Driver}: 2,89 massimo:10 (nell' object Status). Non si è tenuto conto del package exceptions in quanto falsava al ribasso la media; rientrano comunque tutti nel range ottimale;
 		\item \textbf{Actorsystem}: per ottenere risultati più significativi si dividono gli attori dai messaggi:
 		\begin{itemize}
 			\item Attori: 2,93; massimo: 9 (la classe storekeeper);
