@@ -49,6 +49,10 @@
     \hline
     Versione & Autore & Ruolo & Data & Descrizione \\
     \hline
+    3.1.0 & Michael Munaro & Verificatore & 2016-06-05 & Verifica sezione B4\\
+    \hline
+    3.0.1 & Giacomo Vanin & Analista & 2016-06-05 & Stesura budget e schedule variance di mezzo periodo (sezione B4)\\
+    \hline
     3.0.0 & Francesco Agostini & Responsabile & 2016-05-16 & Approvazione documento\\
     \hline
     2.3.0 & Michael Munaro & Verificatore & 2016-05-15 & Verifica incrementi\\
@@ -502,7 +506,7 @@ Viene di seguito riportata una tabella contenente i valori per le metriche descr
     \hline
     \textbf{Ruolo} & \textbf{Ore} & \textbf{Costo}\\
     \hline
-    Responsabile & +3 & +90\\ %30 %TODO fare sta tabella
+    Responsabile & +3 & +90\\ %30
     Analista & 0 & 0\\ %25
     Amministratore & +3 & +60\\ %20
     Progettista & -2 & -44\\ %22
@@ -635,6 +639,66 @@ In seguito è riportata la media dei livelli di annidamento dei vari moduli:
 \end{itemize}
 Come si può notare tutti i valori rientrano nel range ottimale.
 
+\subsection{Attività di Validazione}
+
+\subsubsection{Budget Variance e Schedule Variance}
+Viene di seguito riportata una tabella contenente i valori per le metriche descritte in sezione \ref{sec:metricheProcesso}.\\ Questa tabella rappresenta un consuntivo calcolato in data cinque giugno. Il consuntivo di periodo sarà disponibile nel documento \href{run:./PianoDiProgetto\_v4.0.0.pdf}{Piano di Progetto v4.0.0}.
+\begin{center}
+  \normalsize
+  \begin{tabular}{| c | c | c |}
+    \hline
+    \textbf{Ruolo} & \textbf{Ore} & \textbf{Costo}\\
+    \hline
+    Responsabile &  & \\ %30
+    Analista &  & \\ %25
+    Amministratore &  & \\ %20
+    Progettista &  & \\ %22
+    Programmatore &  & \\ %15
+    Verificatore &  & \\ %15
+    \hline
+    \textbf{Totale} &  & \\
+    \hline
+  \end{tabular}
+\end{center}
+
+\subsubsection{Soddisfacimento requisiti obbligatori} %TODO da fare
+Attualmente la percentuale di requisiti obbligatori soddisfatti è di: \textbf{80\%}
+Il valore della metrica è .
+
+%\subsubsection{Richieste al secondo} %TODO da fare se abbiamo tempo
+%Abbiamo effettuato diversi test per misurare questa metrica. Riportiamo una media
+%dei valori ottenuti usando lo strumento GNU parallel, come descritto in 
+%\href{run:./NormeDiProgetto\_v4.0.0.pdf}{Norme di Progetto v4.0.0}.\\
+%Il test prevede l'invio di duemila richieste da cinque processi paralleli
+%per un totale di diecimila richieste.\\
+%La media ottenuta è di: \textbf{43}.\\
+%Questo valore rientra nel range ottimale.
+
+\subsubsection{Documenti}
+Nella tabella di seguito sono riportati i valori degli indici di Gulpease per ogni documento prodotto durante l'\gloss{attività} di validazione. L'esito della verifica dipenderà dal valore di questo indice come descritto nella sezione \ref{par:metricheGulpease}.
+\begin{center}
+  \begin{tabular}{| c | c | c |}
+    \hline
+    Documento & Valore indice & Esito\\
+    \hline
+    \textit{Definizione di Prodotto v2.0.0} & 72 & Superato\\
+    \textit{Specifica Tecnica v3.0.0} & 74 & Superato\\
+    \textit{Norme di Progetto v4.0.0} & 60 & Superato\\
+    \textit{Piano di Progetto v4.0.0} & 65 & Superato\\
+    \textit{Piano di Qualifica v4.0.0} & 63 & Superato\\
+    \textit{Analisi dei Requisiti v4.0.0} & 88 & Superato\\
+    \textit{Glossario v4.0.0} & 58 & Superato\\
+    \textit{Developer Manual v2.0.0} & 74 & Superato\\
+    \textit{User Manual v2.0.0} & 69 & Superato\\
+    \hline
+  \end{tabular}
+\end{center}
+
+\subsubsection{Codice}
+Di seguito vengono riportati i risultati dei test di analisi statica e dinamica effettuati sul codice.
+Per ragioni di spazio e leggibilità si omettono le tabelle complete dei test. Per ogni test si riportano almeno il valore minimo, quello massimo e il medio riscontrato ed eventuali risultati oltre il range di accettazione definiti nella sezione \ref{sec:metricheSW}, oltre alla giustificazione della loro presenza.
+
+%Todo metti qua tutte le metriche
 
 \newpage
 
@@ -669,25 +733,25 @@ test di sistema, la seconda descrive tutti i test dei requisiti ritenuti meritev
     \hline
     TS.OBF1.1.1 & Viene verificato che il singolo \gloss{nodo} dovrà fornire un server per ricevere comandi dall'esterno e inviare risposte & OK & OBF1.1.1\\
     \hline
-    TS.OBF1.1.10.1 & Viene verificato che il sistema ad attori dovrà permettere di autenticarsi dall'esterno mediante interazioni tra \gloss{Clientactor}, \gloss{Mainactor}, \gloss{Storefinder} e \gloss{Userkeeper} & OK & OBF1.1.10.1\\
+    TS.OBF1.1.10.1 & Viene verificato che il sistema ad attori dovrà permettere di autenticarsi dall'esterno mediante interazioni tra \gloss{Clientactor}, \gloss{Mainactor}, \gloss{Storefinder} e \gloss{AuthActor} & OK & OBF1.1.10.1\\
     \hline
-    TS.OBF1.1.10.2.1 & Viene verificato che il sistema ad attori dovrà permettere di creare \gloss{collezioni} mediante l'interazione tra \gloss{Clientactor}, \gloss{Mainactor}, \gloss{Storefinder}, \gloss{Storekeeper} e \gloss{Userkeeper} & OK & OBF1.1.10.2.1\\
+    TS.OBF1.1.10.2.1 & Viene verificato che il sistema ad attori dovrà permettere di creare \gloss{collezioni} mediante l'interazione tra \gloss{Clientactor}, \gloss{Mainactor}, \gloss{Storefinder}, \gloss{Storekeeper} e \gloss{AuthActor} & OK & OBF1.1.10.2.1\\
     \hline
     TS.OBF1.1.10.2.2 & Viene verificato che il sistema ad attori dovrà permettere di visualizzare una lista delle \gloss{collezioni} mediante l'interazione con \gloss{Clientactor} & OK & OBF1.1.10.2.2\\
     \hline
-    TS.OBF1.1.10.2.3 & Viene verificato che il sistema ad attori dovrà permettere di modificare il nome delle \gloss{collezioni} mediante l'interazione tra \gloss{Clientactor}, \gloss{Mainactor}, \gloss{Storefinder} e \gloss{Userkeeper} & & OBF1.1.10.2.3\\
+    TS.OBF1.1.10.2.3 & Viene verificato che il sistema ad attori dovrà permettere di modificare il nome delle \gloss{collezioni} mediante l'interazione tra \gloss{Clientactor}, \gloss{Mainactor}, \gloss{Storefinder} e \gloss{AuthActor} & & OBF1.1.10.2.3\\
     \hline
-    TS.OBF1.1.10.2.4 & Viene verificato che il sistema ad attori dovrà permettere di cancellare \gloss{collezioni} mediante l'interazione tra \gloss{Clientactor}, \gloss{Mainactor}, \gloss{Storefinder}, \gloss{Storekeeper}, \gloss{Userkeeper} e \gloss{Ninja} & OK & OBF1.1.10.2.4\\
+    TS.OBF1.1.10.2.4 & Viene verificato che il sistema ad attori dovrà permettere di cancellare \gloss{collezioni} mediante l'interazione tra \gloss{Clientactor}, \gloss{Mainactor}, \gloss{Storefinder}, \gloss{Storekeeper}, \gloss{AuthActor} e \gloss{Ninja} & OK & OBF1.1.10.2.4\\
     \hline
     TS.OBF1.1.10.2.5 & Viene verificato che il sistema ad attori dovrà permettere di aggiungere collaboratori a \gloss{collezioni} & & OBF1.1.10.2.5\\
     \hline
-    TS.OBF1.1.10.2.6 & Viene verificato che il sistema ad attori dovrà permettere di rimuovere collaboratori da \gloss{collezioni} mediante l'interazione tra \gloss{Clientactor}, \gloss{Mainactor}, \gloss{Storefinder}, \gloss{Storekeeper}, \gloss{Userkeeper} e \gloss{Ninja} & & OBF1.1.10.2.6\\
+    TS.OBF1.1.10.2.6 & Viene verificato che il sistema ad attori dovrà permettere di rimuovere collaboratori da \gloss{collezioni} mediante l'interazione tra \gloss{Clientactor}, \gloss{Mainactor}, \gloss{Storefinder}, \gloss{Storekeeper}, \gloss{AuthActor} e \gloss{Ninja} & & OBF1.1.10.2.6\\
     \hline
-    TS.OBF1.1.10.2.7 & Viene verificato che il sistema ad attori dovrà permettere di esportare \gloss{collezioni} mediante l'interazione tra \gloss{Clientactor}, \gloss{Mainactor}, \gloss{Storefinder}, \gloss{Storekeeper}, \gloss{Userkeeper} e \gloss{Ninja} & & OBF1.1.10.2.7\\
+    TS.OBF1.1.10.2.7 & Viene verificato che il sistema ad attori dovrà permettere di esportare \gloss{collezioni} mediante l'interazione tra \gloss{Clientactor}, \gloss{Mainactor}, \gloss{Storefinder}, \gloss{Storekeeper}, \gloss{AuthActor} e \gloss{Ninja} & & OBF1.1.10.2.7\\
     \hline
     TS.OBF1.1.10.3.1 & Viene verificato che il sistema ad attori dovrà permettere di inserire \gloss{item} mediante l'interazione tra \gloss{Clientactor}, \gloss{Mainactor}, \gloss{Storefinder}, \gloss{Storekeeper}, \gloss{Ninja} e \gloss{Manager} & OK & OBF1.1.10.3.1\\
     \hline
-    TS.OBF1.1.10.3.2 & Viene verificato che il sistema ad attori dovrà permettere di creare una \gloss{collezione} nel caso di inserimento \gloss{item} a \gloss{collezione} inesistente mediante interazioni tra \gloss{Clientactor}, \gloss{Mainactor} e \gloss{Userkeeper} & OK & OBF1.1.10.3.2\\
+    TS.OBF1.1.10.3.2 & Viene verificato che il sistema ad attori dovrà permettere di creare una \gloss{collezione} nel caso di inserimento \gloss{item} a \gloss{collezione} inesistente mediante interazioni tra \gloss{Clientactor}, \gloss{Mainactor} e \gloss{AuthActor} & OK & OBF1.1.10.3.2\\
     \hline
     TS.OBF1.1.10.3.3 & Viene verificato che il sistema ad attori dovrà inviare un messaggio d'errore verso l'esterno nel caso in cui la chiave dell'\gloss{item} da inserire senza sovrascrittura sia già presente, mediante interazioni tra \gloss{Clientactor}, \gloss{Mainactor}, \gloss{Storefinder} e \gloss{Storekeeper} & OK & OBF1.1.10.3.3\\
     \hline
@@ -697,15 +761,15 @@ test di sistema, la seconda descrive tutti i test dei requisiti ritenuti meritev
     \hline
     TS.OBF1.1.10.4 & Viene verificato che il sistema ad attori dovrà permettere di ricercare \gloss{item} tra \gloss{collezioni} mediante interazioni tra \gloss{Clientactor}, \gloss{Main}, \gloss{Storefinder} e \gloss{Storekeeper} & OK & OBF1.1.10.4\\
     \hline
-    TS.OBF1.1.10.5 & Viene verificato che il sistema ad attori dovrà permettere di modificare la password utente di uno \gloss{username} mediante interazioni tra \gloss{Clientactor}, \gloss{Main}, \gloss{Storefinder}, \gloss{Userkeeper} & & OBF1.1.10.5\\
+    TS.OBF1.1.10.5 & Viene verificato che il sistema ad attori dovrà permettere di modificare la password utente di uno \gloss{username} mediante interazioni tra \gloss{Clientactor}, \gloss{Main}, \gloss{Storefinder}, \gloss{AuthActor} & & OBF1.1.10.5\\
     \hline
     TS.OBF1.1.10.6 & Viene verificato che il sistema ad attori dovrà permettere la disconnessione di client esterni mediante interazioni con \gloss{Clientactor} & OK & OBF1.1.10.6\\
     \hline
-    TS.OBF1.1.10.7.1 & Viene verificato che il sistema ad attori dovrà permettere di aggiungere nuovi utenti all'interno del \gloss{database} mediante interazioni tra \gloss{Clientactor},\gloss{Main}, \gloss{Storefinder} e \gloss{Userkeeper} & OK & OBF1.1.10.7.1\\
+    TS.OBF1.1.10.7.1 & Viene verificato che il sistema ad attori dovrà permettere di aggiungere nuovi utenti all'interno del \gloss{database} mediante interazioni tra \gloss{Clientactor},\gloss{Main}, \gloss{Storefinder} e \gloss{AuthActor} & OK & OBF1.1.10.7.1\\
     \hline
     TS.OBF1.1.10.7.2 & Viene verificato che il sistema ad attori dovrà permettere la rimozione di un utente dal \gloss{database} mediante interazioni tra \gloss{Clientactor}, \gloss{Main}, \gloss{Storefinder} & & OBF1.1.10.7.2\\
     \hline
-    TS.OBF1.1.10.7.3 & Viene verificato che il sistema ad attori dovrà permettere di effettuare un reset della password di un utente mediante interazioni tra \gloss{Clientactor}, \gloss{Main}, \gloss{Storefinder}, \gloss{Userkeeper} & & OBF1.1.10.7.3\\
+    TS.OBF1.1.10.7.3 & Viene verificato che il sistema ad attori dovrà permettere di effettuare un reset della password di un utente mediante interazioni tra \gloss{Clientactor}, \gloss{Main}, \gloss{Storefinder}, \gloss{AuthActor} & & OBF1.1.10.7.3\\
     \hline
     TS.OBF2 & Viene verificato che il sistema dovrà fornire una \gloss{console} per inviare comandi al server (CLI) & OK & OBF2\\
     \hline
@@ -867,7 +931,7 @@ test.
   \hline
   TI.api & Verifica della corretta integrazione con le componenti client e le strutture di creazione richieste \gloss{HTTP} & api & OK\\
   \hline
-  TI.actorsystem & Test di integrazione finale per HTTPserver, storefinder, storekeeper, ninja, manager, userkeeper, main, clientactor, warehouseman & actorsystem &\\
+  TI.actorsystem & Test di integrazione finale per HTTPserver, storefinder, storekeeper, ninja, manager, AuthActor, main, clientactor, warehouseman & actorsystem &\\
   \hline
   TI.utils & Verifica delle corrette procedure di organizzazione in strutture navigabili, criptazione e decriptazione dei dati di persistenza su disco & utils & OK\\
   \hline
@@ -881,9 +945,7 @@ test.
   \hline
   TI.storekeeper & Verifica della corretta esecuzioni dei messaggi dedicati & storekeeper & OK\\
   \hline
-  TI.userfinder & Verifica della corretta esecuzione dei messaggi dedicati & userfinder & OK\\
-  \hline
-  TI.userkeeper & Verifica della corretta esecuzioni dei messaggi dedicati & userkeeper & OK\\
+  TI.AuthActor & Verifica della corretta esecuzioni dei messaggi dedicati & AuthActor & OK\\
   \hline
   TI.manager & Verifica della corretta esecuzioni dei messaggi dedicati & manager &\\
   \hline
@@ -931,15 +993,13 @@ test.
   \hline
   actorbase::actorsystem::storekeeper & TI.storekeeper\\
   \hline
-  actorbase::actorsystem::userkeeper & TI.userkeeper\\
+  actorbase::actorsystem::AuthActor & TI.AuthActor\\
   \hline
   actorbase::actorsystem::manager & TI.manager\\
   \hline
   actorbase::actorsystem::ninja & TI.ninja\\
   \hline
   actorbase::actorsystem::warehouseman & TI.warehouseman\\
-  \hline
-  actorbase::actorsystem::userfinder & TI.userfinder\\
   \hline
 \end{longtable}
 
@@ -966,137 +1026,123 @@ tutti i test di unità previsti.
   \hline
   Test & Descrizione & Stato & Requisito\\
   \hline
-  TU.OBF1.1.1.1 & Si verifica che All'interno del singolo \gloss{nodo} dovrà essere implementato l'attore \gloss{HTTPserver} per gestire le connessioni provenienti dall'esterno & OK  & OBF1.1.1.1   \\ 
+  TU.OBF1.1.1.1 & Si verifica All'interno del singolo \gloss{nodo} dovrà essere implementato l'attore \gloss{HTTPserver} per gestire le connessioni provenienti dall'esterno  & OK  & OBF1.1.1.1   \\ 
   \hline
-  TU.OBF1.1.1.1.1 & Si verifica che L'attore di tipo \gloss{HTTPServer} dovrà gestire la ricezione del messaggio httprequest &   & OBF1.1.1.1.1   \\ 
+  TU.OBF1.1.1.1.1 & Si verifica che L'attore di tipo \gloss{HTTPServer} dovrà gestire la ricezione del messaggio httprequest  &   & OBF1.1.1.1.1   \\ 
   \hline
   TU.OBF1.1.2 & Si verifica che All'interno del singolo \gloss{nodo} dovrà essere implementato l'attore \gloss{Clientactor} per gestire il ciclo di vita di una connessione dall'esterno  & OK  & OBF1.1.2   \\
   \hline
   TU.OBF1.1.2.1 & Si verifica che L'attore di tipo \gloss{Clientactor} dovrà gestire la ricezione del messaggio Response  &   & OBF1.1.2.1   \\
   \hline
-  TU.OBF1.1.2.2 & Si verifica che L'attore di tipo \gloss{Clientactor} dovrà gestire la ricezione del messaggio MapResponse  &   & OBF1.1.2.2   \\
+  TU.OBF1.1.2.2 & Si verifica che L'attore di tipo \gloss{Clientactor} dovrà gestire la ricezione del messaggio MapResponse &   & OBF1.1.2.2   \\
   \hline
-  TU.OBF1.1.3 & Si verifica che All'interno del singolo \gloss{nodo} dovrà essere implementato l'attore \gloss{Main} per gestire le richieste provenienti dall'attore \gloss{Clientactor}  & OK  & OBF1.1.3   \\
+  TU.OBF1.1.3 & Si verifica che L'attore di tipo \gloss{Clientactor} dovrà gestire la ricezione del messaggio ListResponse  & OK  & OBF1.1.3   \\
   \hline
-  TU.OBF1.1.3.1 & Si verifica che Il sistema ad attori dovrà permettere di inserire \gloss{item} mediante l'interazione tra \gloss{Clientactor}, \gloss{Mainactor}, \gloss{Storefinder}, \gloss{Storekeeper}, \gloss{Ninja} e \gloss{Manager}  & OK  & OBF1.1.3.1   \\
+  TU.OBF1.1.3.1 & Si verifica che L'attore di tipo \gloss{Main} dovrà gestire la ricezione del messaggio CreateCollection  & OK  & OBF1.1.3.1   \\
   \hline
-  TU.OBF1.1.3.2 & Si verifica che Il sistema ad attori dovrà permettere di creare una \gloss{collezione} nel caso di inserimento \gloss{item} a \gloss{collezione} inesistente mediante interazioni tra \gloss{Clientactor}, \gloss{Mainactor} e \gloss{Userkeeper}.  &   & OBF1.1.3.2   \\
-  \hline
-  TU.OBF1.1.3.3 & Si verifica che Il sistema ad attori dovrà inviare un messaggio d'errore verso l'esterno nel caso in cui la chiave dell'\gloss{item} da inserire senza sovrascrittura sia già presente, mediante interazioni tra \gloss{Clientactor}, \gloss{Mainactor}, \gloss{Storefinder} e \gloss{Storekeeper}  & OK  & OBF1.1.3.3   \\
-  \hline
-  TU.OBF1.1.3.4 & Si verifica che L'attore di tipo \gloss{Main} dovrà gestire la ricezione del messaggio GetItemFrom  &  OK & OBF1.1.3.4   \\
+  TU.OBF1.1.3.4 & Si verifica che L'attore di tipo \gloss{Main} dovrà gestire la ricezione del messaggio GetFrom  &  OK & OBF1.1.3.4   \\
   \hline
   TU.OBF1.1.3.5 & Si verifica che L'attore di tipo \gloss{Main} dovrà gestire la ricezione del messaggio AddContributor  &   & OBF1.1.3.5   \\
   \hline
   TU.OBF1.1.3.7 & Si verifica che L'attore di tipo \gloss{Main} dovrà gestire la ricezione del messaggio RemoveContributor  &   & OBF1.1.3.7   \\
   \hline
-  TU.OBF1.1.3.8 & Si verifica che L'attore di tipo \gloss{Main} dovrà gestire la ricezione del messaggio GetItemFromResponse  & OK  & OBF1.1.3.8   \\
+  TU.OBF1.1.3.8 & Si verifica che L'attore di tipo \gloss{Main} dovrà gestire la ricezione del messaggio CompleteTransaction & OK  & OBF1.1.3.8   \\
   \hline
-  TU.OBF1.1.3.9 & Si verifica che L'attore di tipo \gloss{Main} dovrà gestire la ricezione del messaggio RemoveItemFrom  & OK  & OBF1.1.3.9   \\
-  \hline
-  TU.OBF1.1.3.10 & Si verifica che L'attore di tipo \gloss{Main} dovrà gestire la ricezione dei messaggi del package storefinder.messages	  & OK  & OBF1.1.3.10   \\
-  \hline
-  TU.OBF1.1.3.11 & Si verifica che L'attore di tipo \gloss{Main} dovrà gestire la ricezione del messaggio DuplicationRequestSF	  & OK  & OBF1.1.3.11   \\
-  \hline
-  TU.OBF1.1.3.12 & Si verifica che L'attore di tipo \gloss{Main} dovrà gestire la ricezione del messaggio UpdateCollectionSize	  & OK  & OBF1.1.3.12   \\
-  \hline
-  TU.OBF1.1.3.13 & Si verifica che 	L'attore di tipo \gloss{Main} dovrà gestire la ricezione del messaggio Ack	  & OK  & OBF1.1.3.13   \\
+  TU.OBF1.1.3.9 & Si verifica che L'attore di tipo \gloss{Main} dovrà gestire la ricezione del messaggio RemoveFrom  & OK  & OBF1.1.3.9   \\
   \hline
   TU.OBF1.1.4 & Si verifica che All'interno del singolo nodo dovrà essere implementato l'attore \gloss{Storefinder} per la gestione delle \gloss{collezioni} del \gloss{database}  & OK  & OBF1.1.4   \\
   \hline
   TU.OBF1.1.4.1 & Si verifica che L'attore di tipo \gloss{StoreFinder} dovrà gestire la ricezione del messaggio UpdateCollectionSize  & OK  & OBF1.1.4.1   \\
   \hline
-  TU.OBF1.1.4.2 & Si verifica che L'attore di tipo \gloss{StoreFinder} dovrà gestire la ricezione del messaggio DuplicationRequestSK  &  OK & OBF1.1.4.2   \\
+  TU.OBF1.1.4.3 & Si verifica che L'attore di tipo \gloss{StoreFinder} dovrà gestire la ricezione del messaggio Get & OK & OBF1.1.4.3   \\
   \hline
-  TU.OBF1.1.4.3 & Si verifica che L'attore di tipo \gloss{StoreFinder} dovrà gestire la ricezione del messaggio GetItem  & OK & OBF1.1.4.3   \\
+  TU.OBF1.1.4.4 & Si verifica che L'attore di tipo \gloss{StoreFinder} dovrà gestire la ricezione del messaggio Remove &  OK & OBF1.1.4.4   \\
   \hline
-  TU.OBF1.1.4.4 & Si verifica che L'attore di tipo \gloss{StoreFinder} dovrà gestire la ricezione del messaggio RemoveItem  &  OK & OBF1.1.4.4   \\
+  TU.OBF1.1.4.5 & Si verifica che L'attore di tipo \gloss{StoreFinder} dovrà gestire la ricezione del messaggio Insert & OK  & OBF1.1.4.5   \\
   \hline
-  TU.OBF1.1.4.5 & Si verifica che L'attore di tipo \gloss{StoreFinder} dovrà gestire la ricezione del messaggio Insert  & OK  & OBF1.1.4.5   \\
+  TU.OBF1.1.4.6 & Si verifica che L'attore di tipo \gloss{StoreFinder} dovrà gestire la ricezione del messaggio GetAllItems & OK  & OBF1.1.4.6   \\
   \hline
-  TU.OBF1.1.4.6 & Si verifica che L'attore di tipo \gloss{StoreFinder} dovrà gestire la ricezione del messaggio GetAllItem  & OK  & OBF1.1.4.6   \\
+  TU.OBF1.1.4.7 & Si verifica che L'attore di tipo \gloss{StoreFinder} dovrà gestire la ricezione del messaggio PartialMapTransaction & OK  & OBF1.1.4.7   \\
   \hline
-  TU.OBF1.1.4.7 & Si verifica che L'attore di tipo \gloss{StoreFinder} dovrà gestire la ricezione del messaggio GetAllItemResponse  & OK  & OBF1.1.4.7   \\
+  TU.OBF1.1.5 & Si verifica che All'interno del singolo \gloss{nodo} dovrà essere implementato l'attore \gloss{Storekeeper} per gestire il contenuto delle \gloss{collezioni} &  OK & OBF1.1.5    \\
   \hline
-  TU.OBF1.1.5 & Si verifica che All'interno del singolo \gloss{nodo} dovrà essere implementato l'attore \gloss{Storekeeper} per gestire il contenuto delle \gloss{collezioni}  &  OK & OBF1.1.5    \\
+  TU.OBF1.1.5.1 & Si verifica che L'attore di tipo \gloss{StoreKeeper} dovrà gestire la ricezione del messaggio Persist & OK & OBF1.1.5.1    \\
   \hline
-  TU.OBF1.1.5.1 & Si verifica che L'attore di tipo \gloss{StoreKeeper} dovrà gestire la ricezione del messaggio Persist	 & OK & OBF1.1.5.1    \\
+  TU.OBF1.1.5.2 & Si verifica che L'attore di tipo \gloss{StoreKeeper} dovrà gestire la ricezione del messaggio Get  &  OK & OBF1.1.5.2    \\
   \hline
-  TU.OBF1.1.5.2 & Si verifica che L'attore di tipo \gloss{StoreKeeper} dovrà gestire la ricezione del messaggio GetItem  &  OK & OBF1.1.5.2    \\
+  TU.OBF1.1.5.3 & Si verifica che L'attore di tipo \gloss{StoreKeeper} dovrà gestire la ricezione del messaggio GetAll & OK & OBF1.1.5.3    \\
   \hline
-  TU.OBF1.1.5.3 & Si verifica che L'attore di tipo \gloss{StoreKeeper} dovrà gestire la ricezione del messaggio GetAllItems  & OK & OBF1.1.5.3    \\
+  TU.OBF1.1.5.4 & Si verifica che L'attore di tipo \gloss{StoreKeeper} dovrà gestire la ricezione del messaggio InsertItem & OK & OBF1.1.5.4    \\
   \hline
-  TU.OBF1.1.5.4 & Si verifica che L'attore di tipo \gloss{StoreKeeper} dovrà gestire la ricezione del messaggio Insert  & OK & OBF1.1.5.4    \\
+  TU.OBF1.1.5.5 & Si verifica che L'attore di tipo \gloss{StoreKeeper} dovrà gestire la ricezione del messaggio RemoveItem & OK & OBF1.1.5.5    \\
   \hline
-  TU.OBF1.1.5.5 & Si verifica che L'attore di tipo \gloss{StoreKeeper} dovrà gestire la ricezione del messaggio RemoveItem  & OK & OBF1.1.5.5    \\
+  TU.OBF1.1.5.6 & Si verifica che L'attore di tipo \gloss{StoreKeeper} dovrà gestire la ricezione del messaggio InitMn & OK & OBF1.1.5.6    \\
   \hline
-  TU.OBF1.1.6 & Si verifica che L'attore di tipo \gloss{StoreKeeper} dovrà gestire la ricezione del messaggio UpdateOwnerOfSK  & OK & OBF1.1.6    \\
+  TU.OBF1.1.5.7 & Si verifica che L'attore di tipo \gloss{StoreKeeper} dovrà gestire la ricezione del messaggio BecomeNinja & OK & OBF1.1.5.7    \\
   \hline
-  TU.OBF1.1.6.1 & Si verifica che L'attore di tipo \gloss{Warehouseman} dovrà gestire la ricezione del messaggio Read  &   & OBF1.1.6.1    \\
+  TU.OBF1.1.6 & Si verifica che All'interno del singolo \gloss{nodo} dovrà essere implementato l'attore \gloss{Warehouseman} per gestire la persistenza dei dati su disco & OK & OBF1.1.6    \\
+  \hline
+  TU.OBF1.1.6.1 & Si verifica che L'attore di tipo \gloss{Warehouseman} dovrà gestire la ricezione del messaggio Read &   & OBF1.1.6.1    \\
   \hline
   TU.OBF1.1.6.2 & Si verifica che L'attore di tipo \gloss{Warehouseman} dovrà gestire la ricezione del messaggio Save  & OK  & OBF1.1.6.2    \\
   \hline
-  TU.OBF1.1.6.3 & Si verifica che L'attore di tipo \gloss{Warehouseman} dovrà gestire la ricezione del messaggio Clean  & OK  & OBF1.1.6.3    \\
+  TU.OBF1.1.6.3 & Si verifica che L'attore di tipo \gloss{Warehouseman} dovrà gestire la ricezione del messaggio Clean & OK  & OBF1.1.6.3    \\
   \hline
-  TU.OBF1.1.6.4 & Si verifica che L'attore di tipo \gloss{Warehouseman} dovrà gestire la ricezione del messaggio RemoveSfFolder  & OK  & OBF1.1.6.4    \\
+  TU.OBF1.1.7 & Si verifica che All'interno del singolo \gloss{nodo} dovrà essere implementato l'attore \gloss{Ninja} per gestire la ridondanza dei dati contenuti negli \gloss{Storekeeper} &  & OBF1.1.7    \\
   \hline
-  TU.OBF1.1.7 & Si verifica che All'interno del singolo \gloss{nodo} dovrà essere implementato l'attore \gloss{Ninja} per gestire la ridondanza dei dati contenuti negli \gloss{Storekeeper}  &  & OBF1.1.7    \\
+  TU.OBF1.1.7.1 & Si verifica che L'attore di tipo \gloss{Ninja} dovrà gestire la ricezione del messaggio Update &   & OBF1.1.7.1    \\
   \hline
-  TU.OBF1.1.7.1 & Si verifica che L'attore di tipo \gloss{Ninja} dovrà gestire la ricezione del messaggio Update  &   & OBF1.1.7.1    \\
-  \hline
-  TU.OBF1.1.7.2 & Si verifica che L'attore di tipo \gloss{Ninja} dovrà poter cambiare il proprio contesto ricevendo il messaggio BecomeSK e importare tutti i messaggi dello StoreKeeper  &   & OBF1.1.7.2    \\
+  TU.OBF1.1.7.2 & Si verifica che L'attore di tipo \gloss{Ninja} dovrà poter cambiare il proprio contesto ricevendo il messaggio BecomeSK e importare tutti i messaggi dello StoreKeeper &   & OBF1.1.7.2    \\
   \hline
   TU.OBF1.1.8 & Si verifica che All'interno del singolo \gloss{nodo} dovrà essere implementato l'attore \gloss{Manager} per la gestione del carico degli attori di tipo \gloss{Storekeeper} e \gloss{Storefinder}  &   & OBF1.1.8    \\
   \hline
-  TU.OBF1.1.8.1 & Si verifica che L'attore di tipo \gloss{Manager} dovrà gestire la ricezione del messaggio DuplicationRequestSK &   & OBF1.1.8.1    \\
+  TU.OBF1.1.8.1 & Si verifica che L'attore di tipo \gloss{Manager} dovrà gestire la ricezione del messaggio OneMore &   & OBF1.1.8.1    \\
   \hline
-  TU.OBF1.1.8.2 & Si verifica che ricezione  &   & OBF1.1.8.2    \\
+  TU.OBF1.1.9 & Si verifica che All'interno del singolo nodo dovrà essere implementato l'attore \gloss{Authactor} per la gestione degli utenti & OK & OBF1.1.9    \\
   \hline
-  TU.OBF1.1.9 & Si verifica che All'interno del singolo \gloss{nodo} dovrà essere implementato l'attore \gloss{Userkeeper} per gestire gli utenti e i loro permessi sulle \gloss{collezioni}  & OK & OBF1.1.9    \\
+  TU.OBF1.1.9.1 & Si verifica che L'attore di tipo \gloss{AuthActor} dovrà gestire la ricezione del messaggio AddCredential & OK & OBF1.1.9.1    \\
   \hline
-  TU.OBF1.1.9.1 & Si verifica che L'attore di tipo \gloss{UserKeeper} dovrà gestire la ricezione del messaggio GetCollections    & OK & OBF1.1.9.1    \\
+  TU.OBF1.1.9.2 & Si verifica che L'attore di tipo \gloss{AuthActor} dovrà gestire la ricezione del messaggio UpdateCredential & OK & OBF1.1.9.2    \\
   \hline
-  TU.OBF1.1.9.2 & Si verifica che L'attore di tipo \gloss{UserKeeper} dovrà gestire la ricezione del messaggio UpdateCollectionSize & OK & OBF1.1.9.2    \\
+  TU.OBF1.1.9.3 & Si verifica che L'attore di tipo \gloss{AuthActor} dovrà gestire la ricezione del messaggio RemoveCredential & OK & OBF1.1.9.3    \\
   \hline
-  TU.OBF1.1.9.3 & Si verifica che L'attore di tipo \gloss{UserKeeper} dovrà gestire la ricezione del messaggio BindClient  & OK & OBF1.1.9.3    \\
+  TU.OBF1.1.9.4 & Si verifica che L'attore di tipo \gloss{AuthActor} dovrà gestire la ricezione del messaggio Authenticate & OK & OBF1.1.9.4    \\
   \hline
-  TU.OBF1.1.9.4 & Si verifica che L'attore di tipo \gloss{UserKeeper} dovrà gestire la ricezione del messaggio GetPassword  & OK & OBF1.1.9.4    \\
+  TU.OBF1.1.9.5 & Si verifica che L'attore di tipo \gloss{AuthActor} dovrà gestire la ricezione del messaggio AddCollectionTo & OK & OBF1.1.9.5    \\
   \hline
-  TU.OBF1.1.9.5 & Si verifica che L'attore di tipo \gloss{UserKeeper} dovrà gestire la ricezione del messaggio RemoveCollection  & OK & OBF1.1.9.5    \\
+  TU.OBF1.1.9.6 & Si verifica che L'attore di tipo \gloss{AuthActor} dovrà gestire la ricezione del messaggio RemoveCollectionFrom & OK & OBF1.1.9.6    \\
   \hline
-  TU.OBF1.1.9.6 & Si verifica che L'attore di tipo \gloss{UserKeeper} dovrà gestire la ricezione del messaggio AddCollection  & OK & OBF1.1.9.6    \\
+  TU.OBF1.1.9.7 & Si verifica che L'attore di tipo \gloss{AuthActor} dovrà gestire la ricezione del messaggio ListCollectionOf &   & OBF1.1.9.7    \\
   \hline
-  TU.OBF1.1.9.9 & Si verifica che L'attore di tipo \gloss{UserKeeper} dovrà gestire la ricezione del messaggio ChangePassword  &   & OBF1.1.9.9    \\
+  TU.OBF1.1.10 & Si verifica che Il sistema dovrà permettere di interagire con il sistema ad attori all'interno di ogni singolo \gloss{nodo} &   & OBF1.1.10   \\
   \hline
-  TU.OBF1.1.10 & Si verifica che Il sistema dovrà permettere di interagire con il sistema ad attori all'interno di ogni singolo \gloss{nodo}  &   & OBF1.1.10   \\
-  \hline
-  TU.OBF1.1.10.1.1 & Si verifica che Il sistema ad attori dovrà inviare un messaggio di errore verso l'esterno in caso di credenziali errate, mediante interazioni tra \gloss{Userkeeper} e \gloss{Clientactor} &   & OBF1.1.10.1.1   \\
+  TU.OBF1.1.10.1.1 & Si verifica che Il sistema ad attori dovrà inviare un messaggio di errore verso l'esterno in caso di credenziali errate, mediante interazioni tra \gloss{AuthActor} e \gloss{Clientactor} &   & OBF1.1.10.1.1   \\
   \hline
   TU.OBF1.1.10.2 & Si verifica che Il sistema dovrà permettere di effettuare operazioni sulle \gloss{collezioni} &   & OBF1.1.10.2   \\
   \hline
   TU.OBF1.1.10.2.1.1 & Si verifica che Il sistema ad attori dovrà inviare un messaggio d'errore verso l'esterno in caso di nome \gloss{collezione} già presente all'interno del sistema durante la creazione di nuova \gloss{collezione} mediante l'interazione tra \gloss{Clientactor} e \gloss{Mainactor} &   & OBF1.1.10.2.1.1   \\
   \hline
-  TU.OBF1.1.10.2.3.1 & Si verifica che Il sistema ad attori dovrà inviare un messaggio d'errore verso l'esterno in caso di nome \gloss{collezione} già presente all'interno del sistema durante l'operazione di modifica nome \gloss{collezione} mediante l'interazione tra \gloss{Clientactor} e \gloss{Userkeeper} &   & OBF1.1.10.2.3.1   \\
+  TU.OBF1.1.10.2.3.1 & Si verifica che Il sistema ad attori dovrà inviare un messaggio d'errore verso l'esterno in caso di nome \gloss{collezione} già presente all'interno del sistema durante l'operazione di modifica nome \gloss{collezione} mediante l'interazione tra \gloss{Clientactor} e \gloss{AuthActor} &   & OBF1.1.10.2.3.1   \\
   \hline
   TU.OBF1.1.10.2.3.2 & Si verifica che Il sistema ad attori dovrà inviare un messaggio d'errore verso l'esterno nel caso in cui il nome della \gloss{collezione} da modificare sia inesistente, mediante interazioni tra \gloss{Clientactor} ed esterno  &   & OBF1.1.10.2.3.2   \\
   \hline
   TU.OBF1.1.10.2.4.1 & Si verifica che Il sistema ad attori dovrà inviare un messaggio d'errore verso l'esterno nel caso in cui il nome della \gloss{collezione} da cancellare sia inesistente, mediante interazioni tra \gloss{Clientactor} ed esterno  &   & OBF1.1.10.2.4.1   \\
   \hline
-  TU.OBF1.1.10.2.5.1 & Si verifica che Il sistema ad attori dovrà permettere di aggiungere collaboratori a \gloss{collezioni} con permessi lettura/scrittura mediante l'interazione tra \gloss{Clientactor}, \gloss{Mainactor}, \gloss{Storefinder}, \gloss{Storekeeper}, \gloss{Userkeeper} e \gloss{Ninja}  &   & OBF1.1.10.2.5.1   \\
+  TU.OBF1.1.10.2.5.1 & Si verifica che Il sistema ad attori dovrà permettere di aggiungere collaboratori a \gloss{collezioni} con permessi lettura/scrittura mediante l'interazione tra \gloss{Clientactor}, \gloss{Mainactor}, \gloss{Storefinder}, \gloss{Storekeeper}, \gloss{AuthActor} e \gloss{Ninja} &   & OBF1.1.10.2.5.1   \\
   \hline
-  TU.OBF1.1.10.2.5.2 & Si verifica che Il sistema ad attori dovrà permettere di aggiungere collaboratori a \gloss{collezioni} con permessi in sola lettura mediante l'interazione tra \gloss{Clientactor}, \gloss{Mainactor}, \gloss{Storefinder}, \gloss{Storekeeper}, \gloss{Userkeeper} e \gloss{Ninja}  &   & OBF1.1.10.2.5.2   \\
+  TU.OBF1.1.10.2.5.2 & Si verifica che Il sistema ad attori dovrà permettere di aggiungere collaboratori a \gloss{collezioni} con permessi in sola lettura mediante l'interazione tra \gloss{Clientactor}, \gloss{Mainactor}, \gloss{Storefinder}, \gloss{Storekeeper}, \gloss{AuthActor} e \gloss{Ninja}  &   & OBF1.1.10.2.5.2   \\
   \hline
-  TU.OBF1.1.10.2.5.3 & Si verifica che Il sistema ad attori dovrà inviare un messaggio d'errore verso l'esterno nel caso in cui il nome della \gloss{collezione} a cui aggiungere collaboratori sia inesistente, mediante interazioni tra \gloss{Clientactor} ed esterno  &   & OBF1.1.10.2.5.3   \\
+  TU.OBF1.1.10.2.5.3 & Si verifica che Il sistema ad attori dovrà inviare un messaggio d'errore verso l'esterno nel caso in cui il nome della \gloss{collezione} a cui aggiungere collaboratori sia inesistente, mediante interazioni tra \gloss{Clientactor} ed esterno &   & OBF1.1.10.2.5.3   \\
   \hline
   TU.OBF1.1.10.2.5.4 & Si verifica che Il sistema ad attori dovrà inviare un messaggio d'errore verso l'esterno nel caso in cui lo \gloss{username} da aggiungere tra i collaboratori di una \gloss{collezione} sia inesistente, mediante interazioni tra \gloss{Clientactor}, \gloss{Main} e \gloss{Storefinder} &   & OBF1.1.10.2.5.4   \\
   \hline
-  TU.OBF1.1.10.2.6.1 & Si verifica che Il sistema ad attori dovrà inviare un messaggio d'errore verso l'esterno nel caso in cui il nome della \gloss{collezione} a cui rimuovere collaboratori sia inesistente, mediante interazioni tra \gloss{Clientactor} ed esterno  &  & OBF1.1.10.2.6.1   \\
+  TU.OBF1.1.10.2.6.1 & Si verifica che Il sistema ad attori dovrà inviare un messaggio d'errore verso l'esterno nel caso in cui il nome della \gloss{collezione} a cui rimuovere collaboratori sia inesistente, mediante interazioni tra \gloss{Clientactor} ed esterno &  & OBF1.1.10.2.6.1   \\
   \hline
   TU.OBF1.1.10.3 & Si verifica che Il sistema ad attori dovrà permettere di effettuare operazioni sugli \gloss{item} & OK  & OBF1.1.10.3   \\
   \hline
-  TU.OBF1.1.10.5.1 & Si verifica che Il sistema ad attori dovrà inviare un messaggio d'errore verso l'esterno nel caso in cui durante la procedura di modifica della password le credenziali siano errate, mediante interazioni tra \gloss{Clientactor} e \gloss{Userkeeper} &   & OBF1.1.10.5.1   \\
+  TU.OBF1.1.10.5.1 & Si verifica che Il sistema ad attori dovrà inviare un messaggio d'errore verso l'esterno nel caso in cui durante la procedura di modifica della password le credenziali siano errate, mediante interazioni tra \gloss{Clientactor} e \gloss{AuthActor} &   & OBF1.1.10.5.1   \\
   \hline
-  TU.OBF1.1.10.7 & Si verifica che Il sistema ad attori dovrà permettere di effettuare operazioni di gestione utenti mediante interazioni tra \gloss{Clientactor}, \gloss{Main}, \gloss{Storefinder}, \gloss{Userkeeper} &   & OBF1.1.10.7    \\
+  TU.OBF1.1.10.7 & Si verifica che Il sistema ad attori dovrà permettere di effettuare operazioni di gestione utenti mediante interazioni tra \gloss{Clientactor}, \gloss{Main}, \gloss{Storefinder}, \gloss{AuthActor} &   & OBF1.1.10.7    \\
   \hline
   TU.OBF1.1.10.7.1.1 & Si verifica che Il sistema ad attori dovrà inviare un messaggio d'errore verso l'esterno nel caso in cui ilo \gloss{username} dell'utente da inserire all'interno del \gloss{database} sia già esistente. & OK  & OBF1.1.10.7.1.1   \\
   \hline
@@ -1113,6 +1159,16 @@ tutti i test di unità previsti.
   TU.OBF2.1.2.8 & Si verifica che La CLI dovrà visualizzare un messaggio esplicativo in caso di inserimento di un nome \gloss{collezione} già esistente all'interno del sistema durante la procedura di creazione nuova \gloss{collezione} & OK   & OBF2.1.2.8    \\
   \hline
   TU.OBF2.1.2.9 & Si verifica che La CLI dovrà visualizzare un messaggio di errore esplicativo in caso di inserimento nome \gloss{collezione} già esistente all'interno del sistema durante la procedura di modifica nome \gloss{collezione} & OK   & OBF2.1.2.9    \\
+  \hline
+  TU.OBF2.1.2.10 & Si verifica che  La CLI dovrà visualizzare un messaggio di errore esplicativo in caso di inserimento nome \gloss{collezione} da modificare non esistente all'interno del sistema durante la procedura di modifica nome \gloss{collezione} & OK & OBF2.1.2.10 \\ 
+  \hline
+  TU.OBF2.1.2.11 & Si verifica che La CLI dovrà visualizzare un messaggio di errore esplicativo in caso di inserimento nome \gloss{collezione} da cancellare non esistente all'interno del sistema durante la procedura di cancellazione \gloss{collezione}   & OK & OBF2.1.2.11 \\
+  \hline
+  TU.OBF2.1.2.12 & Si verifica che La CLI dovrà visualizzare un messaggio di errore esplicativo in caso di inserimento nome \gloss{collezione} non esistente all'interno del sistema durante la procedura di aggiunta \gloss{collaboratore} a \gloss{collezione}  & OK & OBF2.1.2.12 \\
+  \hline
+  TU.OBF2.1.2.13 & Si verifica che La CLI dovrà visualizzare un messaggio di errore esplicativo in caso di inserimento nome \gloss{collezione} non esistente all'interno del sistema durante la procedura di rimozione \gloss{collaboratore} da \gloss{collezione}   & OK & OBF2.1.2.13 \\
+  \hline
+  TU.OBF2.1.2.14 & Si verifica che La CLI dovrà visualizzare un messaggio di errore esplicativo in caso di inserimento di uno username non esistente all'interno del sistema durante la procedura di aggiunta \gloss{collaboratore} a \gloss{collezione} & OK & OBF2.1.2.14 \\
   \hline
   TU.DEF2.1.3 & Si verifica che Il DSL dovrà fornire una serie di comandi per poter eseguire operazioni sugli \gloss{item} utilizzabile mediante CLI &   & DEF2.1.3    \\  
   \hline
@@ -1146,9 +1202,9 @@ tutti i test di unità previsti.
   \hline
   TU.DEF3.2.1.2 & Si verifica che Il \gloss{driver} dovrà lanciare un'eccezione in caso di nome \gloss{collezione} già censito durante la procedura di creazione &   & DEF3.2.1.2    \\
   \hline
-  TU.DEF3.2.3.2 & Si verifica che Il \gloss{driver} dovrà lanciare un'eccezione in caso di inserimento nome \gloss{collezione} da cancellare non esistente all'interno del sistema  &   & DEF3.2.3.2    \\
+  TU.DEF3.2.3.2 & Si verifica che Il \gloss{driver} dovrà lanciare un'eccezione in caso di inserimento nome \gloss{collezione} da cancellare non esistente all'interno del sistema &   & DEF3.2.3.2    \\
   \hline
-  TU.DEF3.2.4.3 & Si verifica che Il \gloss{driver} dovrà lanciare un'eccezione in caso di inserimento di un nome \gloss{collezione} da modificare non esistente all'interno del sistema durante la procedura di modifica nome \gloss{collezione} &   & DEF3.2.4.3    \\
+  TU.DEF3.2.4.3 & Si verifica che Il \gloss{driver} dovrà lanciare un'eccezione in caso di inserimento di un nome \gloss{collezione} da modificare non esistente all'interno del sistema durante la procedura di modifica nome \gloss{collezione}  &   & DEF3.2.4.3    \\
   \hline
   TU.DEF3.2.4.4 & Si verifica che Il \gloss{driver} dovrà lanciare un'eccezione in caso di inserimento di un nuovo nome \gloss{collezione} già censito a sistema durante la procedura di modifica nome \gloss{collezione} &   & DEF3.2.4.4    \\
   \hline
@@ -1162,7 +1218,7 @@ tutti i test di unità previsti.
   \hline
   TU.DEF3.3 & Si verifica che Il \gloss{driver} dovrà permettere di eseguire comandi per poter eseguire operazioni sugli \gloss{item} &   & DEF3.3    \\
   \hline
-  TU.DEF3.3.1.2.2 & Si verifica che Il \gloss{driver} dovrà lanciare un eccezione in caso il file \gloss{JSON} non sia presente nel filesystem secondo \gloss{path} specificato &   & DEF3.3.1.2.2    \\
+  TU.DEF3.3.1.2.2 & Si verifica che Il \gloss{driver} dovrà lanciare un eccezione in caso il file \gloss{JSON} non sia presente nel filesystem secondo \gloss{path} specificato  &   & DEF3.3.1.2.2    \\
   \hline
   TU.DEF3.3.1.2.3 & Si verifica che Il \gloss{driver} dovrà lanciare un'eccezione in caso di inserimento di un \gloss{path} che punta ad un file \gloss{JSON} non correttamente formato &   & DEF3.3.1.2.3    \\
   \hline
@@ -1178,15 +1234,15 @@ tutti i test di unità previsti.
   \hline
   TU.OBF3.6.6 & Si verifica che Il \gloss{driver} dovrà lanciare un'eccezione nel caso di inserimento di uno username non presente all'interno del sistema durante la procedura di reset della password di un utente da parte di utente amministratore &   & OBF3.6.6    \\
   \hline
-  TU.OBF3.7.3 & Si verifica che Il \gloss{driver} dovrà lanciare un'eccezione nel caso di inserimento della password attuale errata durante la procedura di modifica password &   & OBF3.7.3    \\
+  TU.OBF3.7.3 & Si verifica che Il \gloss{driver} dovrà lanciare un'eccezione nel caso di inserimento della password attuale errata durante la procedura di modifica password  &   & OBF3.7.3    \\
   \hline
-  TU.OBF3.7.4 & Si verifica che Il \gloss{driver} dovrà lanciare un'eccezione nel caso di inserimento di una nuova password che non rispetta i vincoli del sistema durante l'operazione di modifica password &   & OBF3.7.4    \\
+  TU.OBF3.7.4 & Si verifica che  Il \gloss{driver} dovrà lanciare un'eccezione nel caso di inserimento di una nuova password che non rispetta i vincoli del sistema durante l'operazione di modifica password &   & OBF3.7.4    \\
   \hline
   TU.OBF3.8.1 & Si verifica che Il \gloss{Driver} dovrà poter restituire sequenze di \gloss{collezioni} navigabili & OK   & OBF3.8.1    \\
   \hline
   TU.OBF3.8.2 & Si verifica che Il \gloss{Driver} dovrà poter restituire \gloss{collezioni} navigabili & OK   & OBF3.8.2    \\
   \hline
-  TU.OBF3.8.3 & Si verifica che Il \gloss{Driver} dovrà poter restituire \gloss{item}  & OK   & OBF3.8.3    \\
+  TU.OBF3.8.3 & Si verifica che Il \gloss{Driver} dovrà poter restituire \gloss{item} & OK   & OBF3.8.3    \\
   \hline
 \end{longtable}
 
