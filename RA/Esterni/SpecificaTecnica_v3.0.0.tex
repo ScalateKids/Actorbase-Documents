@@ -3572,12 +3572,6 @@ utilizzati nel progetto \textbf{Actorbase}.
 
 \subsubsection{Dependancy Injection}
 
-\begin{figure}[H]
-  \begin{center}
-    \includegraphics[width=0.7\textwidth, keepaspectratio]{img/RQ/designPattern/pattern-CakePattern.png}
-    \caption{Dependancy Injection in \textit{actorbase}}
-  \end{center}
-\end{figure}
 
 \begin{itemize}
 \item \textbf{Scopo:} Separa il comportamento di una componente dalla risoluzione
@@ -4404,6 +4398,24 @@ OBV7 & \multiLineCell[t]{actorbase\\}\\
   \item se c'è la necessità di disaccoppiare il model e la view, creando un sistema di notifiche tra le due componenti;
   \item Se c'è la necessità di avere più view per il medesimo model.
   \end{itemize}
+\end{itemize}
+
+\subsubsection{Dependency injection}
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=0.9 \textwidth, keepaspectratio]{img/designPattern/dependencyinjection.png}
+		\caption{Esempio di applicazione del design pattern Dependency Injection}
+	\end{center}
+\end{figure}
+\begin{itemize}
+	\item \textbf{Scopo:} Separare il comportamento di una componente dalla risoluzione delle sue dipendenze;
+	\item \textbf{Motivazione:} Collegare due componenti in modo esplicito ne aumenta l'accoppiamento, la progettazione degli unit-test risulta difficoltosa, c'è uno scarso utilizzo della componente e una scarca manutenibilità. Di conseguenza le dipendenze vanno minimizzate e un metodo per farlo è appunto l'utilizzo del design pattern Dependency Injection;
+	\item \textbf{Applicabilità:} Il pattern Dependency injection è adatto ad essere utilizzato nei seguenti casi:
+	\begin{itemize}
+		\item se si vuole migliorare la fase di testing;
+		\item se si vuole avere una maggior resilienza del codice;
+		\item se si vuole avere una migliore flessibilità.
+	\end{itemize}
 \end{itemize}
 
 \subsection{Design Pattern Creazionali}
