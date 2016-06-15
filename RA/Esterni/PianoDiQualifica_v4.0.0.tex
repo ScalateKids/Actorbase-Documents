@@ -49,6 +49,10 @@
     \hline
     Versione & Autore & Ruolo & Data & Descrizione \\
     \hline
+    3.1.0 & Michael Munaro & Verificatore & 2016-06-05 & Verifica sezione B4\\
+    \hline
+    3.0.1 & Giacomo Vanin & Analista & 2016-06-05 & Stesura budget e schedule variance di mezzo periodo (sezione B4)\\
+    \hline
     3.0.0 & Francesco Agostini & Responsabile & 2016-05-16 & Approvazione documento\\
     \hline
     2.3.0 & Michael Munaro & Verificatore & 2016-05-15 & Verifica incrementi\\
@@ -502,7 +506,7 @@ Viene di seguito riportata una tabella contenente i valori per le metriche descr
     \hline
     \textbf{Ruolo} & \textbf{Ore} & \textbf{Costo}\\
     \hline
-    Responsabile & +3 & +90\\ %30 %TODO fare sta tabella
+    Responsabile & +3 & +90\\ %30
     Analista & 0 & 0\\ %25
     Amministratore & +3 & +60\\ %20
     Progettista & -2 & -44\\ %22
@@ -635,6 +639,66 @@ In seguito è riportata la media dei livelli di annidamento dei vari moduli:
 \end{itemize}
 Come si può notare tutti i valori rientrano nel range ottimale.
 
+\subsection{Attività di Validazione}
+
+\subsubsection{Budget Variance e Schedule Variance}
+Viene di seguito riportata una tabella contenente i valori per le metriche descritte in sezione \ref{sec:metricheProcesso}.\\ Questa tabella rappresenta un consuntivo calcolato in data cinque giugno. Il consuntivo di periodo sarà disponibile nel documento \href{run:./PianoDiProgetto\_v4.0.0.pdf}{Piano di Progetto v4.0.0}.
+\begin{center}
+  \normalsize
+  \begin{tabular}{| c | c | c |}
+    \hline
+    \textbf{Ruolo} & \textbf{Ore} & \textbf{Costo}\\
+    \hline
+    Responsabile &  & \\ %30
+    Analista &  & \\ %25
+    Amministratore &  & \\ %20
+    Progettista &  & \\ %22
+    Programmatore &  & \\ %15
+    Verificatore &  & \\ %15
+    \hline
+    \textbf{Totale} &  & \\
+    \hline
+  \end{tabular}
+\end{center}
+
+\subsubsection{Soddisfacimento requisiti obbligatori} %TODO da fare
+Attualmente la percentuale di requisiti obbligatori soddisfatti è di: \textbf{80\%}
+Il valore della metrica è .
+
+%\subsubsection{Richieste al secondo} %TODO da fare se abbiamo tempo
+%Abbiamo effettuato diversi test per misurare questa metrica. Riportiamo una media
+%dei valori ottenuti usando lo strumento GNU parallel, come descritto in 
+%\href{run:./NormeDiProgetto\_v4.0.0.pdf}{Norme di Progetto v4.0.0}.\\
+%Il test prevede l'invio di duemila richieste da cinque processi paralleli
+%per un totale di diecimila richieste.\\
+%La media ottenuta è di: \textbf{43}.\\
+%Questo valore rientra nel range ottimale.
+
+\subsubsection{Documenti}
+Nella tabella di seguito sono riportati i valori degli indici di Gulpease per ogni documento prodotto durante l'\gloss{attività} di validazione. L'esito della verifica dipenderà dal valore di questo indice come descritto nella sezione \ref{par:metricheGulpease}.
+\begin{center}
+  \begin{tabular}{| c | c | c |}
+    \hline
+    Documento & Valore indice & Esito\\
+    \hline
+    \textit{Definizione di Prodotto v2.0.0} & 72 & Superato\\
+    \textit{Specifica Tecnica v3.0.0} & 74 & Superato\\
+    \textit{Norme di Progetto v4.0.0} & 60 & Superato\\
+    \textit{Piano di Progetto v4.0.0} & 65 & Superato\\
+    \textit{Piano di Qualifica v4.0.0} & 63 & Superato\\
+    \textit{Analisi dei Requisiti v4.0.0} & 88 & Superato\\
+    \textit{Glossario v4.0.0} & 58 & Superato\\
+    \textit{Developer Manual v2.0.0} & 74 & Superato\\
+    \textit{User Manual v2.0.0} & 69 & Superato\\
+    \hline
+  \end{tabular}
+\end{center}
+
+\subsubsection{Codice}
+Di seguito vengono riportati i risultati dei test di analisi statica e dinamica effettuati sul codice.
+Per ragioni di spazio e leggibilità si omettono le tabelle complete dei test. Per ogni test si riportano almeno il valore minimo, quello massimo e il medio riscontrato ed eventuali risultati oltre il range di accettazione definiti nella sezione \ref{sec:metricheSW}, oltre alla giustificazione della loro presenza.
+
+%Todo metti qua tutte le metriche
 
 \newpage
 
