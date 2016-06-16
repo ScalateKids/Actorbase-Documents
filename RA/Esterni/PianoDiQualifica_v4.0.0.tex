@@ -25,9 +25,9 @@
       \else
       \textbf{Versione} & 4.0.0\\
       \fi
-      \textbf{Redazione} & \multiLineCell[t]{Alberto De Agostini\\Andrea Giacomo Baldan\\Francesco Agostini\\Davide Trevisan}\\
+      \textbf{Redazione} & \multiLineCell[t]{Alberto De Agostini\\Andrea Giacomo Baldan\\Francesco Agostini}\\
       \textbf{Verifica} & \multiLineCell[t]{Michael Munaro}\\
-      \textbf{Approvazione} & \multiLineCell[t]{Francesco Agostini}\\
+      \textbf{Approvazione} & \multiLineCell[t]{Davide Trevisan}\\
       \textbf{Uso} & Esterno\\
       \textbf{Lista di Distribuzione} & \multiLineCell[t]{ScalateKids\\Prof. Tullio Vardanega\\Prof. Riccardo Cardin}\\
     \end{tabular}
@@ -48,6 +48,14 @@
   \begin{longtable}{| l | l | l | l | p{5cm} |}
     \hline
     Versione & Autore & Ruolo & Data & Descrizione \\
+    \hline
+    4.0.0 & Davide Trevisan & Responsabile & 2016-06-16 & Approvazione Documento\\
+    \hline
+    3.2.0 & Michael Munaro & Verificatore & 2016-06-10 & Verifica sezione test\\
+    \hline
+    3.1.2 & Francesco Agostini & Analista & 2016-06-9 & Modifica sezione test\\
+    \hline
+    3.1.1 & Alberto De Agostini & Analista & 2016-06-9 & Modifica sezione test\\
     \hline
     3.1.0 & Michael Munaro & Verificatore & 2016-06-05 & Verifica sezione B4\\
     \hline
@@ -555,100 +563,89 @@ Nella tabella di seguito sono riportati i valori degli indici di Gulpease per og
 
 \subsubsection{Codice}
 Di seguito vengono riportati i risultati dei test di analisi statica e dinamica effettuati sul codice.
-Per ragioni di spazio e leggibilità si omettono le tabelle complete dei test. Per ogni test dove possibile si riportano almeno il valore medio riscontrato, il massimo valore riscontrato ed eventuali risultati oltre il range di accettazione definiti nella sezione \ref{sec:metricheSW}, oltre alla giustificazione della loro presenza. Si è cercato di essere il più precisi possibile.
+Per ragioni di spazio e leggibilità si omettono le tabelle complete dei test. Per ogni test si riportano almeno il valore medio riscontrato ed eventuali risultati oltre il range di accettazione definiti nella sezione \ref{sec:metricheSW}, oltre alla giustificazione della loro presenza.
 
 \paragraph{Linee di codice per linee di commento}
 In questo paragrafo è possibile vedere il rapporto tra linee di codice e
 linee di commento, suddivisi per modulo:
 \begin{itemize}
-
-\item \textbf{CLI}:
-  \begin{center}
-    \begin{tabular}{| c | c | c | c | c |}
-      \hline
-      Files & righe vuote & righe di commento & righe di codice & \% commento su codice\\
-      \hline
-      28 & 153 & 1042 & 451 & 70\% \\
-      \hline
-    \end{tabular}
-  \end{center}
-
-\item \textbf{Driver}:
-  \begin{center}
-    \begin{tabular}{| c | c | c | c | c |}
-      \hline
-      Files & righe vuote & righe di commento & righe di codice & \% commento su codice\\
-      \hline
-      14 & 185 & 1193 & 749 & 61\% \\
-      \hline
-    \end{tabular}
-  \end{center}
-
-\item \textbf{ActorSystem}:
-  \begin{center}
-    \begin{tabular}{| c | c | c | c | c |}
-      \hline
-      Files & righe vuote & righe di commento & righe di codice & \% commento su codice\\
-      \hline
-      31 & 432 & 1971 & 1308 & 60\% \\
-      \hline
-    \end{tabular}
-  \end{center}
-\end{itemize}
-
-Inoltre Tutti i rapporti commento su codice dei singoli file soddisfano il range ottimale.
-
-\paragraph{Copertura del codice}
-viene riportata la dei test espressa in percentuale con a fianco il rapporto coperte/totali. Si fa presente che la maggior parte del codice non coperto da test è composto da metodi banali( si pensi ai getter o setter). Nel caso del  modulo driver è stato riportato il risultato del solo package client, in quanto gli altri package falsavano pesantemente la metrica per i motivi sopra citati.
+	
+	\item \textbf{CLI}:
 	\begin{center}
-		\begin{tabular}{| c | c | c | c |}
+		\begin{tabular}{| c | c | c | c | c |}
 			\hline
-			Modulo & \% delle classi & \% dei metodi & \% delle linee righe \\
+			Files & righe vuote & righe di commento & righe di codice & \% commento su codice\\
 			\hline
-			\textbf{Cli} & 89\%(98/116) & 69\%(149/214) & 67\%(245/363) \\
-			\textbf{Driver} &  67\%(19/28) & 47\%(50/105) & 62\%(63/101)\\
-			\textbf{Actorsystem} & boh & boh & boh\\
+			28 & 133 & 834 & 419 & 66\% \\
 			\hline
 		\end{tabular}
-Il gruppo stima che il 15-20\% del codice non banale non sia coperto da test. Tutti i valori rientrano comunque nel range di accettazione.
+	\end{center}
+	
+	\item \textbf{Driver}:
+	\begin{center}
+		\begin{tabular}{| c | c | c | c | c |}
+			\hline
+			Files & righe vuote & righe di commento & righe di codice & \% commento su codice\\
+			\hline
+			11 & 134 & 887 & 300 & 75\% \\
+			\hline
+		\end{tabular}
+	\end{center}
+	
+	\item \textbf{ActorSystem}:
+	\begin{center}
+		\begin{tabular}{| c | c | c | c | c |}
+			\hline
+			Files & righe vuote & righe di commento & righe di codice & \% commento su codice\\
+			\hline
+			31 & 437 & 1817 & 1087 & 63\% \\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{itemize}
+Come visibile dalle tabelle tutti i valori soddisfano il range ottimale.
 
-\paragraph{Numero di attributi per classe(non aggiornato)}
+\paragraph{Copertura del codice}
+La percentuale di codice coperto da test attualmente è del: \textbf{72\%}.\\
+Questo valore rientra nel range ottimale.
+
+\paragraph{Numero di attributi per classe}
 Di seguito è riportato il numero medio di attributi per classe del codice di actorbase divisi per modulo:
 \begin{itemize}
-\item \textbf{CLI}: 1,04;
-\item \textbf{Driver}: 2,69;
-\item \textbf{Actorsystem}: 2,39.
+	\item \textbf{CLI}: 1,04;
+	\item \textbf{Driver}: 2,69;
+	\item \textbf{Actorsystem}: 2,39.
 \end{itemize}
 Come si può notare tutti i valori rientrano nel range di accettazione.
 
-\paragraph{Numero di parametri per metodo(non aggiornato)}
+\paragraph{Numero di parametri per metodo}
 Di seguito è riportato il numero medio di parametri per
 metodo del codice di actorbase suddiviso per moduli:
 \begin{itemize}
-\item \textbf{CLI}:0,12\%; massimo:1(7 occorrenze);
-\item \textbf{Driver}:0,63; massimo:;
-\item \textbf{ActorSystem}:0,59; massimo:.
+	\item \textbf{CLI}:0,1;
+	\item \textbf{Driver}:0,63;
+	\item \textbf{ActorSystem}:0,59.
 \end{itemize}
 Come si può notare tutti i valori rientrano nel range ottimale.
 
 
-\paragraph{Complessità ciclomatica(non aggiornato)}
+\paragraph{Complessità ciclomatica}
 Di seguito è riportata la media della complessità ciclomatica dei vari moduli:
 \begin{itemize}
-\item \textbf{CLI}:2,05;
-\item \textbf{Driver}:1,31;
-\item \textbf{Actorsystem}:2,93.
+	\item \textbf{CLI}:2,05;
+	\item \textbf{Driver}:1,31;
+	\item \textbf{Actorsystem}:2,93.
 \end{itemize}
 Come si può notare tutti i valori rientrano nel range ottimale.
 
 \paragraph{Livelli di annidamento}
 In seguito è riportata la media dei livelli di annidamento dei vari moduli:
 \begin{itemize}
-\item \textbf{Cli}:1,75; massimo: 5;
-\item \textbf{Driver}:1,58; massimo:4;
-\item \textbf{ActorSystem}:1,86; massimo:7;
+	\item \textbf{Cli}:1,78;
+	\item \textbf{Driver}:1,56;
+	\item \textbf{ActorSystem}:1,83.
 \end{itemize}
-Come si può notare tutti i valori rientrano nel range di accettazione.
+Come si può notare tutti i valori rientrano nel range ottimale.
 
 \subsection{Attività di Validazione}
 
@@ -660,14 +657,14 @@ Viene di seguito riportata una tabella contenente i valori per le metriche descr
     \hline
     \textbf{Ruolo} & \textbf{Ore} & \textbf{Costo}\\
     \hline
-    Responsabile &  & \\ %30
-    Analista &  & \\ %25
-    Amministratore &  & \\ %20
-    Progettista &  & \\ %22
-    Programmatore &  & \\ %15
-    Verificatore &  & \\ %15
+    Responsabile & +2 & +60\\ %30
+    Analista & +2 & +50 \\ %25
+    Amministratore & +2 & +40 \\ %20
+    Progettista & +4 & +88 \\ %22
+    Programmatore & -2 & -30 \\ %15
+    Verificatore & +1 & +15 \\ %15
     \hline
-    \textbf{Totale} &  & \\
+    \textbf{Totale} & +9 & +223 \\
     \hline
   \end{tabular}
 \end{center}
@@ -707,9 +704,103 @@ Nella tabella di seguito sono riportati i valori degli indici di Gulpease per og
 
 \subsubsection{Codice}
 Di seguito vengono riportati i risultati dei test di analisi statica e dinamica effettuati sul codice.
-Per ragioni di spazio e leggibilità si omettono le tabelle complete dei test. Per ogni test si riportano almeno il valore minimo, quello massimo e il medio riscontrato ed eventuali risultati oltre il range di accettazione definiti nella sezione \ref{sec:metricheSW}, oltre alla giustificazione della loro presenza.
+Per ragioni di spazio e leggibilità si omettono le tabelle complete dei test. Per ogni test si riportano almeno il valore medio riscontrato,e dove possibile dalle tecnologie utilizzate anche il massimo valore riscontrato ed eventuali risultati oltre il range di accettazione definiti nella sezione \ref{sec:metricheSW}, oltre alla giustificazione della loro presenza. Si è cercato di essere il più precisi possibile.
 
-%Todo metti qua tutte le metriche
+\paragraph{Linee di codice per linee di commento}
+In questo paragrafo è possibile vedere il rapporto tra linee di codice e
+linee di commento, suddivisi per modulo:
+\begin{itemize}
+	
+	\item \textbf{CLI}:
+	\begin{center}
+		\begin{tabular}{| c | c | c | c | c |}
+			\hline
+			Files & righe vuote & righe di commento & righe di codice & \% commento su codice\\
+			\hline
+			28 & 153 & 1042 & 451 & 70\% \\
+			\hline
+		\end{tabular}
+	\end{center}
+	
+	\item \textbf{Driver}:
+	\begin{center}
+		\begin{tabular}{| c | c | c | c | c |}
+			\hline
+			Files & righe vuote & righe di commento & righe di codice & \% commento su codice\\
+			\hline
+			14 & 185 & 1193 & 749 & 61\% \\
+			\hline
+		\end{tabular}
+	\end{center}
+	
+	\item \textbf{ActorSystem}:
+	\begin{center}
+		\begin{tabular}{| c | c | c | c | c |}
+			\hline
+			Files & righe vuote & righe di commento & righe di codice & \% commento su codice\\
+			\hline
+			31 & 432 & 1971 & 1308 & 60\% \\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{itemize}
+
+Inoltre tutti i rapporti commento su codice dei singoli file soddisfano il range ottimale.
+
+\paragraph{Copertura del codice}
+Di seguito viene riportata la copertura dei test espressa in percentuale, affiancata dal rapporto coperte/totali. Si fa presente che la maggior parte del codice non coperto da test è composto da metodi banali (si pensi ai getter o setter). Nel caso del  modulo driver è stato riportato il risultato del solo package client e di ActorbaseDriver, in quanto gli altri package falsavano pesantemente la metrica per i motivi sopra citati. Per lo stesso motivo in Actorsystem si è tenuto conto del solo package actor.
+\begin{center}
+	\begin{tabular}{| c | c | c | c |}
+		\hline
+		Modulo & \% delle classi & \% dei metodi & \% delle linee \\
+		\hline
+		\textbf{Cli} & 89\%(98/116) & 69\%(149/214) & 67\%(245/363) \\
+		\textbf{Driver} &  62\%(42/68) & 47\%(90/206) & 60\%(215/366)\\
+		\textbf{Actorsystem} & 83\%(152/182) & 68\%(609/895) & 71\%(547/771)\\
+		\hline
+	\end{tabular}
+	\end{center}
+	Il gruppo stima che il 10-15\% del codice non banale non sia coperto da test. Tutti i valori rientrano comunque nel range di accettazione.
+	\paragraph{Numero di attributi per classe}
+	Di seguito è riportato il numero medio di attributi per classe del codice di actorbase divisi per modulo. Da notare che nella media non sono state considerate eventuali classi prive di attributi.
+	\begin{itemize}
+		\item \textbf{CLI}: 3,67 massimo:10 (in CommandLoop); da notare che il dato è stato calcolando non considerando i vari comandi, che per ovvi motivi falsavano al ribasso il dato; rientrano comunque tutti nel range ottimale;
+		\item \textbf{Driver}: 2,89 massimo:10 (nell' object Status). Non si è tenuto conto del package exceptions in quanto falsava al ribasso la media; rientrano comunque tutti nel range ottimale;
+		\item \textbf{Actorsystem}: per ottenere risultati più significativi si dividono gli attori dai messaggi:
+		\begin{itemize}
+			\item Attori: 2,93; massimo: 9 (la classe storekeeper);
+			\item Messaggi:1,77; massimo: 4 (il messaggio insertTo).
+		\end{itemize}
+	\end{itemize}
+	Come si può notare tutti i valori rientrano nel range di accettazione.
+	
+	\paragraph{Numero di parametri per metodo}
+	Di seguito è riportato il numero medio di parametri per
+	metodo del codice di actorbase suddiviso per moduli:
+	\begin{itemize}
+		\item \textbf{CLI}:0,12; massimo:1 (7 occorrenze);
+		\item \textbf{Driver}:1,05; massimo:5 (nello specifico il metodo apply in ActorbaseDriver.scala);
+		\item \textbf{ActorSystem}:0,64; massimo:3 (2 occorrenze).
+	\end{itemize}
+	Come si può notare tutti i valori rientrano nel range ottimale, a parte un'unica eccezione.
+	
+	
+	\paragraph{Complessità ciclomatica}
+	Di seguito è riportata la media della complessità ciclomatica dei vari moduli:
+	\begin{itemize}
+		\item \textbf{CLI}:2,16;
+		\item \textbf{Driver}:2,46;
+		\item \textbf{Actorsystem}:2,72.
+	\end{itemize}
+	
+	\paragraph{Livelli di annidamento}
+	In seguito è riportata la media dei livelli di annidamento dei vari moduli:
+	\begin{itemize}
+		\item \textbf{Cli}:1,75; massimo: 5;
+		\item \textbf{Driver}:1,58; massimo:4;
+		\item \textbf{ActorSystem}:1,86; massimo:7;
+	\end{itemize}
+	Come si può notare tutti i valori rientrano nel range di accettazione.
 
 \newpage
 
@@ -738,9 +829,9 @@ test di sistema, la seconda descrive tutti i test dei requisiti ritenuti meritev
     \hline
     Test & Descrizione & Stato & Requisito\\
     \hline
-    TS.OBF1 & Viene verificato che il sistema dovrà fornire la possibilità di distribuire il carico all'interno di un cluster scalabile & & OBF1\\
+    TS.OBF1 & Viene verificato che il sistema dovrà fornire la possibilità di distribuire il carico all'interno di un cluster scalabile & OK & OBF1\\
     \hline
-    TS.OBF1.1 & Viene verificato che il \gloss{cluster} dovrà fornire la possibilità di connettersi ai singoli \gloss{nodi} del \gloss{cluster} & & OBF1.1\\
+    TS.OBF1.1 & Viene verificato che il \gloss{cluster} dovrà fornire la possibilità di connettersi ai singoli \gloss{nodi} del \gloss{cluster} & OK & OBF1.1\\
     \hline
     TS.OBF1.1.1 & Viene verificato che il singolo \gloss{nodo} dovrà fornire un server per ricevere comandi dall'esterno e inviare risposte & OK & OBF1.1.1\\
     \hline
@@ -750,15 +841,15 @@ test di sistema, la seconda descrive tutti i test dei requisiti ritenuti meritev
     \hline
     TS.OBF1.1.10.2.2 & Viene verificato che il sistema ad attori dovrà permettere di visualizzare una lista delle \gloss{collezioni} mediante l'interazione con \gloss{Clientactor} & OK & OBF1.1.10.2.2\\
     \hline
-    TS.OBF1.1.10.2.3 & Viene verificato che il sistema ad attori dovrà permettere di modificare il nome delle \gloss{collezioni} mediante l'interazione tra \gloss{Clientactor}, \gloss{Mainactor}, \gloss{Storefinder} e \gloss{AuthActor} & & OBF1.1.10.2.3\\
+    TS.OPF1.1.10.2.3 & Viene verificato che il sistema ad attori dovrà permettere di modificare il nome delle \gloss{collezioni} mediante l'interazione tra \gloss{Clientactor}, \gloss{Mainactor}, \gloss{Storefinder} e \gloss{AuthActor} & OK & OPF1.1.10.2.3\\
     \hline
     TS.OBF1.1.10.2.4 & Viene verificato che il sistema ad attori dovrà permettere di cancellare \gloss{collezioni} mediante l'interazione tra \gloss{Clientactor}, \gloss{Mainactor}, \gloss{Storefinder}, \gloss{Storekeeper}, \gloss{AuthActor} e \gloss{Ninja} & OK & OBF1.1.10.2.4\\
     \hline
-    TS.OBF1.1.10.2.5 & Viene verificato che il sistema ad attori dovrà permettere di aggiungere collaboratori a \gloss{collezioni} & & OBF1.1.10.2.5\\
+    TS.OBF1.1.10.2.5 & Viene verificato che il sistema ad attori dovrà permettere di aggiungere collaboratori a \gloss{collezioni} & OK & OBF1.1.10.2.5\\
     \hline
-    TS.OBF1.1.10.2.6 & Viene verificato che il sistema ad attori dovrà permettere di rimuovere collaboratori da \gloss{collezioni} mediante l'interazione tra \gloss{Clientactor}, \gloss{Mainactor}, \gloss{Storefinder}, \gloss{Storekeeper}, \gloss{AuthActor} e \gloss{Ninja} & & OBF1.1.10.2.6\\
+    TS.OBF1.1.10.2.6 & Viene verificato che il sistema ad attori dovrà permettere di rimuovere collaboratori da \gloss{collezioni} mediante l'interazione tra \gloss{Clientactor}, \gloss{Mainactor}, \gloss{Storefinder}, \gloss{Storekeeper}, \gloss{AuthActor} e \gloss{Ninja} & OK & OBF1.1.10.2.6\\
     \hline
-    TS.OBF1.1.10.2.7 & Viene verificato che il sistema ad attori dovrà permettere di esportare \gloss{collezioni} mediante l'interazione tra \gloss{Clientactor}, \gloss{Mainactor}, \gloss{Storefinder}, \gloss{Storekeeper}, \gloss{AuthActor} e \gloss{Ninja} & & OBF1.1.10.2.7\\
+    TS.OBF1.1.10.2.7 & Viene verificato che il sistema ad attori dovrà permettere di esportare \gloss{collezioni} mediante l'interazione tra \gloss{Clientactor}, \gloss{Mainactor}, \gloss{Storefinder}, \gloss{Storekeeper}, \gloss{AuthActor} e \gloss{Ninja} & OK & OBF1.1.10.2.7\\
     \hline
     TS.OBF1.1.10.3.1 & Viene verificato che il sistema ad attori dovrà permettere di inserire \gloss{item} mediante l'interazione tra \gloss{Clientactor}, \gloss{Mainactor}, \gloss{Storefinder}, \gloss{Storekeeper}, \gloss{Ninja} e \gloss{Manager} & OK & OBF1.1.10.3.1\\
     \hline
@@ -772,15 +863,15 @@ test di sistema, la seconda descrive tutti i test dei requisiti ritenuti meritev
     \hline
     TS.OBF1.1.10.4 & Viene verificato che il sistema ad attori dovrà permettere di ricercare \gloss{item} tra \gloss{collezioni} mediante interazioni tra \gloss{Clientactor}, \gloss{Main}, \gloss{Storefinder} e \gloss{Storekeeper} & OK & OBF1.1.10.4\\
     \hline
-    TS.OBF1.1.10.5 & Viene verificato che il sistema ad attori dovrà permettere di modificare la password utente di uno \gloss{username} mediante interazioni tra \gloss{Clientactor}, \gloss{Main}, \gloss{Storefinder}, \gloss{AuthActor} & & OBF1.1.10.5\\
+    TS.OBF1.1.10.5 & Viene verificato che il sistema ad attori dovrà permettere di modificare la password utente di uno \gloss{username} mediante interazioni tra \gloss{Clientactor}, \gloss{Main}, \gloss{Storefinder}, \gloss{AuthActor} & OK & OBF1.1.10.5\\
     \hline
     TS.OBF1.1.10.6 & Viene verificato che il sistema ad attori dovrà permettere la disconnessione di client esterni mediante interazioni con \gloss{Clientactor} & OK & OBF1.1.10.6\\
     \hline
     TS.OBF1.1.10.7.1 & Viene verificato che il sistema ad attori dovrà permettere di aggiungere nuovi utenti all'interno del \gloss{database} mediante interazioni tra \gloss{Clientactor},\gloss{Main}, \gloss{Storefinder} e \gloss{AuthActor} & OK & OBF1.1.10.7.1\\
     \hline
-    TS.OBF1.1.10.7.2 & Viene verificato che il sistema ad attori dovrà permettere la rimozione di un utente dal \gloss{database} mediante interazioni tra \gloss{Clientactor}, \gloss{Main}, \gloss{Storefinder} & & OBF1.1.10.7.2\\
+    TS.OBF1.1.10.7.2 & Viene verificato che il sistema ad attori dovrà permettere la rimozione di un utente dal \gloss{database} mediante interazioni tra \gloss{Clientactor}, \gloss{Main}, \gloss{Storefinder} & OK & OBF1.1.10.7.2\\
     \hline
-    TS.OBF1.1.10.7.3 & Viene verificato che il sistema ad attori dovrà permettere di effettuare un reset della password di un utente mediante interazioni tra \gloss{Clientactor}, \gloss{Main}, \gloss{Storefinder}, \gloss{AuthActor} & & OBF1.1.10.7.3\\
+    TS.OBF1.1.10.7.3 & Viene verificato che il sistema ad attori dovrà permettere di effettuare un reset della password di un utente mediante interazioni tra \gloss{Clientactor}, \gloss{Main}, \gloss{Storefinder}, \gloss{AuthActor} &OK  & OBF1.1.10.7.3\\
     \hline
     TS.OBF2 & Viene verificato che il sistema dovrà fornire una \gloss{console} per inviare comandi al server (CLI) & OK & OBF2\\
     \hline
@@ -794,7 +885,7 @@ test di sistema, la seconda descrive tutti i test dei requisiti ritenuti meritev
     \hline
     TS.OBF2.1.2.3 & Viene verificato che il \gloss{DSL} dovrà fornire un comando per cancellare una o più \gloss{collezioni} utilizzabile mediante CLI & OK & OBF2.1.2.3\\
     \hline
-    TS.OBF2.1.2.4 & Viene verificato che il \gloss{DSL} dovrà fornire un comando per modificare il nome delle {collezioni} utilizzabile mediante CLI & OK & OBF2.1.2.4\\
+    TS.OPF2.1.2.4 & Viene verificato che il \gloss{DSL} dovrà fornire un comando per modificare il nome delle {collezioni} utilizzabile mediante CLI & OK & OPF2.1.2.4\\
     \hline
     TS.OBF2.1.2.5 & Viene verificato che il \gloss{DSL} dovrà fornire un comando per aggiungere \gloss{collaboratori} ad una \gloss{collezione} del sistema utilizzabile mediante CLI & OK & OBF2.1.2.5\\
     \hline
@@ -826,7 +917,7 @@ test di sistema, la seconda descrive tutti i test dei requisiti ritenuti meritev
     \hline
     TS.OBF2.1.9.3 & Viene verificato che il \gloss{DSL} dovrà fornire un comando per effettuare il reset della password di un utente alla password standard & OK & OBF2.1.9.3\\
     \hline
-    TS.DEF3 & Viene verificato che dovrà essere fornito un \gloss{driver} \gloss{Scala} per interfacciarsi con il \gloss{database} & & DEF3\\
+    TS.DEF3 & Viene verificato che dovrà essere fornito un \gloss{driver} \gloss{Scala} per interfacciarsi con il \gloss{database} & OK & DEF3\\
     \hline
     TS.DEF3.1 & Viene verificato che il \gloss{driver} dovrà permettere di effettuare l'autenticazione all'interno del sistema. & OK & DEF3.1\\
     \hline
@@ -836,7 +927,7 @@ test di sistema, la seconda descrive tutti i test dei requisiti ritenuti meritev
     \hline
     TS.DEF3.2.3 & Viene verificato che il \gloss{driver} dovrà permettere di cancellare una o più \gloss{collezioni} & OK & DEF3.2.3\\
     \hline
-    TS.DEF3.2.4 & Viene verificato che il \gloss{driver} dovrà permettere di modificare il nome delle {collezioni} & OK & DEF3.2.4\\
+    TS.OPF3.2.4 & Viene verificato che il \gloss{driver} dovrà permettere di modificare il nome delle {collezioni} & OK & OPF3.2.4\\
     \hline
     TS.DEF3.2.5 & Viene verificato che il \gloss{driver} dovrà permettere di aggiungere \gloss{collaboratori} ad una \gloss{collezione} del sistema & OK & DEF3.2.5\\
     \hline
@@ -848,35 +939,33 @@ test di sistema, la seconda descrive tutti i test dei requisiti ritenuti meritev
     \hline
     TS.DEF3.3.1.1 & Viene verificato che il \gloss{driver} dovrà permettere di inserire un nuovo \gloss{item} specificandone gli attributi & OK & DEF3.3.1.1\\
     \hline
-    TS.DEF3.3.1.2 & Viene verificato che il \gloss{driver} dovrà permettere di inserire nuovi \gloss{item} da file \gloss{JSON} & FAILING & DEF3.3.1.2\\
+    TS.DEF3.3.1.2 & Viene verificato che il \gloss{driver} dovrà permettere di inserire nuovi \gloss{item} da file \gloss{JSON} & OK  & DEF3.3.1.2\\
     \hline
     TS.DEF3.3.2 & Viene verificato che il \gloss{driver} dovrà permettere di cancellare uno o più \gloss{item} dal sistema & OK & DEF3.3.2\\
     \hline
     TS.DEF3.4 & Viene verificato che il \gloss{driver} dovrà permettere di effettuare ricerche su una o più \gloss{collezioni} all'interno del sistema & OK & DEF3.4\\
     \hline
-    TS.DEF3.5 & Viene verificato che il \gloss{driver} dovrà permettere di effettuare il logout dal sistema & & DEF3.5\\
-    \hline
     TS.DEF3.6.1 & Viene verificato che il \gloss{driver} dovrà permettere a utenti amministratori di aggiungere un nuovo utente al sistema & OK & DEF3.6.1\\
     \hline
     TS.DEF3.6.2 & Viene verificato che il \gloss{driver} dovrà permettere a utenti amministratori di rimuovere un utente dal sistema & OK & DEF3.6.2\\
     \hline
-    TS.DEF3.6.3 & Viene verificato che il \gloss{driver} dovrà permettere a utenti amministratori di effettuare il reset della password ad un utente all'interno del sistema & & DEF3.6.3\\
+    TS.DEF3.6.3 & Viene verificato che il \gloss{driver} dovrà permettere a utenti amministratori di effettuare il reset della password ad un utente all'interno del sistema & OK & DEF3.6.3\\
     \hline
-    TS.DEF3.7 & Viene verificato che il \gloss{driver} dovrà permettere di modificare la propria password & & DEF3.7\\
+    TS.DEF3.7 & Viene verificato che il \gloss{driver} dovrà permettere di modificare la propria password & OK & DEF3.7\\
     \hline
-    TS.DEF3.8 & Viene verificato che il \gloss{Driver} dovrà strutturare i dati in output in maniera navigabile & & DEF3.8\\
+    TS.DEF3.8 & Viene verificato che il \gloss{Driver} dovrà strutturare i dati in output in maniera navigabile & OK & DEF3.8\\
     \hline
-    TS.OBV4 & Viene verificato che il sistema dovrà funzionare in ambienti Ubuntu 14.04 o superiore & & OBV4\\
+    TS.OBV4 & Viene verificato che il sistema dovrà funzionare in ambienti Ubuntu 14.04 o superiore & OK & OBV4\\
     \hline
-    TS.OBV5 & Viene verificato che il sistema dovrà funzionare su \gloss{JVM} versione 8 & & OBV5\\
+    TS.OBV5 & Viene verificato che il sistema dovrà funzionare su \gloss{JVM} versione 8 & OK & OBV5\\
     \hline
-    TS.OBV6 & Viene verificato che il sistema dovrà utilizzare la libreria Akka versione 2.4.2 & & OBV6\\
+    TS.OBV6 & Viene verificato che il sistema dovrà utilizzare la libreria Akka versione 2.4.2 & OK & OBV6\\
     \hline
-    TS.OBV7 & Viene verificato che il sistema dovrà essere implementato utilizzando il linguaggio Scala versione 2.11 & & OBV7\\
+    TS.OBV7 & Viene verificato che il sistema dovrà essere implementato utilizzando il linguaggio Scala versione 2.11 & OK & OBV7\\
     \hline
-    TS.DEV8 & Viene verificato che il sistema dovrà funzionare in ambienti Windows 10 o superiori & & DEV8\\
+    TS.DEV8 & Viene verificato che il sistema dovrà funzionare in ambienti Windows 10 o superiori & OK & DEV8\\
     \hline
-    TS.DEV9 & Viene verificato che il sistema dovrà funzionare su sistemi OSX El Capitan o superiori & & DEV9\\
+    TS.DEV9 & Viene verificato che il sistema dovrà funzionare su sistemi OSX El Capitan o superiori & OK & DEV9\\
     \hline
     TS.OBQ10 & Viene verificato che dovrà essere fornito un manuale utente redatto in lingua inglese & OK & OBQ10\\
     \hline
@@ -907,7 +996,7 @@ di integrazione:
 \end{figure}
 
 Vengono ora presentate due tabelle. Nella prima c'è una sintesi dello stato 
-dei test di integrazione.\\Nella seconda vengono elencati e descritti tutti i 
+dei test di integrazione. Se lo stato viene lasciato vuoto significa che la funzionalità non è stata implementata.\\Nella seconda vengono elencati e descritti tutti i 
 test.
 
 \begin{center}
@@ -942,7 +1031,7 @@ test.
   \hline
   TI.api & Verifica della corretta integrazione con le componenti client e le strutture di creazione richieste \gloss{HTTP} & api & OK\\
   \hline
-  TI.actorsystem & Test di integrazione finale per HTTPserver, storefinder, storekeeper, ninja, manager, AuthActor, main, clientactor, warehouseman & actorsystem &\\
+  TI.actorsystem & Test di integrazione finale per HTTPserver, storefinder, storekeeper, ninja, manager, AuthActor, main, clientactor, warehouseman & actorsystem & OK\\
   \hline
   TI.utils & Verifica delle corrette procedure di organizzazione in strutture navigabili, criptazione e decriptazione dei dati di persistenza su disco & utils & OK\\
   \hline
@@ -958,9 +1047,9 @@ test.
   \hline
   TI.AuthActor & Verifica della corretta esecuzioni dei messaggi dedicati & AuthActor & OK\\
   \hline
-  TI.manager & Verifica della corretta esecuzioni dei messaggi dedicati & manager &\\
+  TI.manager & Verifica della corretta esecuzioni dei messaggi dedicati & manager & OK \\
   \hline
-  TI.ninja & Verifica della corretta esecuzioni dei messaggi dedicati & ninja & OK\\
+  TI.ninja & Verifica della corretta esecuzioni dei messaggi dedicati & ninja & \\
   \hline
   TI.warehouseman & Verifica della corretta esecuzioni dei messaggi dedicati & warehouseman & OK\\
   \hline
@@ -1039,13 +1128,13 @@ tutti i test di unità previsti.
   \hline
   TU.OBF1.1.1.1 & Si verifica All'interno del singolo \gloss{nodo} dovrà essere implementato l'attore \gloss{HTTPserver} per gestire le connessioni provenienti dall'esterno  & OK  & OBF1.1.1.1   \\ 
   \hline
-  TU.OBF1.1.1.1.1 & Si verifica che L'attore di tipo \gloss{HTTPServer} dovrà gestire la ricezione del messaggio httprequest  &   & OBF1.1.1.1.1   \\ 
+  TU.OBF1.1.1.1.1 & Si verifica che L'attore di tipo \gloss{HTTPServer} dovrà gestire la ricezione del messaggio httprequest  &  OK  & OBF1.1.1.1.1   \\ 
   \hline
   TU.OBF1.1.2 & Si verifica che All'interno del singolo \gloss{nodo} dovrà essere implementato l'attore \gloss{Clientactor} per gestire il ciclo di vita di una connessione dall'esterno  & OK  & OBF1.1.2   \\
   \hline
-  TU.OBF1.1.2.1 & Si verifica che L'attore di tipo \gloss{Clientactor} dovrà gestire la ricezione del messaggio Response  &   & OBF1.1.2.1   \\
+  TU.OBF1.1.2.1 & Si verifica che L'attore di tipo \gloss{Clientactor} dovrà gestire la ricezione del messaggio Response  &  OK  & OBF1.1.2.1   \\
   \hline
-  TU.OBF1.1.2.2 & Si verifica che L'attore di tipo \gloss{Clientactor} dovrà gestire la ricezione del messaggio MapResponse &   & OBF1.1.2.2   \\
+  TU.OBF1.1.2.2 & Si verifica che L'attore di tipo \gloss{Clientactor} dovrà gestire la ricezione del messaggio MapResponse &  OK  & OBF1.1.2.2   \\
   \hline
   TU.OBF1.1.3 & Si verifica che L'attore di tipo \gloss{Clientactor} dovrà gestire la ricezione del messaggio ListResponse  & OK  & OBF1.1.3   \\
   \hline
@@ -1053,9 +1142,9 @@ tutti i test di unità previsti.
   \hline
   TU.OBF1.1.3.4 & Si verifica che L'attore di tipo \gloss{Main} dovrà gestire la ricezione del messaggio GetFrom  &  OK & OBF1.1.3.4   \\
   \hline
-  TU.OBF1.1.3.5 & Si verifica che L'attore di tipo \gloss{Main} dovrà gestire la ricezione del messaggio AddContributor  &   & OBF1.1.3.5   \\
+  TU.OBF1.1.3.5 & Si verifica che L'attore di tipo \gloss{Main} dovrà gestire la ricezione del messaggio AddContributor  &  OK  & OBF1.1.3.5   \\
   \hline
-  TU.OBF1.1.3.7 & Si verifica che L'attore di tipo \gloss{Main} dovrà gestire la ricezione del messaggio RemoveContributor  &   & OBF1.1.3.7   \\
+  TU.OBF1.1.3.7 & Si verifica che L'attore di tipo \gloss{Main} dovrà gestire la ricezione del messaggio RemoveContributor  & OK   & OBF1.1.3.7   \\
   \hline
   TU.OBF1.1.3.8 & Si verifica che L'attore di tipo \gloss{Main} dovrà gestire la ricezione del messaggio CompleteTransaction & OK  & OBF1.1.3.8   \\
   \hline
@@ -1093,21 +1182,21 @@ tutti i test di unità previsti.
   \hline
   TU.OBF1.1.6 & Si verifica che All'interno del singolo \gloss{nodo} dovrà essere implementato l'attore \gloss{Warehouseman} per gestire la persistenza dei dati su disco & OK & OBF1.1.6    \\
   \hline
-  TU.OBF1.1.6.1 & Si verifica che L'attore di tipo \gloss{Warehouseman} dovrà gestire la ricezione del messaggio Read &   & OBF1.1.6.1    \\
+  TU.OBF1.1.6.1 & Si verifica che L'attore di tipo \gloss{Warehouseman} dovrà gestire la ricezione del messaggio Read &  OK  & OBF1.1.6.1    \\
   \hline
   TU.OBF1.1.6.2 & Si verifica che L'attore di tipo \gloss{Warehouseman} dovrà gestire la ricezione del messaggio Save  & OK  & OBF1.1.6.2    \\
   \hline
   TU.OBF1.1.6.3 & Si verifica che L'attore di tipo \gloss{Warehouseman} dovrà gestire la ricezione del messaggio Clean & OK  & OBF1.1.6.3    \\
   \hline
-  TU.OBF1.1.7 & Si verifica che All'interno del singolo \gloss{nodo} dovrà essere implementato l'attore \gloss{Ninja} per gestire la ridondanza dei dati contenuti negli \gloss{Storekeeper} &  & OBF1.1.7    \\
+  TU.OBF1.1.7 & Si verifica che All'interno del singolo \gloss{nodo} dovrà essere implementato l'attore \gloss{Ninja} per gestire la ridondanza dei dati contenuti negli \gloss{Storekeeper} &OK   & OBF1.1.7    \\
   \hline
-  TU.OBF1.1.7.1 & Si verifica che L'attore di tipo \gloss{Ninja} dovrà gestire la ricezione del messaggio Update &   & OBF1.1.7.1    \\
+  TU.OBF1.1.7.1 & Si verifica che L'attore di tipo \gloss{Ninja} dovrà gestire la ricezione del messaggio Update &  OK  & OBF1.1.7.1    \\
   \hline
-  TU.OBF1.1.7.2 & Si verifica che L'attore di tipo \gloss{Ninja} dovrà poter cambiare il proprio contesto ricevendo il messaggio BecomeSK e importare tutti i messaggi dello StoreKeeper &   & OBF1.1.7.2    \\
+  TU.OBF1.1.7.2 & Si verifica che L'attore di tipo \gloss{Ninja} dovrà poter cambiare il proprio contesto ricevendo il messaggio BecomeSK e importare tutti i messaggi dello StoreKeeper &  OK  & OBF1.1.7.2    \\
   \hline
-  TU.OBF1.1.8 & Si verifica che All'interno del singolo \gloss{nodo} dovrà essere implementato l'attore \gloss{Manager} per la gestione del carico degli attori di tipo \gloss{Storekeeper} e \gloss{Storefinder}  &   & OBF1.1.8    \\
+  TU.OBF1.1.8 & Si verifica che All'interno del singolo \gloss{nodo} dovrà essere implementato l'attore \gloss{Manager} per la gestione del carico degli attori di tipo \gloss{Storekeeper} e \gloss{Storefinder}  & OK   & OBF1.1.8    \\
   \hline
-  TU.OBF1.1.8.1 & Si verifica che L'attore di tipo \gloss{Manager} dovrà gestire la ricezione del messaggio OneMore &   & OBF1.1.8.1    \\
+  TU.OBF1.1.8.1 & Si verifica che L'attore di tipo \gloss{Manager} dovrà gestire la ricezione del messaggio OneMore & OK   & OBF1.1.8.1    \\
   \hline
   TU.OBF1.1.9 & Si verifica che All'interno del singolo nodo dovrà essere implementato l'attore \gloss{Authactor} per la gestione degli utenti & OK & OBF1.1.9    \\
   \hline
@@ -1123,43 +1212,43 @@ tutti i test di unità previsti.
   \hline
   TU.OBF1.1.9.6 & Si verifica che L'attore di tipo \gloss{AuthActor} dovrà gestire la ricezione del messaggio RemoveCollectionFrom & OK & OBF1.1.9.6    \\
   \hline
-  TU.OBF1.1.9.7 & Si verifica che L'attore di tipo \gloss{AuthActor} dovrà gestire la ricezione del messaggio ListCollectionOf &   & OBF1.1.9.7    \\
+  TU.OBF1.1.9.7 & Si verifica che L'attore di tipo \gloss{AuthActor} dovrà gestire la ricezione del messaggio ListCollectionOf &  OK  & OBF1.1.9.7    \\
   \hline
-  TU.OBF1.1.10 & Si verifica che Il sistema dovrà permettere di interagire con il sistema ad attori all'interno di ogni singolo \gloss{nodo} &   & OBF1.1.10   \\
+  TU.OBF1.1.10 & Si verifica che Il sistema dovrà permettere di interagire con il sistema ad attori all'interno di ogni singolo \gloss{nodo} &  OK  & OBF1.1.10   \\
   \hline
-  TU.OBF1.1.10.1.1 & Si verifica che Il sistema ad attori dovrà inviare un messaggio di errore verso l'esterno in caso di credenziali errate, mediante interazioni tra \gloss{AuthActor} e \gloss{Clientactor} &   & OBF1.1.10.1.1   \\
+  TU.OBF1.1.10.1.1 & Si verifica che Il sistema ad attori dovrà inviare un messaggio di errore verso l'esterno in caso di credenziali errate, mediante interazioni tra \gloss{AuthActor} e \gloss{Clientactor} &OK    & OBF1.1.10.1.1   \\
   \hline
-  TU.OBF1.1.10.2 & Si verifica che Il sistema dovrà permettere di effettuare operazioni sulle \gloss{collezioni} &   & OBF1.1.10.2   \\
+  TU.OBF1.1.10.2 & Si verifica che Il sistema dovrà permettere di effettuare operazioni sulle \gloss{collezioni} & OK   & OBF1.1.10.2   \\
   \hline
-  TU.OBF1.1.10.2.1.1 & Si verifica che Il sistema ad attori dovrà inviare un messaggio d'errore verso l'esterno in caso di nome \gloss{collezione} già presente all'interno del sistema durante la creazione di nuova \gloss{collezione} mediante l'interazione tra \gloss{Clientactor} e \gloss{Mainactor} &   & OBF1.1.10.2.1.1   \\
+  TU.OBF1.1.10.2.1.1 & Si verifica che Il sistema ad attori dovrà inviare un messaggio d'errore verso l'esterno in caso di nome \gloss{collezione} già presente all'interno del sistema durante la creazione di nuova \gloss{collezione} mediante l'interazione tra \gloss{Clientactor} e \gloss{Mainactor} & OK   & OBF1.1.10.2.1.1   \\
   \hline
-  TU.OBF1.1.10.2.3.1 & Si verifica che Il sistema ad attori dovrà inviare un messaggio d'errore verso l'esterno in caso di nome \gloss{collezione} già presente all'interno del sistema durante l'operazione di modifica nome \gloss{collezione} mediante l'interazione tra \gloss{Clientactor} e \gloss{AuthActor} &   & OBF1.1.10.2.3.1   \\
+  TU.OBF1.1.10.2.3.1 & Si verifica che Il sistema ad attori dovrà inviare un messaggio d'errore verso l'esterno in caso di nome \gloss{collezione} già presente all'interno del sistema durante l'operazione di modifica nome \gloss{collezione} mediante l'interazione tra \gloss{Clientactor} e \gloss{AuthActor} &  OK  & OBF1.1.10.2.3.1   \\
   \hline
-  TU.OBF1.1.10.2.3.2 & Si verifica che Il sistema ad attori dovrà inviare un messaggio d'errore verso l'esterno nel caso in cui il nome della \gloss{collezione} da modificare sia inesistente, mediante interazioni tra \gloss{Clientactor} ed esterno  &   & OBF1.1.10.2.3.2   \\
+  TU.OBF1.1.10.2.3.2 & Si verifica che Il sistema ad attori dovrà inviare un messaggio d'errore verso l'esterno nel caso in cui il nome della \gloss{collezione} da modificare sia inesistente, mediante interazioni tra \gloss{Clientactor} ed esterno  &  OK  & OBF1.1.10.2.3.2   \\
   \hline
-  TU.OBF1.1.10.2.4.1 & Si verifica che Il sistema ad attori dovrà inviare un messaggio d'errore verso l'esterno nel caso in cui il nome della \gloss{collezione} da cancellare sia inesistente, mediante interazioni tra \gloss{Clientactor} ed esterno  &   & OBF1.1.10.2.4.1   \\
+  TU.OBF1.1.10.2.4.1 & Si verifica che Il sistema ad attori dovrà inviare un messaggio d'errore verso l'esterno nel caso in cui il nome della \gloss{collezione} da cancellare sia inesistente, mediante interazioni tra \gloss{Clientactor} ed esterno  & OK  & OBF1.1.10.2.4.1   \\
   \hline
-  TU.OBF1.1.10.2.5.1 & Si verifica che Il sistema ad attori dovrà permettere di aggiungere collaboratori a \gloss{collezioni} con permessi lettura/scrittura mediante l'interazione tra \gloss{Clientactor}, \gloss{Mainactor}, \gloss{Storefinder}, \gloss{Storekeeper}, \gloss{AuthActor} e \gloss{Ninja} &   & OBF1.1.10.2.5.1   \\
+  TU.OBF1.1.10.2.5.1 & Si verifica che Il sistema ad attori dovrà permettere di aggiungere collaboratori a \gloss{collezioni} con permessi lettura/scrittura mediante l'interazione tra \gloss{Clientactor}, \gloss{Mainactor}, \gloss{Storefinder}, \gloss{Storekeeper}, \gloss{AuthActor} e \gloss{Ninja} & OK   & OBF1.1.10.2.5.1   \\
   \hline
-  TU.OBF1.1.10.2.5.2 & Si verifica che Il sistema ad attori dovrà permettere di aggiungere collaboratori a \gloss{collezioni} con permessi in sola lettura mediante l'interazione tra \gloss{Clientactor}, \gloss{Mainactor}, \gloss{Storefinder}, \gloss{Storekeeper}, \gloss{AuthActor} e \gloss{Ninja}  &   & OBF1.1.10.2.5.2   \\
+  TU.OBF1.1.10.2.5.2 & Si verifica che Il sistema ad attori dovrà permettere di aggiungere collaboratori a \gloss{collezioni} con permessi in sola lettura mediante l'interazione tra \gloss{Clientactor}, \gloss{Mainactor}, \gloss{Storefinder}, \gloss{Storekeeper}, \gloss{AuthActor} e \gloss{Ninja}  & OK   & OBF1.1.10.2.5.2   \\
   \hline
-  TU.OBF1.1.10.2.5.3 & Si verifica che Il sistema ad attori dovrà inviare un messaggio d'errore verso l'esterno nel caso in cui il nome della \gloss{collezione} a cui aggiungere collaboratori sia inesistente, mediante interazioni tra \gloss{Clientactor} ed esterno &   & OBF1.1.10.2.5.3   \\
+  TU.OBF1.1.10.2.5.3 & Si verifica che Il sistema ad attori dovrà inviare un messaggio d'errore verso l'esterno nel caso in cui il nome della \gloss{collezione} a cui aggiungere collaboratori sia inesistente, mediante interazioni tra \gloss{Clientactor} ed esterno &  OK  & OBF1.1.10.2.5.3   \\
   \hline
-  TU.OBF1.1.10.2.5.4 & Si verifica che Il sistema ad attori dovrà inviare un messaggio d'errore verso l'esterno nel caso in cui lo \gloss{username} da aggiungere tra i collaboratori di una \gloss{collezione} sia inesistente, mediante interazioni tra \gloss{Clientactor}, \gloss{Main} e \gloss{Storefinder} &   & OBF1.1.10.2.5.4   \\
+  TU.OBF1.1.10.2.5.4 & Si verifica che Il sistema ad attori dovrà inviare un messaggio d'errore verso l'esterno nel caso in cui lo \gloss{username} da aggiungere tra i collaboratori di una \gloss{collezione} sia inesistente, mediante interazioni tra \gloss{Clientactor}, \gloss{Main} e \gloss{Storefinder} &  OK  & OBF1.1.10.2.5.4   \\
   \hline
-  TU.OBF1.1.10.2.6.1 & Si verifica che Il sistema ad attori dovrà inviare un messaggio d'errore verso l'esterno nel caso in cui il nome della \gloss{collezione} a cui rimuovere collaboratori sia inesistente, mediante interazioni tra \gloss{Clientactor} ed esterno &  & OBF1.1.10.2.6.1   \\
+  TU.OBF1.1.10.2.6.1 & Si verifica che Il sistema ad attori dovrà inviare un messaggio d'errore verso l'esterno nel caso in cui il nome della \gloss{collezione} a cui rimuovere collaboratori sia inesistente, mediante interazioni tra \gloss{Clientactor} ed esterno & OK  & OBF1.1.10.2.6.1   \\
   \hline
   TU.OBF1.1.10.3 & Si verifica che Il sistema ad attori dovrà permettere di effettuare operazioni sugli \gloss{item} & OK  & OBF1.1.10.3   \\
   \hline
-  TU.OBF1.1.10.5.1 & Si verifica che Il sistema ad attori dovrà inviare un messaggio d'errore verso l'esterno nel caso in cui durante la procedura di modifica della password le credenziali siano errate, mediante interazioni tra \gloss{Clientactor} e \gloss{AuthActor} &   & OBF1.1.10.5.1   \\
+  TU.OBF1.1.10.5.1 & Si verifica che Il sistema ad attori dovrà inviare un messaggio d'errore verso l'esterno nel caso in cui durante la procedura di modifica della password le credenziali siano errate, mediante interazioni tra \gloss{Clientactor} e \gloss{AuthActor} &  OK  & OBF1.1.10.5.1   \\
   \hline
-  TU.OBF1.1.10.7 & Si verifica che Il sistema ad attori dovrà permettere di effettuare operazioni di gestione utenti mediante interazioni tra \gloss{Clientactor}, \gloss{Main}, \gloss{Storefinder}, \gloss{AuthActor} &   & OBF1.1.10.7    \\
+  TU.OBF1.1.10.7 & Si verifica che Il sistema ad attori dovrà permettere di effettuare operazioni di gestione utenti mediante interazioni tra \gloss{Clientactor}, \gloss{Main}, \gloss{Storefinder}, \gloss{AuthActor} &  OK  & OBF1.1.10.7    \\
   \hline
   TU.OBF1.1.10.7.1.1 & Si verifica che Il sistema ad attori dovrà inviare un messaggio d'errore verso l'esterno nel caso in cui ilo \gloss{username} dell'utente da inserire all'interno del \gloss{database} sia già esistente. & OK  & OBF1.1.10.7.1.1   \\
   \hline
-  TU.OBF1.1.10.7.2.1 & Si verifica che Il sistema ad attori dovrà inviare un messaggio d'errore verso l'esterno nel caso in cui lo \gloss{username} dell'utente da rimuovere sia inesistente, mediante interazioni tra \gloss{Clientactor}, \gloss{Main}, \gloss{Storefinder} &   & OBF1.1.10.7.2.1   \\
+  TU.OBF1.1.10.7.2.1 & Si verifica che Il sistema ad attori dovrà inviare un messaggio d'errore verso l'esterno nel caso in cui lo \gloss{username} dell'utente da rimuovere sia inesistente, mediante interazioni tra \gloss{Clientactor}, \gloss{Main}, \gloss{Storefinder} & OK   & OBF1.1.10.7.2.1   \\
   \hline
-  TU.OBF1.1.10.7.3.1 & Si verifica che Il sistema ad attori dovrà inviare un messaggio d'errore verso l'esterno nel caso in cui lo \gloss{username} dell'utentea cui resettare la password, mediante interazioni tra \gloss{Clientactor}, \gloss{Main}, \gloss{Storefinder} &   & OBF1.1.10.7.3.1   \\
+  TU.OBF1.1.10.7.3.1 & Si verifica che Il sistema ad attori dovrà inviare un messaggio d'errore verso l'esterno nel caso in cui lo \gloss{username} dell'utentea cui resettare la password, mediante interazioni tra \gloss{Clientactor}, \gloss{Main}, \gloss{Storefinder} & OK   & OBF1.1.10.7.3.1   \\
   \hline
   TU.OBF2.1.1.3 & Si verifica che La CLI dovrà visualizzare un messaggio di errore esplicativo nel caso di credenziali di accesso non riconosciute & OK  & OBF2.1.1.3    \\
   \hline
@@ -1169,9 +1258,9 @@ tutti i test di unità previsti.
   \hline
   TU.OBF2.1.2.8 & Si verifica che La CLI dovrà visualizzare un messaggio esplicativo in caso di inserimento di un nome \gloss{collezione} già esistente all'interno del sistema durante la procedura di creazione nuova \gloss{collezione} & OK   & OBF2.1.2.8    \\
   \hline
-  TU.OBF2.1.2.9 & Si verifica che La CLI dovrà visualizzare un messaggio di errore esplicativo in caso di inserimento nome \gloss{collezione} già esistente all'interno del sistema durante la procedura di modifica nome \gloss{collezione} & OK   & OBF2.1.2.9    \\
+  TU.OPF2.1.2.9 & Si verifica che La CLI dovrà visualizzare un messaggio di errore esplicativo in caso di inserimento nome \gloss{collezione} già esistente all'interno del sistema durante la procedura di modifica nome \gloss{collezione} & OK   & OPF2.1.2.9    \\
   \hline
-  TU.OBF2.1.2.10 & Si verifica che  La CLI dovrà visualizzare un messaggio di errore esplicativo in caso di inserimento nome \gloss{collezione} da modificare non esistente all'interno del sistema durante la procedura di modifica nome \gloss{collezione} & OK & OBF2.1.2.10 \\ 
+  TU.OPF2.1.2.10 & Si verifica che  La CLI dovrà visualizzare un messaggio di errore esplicativo in caso di inserimento nome \gloss{collezione} da modificare non esistente all'interno del sistema durante la procedura di modifica nome \gloss{collezione} & OK & OPF2.1.2.10 \\ 
   \hline
   TU.OBF2.1.2.11 & Si verifica che La CLI dovrà visualizzare un messaggio di errore esplicativo in caso di inserimento nome \gloss{collezione} da cancellare non esistente all'interno del sistema durante la procedura di cancellazione \gloss{collezione}   & OK & OBF2.1.2.11 \\
   \hline
@@ -1181,73 +1270,73 @@ tutti i test di unità previsti.
   \hline
   TU.OBF2.1.2.14 & Si verifica che La CLI dovrà visualizzare un messaggio di errore esplicativo in caso di inserimento di uno username non esistente all'interno del sistema durante la procedura di aggiunta \gloss{collaboratore} a \gloss{collezione} & OK & OBF2.1.2.14 \\
   \hline
-  TU.DEF2.1.3 & Si verifica che Il DSL dovrà fornire una serie di comandi per poter eseguire operazioni sugli \gloss{item} utilizzabile mediante CLI &   & DEF2.1.3    \\  
+  TU.DEF2.1.3 & Si verifica che Il DSL dovrà fornire una serie di comandi per poter eseguire operazioni sugli \gloss{item} utilizzabile mediante CLI &  OK  & DEF2.1.3    \\  
   \hline
-  TU.DEF2.1.3.2 & Si verifica che La CLI dovrà visualizzare un messaggio di errore esplicativo in caso di inserimento di un \gloss{path} che punta a un file inesistente o non di tipo \gloss{JSON} all'interno del filesystem durante la procedura di inserimento item da file &  & DEF2.1.3.2    \\
+  TU.DEF2.1.3.2 & Si verifica che La CLI dovrà visualizzare un messaggio di errore esplicativo in caso di inserimento di un \gloss{path} che punta a un file inesistente o non di tipo \gloss{JSON} all'interno del filesystem durante la procedura di inserimento item da file & OK  & DEF2.1.3.2    \\
   \hline
-  TU.DEF2.1.3.3 & Si verifica che La CLI dovrà visualizzare un messaggio di errore esplicativo in caso di inserimento di un \gloss{path} che punta ad un file \gloss{JSON} non correttamente formato all'interno del filesystem & FAILING  & DEF2.1.3.3    \\
+  TU.DEF2.1.3.3 & Si verifica che La CLI dovrà visualizzare un messaggio di errore esplicativo in caso di inserimento di un \gloss{path} che punta ad un file \gloss{JSON} non correttamente formato all'interno del filesystem &  OK  & DEF2.1.3.3    \\
   \hline
-  TU.OBF2.1.3.4 & Si verifica che La CLI dovrà visualizzare un messaggio di errore esplicativo in caso di inserimento di una chiave già esistente durante la procedura di inserimento nuovo \gloss{item} con \gloss{flag} di sovrascrittura attivo &   & OBF2.1.3.4    \\
+  TU.OBF2.1.3.4 & Si verifica che La CLI dovrà visualizzare un messaggio di errore esplicativo in caso di inserimento di una chiave già esistente durante la procedura di inserimento nuovo \gloss{item} con \gloss{flag} di sovrascrittura attivo & OK  & OBF2.1.3.4    \\
   \hline
-  TU.OBF2.1.3.5 & Si verifica che La CLI dovrà visualizzare un messaggio di errore esplicativo in caso di inserimento nome \gloss{collezione} non esistente all'interno del sistema durante la procedura di cancellazione \gloss{item} &   & OBF2.1.3.5    \\
+  TU.OBF2.1.3.5 & Si verifica che La CLI dovrà visualizzare un messaggio di errore esplicativo in caso di inserimento nome \gloss{collezione} non esistente all'interno del sistema durante la procedura di cancellazione \gloss{item} &  OK  & OBF2.1.3.5    \\
   \hline
-  TU.OBF2.1.7.4 & Si verifica che La CLI dovrà visualizzare un messaggio di errore esplicativo in caso di password attuale non riconosciuta durante la procedura di modifica password &   & OBF2.1.7.4    \\
+  TU.OBF2.1.7.4 & Si verifica che La CLI dovrà visualizzare un messaggio di errore esplicativo in caso di password attuale non riconosciuta durante la procedura di modifica password & OK   & OBF2.1.7.4    \\
   \hline
-  TU.OBF2.1.7.5 & Si verifica che La CLI dovrà visualizzare un messaggio di errore esplicativo in caso di inserimento nuova password che non rispetta i vincoli imposti dal sistema durante la procedura di modifica della password &   & OBF2.1.7.5    \\
+  TU.OBF2.1.7.5 & Si verifica che La CLI dovrà visualizzare un messaggio di errore esplicativo in caso di inserimento nuova password che non rispetta i vincoli imposti dal sistema durante la procedura di modifica della password &  OK  & OBF2.1.7.5    \\
   \hline
-  TU.OBF2.1.7.6 & Si verifica che La CLI dovrà visualizzare un messaggio di errore esplicativo in caso di inserimento password di conferma non riconosciuta dal sistema durante la procedura di modifica della password &   & OBF2.1.7.6    \\
+  TU.OBF2.1.7.6 & Si verifica che La CLI dovrà visualizzare un messaggio di errore esplicativo in caso di inserimento password di conferma non riconosciuta dal sistema durante la procedura di modifica della password & OK   & OBF2.1.7.6    \\
   \hline
-  TU.OBF2.1.9 & Si verifica che Il DSL dovrà fornire una serie di comandi per effettuare operazioni di gestione degli utente all'interno del sistema da parte di un utente amministratore utilizzabili mediante CLI &   & OBF2.1.9    \\
+  TU.OBF2.1.9 & Si verifica che Il DSL dovrà fornire una serie di comandi per effettuare operazioni di gestione degli utente all'interno del sistema da parte di un utente amministratore utilizzabili mediante CLI & OK  & OBF2.1.9    \\
   \hline
-  TU.OBF2.1.9.4 & Si verifica che La CLI dovrà visualizzare un messaggio di errore esplicativo in caso di inserimento di uno username già censito a sistema durante la procedura di aggiunta nuovo utente &   & OBF2.1.9.4    \\
+  TU.OBF2.1.9.4 & Si verifica che La CLI dovrà visualizzare un messaggio di errore esplicativo in caso di inserimento di uno username già censito a sistema durante la procedura di aggiunta nuovo utente & OK   & OBF2.1.9.4    \\
   \hline
-  TU.OBF2.1.9.5 & Si verifica che La CLI dovrà visualizzare un messaggio di errore esplicativo in caso di inserimento di uno username non esistente all'interno del sistema durante la procedura di rimozione utente &   & OBF2.1.9.5    \\
+  TU.OBF2.1.9.5 & Si verifica che La CLI dovrà visualizzare un messaggio di errore esplicativo in caso di inserimento di uno username non esistente all'interno del sistema durante la procedura di rimozione utente &  OK  & OBF2.1.9.5    \\
   \hline
-  TU.OBF2.1.9.6 & Si verifica che La CLI dovrà visualizzare un messaggio di errore esplicativo in caso di inserimento di uno username non esistente all'interno del sistema durante la procedura di reset della password di un utente &   & OBF2.1.9.6    \\
+  TU.OBF2.1.9.6 & Si verifica che La CLI dovrà visualizzare un messaggio di errore esplicativo in caso di inserimento di uno username non esistente all'interno del sistema durante la procedura di reset della password di un utente & OK   & OBF2.1.9.6    \\
   \hline
-  TU.DEF3.1.3 & Si verifica che Il \gloss{driver} dovrà lanciare un eccezione nel caso di credenziali non riconosciute &   & DEF3.1.3    \\
+  TU.DEF3.1.3 & Si verifica che Il \gloss{driver} dovrà lanciare un eccezione nel caso di credenziali non riconosciute & OK   & DEF3.1.3    \\
   \hline
-  TU.DEF3.2 & Si verifica che Il \gloss{driver} dovrà permettere l'esecuzione di comandi per poter eseguire operazioni sulle \gloss{collezioni} &   & DEF3.2    \\
+  TU.DEF3.2 & Si verifica che Il \gloss{driver} dovrà permettere l'esecuzione di comandi per poter eseguire operazioni sulle \gloss{collezioni} & OK   & DEF3.2    \\
   \hline
-  TU.DEF3.2.1 & Si verifica che Il \gloss{driver} dovrà permettere un la creazione di una nuova \gloss{collezione} &   & DEF3.2.1.2    \\
+  TU.DEF3.2.1 & Si verifica che Il \gloss{driver} dovrà permettere un la creazione di una nuova \gloss{collezione} &  OK  & DEF3.2.1.2    \\
   \hline
-  TU.DEF3.2.1.2 & Si verifica che Il \gloss{driver} dovrà lanciare un'eccezione in caso di nome \gloss{collezione} già censito durante la procedura di creazione &   & DEF3.2.1.2    \\
+  TU.DEF3.2.1.2 & Si verifica che Il \gloss{driver} dovrà lanciare un'eccezione in caso di nome \gloss{collezione} già censito durante la procedura di creazione & OK   & DEF3.2.1.2    \\
   \hline
-  TU.DEF3.2.3.2 & Si verifica che Il \gloss{driver} dovrà lanciare un'eccezione in caso di inserimento nome \gloss{collezione} da cancellare non esistente all'interno del sistema &   & DEF3.2.3.2    \\
+  TU.DEF3.2.3.2 & Si verifica che Il \gloss{driver} dovrà lanciare un'eccezione in caso di inserimento nome \gloss{collezione} da cancellare non esistente all'interno del sistema & OK   & DEF3.2.3.2    \\
   \hline
-  TU.DEF3.2.4.3 & Si verifica che Il \gloss{driver} dovrà lanciare un'eccezione in caso di inserimento di un nome \gloss{collezione} da modificare non esistente all'interno del sistema durante la procedura di modifica nome \gloss{collezione}  &   & DEF3.2.4.3    \\
+  TU.DEF3.2.4.3 & Si verifica che Il \gloss{driver} dovrà lanciare un'eccezione in caso di inserimento di un nome \gloss{collezione} da modificare non esistente all'interno del sistema durante la procedura di modifica nome \gloss{collezione}  & OK   & DEF3.2.4.3    \\
   \hline
-  TU.DEF3.2.4.4 & Si verifica che Il \gloss{driver} dovrà lanciare un'eccezione in caso di inserimento di un nuovo nome \gloss{collezione} già censito a sistema durante la procedura di modifica nome \gloss{collezione} &   & DEF3.2.4.4    \\
+  TU.DEF3.2.4.4 & Si verifica che Il \gloss{driver} dovrà lanciare un'eccezione in caso di inserimento di un nuovo nome \gloss{collezione} già censito a sistema durante la procedura di modifica nome \gloss{collezione} & OK   & DEF3.2.4.4    \\
   \hline
-  TU.DEF3.2.5.3 & Si verifica che Il \gloss{driver} dovrà lanciare un'eccezione in caso di inserimento nome \gloss{collezione} a cui aggiungere un \gloss{collaboratore} non esistente all'interno del sistema &   & DEF3.2.5.3    \\
+  TU.DEF3.2.5.3 & Si verifica che Il \gloss{driver} dovrà lanciare un'eccezione in caso di inserimento nome \gloss{collezione} a cui aggiungere un \gloss{collaboratore} non esistente all'interno del sistema & OK   & DEF3.2.5.3    \\
   \hline
-  TU.DEF3.2.5.4 & Si verifica che Il \gloss{driver} dovrà lanciare un'eccezione in caso di inserimento username non presente all'interno del sistema durante la procedura di aggiunta \gloss{collaboratore} a \gloss{collezione} &   & DEF3.2.5.4    \\
+  TU.DEF3.2.5.4 & Si verifica che Il \gloss{driver} dovrà lanciare un'eccezione in caso di inserimento username non presente all'interno del sistema durante la procedura di aggiunta \gloss{collaboratore} a \gloss{collezione} & OK   & DEF3.2.5.4    \\
   \hline
-  TU.DEF3.2.6.3 & Si verifica che Il \gloss{driver} dovrà lanciare un'eccezione in caso di inserimento nome \gloss{collezione} a cui rimuovere un \gloss{collaboratore} non esistente all'interno del sistema &   & DEF3.2.6.3    \\
+  TU.DEF3.2.6.3 & Si verifica che Il \gloss{driver} dovrà lanciare un'eccezione in caso di inserimento nome \gloss{collezione} a cui rimuovere un \gloss{collaboratore} non esistente all'interno del sistema & OK   & DEF3.2.6.3    \\
   \hline
-  TU.DEF3.2.7.3 & Si verifica che Il \gloss{driver} dovrà esportare tutto il contenuto del sistema in caso di inserimento di una lista nomi \gloss{collezioni} vuota &   & DEF3.2.7.3    \\
+  TU.DEF3.2.7.3 & Si verifica che Il \gloss{driver} dovrà esportare tutto il contenuto del sistema in caso di inserimento di una lista nomi \gloss{collezioni} vuota & OK   & DEF3.2.7.3    \\
   \hline
-  TU.DEF3.3 & Si verifica che Il \gloss{driver} dovrà permettere di eseguire comandi per poter eseguire operazioni sugli \gloss{item} &   & DEF3.3    \\
+  TU.DEF3.3 & Si verifica che Il \gloss{driver} dovrà permettere di eseguire comandi per poter eseguire operazioni sugli \gloss{item} & OK   & DEF3.3    \\
   \hline
-  TU.DEF3.3.1.2.2 & Si verifica che Il \gloss{driver} dovrà lanciare un eccezione in caso il file \gloss{JSON} non sia presente nel filesystem secondo \gloss{path} specificato  &   & DEF3.3.1.2.2    \\
+  TU.DEF3.3.1.2.2 & Si verifica che Il \gloss{driver} dovrà lanciare un eccezione in caso il file \gloss{JSON} non sia presente nel filesystem secondo \gloss{path} specificato  &  OK  & DEF3.3.1.2.2    \\
   \hline
-  TU.DEF3.3.1.2.3 & Si verifica che Il \gloss{driver} dovrà lanciare un'eccezione in caso di inserimento di un \gloss{path} che punta ad un file \gloss{JSON} non correttamente formato &   & DEF3.3.1.2.3    \\
+  TU.DEF3.3.1.2.3 & Si verifica che Il \gloss{driver} dovrà lanciare un'eccezione in caso di inserimento di un \gloss{path} che punta ad un file \gloss{JSON} non correttamente formato & OK   & DEF3.3.1.2.3    \\
   \hline
-  TU.DEF3.3.1.4 & Si verifica che Il \gloss{driver} dovrà lanciare un'eccezione in caso di inserimento di un \gloss{item} con \gloss{flag} di sovrascrittura non attivo e una chiave già esistente all'interno della \gloss{collezione} &   & DEF3.3.1.4    \\
+  TU.DEF3.3.1.4 & Si verifica che Il \gloss{driver} dovrà lanciare un'eccezione in caso di inserimento di un \gloss{item} con \gloss{flag} di sovrascrittura non attivo e una chiave già esistente all'interno della \gloss{collezione} &  OK  & DEF3.3.1.4    \\
   \hline
-  TU.DEF3.3.2.3 & Si verifica che Il \gloss{driver} dovrà lanciare un'eccezione nel caso di inserimento di un nome \gloss{collezione} non esistente all'interno del sistema durante la procedura di cancellazione \gloss{item} &   & DEF3.3.2.3    \\
+  TU.DEF3.3.2.3 & Si verifica che Il \gloss{driver} dovrà lanciare un'eccezione nel caso di inserimento di un nome \gloss{collezione} non esistente all'interno del sistema durante la procedura di cancellazione \gloss{item} &OK    & DEF3.3.2.3    \\
   \hline
-  TU.OBF3.6 & Si verifica che Il \gloss{driver} dovrà permettere di effettuare operazioni di gestione degli utente all'interno del sistema da parte di un utente amministratore &   & OBF3.6    \\
+  TU.OBF3.6 & Si verifica che Il \gloss{driver} dovrà permettere di effettuare operazioni di gestione degli utente all'interno del sistema da parte di un utente amministratore & OK   & OBF3.6    \\
   \hline
-  TU.OBF3.6.4 & Si verifica che Il \gloss{driver} dovrà lanciare un'eccezione nel caso in cui l'utente amministratore inserisca uno username già censito all'interno del sistema durante la procedura di aggiunta nuovo utente &   & OBF3.6.4    \\
+  TU.OBF3.6.4 & Si verifica che Il \gloss{driver} dovrà lanciare un'eccezione nel caso in cui l'utente amministratore inserisca uno username già censito all'interno del sistema durante la procedura di aggiunta nuovo utente & OK   & OBF3.6.4    \\
   \hline
-  TU.OBF3.6.5 & Si verifica che Il \gloss{driver} dovrà lanciare un'eccezione nel caso di inserimento di uno username non presente all'interno del sistema durante la procedura di rimozione utente da parte di utente amministratore &   & OBF3.6.5    \\
+  TU.OBF3.6.5 & Si verifica che Il \gloss{driver} dovrà lanciare un'eccezione nel caso di inserimento di uno username non presente all'interno del sistema durante la procedura di rimozione utente da parte di utente amministratore & OK   & OBF3.6.5    \\
   \hline
-  TU.OBF3.6.6 & Si verifica che Il \gloss{driver} dovrà lanciare un'eccezione nel caso di inserimento di uno username non presente all'interno del sistema durante la procedura di reset della password di un utente da parte di utente amministratore &   & OBF3.6.6    \\
+  TU.OBF3.6.6 & Si verifica che Il \gloss{driver} dovrà lanciare un'eccezione nel caso di inserimento di uno username non presente all'interno del sistema durante la procedura di reset della password di un utente da parte di utente amministratore & OK   & OBF3.6.6    \\
   \hline
-  TU.OBF3.7.3 & Si verifica che Il \gloss{driver} dovrà lanciare un'eccezione nel caso di inserimento della password attuale errata durante la procedura di modifica password  &   & OBF3.7.3    \\
+  TU.OBF3.7.3 & Si verifica che Il \gloss{driver} dovrà lanciare un'eccezione nel caso di inserimento della password attuale errata durante la procedura di modifica password  & OK   & OBF3.7.3    \\
   \hline
-  TU.OBF3.7.4 & Si verifica che  Il \gloss{driver} dovrà lanciare un'eccezione nel caso di inserimento di una nuova password che non rispetta i vincoli del sistema durante l'operazione di modifica password &   & OBF3.7.4    \\
+  TU.OBF3.7.4 & Si verifica che  Il \gloss{driver} dovrà lanciare un'eccezione nel caso di inserimento di una nuova password che non rispetta i vincoli del sistema durante l'operazione di modifica password & OK   & OBF3.7.4    \\
   \hline
   TU.OBF3.8.1 & Si verifica che Il \gloss{Driver} dovrà poter restituire sequenze di \gloss{collezioni} navigabili & OK   & OBF3.8.1    \\
   \hline
@@ -1341,173 +1430,163 @@ L'utente deve:
 
 \subsubsection{Test TV7}
 
-L'utente intende modificare nome ad una propria \gloss{collezione}.\\
+L'utente intende cancellare una \gloss{collezione}.\\
 L'utente deve:
 \begin{itemize}
-\item Inserire il comando per la modifica nome \gloss{collezione} (TV7.1);
-\item Inserire i parametri per cambiare il nome della \gloss{collezione} (TV7.2);
+\item Inserire il comando per la cancellazione \gloss{collezione} (TV7.1);
+\item Inserire i parametri per cancellare la \gloss{collezione} (TV7.2);
 \item Verificare l'avvenuta esecuzione del comando controllando la risposta ricevuta dal server o usando il comando di visualizzazione lista delle collezioni (TV7.3).
 \end{itemize}
 
 \subsubsection{Test TV8}
 
-L'utente intende cancellare una \gloss{collezione}.\\
-L'utente deve:
-\begin{itemize}
-\item Inserire il comando per la cancellazione \gloss{collezione} (TV8.1);
-\item Inserire i parametri per cancellare la \gloss{collezione} (TV8.2);
-\item Verificare l'avvenuta esecuzione del comando controllando la risposta ricevuta dal server o usando il comando di visualizzazione lista delle collezioni (TV8.3).
-\end{itemize}
-
-\subsubsection{Test TV9}
-
 L'utente intende aggiungere un collaboratore ad una \gloss{collezione}.\\
 L'utente deve:
 \begin{itemize}
-\item Inserire il comando per 'aggiunta collaboratore a \gloss{collezione} (TV9.1);
-\item Inserire i parametri per aggiungere il collaboratore alla  \gloss{collezione} (TV9.2);
-\item Verificare l'avvenuta esecuzione del comando controllando la risposta ricevuta dal server (TV9.3).
+\item Inserire il comando per l'aggiunta collaboratore a \gloss{collezione} (TV8.1);
+\item Inserire i parametri per aggiungere il collaboratore alla  \gloss{collezione} (TV8.2);
+\item Verificare l'avvenuta esecuzione del comando controllando la risposta ricevuta dal server (TV8.3).
 \end{itemize}
 
 
-\subsubsection{Test TV10}
+\subsubsection{Test TV9}
 
 L'utente intende rimuovere un collaboratore da una \gloss{collezione}.\\
 L'utente deve:
 \begin{itemize}
-\item Inserire il comando per la rimozione di un collaboratore da un \gloss{collezione} (TV10.1);
-\item Inserire i parametri per rimuovere un collaboratore da una \gloss{collezione} (TV10.2);
-\item Verificare l'avvenuta esecuzione del comando controllando la risposta ricevuta dal server (TV10.3).
+\item Inserire il comando per la rimozione di un collaboratore da un \gloss{collezione} (TV9.1);
+\item Inserire i parametri per rimuovere un collaboratore da una \gloss{collezione} (TV9.2);
+\item Verificare l'avvenuta esecuzione del comando controllando la risposta ricevuta dal server (TV9.3).
 \end{itemize}
 
-\subsubsection{Test TV11}
+\subsubsection{Test TV10}
 
 L'utente intende esportare una o più \gloss{collezioni} su file.\\
 L'utente deve:
 \begin{itemize}
-\item Inserire il comando per l'esportazione di \gloss{collezioni} su file (TV11.1);
-\item Inserire i parametri per esportare \gloss{collezioni} su file (TV11.2);
-\item Verificare l'avvenuta esecuzione del comando controllando la risposta ricevuta dal server o controllando il file salvato su disco (TV11.3).
+\item Inserire il comando per l'esportazione di \gloss{collezioni} su file (TV10.1);
+\item Inserire i parametri per esportare \gloss{collezioni} su file (TV10.2);
+\item Verificare l'avvenuta esecuzione del comando controllando la risposta ricevuta dal server o controllando il file salvato su disco (TV10.3).
 \end{itemize}
 
-\subsubsection{Test TV12}
+\subsubsection{Test TV11}
 
 L'utente intende inserire un \gloss{item}. Se la \gloss{collezione} su cui si
 vuole inserire l'\gloss{item} non è presente nel sistema essa verrà creata.\\
 L'utente deve:
 \begin{itemize}
-\item Inserire il comando per l'inserimento di \gloss{item} (TV12.1);
-\item Inserire i parametri per inserire l'\gloss{item} (TV12.2);
-\item Verificare l'avvenuta esecuzione del comando controllando la risposta ricevuta dal server o usando il comando di ricerca sulla \gloss{collezione} giusta con la chiave appena usata (TV12.3).
+\item Inserire il comando per l'inserimento di \gloss{item} (TV11.1);
+\item Inserire i parametri per inserire l'\gloss{item} (TV11.2);
+\item Verificare l'avvenuta esecuzione del comando controllando la risposta ricevuta dal server o usando il comando di ricerca sulla \gloss{collezione} giusta con la chiave appena usata (TV11.3).
 \end{itemize}
 
-\subsubsection{Test TV13}
+\subsubsection{Test TV12}
 
 L'utente intende inserire un \gloss{item} importando da file.\\
 L'utente deve:
 \begin{itemize}
-\item Inserire il comando per l'importazione di \gloss{item} da file (TV13.1);
-\item Inserire i parametri per inserire gli \gloss{item} tramite importazione (TV13.2);
-\item Verificare l'avvenuta esecuzione del comando controllando la risposta ricevuta dal server o usando il comando di ricerca sugli \gloss{item} appena inseriti (TV13.3).
+\item Inserire il comando per l'importazione di \gloss{item} da file (TV12.1);
+\item Inserire i parametri per inserire gli \gloss{item} tramite importazione (TV12.2);
+\item Verificare l'avvenuta esecuzione del comando controllando la risposta ricevuta dal server o usando il comando di ricerca sugli \gloss{item} appena inseriti (TV12.3).
 \end{itemize}
 
-\subsubsection{Test TV14}
+\subsubsection{Test TV13}
 
 L'utente intende cancellare un \gloss{item}.\\
 L'utente deve:
 \begin{itemize}
-\item Inserire il comando per la cancellazione di \gloss{item} (TV14.1);
-\item Inserire i parametri per cancellare l'\gloss{item} (TV14.2);
-\item Verificare l'avvenuta esecuzione del comando controllando la risposta ricevuta dal server o usando il comando di ricerca sulla \gloss{collezione} giusta con la chiave appena usata per effettuare la cancellazione (TV14.3).
+\item Inserire il comando per la cancellazione di \gloss{item} (TV13.1);
+\item Inserire i parametri per cancellare l'\gloss{item} (TV13.2);
+\item Verificare l'avvenuta esecuzione del comando controllando la risposta ricevuta dal server o usando il comando di ricerca sulla \gloss{collezione} giusta con la chiave appena usata per effettuare la cancellazione (TV13.3).
 \end{itemize}
 
-\subsubsection{Test TV15}
+\subsubsection{Test TV14}
 
 L'utente intende effettuare una ricerca di \gloss{item} su una o più \gloss{collezioni}.\\
 L'utente deve:
 \begin{itemize}
+\item Inserire il comando per la ricerca di \gloss{item} (TV14.1);
+\item Inserire i parametri per la ricerca di un \gloss{item} su una o più \gloss{collezioni} (TV14.2);
+\item Verificare l'avvenuta esecuzione del comando controllando la risposta ricevuta dal server (TV14.3).
+\end{itemize}
+
+\subsubsection{Test TV15}
+
+L'utente intende visualizzare tutti gli \gloss{item} contenuti in una \gloss{collezione}.\\
+L'utente deve:
+\begin{itemize}
 \item Inserire il comando per la ricerca di \gloss{item} (TV15.1);
-\item Inserire i parametri per la ricerca di un \gloss{item} su una o più \gloss{collezioni} (TV15.2);
+\item Inserire i parametri per la ricerca di tutti gli \gloss{item} contenuti in una \gloss{collezione} (TV15.2);
 \item Verificare l'avvenuta esecuzione del comando controllando la risposta ricevuta dal server (TV15.3).
 \end{itemize}
 
 \subsubsection{Test TV16}
 
-L'utente intende visualizzare tutti gli \gloss{item} contenuti in una \gloss{collezione}.\\
+L'utente intende effettuare una ricerca di un \gloss{item} sull'intero database (secondo i suoi permessi come specificato nel documento \href{run:../Esterni/AnalisiDeiRequisiti\_v4.0.0.pdf}{Analisi dei Requisiti 4.0.0}).\\
 L'utente deve:
 \begin{itemize}
 \item Inserire il comando per la ricerca di \gloss{item} (TV16.1);
-\item Inserire i parametri per la ricerca di tutti gli \gloss{item} contenuti in una \gloss{collezione} (TV16.2);
+\item Inserire i parametri per la ricerca di un \gloss{item} sull'intero database (TV16.2);
 \item Verificare l'avvenuta esecuzione del comando controllando la risposta ricevuta dal server (TV16.3).
 \end{itemize}
 
 \subsubsection{Test TV17}
 
-L'utente intende effettuare una ricerca di un \gloss{item} sull'intero database (secondo i suoi permessi come specificato nel documento \href{run:../Esterni/AnalisiDeiRequisiti\_v4.0.0.pdf}{Analisi dei Requisiti 4.0.0}).\\
+L'utente intende visualizzare l'intero database (secondo i suoi permessi come specificato nel documento \href{run:../Esterni/AnalisiDeiRequisiti\_v4.0.0.pdf}{Analisi dei Requisiti 4.0.0}).\\
 L'utente deve:
 \begin{itemize}
 \item Inserire il comando per la ricerca di \gloss{item} (TV17.1);
-\item Inserire i parametri per la ricerca di un \gloss{item} sull'intero database (TV17.2);
+\item Inserire i parametri per la ricerca per l'intero database (TV17.2);
 \item Verificare l'avvenuta esecuzione del comando controllando la risposta ricevuta dal server (TV17.3).
 \end{itemize}
 
 \subsubsection{Test TV18}
 
-L'utente intende visualizzare l'intero database (secondo i suoi permessi come specificato nel documento \href{run:../Esterni/AnalisiDeiRequisiti\_v4.0.0.pdf}{Analisi dei Requisiti 4.0.0}).\\
+L'utente intende effettuare modificare la propria password.\\
 L'utente deve:
 \begin{itemize}
-\item Inserire il comando per la ricerca di \gloss{item} (TV18.1);
-\item Inserire i parametri per la ricerca per l'intero database (TV18.2);
-\item Verificare l'avvenuta esecuzione del comando controllando la risposta ricevuta dal server (TV18.3).
+\item Inserire il comando per la modifica password (TV18.1);
+\item Inserire i parametri per la modifica password (TV18.2);
+\item Verificare l'avvenuta esecuzione del comando controllando la risposta ricevuta dal server o effettuando una deautenticazione seguita da una autenticazione con la nuova password (TV18.3).
 \end{itemize}
 
 \subsubsection{Test TV19}
 
-L'utente intende effettuare modificare la propria password.\\
+L'utente intende effettuare deautenticazione dal server.\\
 L'utente deve:
 \begin{itemize}
-\item Inserire il comando per la modifica password (TV19.1);
-\item Inserire i parametri per la modifica password (TV19.2);
-\item Verificare l'avvenuta esecuzione del comando controllando la risposta ricevuta dal server o effettuando una deautenticazione seguita da una autenticazione con la nuova password (TV19.3).
+\item Inserire il comando per effettuare il logout (TV19.1);
+\item Verificare l'avvenuta esecuzione del comando controllando la risposta ricevuta dal server o eseguendo un comando disponibile solo ad utenti autenticati (che dovrà non essere disponibile) (TV19.2).
 \end{itemize}
 
 \subsubsection{Test TV20}
 
-L'utente intende effettuare deautenticazione dal server.\\
+L'utente amministratore intende aggiungere un utente al sistema.\\
 L'utente deve:
 \begin{itemize}
-\item Inserire il comando per effettuare il logout (TV20.1);
-\item Verificare l'avvenuta esecuzione del comando controllando la risposta ricevuta dal server o eseguendo un comando disponibile solo ad utenti autenticati (che dovrà non essere disponibile) (TV20.2).
+\item Inserire il comando per aggiungere un utente al sistema (TV20.1);
+\item Inserire i parametri per l'aggiunta utente (TV20.2);
+\item Verificare l'avvenuta esecuzione del comando controllando la risposta ricevuta dal server (TV20.3).
 \end{itemize}
 
 \subsubsection{Test TV21}
 
-L'utente amministratore intende aggiungere un utente al sistema.\\
+L'utente amministratore intende rimuovere un utente dal sistema.\\
 L'utente deve:
 \begin{itemize}
-\item Inserire il comando per aggiungere un utente al sistema (TV21.1);
-\item Inserire i parametri per l'aggiunta utente (TV21.2);
+\item Inserire il comando per la rimozione utente (TV21.1);
+\item Inserire i parametri per la rimozione utente (TV21.2);
 \item Verificare l'avvenuta esecuzione del comando controllando la risposta ricevuta dal server (TV21.3).
 \end{itemize}
 
 \subsubsection{Test TV22}
 
-L'utente amministratore intende rimuovere un utente dal sistema.\\
-L'utente deve:
-\begin{itemize}
-\item Inserire il comando per la rimozione utente (TV22.1);
-\item Inserire i parametri per la rimozione utente (TV22.2);
-\item Verificare l'avvenuta esecuzione del comando controllando la risposta ricevuta dal server (TV22.3).
-\end{itemize}
-
-\subsubsection{Test TV23}
-
 L'utente amministratore intende effettuare un reset della password di un utente.\\
 L'utente deve:
 \begin{itemize}
-\item Inserire il comando per effettuare il reset password (TV23.1);
-\item Inserire i parametri per il reset password (TV23.2);
-\item Verificare l'avvenuta esecuzione del comando controllando la risposta ricevuta dal server (TV23.3).
+\item Inserire il comando per effettuare il reset password (TV22.1);
+\item Inserire i parametri per il reset password (TV22.2);
+\item Verificare l'avvenuta esecuzione del comando controllando la risposta ricevuta dal server (TV22.3).
 \end{itemize}
 
 \listoffigures

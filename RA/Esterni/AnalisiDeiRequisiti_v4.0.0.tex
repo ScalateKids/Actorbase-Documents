@@ -25,9 +25,9 @@
       \else
       \textbf{Versione} & 4.0.0\\
       \fi
-      \textbf{Redazione} & \multiLineCell[t]{Andrea Giacomo Baldan}\\
-      \textbf{Verifica} & \multiLineCell[t]{Alberto De Agostini}\\
-      \textbf{Approvazione} & \multiLineCell[t]{Francesco Agostini}\\
+      \textbf{Redazione} & \multiLineCell[t]{Marco Boseggia\\Francesco Agostini\\Giacomo Vanin}\\
+      \textbf{Verifica} & \multiLineCell[t]{Michael Munaro\\Marco Boseggia}\\
+      \textbf{Approvazione} & \multiLineCell[t]{Davide Trevisan}\\
       \textbf{Uso} & Esterno\\
       \textbf{Lista di Distribuzione} & \multiLineCell[t]{ScalateKids\\Prof. Tullio Vardanega\\Prof. Riccardo Cardin}\\
     \end{tabular}
@@ -49,7 +49,15 @@
     \hline
     Versione & Autore & Ruolo & Data & Descrizione \\
     \hline
-    3.1.1 & Alberto De Agostini & Analista & 2016-06-01 & Aggiornamento vincoli password nelle sezioni 3.45, 3.46\\
+    4.0.0 & Davide Trevisan & Responsabile & 2016-06-15 & Approvazione documento\\
+    \hline
+    3.2.0 & Michael Munaro & Verificatore & 2016-06-07 & Verifica Incrementi\\
+    \hline
+    3.1.3 & Marco Boseggia & Analista & 2016-06-06 & Aggiornamento tracciamento\\
+    \hline
+    3.1.2 & Francesco Agostini & Analista & 2016-06-03 & Aggiornamento requisiti\\
+    \hline
+    3.1.1 & Giacomo Vanin & Analista & 2016-06-01 & Aggiornamento vincoli password nelle sezioni 3.45, 3.46\\
     \hline
     3.1.0 & Marco Boseggia & Verificatore & 2016-05-27 & Verifica modifiche apportate\\
     \hline
@@ -2747,11 +2755,11 @@ OBF1.1.10.2.1.1 & \multiLineCell{Funzionale\\Obbligatorio} & Il sistema ad attor
 \hline
 OBF1.1.10.2.2 & \multiLineCell{Funzionale\\Obbligatorio} & Il sistema ad attori dovrà permettere di visualizzare una lista delle \gloss{collezioni} mediante l'interazione con \gloss{Clientactor} & \multiLineCell{UC1.3.2\\UC2.2.2\\}\\
 \hline
-OBF1.1.10.2.3 & \multiLineCell{Funzionale\\Obbligatorio} & Il sistema ad attori dovrà permettere di modificare il nome delle \gloss{collezioni} mediante l'interazione tra \gloss{Clientactor}, \gloss{Mainactor}, \gloss{Storefinder} e \gloss{AuthActor} & \multiLineCell{UC1.3.3\\UC2.2.3\\}\\
+OPF1.1.10.2.3 & \multiLineCell{Funzionale\\Opzionale} & Il sistema ad attori dovrà permettere di modificare il nome delle \gloss{collezioni} mediante l'interazione tra \gloss{Clientactor}, \gloss{Mainactor}, \gloss{Storefinder} e \gloss{AuthActor} & \multiLineCell{UC1.3.3\\UC2.2.3\\}\\
 \hline
-OBF1.1.10.2.3.1 & \multiLineCell{Funzionale\\Obbligatorio} & Il sistema ad attori dovrà inviare un messaggio d'errore verso l'esterno in caso di nome \gloss{collezione} già presente all'interno del sistema durante l'operazione di modifica nome \gloss{collezione} mediante l'interazione tra \gloss{Clientactor} e \gloss{AuthActor} & \multiLineCell{UC1.3.10\\UC2.2.8\\}\\
+OPF1.1.10.2.3.1 & \multiLineCell{Funzionale\\Opzionale} & Il sistema ad attori dovrà inviare un messaggio d'errore verso l'esterno in caso di nome \gloss{collezione} già presente all'interno del sistema durante l'operazione di modifica nome \gloss{collezione} mediante l'interazione tra \gloss{Clientactor} e \gloss{AuthActor} & \multiLineCell{UC1.3.10\\UC2.2.8\\}\\
 \hline
-OBF1.1.10.2.3.2 & \multiLineCell{Funzionale\\Obbligatorio} & Il sistema ad attori dovrà inviare un messaggio d'errore verso l'esterno nel caso in cui il nome della \gloss{collezione} da modificare sia inesistente, mediante interazioni tra \gloss{Clientactor} ed esterno & \multiLineCell{UC1.3.8\\UC2.2.9\\}\\
+OPF1.1.10.2.3.2 & \multiLineCell{Funzionale\\Opzionale} & Il sistema ad attori dovrà inviare un messaggio d'errore verso l'esterno nel caso in cui il nome della \gloss{collezione} da modificare sia inesistente, mediante interazioni tra \gloss{Clientactor} ed esterno & \multiLineCell{UC1.3.8\\UC2.2.9\\}\\
 \hline
 OBF1.1.10.2.4 & \multiLineCell{Funzionale\\Obbligatorio} & Il sistema ad attori dovrà permettere di cancellare \gloss{collezioni} mediante l'interazione tra \gloss{Clientactor}, \gloss{Mainactor}, \gloss{Storefinder}, \gloss{Storekeeper}, \gloss{AuthActor} e \gloss{Ninja} & \multiLineCell{UC1.3.4\\UC2.2.4\\}\\
 \hline
@@ -2831,11 +2839,11 @@ OBF2.1.2.3 & \multiLineCell{Funzionale\\Obbligatorio} & Il DSL dovrà fornire un
 \hline
 OBF2.1.2.3.1 & \multiLineCell{Funzionale\\Obbligatorio} & Il comando di cancellazione dovrà permettere di inserire la lista di nomi delle \gloss{collezioni} da cancellare dal sistema & \multiLineCell{UC1.3.4\\}\\
 \hline
-OBF2.1.2.4 & \multiLineCell{Funzionale\\Obbligatorio} & Il DSL dovrà fornire un comando per modificare il nome delle {collezioni} utilizzabile mediante CLI & \multiLineCell{UC1.3.3\\VERBALE20160112\\}\\
+OPF2.1.2.4 & \multiLineCell{Funzionale\\Opzionale} & Il DSL dovrà fornire un comando per modificare il nome delle {collezioni} utilizzabile mediante CLI & \multiLineCell{UC1.3.3\\VERBALE20160112\\}\\
 \hline
-OBF2.1.2.4.1 & \multiLineCell{Funzionale\\Obbligatorio} & Il comando di modifica nome \gloss{collezione} dovrà permettere di inserire il nome della \gloss{collezione} da modificare & \multiLineCell{UC1.3.3.1\\}\\
+OPF2.1.2.4.1 & \multiLineCell{Funzionale\\Opzionale} & Il comando di modifica nome \gloss{collezione} dovrà permettere di inserire il nome della \gloss{collezione} da modificare & \multiLineCell{UC1.3.3.1\\}\\
 \hline
-OBF2.1.2.4.2 & \multiLineCell{Funzionale\\Obbligatorio} & Il comando di modifica nome \gloss{collezione} dovrà permettere di inserire il nuovo nome della \gloss{collezione} da modificare & \multiLineCell{UC1.3.3.2\\}\\
+OPF2.1.2.4.2 & \multiLineCell{Funzionale\\Opzionale} & Il comando di modifica nome \gloss{collezione} dovrà permettere di inserire il nuovo nome della \gloss{collezione} da modificare & \multiLineCell{UC1.3.3.2\\}\\
 \hline
 OBF2.1.2.5 & \multiLineCell{Funzionale\\Obbligatorio} & Il DSL dovrà fornire un comando per aggiungere \gloss{collaboratori} ad una \gloss{collezione} del sistema utilizzabile mediante CLI & \multiLineCell{UC1.3.5\\}\\
 \hline
@@ -2859,9 +2867,9 @@ DEF2.1.2.7.2 & \multiLineCell{Funzionale\\Desiderabile} & Il comando per esporta
 \hline
 OBF2.1.2.8 & \multiLineCell{Funzionale\\Obbligatorio} & La CLI dovrà visualizzare un messaggio esplicativo in caso di inserimento di un nome \gloss{collezione} già esistente all'interno del sistema durante la procedura di creazione nuova \gloss{collezione} & \multiLineCell{UC1.3.10\\}\\
 \hline
-OBF2.1.2.9 & \multiLineCell{Funzionale\\Obbligatorio} & La CLI dovrà visualizzare un messaggio di errore esplicativo in caso di inserimento nome \gloss{collezione} già esistente all'interno del sistema durante la procedura di modifica nome \gloss{collezione} & \multiLineCell{UC1.3.10\\}\\
+OPF2.1.2.9 & \multiLineCell{Funzionale\\Obbligatorio} & La CLI dovrà visualizzare un messaggio di errore esplicativo in caso di inserimento nome \gloss{collezione} già esistente all'interno del sistema durante la procedura di modifica nome \gloss{collezione} & \multiLineCell{UC1.3.10\\}\\
 \hline
-OBF2.1.2.10 & \multiLineCell{Funzionale\\Obbligatorio} & La CLI dovrà visualizzare un messaggio di errore esplicativo in caso di inserimento nome \gloss{collezione} da modificare non esistente all'interno del sistema durante la procedura di modifica nome \gloss{collezione} & \multiLineCell{UC1.3.8\\}\\
+OPF2.1.2.10 & \multiLineCell{Funzionale\\Obbligatorio} & La CLI dovrà visualizzare un messaggio di errore esplicativo in caso di inserimento nome \gloss{collezione} da modificare non esistente all'interno del sistema durante la procedura di modifica nome \gloss{collezione} & \multiLineCell{UC1.3.8\\}\\
 \hline
 OBF2.1.2.11 & \multiLineCell{Funzionale\\Obbligatorio} & La CLI dovrà visualizzare un messaggio di errore esplicativo in caso di inserimento nome \gloss{collezione} da cancellare non esistente all'interno del sistema durante la procedura di cancellazione \gloss{collezione} & \multiLineCell{UC1.3.8\\}\\
 \hline
@@ -2985,15 +2993,15 @@ DEF3.2.3.1 & \multiLineCell{Funzionale\\Desiderabile} & Il \gloss{driver} dovrà
 \hline
 DEF3.2.3.2 & \multiLineCell{Funzionale\\Desiderabile} & Il \gloss{driver} dovrà lanciare un'eccezione in caso di inserimento nome \gloss{collezione} da cancellare non esistente all'interno del sistema & \multiLineCell{UC2.2.9\\}\\
 \hline
-DEF3.2.4 & \multiLineCell{Funzionale\\Desiderabile} & Il \gloss{driver} dovrà permettere di modificare il nome delle {collezioni} & \multiLineCell{UC2.2.3\\}\\
+OPF3.2.4 & \multiLineCell{Funzionale\\Opzionale} & Il \gloss{driver} dovrà permettere di modificare il nome delle {collezioni} & \multiLineCell{UC2.2.3\\}\\
 \hline
-DEF3.2.4.1 & \multiLineCell{Funzionale\\Desiderabile} & Il \gloss{driver} dovrà permettere di inserire il nome della \gloss{collezione} da modificare & \multiLineCell{UC2.2.3.1\\}\\
+OPF3.2.4.1 & \multiLineCell{Funzionale\\Opzionale} & Il \gloss{driver} dovrà permettere di inserire il nome della \gloss{collezione} da modificare & \multiLineCell{UC2.2.3.1\\}\\
 \hline
-DEF3.2.4.2 & \multiLineCell{Funzionale\\Desiderabile} & Il \gloss{driver} dovrà permettere di inserire il nuovo nome della \gloss{collezione} da modificare & \multiLineCell{UC2.2.3.2\\}\\
+OPF3.2.4.2 & \multiLineCell{Funzionale\\Opzionale} & Il \gloss{driver} dovrà permettere di inserire il nuovo nome della \gloss{collezione} da modificare & \multiLineCell{UC2.2.3.2\\}\\
 \hline
-DEF3.2.4.3 & \multiLineCell{Funzionale\\Desiderabile} & Il \gloss{driver} dovrà lanciare un'eccezione in caso di inserimento di un nome \gloss{collezione} da modificare non esistente all'interno del sistema durante la procedura di modifica nome \gloss{collezione} & \multiLineCell{UC2.2.9\\}\\
+OPF3.2.4.3 & \multiLineCell{Funzionale\\Opzionale} & Il \gloss{driver} dovrà lanciare un'eccezione in caso di inserimento di un nome \gloss{collezione} da modificare non esistente all'interno del sistema durante la procedura di modifica nome \gloss{collezione} & \multiLineCell{UC2.2.9\\}\\
 \hline
-DEF3.2.4.4 & \multiLineCell{Funzionale\\Desiderabile} & Il \gloss{driver} dovrà lanciare un'eccezione in caso di inserimento di un nuovo nome \gloss{collezione} già censito a sistema durante la procedura di modifica nome \gloss{collezione} & \multiLineCell{UC2.8\\}\\
+OPF3.2.4.4 & \multiLineCell{Funzionale\\Opzionale} & Il \gloss{driver} dovrà lanciare un'eccezione in caso di inserimento di un nuovo nome \gloss{collezione} già censito a sistema durante la procedura di modifica nome \gloss{collezione} & \multiLineCell{UC2.8\\}\\
 \hline
 DEF3.2.5 & \multiLineCell{Funzionale\\Desiderabile} & Il \gloss{driver} dovrà permettere di aggiungere \gloss{collaboratori} ad una \gloss{collezione} del sistema & \multiLineCell{UC2.2.5\\}\\
 \hline
@@ -3286,11 +3294,11 @@ OBQ13 & \multiLineCell{Qualitativo\\Obbligatorio} & Dovrà essere fornito un man
   \hline
   OBF1.1.10.2.2 & \multiLineCell[t]{UC1.3.2\\UC2.2.2\\}\\
   \hline
-  OBF1.1.10.2.3 & \multiLineCell[t]{UC1.3.3\\UC2.2.3\\}\\
+  OPF1.1.10.2.3 & \multiLineCell[t]{UC1.3.3\\UC2.2.3\\}\\
   \hline
-  OBF1.1.10.2.3.1 & \multiLineCell[t]{UC1.3.10\\UC2.2.8\\}\\
+  OPF1.1.10.2.3.1 & \multiLineCell[t]{UC1.3.10\\UC2.2.8\\}\\
   \hline
-  OBF1.1.10.2.3.2 & \multiLineCell[t]{UC1.3.8\\UC2.2.9\\}\\
+  OPF1.1.10.2.3.2 & \multiLineCell[t]{UC1.3.8\\UC2.2.9\\}\\
   \hline
   OBF1.1.10.2.4 & \multiLineCell[t]{UC1.3.4\\UC2.2.4\\}\\
   \hline
@@ -3380,7 +3388,7 @@ OBQ13 & \multiLineCell{Qualitativo\\Obbligatorio} & Dovrà essere fornito un man
   \hline
   OBF2.1.2.1.1 & \multiLineCell[t]{UC1.3.1.1\\}\\
   \hline
-  OBF2.1.2.10 & \multiLineCell[t]{UC1.3.8\\}\\
+  OPF2.1.2.10 & \multiLineCell[t]{UC1.3.8\\}\\
   \hline
   OBF2.1.2.11 & \multiLineCell[t]{UC1.3.8\\}\\
   \hline
@@ -3396,11 +3404,11 @@ OBQ13 & \multiLineCell{Qualitativo\\Obbligatorio} & Dovrà essere fornito un man
   \hline
   OBF2.1.2.3.1 & \multiLineCell[t]{UC1.3.4\\}\\
   \hline
-  OBF2.1.2.4 & \multiLineCell[t]{UC1.3.3\\VERBALE20160112\\}\\
+  OPF2.1.2.4 & \multiLineCell[t]{UC1.3.3\\VERBALE20160112\\}\\
   \hline
-  OBF2.1.2.4.1 & \multiLineCell[t]{UC1.3.3.1\\}\\
+  OPF2.1.2.4.1 & \multiLineCell[t]{UC1.3.3.1\\}\\
   \hline
-  OBF2.1.2.4.2 & \multiLineCell[t]{UC1.3.3.2\\}\\
+  OPF2.1.2.4.2 & \multiLineCell[t]{UC1.3.3.2\\}\\
   \hline
   OBF2.1.2.5 & \multiLineCell[t]{UC1.3.5\\}\\
   \hline
@@ -3424,7 +3432,7 @@ OBQ13 & \multiLineCell{Qualitativo\\Obbligatorio} & Dovrà essere fornito un man
   \hline
   OBF2.1.2.8 & \multiLineCell[t]{UC1.3.10\\}\\
   \hline
-  OBF2.1.2.9 & \multiLineCell[t]{UC1.3.10\\}\\
+  OPF2.1.2.9 & \multiLineCell[t]{UC1.3.10\\}\\
   \hline
   OBF2.1.3 & \multiLineCell[t]{CAPITOLATO\\INTERNO\\UC1.4\\}\\
   \hline
@@ -3541,15 +3549,15 @@ OBQ13 & \multiLineCell{Qualitativo\\Obbligatorio} & Dovrà essere fornito un man
   \hline
   DEF3.2.3.2 & \multiLineCell[t]{UC2.2.9\\}\\
   \hline
-  DEF3.2.4 & \multiLineCell[t]{UC2.2.3\\}\\
+  OPF3.2.4 & \multiLineCell[t]{UC2.2.3\\}\\
   \hline
-  DEF3.2.4.1 & \multiLineCell[t]{UC2.2.3.1\\}\\
+  OPF3.2.4.1 & \multiLineCell[t]{UC2.2.3.1\\}\\
   \hline
-  DEF3.2.4.2 & \multiLineCell[t]{UC2.2.3.2\\}\\
+  OPF3.2.4.2 & \multiLineCell[t]{UC2.2.3.2\\}\\
   \hline
-  DEF3.2.4.3 & \multiLineCell[t]{UC2.2.9\\}\\
+  OPF3.2.4.3 & \multiLineCell[t]{UC2.2.9\\}\\
   \hline
-  DEF3.2.4.4 & \multiLineCell[t]{UC2.8\\}\\
+  OPF3.2.4.4 & \multiLineCell[t]{UC2.8\\}\\
   \hline
   DEF3.2.5 & \multiLineCell[t]{UC2.2.5\\}\\
   \hline
