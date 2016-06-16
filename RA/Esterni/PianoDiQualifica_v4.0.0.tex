@@ -555,100 +555,89 @@ Nella tabella di seguito sono riportati i valori degli indici di Gulpease per og
 
 \subsubsection{Codice}
 Di seguito vengono riportati i risultati dei test di analisi statica e dinamica effettuati sul codice.
-Per ragioni di spazio e leggibilità si omettono le tabelle complete dei test. Per ogni test dove possibile si riportano almeno il valore medio riscontrato, il massimo valore riscontrato ed eventuali risultati oltre il range di accettazione definiti nella sezione \ref{sec:metricheSW}, oltre alla giustificazione della loro presenza. Si è cercato di essere il più precisi possibile.
+Per ragioni di spazio e leggibilità si omettono le tabelle complete dei test. Per ogni test si riportano almeno il valore medio riscontrato ed eventuali risultati oltre il range di accettazione definiti nella sezione \ref{sec:metricheSW}, oltre alla giustificazione della loro presenza.
 
 \paragraph{Linee di codice per linee di commento}
 In questo paragrafo è possibile vedere il rapporto tra linee di codice e
 linee di commento, suddivisi per modulo:
 \begin{itemize}
-
-\item \textbf{CLI}:
-  \begin{center}
-    \begin{tabular}{| c | c | c | c | c |}
-      \hline
-      Files & righe vuote & righe di commento & righe di codice & \% commento su codice\\
-      \hline
-      28 & 153 & 1042 & 451 & 70\% \\
-      \hline
-    \end{tabular}
-  \end{center}
-
-\item \textbf{Driver}:
-  \begin{center}
-    \begin{tabular}{| c | c | c | c | c |}
-      \hline
-      Files & righe vuote & righe di commento & righe di codice & \% commento su codice\\
-      \hline
-      14 & 185 & 1193 & 749 & 61\% \\
-      \hline
-    \end{tabular}
-  \end{center}
-
-\item \textbf{ActorSystem}:
-  \begin{center}
-    \begin{tabular}{| c | c | c | c | c |}
-      \hline
-      Files & righe vuote & righe di commento & righe di codice & \% commento su codice\\
-      \hline
-      31 & 432 & 1971 & 1308 & 60\% \\
-      \hline
-    \end{tabular}
-  \end{center}
-\end{itemize}
-
-Inoltre Tutti i rapporti commento su codice dei singoli file soddisfano il range ottimale.
-
-\paragraph{Copertura del codice}
-viene riportata la dei test espressa in percentuale con a fianco il rapporto coperte/totali. Si fa presente che la maggior parte del codice non coperto da test è composto da metodi banali( si pensi ai getter o setter). Nel caso del  modulo driver è stato riportato il risultato del solo package client, in quanto gli altri package falsavano pesantemente la metrica per i motivi sopra citati.
+	
+	\item \textbf{CLI}:
 	\begin{center}
-		\begin{tabular}{| c | c | c | c |}
+		\begin{tabular}{| c | c | c | c | c |}
 			\hline
-			Modulo & \% delle classi & \% dei metodi & \% delle linee righe \\
+			Files & righe vuote & righe di commento & righe di codice & \% commento su codice\\
 			\hline
-			\textbf{Cli} & 89\%(98/116) & 69\%(149/214) & 67\%(245/363) \\
-			\textbf{Driver} &  67\%(19/28) & 47\%(50/105) & 62\%(63/101)\\
-			\textbf{Actorsystem} & boh & boh & boh\\
+			28 & 133 & 834 & 419 & 66\% \\
 			\hline
 		\end{tabular}
-Il gruppo stima che il 15-20\% del codice non banale non sia coperto da test. Tutti i valori rientrano comunque nel range di accettazione.
+	\end{center}
+	
+	\item \textbf{Driver}:
+	\begin{center}
+		\begin{tabular}{| c | c | c | c | c |}
+			\hline
+			Files & righe vuote & righe di commento & righe di codice & \% commento su codice\\
+			\hline
+			11 & 134 & 887 & 300 & 75\% \\
+			\hline
+		\end{tabular}
+	\end{center}
+	
+	\item \textbf{ActorSystem}:
+	\begin{center}
+		\begin{tabular}{| c | c | c | c | c |}
+			\hline
+			Files & righe vuote & righe di commento & righe di codice & \% commento su codice\\
+			\hline
+			31 & 437 & 1817 & 1087 & 63\% \\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{itemize}
+Come visibile dalle tabelle tutti i valori soddisfano il range ottimale.
 
-\paragraph{Numero di attributi per classe(non aggiornato)}
+\paragraph{Copertura del codice}
+La percentuale di codice coperto da test attualmente è del: \textbf{72\%}.\\
+Questo valore rientra nel range ottimale.
+
+\paragraph{Numero di attributi per classe}
 Di seguito è riportato il numero medio di attributi per classe del codice di actorbase divisi per modulo:
 \begin{itemize}
-\item \textbf{CLI}: 1,04;
-\item \textbf{Driver}: 2,69;
-\item \textbf{Actorsystem}: 2,39.
+	\item \textbf{CLI}: 1,04;
+	\item \textbf{Driver}: 2,69;
+	\item \textbf{Actorsystem}: 2,39.
 \end{itemize}
 Come si può notare tutti i valori rientrano nel range di accettazione.
 
-\paragraph{Numero di parametri per metodo(non aggiornato)}
+\paragraph{Numero di parametri per metodo}
 Di seguito è riportato il numero medio di parametri per
 metodo del codice di actorbase suddiviso per moduli:
 \begin{itemize}
-\item \textbf{CLI}:0,12\%; massimo:1(7 occorrenze);
-\item \textbf{Driver}:0,63; massimo:;
-\item \textbf{ActorSystem}:0,59; massimo:.
+	\item \textbf{CLI}:0,1;
+	\item \textbf{Driver}:0,63;
+	\item \textbf{ActorSystem}:0,59.
 \end{itemize}
 Come si può notare tutti i valori rientrano nel range ottimale.
 
 
-\paragraph{Complessità ciclomatica(non aggiornato)}
+\paragraph{Complessità ciclomatica}
 Di seguito è riportata la media della complessità ciclomatica dei vari moduli:
 \begin{itemize}
-\item \textbf{CLI}:2,05;
-\item \textbf{Driver}:1,31;
-\item \textbf{Actorsystem}:2,93.
+	\item \textbf{CLI}:2,05;
+	\item \textbf{Driver}:1,31;
+	\item \textbf{Actorsystem}:2,93.
 \end{itemize}
 Come si può notare tutti i valori rientrano nel range ottimale.
 
 \paragraph{Livelli di annidamento}
 In seguito è riportata la media dei livelli di annidamento dei vari moduli:
 \begin{itemize}
-\item \textbf{Cli}:1,75; massimo: 5;
-\item \textbf{Driver}:1,58; massimo:4;
-\item \textbf{ActorSystem}:1,86; massimo:7;
+	\item \textbf{Cli}:1,78;
+	\item \textbf{Driver}:1,56;
+	\item \textbf{ActorSystem}:1,83.
 \end{itemize}
-Come si può notare tutti i valori rientrano nel range di accettazione.
+Come si può notare tutti i valori rientrano nel range ottimale.
 
 \subsection{Attività di Validazione}
 
@@ -707,9 +696,103 @@ Nella tabella di seguito sono riportati i valori degli indici di Gulpease per og
 
 \subsubsection{Codice}
 Di seguito vengono riportati i risultati dei test di analisi statica e dinamica effettuati sul codice.
-Per ragioni di spazio e leggibilità si omettono le tabelle complete dei test. Per ogni test si riportano almeno il valore minimo, quello massimo e il medio riscontrato ed eventuali risultati oltre il range di accettazione definiti nella sezione \ref{sec:metricheSW}, oltre alla giustificazione della loro presenza.
+Per ragioni di spazio e leggibilità si omettono le tabelle complete dei test. Per ogni test si riportano almeno il valore medio riscontrato,e dove possibile dalle tecnologie utilizzate anche il massimo valore riscontrato ed eventuali risultati oltre il range di accettazione definiti nella sezione \ref{sec:metricheSW}, oltre alla giustificazione della loro presenza. Si è cercato di essere il più precisi possibile.
 
-%Todo metti qua tutte le metriche
+\paragraph{Linee di codice per linee di commento}
+In questo paragrafo è possibile vedere il rapporto tra linee di codice e
+linee di commento, suddivisi per modulo:
+\begin{itemize}
+	
+	\item \textbf{CLI}:
+	\begin{center}
+		\begin{tabular}{| c | c | c | c | c |}
+			\hline
+			Files & righe vuote & righe di commento & righe di codice & \% commento su codice\\
+			\hline
+			28 & 153 & 1042 & 451 & 70\% \\
+			\hline
+		\end{tabular}
+	\end{center}
+	
+	\item \textbf{Driver}:
+	\begin{center}
+		\begin{tabular}{| c | c | c | c | c |}
+			\hline
+			Files & righe vuote & righe di commento & righe di codice & \% commento su codice\\
+			\hline
+			14 & 185 & 1193 & 749 & 61\% \\
+			\hline
+		\end{tabular}
+	\end{center}
+	
+	\item \textbf{ActorSystem}:
+	\begin{center}
+		\begin{tabular}{| c | c | c | c | c |}
+			\hline
+			Files & righe vuote & righe di commento & righe di codice & \% commento su codice\\
+			\hline
+			31 & 432 & 1971 & 1308 & 60\% \\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{itemize}
+
+Inoltre Tutti i rapporti commento su codice dei singoli file soddisfano il range ottimale.
+
+\paragraph{Copertura del codice}
+Di seguito viene riportata la copertura dei test espressa in percentuale, affiancata dal rapporto coperte/totali. Si fa presente che la maggior parte del codice non coperto da test è composto da metodi banali (si pensi ai getter o setter). Nel caso del  modulo driver è stato riportato il risultato del solo package client e di ActorbaseDriver, in quanto gli altri package falsavano pesantemente la metrica per i motivi sopra citati. Per lo stesso motivo in Actorsystem si è tenuto conto del solo package actor.
+\begin{center}
+	\begin{tabular}{| c | c | c | c |}
+		\hline
+		Modulo & \% delle classi & \% dei metodi & \% delle linee \\
+		\hline
+		\textbf{Cli} & 89\%(98/116) & 69\%(149/214) & 67\%(245/363) \\
+		\textbf{Driver} &  62\%(42/68) & 47\%90/206) & 60\%(215/366)\\
+		\textbf{Actorsystem} & 83\%(152/182) & 68\%(609/895) & 71\%(547/771)\\
+		\hline
+	\end{tabular}
+	\end{center}
+	Il gruppo stima che il 10-15\% del codice non banale non sia coperto da test. Tutti i valori rientrano comunque nel range di accettazione.
+	\paragraph{Numero di attributi per classe}
+	Di seguito è riportato il numero medio di attributi per classe del codice di actorbase divisi per modulo. Da notare che nella media non sono state considerate eventuali classi prive di attributi.
+	\begin{itemize}
+		\item \textbf{CLI}: 3,67 massimo:10 (in CommandLoop); da notare che il dato è stato calcolando non considerando i vari comandi, che per ovvi motivi falsavano al ribasso il dato; rientrano comunque tutti nel range ottimale;
+		\item \textbf{Driver}: 2,89 massimo:10 (nell' object Status). Non si è tenuto conto del package exceptions in quanto falsava al ribasso la media; rientrano comunque tutti nel range ottimale;
+		\item \textbf{Actorsystem}: per ottenere risultati più significativi si dividono gli attori dai messaggi:
+		\begin{itemize}
+			\item Attori: 2,93; massimo: 9 (la classe storekeeper);
+			\item Messaggi:1,77; massimo: 4 (il messaggio insertTo).
+		\end{itemize}
+	\end{itemize}
+	Come si può notare tutti i valori rientrano nel range di accettazione.
+	
+	\paragraph{Numero di parametri per metodo}
+	Di seguito è riportato il numero medio di parametri per
+	metodo del codice di actorbase suddiviso per moduli:
+	\begin{itemize}
+		\item \textbf{CLI}:0,12; massimo:1 (7 occorrenze);
+		\item \textbf{Driver}:1,05; massimo:5 (nello specifico il metodo apply in ActorbaseDriver.scala);
+		\item \textbf{ActorSystem}:0,64; massimo:3 (2 occorrenze).
+	\end{itemize}
+	Come si può notare tutti i valori rientrano nel range ottimale, a parte un'unica eccezione.
+	
+	
+	\paragraph{Complessità ciclomatica}
+	Di seguito è riportata la media della complessità ciclomatica dei vari moduli:
+	\begin{itemize}
+		\item \textbf{CLI}:2,16;
+		\item \textbf{Driver}:2,46;
+		\item \textbf{Actorsystem}:2,72.
+	\end{itemize}
+	
+	\paragraph{Livelli di annidamento}
+	In seguito è riportata la media dei livelli di annidamento dei vari moduli:
+	\begin{itemize}
+		\item \textbf{Cli}:1,75; massimo: 5;
+		\item \textbf{Driver}:1,58; massimo:4;
+		\item \textbf{ActorSystem}:1,86; massimo:7;
+	\end{itemize}
+	Come si può notare tutti i valori rientrano nel range di accettazione.
 
 \newpage
 
