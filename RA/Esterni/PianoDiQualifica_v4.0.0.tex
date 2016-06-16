@@ -887,9 +887,9 @@ test di sistema, la seconda descrive tutti i test dei requisiti ritenuti meritev
     \hline
     TS.OPF2.1.2.4 & Viene verificato che il \gloss{DSL} dovrà fornire un comando per modificare il nome delle {collezioni} utilizzabile mediante CLI & OK & OPF2.1.2.4\\
     \hline
-    TS.OBF2.1.2.5 & Viene verificato che il \gloss{DSL} dovrà fornire un comando per aggiungere \gloss{collaboratori} ad una \gloss{collezione} del sistema utilizzabile mediante CLI & OK & OBF2.1.2.5\\
+    TS.OBF2.1.2.5 & Viene verificato che il \gloss{DSL} dovrà fornire un comando per aggiungere \gloss{collaboratori} ad una \gloss{collezione} del sistema utilizzabile mediante CLI & Failing & OBF2.1.2.5\\
     \hline
-    TS.OBF2.1.2.6 & Viene verificato che il \gloss{DSL} dovrà fornire un comando per rimuovere un \gloss{collaboratore} da una \gloss{collezione} del sistema utilizzabile mediante CLI & OK & OBF2.1.2.6\\
+    TS.OBF2.1.2.6 & Viene verificato che il \gloss{DSL} dovrà fornire un comando per rimuovere un \gloss{collaboratore} da una \gloss{collezione} del sistema utilizzabile mediante CLI & Failing & OBF2.1.2.6\\
     \hline
     TS.OBF2.1.2.7 & Viene verificato che il \gloss{DSL} dovrà fornire un comando per l'esportazione di \gloss{collezioni} su file \gloss{JSON} utilizzabile mediante CLI & OK & OBF2.1.2.7\\
     \hline
@@ -1178,7 +1178,7 @@ tutti i test di unità previsti.
   \hline
   TU.OBF1.1.5.6 & Si verifica che L'attore di tipo \gloss{StoreKeeper} dovrà gestire la ricezione del messaggio InitMn & OK & OBF1.1.5.6    \\
   \hline
-  TU.OBF1.1.5.7 & Si verifica che L'attore di tipo \gloss{StoreKeeper} dovrà gestire la ricezione del messaggio BecomeNinja & OK & OBF1.1.5.7    \\
+  TU.OBF1.1.5.7 & Si verifica che L'attore di tipo \gloss{StoreKeeper} dovrà gestire la ricezione del messaggio BecomeNinja & not implemented & OBF1.1.5.7    \\
   \hline
   TU.OBF1.1.6 & Si verifica che All'interno del singolo \gloss{nodo} dovrà essere implementato l'attore \gloss{Warehouseman} per gestire la persistenza dei dati su disco & OK & OBF1.1.6    \\
   \hline
@@ -1188,11 +1188,11 @@ tutti i test di unità previsti.
   \hline
   TU.OBF1.1.6.3 & Si verifica che L'attore di tipo \gloss{Warehouseman} dovrà gestire la ricezione del messaggio Clean & OK  & OBF1.1.6.3    \\
   \hline
-  TU.OBF1.1.7 & Si verifica che All'interno del singolo \gloss{nodo} dovrà essere implementato l'attore \gloss{Ninja} per gestire la ridondanza dei dati contenuti negli \gloss{Storekeeper} &OK   & OBF1.1.7    \\
+  TU.OBF1.1.7 & Si verifica che All'interno del singolo \gloss{nodo} dovrà essere implementato l'attore \gloss{Ninja} per gestire la ridondanza dei dati contenuti negli \gloss{Storekeeper} & OK   & OBF1.1.7    \\
   \hline
   TU.OBF1.1.7.1 & Si verifica che L'attore di tipo \gloss{Ninja} dovrà gestire la ricezione del messaggio Update &  OK  & OBF1.1.7.1    \\
   \hline
-  TU.OBF1.1.7.2 & Si verifica che L'attore di tipo \gloss{Ninja} dovrà poter cambiare il proprio contesto ricevendo il messaggio BecomeSK e importare tutti i messaggi dello StoreKeeper &  OK  & OBF1.1.7.2    \\
+  TU.OBF1.1.7.2 & Si verifica che L'attore di tipo \gloss{Ninja} dovrà poter cambiare il proprio contesto ricevendo il messaggio BecomeSK e importare tutti i messaggi dello StoreKeeper &  not implemented  & OBF1.1.7.2    \\
   \hline
   TU.OBF1.1.8 & Si verifica che All'interno del singolo \gloss{nodo} dovrà essere implementato l'attore \gloss{Manager} per la gestione del carico degli attori di tipo \gloss{Storekeeper} e \gloss{Storefinder}  & OK   & OBF1.1.8    \\
   \hline
