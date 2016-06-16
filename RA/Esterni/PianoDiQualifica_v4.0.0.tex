@@ -737,26 +737,26 @@ linee di commento, suddivisi per modulo:
 	\end{center}
 \end{itemize}
 
-Inoltre Tutti i rapporti commento su codice dei singoli file soddisfano il range ottimale.
+Inoltre tutti i rapporti commento su codice dei singoli file soddisfano il range ottimale.
 
 \paragraph{Copertura del codice}
-viene riportata la dei test espressa in percentuale con a fianco il rapporto coperte/totali. Si fa presente che la maggior parte del codice non coperto da test è composto da metodi banali( si pensi ai getter o setter). Nel caso del  modulo driver è stato riportato il risultato del solo package client, in quanto gli altri package falsavano pesantemente la metrica per i motivi sopra citati.
+Di seguito viene riportata la copertura dei test espressa in percentuale, affiancata dal rapporto coperte/totali. Si fa presente che la maggior parte del codice non coperto da test è composto da metodi banali (si pensi ai getter o setter). Nel caso del  modulo driver è stato riportato il risultato del solo package client e di ActorbaseDriver, in quanto gli altri package falsavano pesantemente la metrica per i motivi sopra citati. Per lo stesso motivo in Actorsystem si è tenuto conto del solo package actor.
 \begin{center}
 	\begin{tabular}{| c | c | c | c |}
 		\hline
-		Modulo & \% delle classi & \% dei metodi & \% delle linee righe \\
+		Modulo & \% delle classi & \% dei metodi & \% delle linee \\
 		\hline
 		\textbf{Cli} & 89\%(98/116) & 69\%(149/214) & 67\%(245/363) \\
-		\textbf{Driver} &  67\%(19/28) & 47\%(50/105) & 62\%(63/101)\\
-		\textbf{Actorsystem} & boh & boh & boh\\
+		\textbf{Driver} &  62\%(42/68) & 47\%90/206) & 60\%(215/366)\\
+		\textbf{Actorsystem} & 83\%(152/182) & 68\%(609/895) & 71\%(547/771)\\
 		\hline
 	\end{tabular}
-	Il gruppo stima che il 15-20\% del codice non banale non sia coperto da test. Tutti i valori rientrano comunque nel range di accettazione.
-	%TODO da la copertura di Actorsystem
+	\end{center}
+	Il gruppo stima che il 10-15\% del codice non banale non sia coperto da test. Tutti i valori rientrano comunque nel range di accettazione.
 	\paragraph{Numero di attributi per classe}
 	Di seguito è riportato il numero medio di attributi per classe del codice di actorbase divisi per modulo. Da notare che nella media non sono state considerate eventuali classi prive di attributi.
 	\begin{itemize}
-		\item \textbf{CLI}: 3,67 massimo:10 (in CommandLoop); da notare che il dato è stato calcolando non considerando i vari comandi, che per ovvi motivi falsavano al ribasso il dato; rientrano comunque tutti nel range ottimale.
+		\item \textbf{CLI}: 3,67 massimo:10 (in CommandLoop); da notare che il dato è stato calcolando non considerando i vari comandi, che per ovvi motivi falsavano al ribasso il dato; rientrano comunque tutti nel range ottimale;
 		\item \textbf{Driver}: 2,89 massimo:10 (nell' object Status). Non si è tenuto conto del package exceptions in quanto falsava al ribasso la media; rientrano comunque tutti nel range ottimale;
 		\item \textbf{Actorsystem}: per ottenere risultati più significativi si dividono gli attori dai messaggi:
 		\begin{itemize}
@@ -833,7 +833,7 @@ test di sistema, la seconda descrive tutti i test dei requisiti ritenuti meritev
     \hline
     TS.OBF1.1.10.2.2 & Viene verificato che il sistema ad attori dovrà permettere di visualizzare una lista delle \gloss{collezioni} mediante l'interazione con \gloss{Clientactor} & OK & OBF1.1.10.2.2\\
     \hline
-    TS.OBF1.1.10.2.3 & Viene verificato che il sistema ad attori dovrà permettere di modificare il nome delle \gloss{collezioni} mediante l'interazione tra \gloss{Clientactor}, \gloss{Mainactor}, \gloss{Storefinder} e \gloss{AuthActor} & & OBF1.1.10.2.3\\
+    TS.OPF1.1.10.2.3 & Viene verificato che il sistema ad attori dovrà permettere di modificare il nome delle \gloss{collezioni} mediante l'interazione tra \gloss{Clientactor}, \gloss{Mainactor}, \gloss{Storefinder} e \gloss{AuthActor} & & OPF1.1.10.2.3\\
     \hline
     TS.OBF1.1.10.2.4 & Viene verificato che il sistema ad attori dovrà permettere di cancellare \gloss{collezioni} mediante l'interazione tra \gloss{Clientactor}, \gloss{Mainactor}, \gloss{Storefinder}, \gloss{Storekeeper}, \gloss{AuthActor} e \gloss{Ninja} & OK & OBF1.1.10.2.4\\
     \hline
@@ -877,7 +877,7 @@ test di sistema, la seconda descrive tutti i test dei requisiti ritenuti meritev
     \hline
     TS.OBF2.1.2.3 & Viene verificato che il \gloss{DSL} dovrà fornire un comando per cancellare una o più \gloss{collezioni} utilizzabile mediante CLI & OK & OBF2.1.2.3\\
     \hline
-    TS.OBF2.1.2.4 & Viene verificato che il \gloss{DSL} dovrà fornire un comando per modificare il nome delle {collezioni} utilizzabile mediante CLI & OK & OBF2.1.2.4\\
+    TS.OPF2.1.2.4 & Viene verificato che il \gloss{DSL} dovrà fornire un comando per modificare il nome delle {collezioni} utilizzabile mediante CLI & OK & OPF2.1.2.4\\
     \hline
     TS.OBF2.1.2.5 & Viene verificato che il \gloss{DSL} dovrà fornire un comando per aggiungere \gloss{collaboratori} ad una \gloss{collezione} del sistema utilizzabile mediante CLI & OK & OBF2.1.2.5\\
     \hline
@@ -919,7 +919,7 @@ test di sistema, la seconda descrive tutti i test dei requisiti ritenuti meritev
     \hline
     TS.DEF3.2.3 & Viene verificato che il \gloss{driver} dovrà permettere di cancellare una o più \gloss{collezioni} & OK & DEF3.2.3\\
     \hline
-    TS.DEF3.2.4 & Viene verificato che il \gloss{driver} dovrà permettere di modificare il nome delle {collezioni} & OK & DEF3.2.4\\
+    TS.OPF3.2.4 & Viene verificato che il \gloss{driver} dovrà permettere di modificare il nome delle {collezioni} & OK & OPF3.2.4\\
     \hline
     TS.DEF3.2.5 & Viene verificato che il \gloss{driver} dovrà permettere di aggiungere \gloss{collaboratori} ad una \gloss{collezione} del sistema & OK & DEF3.2.5\\
     \hline
@@ -1252,9 +1252,9 @@ tutti i test di unità previsti.
   \hline
   TU.OBF2.1.2.8 & Si verifica che La CLI dovrà visualizzare un messaggio esplicativo in caso di inserimento di un nome \gloss{collezione} già esistente all'interno del sistema durante la procedura di creazione nuova \gloss{collezione} & OK   & OBF2.1.2.8    \\
   \hline
-  TU.OBF2.1.2.9 & Si verifica che La CLI dovrà visualizzare un messaggio di errore esplicativo in caso di inserimento nome \gloss{collezione} già esistente all'interno del sistema durante la procedura di modifica nome \gloss{collezione} & OK   & OBF2.1.2.9    \\
+  TU.OPF2.1.2.9 & Si verifica che La CLI dovrà visualizzare un messaggio di errore esplicativo in caso di inserimento nome \gloss{collezione} già esistente all'interno del sistema durante la procedura di modifica nome \gloss{collezione} & OK   & OPF2.1.2.9    \\
   \hline
-  TU.OBF2.1.2.10 & Si verifica che  La CLI dovrà visualizzare un messaggio di errore esplicativo in caso di inserimento nome \gloss{collezione} da modificare non esistente all'interno del sistema durante la procedura di modifica nome \gloss{collezione} & OK & OBF2.1.2.10 \\ 
+  TU.OPF2.1.2.10 & Si verifica che  La CLI dovrà visualizzare un messaggio di errore esplicativo in caso di inserimento nome \gloss{collezione} da modificare non esistente all'interno del sistema durante la procedura di modifica nome \gloss{collezione} & OK & OPF2.1.2.10 \\ 
   \hline
   TU.OBF2.1.2.11 & Si verifica che La CLI dovrà visualizzare un messaggio di errore esplicativo in caso di inserimento nome \gloss{collezione} da cancellare non esistente all'interno del sistema durante la procedura di cancellazione \gloss{collezione}   & OK & OBF2.1.2.11 \\
   \hline
