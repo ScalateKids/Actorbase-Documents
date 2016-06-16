@@ -2,16 +2,15 @@
 #+begin_src scala
   import com.actorbase.driver._
 
-  val auth = new ActorbaseDriver("localhost", 9999)
-  val client = auth.authenticate("foo", "bar") // athentication method
-  val coll = client.addCollection("people")
+  val auth = ActorbaseDriver("http://admin:Actorb4se@127.0.0.1:9999")
+  val coll = auth.addCollection("people")
   // just a "key" -> "value" pair
   coll.insert("key" -> "value")
   // creating a simple Person class
   case class Person(name: String, age: Int)
   // insert Person type object..
   coll.insert("Seagal" -> Person("Steven", 64))
-  //..and aother two
+  //..and another two
   coll.insert("Schwarzenegger" -> Person("Arnold", 68), "Stallone" -> Person("Sylvester", 70))
   // finally two totally different item
   coll.insert("Foo" -> 42, "bar" -> "baz")
@@ -22,61 +21,55 @@
   for ((k, v) <- coll.find("Arnold", "Foo")) {
     // operations...
   }
-
+  // class Person must be serialized
+  
   // get all collections owned on the database
-  val myCollections = client.getCollections
-  // drop collections 'customers' and 'people'
-  myCollections.drop("customers", "people")
+  val myCollections = auth.getCollections
+  // drop collection 'people'
+  myCollections.drop("people")
 #+end_src
 
 **** Modify user password
 #+begin_src scala
-scala> client.changePassword("oldpw", "newpw")
-res0: Boolean = true
+scala> auth.changePassword("newpw") 
 #+end_src
 
 **** Creating a new collection
 #+begin_src scala
-scala> client.addCollection("consumers")
+scala> auth.addCollection("consumers")
 res0: com.actorbase.driver.data.ActorbaseCollection
 #+end_src
 **** Listing collections
 #+begin_src scala
-scala> client.listCollections
+scala> auth.listCollections
 res0: List[String] = List("customers")
 #+end_src
 **** Inserting into a collection
 #+begin_src scala
-scala> client.getCollection("people").insert("keyOne" -> "valueOne", "keyTwo" -> 42)
+scala> auth.getCollection("people").insert("keyOne" -> "valueOne", "keyTwo" -> 42)
 res0: com.actorbase.driver.data.ActorbaseCollection
 
-scala> client.getCollection("people").insert(ActorbaseObject("obj" -> "inserting with object"))
+scala> auth.getCollection("people").insert(ActorbaseObject("obj" -> "inserting with object"))
 res1: com.actorbase.driver.data.ActorbaseCollection
 #+end_src
 
 **** Find into a collection
 #+begin_src scala
-scala> client.getCollection("people").find("keyOne" -> "valueOne", "keyTwo" -> 42)
-res0: com.actorbase.driver.data.ActorbaseCollection
-
-scala> client.getCollection("people").findOne("key" -> "value") // just a single value
-res1: com.actorbase.driver.data.ActorbaseObject
+scala> auth.find("keyOne", "people")
+res0: com.actorbase.driver.data.ActorbaseObject
 
 #+end_src
 
 **** Remove item
 #+begin_src scala
-scala> client.getCollection("people").remove("keyOne" -> "valueOne", "keyTwo" -> 42)
+scala> auth.getCollection("people").remove("people", "keyOne")
 res0: com.actorbase.driver.data.ActorbaseCollection
 
-scala>
-scala> client.getCollection("people").remove(ActorbaseObject("obj" -> "inserting with object"))
-res1: com.actorbase.driver.data.ActorbaseCollection
 #+end_src
 
 **** Printing a collection
 #+begin_src scala
-scala> println(client.getCollection("people"))
+scala> println(auth.getCollection("people"))
 {
   "owner": "foo",
   "collection": "people",
@@ -105,7 +98,7 @@ scala> println(client.getCollection("people"))
 
 **** Printing some collections
 #+begin_src scala
-scala> client.getCollections.foreach(println)
+scala> auth.getCollections.foreach(println)
 #+end_src
 
 **** Drop a collection
@@ -116,35 +109,35 @@ res0: Boolean = true
 
 **** Drop some collections
 #+begin_src scala
-scala> client.dropCollections
+scala> auth.dropCollections
 res0: Boolean = true
 
-scala> client.getCollections.drop
+scala> auth.getCollections.drop
 res0: Boolean = true
 #+end_src
 
 **** Count collections elements
 #+begin_src scala
-scala> println(client.getCollection("people").count)
+scala> println(auth.getCollection("people").count)
 res0: Int = 3
 #+end_src
 
 **** Import from file
 #+begin_src scala
-scala> client.importFromFile("foo/bar/baz.json")
+scala> auth.importFromFile("foo/bar/baz.json")
 res0: Boolean = true
 #+end_src
 **** Export to file
 #+begin_src scala
-scala> client.exportToFile("foo/bar/customers_people.json", "customers", "people")
+scala> auth.exportToFile("foo/bar/customers_people.json", "customers", "people")
 res0: Boolean = true
 
-scala> client.exportToFile("foo/bar/all_collections.json")
+scala> auth.exportToFile("foo/bar/all_collections.json")
 res1: Boolean = true
 #+end_src
 **** Contributor operations
 #+begin_src scala
-scala> val fooCollection = client.getCollection("foo")
+scala> val fooCollection = auth.getCollection("foo")
 scala> fooCollection.addContributor("aFriend", true) // add
 res0: Boolean = true
 
@@ -154,16 +147,16 @@ res1: Boolean = true
 
 **** Administrative operations
 #+begin_src scala
-scala> client.addUser("aUser")
+scala> auth.addUser("aUser")
 res0: Boolean = true
 
 scala> // remove
 
-scala> client.removeUser("aUser")
+scala> auth.removeUser("aUser")
 res1: Boolean = true
 
 scala> // reset
-scala> client.resetPassword("anotherUser")
+scala> auth.resetPassword("anotherUser")
 res1: Boolean = true
 #+end_src
 **** build.sbt server
