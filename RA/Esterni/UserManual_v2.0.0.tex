@@ -117,7 +117,7 @@ Every word that is in the glossary will be marked with a subscript ”G”.
 % TODO bisogna spiegare come devnoon essere formati i file pel l'import
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% CLI PART                         %%%
+%%%                          CLI part                            %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Actorbase by Command Line Interface}
 
@@ -161,13 +161,27 @@ To work properly an actorbase server instance must be running
 todo
 % TODO configurazione cli? da fare
 
-\subsection{}
+\subsection{Operations on collections not of your own}
+\label{sec:contributoroperations}
+If the user is a contributor to a collection the syntax to make every operations that involves selecting one or more 
+\gloss{collections} is a little different. When the user has to insert the name of a \gloss{collection} instead of 
+just typing \texttt{``<collection name>''} the user has to insert \texttt{``<collection owner username>.<collection name>''}.\\This way the user tells actorbase to operate on a collection not of his own.\\This is also to let the user to 
+create a \gloss{collection} with the same name of a \gloss{collection} of which he has access to but it is not of 
+his own. 
 
 \subsection{Operations}
 
 The following sections requires the actorbase CLI to be configured and
 running (see \hyperref[sec:configurationcli]{Configure CLI}).\\
-The features described are divided by the type of the user.
+The features described are divided by the type of the user.\\
+
+\subsubsection{Acceptable values}
+Every operations that accepts parameters like the collection name or the key of 
+an item has some limitations on the value:
+\begin{itemize}
+  \item Keys and collection names must contains only alphanumeric characters.
+\end{itemize}
+
 
 \subsubsection{Standard user operations}
 \label{sec:everyuser}
@@ -179,21 +193,6 @@ using this procedure.\\
 
 %\subsubsection{Unauthenticated user}
 %\label{sec:unauthenticateduser}
-
-\paragraph{Login} %TODO login c'è ancora?
-
-\textbf{Description:} this is the procedure an unauthenticated user must follow to authenticate.\\
-\textbf{How to:}
-\begin{itemize}
-\item Type \texttt{login <your username>}
-\item The CLI will ask you to insert your password (it will be masked during the typing)
-\item Type \texttt{<your password>}
-\item The CLI will display a message notifing the user if the login was successfull or not
-\end{itemize}
-\textbf{Possible errors:} the CLI will answer with self explanatory error messages
-\begin{itemize}
-\item If the credentials you entered are not recognized by the server
-\end{itemize}
 
 \paragraph{Help - generic help}
 \label{sec:generichelp}
@@ -297,7 +296,8 @@ to a \gloss{collection} of his own. The contributor will have the permission to 
 The filename the user insert can be a relative or absolute path; if the path is not present, it will be created.\\
 %todo davvero?
 The \gloss{collection} list can contain zero or more \gloss{collections}' name, if empty it will export 
-all the \gloss{collections} the user has access to (possibly resulting in an expensive operation).
+all the \gloss{collections} the user has access to (possibly resulting in an expensive operation).\\
+To export collections that you are contributor on see \hyperref[sec:contributoroperations]{contributor operations}.\\
 \textbf{How to:}
 \begin{itemize}
 \item Type \texttt{export ``<collection name1>'', ``<collection name2>'', ... , to ``<filename>''}
@@ -318,6 +318,7 @@ The <key> is a String representing the key of the item the user wants to insert.
 The <value> can be anything the user wants to insert and it represent the value of the item itself.\\
 If the user wants to insert the item in a non existing \gloss{collection} the server
 will automatically create that \gloss{collection}.\\
+To insert in a collection that you are contributor on see \hyperref[sec:contributoroperations]{contributor operations}.\\
 \textbf{How to:}
 \begin{itemize}
 \item Type \texttt{insert ( ``<key>'' -> ``<value>'' ) to ``<collection name>''}
@@ -336,6 +337,7 @@ The <key> is a String representing the key of the item the user wants to insert.
 The <value> can be anything the user wants to insert and it represent the value of the item itself.\\
 If the user wants to insert the item in a non existing \gloss{collection} the server
 will automatically create that \gloss{collection}.\\
+To insert in a collections that you are contributor on see \hyperref[sec:contributoroperations]{contributor operations}.\\
 \textbf{How to:}
 \begin{itemize}
 \item Type \texttt{update ( ``<key>'' -> ``<value>'' ) to ``<collection name>''}
@@ -364,7 +366,8 @@ The file has to be formatted as specified in (see \hyperref[sec:JSONFormat]{JSON
 \paragraph{Remove item}
 \label{sec:removeitem}
 \textbf{Description:} this feature allows the user to remove an item from a \gloss{collection}.\\
-<key> represents the key of the item the user wants to remove from the \gloss{collection}.
+<key> represents the key of the item the user wants to remove from the \gloss{collection}.\\
+To remove items from collections that you are contributor on see \hyperref[sec:contributoroperations]{contributor operations}.\\
 \textbf{How to:}
 \begin{itemize}
 \item Type \texttt{remove ``<key>'' from ``<collection name>''}
@@ -377,6 +380,7 @@ The file has to be formatted as specified in (see \hyperref[sec:JSONFormat]{JSON
 \paragraph{Find item}
 \label{sec:find}
 \textbf{Description:} this feature allows the user to search for particular items in the database. There are different types of search based on the parameters typed.\\
+To search from collections that you are contributor on see \hyperref[sec:contributoroperations]{contributor operations}.\\
 
 \subparagraph{Search items in one or more collections}
 \textbf{Description:} this feature lets the user search for an item in one or more \gloss{collections}; 
@@ -433,20 +437,12 @@ This operation could be expensive.\\
 \item If the repeated new password is no the same as the new password typed before.
 \end{itemize}
 
-\paragraph{Logout} %todo c'è?
-\label{sec:logout}
-\textbf{Description:} this feature allows the user to logout from the server becoming an unauthenticated user.\\
-\textbf{How to:}
-\begin{itemize}
-\item Type \texttt{logout}
-\end{itemize}
-
-\subsubsection{Administrator user}
+\subsubsection{Administrator user operations}
 \label{sec:administratoruser}
 
 \paragraph{Add user}
 \label{sec:adduser}
-\textbf{Description:} this feature allows the administrator to add a new user to the database with a default password (see \hyperref[sec:passwordrequirement]{password section}.\\
+\textbf{Description:} this feature allows the administrator to add a new user to the database with a default password (see \hyperref[sec:passwordrequirement]{password section}).\\
 \textbf{How to:}
 \begin{itemize}
 \item Type \texttt{addUser ``<username>''}
@@ -462,7 +458,7 @@ This operation could be expensive.\\
 
 \paragraph{Reset password}
 \label{sec:resetpassword}
-\textbf{Description:} this feature allows the administrator to change the password of an user to the one that was set by default (see \hyperref[sec:passwordrequirement]{password section}.\\
+\textbf{Description:} this feature allows the administrator to change the password of an user to the one that was set by default (see \hyperref[sec:passwordrequirement]{password section}).\\
 \textbf{How to:}
 \begin{itemize}
 \item Type \texttt{resetPassword ``<username>''}
@@ -479,7 +475,7 @@ used for import data to filesystem, e.g.:
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/JSONformat.png}
+    \includegraphics[width=0.5\textwidth,keepaspectratio]{RQ/JSONformat.png}
     \caption{JSON well-formatted file}
   \end{center}
 \end{figure}
