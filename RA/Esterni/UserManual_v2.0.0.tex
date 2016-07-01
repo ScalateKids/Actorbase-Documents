@@ -61,6 +61,10 @@
     \hline
     2.0.0 & Davide Trevisan & Project Manager & 2016-06-15 & Document Approved\\
     \hline
+    1.2.0 & Michael Munaro & Verifier & 2016-07-02 & Verified changes on section 2\\
+    \hline
+    1.1.1 & Alberto De Agostini & Programmer & 2016-07-01 & Modified section 2 to reflect changes on CLI\\
+    \hline
     1.1.0 & Michael Munaro & Verifier & 2016-06-30 & Verified glossary\\
     \hline
     1.0.1 & Alberto De Agostini & Programmer & 2016-05-30 & Added glossary\\
@@ -117,13 +121,12 @@ Every word that is in the glossary will be marked with a subscript ”G”.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Actorbase by Command Line Interface}
 
-\subsection{DSL} %TODO vedete voi se aggiungerci qualcosa, best english in the document atm z.z
+\subsection{DSL}
 
 The DSL (Domain System Language), upon which the \textit{actorbase} CLI (Command
 Line Interface) is based, has been developed trying to make it as close as possible
 to spoken English in order to make it easier to understand.
 
-% TODO scrivere in caso di errore cosa succede.. tipo errori di typo e connessione, best english in the document atm z.z
 \subsection{Error management}
 
 There are two kinds of errors that are shared by every command which will be
@@ -140,12 +143,12 @@ There are some errors that are specific to some commands, these will be explaine
 in the section dedicated to the commands that cause them.
 
 % TODO scrivere anche i tipi di dato possibili da inserire? tipo le stringhe devono essere in " ", permission su addcontributor può essere vuoto, r o rw ecc
-% TODO scrivere i requisiti delle password di actorbase
 
 \subsection{Password requirements}
 \label{sec:passwordrequirement}
 Every password must contain at least one uppercase, one lowercase letter and one
-digit and be at least 8 characters long.
+digit and be at least 8 characters long.\\
+The default password of actorbase for users that are just added or after a password reset is \texttt{Actorb4se}.
 
 \subsection{Configuration of the actorbase CLI}
 \label{sec:configurationcli}
@@ -153,7 +156,12 @@ The \textit{actorbase} CLI is designed specifically to operate
 with the actorbase server software.\\
 To work properly an actorbase server instance must be running
 (anywhere) and the user must configurate the access point on the configuration file.
+
+\subsection{Running the actorbase CLI}
+todo
 % TODO configurazione cli? da fare
+
+\subsection{}
 
 \subsection{Operations}
 
@@ -169,10 +177,10 @@ The features described are divided by the type of the user.
 using this procedure.\\
 \textbf{How to:} type \texttt{exit} on the CLI
 
-\subsubsection{Unauthenticated user}
-\label{sec:unauthenticateduser}
+%\subsubsection{Unauthenticated user}
+%\label{sec:unauthenticateduser}
 
-\paragraph{Login}
+\paragraph{Login} %TODO login c'è ancora?
 
 \textbf{Description:} this is the procedure an unauthenticated user must follow to authenticate.\\
 \textbf{How to:}
@@ -192,23 +200,23 @@ using this procedure.\\
 \textbf{Description:} this feature allows the user to ask for help.\\
 The CLI will answer with a list of all the possible operations alongside
 their right syntax.\\
-The list of functionalities differs with the user type (e.g. authenticated user has more features than an unauthenticated one).\\
+%The list of functionalities differs with the user type (e.g. authenticated user has more features than an unauthenticated one).\\
 \textbf{How to:}
 \begin{itemize}
 \item Type \texttt{help}
 \item The CLI will display a help message
 \end{itemize}
 
-\subsubsection{Authenticated user}
-\label{sec:authenticateduser}
+%\subsubsection{Authenticated user}
+%\label{sec:authenticateduser}
 
-\paragraph{Help - generic help}
+%\paragraph{Help - generic help}
 
-See \hyperref[sec:generichelp]{Generic help}
+%See \hyperref[sec:generichelp]{Generic help}
 
 \paragraph{Help - specific help}
 \label{sec:specifichelp}
-\textbf{Description:} this feature allows the authenticated user to ask for help for
+\textbf{Description:} this feature allows the user to ask for help for
 a specific command.\\
 The CLI will answer with a message explaining how to use that command and
 which parameters it needs.\\
@@ -228,7 +236,7 @@ which parameters it needs.\\
 \gloss{collection} into the database.\\
 \textbf{How to:}
 \begin{itemize}
-\item Type \texttt{createCollection <collection name>}
+\item Type \texttt{createCollection ``<collection name>''}
 \item The CLI will display a message explaining how to use the command and what parameters it needs
 \end{itemize}
 \textbf{Possible errors:} the CLI will answer with self explanatory error messages
@@ -247,26 +255,12 @@ the \gloss{collections} he has permission on.\\
   permission on
 \end{itemize}
 
-\paragraph{Rename a collection}
-\label{sec:renamecollection}
-\textbf{Description:} this feature allows the user to rename a
-\gloss{collection} of his own.\\
-\textbf{How to:}
-\begin{itemize}
-\item Type \texttt{renameCollection <old collection name> to <new collection name>}
-\end{itemize}
-\textbf{Possible errors:} the CLI will answer with self explanatory error messages
-\begin{itemize}
-\item If the old \gloss{collection} name the user typed correspond with no \gloss{collection} inside the actorbase server
-\item If the new \gloss{collection} name the user typed is already taken by a \gloss{collection} inside the actorbase server
-\end{itemize}
-
 \paragraph{Delete a collection}
 \label{sec:deletecollection}
 \textbf{Description:} this feature allows the user to remove a \gloss{collection} and all the items inside it from the database.\\
 \textbf{How to:}
 \begin{itemize}
-\item Type \texttt{deleteCollection <collection name>}
+\item Type \texttt{deleteCollection ``<collection name>''}
 \end{itemize}
 
 \paragraph{Add a contributor to a collection}
@@ -275,13 +269,13 @@ the \gloss{collections} he has permission on.\\
 to a \gloss{collection} of his own. The contributor will have the permission to operate on the selected \gloss{collection} depending on the what permissions the user decide to give him.\\
 \textbf{How to:}
 \begin{itemize}
-\item Type \texttt{addContributor <username> <permissions> to <collection name>}
+\item Type \texttt{addContributor ``<username>'' to ``<collection name>'' <ReadOnly|ReadWrite>}
 \end{itemize}
 \textbf{Possible errors:} the CLI will answer with self explanatory error messages
 \begin{itemize}
 \item If the \gloss{collection} the user wants to add the contributor to does not exists on the server or it is not a \gloss{collection} the user own
 \item If the username the user typed does not correspond with a user registered in actorbase
-\item If the permissions the user typed are not possible permissions
+\item If the permissions the user typed are not ReadOnly or ReadWrite
 \end{itemize}
 
 \paragraph{Remove contributor from a collection}
@@ -289,7 +283,7 @@ to a \gloss{collection} of his own. The contributor will have the permission to 
 \textbf{Description:} this feature allows the user to remove a contributor from a \gloss{collection} of his own.\\
 \textbf{How to:}
 \begin{itemize}
-\item Type \texttt{removeContributor <username> from <collection name>}
+\item Type \texttt{removeContributor ``<username>'' from ``<collection name>''}
 \end{itemize}
 \textbf{Possible errors:} the CLI will answer with self explanatory error messages
 \begin{itemize}
@@ -300,11 +294,13 @@ to a \gloss{collection} of his own. The contributor will have the permission to 
 \paragraph{Export one or more collections to file}
 \label{sec:export}
 \textbf{Description:} this feature allows the user to export one or more \gloss{collections} he has access to.\\
-The filename the user insert can be a relative or absolute path; if the path is not present, the file will be created at the user local work directory.\\
-The \gloss{collection} list can contain zero or more \gloss{collections}' name, if empty it will export all the \gloss{collections} the user has access to (possibly resulting in an expensive operation).
+The filename the user insert can be a relative or absolute path; if the path is not present, it will be created.\\
+%todo davvero?
+The \gloss{collection} list can contain zero or more \gloss{collections}' name, if empty it will export 
+all the \gloss{collections} the user has access to (possibly resulting in an expensive operation).
 \textbf{How to:}
 \begin{itemize}
-\item Type \texttt{export <collection name1>, <collection name2>, ... , to <filename>}
+\item Type \texttt{export ``<collection name1>'', ``<collection name2>'', ... , to ``<filename>''}
 \end{itemize}
 \textbf{Possible errors:} the CLI will answer with self explanatory error messages
 \begin{itemize}
@@ -317,35 +313,52 @@ The produced JSON file follow some rules explained in \hyperref[sec:JSONFormat]{
 \paragraph{Insert item}
 \label{sec:insertitem}
 \textbf{Description:} this feature allows the user to insert an item in a particular \gloss{collection}.\\
-The last parameter ( o ) can be omitted; if omitted the insert operation will not overwrite existing items with the same key. It will overwrite them otherwise. \\
+With this command it's not possible to overwrite an item, to do that see \hyperref[sec:updateditem]{Update item}.\\
 The <key> is a String representing the key of the item the user wants to insert.\\
 The <value> can be anything the user wants to insert and it represent the value of the item itself.\\
 If the user wants to insert the item in a non existing \gloss{collection} the server
 will automatically create that \gloss{collection}.\\
 \textbf{How to:}
 \begin{itemize}
-\item Type \texttt{insert ( <key> -> <value> ) to <collection name> o}
+\item Type \texttt{insert ( ``<key>'' -> ``<value>'' ) to ``<collection name>''}
 \end{itemize}
 \textbf{Possible errors:} the CLI will answer with self explanatory error messages
 \begin{itemize}
-\item If the \gloss{collection} the user wants to insert the item in does not exist or user has not permission to write on it
+\item If the \gloss{collection} the user wants to insert the item in a \gloss{collection} in which he is a contributor with no write premissions
 \item If the user decides to insert an item with an already existing key in that \gloss{collection} and the overwrite option has not been chosen.
+\end{itemize}
+
+\paragraph{Update item}
+\label{sec:updateitem}
+\textbf{Description:} this feature allows the user to insert an item in a particular \gloss{collection}.\\
+With this command it's possible to overwrite an item already existing.\\
+The <key> is a String representing the key of the item the user wants to insert.\\
+The <value> can be anything the user wants to insert and it represent the value of the item itself.\\
+If the user wants to insert the item in a non existing \gloss{collection} the server
+will automatically create that \gloss{collection}.\\
+\textbf{How to:}
+\begin{itemize}
+\item Type \texttt{update ( ``<key>'' -> ``<value>'' ) to ``<collection name>''}
+\end{itemize}
+\textbf{Possible errors:} the CLI will answer with self explanatory error messages
+\begin{itemize}
+\item If the \gloss{collection} the user wants to insert the item in a \gloss{collection} in which he is a contributor with no write premissions
 \end{itemize}
 
 \paragraph{Import from file}
 \label{sec:import}
 \textbf{Description:} this feature allows the user to insert a list of \gloss{collections} and items from a file.\\
-The file has to be formatted as specified in (see \hyperref[sec:JSONFormat]{JSON format})\\%TODO mettere link to sezione giusta
+The file has to be formatted as specified in (see \hyperref[sec:JSONFormat]{JSON format})\\
 \textbf{How to:}
 \begin{itemize}
-\item Type \texttt{import <path/to/filename>}
+\item Type \texttt{import ``<path/to/filename>''}
 \end{itemize}
 \textbf{Possible errors:} the CLI will answer with self explanatory error messages
 \begin{itemize}
 \item If the file is not a JSON file
-\item If the file is not formatted as specified in \hyperref[sec:JSONFormat]{JSON format}%TODO link a sezione
+\item If the file is not formatted as specified in \hyperref[sec:JSONFormat]{JSON format}
 \item If the file specified the creation of \gloss{collection} that the user can not create (see \hyperref[sec:createcollection]{create collection})
-\item If the file specified the insertion of items that the user can not insert (see \hyperref[sec:JSONFormat]{JSON format})
+\item If the file specified the insertion of items that the user can not insert
 \end{itemize}
 
 \paragraph{Remove item}
@@ -354,7 +367,7 @@ The file has to be formatted as specified in (see \hyperref[sec:JSONFormat]{JSON
 <key> represents the key of the item the user wants to remove from the \gloss{collection}.
 \textbf{How to:}
 \begin{itemize}
-\item Type \texttt{remove <key> from <collection name>}
+\item Type \texttt{remove ``<key>'' from ``<collection name>''}
 \end{itemize}
 \textbf{Possible errors:} the CLI will answer with self explanatory error messages
 \begin{itemize}
@@ -366,28 +379,29 @@ The file has to be formatted as specified in (see \hyperref[sec:JSONFormat]{JSON
 \textbf{Description:} this feature allows the user to search for particular items in the database. There are different types of search based on the parameters typed.\\
 
 \subparagraph{Search items in one or more collections}
-\textbf{Description:} this feature lets the user search for an item in one or more \gloss{collections}; the user must have the permission to read these \gloss{collections}.\\
+\textbf{Description:} this feature lets the user search for an item in one or more \gloss{collections}; 
+the user must have the permission to read these \gloss{collections}.\\
 \textbf{How to:}
 \begin{itemize}
-\item Type \texttt{find <key> from <collection name 1>, <collection name 2>, ... , <collection name N>}
+\item Type \texttt{find ``<key>'' from ``<collection name 1>'', ``<collection name 2>'', ... , ``<collection name N>''}
 \end{itemize}
 \textbf{Possible errors:} the CLI will answer with self explanatory error messages
 \begin{itemize}
-\item If at least one of the \gloss{collections} does not exist on the server
+\item If at least one of the \gloss{collections} does not exist on the server or if the user has not read permission on some of the \gloss{collections}
 \end{itemize}
 
 \subparagraph{Search items in the entire database}
 \textbf{Description:} this feature lets the user search for an item in the entire database visible to him.\\
 \textbf{How to:}
 \begin{itemize}
-\item Type \texttt{find <key>}
+\item Type \texttt{find ``<key>''}
 \end{itemize}
 
 \subparagraph{Search for all the items of one or more collections}
 \textbf{Description:} this feature lets the user retrieve all the items contained in one or more \gloss{collections}.\\
 \textbf{How to:}
 \begin{itemize}
-\item Type \texttt{find from <collection name 1>, <collection name 2>, ... , <collection name N>}
+\item Type \texttt{find from ``<collection name 1>'', ``<collection name 2>'', ... , ``<collection name N>''}
 \end{itemize}
 \textbf{Possible errors:} the CLI will answer with self explanatory error messages
 \begin{itemize}
@@ -407,15 +421,19 @@ This operation could be expensive.\\
 \textbf{Description:} this feature allows the user to change his password.\\
 \textbf{How to:}
 \begin{itemize}
-\item Type \texttt{changePassword ``<old password>'' ``<new password>''}
+\item Type \texttt{changePassword}
+\item Type \texttt{``<old password>''}
+\item Type \texttt{``<new password>''}
+\item Type \texttt{``<repeat new password>''}
 \end{itemize}
 \textbf{Possible errors:} the CLI will answer with self explanatory error messages
 \begin{itemize}
 \item If the old password typed was wrong
-\item If the new password typed doesn't follow the rules explained \hyperref[sec:passwordrequirement]{here}.
+\item If the new password typed doesn't follow the rules explained \hyperref[sec:passwordrequirement]{here}
+\item If the repeated new password is no the same as the new password typed before.
 \end{itemize}
 
-\paragraph{Logout}
+\paragraph{Logout} %todo c'è?
 \label{sec:logout}
 \textbf{Description:} this feature allows the user to logout from the server becoming an unauthenticated user.\\
 \textbf{How to:}
@@ -428,10 +446,10 @@ This operation could be expensive.\\
 
 \paragraph{Add user}
 \label{sec:adduser}
-\textbf{Description:} this feature allows the administrator to add a new user to the database with a default password.\\
+\textbf{Description:} this feature allows the administrator to add a new user to the database with a default password (see \hyperref[sec:passwordrequirement]{password section}.\\
 \textbf{How to:}
 \begin{itemize}
-\item Type \texttt{addUser <username>}
+\item Type \texttt{addUser ``<username>''}
 \end{itemize}
 
 \paragraph{Remove user}
@@ -439,15 +457,15 @@ This operation could be expensive.\\
 \textbf{Description:} this feature allows the administrator to remove an user from the database.\\
 \textbf{How to:}
 \begin{itemize}
-\item Type \texttt{removeUser <username>}
+\item Type \texttt{removeUser ``<username>''}
 \end{itemize}
 
 \paragraph{Reset password}
 \label{sec:resetpassword}
-\textbf{Description:} this feature allows the administrator to change the password of an user to the one that was set by default.\\
+\textbf{Description:} this feature allows the administrator to change the password of an user to the one that was set by default (see \hyperref[sec:passwordrequirement]{password section}.\\
 \textbf{How to:}
 \begin{itemize}
-\item Type \texttt{resetPassword <username>}
+\item Type \texttt{resetPassword ``<username>''}
 \end{itemize}
 
 \newpage
