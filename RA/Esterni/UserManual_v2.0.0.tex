@@ -150,16 +150,21 @@ Every password must contain at least one uppercase, one lowercase letter and one
 digit and be at least 8 characters long.\\
 The default password of actorbase for users that are just added or after a password reset is \texttt{Actorb4se}.
 
-\subsection{Configuration of the actorbase CLI}
+\subsection{Configuration of the actorbase CLI} %TODO da fare
 \label{sec:configurationcli}
 The \textit{actorbase} CLI is designed specifically to operate
 with the actorbase server software.\\
 To work properly an actorbase server instance must be running
 (anywhere) and the user must configurate the access point on the configuration file.
 
-\subsection{Running the actorbase CLI}
-todo
-% TODO configurazione cli? da fare
+\subsection{Running the actorbase CLI} % TODO da fare
+To run the Actorbase CLI some requirements needs to be fullfilled before starting it.\\
+The user has to download and install all the software requirements (see link) and an instance of 
+actorbase server must be running.\\
+When all those requirements are fullfilled to start the CLI the use has to open a terminal and type:\\
+\begin{center}
+  \texttt{java -jar <pathToActorbaseCLIJar>}
+\end{center} 
 
 \subsection{Operations on collections not of your own}
 \label{sec:contributoroperations}
@@ -185,8 +190,8 @@ an item has some limitations on the value:
 
 \subsubsection{Standard user operations}
 \label{sec:everyuser}
-\paragraph{Exit from CLI}
 
+\paragraph{Exit from CLI}
 \textbf{Description:} every user can exit from the actorbase CLI
 using this procedure.\\
 \textbf{How to:} type \texttt{exit} on the CLI
