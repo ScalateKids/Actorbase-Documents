@@ -748,14 +748,14 @@ linee di commento, suddivisi per modulo:
 Inoltre tutti i rapporti commento su codice dei singoli file soddisfano il range ottimale.
 
 \paragraph{Copertura del codice}
-Di seguito viene riportata la copertura dei test espressa in percentuale, affiancata dal rapporto coperte/totali. Si fa presente che la maggior parte del codice non coperto da test è composto da metodi banali (si pensi ai getter o setter). Nel caso del  modulo driver è stato riportato il risultato del solo package client e di ActorbaseDriver, in quanto gli altri package falsavano pesantemente la metrica per i motivi sopra citati. Per lo stesso motivo in Actorsystem si è tenuto conto del solo package actor.
+Di seguito viene riportata la copertura dei test espressa in percentuale, affiancata dal rapporto coperte/totali. Si fa presente che la maggior parte del codice non coperto da test è composto da metodi banali (si pensi ai getter o setter). Nel caso del  modulo driver è per questo motivo non si è tenuto conto nel totale riportato dei package data e exception, in quanto falsavano pesantemente la metrica per i motivi sopra citati. Per lo stesso motivo in Actorsystem si è tenuto conto del solo package actor.
 \begin{center}
 	\begin{tabular}{| c | c | c | c |}
 		\hline
 		Modulo & \% delle classi & \% dei metodi & \% delle linee \\
 		\hline
 		\textbf{Cli} & 89\%(98/116) & 69\%(149/214) & 67\%(245/363) \\
-		\textbf{Driver} &  62\%(42/68) & 47\%(90/206) & 60\%(215/366)\\
+		\textbf{Driver} &  62\%(48/77) & 51\%(117/228) & 59\%(313/533)\\
 		\textbf{Actorsystem} & 83\%(152/182) & 68\%(609/895) & 71\%(547/771)\\
 		\hline
 	\end{tabular}
