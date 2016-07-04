@@ -71,6 +71,11 @@ scala> client.insertTo("people", false, "key" -> "value")("mike")
 scala> client.find("keyOne", "people")
 res0: com.actorbase.driver.data.ActorbaseObject
 
+scala> client.findFrom("key", "people")("owner") // from admin, or a contributor
+res1: com.actorbase.driver.data.ActorbaseObject
+
+scala> coll.findOne("key") // from inside an ActorbaseCollection object
+res2: com.actorbase.driver.data.ActorbaseObject
 #+end_src
 
 **** Remove item
@@ -78,6 +83,8 @@ res0: com.actorbase.driver.data.ActorbaseObject
 scala> client.getCollection("people").remove("people", "keyOne")
 res0: com.actorbase.driver.data.ActorbaseCollection
 
+scala> client.removeFrom("people", "customers")("owner") // remove people an customer owned by owner
+res1: com.actorbase.driver.data.ActorbaseCollection
 #+end_src
 
 **** Printing a collection
