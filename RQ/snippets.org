@@ -48,7 +48,8 @@ res0: com.actorbase.driver.data.ActorbaseCollection
 **** Listing collections
 #+begin_src scala
 scala> client.listCollections
-res0: List[String] = List(Map("anonymous" -> List("customers", 0)))//owner -> (collections, size in bytes)
+res0: List[String] = List(Map("anonymous" -> List("customers", 0)))
+// owner -> (collections, size in bytes)
 #+end_src
 **** Inserting into a collection
 #+begin_src scala
