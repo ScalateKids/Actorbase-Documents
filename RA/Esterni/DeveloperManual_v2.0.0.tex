@@ -208,6 +208,13 @@ running:
 \newpage
 \textbf{Configuration sample}
 
+Being an akka based application, it is possible to customize and tweak all
+aspects of the actor model engine by providing a custom \textit{application.conf}, as
+explained at
+\url{http://doc.akka.io/docs/akka/2.4.7/general/configuration.html#Listing_of_the_Reference_Configuration}.
+In addition to the standard configuration provided for akka applications, there are some attributes specific
+of Actorbase:
+
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Actorbase-Config.png}
@@ -223,11 +230,11 @@ distribution of the load between multiple nodes in a \gloss{cluster}, \textbf{Ac
 \gloss{cluster} configurations offered by Akka library.
 
 \newpage
-\textbf{Cluster configuration sample}
+\textbf{Default configuration sample}
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Cluster-Config.png}
+    \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Default-Config.png}
     \caption{Actorbase: cluster configuration sample}
   \end{center}
 \end{figure}
@@ -245,19 +252,20 @@ balancing load between multiple nodes as shown below:
   \end{center}
 \end{figure}
 
-For every incoming connection a dedicated \gloss{actor}, named \gloss{clientactor},
-is spawned; it is responsible for all incoming requests from the
-client that is connected, and his main role is to forward these requests directly to the
-\gloss{main} \gloss{actors} equally distributed across the nodes of a
-\gloss{cluster}. In this way, with \gloss{main} \gloss{actors} breeding
-their own hierarchy of subordinates, all incoming data is spread across the
-\gloss{cluster} network.
+For every incoming connection a dedicated \gloss{actor}, named
+\gloss{clientactor}, is spawned; it is responsible for all incoming requests
+from the client that is connected, and his main role is to forward these
+requests directly to the \gloss{main} \gloss{actors} equally distributed across
+the nodes of a \gloss{cluster} using cluster-sharding extension of Akka library.
+In this way, with \gloss{main} \gloss{actors} breeding their own hierarchy of
+subordinates, all incoming data is spread across the \gloss{cluster} network.
 
 \subsubsection{Building from sources}
 
-\textbf{Actorbase} was conceived and developed using SBT (Simple Building Tool) as building and dependencies
-manager tool making the compilation and building from sources extremely easy to achieve just by adding a
-\verb=build.sbt= file inside a Maven-like folder tree:
+\textbf{Actorbase} was conceived and developed using SBT (Simple Building Tool)
+as building and dependencies manager tool making the compilation and building
+from sources extremely easy to achieve just by adding a \verb=build.sbt= file
+inside a Maven-like folder tree:
 
 \textbf{Server side}
 
@@ -280,21 +288,18 @@ manager tool making the compilation and building from sources extremely easy to 
 As shown in the image, there are some external libraries needed to build the system:
 \begin{itemize}
 \item \textbf{Spray:} (\url{http://spray.io/}) An open source toolkit for building REST/HTTP-based
-integration layers on top of Scala and Akka; mainly used for the server
-component in order to expose communication API and to
-\gloss{Marshall} database contents.
-\item \textbf{scala-pickling:} (\url{http://lampwww.epfl.ch/~hmiller/pickling/}) An authomatic serialization framework made for
-Scala; mainly used in the driver component in order to serialize and
-deserialize objects in a fast and transparent way;
+  integration layers on top of Scala and Akka; mainly used for the server
+  component in order to expose communication API and to
+  \gloss{Marshall} database contents.
 \item \textbf{scalaj-http:} (\url{https://github.com/scalaj/scalaj-http}) A fairly simple http library for Scala, used in the
-driver component in order to establish a communication with the REST API server;\
+  driver component in order to establish a communication with the REST API server;\
 \item \textbf{json4s:} (\url{http://json4s.org/}) Used in the driver component to expose a pretty formatted
-JSON (JavaScript Object Notation) version of the data retrieved from the server;
+  JSON (JavaScript Object Notation) version of the data retrieved from the server;
 \item \textbf{scala-bcrypt:} (\url{https://github.com/t3hnar/scala-bcrypt}) Scala version of the encryption library Bcrypt,
-used on the server side to store hashes of sensitive data;
+  used on the server side to store hashes of sensitive data;
 \item \textbf{Akka:} (\url{http://akka.io/}) A toolkit and runtime environment to build highly concurrent,
-distributed, and resilient message-driven applications on the JVM;\ it is the core of
-the system and it is used in the server-side component.
+  distributed, and resilient message-driven applications on the JVM;\ it is the core of
+  the system and it is used in the server-side component.
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -303,8 +308,8 @@ the system and it is used in the server-side component.
 
 \subsection{ActorbaseDriver: Using Actorbase from inside a Scala source}
 
-Actorbase is essentially an \gloss{actor} system built upon a server component that
-exposes some API forming a RESTful web service. To facilitate the use from
+Actorbase is essentially an \gloss{actor} system built upon a server component
+that exposes some API forming a RESTful web service. To facilitate the use from
 inside a Scala source, a driver has been developed in order to allow the
 usage of all features that \textbf{Actorbase} provides.\\
 
@@ -380,8 +385,8 @@ give the possibility to call all collection-management methods:
 
 \begin{itemize}
 \item \verb=listCollection=, lists all \gloss{collections}
-contained in the database, these are the \gloss{collections}
-owned by the profile of the applicant, including the ones he is a contributor of.
+  contained in the database, these are the \gloss{collections}
+  owned by the profile of the applicant, including the ones he is a contributor of.
 \item \verb=addCollection= method:\\ Create a new \gloss{collection} into \textbf{Actorbase}, accepting a \verb=String=
   representing the name of the new \gloss{collection};
   e.g.:

@@ -1,17 +1,23 @@
 **** Driver usage: Generic example
 #+begin_src scala
   import com.actorbase.driver._
+  import scala.pickling._, Defaults._
+  import scala.pickling.binary._
 
-  val auth = ActorbaseDriver("http://admin:Actorb4se@127.0.0.1:9999")
-  val coll = auth.addCollection("people")
+  val client = ActorbaseDriver()
+  val coll = client.addCollection("people")
   // just a "key" -> "value" pair
   coll.insert("key" -> "value")
   // creating a simple Person class
   case class Person(name: String, age: Int)
+  // class Person must be serialized
+  // e.g. with scala pickling
+  val steven = Person("Steven", 64).pickle.value // here we have an array of bytes serialized ready to be stored
+  val sylvester = Person("Steven", 70).pickle.value // here we have an array of bytes serialized ready to be stored
   // insert Person type object..
-  coll.insert("Seagal" -> Person("Steven", 64))
+  coll.insert("Seagal" -> steven)
   //..and another two
-  coll.insert("Schwarzenegger" -> Person("Arnold", 68), "Stallone" -> Person("Sylvester", 70))
+  coll.insert("Schwarzenegger" -> Person("Arnold", 68), "Stallone" -> sylvester)
   // finally two totally different item
   coll.insert("Foo" -> 42, "bar" -> "baz")
   // printing all collection contents
@@ -21,59 +27,65 @@
   for ((k, v) <- coll.find("Arnold", "Foo")) {
     // operations...
   }
-  // class Person must be serialized
-  
+  // using find and as to read contents
+  val content = coll.find("Foo").as[Int]("Foo") // content = 42
   // get all collections owned on the database
-  val myCollections = auth.getCollections
+  val myCollections = client.getCollections
   // drop collection 'people'
   myCollections.drop("people")
 #+end_src
 
 **** Modify user password
 #+begin_src scala
-scala> auth.changePassword("newpw") 
+scala> client.changePassword("newpw")
 #+end_src
 
 **** Creating a new collection
 #+begin_src scala
-scala> auth.addCollection("consumers")
+scala> client.addCollection("consumers")
 res0: com.actorbase.driver.data.ActorbaseCollection
 #+end_src
 **** Listing collections
 #+begin_src scala
-scala> auth.listCollections
-res0: List[String] = List("customers")
+scala> client.listCollections
+res0: List[String] = List(Map("anonymous" -> List("customers", 0))) // owner -> (collections, size in bytes)
 #+end_src
 **** Inserting into a collection
 #+begin_src scala
-scala> auth.getCollection("people").insert("keyOne" -> "valueOne", "keyTwo" -> 42)
+scala> client.getCollection("people").insert("keyOne" -> "valueOne", "keyTwo" -> 42)
 res0: com.actorbase.driver.data.ActorbaseCollection
 
-scala> auth.getCollection("people").insert(ActorbaseObject("obj" -> "inserting with object"))
+scala> client.getCollection("people").insert(ActorbaseObject("obj" -> "inserting with object"))
 res1: com.actorbase.driver.data.ActorbaseCollection
+
+scala> client.insert("people", false, "key" -> "value") // insert without update to collection "people"
+
+scala> client.insertTo("people", false, "key" -> "value")("mike") // insert without update to collection "people" owned by user mike
+                                                                  // just in case of being a contributor with write permissions, or admin
 #+end_src
 
 **** Find into a collection
 #+begin_src scala
-scala> auth.find("keyOne", "people")
+scala> client.find("keyOne", "people")
 res0: com.actorbase.driver.data.ActorbaseObject
 
 #+end_src
 
 **** Remove item
 #+begin_src scala
-scala> auth.getCollection("people").remove("people", "keyOne")
+scala> client.getCollection("people").remove("people", "keyOne")
 res0: com.actorbase.driver.data.ActorbaseCollection
 
 #+end_src
 
 **** Printing a collection
 #+begin_src scala
-scala> println(auth.getCollection("people"))
+scala> println(client.getCollection("people"))
 {
   "owner": "foo",
-  "collection": "people",
-  "map": {
+  "contributors": {},
+  "collectionName": "people",
+  "data": {
     "bar": "baz",
     "Foo": 42,
     "Seagal": {
@@ -98,22 +110,22 @@ scala> println(auth.getCollection("people"))
 
 **** Printing some collections
 #+begin_src scala
-scala> auth.getCollections.foreach(println)
+scala> client.getCollections.foreach(println)
 #+end_src
 
 **** Drop a collection
 #+begin_src scala
 scala> coll.drop
-res0: Boolean = true
 #+end_src
 
 **** Drop some collections
 #+begin_src scala
-scala> auth.dropCollections
-res0: Boolean = true
+scala> client.dropCollections
 
-scala> auth.getCollections.drop
-res0: Boolean = true
+scala> client.getCollections.drop
+
+scala> client.dropCollections("customers", "people")
+
 #+end_src
 
 **** Count collections elements
@@ -124,66 +136,70 @@ res0: Int = 3
 
 **** Import from file
 #+begin_src scala
-scala> auth.importFromFile("foo/bar/baz.json")
-res0: Boolean = true
+scala> client.importData("foo/bar/baz.json")
+
 #+end_src
 **** Export to file
 #+begin_src scala
-scala> auth.exportToFile("foo/bar/customers_people.json", "customers", "people")
-res0: Boolean = true
+scala> client.exportData("foo/bar/customers_people.json", "customers", "people")
 
-scala> auth.exportToFile("foo/bar/all_collections.json")
-res1: Boolean = true
+scala> client.exportData("foo/bar/all_collections.json")
+
 #+end_src
 **** Contributor operations
 #+begin_src scala
-scala> val fooCollection = auth.getCollection("foo")
+scala> val fooCollection = client.getCollection("foo")
+
 scala> fooCollection.addContributor("aFriend", true) // add
-res0: Boolean = true
 
 scala> fooCollection.removeContributor("aFriend", true) // remove
-res1: Boolean = true
+
+scala> client.addContributor("aFriend", "people", false) // aFriend is now contributor of collection "people" with read-only permissions
+
+scala> client.addContributor("aFriend", "people", false, "mike") // administrator operation: aFriend is now contributor of collection
+                                                                 // "people" with read-only permissions to the collection owned by mike
 #+end_src
 
 **** Administrative operations
 #+begin_src scala
-scala> auth.addUser("aUser")
-res0: Boolean = true
+scala> client.addUser("aUser")
 
-scala> // remove
+scala> client.removeUser("aUser")
 
-scala> auth.removeUser("aUser")
-res1: Boolean = true
-
-scala> // reset
-scala> auth.resetPassword("anotherUser")
-res1: Boolean = true
+scala> client.resetPassword("anotherUser")
 #+end_src
 **** build.sbt server
 #+begin_src scala
-name := "Actorbase"
-
+name := "Actorbase-Server"
 version := "1.0"
-
 scalaVersion := "2.11.8"
 
 libraryDependencies ++= Seq(
-  "com.typesafe.akka" %% "akka-actor" % "2.4.4",
-  "com.typesafe.akka" %% "akka-testkit" % "2.4.4",
+  "com.typesafe.akka" %% "akka-actor" % "2.4.6",
+  "com.typesafe.akka" %% "akka-testkit" % "2.4.6",
+  "com.typesafe.akka" %% "akka-cluster-sharding" % "2.4.6",
+  "com.typesafe.akka" %% "akka-cluster-tools" % "2.4.6",
+  "com.typesafe.akka" % "akka-cluster-metrics_2.11" % "2.4.6",
+  "com.typesafe.akka" %% "akka-slf4j" % "2.4.6",
   "com.typesafe" % "config" % "1.2.1",
   "org.scalatest" % "scalatest_2.11" % "2.2.6" % "test",
   "io.spray" %% "spray-can" % "1.3.3",
   "io.spray" %% "spray-routing" % "1.3.3",
   "io.spray" %% "spray-json" % "1.3.2",
-  "org.mindrot.t3hnar" % "scala-bcrypt_2.10" % "2.6")
+  "org.mindrot" % "jbcrypt" % "0.3m",
+  "com.github.t3hnar" % "scala-bcrypt_2.10" % "2.6",
+  "com.github.romix.akka" %% "akka-kryo-serialization" % "0.4.1",
+  "org.apache.maven.plugins" % "maven-shade-plugin" % "2.4.3",
+  "ch.qos.logback" % "logback-classic" % "1.1.3"
 )
+
+javaOptions ++= Seq("-Xmx2048m")
+
 #+end_src
 **** build.sbt client
 #+begin_src scala
 name := "Actorbase-CLI"
-
 version := "1.0"
-
 scalaVersion := "2.11.8"
 
 libraryDependencies ++= Seq(
@@ -192,10 +208,11 @@ libraryDependencies ++= Seq(
   "org.scala-lang" % "jline" % "2.11.0-M3",
   "org.scalatest" % "scalatest_2.11" % "2.2.6" % "test",
   "org.scalaj" %% "scalaj-http" % "2.3.0",
-  "org.scala-lang.modules" %% "scala-pickling" % "0.10.1",
+  "com.netaporter" %% "pre-canned" % "0.0.8" % "test",
   "org.json4s" %% "json4s-native" % "3.3.0",
-  "org.json4s" %% "json4s-jackson" % "3.3.0",
-  "io.spray" %%  "spray-json" % "1.3.2")
+  "org.json4s" %% "json4s-jackson" % "3.3.0"
+  )
+
 #+end_src
 **** build binaries
 #+begin_src sh
@@ -205,36 +222,53 @@ $ ./target/scala-2.11/actorbase-1.0 --config=path/to/config.cfg
 #+end_src
 **** configuration sample
 #+begin_src scala
-actorbase {
 
-  // address listening for connections
-  addr = "127.0.0.1"
-  // port open to connections
-  port = 9999
-
-  // storage configurations
-  storage {
-    // persistence storage path
-    path = "path/to/storage"
-    // type of persistence strategy
-    // can be on-insert or on-timeout
-    strategy = on-insert
-    // on-timeout = 120 seconds  // interval of seconds between every save to disk
-    on-insert = 20               // interval of insertions between every save to disk
-  }
-
-  // map size on storefinders and storekeepers
-  map-size {
-    storekeeper = 64
-    storefinder = 256 // better set higher number on storefinder and low on storekeepers
-  }
-
-  // delay for multiple insertions
-  // should change this value based on the type of data
-  // and traffic that is expected to handle
-  insert-delay = 1 // ms of delay, lower than 1 only if there is no high traffic expected
-                   // higher for massive request incoming
+// storekeeper actors configuration
+storekeepers {
+  role = ""               // Optional: set role for storekeepers
+  max-instances = 100000  // max instance inside the cluster
+  instances-per-node = 20 // max instance per node, define how many storekeeper must be used for a collection
+  size = 256              // number of keys stored per storekeeper
 }
+
+// storage configuration
+persistence {
+  save-folder = "actorbasedata/"      // folder where all data will be saved
+  encryption-algorithm = "AES"        // encryption algorithm
+  encryption-key = "hsujHu6UshHJslkV" // AES encryption key
+}
+
+name = actorbase  // actorsystem name
+name = ${?NAME}   // Optional: env variable for actorsystem name
+
+listen-on = "127.0.0.1"   // address listening for connections
+listen-on = ${?LISTEN_ON} // Optional: env variable for listen address
+
+exposed-port = 9999             // port open to connections
+exposed-port = ${?EXPOSED_PORT} // Optional: env variable for port
+
+seed-host = "127.0.0.1"   // base seed-node
+seed-host = ${?SEED_HOST} // Optional: env variable for base seed-node
+
+seed-port = 2500          // base seed-port
+seed-port = ${?SEED_PORT} // Optional: env variable for base seed-port
+
+shard-number = 40               // shard number for cluster sharding extension, rule of thumb: number of nodes x 10
+shard-number = ${?SHARD_NUMBER} // Optional: env variable for shard number
+
+// akka.cluster.use-dispatcher = cluster-dispatcher // cluster dispatcher, can be used to tune akka based
+                                                    // on the system running the application
+// cluster-dispatcher {
+//  type = "Dispatcher"
+//  executor = "fork-join-executor"
+//  fork-join-executor {
+//    parallelism-min = 2
+//    parallelism-factor = 1.0
+//    parallelism-max = 4
+//  }
+//   throughput = 100
+//}
+
 #+end_src
 **** cluster configuration sample
 #+begin_src scala
@@ -267,13 +301,230 @@ akka {
 
 }
 #+end_src
+**** Basic actorbase conf
+#+begin_src
+akka {
+
+  loggers = ["akka.event.slf4j.Slf4jLogger"]
+  loglevel = "INFO"
+
+  extensions = [
+    "com.romix.akka.serialization.kryo.KryoSerializationExtension$",
+    "akka.cluster.metrics.ClusterMetricsExtension",
+    "akka.cluster.pubsub.DistributedPubSub"]
+
+  actor {
+
+    provider = "akka.cluster.ClusterActorRefProvider"
+
+    default-mailbox {
+      mailbox-type = "akka.dispatch.UnboundedControlAwareMailbox"
+    }
+
+    kryo  {
+      type = "nograph"
+      idstrategy = "automatic"
+      buffer-size = 4096
+      max-buffer-size = -1
+      use-manifests = false
+      implicit-registration-logging = false
+      kryo-trace = false
+      mappings {
+        "com.actorbase.actorsystem.messages.MainMessages.MainMessage" = 20,
+        "com.actorbase.actorsystem.messages.ClientActorMessages.MapResponse" = 21,
+        "com.actorbase.actorsystem.messages.AuthActorMessages.AuthActorMessages" = 22,
+        "com.actorbase.actorsystem.messages.StorefinderMessages.StorefinderMessage" = 24,
+        "com.actorbase.actorsystem.messages.StorekeeperMessages.StorekeeperMessage" = 25,
+        "com.actorbase.actorsystem.messages.WarehousemanMessages.WarehousemanMessage" = 26,
+        "com.actorbase.actorsystem.messages.ManagerMessages.OneMore" = 27,
+        "com.actorbase.actorsystem.messages.StorefinderMessages.UpdateCollectionSize" = 28,
+        "com.actorbase.actorsystem.messages.MainMessages.CreateCollection" = 29,
+        "com.actorbase.actorsystem.messages.MainMessages.InsertTo" = 30,
+        "com.actorbase.actorsystem.messages.MainMessages.CompleteTransaction" = 31,
+        "com.actorbase.actorsystem.messages.StorefinderMessages.PartialMapTransaction" = 32,
+        "com.actorbase.actorsystem.messages.StorekeeperMessages.GetAll" = 33,
+        "com.actorbase.actorsystem.messages.StorekeeperMessages.GetItem" = 34,
+        "com.actorbase.actorsystem.messages.StorekeeperMessages.InsertItem" = 35,
+        "com.actorbase.actorsystem.messages.StorekeeperMessages.RemoveItem" = 36,
+        "com.actorbase.actorsystem.messages.AuthActorMessages.Authenticate" = 37,
+        "com.actorbase.actorsystem.messages.AuthActorMessages.AddCredentials" = 38,
+        "com.actorbase.actorsystem.messages.AuthActorMessages.RemoveCredentials" = 39,
+        "com.actorbase.actorsystem.messages.AuthActorMessages.UpdateCredentials" = 40,
+        "com.actorbase.actorsystem.messages.MainMessages.AddContributor" = 41,
+        "com.actorbase.actorsystem.messages.MainMessages.RemoveContributor" = 42,
+        "com.actorbase.actorsystem.messages.AuthActorMessages.Save" = 43,
+        "com.actorbase.actorsystem.messages.AuthActorMessages.Clean" = 44,
+        "com.actorbase.actorsystem.messages.AuthActorMessages.Init" = 45,
+        "scala.util.Right" = 46,
+        "scala.util.Left" = 47,
+        "com.actorbase.actorsystem.messages.AuthActorMessages.PersistDB" = 48,
+        "com.actorbase.actorsystem.messages.StorekeeperMessages.Persist" = 49,
+        "com.actorbase.actorsystem.messages.AuthActorMessages.ListCollectionsOf" = 50,
+        "com.actorbase.actorsystem.messages.ClientActorMessages.ListResponse" = 51,
+        "com.actorbase.actorsystem.utils.ActorbaseCollection" = 52
+      }
+
+      classes = [
+        "com.actorbase.actorsystem.messages.MainMessages.MainMessage",
+        "com.actorbase.actorsystem.messages.ClientActorMessages.MapResponse",
+        "com.actorbase.actorsystem.messages.AuthActorMessages.AuthActorMessages",
+        "com.actorbase.actorsystem.messages.StorefinderMessages.StorefinderMessage",
+        "com.actorbase.actorsystem.messages.StorekeeperMessages.StorekeeperMessage",
+        "com.actorbase.actorsystem.messages.WarehousemanMessages.WarehousemanMessage",
+        "com.actorbase.actorsystem.messages.ManagerMessages.OneMore",
+        "com.actorbase.actorsystem.messages.StorefinderMessages.UpdateCollectionSize",
+        "com.actorbase.actorsystem.messages.MainMessages.CreateCollection",
+        "com.actorbase.actorsystem.messages.MainMessages.InsertTo",
+        "com.actorbase.actorsystem.messages.MainMessages.CompleteTransaction",
+        "com.actorbase.actorsystem.messages.StorefinderMessages.PartialMapTransaction",
+        "com.actorbase.actorsystem.messages.StorekeeperMessages.GetAll",
+        "com.actorbase.actorsystem.messages.StorekeeperMessages.GetItem",
+        "com.actorbase.actorsystem.messages.StorekeeperMessages.InsertItem",
+        "com.actorbase.actorsystem.messages.StorekeeperMessages.RemoveItem",
+        "com.actorbase.actorsystem.messages.AuthActorMessages.Authenticate",
+        "com.actorbase.actorsystem.messages.AuthActorMessages.AddCredentials",
+        "com.actorbase.actorsystem.messages.AuthActorMessages.RemoveCredentials",
+        "com.actorbase.actorsystem.messages.AuthActorMessages.UpdateCredentials",
+        "com.actorbase.actorsystem.messages.MainMessages.AddContributor",
+        "com.actorbase.actorsystem.messages.MainMessages.RemoveContributor",
+        "com.actorbase.actorsystem.messages.MainMessages.RemoveContributor",
+        "com.actorbase.actorsystem.messages.AuthActorMessages.Save",
+        "com.actorbase.actorsystem.messages.AuthActorMessages.Clean",
+        "com.actorbase.actorsystem.messages.AuthActorMessages.Init",
+        "scala.util.Right",
+        "scala.util.Left",
+        "com.actorbase.actorsystem.messages.AuthActorMessages.PersistDB",
+        "com.actorbase.actorsystem.messages.StorekeeperMessages.Persist",
+        "com.actorbase.actorsystem.messages.AuthActorMessages.ListCollectionsOf",
+        "com.actorbase.actorsystem.messages.ClientActorMessages.ListResponse",
+        "com.actorbase.actorsystem.utils.ActorbaseCollection"
+      ]
+    }
+
+    serializers {
+      kryo = "com.romix.akka.serialization.kryo.KryoSerializer"
+    }
+    serialization-bindings {
+      "com.actorbase.actorsystem.messages.MainMessages.CreateCollection" = kryo
+      "com.actorbase.actorsystem.messages.MainMessages.InsertTo" = kryo
+      "com.actorbase.actorsystem.messages.MainMessages.CompleteTransaction" = kryo
+      "com.actorbase.actorsystem.messages.MainMessages.GetFrom" = kryo
+      "com.actorbase.actorsystem.messages.StorefinderMessages.PartialMapTransaction" = kryo
+      "com.actorbase.actorsystem.messages.StorefinderMessages.UpdateCollectionSize" = kryo
+      "com.actorbase.actorsystem.messages.StorekeeperMessages.GetAll" = kryo
+      "com.actorbase.actorsystem.messages.StorekeeperMessages.GetItem" = kryo
+      "com.actorbase.actorsystem.messages.StorekeeperMessages.InsertItem" = kryo
+      "com.actorbase.actorsystem.messages.StorekeeperMessages.RemoveItem" = kryo
+      "com.actorbase.actorsystem.messages.ClientActorMessages.MapResponse" = kryo
+      "com.actorbase.actorsystem.messages.AuthActorMessages.AuthActorMessages" = kryo
+      "com.actorbase.actorsystem.messages.MainMessages.MainMessage" = kryo
+      "com.actorbase.actorsystem.messages.StorefinderMessages.StorefinderMessage" = kryo
+      "com.actorbase.actorsystem.messages.StorekeeperMessages.StorekeeperMessage" = kryo
+      "com.actorbase.actorsystem.messages.WarehousemanMessages.WarehousemanMessage" = kryo
+      "com.actorbase.actorsystem.messages.ManagerMessages.OneMore" = kryo,
+      "com.actorbase.actorsystem.messages.StorefinderMessages.UpdateCollectionSize" = kryo,
+      "com.actorbase.actorsystem.messages.AuthActorMessages.Authenticate" = kryo,
+      "com.actorbase.actorsystem.messages.AuthActorMessages.AddCredentials" = kryo,
+      "com.actorbase.actorsystem.messages.AuthActorMessages.RemoveCredentials" = kryo,
+      "com.actorbase.actorsystem.messages.AuthActorMessages.UpdateCredentials" = kryo,
+      "com.actorbase.actorsystem.messages.MainMessages.AddContributor" = kryo,
+      "com.actorbase.actorsystem.messages.MainMessages.RemoveContributor" = kryo
+      "com.actorbase.actorsystem.messages.AuthActorMessages.Save" = kryo,
+      "com.actorbase.actorsystem.messages.AuthActorMessages.Clean" = kryo,
+      "com.actorbase.actorsystem.messages.AuthActorMessages.Init" = kryo,
+      "scala.util.Right" = kryo,
+      "scala.util.Left" = kryo,
+      "com.actorbase.actorsystem.messages.AuthActorMessages.PersistDB" = kryo,
+      "com.actorbase.actorsystem.messages.StorekeeperMessages.Persist" = kryo,
+      "com.actorbase.actorsystem.messages.AuthActorMessages.ListCollectionsOf" = kryo,
+      "com.actorbase.actorsystem.messages.ClientActorMessages.ListResponse" = kryo,
+      "com.actorbase.actorsystem.utils.ActorbaseCollection" = kryo
+    }
+  }
+
+  cluster {
+    auto-down-unreachable-after = off
+    roles = [master]                               // set role for the node
+    roles = ${?ROLES}                              // Optional: env variable for role
+    min-nr-of-members = 1
+    seed-nodes = [
+      "akka.tcp://"${name}"@"${seed-host}":2500"]
+
+    sharding {
+      remember-entities = on
+    }
+
+    failure-detector {
+      threshold = 12.0
+      acceptable-heartbeat-pause = 25s
+      heartbeat-interval = 5s
+      heartbeat-request {
+        expected-response-after = 20s
+      }
+    }
+  }
+
+  remote {
+    log-remote-lifecycle-events = off
+    maximum-payload-bytes = 100000000 bytes
+    maximum-payload-bytes = ${?MAXIMUM_PAYLOAD_BYTES}
+
+    netty.tcp {
+      log-remote-lifecycle-events = off
+      hostname = "127.0.0.1"
+      port = ${seed-port}
+
+      message-frame-size =  100000000b
+      # message-fram-size = ${?MAXIMUM_PAYLOAD_BYTES}b
+
+      send-buffer-size =  100000000b
+      # send-buffer-size = ${?MAXIMUM_PAYLOAD_BYTES}b
+
+      receive-buffer-size =  100000000b
+      # receive-buffer-size =  ${?MAXIMUM_PAYLOAD_BYTES}b
+
+      maximum-frame-size = 100000000b
+      # maximum-frame-size =  ${?MAXIMUM_PAYLOAD_BYTES}b
+    }
+
+    transport-failure-detector {
+      heartbeat-interval = 30 s
+      acceptable-heartbeat-pause = 12 s
+    }
+  }
+}
+
+spray {
+  io {
+    read-buffer-size="4kspspray.io.tcp.keep-alive=1"
+  }
+  can {
+    server {
+      ssl-encryption = off  // SSL encryption
+    }
+  }
+}
+
+ssl {
+  certificate-file = "cert/actorbase.com.jks" // certificate folder
+  certificate-password = "vhjMYi9NRV"         // password for certification
+}
+
+akka.cluster.metrics.enabled=off
+akka.persistence.journal.plugin = "akka.persistence.journal.inmem"
+akka.persistence.snapshot-store.plugin = "akka.persistence.snapshot-store.local"
+akka.log-dead-letters=off
+#+end_src
 **** JSON format
 #+begin_src javascript
 {
   owner: "Owner",
-  collection: "foo",
-  "permissions": "read-write",
-  "map": {
+  contributors: {
+    "mike": false, // readonly
+    "john": true   // readwrite
+  },
+  collectionName: "foo",
+  data: {
     "bar": "baz",
     "foobar": 42,
     "fooList": ["list", "of", "strings"]
