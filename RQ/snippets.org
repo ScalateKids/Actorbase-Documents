@@ -238,7 +238,7 @@ $ ./target/scala-2.11/actorbase-1.0 --config=path/to/config.cfg
 storekeepers {
   role = ""               // Optional: set role for storekeepers
   max-instances = 100000  // max instance inside the cluster
-  instances-per-node = 20 // max instance per node, define how many storekeeper must be used for a collection
+  instances-per-node = 20 // max instance per node, define storekeepers per collection
   size = 256              // number of keys stored per storekeeper
 }
 
@@ -264,8 +264,8 @@ seed-host = ${?SEED_HOST} // Optional: env variable for base seed-node
 seed-port = 2500          // base seed-port
 seed-port = ${?SEED_PORT} // Optional: env variable for base seed-port
 
-shard-number = 40               // shard number for cluster sharding extension, rule of thumb: number of nodes x 10
-shard-number = ${?SHARD_NUMBER} // Optional: env variable for shard number
+shard-number = 40               //shard number for cluster sharding, rule of thumb: number of nodes x 10
+shard-number = ${?SHARD_NUMBER} //Optional: env variable for shard number
 
 // akka.cluster.use-dispatcher = cluster-dispatcher // cluster dispatcher, can be used to tune akka based
                                                     // on the system running the application
