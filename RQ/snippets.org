@@ -48,7 +48,7 @@ res0: com.actorbase.driver.data.ActorbaseCollection
 **** Listing collections
 #+begin_src scala
 scala> client.listCollections
-res0: List[String] = List(Map("anonymous" -> List("customers", 0))) // owner -> (collections, size in bytes)
+res0: List[String] = List(Map("anonymous" -> List("customers", 0)))//owner -> (collections, size in bytes)
 #+end_src
 **** Inserting into a collection
 #+begin_src scala
@@ -60,8 +60,9 @@ res1: com.actorbase.driver.data.ActorbaseCollection
 
 scala> client.insert("people", false, "key" -> "value") // insert without update to collection "people"
 
-scala> client.insertTo("people", false, "key" -> "value")("mike") // insert without update to collection "people" owned by user mike
-                                                                  // just in case of being a contributor with write permissions, or admin
+scala> client.insertTo("people", false, "key" -> "value")("mike")
+// insert without update to collection "people" owned by user mike
+// just in case of being a contributor with write permissions, or admin
 #+end_src
 
 **** Find into a collection
@@ -154,10 +155,12 @@ scala> fooCollection.addContributor("aFriend", true) // add
 
 scala> fooCollection.removeContributor("aFriend", true) // remove
 
-scala> client.addContributor("aFriend", "people", false) // aFriend is now contributor of collection "people" with read-only permissions
+scala> client.addContributor("aFriend", "people", false)
+// aFriend is now contributor of collection "people" with read-only permissions
 
-scala> client.addContributor("aFriend", "people", false, "mike") // administrator operation: aFriend is now contributor of collection
-                                                                 // "people" with read-only permissions to the collection owned by mike
+scala> client.addContributor("aFriend", "people", false, "mike")
+// administrator operation: aFriend is now contributor of collection
+// "people" with read-only permissions to the collection owned by mike
 #+end_src
 
 **** Administrative operations
