@@ -367,7 +367,7 @@ akka {
       port = ${seed-port}
 
       message-frame-size =  100000000b
-      # message-fram-size = ${?MAXIMUM_PAYLOAD_BYTES}b
+      # message-frame-size = ${?MAXIMUM_PAYLOAD_BYTES}b
 
       send-buffer-size =  100000000b
       # send-buffer-size = ${?MAXIMUM_PAYLOAD_BYTES}b
