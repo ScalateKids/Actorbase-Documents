@@ -12,8 +12,8 @@
   case class Person(name: String, age: Int)
   // class Person must be serialized
   // e.g. with scala pickling
-  val steven = Person("Steven", 64).pickle.value // here we have an array of bytes serialized ready to be stored
-  val sylvester = Person("Steven", 70).pickle.value // here we have an array of bytes serialized ready to be stored
+  val steven = Person("Steven", 64).pickle.value    // here we have an array of bytes
+  val sylvester = Person("Steven", 70).pickle.value // serialized ready to be stored
   // insert Person type object..
   coll.insert("Seagal" -> steven)
   //..and another two
