@@ -114,6 +114,15 @@ Every word that is in the glossary will be marked with a subscript ”G”.
 
 % TODO mettere una sezione in cui si spiega cosa è una collection, un item, tutto quel che bisogna descrivere
 
+\section{Default users}
+
+When \textit{actorbase} is launched for the first time it creates two default users:
+\begin{itemize}
+\item \textbf{admin}: this user has admin privileges, he can add and remove users, reset the password of an user to "Actorb4se" and he is the only one who has access to all of the collections of the database;
+\item \textbf{anonymous}: this user is the default non-admin user. Everything that has been done by an anonymous user will not be persisted.
+\end{itemize}
+Both of these users will be created with the default password "Actorb4se". It is recommended for the admin to change his password after the first login.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%                          CLI part                            %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
