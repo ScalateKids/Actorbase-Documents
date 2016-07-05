@@ -227,19 +227,22 @@ libraryDependencies ++= Seq(
 #+end_src
 **** build binaries
 #+begin_src sh
-// building with sbt
 $ sbt assembly
-$ ./target/scala-2.11/actorbase-1.0 --config=path/to/config.cfg
+$ ./target/scala-2.11/actorbase.jar --config=path/to/config.cfg
+#+end_src
+**** build binaries2
+#+begin_src sh
+$ java -Dconfig.file=/dir/dir/reference.conf -jar actorbase.jar
 #+end_src
 **** configuration sample
 #+begin_src scala
 
 // storekeeper actors configuration
 storekeepers {
-  role = ""               // Optional: set role for storekeepers
-  max-instances = 100000  // max instance inside the cluster
-  instances-per-node = 20 // max instance per node, define storekeepers per collection
-  size = 256              // number of keys stored per storekeeper
+  role = ""                // Optional: set role for storekeepers
+  max-instances = 100000   // max instance inside the cluster
+  instances-per-node = 20  // max instance per node, define storekeepers per collection
+  size = 256               // number of keys stored per storekeeper
   save-method = "snapshot" // save method, can be 'snapshot' or 'onchange'
   snapshot-conf {             // snapshot configuration, mandatory for 'snapshot' save-method
     first-snapshot-after = 20 // ignored with 'onchange' policy
