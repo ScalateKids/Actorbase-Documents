@@ -240,6 +240,11 @@ storekeepers {
   max-instances = 100000  // max instance inside the cluster
   instances-per-node = 20 // max instance per node, define storekeepers per collection
   size = 256              // number of keys stored per storekeeper
+  save-method = "snapshot" // save method, can be 'snapshot' or 'onchange'
+  snapshot-conf {             // snapshot configuration, mandatory for 'snapshot' save-method
+    first-snapshot-after = 20 // ignored with 'onchange' policy
+    snapshot-every = 50       // sets how many seconds between every save
+  }
 }
 
 // storage configuration
