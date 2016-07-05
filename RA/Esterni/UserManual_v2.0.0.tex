@@ -148,21 +148,18 @@ Every password must contain at least one uppercase, one lowercase letter and one
 digit and be at least 8 characters long.\\
 The default password of actorbase for users that are just added or after a password reset is \texttt{Actorb4se}.
 
-\subsection{Configuration of the actorbase CLI} %TODO da fare
-\label{sec:configurationcli}
-The \textit{actorbase} CLI is designed specifically to operate
-with the actorbase server software.\\
-To work properly an actorbase server instance must be running
-(anywhere) and the user must configurate the access point on the configuration file.
-
-\subsection{Running the actorbase CLI} % TODO da fare
+\subsection{Running and configurating the actorbase CLI} % TODO da fare
 To run the Actorbase CLI some requirements needs to be fullfilled before starting it.\\
 The user has to download and install all the software requirements (see link) and an instance of 
 actorbase server must be running.\\
 When all those requirements are fullfilled to start the CLI the use has to open a terminal and type:\\
 \begin{center}
-  \texttt{java -jar <pathToActorbaseCLIJar>}
-\end{center} 
+  \texttt{java -jar <pathToActorbaseCLIJar> -u <username> -h <host> -p <port>}
+\end{center}
+Where the username is the username with which you want to login in actorbase, host is the ip where 
+actorbase is listening for requests and the port is the port where actorbase is listening for 
+requests.\\All those parameters can be omitted, if omitted the CLI will try to connect with the 
+default user ``anonymous'' in the default host ``localhost'' with default port ``9999''. 
 
 \subsection{Operations on collections not of your own}
 \label{sec:contributoroperations}
