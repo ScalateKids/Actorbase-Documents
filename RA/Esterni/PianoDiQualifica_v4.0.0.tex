@@ -717,7 +717,7 @@ linee di commento, suddivisi per modulo:
 			\hline
 			Files & righe vuote & righe di commento & righe di codice & \% commento su codice\\
 			\hline
-			28 & 153 & 1042 & 451 & 70\% \\
+			29 & 124 & 1311 & 735 & 64\% \\
 			\hline
 		\end{tabular}
 	\end{center}
@@ -728,7 +728,7 @@ linee di commento, suddivisi per modulo:
 			\hline
 			Files & righe vuote & righe di commento & righe di codice & \% commento su codice\\
 			\hline
-			14 & 185 & 1193 & 749 & 61\% \\
+			13 & 200 & 1270 & 1198 & 51\% \\
 			\hline
 		\end{tabular}
 	\end{center}
@@ -739,7 +739,7 @@ linee di commento, suddivisi per modulo:
 			\hline
 			Files & righe vuote & righe di commento & righe di codice & \% commento su codice\\
 			\hline
-			31 & 432 & 1971 & 1308 & 60\% \\
+			29 & 465 & 1861 & 1715 & 52\% \\
 			\hline
 		\end{tabular}
 	\end{center}
@@ -748,15 +748,15 @@ linee di commento, suddivisi per modulo:
 Inoltre tutti i rapporti commento su codice dei singoli file soddisfano il range ottimale.
 
 \paragraph{Copertura del codice}
-Di seguito viene riportata la copertura dei test espressa in percentuale, affiancata dal rapporto coperte/totali. Si fa presente che la maggior parte del codice non coperto da test è composto da metodi banali (si pensi ai getter o setter). Nel caso del  modulo driver è stato riportato il risultato del solo package client e di ActorbaseDriver, in quanto gli altri package falsavano pesantemente la metrica per i motivi sopra citati. Per lo stesso motivo in Actorsystem si è tenuto conto del solo package actor.
+Di seguito viene riportata la copertura dei test espressa in percentuale, affiancata dal rapporto coperte/totali. Si fa presente che la maggior parte del codice non coperto da test è composto da metodi banali (si pensi ai getter o setter). Nel caso del  modulo driver è per questo motivo non si è tenuto conto nel totale riportato dei package data e exception, in quanto falsavano pesantemente la metrica per i motivi sopra citati.
 \begin{center}
 	\begin{tabular}{| c | c | c | c |}
 		\hline
 		Modulo & \% delle classi & \% dei metodi & \% delle linee \\
 		\hline
-		\textbf{Cli} & 89\%(98/116) & 69\%(149/214) & 67\%(245/363) \\
-		\textbf{Driver} &  62\%(42/68) & 47\%(90/206) & 60\%(215/366)\\
-		\textbf{Actorsystem} & 83\%(152/182) & 68\%(609/895) & 71\%(547/771)\\
+		\textbf{Cli} & 68\%(86/127) & 56\%(131/235) & 51\%(245/480) \\
+		\textbf{Driver} &  62\%(48/77) & 51\%(117/228) & 59\%(313/533)\\
+		\textbf{Actorsystem} & 52\%(105/202) & 43\%(220/510) & 53\%(498/945)\\
 		\hline
 	\end{tabular}
 	\end{center}
@@ -765,11 +765,11 @@ Di seguito viene riportata la copertura dei test espressa in percentuale, affian
 	Di seguito è riportato il numero medio di attributi per classe del codice di actorbase divisi per modulo. Da notare che nella media non sono state considerate eventuali classi prive di attributi.
 	\begin{itemize}
 		\item \textbf{CLI}: 3,67 massimo:10 (in CommandLoop); da notare che il dato è stato calcolando non considerando i vari comandi, che per ovvi motivi falsavano al ribasso il dato; rientrano comunque tutti nel range ottimale;
-		\item \textbf{Driver}: 2,89 massimo:10 (nell' object Status). Non si è tenuto conto del package exceptions in quanto falsava al ribasso la media; rientrano comunque tutti nel range ottimale;
+		\item \textbf{Driver}: 2,76 massimo:6 (nell' object Status). Non si è tenuto conto del package exceptions in quanto falsava al ribasso la media; rientrano comunque tutti nel range ottimale;
 		\item \textbf{Actorsystem}: per ottenere risultati più significativi si dividono gli attori dai messaggi:
 		\begin{itemize}
 			\item Attori: 2,93; massimo: 9 (la classe storekeeper);
-			\item Messaggi:1,77; massimo: 4 (il messaggio insertTo).
+			\item Messaggi:1,79; massimo: 5 (il messaggio insertTo).
 		\end{itemize}
 	\end{itemize}
 	Come si può notare tutti i valori rientrano nel range di accettazione.
@@ -778,9 +778,9 @@ Di seguito viene riportata la copertura dei test espressa in percentuale, affian
 	Di seguito è riportato il numero medio di parametri per
 	metodo del codice di actorbase suddiviso per moduli:
 	\begin{itemize}
-		\item \textbf{CLI}:0,12; massimo:1 (7 occorrenze);
-		\item \textbf{Driver}:1,05; massimo:5 (nello specifico il metodo apply in ActorbaseDriver.scala);
-		\item \textbf{ActorSystem}:0,64; massimo:3 (2 occorrenze).
+		\item \textbf{CLI}:0,26; massimo:4 (nel metodo getDriver di  DriverConnection in Connection.scala);
+		\item \textbf{Driver}:1,18; massimo:5 (nello specifico il metodo apply in ActorbaseDriver.scala);
+		\item \textbf{ActorSystem}:0,80; massimo:4 (il metodo encrypt in CryptoUtils.scala).
 	\end{itemize}
 	Come si può notare tutti i valori rientrano nel range ottimale, a parte un'unica eccezione.
 	
@@ -788,9 +788,9 @@ Di seguito viene riportata la copertura dei test espressa in percentuale, affian
 	\paragraph{Complessità ciclomatica}
 	Di seguito è riportata la media della complessità ciclomatica dei vari moduli:
 	\begin{itemize}
-		\item \textbf{CLI}:2,16;
-		\item \textbf{Driver}:2,46;
-		\item \textbf{Actorsystem}:2,72.
+		\item \textbf{CLI}:3,30;
+		\item \textbf{Driver}:3,63;
+		\item \textbf{Actorsystem}:3,26.
 	\end{itemize}
 	
 	\paragraph{Livelli di annidamento}
