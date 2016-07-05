@@ -114,7 +114,14 @@ Every word that is in the glossary will be marked with a subscript ”G”.
 
 % TODO mettere una sezione in cui si spiega cosa è una collection, un item, tutto quel che bisogna descrivere
 
-% TODO bisogna spiegare come devnoon essere formati i file pel l'import
+\section{Default users}
+
+When \textit{actorbase} is launched for the first time it creates two default users:
+\begin{itemize}
+\item \textbf{admin}: this user has admin privileges, he can add and remove users, reset the password of an user to "Actorb4se" and he is the only one who has access to all of the collections of the database;
+\item \textbf{anonymous}: this user is the default non-admin user. Everything that has been done by an anonymous user will not be persisted.
+\end{itemize}
+Both of these users will be created with the default password "Actorb4se". It is recommended for the admin to change his password after the first login.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%                          CLI part                            %%%
@@ -150,21 +157,18 @@ Every password must contain at least one uppercase, one lowercase letter and one
 digit and be at least 8 characters long.\\
 The default password of actorbase for users that are just added or after a password reset is \texttt{Actorb4se}.
 
-\subsection{Configuration of the actorbase CLI} %TODO da fare
-\label{sec:configurationcli}
-The \textit{actorbase} CLI is designed specifically to operate
-with the actorbase server software.\\
-To work properly an actorbase server instance must be running
-(anywhere) and the user must configurate the access point on the configuration file.
-
-\subsection{Running the actorbase CLI} % TODO da fare
+\subsection{Running and configurating the actorbase CLI} % TODO da fare
 To run the Actorbase CLI some requirements needs to be fullfilled before starting it.\\
 The user has to download and install all the software requirements (see link) and an instance of 
 actorbase server must be running.\\
 When all those requirements are fullfilled to start the CLI the use has to open a terminal and type:\\
 \begin{center}
-  \texttt{java -jar <pathToActorbaseCLIJar>}
-\end{center} 
+  \texttt{java -jar <pathToActorbaseCLIJar> -u <username> -h <host> -p <port>}
+\end{center}
+Where the username is the username with which you want to login in actorbase, host is the ip where 
+actorbase is listening for requests and the port is the port where actorbase is listening for 
+requests.\\All those parameters can be omitted, if omitted the CLI will try to connect with the 
+default user ``anonymous'' in the default host ``localhost'' with default port ``9999''. 
 
 \subsection{Operations on collections not of your own}
 \label{sec:contributoroperations}
