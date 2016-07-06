@@ -213,6 +213,7 @@ That's really all for a basic usage, and the procedure is the same for
   \end{center}
 \end{figure}
 
+The \textit{–config=path/to/config.cfg} is optional.
 Once the fat-jar is generated, it is really easy to run an instance of Actorbase
 on every node of the cluster, giving a custom (optionally) configuration file:
 
@@ -234,24 +235,17 @@ of Actorbase:
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.85\textwidth,keepaspectratio]{RQ/DevManual/Actorbase-Config.png}
-    \caption{Actorbase: configuration sample}
+    \includegraphics[width=0.65\textwidth,keepaspectratio]{RQ/DevManual/Actorbase-Config.png}
+    \caption{Actorbase: default configuration sample}
   \end{center}
 \end{figure}
-
-The \textit{--config=path/to/config.cfg} is optional.
-
-As shown in the image, there is a part of the configuration dedicated to the
-distribution of the load between multiple nodes in a \gloss{cluster}, \textbf{Actobase} is in fact a
-\gloss{scale-out} oriented system, and it is possible to set all
-\gloss{cluster} configurations offered by Akka library.
 
 \textbf{Default configuration sample}
 
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=0.8\textwidth,keepaspectratio]{RQ/DevManual/Default-Config.png}
-    \caption{Actorbase: cluster configuration sample}
+    \caption{Actorbase: Actorbase configuration sample}
   \end{center}
 \end{figure}
 
@@ -515,7 +509,7 @@ give the possibility to call all collection-management methods:
       \caption{Driver usage: drop method}
     \end{center}
   \end{figure}
-\item \verb=importFromFile=, method that allows to import a (possibly) large number of \gloss{collections}
+\item \verb=importData=, method that allows to import a (possibly) large number of \gloss{collections}
   directly into \textbf{Actorbase}
   \begin{figure}[H]
     \begin{center}
@@ -529,7 +523,7 @@ give the possibility to call all collection-management methods:
   \item \textbf{MalformedFileExc:} in case the file is not in JSON format or it is not a valid JSON.
   \end{itemize}
 
-\item \verb=exportToFile=, method that allows to export one or more \gloss{collections} to a specified path on the filesystem
+\item \verb=exportData=, method that allows to export one or more \gloss{collections} to a specified path on the filesystem
   \begin{figure}[H]
     \begin{center}
       \includegraphics[width=0.9\textwidth,keepaspectratio]{RQ/DevManual/Driver-Export.png}
