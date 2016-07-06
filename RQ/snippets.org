@@ -44,6 +44,10 @@ scala> client.changePassword("newpw")
 #+begin_src scala
 scala> client.addCollection("consumers")
 res0: com.actorbase.driver.data.ActorbaseCollection
+
+// as contributor to "contributee.consumer" (or admin)
+scala> client.addCollection("consumers", "contributee")
+res1: com.actorbase.driver.data.ActorbaseCollection
 #+end_src
 **** Listing collections
 #+begin_src scala
@@ -133,13 +137,14 @@ scala> client.dropCollections
 
 scala> client.getCollections.drop
 
+// as admin
 scala> client.dropCollections("customers", "people")
 
 #+end_src
 
 **** Count collections elements
 #+begin_src scala
-scala> println(auth.getCollection("people").count)
+scala> println(client.getCollection("people").count)
 res0: Int = 3
 #+end_src
 
